@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-07-08T22:10:18.322Z",
+  "assembledAt": "2026-07-09T12:18:51.437Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:14.890Z",
+      "crawledAt": "2026-07-09T12:18:48.766Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:13.961Z",
+      "crawledAt": "2026-07-09T12:18:48.010Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -165,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -193,7 +194,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Recensione dati analitica",
+        "it": "Analytical Data Reviewer",
         "en": "Anal Rev",
         "de": "Analytical Data Reviewer",
         "fr": "Chercheur de données analytiques"
@@ -210,7 +211,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:13.201Z",
+      "crawledAt": "2026-07-09T12:18:47.235Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,85 +245,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG"
-    },
-    {
-      "id": "siegfried-8bf702f14b39",
-      "slug": "ingegnere-di-produzione-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "ingegnere-di-produzione-siegfried-zofingen",
-        "en": "operational-engineer-siegfried-zofingen",
-        "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "ingenieur-de-production-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Betriebsingenieur/in",
-      "titleByLocale": {
-        "it": "Ingegnere di produzione",
-        "en": "Operational engineer",
-        "de": "Betriebsingenieur/in",
-        "fr": "Ingénieur de production"
-      },
-      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Betriebsingenieur/in sind Sie die zentrale technische Ansprechperson für unsere Produktionsanlagen und stellen gemeinsam mit internen und externen Partnern einen reibungslosen Betrieb sicher. Sie arbeiten an anspruchsvollen technischen Projekten und tragen aktiv zur kontinuierlichen Verbesserung unserer Anlagen bei.\n Your Profile:\n Ihre Rolle\n\n• Technische Ansprechperson für die zugewiesenen Produktionseinrichtungen\n\n• Koordinieren von Tätigkeiten bei Anlagenausfällen zusammen mit Produktion, Instandhaltung, Werkstätten und externen Dienstleistern\n\n• Entwickeln und Umsetzen von korrektiven sowie präventiven Unterhaltsmassnahmen\n\n• Enge Zusammenarbeit mit der Instandhaltung und weiteren Schnittstellen\n\n• Unterstützen der internen Auftraggeber bei der Definition und Erstellung technischer Anforderungen\n\n• Leiten und Umsetzen technischer Projekte unter Berücksichtigung aktueller Project Management-Standards sowie GEP-Anforderungen\n\n• Überwachen von Projektkosten, Terminen und Projektabrechnungen\n\n• Erstellen und Pflegen von Anlagendokumentationen nach einheitlichen Standards\n\nIhr Profil\n Fachkenntnisse\n\n• Abgeschlossene technische Grundausbildung, z. B. als KonstrukteurIn, PolymechanikerIn oder vergleichbar, ergänzt durch eine Weiterbildung als MaschinentechnikerIn HF, MaschineningenieurIn FH oder eine vergleichbare Qualifikation\n\n• Verfahrenstechnische Kenntnisse sind wünschenswert\n\n• Branchenkenntnisse in der Chemie-, Pharma- oder verwandten Industrie von Vorteil\n\n• Kenntnisse im Chemieanlagenbau oder Erfahrung mit industriellen Produktionsanlagen sind wünschenswert\n\nPersönliche Stärken\n\n• Teamorientierte, kommunikative, offene und authentische Persönlichkeit\n\n• Ruhige, strukturierte und zuverlässige Arbeitsweise – auch in hektischen Situationen\n\n• Vernetztes und lösungsorientiertes Denken\n\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\" personalmente e professionalmente: Siegfried vi aspetta con interessanti sfide e numerosi modi per dimostrare i vostri talenti. Come partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: In qualità di ingegnere industriale, sei il contatto tecnico centrale per le nostre strutture produttive e, insieme a partner interni ed esterni, garantisci un funzionamento regolare. Lavorano su progetti tecnici esigenti e contribuiscono attivamente al continuo miglioramento dei nostri sistemi. Il tuo profilo: il tuo ruolo\n• Contatto tecnico per le strutture di produzione assegnate\n• Coordinamento delle attività in caso di guasti agli impianti, insieme a produzione, manutenzione, workshop e fornitori di servizi esterni\n• Sviluppare e implementare misure di manutenzione correttiva e preventiva\n• Gestione e realizzazione di progetti tecnici che tengano conto degli attuali standard di gestione dei progetti e dei requisiti GEP\n• Monitoraggio dei costi di progetto, degli appuntamenti e della contabilità del progetto\n• Creazione e mantenimento della documentazione degli impianti secondo standard uniformi\n• Completo della formazione di base tecnica, ad esempio, la conoscenza dell'ingegneria dei processi è auspicabile\n• Conoscenza dell'industria della chimica, farmaceutica o delle industrie correlate\n• La conoscenza della costruzione o dell'esperienza di impianti chimici con impianti di produzione industriale è auspicabile. Sia in auto che senza – beneficiate: parcheggiate o CHF 60.–\n• Assicurazione sanitaria: sconti fino al 10% sull'assicurazione aggiuntiva dei nostri partner\n• Indennità per bambini: Siegfried AG aumenta l'indennità per bambini del 10% rispetto all'approccio giuridico cantonale\n• Opportunità di formazione individuale per accordo\n• Pausa a pagamento, il benessere dei nostri dipendenti è al nostro cuore\n• Reka money: Siegfried AG concede ai dipendenti 20% di sconto\n• Pensioni fondo: Il fondo pensione della nostra azienda è attraente e contributi individuali Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\" personally and professionally: Siegfried awaits you with exciting challenges and numerous ways to prove your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: As an industrial engineer, you are the central technical contact for our production facilities and, together with internal and external partners, ensure smooth operation. They work on demanding technical projects and actively contribute to the continuous improvement of our systems. Your Profile: Your role\n• Technical contact for the assigned production facilities\n• Coordinating activities in plant failures together with production, maintenance, workshops and external service providers\n• Developing and implementing corrective and preventive maintenance measures\n• • Management and implementation of technical projects taking into account current project management standards and GEP requirements\n• Monitoring of project costs, appointments and project accounting\n• Creating and maintaining plant documentation according to uniform standards Your profile skills\n• Complete technical basic training, e.g. Process engineering knowledge is desirable\n• Industry knowledge of chemistry, pharmaceuticals or related industries\n• Knowledge of chemical plant construction or experience with industrial production facilities are desirable Personal strengths\n• Team-oriented, communicative, open and authentic personality\n• Quiet, structured and reliable operation – even in hectic situations\n• Networked and solution-oriented thinking\n• High self-initiative, sense of responsibility and enforcement Your Benefits:\n• Flexible working hours allow the reconciliation of family, leisure and work\n• Whether by car or without – You benefit: either parked or CHF 60.– Mobility supplement per month\n• Health insurance: discounts up to 10% on additional insurance from our partners\n• • Children's allowance: Siegfried AG increases the children's allowance by 10% compared to the cantonal legal approach\n• Individual training opportunities by agreement\n• Paid pause, the well-being of our employees is at our heart\n• Reka money: Siegfried AG grants the employees 20% discount\n• Pensions fund: Our company's pension fund is attractive and individual contributions With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Als Betriebsingenieur/in sind Sie die zentrale technische Ansprechperson für unsere Produktionsanlagen und stellen gemeinsam mit internen und externen Partnern einen reibungslosen Betrieb sicher. Sie arbeiten an anspruchsvollen technischen Projekten und tragen aktiv zur kontinuierlichen Verbesserung unserer Anlagen bei. Your Profile: Ihre Rolle\n• Technische Ansprechperson für die zugewiesenen Produktionseinrichtungen\n• Koordinieren von Tätigkeiten bei Anlagenausfällen zusammen mit Produktion, Instandhaltung, Werkstätten und externen Dienstleistern\n• Entwickeln und Umsetzen von korrektiven sowie präventiven Unterhaltsmassnahmen\n• Enge Zusammenarbeit mit der Instandhaltung und weiteren Schnittstellen\n• Unterstützen der internen Auftraggeber bei der Definition und Erstellung technischer Anforderungen\n• Leiten und Umsetzen technischer Projekte unter Berücksichtigung aktueller Project Management-Standards sowie GEP-Anforderungen\n• Überwachen von Projektkosten, Terminen und Projektabrechnungen\n• Erstellen und Pflegen von Anlagendokumentationen nach einheitlichen Standards Ihr Profil Fachkenntnisse\n• Abgeschlossene technische Grundausbildung, z. B. als KonstrukteurIn, PolymechanikerIn oder vergleichbar, ergänzt durch eine Weiterbildung als MaschinentechnikerIn HF, MaschineningenieurIn FH oder eine vergleichbare Qualifikation\n• Verfahrenstechnische Kenntnisse sind wünschenswert\n• Branchenkenntnisse in der Chemie-, Pharma- oder verwandten Industrie von Vorteil\n• Kenntnisse im Chemieanlagenbau oder Erfahrung mit industriellen Produktionsanlagen sind wünschenswert Persönliche Stärken\n• Teamorientierte, kommunikative, offene und authentische Persönlichkeit\n• Ruhige, strukturierte und zuverlässige Arbeitsweise – auch in hektischen Situationen\n• Vernetztes und lösungsorientiertes Denken\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen Your Benefits:\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"S'attendre à grandir\" personnellement et professionnellement: Siegfried vous attend avec des défis passionnants et de nombreuses façons de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se rencontrent dans un environnement coopératif. Vous trouverez ici un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : En tant qu'ingénieur industriel, vous êtes le contact technique central de nos installations de production et, avec des partenaires internes et externes, vous assurez un bon fonctionnement. Ils travaillent sur des projets techniques exigeants et contribuent activement à l'amélioration continue de nos systèmes. Votre profil: Votre rôle\n• Contact technique pour les installations de production assignées\n• Coordination des activités dans les pannes d'usines avec la production, l'entretien, les ateliers et les prestataires de services externes\n• Élaboration et mise en œuvre de mesures d'entretien correctif et préventif\n• Gestion et mise en oeuvre de projets techniques en tenant compte des normes actuelles de gestion de projet et des exigences du GEP\n• Suivi des coûts de projet, des nominations et de la comptabilité de projet\n• Création et maintenance de la documentation d'usine selon des normes uniformes Votre profil\n• Une formation technique de base complète, p.ex. une connaissance de l'ingénierie des procédés est souhaitable\n• une connaissance de l'industrie de la chimie, des produits pharmaceutiques ou des industries connexes\n• une connaissance de la construction d'usines chimiques ou de l'expérience avec les installations de production industrielles sont souhaitables Points forts personnels\n• une personnalité ouverte, communicative, ouverte et authentique\n• un fonctionnement silencieux, structuré et fiable – même dans des situations mouvementées\n• une pensée en réseau et orientée vers la solution\n• une grande initiative, un sens des responsabilités et une application de la loi Vos avantages:\n• des horaires de travail flexibles permettent la conciliation de la famille, des loisirs et du travail\n• Que ce soit en voiture ou sans – Vous bénéficiez: soit garé ou CHF 60.– Supplément de mobilité par mois\n• Assurance maladie: rabais jusqu'à 10% sur l'assurance complémentaire de nos partenaires\n• • Allocation pour enfants: Siegfried AG augmente l'allocation pour enfants de 10% par rapport à l'approche légale cantonale\n• Possibilités de formation individuelle par accord\n• Pause payante, le bien-être de nos employés est à notre cœur\n• Argent Reka: Siegfried AG accorde aux salariés 20% de réduction\n• Caisse de pensions: Le fonds de pension de notre société est attrayant et les contributions individuelles Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:12.378Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_362",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
-        ],
-        "en": [
-          "betriebsingenieur-in-siegfried-zofingen"
-        ],
-        "fr": [
-          "betriebsingenieur-in-siegfried-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -368,7 +291,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:11.667Z",
+      "crawledAt": "2026-07-09T12:18:46.519Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,6 +320,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -442,7 +366,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:10.963Z",
+      "crawledAt": "2026-07-09T12:18:45.869Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -513,7 +438,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:09.748Z",
+      "crawledAt": "2026-07-09T12:18:45.125Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -598,7 +523,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/OPEX-Lead_R26_432",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:09.123Z",
+      "crawledAt": "2026-07-09T12:18:44.371Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,7 +604,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-of-Sales---Business-Development-Drug-Products_R26_482-2",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:08.365Z",
+      "crawledAt": "2026-07-09T12:18:43.734Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -762,7 +687,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:07.592Z",
+      "crawledAt": "2026-07-09T12:18:42.977Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -843,7 +768,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:06.820Z",
+      "crawledAt": "2026-07-09T12:18:42.056Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,6 +802,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -922,7 +848,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:05.087Z",
+      "crawledAt": "2026-07-09T12:18:41.342Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -999,7 +925,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:04.403Z",
+      "crawledAt": "2026-07-09T12:18:40.572Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1029,6 +955,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1074,7 +1001,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:03.651Z",
+      "crawledAt": "2026-07-09T12:18:39.781Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1106,6 +1033,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1151,7 +1079,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-Analytik-QC_R26_465",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:02.855Z",
+      "crawledAt": "2026-07-09T12:18:38.994Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1232,7 +1160,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:10:02.037Z",
+      "crawledAt": "2026-07-09T12:18:38.218Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1265,6 +1193,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:42:54.087Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1296,7 +1225,7 @@
         "it": "Assistente esecutivo",
         "en": "Executive Assistant",
         "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
+        "fr": "Executive Assistant"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\n Your Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n - Parken können Sie bei uns vergünstigt\n - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
@@ -1310,7 +1239,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:10:01.305Z",
+      "crawledAt": "2026-07-09T12:18:37.416Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1340,6 +1269,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1385,7 +1315,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_553",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:00.349Z",
+      "crawledAt": "2026-07-09T12:18:36.687Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1458,7 +1388,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:09:59.621Z",
+      "crawledAt": "2026-07-09T12:18:35.960Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1475,15 +1405,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_537",
       "hiringOrganization": "Siegfried AG",
-      "firstSeenAt": "2026-07-08T11:16:26.761Z",
+      "previousSlugs": [
+        "global-category-manager-capex-siegfried-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "global-category-manager-capex-siegfried-ch"
         ]
       },
-      "previousSlugs": [
-        "global-category-manager-capex-siegfried-ch"
-      ],
+      "firstSeenAt": "2026-07-08T11:16:26.761Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1497,6 +1428,87 @@
         }
       },
       "addressRegion": "AG"
+    },
+    {
+      "id": "siegfried-8bf702f14b39",
+      "slug": "ingegnere-di-produzione-siegfried-zofingen",
+      "slugByLocale": {
+        "it": "ingegnere-di-produzione-siegfried-zofingen",
+        "en": "operational-engineer-siegfried-zofingen",
+        "de": "betriebsingenieur-in-siegfried-ch",
+        "fr": "ingenieur-de-production-siegfried-zofingen"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Betriebsingenieur/in",
+      "titleByLocale": {
+        "it": "Ingegnere di produzione",
+        "en": "Betriebsingenieur/in",
+        "de": "Betriebsingenieur/in",
+        "fr": "Ingénieur de production"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Betriebsingenieur/in sind Sie die zentrale technische Ansprechperson für unsere Produktionsanlagen und stellen gemeinsam mit internen und externen Partnern einen reibungslosen Betrieb sicher. Sie arbeiten an anspruchsvollen technischen Projekten und tragen aktiv zur kontinuierlichen Verbesserung unserer Anlagen bei.\n Your Profile:\n Ihre Rolle\n\n• Technische Ansprechperson für die zugewiesenen Produktionseinrichtungen\n\n• Koordinieren von Tätigkeiten bei Anlagenausfällen zusammen mit Produktion, Instandhaltung, Werkstätten und externen Dienstleistern\n\n• Entwickeln und Umsetzen von korrektiven sowie präventiven Unterhaltsmassnahmen\n\n• Enge Zusammenarbeit mit der Instandhaltung und weiteren Schnittstellen\n\n• Unterstützen der internen Auftraggeber bei der Definition und Erstellung technischer Anforderungen\n\n• Leiten und Umsetzen technischer Projekte unter Berücksichtigung aktueller Project Management-Standards sowie GEP-Anforderungen\n\n• Überwachen von Projektkosten, Terminen und Projektabrechnungen\n\n• Erstellen und Pflegen von Anlagendokumentationen nach einheitlichen Standards\n\nIhr Profil\n Fachkenntnisse\n\n• Abgeschlossene technische Grundausbildung, z. B. als KonstrukteurIn, PolymechanikerIn oder vergleichbar, ergänzt durch eine Weiterbildung als MaschinentechnikerIn HF, MaschineningenieurIn FH oder eine vergleichbare Qualifikation\n\n• Verfahrenstechnische Kenntnisse sind wünschenswert\n\n• Branchenkenntnisse in der Chemie-, Pharma- oder verwandten Industrie von Vorteil\n\n• Kenntnisse im Chemieanlagenbau oder Erfahrung mit industriellen Produktionsanlagen sind wünschenswert\n\nPersönliche Stärken\n\n• Teamorientierte, kommunikative, offene und authentische Persönlichkeit\n\n• Ruhige, strukturierte und zuverlässige Arbeitsweise – auch in hektischen Situationen\n\n• Vernetztes und lösungsorientiertes Denken\n\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "\"Aspetta di crescere\" personalmente e professionalmente: Siegfried vi aspetta con interessanti sfide e numerosi modi per dimostrare i vostri talenti. Come partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: In qualità di ingegnere industriale, sei il contatto tecnico centrale per le nostre strutture produttive e, insieme a partner interni ed esterni, garantisci un funzionamento regolare. Lavorano su progetti tecnici esigenti e contribuiscono attivamente al continuo miglioramento dei nostri sistemi. Il tuo profilo: il tuo ruolo\n• Contatto tecnico per le strutture di produzione assegnate\n• Coordinamento delle attività in caso di guasti agli impianti, insieme a produzione, manutenzione, workshop e fornitori di servizi esterni\n• Sviluppare e implementare misure di manutenzione correttiva e preventiva\n• Gestione e realizzazione di progetti tecnici che tengano conto degli attuali standard di gestione dei progetti e dei requisiti GEP\n• Monitoraggio dei costi di progetto, degli appuntamenti e della contabilità del progetto\n• Creazione e mantenimento della documentazione degli impianti secondo standard uniformi\n• Completo della formazione di base tecnica, ad esempio, la conoscenza dell'ingegneria dei processi è auspicabile\n• Conoscenza dell'industria della chimica, farmaceutica o delle industrie correlate\n• La conoscenza della costruzione o dell'esperienza di impianti chimici con impianti di produzione industriale è auspicabile. Sia in auto che senza – beneficiate: parcheggiate o CHF 60.–\n• Assicurazione sanitaria: sconti fino al 10% sull'assicurazione aggiuntiva dei nostri partner\n• Indennità per bambini: Siegfried AG aumenta l'indennità per bambini del 10% rispetto all'approccio giuridico cantonale\n• Opportunità di formazione individuale per accordo\n• Pausa a pagamento, il benessere dei nostri dipendenti è al nostro cuore\n• Reka money: Siegfried AG concede ai dipendenti 20% di sconto\n• Pensioni fondo: Il fondo pensione della nostra azienda è attraente e contributi individuali Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\" personally and professionally: Siegfried awaits you with exciting challenges and numerous ways to prove your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: As an industrial engineer, you are the central technical contact for our production facilities and, together with internal and external partners, ensure smooth operation. They work on demanding technical projects and actively contribute to the continuous improvement of our systems. Your Profile: Your role\n• Technical contact for the assigned production facilities\n• Coordinating activities in plant failures together with production, maintenance, workshops and external service providers\n• Developing and implementing corrective and preventive maintenance measures\n•\n• Management and implementation of technical projects taking into account current project management standards and GEP requirements\n• Monitoring of project costs, appointments and project accounting\n• Creating and maintaining plant documentation according to uniform standards Your profile skills\n• Complete technical basic training, e.g. Process engineering knowledge is desirable\n• Industry knowledge of chemistry, pharmaceuticals or related industries\n• Knowledge of chemical plant construction or experience with industrial production facilities are desirable Personal strengths\n• Team-oriented, communicative, open and authentic personality\n• Quiet, structured and reliable operation – even in hectic situations\n• Networked and solution-oriented thinking\n• High self-initiative, sense of responsibility and enforcement Your Benefits:\n• Flexible working hours allow the reconciliation of family, leisure and work\n• Whether by car or without – You benefit: either parked or CHF 60.– Mobility supplement per month\n• Health insurance: discounts up to 10% on additional insurance from our partners\n•\n• Children's allowance: Siegfried AG increases the children's allowance by 10% compared to the cantonal legal approach\n• Individual training opportunities by agreement\n• Paid pause, the well-being of our employees is at our heart\n• Reka money: Siegfried AG grants the employees 20% discount\n• Pensions fund: Our company's pension fund is attractive and individual contributions With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Als Betriebsingenieur/in sind Sie die zentrale technische Ansprechperson für unsere Produktionsanlagen und stellen gemeinsam mit internen und externen Partnern einen reibungslosen Betrieb sicher. Sie arbeiten an anspruchsvollen technischen Projekten und tragen aktiv zur kontinuierlichen Verbesserung unserer Anlagen bei. Your Profile: Ihre Rolle\n• Technische Ansprechperson für die zugewiesenen Produktionseinrichtungen\n• Koordinieren von Tätigkeiten bei Anlagenausfällen zusammen mit Produktion, Instandhaltung, Werkstätten und externen Dienstleistern\n• Entwickeln und Umsetzen von korrektiven sowie präventiven Unterhaltsmassnahmen\n• Enge Zusammenarbeit mit der Instandhaltung und weiteren Schnittstellen\n• Unterstützen der internen Auftraggeber bei der Definition und Erstellung technischer Anforderungen\n• Leiten und Umsetzen technischer Projekte unter Berücksichtigung aktueller Project Management-Standards sowie GEP-Anforderungen\n• Überwachen von Projektkosten, Terminen und Projektabrechnungen\n• Erstellen und Pflegen von Anlagendokumentationen nach einheitlichen Standards Ihr Profil Fachkenntnisse\n• Abgeschlossene technische Grundausbildung, z. B. als KonstrukteurIn, PolymechanikerIn oder vergleichbar, ergänzt durch eine Weiterbildung als MaschinentechnikerIn HF, MaschineningenieurIn FH oder eine vergleichbare Qualifikation\n• Verfahrenstechnische Kenntnisse sind wünschenswert\n• Branchenkenntnisse in der Chemie-, Pharma- oder verwandten Industrie von Vorteil\n• Kenntnisse im Chemieanlagenbau oder Erfahrung mit industriellen Produktionsanlagen sind wünschenswert Persönliche Stärken\n• Teamorientierte, kommunikative, offene und authentische Persönlichkeit\n• Ruhige, strukturierte und zuverlässige Arbeitsweise – auch in hektischen Situationen\n• Vernetztes und lösungsorientiertes Denken\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen Your Benefits:\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"S'attendre à grandir\" personnellement et professionnellement: Siegfried vous attend avec des défis passionnants et de nombreuses façons de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se rencontrent dans un environnement coopératif. Vous trouverez ici un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : En tant qu'ingénieur industriel, vous êtes le contact technique central de nos installations de production et, avec des partenaires internes et externes, vous assurez un bon fonctionnement. Ils travaillent sur des projets techniques exigeants et contribuent activement à l'amélioration continue de nos systèmes. Votre profil: Votre rôle\n• Contact technique pour les installations de production assignées\n• Coordination des activités dans les pannes d'usines avec la production, l'entretien, les ateliers et les prestataires de services externes\n• Élaboration et mise en œuvre de mesures d'entretien correctif et préventif\n• Gestion et mise en oeuvre de projets techniques en tenant compte des normes actuelles de gestion de projet et des exigences du GEP\n• Suivi des coûts de projet, des nominations et de la comptabilité de projet\n• Création et maintenance de la documentation d'usine selon des normes uniformes Votre profil\n• Une formation technique de base complète, p.ex. une connaissance de l'ingénierie des procédés est souhaitable\n• une connaissance de l'industrie de la chimie, des produits pharmaceutiques ou des industries connexes\n• une connaissance de la construction d'usines chimiques ou de l'expérience avec les installations de production industrielles sont souhaitables Points forts personnels\n• une personnalité ouverte, communicative, ouverte et authentique\n• un fonctionnement silencieux, structuré et fiable – même dans des situations mouvementées\n• une pensée en réseau et orientée vers la solution\n• une grande initiative, un sens des responsabilités et une application de la loi Vos avantages:\n• des horaires de travail flexibles permettent la conciliation de la famille, des loisirs et du travail\n• Que ce soit en voiture ou sans – Vous bénéficiez: soit garé ou CHF 60.– Supplément de mobilité par mois\n• Assurance maladie: rabais jusqu'à 10% sur l'assurance complémentaire de nos partenaires\n•\n• Allocation pour enfants: Siegfried AG augmente l'allocation pour enfants de 10% par rapport à l'approche légale cantonale\n• Possibilités de formation individuelle par accord\n• Pause payante, le bien-être de nos employés est à notre cœur\n• Argent Reka: Siegfried AG accorde aux salariés 20% de réduction\n• Caisse de pensions: Le fonds de pension de notre société est attrayant et les contributions individuelles Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-08T22:10:12.378Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_362",
+      "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "betriebsingenieur-in-siegfried-ch",
+        "betriebsingenieur-in-siegfried-zofingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsingenieur-in-siegfried-ch",
+          "betriebsingenieur-in-siegfried-zofingen"
+        ],
+        "en": [
+          "betriebsingenieur-in-siegfried-zofingen"
+        ],
+        "fr": [
+          "betriebsingenieur-in-siegfried-zofingen"
+        ]
+      },
+      "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "AG",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "siegfried-4b6c9cd7c2b2",
@@ -1574,7 +1586,8 @@
         }
       },
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
