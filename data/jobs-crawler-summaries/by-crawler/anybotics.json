@@ -1,18 +1,19 @@
 {
   "key": "anybotics",
   "label": "ANYbotics",
-  "generatedAt": "2026-07-08T11:20:21.716Z",
+  "generatedAt": "2026-07-09T12:17:48.410Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 5935,
-  "avgDurationMs": 5935,
+  "unchangedCount": 0,
+  "durationMs": 5100,
+  "avgDurationMs": 5100,
   "durationHistory": [
-    5935
+    5100
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "anybotics-c9a3ed6ee0f2",
       "slug": "production-technician-ii-robotics-anybotics-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.925Z",
+      "crawledAt": "2026-07-09T12:17:44.905Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,18 +39,15 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-08T11:20:16.925Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "anybotics-665d8b06a568",
       "slug": "senior-product-quality-engineer-anybotics-ch",
@@ -62,7 +60,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.832Z",
+      "crawledAt": "2026-07-09T12:17:45.811Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +94,7 @@
       "url": "https://jobs.lever.co/anybotics/ecdae57b-ce0f-40c1-b4b5-1ba75dd6ccf7",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.015Z",
+      "crawledAt": "2026-07-09T12:17:43.993Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,7 +128,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.320Z",
+      "crawledAt": "2026-07-09T12:17:44.300Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -164,7 +162,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:16.622Z",
+      "crawledAt": "2026-07-09T12:17:44.603Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +196,7 @@
       "url": "https://jobs.lever.co/anybotics/453dd653-bdb9-47b7-b2a3-9cebe7dd84f2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.228Z",
+      "crawledAt": "2026-07-09T12:17:45.207Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -232,7 +230,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:17.530Z",
+      "crawledAt": "2026-07-09T12:17:45.509Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -266,7 +264,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:18.134Z",
+      "crawledAt": "2026-07-09T12:17:46.113Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -300,7 +298,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:20:18.437Z",
+      "crawledAt": "2026-07-09T12:17:46.415Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,5 +320,7 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
