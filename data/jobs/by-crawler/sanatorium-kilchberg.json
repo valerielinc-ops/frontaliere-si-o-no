@@ -1004,12 +1004,12 @@
     },
     {
       "id": "sanatorium-kilchberg-d29a40549ace",
-      "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+      "slug": "cura-professionale-hf-fh-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        "it": "cura-professionale-hf-fh-sanatorium-kilchberg-kilchberg",
+        "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg",
+        "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1064,7 +1064,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:24:58.633Z"
+      "firstSeenAt": "2026-07-09T12:24:58.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+      ]
     },
     {
       "id": "sanatorium-kilchberg-44f16b909e4d",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fondation-soins-lausanne-e494e07bc48f",
-      "slug": "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne",
+      "slug": "infermiera-di-campo-h-f-salario-orario-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne",
-        "it": "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne",
-        "en": "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne",
-        "de": "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne"
+        "it": "infermiera-di-campo-h-f-salario-orario-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "field-nurse-h-f-hourly-wage-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "field-nurse-h-f-stundenlohn-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:41.302Z"
+      "firstSeenAt": "2026-07-09T12:27:41.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne"
+        ],
+        "en": [
+          "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne"
+        ],
+        "de": [
+          "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-terrain-h-f-salaire-horaire-fondation-soins-lausanne-fondation-soins-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-aaa2da3a2a38",
-      "slug": "auxiliaire-de-sante-m-w-d-entre-50-80-fondation-soins-lausanne",
+      "slug": "assistente-sanitario-h-f-tra-il-50-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne",
-        "it": "auxiliaire-de-sante-m-w-d-entre-50-80-fondation-soins-lausanne",
-        "en": "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne",
-        "de": "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne"
+        "it": "assistente-sanitario-h-f-tra-il-50-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "health-assistant-h-f-between-50-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "gesundheitsassistent-h-f-zwischen-50-und-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -120,11 +134,19 @@
       "careerSiteUrl": "https://www.cms-vaud.ch/offres-d-emploi/?employer=fondation%20soins%20lausanne",
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne",
+          "auxiliaire-de-sante-m-w-d-entre-50-80-fondation-soins-lausanne"
+        ],
+        "en": [
+          "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne"
+        ],
+        "de": [
           "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne"
+        "auxiliaire-de-sante-h-f-entre-50-80-fondation-soins-lausanne-fondation-soins-lausanne",
+        "auxiliaire-de-sante-m-w-d-entre-50-80-fondation-soins-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -142,12 +164,12 @@
     },
     {
       "id": "fondation-soins-lausanne-db1634481fd6",
-      "slug": "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "infermiere-di-campo-h-f-60-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "en": "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        "it": "infermiere-di-campo-h-f-60-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "field-nurse-h-f-60-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "feldschwester-h-f-60-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -203,16 +225,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:40.275Z"
+      "firstSeenAt": "2026-07-09T12:27:40.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-terrain-h-f-60-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-4a165e3b0476",
-      "slug": "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne",
+      "slug": "infermiere-di-riferimento-h-f-tra-il-70-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne",
-        "it": "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne",
-        "en": "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne",
-        "de": "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne"
+        "it": "infermiere-di-riferimento-h-f-tra-il-70-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "reference-nurse-h-f-between-70-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "referenzkrankenschwester-h-f-zwischen-70-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -268,14 +304,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:39.556Z"
+      "firstSeenAt": "2026-07-09T12:27:39.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne"
+        ],
+        "en": [
+          "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne"
+        ],
+        "de": [
+          "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-referent-h-f-entre-70-100-fondation-soins-lausanne-fondation-soins-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-b0bf6fdfaf8a",
-      "slug": "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "mental-health-nurse-h-f-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+        "it": "mental-health-nurse-h-f-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
         "en": "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
         "de": "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
       },
@@ -333,16 +383,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:38.945Z"
+      "firstSeenAt": "2026-07-09T12:27:38.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-sante-mentale-h-f-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-a78e1d5761be",
-      "slug": "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "ergotherapist-h-f-tra-80-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "de": "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        "it": "ergotherapist-h-f-tra-80-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "ergotherapist-h-f-between-80-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "ergotherapeut-h-f-zwischen-80-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -398,16 +456,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:38.344Z"
+      "firstSeenAt": "2026-07-09T12:27:38.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-h-f-entre-80-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-7926a75fe180",
-      "slug": "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "infermiera-resop-h-f-50-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "en": "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        "it": "infermiera-resop-h-f-50-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "nurse-resop-h-f-50-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "krankenschwester-resop-h-f-50-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -463,7 +535,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:37.977Z"
+      "firstSeenAt": "2026-07-09T12:27:37.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-resop-h-f-50-100-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-8a095fd3b156",
@@ -471,7 +557,7 @@
       "slugByLocale": {
         "fr": "assistant-social-h-f-entre-60-et-100-fondation-soins-lausanne-fondation-soins-lausanne",
         "it": "assistant-social-h-f-entre-60-et-100-fondation-soins-lausanne-fondation-soins-lausanne",
-        "en": "assistant-social-h-f-entre-60-et-100-fondation-soins-lausanne-fondation-soins-lausanne",
+        "en": "social-assistant-h-f-between-60-and-100-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
         "de": "assistant-social-h-f-entre-60-et-100-fondation-soins-lausanne-fondation-soins-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -532,12 +618,12 @@
     },
     {
       "id": "fondation-soins-lausanne-b17f008df6a6",
-      "slug": "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "assc-h-f-programma-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "en": "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "de": "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        "it": "assc-h-f-programma-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "assc-h-f-schedule-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "assc-h-f-zeitplan-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -593,16 +679,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:36.984Z"
+      "firstSeenAt": "2026-07-09T12:27:36.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assc-h-f-horaire-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-bd76dc1acaed",
-      "slug": "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
+      "slug": "assc-h-f-tra-il-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "it": "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "en": "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne",
-        "de": "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        "it": "assc-h-f-tra-il-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "assc-h-f-between-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "assc-h-f-zwischen-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -658,16 +758,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:36.313Z"
+      "firstSeenAt": "2026-07-09T12:27:36.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assc-h-f-entre-60-80-fondation-soins-lausanne-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-0ffc29ea2c35",
-      "slug": "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins",
+      "slug": "icls-infermiere-cliniche-specializzate-h-f-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins",
-        "it": "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins",
-        "en": "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins",
-        "de": "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins"
+        "it": "icls-infermiere-cliniche-specializzate-h-f-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "en": "icls-specialized-clinician-nurse-h-f-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne",
+        "de": "icls-fachkrankenschwester-h-f-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -723,7 +837,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:35.690Z"
+      "firstSeenAt": "2026-07-09T12:27:35.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins"
+        ],
+        "en": [
+          "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins"
+        ],
+        "de": [
+          "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins"
+        ]
+      },
+      "previousSlugs": [
+        "icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins"
+      ]
     }
   ]
 }

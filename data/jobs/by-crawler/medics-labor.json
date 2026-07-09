@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medics-labor-4ee2ac674e21",
-      "slug": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
+      "slug": "specialista-per-campionamento-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "it": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "en": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "fr": "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        "it": "specialista-per-campionamento-medics-labor-ag-bern",
+        "en": "specialist-for-sampling-medics-labor-ag-bern",
+        "fr": "specialiste-pour-l-echantillonnage-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:27:26.729Z"
+      "firstSeenAt": "2026-07-09T12:27:26.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+      ]
     },
     {
       "id": "medics-labor-d95941faef90",
@@ -148,13 +162,11 @@
       },
       "externalId": "0129",
       "previousSlugs": [
-        "leitende-r-biomedizinische-r-analytiker-in-med-mikrobiologie-medics-labor-bern",
-        "responsabile-analista-biomedico-a-medico-a-microbiologia-medics-labor-ag-bern"
+        "leitende-r-biomedizinische-r-analytiker-in-med-mikrobiologie-medics-labor-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-biomedizinische-r-analytiker-in-med-mikrobiologie-medics-labor-bern",
-          "responsabile-analista-biomedico-a-medico-a-microbiologia-medics-labor-ag-bern"
+          "leitende-r-biomedizinische-r-analytiker-in-med-mikrobiologie-medics-labor-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:52.665Z",
@@ -253,13 +265,11 @@
       },
       "externalId": "0105",
       "previousSlugs": [
-        "leitende-r-biomedizinische-r-analytiker-in-hamatologie-medics-labor-bern",
-        "responsabile-biomedico-a-analista-di-ematologia-medics-labor-ag-bern"
+        "leitende-r-biomedizinische-r-analytiker-in-hamatologie-medics-labor-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-biomedizinische-r-analytiker-in-hamatologie-medics-labor-bern",
-          "responsabile-biomedico-a-analista-di-ematologia-medics-labor-ag-bern"
+          "leitende-r-biomedizinische-r-analytiker-in-hamatologie-medics-labor-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:51.306Z",

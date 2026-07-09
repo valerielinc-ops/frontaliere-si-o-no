@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "planzer-f4faba138430",
-      "slug": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
+      "slug": "chauffeur-cat-b-turno-notturno-m-f-d-planzer-regensdorf",
       "slugByLocale": {
         "de": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-        "it": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-        "en": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-        "fr": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+        "it": "chauffeur-cat-b-turno-notturno-m-f-d-planzer-regensdorf",
+        "en": "chauffeur-cat-b-night-shift-m-f-d-planzer-regensdorf",
+        "fr": "chauffeur-cat-b-garde-de-nuit-m-f-d-planzer-regensdorf"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -51,7 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+        ],
+        "en": [
+          "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+        ],
+        "fr": [
+          "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+      ]
     },
     {
       "id": "planzer-f7374af153c2",
@@ -113,7 +127,7 @@
         "de": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
         "it": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
         "en": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
-        "fr": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon"
+        "fr": "moteur-de-logiciels-informatiques-wms-m-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -166,7 +180,7 @@
         "de": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
         "it": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
         "en": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-        "fr": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon"
+        "fr": "ingenieur-de-logiciels-informatiques-frontend-wms-m-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -214,12 +228,12 @@
     },
     {
       "id": "planzer-133464cdc018",
-      "slug": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
+      "slug": "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "it": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        "it": "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
+        "en": "employee-envelope-day-shift-m-f-d-planzer-kallnach",
+        "fr": "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -263,16 +277,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-928410a5aedd",
-      "slug": "paketzusteller-m-w-d-planzer-kolliken",
+      "slug": "consegna-dei-pacchi-m-f-d-planzer-kolliken",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-kolliken",
-        "it": "paketzusteller-m-w-d-planzer-kolliken",
-        "en": "paketzusteller-m-w-d-planzer-kolliken",
-        "fr": "paketzusteller-m-w-d-planzer-kolliken"
+        "it": "consegna-dei-pacchi-m-f-d-planzer-kolliken",
+        "en": "parcel-delivery-m-f-d-planzer-kolliken",
+        "fr": "livraison-de-colis-m-f-d-planzer-kolliken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -316,16 +344,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-kolliken"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-kolliken"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-kolliken"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-kolliken"
+      ]
     },
     {
       "id": "planzer-6cea39b1823a",
-      "slug": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
+      "slug": "prodotti-ingombranti-responsabili-gruppo-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-        "it": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-        "en": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-        "fr": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+        "it": "prodotti-ingombranti-responsabili-gruppo-m-f-d-planzer-dietikon",
+        "en": "responsible-bulky-goods-group-m-f-d-planzer-dietikon",
+        "fr": "marchandises-volumineuses-responsables-groupe-m-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -369,15 +411,29 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-8db8aaf75043",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-zurich",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-zurich",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-zurich",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-zurich"
       },
       "company": "Planzer",
@@ -425,14 +481,25 @@
       },
       "previousSlugs": [
         "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
-        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
-      ]
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-zurich"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-zurich"
+        ]
+      }
     },
     {
       "id": "planzer-211b8fe0df82",
-      "slug": "disponent-m-w-d-planzer-zurich",
+      "slug": "m-w-d-planzer-zurich",
       "slugByLocale": {
-        "de": "disponent-m-w-d-planzer-zurich"
+        "de": "disponent-m-w-d-planzer-zurich",
+        "it": "m-w-d-planzer-zurich",
+        "fr": "detenteur-m-w-d-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -476,13 +543,24 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-m-w-d-planzer-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-m-w-d-planzer-zurich"
+      ]
     },
     {
       "id": "planzer-e63a994cd121",
-      "slug": "paketzusteller-m-w-d-planzer-zurich-altstetten",
+      "slug": "consegna-dei-pacchi-m-f-d-planzer-zurich-altstetten",
       "slugByLocale": {
-        "de": "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        "de": "paketzusteller-m-w-d-planzer-zurich-altstetten",
+        "it": "consegna-dei-pacchi-m-f-d-planzer-zurich-altstetten",
+        "en": "parcel-delivery-m-f-d-planzer-zurich-altstetten",
+        "fr": "livraison-de-colis-m-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -526,7 +604,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-zurich-altstetten"
+      ]
     },
     {
       "id": "planzer-5de01455fd1f",

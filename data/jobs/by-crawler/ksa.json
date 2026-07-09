@@ -297,7 +297,7 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "en": "fachexpertin-fachexperte-pflege-ksa-ch",
+        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "fr": "fachexpertin-fachexperte-pflege-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -553,10 +553,10 @@
     },
     {
       "id": "ksa-f35cb0abe3c9",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
+      "slug": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
+        "it": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch"
       },
@@ -613,7 +613,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.844Z"
+      "firstSeenAt": "2026-07-09T12:28:58.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch"
+      ]
     },
     {
       "id": "ksa-efaa616bf2a8",
@@ -1027,7 +1035,7 @@
       "slugByLocale": {
         "de": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch",
         "it": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch",
-        "en": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch",
+        "en": "service-maintenance-technician-heating-cooling-kantonsspital-aarau-ksa-aarau",
         "fr": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1092,7 +1100,7 @@
         "de": "studium-radiologiefachperson-hf-ksa-ch",
         "it": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
         "en": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
-        "fr": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
+        "fr": "etude-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4232,10 +4240,10 @@
     },
     {
       "id": "ksa-f78d48c02a15",
-      "slug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "med-praxisassistent-in-ksa-ch",
-        "it": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau",
         "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
         "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -4281,7 +4289,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-ksa-ch"
+          "med-praxisassistent-in-ksa-ch",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
@@ -4289,7 +4298,8 @@
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe",
         "med-praxisassistent-in-ksa-ch-2",
         "assistente-medico-kantonsspital-aarau-ksa-aarau",
-        "med-assistant-kantonsspital-aarau-ksa-aarau"
+        "med-assistant-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5067,10 +5077,10 @@
     },
     {
       "id": "ksa-3a41878e7bb2",
-      "slug": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
+      "slug": "responsabile-servizi-ict-in-ingegneria-storage-cloud-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
-        "it": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
+        "it": "responsabile-servizi-ict-in-ingegneria-storage-cloud-kantonsspital-aarau-ksa-aarau",
         "en": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
         "fr": "ict-service-manager-in-storage-cloud-engineering-ksa-ch"
       },
@@ -5127,7 +5137,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-09T12:28:58.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-service-manager-in-storage-cloud-engineering-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-service-manager-in-storage-cloud-engineering-ksa-ch"
+      ]
     },
     {
       "id": "ksa-a560b375ff80",
@@ -5470,7 +5488,7 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-ksa-ch",
         "it": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-ksa-ch",
-        "en": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-ksa-ch",
+        "en": "senior-physician-interdisciplinary-emergency-center-kantonsspital-aarau-ksa-aarau",
         "fr": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -6075,7 +6093,6 @@
       },
       "firstSeenAt": "2026-07-09T12:28:58.843Z",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
       ],
       "previousSlugsByLocale": {
@@ -6930,7 +6947,7 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "en": "fachexpertin-fachexperte-pflege-ksa-ch-2",
+        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
         "fr": "fachexpertin-fachexperte-pflege-ksa-ch-2"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7778,11 +7795,11 @@
     },
     {
       "id": "ksa-0b6c3dd0024c",
-      "slug": "ergotherapeut-in-ksa-ch",
+      "slug": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "ergotherapeut-in-ksa-ch",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "it": "ergotherapeut-in-ksa-ch",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7837,7 +7854,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.841Z"
+      "firstSeenAt": "2026-07-09T12:28:58.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-ksa-ch"
+      ]
     },
     {
       "id": "ksa-0e4faf4798dc",
@@ -7917,7 +7942,7 @@
       "id": "ksa-e90d1ac77eb3",
       "slug": "collaboratore-trice-guest-relations-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "de": "mitarbeiter-in-guest-relations-ksa-ch",
+        "de": "mitarbeiter-in-gastbeziehungen-kantonsspital-aarau-ksa-aarau",
         "it": "collaboratore-trice-guest-relations-kantonsspital-aarau-ksa-aarau",
         "en": "mitarbeiter-in-guest-relations-ksa-ch",
         "fr": "mitarbeiter-in-guest-relations-ksa-ch"
@@ -7965,6 +7990,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-guest-relations-ksa-ch"
+        ],
+        "de": [
+          "mitarbeiter-in-guest-relations-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -7990,8 +8018,8 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch",
         "it": "facharztin-facharzt-per-medizinische-genetik-fmh-kantonsspital-aarau-ksa-aarau",
-        "en": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch",
-        "fr": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch"
+        "en": "specialist-specialist-in-medical-genetics-fmh-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-en-genetique-medicale-fmh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8035,6 +8063,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch"
         ]
       },

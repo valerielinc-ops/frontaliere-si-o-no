@@ -1254,8 +1254,7 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "pedopsychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "pedopsychiatre-ehc-vd-morges"
+          "pedopsychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "it": [
           "pedopsychiatre-ehc-vd-morges"
@@ -1767,9 +1766,9 @@
       "slug": "auxiliaire-de-sante-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "it": "auxiliaire-de-sante-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "de": "auxiliaire-de-sante-f-h-ehc-vd-morges"
+        "it": "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -1815,9 +1814,6 @@
       "previousSlugs": [
         "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
         "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
@@ -1825,20 +1821,18 @@
         "it": [
           "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
           "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
           "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
           "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ],
         "de": [
-          "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ]
       },
       "salaryMin": 60500,
@@ -1921,8 +1915,7 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "dermatologue-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "dermatologue-ehc-vd-morges"
+          "dermatologue-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "it": [
           "dermatologue-ehc-vd-morges"
@@ -3423,9 +3416,9 @@
       "slug": "assistant-medical-f-h-ehc-vd-crissier",
       "slugByLocale": {
         "fr": "assistant-medical-f-h-ehc-vd-crissier",
-        "it": "assistant-medical-f-h-ehc-vd-crissier",
+        "it": "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "assistant-medical-f-h-ehc-vd-crissier",
-        "de": "assistant-medical-f-h-ehc-vd-crissier"
+        "de": "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -3471,32 +3464,24 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-medical-f-h-ehc-vd-ecublens",
-          "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistant-medical-f-h-ehc-vd-renens",
-          "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier",
-          "assistant-medical-f-h-ehc-vd-crissier"
+          "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier"
         ],
         "fr": [
           "assistant-medical-f-h-ehc-vd-ecublens",
-          "assistant-medical-f-h-ehc-vd-morges",
-          "assistant-medical-f-h-ehc-vd-crissier"
+          "assistant-medical-f-h-ehc-vd-morges"
         ],
         "en": [
           "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier"
-        ],
-        "de": [
-          "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
         "assistant-medical-f-h-ehc-vd-ecublens",
         "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "assistant-medical-f-h-ehc-vd-morges",
         "assistant-medical-f-h-ehc-vd-renens",
-        "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier",
-        "assistant-medical-f-h-ehc-vd-crissier"
+        "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3563,8 +3548,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "agent-de-proprete-f-h-ehc-vd-morges",
-          "agent-de-proprete-f-h-ehc-vd-aubonne"
+          "agent-de-proprete-f-h-ehc-vd-morges"
         ],
         "it": [
           "agent-de-proprete-f-h-ehc-vd-aubonne"
@@ -4199,12 +4183,12 @@
     },
     {
       "id": "ehc-vd-e12f46c65c13",
-      "slug": "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges",
+      "slug": "coordinatore-della-cura-dei-pazienti-cronico-e-situazioni-complesse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges",
-        "it": "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges",
-        "en": "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges",
-        "de": "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges"
+        "it": "coordinatore-della-cura-dei-pazienti-cronico-e-situazioni-complesse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "chronic-patient-care-coordinator-and-complex-f-h-situations-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "chronischer-patientenversorgungskoordinator-und-komplexe-f-h-situationen-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4259,7 +4243,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:22:59.838Z"
+      "firstSeenAt": "2026-07-09T12:22:59.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-de-soins-pour-patients-chroniques-et-situations-complexes-f-h-ehc-vd-morges"
+      ]
     }
   ]
 }

@@ -313,11 +313,11 @@
     },
     {
       "id": "institution-lavigny-b23817061e62",
-      "slug": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
+      "slug": "assc-nel-campo-della-neurologia-in-12h00-institution-de-lavigny-lausanne",
       "slugByLocale": {
         "fr": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
-        "it": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
-        "en": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
+        "it": "assc-nel-campo-della-neurologia-in-12h00-institution-de-lavigny-lausanne",
+        "en": "assc-in-the-field-of-neurology-in-12h00-institution-de-lavigny-lausanne",
         "de": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
       },
       "company": "Institution de Lavigny",
@@ -374,7 +374,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:15:46.450Z"
+      "firstSeenAt": "2026-07-09T12:15:46.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
+        ],
+        "en": [
+          "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
+      ]
     },
     {
       "id": "institution-lavigny-112083cc27e2",

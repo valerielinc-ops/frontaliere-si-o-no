@@ -241,13 +241,11 @@
         "pensumMax": 50
       },
       "previousSlugs": [
-        "auditeur-trice-interne-srg-ssr-bern",
-        "revisore-interno-srg-ssr-bern"
+        "auditeur-trice-interne-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditeur-trice-interne-srg-ssr-bern",
-          "revisore-interno-srg-ssr-bern"
+          "auditeur-trice-interne-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
@@ -353,13 +351,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-        "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
@@ -453,13 +449,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
-        "tirocinante-economia-tv-online-srg-ssr-zurich"
+        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
-          "tirocinante-economia-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
@@ -572,13 +566,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "service-operator-srg-ssr-bern",
-        "operatore-di-servizio-srg-ssr-bern"
+        "service-operator-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-operator-srg-ssr-bern",
-          "operatore-di-servizio-srg-ssr-bern"
+          "service-operator-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
@@ -670,13 +662,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-        "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
@@ -865,14 +855,12 @@
       },
       "previousSlugs": [
         "auditeur-trice-interne-srg-ssr-bern-2",
-        "auditeur-trice-interne-srg-ssr-bern",
-        "revisore-interno-srg-ssr-bern-97427c"
+        "auditeur-trice-interne-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auditeur-trice-interne-srg-ssr-bern-2",
-          "auditeur-trice-interne-srg-ssr-bern",
-          "revisore-interno-srg-ssr-bern-97427c"
+          "auditeur-trice-interne-srg-ssr-bern"
         ],
         "en": [
           "auditeur-trice-interne-srg-ssr-bern-2"
@@ -1252,12 +1240,12 @@
     },
     {
       "id": "srg-ssr-4bcfd27c9a63",
-      "slug": "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
+      "slug": "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern",
       "slugByLocale": {
         "fr": "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
-        "it": "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
-        "en": "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
-        "de": "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+        "it": "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern",
+        "en": "business-controller-regional-offer-rts-maximum-term-contract-srg-ssr-bern",
+        "de": "business-controller-regionales-angebot-rts-maximaler-laufzeitvertrag-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1336,7 +1324,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-09T12:12:18.194Z"
+      "firstSeenAt": "2026-07-09T12:12:18.194Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+        ],
+        "en": [
+          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+        ],
+        "de": [
+          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-70811d5aff89",
@@ -1866,13 +1868,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern",
-        "assistente-in-finanza-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern",
-          "assistente-in-finanza-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
