@@ -11,8 +11,20 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-07-08T22:16:11.855Z",
+  "updatedAt": "2026-07-09T12:21:33.644Z",
   "seedMetaByUrl": {
+    "https://jobs.bosch.com/en/job/REF291116Z-sachbearbeiter-debitorenbuchhaltung-60-w-m-div-ref291116z": {
+      "location": "Pratteln",
+      "canton": "BL",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-09"
+    },
+    "https://jobs.bosch.com/en/job/REF289879M-lehrstelle-logistik-w-m-div-2027-ref289879m": {
+      "location": "St. Niklaus",
+      "canton": "VS",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-09"
+    },
     "https://jobs.bosch.com/en/job/REF289852B-lehrstelle-kauffrau-kaufmann-2027-ref289852b": {
       "location": "St. Niklaus",
       "canton": "VS",
@@ -48,18 +60,6 @@
       "canton": "VS",
       "company": "Bosch Thermotechnik AG",
       "postedDate": "2026-07-08"
-    },
-    "https://jobs.bosch.com/en/job/REF290650V-inside-sales-dach-80-100-w-m-d-ref290650v": {
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-07-08"
-    },
-    "https://jobs.bosch.com/en/job/REF282131O-bps-lean-und-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o": {
-      "location": "Solothurn/Zuchwil",
-      "canton": "SO",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-07-07"
     }
   }
 }
