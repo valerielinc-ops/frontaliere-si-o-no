@@ -1,16 +1,16 @@
 {
   "key": "canton-valais",
   "label": "Canton du Valais",
-  "generatedAt": "2026-07-08T22:07:29.859Z",
+  "generatedAt": "2026-07-09T12:11:45.834Z",
   "total": 19,
-  "newCount": 20,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10531,
-  "avgDurationMs": 10531,
+  "durationMs": 9271,
+  "avgDurationMs": 9271,
   "durationHistory": [
-    10531
+    9271
   ],
   "newJobs": [
     {
@@ -25,7 +25,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:20.890Z",
+      "crawledAt": "2026-07-09T12:11:37.412Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -38,7 +38,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "2026-07-09",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "_qualityScore": 46,
       "_qualityBreakdown": {
@@ -47,7 +47,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "canton-valais-0a380ca0bc8a",
       "slug": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
@@ -60,7 +62,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:21.196Z",
+      "crawledAt": "2026-07-09T12:11:37.726Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -75,11 +77,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.196Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -95,7 +99,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:21.498Z",
+      "crawledAt": "2026-07-09T12:11:38.028Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -110,11 +114,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.498Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -130,7 +136,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:21.799Z",
+      "crawledAt": "2026-07-09T12:11:38.329Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -145,11 +151,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:21.799Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +173,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.100Z",
+      "crawledAt": "2026-07-09T12:11:38.631Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -180,11 +188,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:22.100Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -200,7 +210,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.401Z",
+      "crawledAt": "2026-07-09T12:11:38.932Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -215,11 +225,12 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-07-08T22:07:22.401Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -235,7 +246,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:22.701Z",
+      "crawledAt": "2026-07-09T12:11:39.234Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -250,11 +261,12 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
-      "_qualityScore": 49,
+      "firstSeenAt": "2026-07-08T22:07:22.701Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -270,7 +282,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114551&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.002Z",
+      "crawledAt": "2026-07-09T12:11:39.536Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -285,11 +297,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114551&publication=2627",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.002Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -305,7 +319,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.303Z",
+      "crawledAt": "2026-07-09T12:11:39.837Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -320,11 +334,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.303Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -340,7 +356,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.605Z",
+      "crawledAt": "2026-07-09T12:11:40.139Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -355,11 +371,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.605Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -375,7 +393,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:23.928Z",
+      "crawledAt": "2026-07-09T12:11:40.490Z",
       "addressLocality": "Brigue",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -390,11 +408,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:23.928Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -410,7 +430,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:24.229Z",
+      "crawledAt": "2026-07-09T12:11:40.795Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -425,11 +445,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.229Z",
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -445,7 +467,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:24.545Z",
+      "crawledAt": "2026-07-09T12:11:41.126Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -460,17 +482,19 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.545Z",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
     {
       "id": "canton-valais-8415f1dd8a33",
-      "slug": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
+      "slug": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
@@ -480,7 +504,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:24.846Z",
+      "crawledAt": "2026-07-09T12:11:41.428Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -495,11 +519,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:24.846Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -515,7 +541,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:25.148Z",
+      "crawledAt": "2026-07-09T12:11:41.729Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -530,11 +556,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.148Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -550,7 +578,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20035?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:25.449Z",
+      "crawledAt": "2026-07-09T12:11:42.030Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -565,11 +593,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20035?language=fr",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.449Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -585,7 +615,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:07:25.750Z",
+      "crawledAt": "2026-07-09T12:11:42.332Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -600,11 +630,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:25.750Z",
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -620,7 +652,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20075?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:07:26.051Z",
+      "crawledAt": "2026-07-09T12:11:42.633Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -635,17 +667,19 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20075?language=fr",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.051Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "canton-valais-715cbfa4d904",
-      "slug": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch",
+      "slug": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-du-valais-sion",
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
@@ -655,7 +689,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20036?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:26.352Z",
+      "crawledAt": "2026-07-09T12:11:42.936Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -670,11 +704,13 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20036?language=fr",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.352Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -690,7 +726,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:26.658Z",
+      "crawledAt": "2026-07-09T12:11:43.237Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -705,16 +741,17 @@
       "featured": false,
       "postedDate": "2026-07-08",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:26.658Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
