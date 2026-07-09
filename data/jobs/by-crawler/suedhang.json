@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
         "it": "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-        "en": "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-        "fr": "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
+        "en": "employees-in-furniture-assembly-and-warehouse-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+        "fr": "employes-dans-l-assemblage-et-l-entrepot-de-meubles-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -57,10 +57,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
+        ],
+        "fr": [
+          "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
+        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
+        "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -130,12 +137,10 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
-          "klinische-n-psycholog-in-suedhang-ch"
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf"
         ],
         "it": [
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch"
@@ -146,8 +151,7 @@
       },
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf"
       ],
       "firstSeenAt": "2026-06-05T12:45:52.445Z",
       "salaryMin": 68500,
@@ -229,20 +233,17 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch-3",
-          "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
+          "assistenzarztin-assistenzarzt-suedhang-ch"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch-3",
         "assistenzarztin-assistenzarzt-suedhang-ch",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
-        "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T21:02:14.145Z",
       "salaryMin": 68500,
@@ -339,20 +340,17 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+          "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "firstSeenAt": "2026-05-19T21:02:15.199Z",
       "salaryMin": 68500,
@@ -422,13 +420,11 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-          "klinische-n-psycholog-in-suedhang-ch"
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
         ],
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
@@ -440,8 +436,7 @@
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch-2",
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "firstSeenAt": "2026-06-05T12:45:50.925Z",
       "salaryMin": 68500,
@@ -511,12 +506,10 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
-          "oberarztin-oberarzt-suedhang-ch"
+          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern"
         ],
         "it": [
-          "oberarztin-oberarzt-suedhang-ch",
-          "primario-klinik-sudhang-ambulatorium-bern"
+          "oberarztin-oberarzt-suedhang-ch"
         ],
         "en": [
           "oberarztin-oberarzt-suedhang-ch"
@@ -527,8 +520,7 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-suedhang-ch",
-        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
-        "primario-klinik-sudhang-ambulatorium-bern"
+        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern"
       ],
       "firstSeenAt": "2026-06-05T12:45:50.418Z",
       "salaryMin": 94500,

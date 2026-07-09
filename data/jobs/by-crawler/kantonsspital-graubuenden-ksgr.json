@@ -23,12 +23,12 @@
       "employmentType": "60 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-07-09T12:18:49.951Z",
-      "slug": "kochin-koch-kantonsspital-graubunden-chur",
+      "slug": "cuocere-cucinare-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "kochin-koch-kantonsspital-graubunden-chur",
-        "it": "kochin-koch-kantonsspital-graubunden-chur",
-        "en": "kochin-koch-kantonsspital-graubunden-chur",
-        "fr": "kochin-koch-kantonsspital-graubunden-chur"
+        "it": "cuocere-cucinare-kantonsspital-graubunden-chur",
+        "en": "cook-cook-kantonsspital-graubunden-chur",
+        "fr": "cuisiniere-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Köchin / Koch",
@@ -58,7 +58,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-07-09T12:18:49.951Z"
+      "firstSeenAt": "2026-07-09T12:18:49.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "kochin-koch-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "kochin-koch-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10105802",
@@ -81,12 +95,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-07-09T12:18:49.951Z",
-      "slug": "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur",
+      "slug": "stv-station-manager-in-cardiologia-neftologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "it": "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "en": "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "fr": "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        "it": "stv-station-manager-in-cardiologia-neftologia-kantonsspital-graubunden-chur",
+        "en": "stv-station-manager-in-cardiology-nephrology-kantonsspital-graubunden-chur",
+        "fr": "stv-gestionnaire-de-station-en-cardiologie-nephrologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Stv. Stationsleiter:in Kardiologie / Nephrologie",
@@ -116,7 +130,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-07-09T12:18:49.951Z"
+      "firstSeenAt": "2026-07-09T12:18:49.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10104458",

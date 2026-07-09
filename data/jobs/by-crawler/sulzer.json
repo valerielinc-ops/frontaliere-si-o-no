@@ -22792,12 +22792,12 @@
     },
     {
       "id": "sulzer-c17498c1ac19",
-      "slug": "project-buyer-with-supply-chain-mindset-sulzer-ch",
+      "slug": "acquirente-di-progetto-con-catena-di-fornitura-mindset-sulzer-helsingborg",
       "slugByLocale": {
         "en": "project-buyer-with-supply-chain-mindset-sulzer-ch",
-        "it": "project-buyer-with-supply-chain-mindset-sulzer-ch",
+        "it": "acquirente-di-progetto-con-catena-di-fornitura-mindset-sulzer-helsingborg",
         "de": "project-buyer-with-supply-chain-mindset-sulzer-ch",
-        "fr": "project-buyer-with-supply-chain-mindset-sulzer-ch"
+        "fr": "project-buyer-with-chaine-d-approvisionnement-mindset-sulzer-helsingborg"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22851,7 +22851,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-09T12:26:22.796Z"
+      "firstSeenAt": "2026-07-09T12:26:22.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-buyer-with-supply-chain-mindset-sulzer-ch"
+        ],
+        "fr": [
+          "project-buyer-with-supply-chain-mindset-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-buyer-with-supply-chain-mindset-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-8590ed10176c",

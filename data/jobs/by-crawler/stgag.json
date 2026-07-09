@@ -246,7 +246,7 @@
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch",
         "en": "dipl-nursing-professional-woman-rehabilitation-in-springerpool-spital-thurgau-stgag-diessenhofen",
-        "fr": "infirmier-infirmiere-diplome-e-en-readaptation-dans-le-pool-springer-spital-thurgau-stgag-diessenhofen",
+        "fr": "dipl-soins-infirmiers-professionnels-readaptation-des-femmes-a-springerpool-spital-thurgau-stgag-munsterlingen",
         "it": "dipl-specialista-di-cura-riabilitazione-nella-springerpool-spital-thurgau-stgag-diessenhofen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -296,10 +296,14 @@
         ],
         "de": [
           "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-munsterlingen"
+        ],
+        "fr": [
+          "infirmier-infirmiere-diplome-e-en-readaptation-dans-le-pool-springer-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-munsterlingen"
+        "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-munsterlingen",
+        "infirmier-infirmiere-diplome-e-en-readaptation-dans-le-pool-springer-spital-thurgau-stgag-diessenhofen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -470,7 +474,7 @@
       "slug": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
-        "en": "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen",
+        "en": "expert-woman-health-efz-in-the-springerpool-spital-thurgau-stgag-munsterlingen",
         "fr": "professionnel-femme-sante-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen",
         "it": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen"
       },
@@ -521,10 +525,14 @@
         ],
         "de": [
           "fachmann-frau-gesundheit-efz-im-springerpool-stgag-munsterlingen"
+        ],
+        "en": [
+          "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-im-springerpool-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-efz-im-springerpool-stgag-munsterlingen",
+        "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -542,10 +550,10 @@
     },
     {
       "id": "stgag-92392c669495",
-      "slug": "perfezionamento-dipl-expert-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "ulteriori-sviluppi-dipl-esperto-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-ch",
-        "it": "perfezionamento-dipl-expert-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "ulteriori-sviluppi-dipl-esperto-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-munsterlingen",
         "en": "further-development-dipl-expert-in-intensive-care-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "fr": "developpement-ulterieur-dipl-expert-en-soins-intensifs-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
@@ -592,14 +600,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-munsterlingen"
+          "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-munsterlingen",
+          "perfezionamento-dipl-expert-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "de": [
           "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-munsterlingen"
+        "weiterbildung-dipl-experte-in-intensivpflege-nds-hf-stgag-munsterlingen",
+        "perfezionamento-dipl-expert-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -617,10 +627,10 @@
     },
     {
       "id": "stgag-fcceea97a474",
-      "slug": "specialista-in-salute-terapia-intensiva-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "unita-di-cura-intensiva-professionale-femminile-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-intensivstation-stgag-ch",
-        "it": "specialista-in-salute-terapia-intensiva-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "it": "unita-di-cura-intensiva-professionale-femminile-spital-thurgau-stgag-munsterlingen",
         "en": "professional-female-health-intensive-care-unit-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "fr": "unite-de-soins-intensifs-de-sante-professionnelle-feminine-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
@@ -667,14 +677,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-gesundheit-intensivstation-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-intensivstation-stgag-munsterlingen",
+          "specialista-in-salute-terapia-intensiva-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "de": [
           "fachmann-frau-gesundheit-intensivstation-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-intensivstation-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-intensivstation-stgag-munsterlingen",
+        "specialista-in-salute-terapia-intensiva-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -695,8 +707,8 @@
       "slug": "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns",
       "slugByLocale": {
         "de": "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
-        "en": "pharmacy-students-and-interns-for-oncological-pharmacy-focus-6-months-spital-thurgau-stgag-munsterlingen",
-        "fr": "stagiaires-en-pharmacie-et-internes-pour-se-concentrer-sur-la-pharmacie-oncologique-6-mois-spital-thurgau-stgag",
+        "en": "pharmaceutical-practitioners-and-faculty-for-focus-on-oncological-pharmacy-6-months-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecins-et-professeurs-de-pharmacie-oncologique-6-mois-spital-thurgau-stgag-munsterlingen",
         "it": "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -746,10 +758,18 @@
         ],
         "de": [
           "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6"
+        ],
+        "en": [
+          "pharmacy-students-and-interns-for-oncological-pharmacy-focus-6-months-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "stagiaires-en-pharmacie-et-internes-pour-se-concentrer-sur-la-pharmacie-oncologique-6-mois-spital-thurgau-stgag"
         ]
       },
       "previousSlugs": [
-        "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6"
+        "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6",
+        "pharmacy-students-and-interns-for-oncological-pharmacy-focus-6-months-spital-thurgau-stgag-munsterlingen",
+        "stagiaires-en-pharmacie-et-internes-pour-se-concentrer-sur-la-pharmacie-oncologique-6-mois-spital-thurgau-stgag"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

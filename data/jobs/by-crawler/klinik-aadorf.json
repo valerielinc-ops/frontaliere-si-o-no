@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf",
         "it": "mitarbeiterin-collaboratore-trice-technischer-dienst-100-m-w-d-klinik-aadorf",
-        "en": "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf",
-        "fr": "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf"
+        "en": "worker-worker-technical-service-100-w-m-d-klinik-aadorf-aadorf",
+        "fr": "travailleurs-services-techniques-des-travailleurs-100-w-m-d-klinik-aadorf-aadorf"
       },
       "company": "Klinik Aadorf",
       "companyKey": "klinik-aadorf",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-technischer-dienst-100-w-m-d-klinik-aadorf-aadorf"
         ]
       },
@@ -123,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-w-m-d-100-klinik-aadorf-aadorf",
-        "cuoca-cuoco-m-f-d-100-klinik-aadorf-aadorf"
+        "kochin-koch-w-m-d-100-klinik-aadorf-aadorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-w-m-d-100-klinik-aadorf-aadorf",
-          "cuoca-cuoco-m-f-d-100-klinik-aadorf-aadorf"
+          "kochin-koch-w-m-d-100-klinik-aadorf-aadorf"
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:21.925Z",
@@ -195,13 +199,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-bzw-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik",
-        "facharztin-facharzt-o-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik-aadorf-aadorf"
+        "facharztin-facharzt-bzw-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-bzw-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik",
-          "facharztin-facharzt-o-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik-aadorf-aadorf"
+          "facharztin-facharzt-bzw-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik"
         ],
         "en": [
           "facharztin-facharzt-bzw-oberarztin-oberarzt-w-m-d-station-oase-ambulatorium-80-100-klinik"
@@ -274,14 +276,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-psychologie-80-100-klinik-aadorf-aadorf",
-        "praktikant-in-psychologie-w-m-d-80-100-klinik-aadorf-aadorf",
-        "tirocinante-in-psicologia-80-100-klinik-aadorf-aadorf"
+        "praktikant-in-psychologie-w-m-d-80-100-klinik-aadorf-aadorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-psychologie-80-100-klinik-aadorf-aadorf",
-          "praktikant-in-psychologie-w-m-d-80-100-klinik-aadorf-aadorf",
-          "tirocinante-in-psicologia-80-100-klinik-aadorf-aadorf"
+          "praktikant-in-psychologie-w-m-d-80-100-klinik-aadorf-aadorf"
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:21.407Z",

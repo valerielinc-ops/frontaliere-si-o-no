@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "solina-e0e02df7e063",
-      "slug": "praktikant-in-stiftung-solina-standortubergreifend",
+      "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "de": "praktikant-in-solina-standortubergreifend",
-        "it": "praktikant-in-stiftung-solina-standortubergreifend",
-        "en": "praktikant-in-stiftung-solina-standortubergreifend",
-        "fr": "praktikant-in-stiftung-solina-standortubergreifend"
+        "it": "interno-in-stiftung-solina-standortubergreifend",
+        "en": "intern-in-stiftung-solina-standortubergreifend",
+        "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-solina-standortubergreifend"
+          "praktikant-in-solina-standortubergreifend",
+          "praktikant-in-stiftung-solina-standortubergreifend"
+        ],
+        "en": [
+          "praktikant-in-stiftung-solina-standortubergreifend"
+        ],
+        "fr": [
+          "praktikant-in-stiftung-solina-standortubergreifend"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-solina-standortubergreifend"
+        "praktikant-in-solina-standortubergreifend",
+        "praktikant-in-stiftung-solina-standortubergreifend"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -76,12 +84,12 @@
     },
     {
       "id": "solina-9538262d34c6",
-      "slug": "vorpraktikant-in-solina-spiez",
+      "slug": "pre-pratico-in-stiftung-solina-spiez",
       "slugByLocale": {
         "de": "vorpraktikant-in-solina-spiez",
-        "it": "vorpraktikant-in-solina-spiez",
-        "en": "vorpraktikant-in-solina-spiez",
-        "fr": "vorpraktikant-in-solina-spiez"
+        "it": "pre-pratico-in-stiftung-solina-spiez",
+        "en": "pre-practical-in-stiftung-solina-spiez",
+        "fr": "pre-pratique-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -136,7 +144,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:13:42.319Z"
+      "firstSeenAt": "2026-07-09T12:13:42.319Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikant-in-solina-spiez"
+        ],
+        "en": [
+          "vorpraktikant-in-solina-spiez"
+        ],
+        "fr": [
+          "vorpraktikant-in-solina-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikant-in-solina-spiez"
+      ]
     },
     {
       "id": "solina-22ac4d2a2d29",
@@ -188,13 +210,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-          "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
@@ -268,13 +288,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-          "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
@@ -348,13 +366,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
-        "assistenza-specialistica-stiftung-solina-steffisburg-ziegelei"
+        "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
-          "assistenza-specialistica-stiftung-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
@@ -429,14 +445,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-          "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
@@ -509,13 +523,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "infermieristica-stiftung-solina-steffisburg-kirchbuhl"
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-          "infermieristica-stiftung-solina-steffisburg-kirchbuhl"
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
@@ -589,13 +601,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-solina-spiez",
-        "assistenza-specialistica-stiftung-solina-spiez"
+        "fachfrau-fachmann-betreuung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-solina-spiez",
-          "assistenza-specialistica-stiftung-solina-spiez"
+          "fachfrau-fachmann-betreuung-solina-spiez"
         ],
         "en": [
           "fachfrau-fachmann-betreuung-solina-spiez"
@@ -669,14 +679,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
-        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "infermieristica-stiftung-solina-steffisburg-kirchbuhl-9deefe"
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
-          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-          "infermieristica-stiftung-solina-steffisburg-kirchbuhl-9deefe"
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"

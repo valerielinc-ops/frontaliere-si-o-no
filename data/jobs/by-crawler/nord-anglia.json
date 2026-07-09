@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teacher-of-mathematics-nord-anglia-aubonne",
-        "insegnante-di-matematica-la-cote-international-school-nord-anglia-education-aubonne"
+        "teacher-of-mathematics-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teacher-of-mathematics-nord-anglia-aubonne",
-          "insegnante-di-matematica-la-cote-international-school-nord-anglia-education-aubonne"
+          "teacher-of-mathematics-nord-anglia-aubonne"
         ],
         "de": [
           "teacher-of-mathematics-nord-anglia-aubonne"
@@ -134,13 +132,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teacher-of-biology-nord-anglia-aubonne",
-        "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne"
+        "teacher-of-biology-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teacher-of-biology-nord-anglia-aubonne",
-          "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne"
+          "teacher-of-biology-nord-anglia-aubonne"
         ],
         "de": [
           "teacher-of-biology-nord-anglia-aubonne"
@@ -215,13 +211,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
-        "autista-scolastico-e-concierge-versatile-la-cote-international-school-nord-anglia-education-aubonne"
+        "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
-          "autista-scolastico-e-concierge-versatile-la-cote-international-school-nord-anglia-education-aubonne"
+          "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
         ],
         "en": [
           "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
@@ -296,13 +290,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
-        "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education"
+        "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
-          "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education"
+          "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
         ],
         "en": [
           "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
@@ -328,12 +320,12 @@
     },
     {
       "id": "nord-anglia-d37cea6aab56",
-      "slug": "learning-support-assistants-nord-anglia-aubonne",
+      "slug": "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
         "en": "learning-support-assistants-nord-anglia-aubonne",
-        "it": "learning-support-assistants-nord-anglia-aubonne",
+        "it": "assistenti-di-supporto-all-apprendimento-la-cote-international-school-nord-anglia-education-aubonne",
         "de": "learning-support-assistants-nord-anglia-aubonne",
-        "fr": "learning-support-assistants-nord-anglia-aubonne"
+        "fr": "assistants-d-appui-a-l-apprentissage-la-cote-international-school-nord-anglia-education-aubonne"
       },
       "company": "La Côte International School (Nord Anglia Education)",
       "companyKey": "nord-anglia",
@@ -390,7 +382,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:16:46.426Z"
+      "firstSeenAt": "2026-07-09T12:16:46.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-support-assistants-nord-anglia-aubonne"
+        ],
+        "fr": [
+          "learning-support-assistants-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "learning-support-assistants-nord-anglia-aubonne"
+      ]
     }
   ]
 }

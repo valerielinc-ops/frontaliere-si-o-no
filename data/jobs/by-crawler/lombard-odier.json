@@ -2996,12 +2996,12 @@
     },
     {
       "id": "lombard-odier-8f0514a7593b",
-      "slug": "office-manager-12-month-contract-lombard-odier-ch",
+      "slug": "responsabile-ufficio-12-mesi-lombard-odier-london",
       "slugByLocale": {
         "en": "office-manager-12-month-contract-lombard-odier-ch",
-        "it": "office-manager-12-month-contract-lombard-odier-ch",
-        "de": "office-manager-12-month-contract-lombard-odier-ch",
-        "fr": "office-manager-12-month-contract-lombard-odier-ch"
+        "it": "responsabile-ufficio-12-mesi-lombard-odier-london",
+        "de": "office-manager-12-monate-vertrag-lombard-odier-london",
+        "fr": "gestionnaire-de-bureau-contrat-de-12-mois-lombard-odier-london"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -3055,7 +3055,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-09T12:47:02.061Z"
+      "firstSeenAt": "2026-07-09T12:47:02.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-manager-12-month-contract-lombard-odier-ch"
+        ],
+        "de": [
+          "office-manager-12-month-contract-lombard-odier-ch"
+        ],
+        "fr": [
+          "office-manager-12-month-contract-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "office-manager-12-month-contract-lombard-odier-ch"
+      ]
     }
   ]
 }

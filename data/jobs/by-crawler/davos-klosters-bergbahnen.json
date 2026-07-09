@@ -197,9 +197,9 @@
     },
     {
       "id": "davos-klosters-bergbahnen-f419cf00fdbd",
-      "slug": "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos",
+      "slug": "capopartita-hotel-waldhuus-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos",
+        "it": "capopartita-hotel-waldhuus-davos-klosters-bergbahnen-ag-davos",
         "en": "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos",
         "de": "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos",
         "fr": "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos"
@@ -252,7 +252,15 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-hotel-waldhuus-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-1d7bd34165b1",

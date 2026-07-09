@@ -6,7 +6,7 @@
       "id": "air-zermatt-a08ba50768a4",
       "slug": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
       "slugByLocale": {
-        "fr": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
+        "fr": "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron-44b9b4",
         "it": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "en": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "de": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt"
@@ -64,10 +64,10 @@
     },
     {
       "id": "air-zermatt-a88db8fd4ebd",
-      "slug": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
+      "slug": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
       "slugByLocale": {
         "fr": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
-        "it": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
+        "it": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
         "en": "transport-or-emergency-medical-technician-100-raron-air-zermatt",
         "de": "transport-or-emergency-medical-technician-100-raron-air-zermatt"
       },
@@ -120,7 +120,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:29:16.735Z"
+      "firstSeenAt": "2026-07-09T12:29:16.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "transport-or-emergency-medical-technician-100-raron-air-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "transport-or-emergency-medical-technician-100-raron-air-zermatt"
+      ]
     },
     {
       "id": "air-zermatt-dfbbe85d1afb",

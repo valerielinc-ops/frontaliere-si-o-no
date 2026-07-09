@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "klinik-gut-3888-299dfde7d875",
-      "slug": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
+      "slug": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
       "slugByLocale": {
         "de": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-        "it": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-        "en": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch",
-        "fr": "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+        "it": "team-management-operazioni-manutenzione-organizzazione-80-100-klinik-gut-ag-flasch",
+        "en": "team-management-operations-maintenance-organization-80-100-klinik-gut-ag-flasch",
+        "fr": "gestion-d-equipe-maintenance-des-operations-organisation-80-100-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -49,16 +49,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+        ],
+        "en": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+        ],
+        "fr": [
+          "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
+      ]
     },
     {
       "id": "klinik-gut-3890-87664fa20161",
-      "slug": "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch",
+      "slug": "gestione-del-team-gestione-delle-operazioni-manutenzione-leadership-80-100-klinik-gut-ag-flasch",
       "slugByLocale": {
         "de": "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch",
-        "it": "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch",
-        "en": "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch",
-        "fr": "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+        "it": "gestione-del-team-gestione-delle-operazioni-manutenzione-leadership-80-100-klinik-gut-ag-flasch",
+        "en": "team-management-operations-maintenance-leadership-80-100-klinik-gut-ag-flasch",
+        "fr": "gestion-de-l-equipe-maintenance-des-operations-leadership-80-100-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -100,7 +114,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+        ],
+        "en": [
+          "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+        ],
+        "fr": [
+          "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
+      ]
     },
     {
       "id": "klinik-gut-2110-1176e329961f",
@@ -151,16 +179,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
-        "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
-          "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.967Z"
     },
     {
@@ -212,16 +230,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
-        "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
-          "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.979Z"
     },
     {
@@ -273,16 +281,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
-        "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
-          "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.981Z"
     },
     {
@@ -334,22 +332,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
-        "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
-          "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz"
-        ],
-        "en": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
-        ],
-        "fr": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.989Z"
     },
     {
@@ -402,21 +384,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz",
-        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-        "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz"
+        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz",
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-          "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz"
-        ],
-        "en": [
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
-        ],
-        "fr": [
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
+          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z"
@@ -470,16 +442,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
-        "assistente-medico-a-100-klinik-gut-ag-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
-          "assistente-medico-a-100-klinik-gut-ag-flasch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.983Z"
     },
     {
@@ -531,16 +493,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
-        "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
-          "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.985Z"
     },
     {
@@ -592,16 +544,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
-        "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
-          "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.986Z"
     },
     {
@@ -655,22 +597,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ],
         "it": [
-          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
-          "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
-          "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch"
+          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ],
         "en": [
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ]
       },
       "previousSlugs": [
-        "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
-        "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
-        "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch"
+        "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
       ],
       "firstSeenAt": "2026-06-29T22:54:47.988Z"
     },
@@ -723,16 +660,6 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-          "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T22:54:47.989Z"
     }
   ]

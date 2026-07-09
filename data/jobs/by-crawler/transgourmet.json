@@ -1033,9 +1033,9 @@
     },
     {
       "id": "transgourmet-f633a1ed-4c6",
-      "slug": "finestre-del-system-engineer-transgourmet-moosseedorf",
+      "slug": "system-ingegnere-windows-transgourmet-moosseedorf",
       "slugByLocale": {
-        "it": "finestre-del-system-engineer-transgourmet-moosseedorf",
+        "it": "system-ingegnere-windows-transgourmet-moosseedorf",
         "en": "system-engineer-windows-transgourmet-moosseedorf",
         "de": "system-engineer-windows-transgourmet-moosseedorf",
         "fr": "ingenieur-systemes-windows-transgourmet-moosseedorf"
@@ -1086,11 +1086,13 @@
       "firstSeenAt": "2026-07-06T15:46:10.889Z",
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-windows-transgourmet-moosseedorf"
+          "system-engineer-windows-transgourmet-moosseedorf",
+          "finestre-del-system-engineer-transgourmet-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "system-engineer-windows-transgourmet-moosseedorf"
+        "system-engineer-windows-transgourmet-moosseedorf",
+        "finestre-del-system-engineer-transgourmet-moosseedorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1158,13 +1160,11 @@
       ],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-chur",
-        "ordina-picker-ordine-picker-transgourmet-chur"
+        "kommissioniererin-kommissionierer-transgourmet-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissioniererin-kommissionierer-transgourmet-chur",
-          "ordina-picker-ordine-picker-transgourmet-chur"
+          "kommissioniererin-kommissionierer-transgourmet-chur"
         ],
         "en": [
           "kommissioniererin-kommissionierer-transgourmet-chur"
@@ -1337,12 +1337,12 @@
     },
     {
       "id": "transgourmet-3faea13e-f00",
-      "slug": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
+      "slug": "junior-project-manager-strategia-di-project-manager-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "it": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "en": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "fr": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        "it": "junior-project-manager-strategia-di-project-manager-transgourmet-moosseedorf",
+        "en": "junior-project-manager-project-manager-strategy-transgourmet-moosseedorf",
+        "fr": "gestionnaire-de-projet-junior-strategie-de-gestionnaire-de-projet-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1403,7 +1403,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:12:17.948Z"
+      "firstSeenAt": "2026-07-09T12:12:17.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-29910f8f-516",
@@ -1411,8 +1425,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
         "it": "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-hinwil",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
-        "fr": "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil"
+        "en": "mitarbeiterin-sales-associate-allrounder-50-transgourmet-hinwil",
+        "fr": "mitarbeiterin-vendeur-se-allrounder-50-transgourmet-hinwil"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1464,6 +1478,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil"
         ]
       },
       "previousSlugs": [
@@ -1485,10 +1505,10 @@
     },
     {
       "id": "transgourmet-479d262b-3bf",
-      "slug": "key-account-manager-transgourmet-rennaz",
+      "slug": "gestione-account-chiave-transgourmet-rennaz",
       "slugByLocale": {
         "fr": "key-account-manager-transgourmet-rennaz",
-        "it": "key-account-manager-transgourmet-rennaz",
+        "it": "gestione-account-chiave-transgourmet-rennaz",
         "en": "key-account-manager-transgourmet-rennaz",
         "de": "key-account-manager-transgourmet-rennaz"
       },
@@ -1551,7 +1571,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:12:17.947Z"
+      "firstSeenAt": "2026-07-09T12:12:17.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-transgourmet-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-transgourmet-rennaz"
+      ]
     },
     {
       "id": "transgourmet-cf1ffd74-342",
@@ -1559,7 +1587,7 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil",
         "it": "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil",
+        "en": "mitarbeiterin-sales-associate-allrounder-80-100-transgourmet-hinwil",
         "fr": "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil"
       },
       "company": "Transgourmet",
@@ -1611,6 +1639,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil"
+        ],
+        "en": [
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil"
         ]
       },

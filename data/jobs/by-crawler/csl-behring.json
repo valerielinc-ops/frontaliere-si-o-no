@@ -2941,12 +2941,12 @@
     },
     {
       "id": "csl-behring-a38c401a1d20",
-      "slug": "senior-clinical-scientist-csl-behring-ch",
+      "slug": "scienziato-clinico-senior-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-clinical-scientist-csl-behring-ch",
-        "it": "senior-clinical-scientist-csl-behring-ch",
+        "it": "scienziato-clinico-senior-csl-behring-bern",
         "de": "senior-clinical-scientist-csl-behring-ch",
-        "fr": "senior-clinical-scientist-csl-behring-ch"
+        "fr": "chercheur-clinique-principal-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3001,7 +3001,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:12:24.113Z"
+      "firstSeenAt": "2026-07-09T12:12:24.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-clinical-scientist-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-clinical-scientist-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-clinical-scientist-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-320d1b029fd7",
