@@ -1,6 +1,6 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-07-09T15:43:38.132Z",
+  "assembledAt": "2026-07-09T17:53:02.841Z",
   "jobs": [
     {
       "title": "Specialista Marketing Digitale (Canary Test)",
@@ -31,21 +31,18 @@
       "description": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test.",
       "titleByLocale": {
         "it": "Specialista Marketing Digitale (Canary Test)",
-        "en": "Digital Marketing Specialist (Canary Test)",
-        "de": "Spezialist für digitales Marketing (Kanarientest)",
-        "fr": "Spécialiste de la commercialisation numérique (test canari)"
+        "en": "Specialista Marketing Digitale (Canary Test)",
+        "de": "Specialista Marketing Digitale (Canary Test)",
+        "fr": "Specialista Marketing Digitale (Canary Test)"
       },
       "slugByLocale": {
         "it": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
-        "en": "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano",
-        "de": "spezialist-fur-digitales-marketing-kanarientest-frontaliere-ticino-lugano",
-        "fr": "specialiste-de-la-commercialisation-numerique-test-canari-frontaliere-ticino-lugano"
+        "en": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+        "de": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+        "fr": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino"
       },
       "descriptionByLocale": {
-        "it": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test.",
-        "en": "Internal demonstration announcement used to verify end-to-end the funnel of sponsored ads: dedicated page, search, top ranking, in-house applications, structured SEO data, blast newsletter, job alert and job alert specific for this ad.\n• We are looking for a reasoned figure to coordinate digital campaigns, analyze metrics and optimize communication towards the front desks of Canton Ticino. This advertisement is publicly visible but its emails are sent exclusively to the site owner to not disturb real users during testing.",
-        "de": "Interne Demonstrationsankündigung verwendet, um den Funnel der gesponserten Anzeigen zu überprüfen: dedizierte Seite, Suche, Top-Ranking, In-House-Anwendungen, strukturierte SEO-Daten, Explosions-Newsletter, Job Alert und Job Alert spezifisch für diese Anzeige.\n• Wir suchen eine mit Gründen versehene Zahl, um digitale Kampagnen zu koordinieren, Metriken zu analysieren und die Kommunikation an der Rezeption des Kantons Tessin zu optimieren. Diese Werbung ist öffentlich sichtbar, aber ihre E-Mails werden ausschließlich an den Websitebesitzer gesendet, um echte Benutzer während des Testens nicht zu stören.",
-        "fr": "Annonce de démonstration interne utilisée pour vérifier de bout en bout l'entonnoir d'annonces sponsorisées: page dédiée, recherche, classement supérieur, applications internes, données SEO structurées, bulletin d'information blast, alerte d'emploi et alerte d'emploi spécifique à cette annonce.\n• Nous recherchons une figure raisonnée pour coordonner les campagnes numériques, analyser les paramètres et optimiser la communication vers les comptoirs du canton du Tessin. Cette publicité est visible publiquement mais ses courriels sont envoyés exclusivement au propriétaire du site pour ne pas déranger les utilisateurs réels pendant les tests."
+        "it": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test."
       },
       "id": "pub-canary-owner-demo-lugano",
       "salaryMin": 70000,
@@ -59,6 +56,7 @@
       "publisherUid": "aAqGpXr2mUQNQlio3gCxut4bBzH3",
       "publisherJobId": "canary-owner-demo",
       "canary": true,
+      "needsRetranslation": true,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -70,24 +68,29 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano",
-          "spezialist-fur-digitales-marketing-kanarientest-frontaliere-ticino-lugano",
-          "specialiste-de-la-commercialisation-numerique-test-canari-frontaliere-ticino-lugano",
-          "specialiste-du-marketing-numerique-test-canari-frontaliere-ticino-lugano",
-          "digitaler-marketing-spezialist-kanarienvogeltest-frontaliere-ticino-lugano",
-          "digitaler-marketingspezialist-canary-test-frontaliere-ticino-lugano",
-          "specialiste-en-marketing-digital-test-canary-frontaliere-ticino-lugano",
-          "specialiste-du-marketing-numerique-canary-test-frontaliere-ticino-lugano"
+        "en": [
+          "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano"
         ],
         "de": [
+          "spezialist-fur-digitales-marketing-kanarientest-frontaliere-ticino-lugano",
           "digitaler-marketing-spezialist-kanarienvogeltest-frontaliere-ticino-lugano",
           "digitaler-marketingspezialist-canary-test-frontaliere-ticino-lugano"
         ],
         "fr": [
+          "specialiste-de-la-commercialisation-numerique-test-canari-frontaliere-ticino-lugano",
           "specialiste-du-marketing-numerique-test-canari-frontaliere-ticino-lugano",
           "specialiste-en-marketing-digital-test-canary-frontaliere-ticino-lugano",
           "specialiste-du-marketing-numerique-canary-test-frontaliere-ticino-lugano"
+        ],
+        "it": [
+          "specialiste-du-marketing-numerique-test-canari-frontaliere-ticino-lugano",
+          "digitaler-marketing-spezialist-kanarienvogeltest-frontaliere-ticino-lugano",
+          "digitaler-marketingspezialist-canary-test-frontaliere-ticino-lugano",
+          "specialiste-en-marketing-digital-test-canary-frontaliere-ticino-lugano",
+          "specialiste-du-marketing-numerique-canary-test-frontaliere-ticino-lugano",
+          "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano",
+          "spezialist-fur-digitales-marketing-kanarientest-frontaliere-ticino-lugano",
+          "specialiste-de-la-commercialisation-numerique-test-canari-frontaliere-ticino-lugano"
         ]
       },
       "previousSlugs": [
