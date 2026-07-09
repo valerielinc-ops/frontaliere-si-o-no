@@ -114,7 +114,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-09T12:47:58.763Z",
       "firstSeenAt": "2026-07-08T22:17:04.640Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -558,7 +557,7 @@
       "title": "Allrounder:in Restaurant Bolgen Plaza",
       "titleByLocale": {
         "it": "Tuttofare: nel ristorante Bolgen Plaza",
-        "en": "Allrounder:in Restaurant Bolgen Plaza",
+        "en": "All-rounder: in restaurant Bolgen Plaza",
         "de": "Allrounder:in Restaurant Bolgen Plaza",
         "fr": "All-rounder: au restaurant Bolgen Plaza"
       },
@@ -594,7 +593,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:24:47.978Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -748,8 +746,7 @@
       "previousSlugs": [
         "masseur-in-davos-klosters-bergbahnen-davos"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "davos-klosters-bergbahnen-e8245dfb2fc2",
@@ -819,8 +816,7 @@
       "previousSlugs": [
         "chef-de-partie-davos-klosters-bergbahnen-davos"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
