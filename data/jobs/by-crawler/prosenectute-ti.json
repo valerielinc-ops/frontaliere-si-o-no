@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-07-08T11:11:07.367Z",
+  "assembledAt": "2026-07-09T12:11:37.268Z",
   "jobs": [
     {
       "id": "prosenectute-ti-34a987b1a59e",
@@ -34,7 +34,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:11:05.390Z",
+      "crawledAt": "2026-07-09T12:11:35.287Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,12 +51,6 @@
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "general-competition-2026-op-social-assistance-pro-senectute-ticino-e-moesano-lugano",
-        "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano",
-        "concorso-generale-2026-op-socio-assistenziali-prosenectute-ti",
-        "concorso-generale-2026-op-socio-assistenziali-pro-senectute-ticino-e-moesano-lugano"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "concorso-generale-2026-op-socio-assistenziali-prosenectute-ti",
@@ -69,6 +63,12 @@
           "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano"
         ]
       },
+      "previousSlugs": [
+        "general-competition-2026-op-social-assistance-pro-senectute-ticino-e-moesano-lugano",
+        "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano",
+        "concorso-generale-2026-op-socio-assistenziali-prosenectute-ti",
+        "concorso-generale-2026-op-socio-assistenziali-pro-senectute-ticino-e-moesano-lugano"
+      ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -115,7 +115,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:11:04.993Z",
+      "crawledAt": "2026-07-09T12:11:35.039Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -132,16 +132,16 @@
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "concorso-generale-2026-infermieri-prosenectute-ti",
-        "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "concorso-generale-2026-infermieri-prosenectute-ti",
           "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano"
         ]
       },
+      "previousSlugs": [
+        "concorso-generale-2026-infermieri-prosenectute-ti",
+        "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano"
+      ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -188,7 +188,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:11:04.443Z",
+      "crawledAt": "2026-07-09T12:11:34.599Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -205,11 +205,6 @@
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano",
-        "concorso-generale-2025-assistenti-sociali-prosenectute-ti",
-        "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "concorso-generale-2025-assistenti-sociali-prosenectute-ti",
@@ -219,6 +214,11 @@
           "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano"
         ]
       },
+      "previousSlugs": [
+        "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano",
+        "concorso-generale-2025-assistenti-sociali-prosenectute-ti",
+        "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano"
+      ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -265,7 +265,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T11:11:03.544Z",
+      "crawledAt": "2026-07-09T12:11:33.737Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -282,16 +282,16 @@
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "concorso-generale-2026-educatori-prosenectute-ti",
-        "concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "concorso-generale-2026-educatori-prosenectute-ti",
           "concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano"
         ]
       },
+      "previousSlugs": [
+        "concorso-generale-2026-educatori-prosenectute-ti",
+        "concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano"
+      ],
       "firstSeenAt": "2026-05-19T16:48:11.686Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
