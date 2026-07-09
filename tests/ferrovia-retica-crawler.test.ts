@@ -16,6 +16,7 @@ import {
   inferLocation,
   stripHtml,
   normalizeSpace,
+  sourceLangFromUrl,
 } from '@/scripts/lib/ferrovia-retica-job-parser.mjs';
 
 // ─── Fixture: Career listing page ──────────────────────────
@@ -248,6 +249,39 @@ describe('buildJob', () => {
     const longDesc = Array(60).fill('word').join(' ');
     const job = buildJob({ title: 'Test Job', location: 'Chur', description: longDesc });
     expect(job!.description).toBe(longDesc);
+  });
+
+  it('derives sourceLang from the crawled locale URL, not a hardcoded default', () => {
+    const itJob = buildJob({ title: 'Test Job', location: 'Chur', url: 'https://www.rhb.ch/it/job/test-job_2026-0001/' });
+    expect(itJob!.sourceLang).toBe('it');
+    expect(itJob!.titleByLocale).toEqual({ it: 'Test Job' });
+
+    const deJob = buildJob({ title: 'Testjob', location: 'Chur', url: 'https://www.rhb.ch/de/job/testjob_2026-0002/' });
+    expect(deJob!.sourceLang).toBe('de');
+
+    const frJob = buildJob({ title: 'Poste de test', location: 'Chur', url: 'https://www.rhb.ch/fr/job/poste-de-test_2026-0003/' });
+    expect(frJob!.sourceLang).toBe('fr');
+  });
+
+  it('falls back to sourceLang de when the URL carries no locale segment', () => {
+    const job = buildJob({ title: 'Test Job', location: 'Chur' });
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.titleByLocale).toEqual({ de: 'Test Job' });
+  });
+});
+
+describe('sourceLangFromUrl', () => {
+  it('extracts it/de/en/fr from RhB per-locale job URLs', () => {
+    expect(sourceLangFromUrl('https://www.rhb.ch/it/job/foo_2026-0001/')).toBe('it');
+    expect(sourceLangFromUrl('https://www.rhb.ch/de/job/foo_2026-0001/')).toBe('de');
+    expect(sourceLangFromUrl('https://www.rhb.ch/en/job/foo_2026-0001/')).toBe('en');
+    expect(sourceLangFromUrl('https://www.rhb.ch/fr/job/foo_2026-0001/')).toBe('fr');
+  });
+
+  it('defaults to de when the URL has no locale segment', () => {
+    expect(sourceLangFromUrl('https://www.rhb.ch/some/other/path')).toBe('de');
+    expect(sourceLangFromUrl('')).toBe('de');
+    expect(sourceLangFromUrl(undefined)).toBe('de');
   });
 });
 
