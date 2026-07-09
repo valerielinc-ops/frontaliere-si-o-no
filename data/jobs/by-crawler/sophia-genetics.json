@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-07-08T22:10:57.590Z",
+  "assembledAt": "2026-07-09T12:20:24.913Z",
   "jobs": [
     {
       "id": "sophia-genetics-a85899187eab",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.513Z",
+      "crawledAt": "2026-07-09T12:20:20.138Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -53,6 +53,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:48.314Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -97,7 +98,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/E4102E5646/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.447Z",
+      "crawledAt": "2026-07-09T12:20:20.065Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -161,7 +162,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.386Z",
+      "crawledAt": "2026-07-09T12:20:19.990Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -181,11 +182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+        "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+        "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
+          "senior-manager-accounting-contract-november-april-sophia-genetics-rolle",
+          "senior-manager-contabilita-contratto-novembre-aprile-sophia-genetics-rolle"
         ],
         "de": [
           "senior-manager-accounting-contract-november-april-sophia-genetics-rolle"
@@ -212,34 +215,34 @@
       "id": "sophia-genetics-010b991190d9",
       "slug": "senior-clinical-affairs-manager-sophia-genetics-rolle",
       "slugByLocale": {
-        "en": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "it": "senior-clinical-affairs-manager-sophia-genetics-rolle",
+        "en": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "de": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "fr": "gestionnaire-principal-des-affaires-cliniques-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
       "companyDomain": "sophiagenetics.com",
-      "title": "Senior Clinical Affairs manager",
+      "title": "Senior Clinical Affairs Manager",
       "titleByLocale": {
-        "en": "Senior Clinical Affairs manager",
         "it": "Senior Clinical Affairs manager",
+        "en": "Senior Clinical Affairs Manager",
         "de": "Senior Clinical Affairs manager",
         "fr": "Gestionnaire principal des affaires cliniques"
       },
       "description": "Do you bring a strong background in clinical affairs, clinical science, or clinical operations within IVD or molecular diagnostics? Have you designed clinical performance studies and shaped clinical evidence strategy in an IVDR, CE-IVD, or companion diagnostics environment?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Senior Clinical Affairs Manager and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, Switzerland corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As Clinical Affairs Lead / Senior Clinical Affairs Manager, you will own the clinical performance strategy for validation work, partnering closely with internal stakeholders and external partners to design and deliver clinical performance studies in an IVD and molecular diagnostics context.\n This is an individual contributor role with significant seniority and visibility. You will work cross-functionally with Regulatory Affairs, Clinical Operations, CROs, consultants, notified bodies, and biopharma partners, bringing the clinical and scientific expertise needed to shape study design, clinical risk evaluation, and clinical evidence requirements.\n The value you add\n\n• Design and deliver clinical performance study strategy, protocols, and reports for IVDR and CDx programs.\n\n• Define and address clinical evidence requirements, providing clinical input into product risk evaluation and study design.\n\n• Partner closely with Regulatory Affairs on technical files, notified body interactions, and clinical evidence questions.\n\n• Govern CRO activity day to day, reviewing outputs with a critical eye and holding external partners accountable for delivery.\n\n• Contribute to the development of a strong validation function, working alongside analytical performance and clinical operations colleagues.",
       "descriptionByLocale": {
-        "en": "Do you bring a strong background in clinical affairs, clinical science, or clinical operations within IVD or molecular diagnostics? Have you designed clinical performance studies and shaped clinical evidence strategy in an IVDR, CE-IVD, or companion diagnostics environment?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Senior Clinical Affairs Manager and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, Switzerland corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As Clinical Affairs Lead / Senior Clinical Affairs Manager, you will own the clinical performance strategy for validation work, partnering closely with internal stakeholders and external partners to design and deliver clinical performance studies in an IVD and molecular diagnostics context.\n This is an individual contributor role with significant seniority and visibility. You will work cross-functionally with Regulatory Affairs, Clinical Operations, CROs, consultants, notified bodies, and biopharma partners, bringing the clinical and scientific expertise needed to shape study design, clinical risk evaluation, and clinical evidence requirements.\n The value you add\n\n• Design and deliver clinical performance study strategy, protocols, and reports for IVDR and CDx programs.\n\n• Define and address clinical evidence requirements, providing clinical input into product risk evaluation and study design.\n\n• Partner closely with Regulatory Affairs on technical files, notified body interactions, and clinical evidence questions.\n\n• Govern CRO activity day to day, reviewing outputs with a critical eye and holding external partners accountable for delivery.\n\n• Contribute to the development of a strong validation function, working alongside analytical performance and clinical operations colleagues.",
-        "it": "Porti uno sfondo forte negli affari clinici, nella scienza clinica o nelle operazioni cliniche all'interno della diagnostica IVD o molecolare? Ha progettato studi clinici sulle prestazioni e ha modellato la strategia di prova clinica in un ambiente di diagnostica IVDR, CE-IVD o compagni?\n Se questo suona come te e sei guidato di proposito, unisciti al team di SOPHiA GENETICS come Senior Clinical Affairs Manager e ci permette di avere un impatto positivo sui risultati dei pazienti affetti da cancro e malattie rare in tutto il mondo.\n Godetevi la flessibilità di un programma di lavoro ibrido che consente 2 giorni di lavoro a casa PW, collaborando a stretto contatto con i colleghi del nostro ufficio aziendale Rolle, Svizzera.\n La nostra missione\n Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo.\n La tua missione\n Come Responsabile Affari Clinici Lead / Senior Clinical Affairs Manager, si possiede la strategia di performance clinica per il lavoro di validazione, collaborando strettamente con gli stakeholder interni e i partner esterni per progettare e fornire studi clinici sulle prestazioni in un contesto diagnostico IVD e molecolare.\n Si tratta di un ruolo di contributore individuale con una significativa anzianità e visibilità. Potrai lavorare in modo interfunzionale con gli Affari Regolatori, le Operazioni Cliniche, i CRO, i consulenti, gli organismi notificati e i partner biofarmaci, portando le competenze cliniche e scientifiche necessarie per modellare la progettazione dello studio, la valutazione del rischio clinico e i requisiti di prova clinica.\n Il valore che aggiungi\n\n• Progettare e fornire strategia di studio delle prestazioni cliniche, protocolli e rapporti per i programmi IVDR e CDx.\n\n• Definire e soddisfare i requisiti di prova clinica, fornendo input clinico nella valutazione del rischio di prodotto e progettazione di studio.\n\n• Collabora a stretto contatto con gli Affari Regolatori sui file tecnici, le interazioni corporee notificate e le domande di prova clinica.\n\n• Governare l'attività CRO giorno per giorno, rivedere gli output con un occhio critico e tenere partner esterni responsabile per la consegna.\n\n• Contribuisci allo sviluppo di una forte funzione di validazione, lavorando a fianco dei colleghi delle prestazioni analitiche e delle operazioni cliniche.",
-        "de": "Bringen Sie einen starken Hintergrund in klinischen Angelegenheiten, klinischen Wissenschaften oder klinischen Operationen in der IVD- oder Molekulardiagnostik mit? Haben Sie klinische Leistungsstudien entworfen und eine klinische Evidenzstrategie in einer IVDR-, CE-IVD- oder Begleitdiagnostikumgebung entwickelt?\n Wenn dies nach Ihnen klingt und Sie von Ihrem Ziel bestimmt sind, treten Sie dem SOPHiA GENETICS-Team als Senior Clinical Affairs Manager bei und ermöglichen es uns, die Ergebnisse für Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen.\n Genießen sie die flexibilität eines hybriden arbeitsplans, der 2 tage pw zu hause arbeiten lässt und eng mit kollegen in unserer firma rolle, schweiz, zusammenarbeitet.\n Unsere Mission\n Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren.\n Deine Mission\n Als Clinical Affairs Lead / Senior Clinical Affairs Manager besitzen Sie die klinische Leistungsstrategie für die Validierungsarbeit und arbeiten eng mit internen Stakeholdern und externen Partnern zusammen, um klinische Leistungsstudien in einem IVD- und Molekulardiagnostik-Kontext zu entwerfen und durchzuführen.\n Dies ist eine individuelle Mitwirkende Rolle mit erheblicher Seniorität und Sichtbarkeit. Sie arbeiten funktionsübergreifend mit Regulatory Affairs, Clinical Operations, CROs, Beratern, Benannten Stellen und Biopharma-Partnern zusammen und bringen die klinische und wissenschaftliche Expertise mit, die erforderlich ist, um das Studiendesign, die klinische Risikobewertung und die klinischen Nachweisanforderungen zu gestalten.\n Der Wert, den Sie hinzufügen\n\n• Entwerfen und liefern klinische Leistungsstudie Strategie, Protokolle und Berichte für IVDR und CDx-Programme.\n\n• Definieren und adressieren Sie die Anforderungen an klinische Nachweise und liefern Sie klinischen Input in die Produktrisikobewertung und das Studiendesign.\n\n• Enge Zusammenarbeit mit Regulatory Affairs zu technischen Dateien, Interaktionen mit Benannten Stellen und klinischen Evidenzfragen.\n\n• Leiten Sie die CRO-Aktivitäten Tag für Tag, überprüfen Sie die Ergebnisse kritisch und halten Sie externe Partner für die Lieferung verantwortlich.\n\n• Beitrag zur Entwicklung einer starken Validierungsfunktion, die neben Kollegen für analytische Leistung und klinische Operationen arbeitet.",
-        "fr": "Apportez-vous une solide expérience en affaires cliniques, en sciences cliniques ou en opérations cliniques au sein de la DIV ou du diagnostic moléculaire? Avez-vous conçu des études de performance clinique et défini une stratégie de preuve clinique dans un environnement de diagnostic de DIV, de DIV-CE ou d'accompagnement?\n Si cela vous ressemble et que vous êtes animé par le but, rejoignez l'équipe de SOPHiA GENETICS en tant que directeur principal des affaires cliniques et nous permettent d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier.\n Profitez de la flexibilité d'un horaire de travail hybride permettant 2 jours de travail à domicile PW, en collaboration étroite avec nos collègues de notre bureau d'entreprise Rolle, Suisse.\n Notre mission\n Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier.\n Votre mission\n En tant que responsable des affaires cliniques et gestionnaire principal des affaires cliniques, vous posséderez la stratégie de performance clinique pour le travail de validation, en partenariat étroit avec les intervenants internes et les partenaires externes pour concevoir et réaliser des études de performance clinique dans un contexte de DIV et de diagnostic moléculaire.\n Il s'agit d'un rôle de contribution individuel avec une ancienneté et une visibilité importantes. Vous travaillerez en collaboration avec les Affaires réglementaires, les Opérations cliniques, les ORC, les consultants, les organismes notifiés et les partenaires biopharmaceutiques, apportant l'expertise clinique et scientifique nécessaire pour façonner la conception des études, l'évaluation des risques cliniques et les exigences en matière de preuves cliniques.\n La valeur ajoutée\n\n• Concevoir et fournir une stratégie, des protocoles et des rapports d'études cliniques de rendement pour les programmes de DIV et de CDx.\n\n• Définir et traiter les exigences en matière de preuves cliniques, en fournissant une contribution clinique à l'évaluation du risque de produit et à la conception de l'étude.\n\n• Collaborer étroitement avec Affaires réglementaires dans les dossiers techniques, les interactions avec les organismes notifiés et les questions sur les preuves cliniques.\n\n• Au jour le jour, les activités du BRC sont gérées en examinant les extrants avec un œil critique et en tenant les partenaires externes responsables de leur exécution.\n\n• Contribuer au développement d'une forte fonction de validation, en travaillant avec des collègues de performance analytique et d'opérations cliniques."
+        "it": "Porti uno sfondo forte negli affari clinici, nella scienza clinica o nelle operazioni cliniche all'interno della diagnostica IVD o molecolare? Ha progettato studi clinici sulle prestazioni e ha modellato la strategia di prova clinica in un ambiente di diagnostica IVDR, CE-IVD o compagni? Se questo suona come te e sei guidato di proposito, unisciti al team di SOPHiA GENETICS come Senior Clinical Affairs Manager e ci permette di avere un impatto positivo sui risultati dei pazienti affetti da cancro e malattie rare in tutto il mondo. Godetevi la flessibilità di un programma di lavoro ibrido che consente 2 giorni di lavoro a casa PW, collaborando a stretto contatto con i colleghi del nostro ufficio aziendale Rolle, Svizzera. La nostra missione Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo. La tua missione Come Responsabile Affari Clinici Lead / Senior Clinical Affairs Manager, si possiede la strategia di performance clinica per il lavoro di validazione, collaborando strettamente con gli stakeholder interni e i partner esterni per progettare e fornire studi clinici sulle prestazioni in un contesto diagnostico IVD e molecolare. Si tratta di un ruolo di contributore individuale con una significativa anzianità e visibilità. Potrai lavorare in modo interfunzionale con gli Affari Regolatori, le Operazioni Cliniche, i CRO, i consulenti, gli organismi notificati e i partner biofarmaci, portando le competenze cliniche e scientifiche necessarie per modellare la progettazione dello studio, la valutazione del rischio clinico e i requisiti di prova clinica. Il valore che aggiungi\n• Progettare e fornire strategia di studio delle prestazioni cliniche, protocolli e rapporti per i programmi IVDR e CDx.\n• Definire e soddisfare i requisiti di prova clinica, fornendo input clinico nella valutazione del rischio di prodotto e progettazione di studio.\n• Collabora a stretto contatto con gli Affari Regolatori sui file tecnici, le interazioni corporee notificate e le domande di prova clinica.\n• Governare l'attività CRO giorno per giorno, rivedere gli output con un occhio critico e tenere partner esterni responsabile per la consegna.\n• Contribuisci allo sviluppo di una forte funzione di validazione, lavorando a fianco dei colleghi delle prestazioni analitiche e delle operazioni cliniche.",
+        "en": "Do you bring a strong background in clinical affairs, clinical science, or clinical operations within IVD or molecular diagnostics? Have you designed clinical performance studies and shaped clinical evidence strategy in an IVDR, CE-IVD, or companion diagnostics environment? If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Senior Clinical Affairs Manager and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide. Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, Switzerland corporate office. Our Mission We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe. Your Mission As Clinical Affairs Lead / Senior Clinical Affairs Manager, you will own the clinical performance strategy for validation work, partnering closely with internal stakeholders and external partners to design and deliver clinical performance studies in an IVD and molecular diagnostics context. This is an individual contributor role with significant seniority and visibility. You will work cross-functionally with Regulatory Affairs, Clinical Operations, CROs, consultants, notified bodies, and biopharma partners, bringing the clinical and scientific expertise needed to shape study design, clinical risk evaluation, and clinical evidence requirements. The value you add\n• Design and deliver clinical performance study strategy, protocols, and reports for IVDR and CDx programs.\n• Define and address clinical evidence requirements, providing clinical input into product risk evaluation and study design.\n• Partner closely with Regulatory Affairs on technical files, notified body interactions, and clinical evidence questions.\n• Govern CRO activity day to day, reviewing outputs with a critical eye and holding external partners accountable for delivery.\n• Contribute to the development of a strong validation function, working alongside analytical performance and clinical operations colleagues.",
+        "de": "Bringen Sie einen starken Hintergrund in klinischen Angelegenheiten, klinischen Wissenschaften oder klinischen Operationen in der IVD- oder Molekulardiagnostik mit? Haben Sie klinische Leistungsstudien entworfen und eine klinische Evidenzstrategie in einer IVDR-, CE-IVD- oder Begleitdiagnostikumgebung entwickelt? Wenn dies nach Ihnen klingt und Sie von Ihrem Ziel bestimmt sind, treten Sie dem SOPHiA GENETICS-Team als Senior Clinical Affairs Manager bei und ermöglichen es uns, die Ergebnisse für Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen. Genießen sie die flexibilität eines hybriden arbeitsplans, der 2 tage pw zu hause arbeiten lässt und eng mit kollegen in unserer firma rolle, schweiz, zusammenarbeitet. Unsere Mission Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren. Deine Mission Als Clinical Affairs Lead / Senior Clinical Affairs Manager besitzen Sie die klinische Leistungsstrategie für die Validierungsarbeit und arbeiten eng mit internen Stakeholdern und externen Partnern zusammen, um klinische Leistungsstudien in einem IVD- und Molekulardiagnostik-Kontext zu entwerfen und durchzuführen. Dies ist eine individuelle Mitwirkende Rolle mit erheblicher Seniorität und Sichtbarkeit. Sie arbeiten funktionsübergreifend mit Regulatory Affairs, Clinical Operations, CROs, Beratern, Benannten Stellen und Biopharma-Partnern zusammen und bringen die klinische und wissenschaftliche Expertise mit, die erforderlich ist, um das Studiendesign, die klinische Risikobewertung und die klinischen Nachweisanforderungen zu gestalten. Der Wert, den Sie hinzufügen\n• Entwerfen und liefern klinische Leistungsstudie Strategie, Protokolle und Berichte für IVDR und CDx-Programme.\n• Definieren und adressieren Sie die Anforderungen an klinische Nachweise und liefern Sie klinischen Input in die Produktrisikobewertung und das Studiendesign.\n• Enge Zusammenarbeit mit Regulatory Affairs zu technischen Dateien, Interaktionen mit Benannten Stellen und klinischen Evidenzfragen.\n• Leiten Sie die CRO-Aktivitäten Tag für Tag, überprüfen Sie die Ergebnisse kritisch und halten Sie externe Partner für die Lieferung verantwortlich.\n• Beitrag zur Entwicklung einer starken Validierungsfunktion, die neben Kollegen für analytische Leistung und klinische Operationen arbeitet.",
+        "fr": "Apportez-vous une solide expérience en affaires cliniques, en sciences cliniques ou en opérations cliniques au sein de la DIV ou du diagnostic moléculaire? Avez-vous conçu des études de performance clinique et défini une stratégie de preuve clinique dans un environnement de diagnostic de DIV, de DIV-CE ou d'accompagnement? Si cela vous ressemble et que vous êtes animé par le but, rejoignez l'équipe de SOPHiA GENETICS en tant que directeur principal des affaires cliniques et nous permettent d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier. Profitez de la flexibilité d'un horaire de travail hybride permettant 2 jours de travail à domicile PW, en collaboration étroite avec nos collègues de notre bureau d'entreprise Rolle, Suisse. Notre mission Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier. Votre mission En tant que responsable des affaires cliniques et gestionnaire principal des affaires cliniques, vous posséderez la stratégie de performance clinique pour le travail de validation, en partenariat étroit avec les intervenants internes et les partenaires externes pour concevoir et réaliser des études de performance clinique dans un contexte de DIV et de diagnostic moléculaire. Il s'agit d'un rôle de contribution individuel avec une ancienneté et une visibilité importantes. Vous travaillerez en collaboration avec les Affaires réglementaires, les Opérations cliniques, les ORC, les consultants, les organismes notifiés et les partenaires biopharmaceutiques, apportant l'expertise clinique et scientifique nécessaire pour façonner la conception des études, l'évaluation des risques cliniques et les exigences en matière de preuves cliniques. La valeur ajoutée\n• Concevoir et fournir une stratégie, des protocoles et des rapports d'études cliniques de rendement pour les programmes de DIV et de CDx.\n• Définir et traiter les exigences en matière de preuves cliniques, en fournissant une contribution clinique à l'évaluation du risque de produit et à la conception de l'étude.\n• Collaborer étroitement avec Affaires réglementaires dans les dossiers techniques, les interactions avec les organismes notifiés et les questions sur les preuves cliniques.\n• Au jour le jour, les activités du BRC sont gérées en examinant les extrants avec un œil critique et en tenant les partenaires externes responsables de leur exécution.\n• Contribuer au développement d'une forte fonction de validation, en travaillant avec des collègues de performance analytique et d'opérations cliniques."
       },
       "location": "Rolle",
       "canton": "VD",
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.271Z",
+      "crawledAt": "2026-07-09T12:20:19.814Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -257,9 +260,9 @@
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "jobReqId": "AC77213E76",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:10:53.271Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -271,8 +274,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:10:53.271Z"
+      }
     },
     {
       "id": "sophia-genetics-f7fc98d12035",
@@ -305,7 +307,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.214Z",
+      "crawledAt": "2026-07-09T12:20:19.700Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -326,12 +328,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-        "senior-ai-software-engineer-sophia-genetics-rolle"
+        "senior-ai-software-engineer-sophia-genetics-rolle",
+        "senior-ai-software-ingegnere-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-          "senior-ai-software-engineer-sophia-genetics-rolle"
+          "senior-ai-software-engineer-sophia-genetics-rolle",
+          "senior-ai-software-ingegnere-sophia-genetics-rolle"
         ],
         "de": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
@@ -382,7 +386,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:53.018Z",
+      "crawledAt": "2026-07-09T12:20:19.491Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -402,11 +406,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-development-representative-german-speaking-sophia-genetics-rolle"
+        "sales-development-representative-german-speaking-sophia-genetics-rolle",
+        "rappresentante-per-lo-sviluppo-delle-vendite-parlante-tedesco-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-development-representative-german-speaking-sophia-genetics-rolle"
+          "sales-development-representative-german-speaking-sophia-genetics-rolle",
+          "rappresentante-per-lo-sviluppo-delle-vendite-parlante-tedesco-sophia-genetics-rolle"
         ],
         "de": [
           "sales-development-representative-german-speaking-sophia-genetics-rolle"
@@ -433,9 +439,9 @@
       "id": "sophia-genetics-10b09fa34d3b",
       "slug": "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle",
       "slugByLocale": {
-        "en": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
         "it": "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle",
-        "de": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+        "en": "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+        "de": "production-warehouse-manager-lieferkette-sophia-genetics-rolle",
         "fr": "production-warehouse-manager-chaine-d-approvisionnement-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
@@ -443,24 +449,24 @@
       "companyDomain": "sophiagenetics.com",
       "title": "Production & Warehouse Manager (Supply Chain)",
       "titleByLocale": {
-        "en": "Production & Warehouse Manager (Supply Chain)",
         "it": "Direttore di produzione e magazzino (catena di fornitura)",
+        "en": "Production & Warehouse Manager (Supply Chain)",
         "de": "Production & Warehouse Manager (Lieferkette)",
         "fr": "Production & Warehouse Manager (Chaîne d'approvisionnement)"
       },
       "description": "Do you bring hands-on leadership experience in production operations, with the judgement to balance daily delivery, people management, and continuous improvement? Have you managed on-site operational teams through shifting priorities while keeping quality, capacity, efficiency, and cost front of mind?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Manager, Production and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days per week for this opportunity, connected to our production site in Rolle.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As Manager, Production, you will lead the day-to-day running of production operations: setting priorities, planning team activities, troubleshooting issues, and ensuring the team can deliver reliably in a fast-changing environment. You will manage a team of 5 people, taking ownership of daily execution while also driving improvements across quality, capacity, efficiency, and cost. This is a hands-on leadership role when needed, but not a technician role: you will balance stepping into operations to support urgent delivery with leading projects that improve how the team works over time.\n The value you add\n\n• Lead and manage the production operations team, providing clear daily priorities, support, and coverage planning so operations keep moving.\n\n• Ensure production runs smoothly, safely, and reliably, with strong focus on quality, delivery, and practical decision-making when priorities shift.\n\n• Drive continuous improvement initiatives focused on process efficiency, quality, capacity improvement, and cost reduction.\n\n• Lead projects autonomously, proactively moving them forward while keeping day-to-day production under control.\n\n• Partner cross-functionally with Quality, QC, project teams, and customers when production issues arise, such as mix-ups or other operational concerns.",
       "descriptionByLocale": {
-        "en": "Do you bring hands-on leadership experience in production operations, with the judgement to balance daily delivery, people management, and continuous improvement? Have you managed on-site operational teams through shifting priorities while keeping quality, capacity, efficiency, and cost front of mind?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Manager, Production and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days per week for this opportunity, connected to our production site in Rolle.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As Manager, Production, you will lead the day-to-day running of production operations: setting priorities, planning team activities, troubleshooting issues, and ensuring the team can deliver reliably in a fast-changing environment. You will manage a team of 5 people, taking ownership of daily execution while also driving improvements across quality, capacity, efficiency, and cost. This is a hands-on leadership role when needed, but not a technician role: you will balance stepping into operations to support urgent delivery with leading projects that improve how the team works over time.\n The value you add\n\n• Lead and manage the production operations team, providing clear daily priorities, support, and coverage planning so operations keep moving.\n\n• Ensure production runs smoothly, safely, and reliably, with strong focus on quality, delivery, and practical decision-making when priorities shift.\n\n• Drive continuous improvement initiatives focused on process efficiency, quality, capacity improvement, and cost reduction.\n\n• Lead projects autonomously, proactively moving them forward while keeping day-to-day production under control.\n\n• Partner cross-functionally with Quality, QC, project teams, and customers when production issues arise, such as mix-ups or other operational concerns.",
-        "it": "Porti esperienza di leadership pratica nelle operazioni di produzione, con il giudizio di bilanciare la consegna quotidiana, la gestione delle persone e il miglioramento continuo? Hai gestito i team operativi in loco, spostando le priorità mantenendo la qualità, la capacità, l'efficienza e i costi di fronte alla mente?\n Se questo suona come te e sei guidato di proposito, unisciti al team di produzione di SOPHiA GENETICS come manager, produzione e ci consente di avere un impatto positivo sui risultati dei pazienti affetti da cancro e malattie rare in tutto il mondo.\n La natura di questo ruolo significa che ci si può aspettare di essere in ufficio 5 giorni a settimana per questa opportunità, collegata al nostro sito di produzione a Rolle.\n La nostra missione\n Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo.\n La tua missione\n In qualità di Manager, Production, guiderai l'esecuzione quotidiana delle operazioni di produzione: impostare le priorità, pianificare le attività del team, risolvere i problemi e garantire che il team possa fornire in modo affidabile in un ambiente in rapida evoluzione. Potrai gestire un team di 5 persone, prendendo la proprietà dell'esecuzione quotidiana, mentre anche la guida di miglioramenti tra qualità, capacità, efficienza e costi. Questo è un ruolo di leadership pratico quando necessario, ma non un ruolo tecnico: si bilanciano le operazioni per sostenere la consegna urgente con i principali progetti che migliorano il funzionamento del team nel tempo.\n Il valore che aggiungi\n\n• Guidare e gestire il team delle operazioni di produzione, fornendo chiare priorità quotidiane, supporto e pianificazione della copertura in modo che le operazioni continuino a muoversi.\n\n• Assicurarsi che la produzione funzioni senza problemi, in modo sicuro e affidabile, con una forte attenzione alla qualità, alla consegna e al processo decisionale pratico quando le priorità cambiano.\n\n• Promuovere iniziative di miglioramento continuo focalizzate sull'efficienza del processo, sulla qualità, sul miglioramento della capacità e sulla riduzione dei costi.\n\n• Guidare i progetti in modo autonomo, proattivamente muovendoli in avanti mantenendo sotto controllo la produzione quotidiana.\n\n• Partner cross-functionally con Quality, QC, team di progetto e clienti quando si presentano problemi di produzione, come mix-up o altre preoccupazioni operative.",
-        "de": "Bringen Sie praktische Führungserfahrung im Produktionsbetrieb mit, um die tägliche Lieferung, das Personalmanagement und die kontinuierliche Verbesserung in Einklang zu bringen? Haben Sie die operativen Teams vor Ort durch wechselnde Prioritäten geleitet und dabei Qualität, Kapazität, Effizienz und Kosten im Blick behalten?\n Wenn dies nach Ihnen klingt und Sie von einem bestimmten Zweck angetrieben werden, treten Sie dem SOPHiA GENETICS Production-Team als Manager bei und ermöglichen Sie es uns, die Ergebnisse für Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen.\n Die Art dieser Rolle bedeutet, dass Sie 5 Tage pro Woche für diese Gelegenheit im Büro sein können, verbunden mit unserem Produktionsstandort in Rolle.\n Unsere Mission\n Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren.\n Deine Mission\n Als Manager, Produktion, leiten Sie den täglichen Betrieb der Produktion: Prioritäten setzen, Teamaktivitäten planen, Probleme beheben und sicherstellen, dass das Team in einer sich schnell verändernden Umgebung zuverlässig liefern kann. Sie verwalten ein Team von 5 Personen, übernehmen die Verantwortung für die tägliche Ausführung und treiben gleichzeitig Verbesserungen in Bezug auf Qualität, Kapazität, Effizienz und Kosten voran. Dies ist bei Bedarf eine praktische Führungsrolle, aber keine Rolle als Techniker: Sie balancieren die Schritte in den Betrieb, um die dringende Lieferung zu unterstützen, mit führenden Projekten, die die Arbeitsweise des Teams im Laufe der Zeit verbessern.\n Der Wert, den Sie hinzufügen\n\n• Führen und verwalten Sie das Produktionsteam und bieten Sie klare tägliche Prioritäten, Unterstützung und Abdeckungsplanung, damit der Betrieb in Bewegung bleibt.\n\n• Sicherstellen, dass die Produktion reibungslos, sicher und zuverlässig läuft, wobei der Schwerpunkt auf Qualität, Lieferung und praktischen Entscheidungen liegt, wenn sich die Prioritäten verschieben.\n\n• Förderung kontinuierlicher Verbesserungsinitiativen, die sich auf Prozesseffizienz, Qualität, Kapazitätsverbesserung und Kostenreduzierung konzentrieren.\n\n• Führen Sie Projekte autonom und proaktiv voran, während Sie die tägliche Produktion unter Kontrolle halten.\n\n• Partner funktionsübergreifend mit Quality, QC, Projektteams und Kunden, wenn Produktionsprobleme auftreten, wie z. B. Verwechslungen oder andere betriebliche Probleme.",
-        "fr": "Apportez-vous une expérience pratique de leadership dans les opérations de production, avec le jugement d'équilibrer la livraison quotidienne, la gestion des personnes et l'amélioration continue? Avez-vous géré des équipes opérationnelles sur place en changeant les priorités tout en maintenant la qualité, la capacité, l'efficacité et les coûts au premier plan?\n Si cela vous ressemble et que vous êtes animé par le but, rejoignez l'équipe de production de SOPHiA GENETICS en tant que gestionnaire, Production et nous permettre d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier.\n La nature de ce rôle signifie que vous pouvez vous attendre à être dans le bureau 5 jours par semaine pour cette opportunité, connecté à notre site de production à Rolle.\n Notre mission\n Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier.\n Votre mission\n En tant que responsable de la production, vous dirigerez au quotidien les opérations de production : établissement des priorités, planification des activités de l'équipe, résolution des problèmes et garantie que l'équipe peut fournir de façon fiable dans un environnement en évolution rapide. Vous gérerez une équipe de 5 personnes, en prenant en charge l'exécution quotidienne tout en conduisant des améliorations à travers la qualité, la capacité, l'efficacité et le coût. Il s'agit là d'un rôle de leadership pratique au besoin, mais pas de rôle de technicien : vous équilibrerez vos activités pour appuyer l'exécution urgente avec des projets de pointe qui améliorent le fonctionnement de l'équipe au fil du temps.\n La valeur ajoutée\n\n• Diriger et gérer l'équipe des opérations de production, en fournissant des priorités quotidiennes claires, du soutien et la planification de la couverture, de sorte que les opérations continuent de bouger.\n\n• Veiller à ce que la production se déroule en douceur, en toute sécurité et de façon fiable, en mettant fortement l'accent sur la qualité, la prestation et la prise de décisions pratiques lorsque les priorités changent.\n\n• Mener des initiatives d'amélioration continue axées sur l'efficacité des processus, la qualité, l'amélioration des capacités et la réduction des coûts.\n\n• Diriger les projets de façon autonome et proactive tout en maintenant la production quotidienne sous contrôle.\n\n• Partenaire interfonctionnel avec Qualité, QC, les équipes de projet et les clients lorsque des problèmes de production se posent, comme les mix-ups ou d'autres préoccupations opérationnelles."
+        "it": "Porti esperienza di leadership pratica nelle operazioni di produzione, con il giudizio di bilanciare la consegna quotidiana, la gestione delle persone e il miglioramento continuo? Hai gestito i team operativi in loco, spostando le priorità mantenendo la qualità, la capacità, l'efficienza e i costi di fronte alla mente? Se questo suona come te e sei guidato di proposito, unisciti al team di produzione di SOPHiA GENETICS come manager, produzione e ci consente di avere un impatto positivo sui risultati dei pazienti affetti da cancro e malattie rare in tutto il mondo. La natura di questo ruolo significa che ci si può aspettare di essere in ufficio 5 giorni a settimana per questa opportunità, collegata al nostro sito di produzione a Rolle. La nostra missione Crediamo che ci sia un modo più intelligente e più orientato ai dati per prendere decisioni nel settore sanitario e la nostra piattaforma DDM alimentata da AI cloud SOPHiA rende questa visione una realtà quotidiana. Avrete un input diretto alla nostra missione di democratizzare la medicina basata sui dati per il beneficio finale del cancro e dei pazienti affetti da malattie rare in tutto il mondo. La tua missione In qualità di Manager, Production, guiderai l'esecuzione quotidiana delle operazioni di produzione: impostare le priorità, pianificare le attività del team, risolvere i problemi e garantire che il team possa fornire in modo affidabile in un ambiente in rapida evoluzione. Potrai gestire un team di 5 persone, prendendo la proprietà dell'esecuzione quotidiana, mentre anche la guida di miglioramenti tra qualità, capacità, efficienza e costi. Questo è un ruolo di leadership pratico quando necessario, ma non un ruolo tecnico: si bilanciano le operazioni per sostenere la consegna urgente con i principali progetti che migliorano il funzionamento del team nel tempo. Il valore che aggiungi\n• Guidare e gestire il team delle operazioni di produzione, fornendo chiare priorità quotidiane, supporto e pianificazione della copertura in modo che le operazioni continuino a muoversi.\n• Assicurarsi che la produzione funzioni senza problemi, in modo sicuro e affidabile, con una forte attenzione alla qualità, alla consegna e al processo decisionale pratico quando le priorità cambiano.\n• Promuovere iniziative di miglioramento continuo focalizzate sull'efficienza del processo, sulla qualità, sul miglioramento della capacità e sulla riduzione dei costi.\n• Guidare i progetti in modo autonomo, proattivamente muovendoli in avanti mantenendo sotto controllo la produzione quotidiana.\n• Partner cross-functionally con Quality, QC, team di progetto e clienti quando si presentano problemi di produzione, come mix-up o altre preoccupazioni operative.",
+        "en": "Do you bring hands-on leadership experience in production operations, with the judgement to balance daily delivery, people management, and continuous improvement? Have you managed on-site operational teams through shifting priorities while keeping quality, capacity, efficiency, and cost front of mind? If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Manager, Production and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide. The nature of this role means you can expect to be in the office 5 days per week for this opportunity, connected to our production site in Rolle. Our Mission We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe. Your Mission As Manager, Production, you will lead the day-to-day running of production operations: setting priorities, planning team activities, troubleshooting issues, and ensuring the team can deliver reliably in a fast-changing environment. You will manage a team of 5 people, taking ownership of daily execution while also driving improvements across quality, capacity, efficiency, and cost. This is a hands-on leadership role when needed, but not a technician role: you will balance stepping into operations to support urgent delivery with leading projects that improve how the team works over time. The value you add\n• Lead and manage the production operations team, providing clear daily priorities, support, and coverage planning so operations keep moving.\n• Ensure production runs smoothly, safely, and reliably, with strong focus on quality, delivery, and practical decision-making when priorities shift.\n• Drive continuous improvement initiatives focused on process efficiency, quality, capacity improvement, and cost reduction.\n• Lead projects autonomously, proactively moving them forward while keeping day-to-day production under control.\n• Partner cross-functionally with Quality, QC, project teams, and customers when production issues arise, such as mix-ups or other operational concerns.",
+        "de": "Bringen Sie praktische Führungserfahrung im Produktionsbetrieb mit, um die tägliche Lieferung, das Personalmanagement und die kontinuierliche Verbesserung in Einklang zu bringen? Haben Sie die operativen Teams vor Ort durch wechselnde Prioritäten geleitet und dabei Qualität, Kapazität, Effizienz und Kosten im Blick behalten? Wenn dies nach Ihnen klingt und Sie von einem bestimmten Zweck angetrieben werden, treten Sie dem SOPHiA GENETICS Production-Team als Manager bei und ermöglichen Sie es uns, die Ergebnisse für Krebspatienten und Patienten mit seltenen Krankheiten weltweit positiv zu beeinflussen. Die Art dieser Rolle bedeutet, dass Sie 5 Tage pro Woche für diese Gelegenheit im Büro sein können, verbunden mit unserem Produktionsstandort in Rolle. Unsere Mission Wir glauben, dass es einen intelligenteren, datengestützten Weg gibt, um Entscheidungen im Gesundheitswesen zu treffen, und unsere Cloud-native KI-basierte SOPHiA DDM-Plattform macht diese Vision täglich Realität. Sie werden direkten Input zu unserer Mission haben, datengesteuerte Medizin für den ultimativen Nutzen von Krebs und Patienten mit seltenen Krankheiten auf der ganzen Welt zu demokratisieren. Deine Mission Als Manager, Produktion, leiten Sie den täglichen Betrieb der Produktion: Prioritäten setzen, Teamaktivitäten planen, Probleme beheben und sicherstellen, dass das Team in einer sich schnell verändernden Umgebung zuverlässig liefern kann. Sie verwalten ein Team von 5 Personen, übernehmen die Verantwortung für die tägliche Ausführung und treiben gleichzeitig Verbesserungen in Bezug auf Qualität, Kapazität, Effizienz und Kosten voran. Dies ist bei Bedarf eine praktische Führungsrolle, aber keine Rolle als Techniker: Sie balancieren die Schritte in den Betrieb, um die dringende Lieferung zu unterstützen, mit führenden Projekten, die die Arbeitsweise des Teams im Laufe der Zeit verbessern. Der Wert, den Sie hinzufügen\n• Führen und verwalten Sie das Produktionsteam und bieten Sie klare tägliche Prioritäten, Unterstützung und Abdeckungsplanung, damit der Betrieb in Bewegung bleibt.\n• Sicherstellen, dass die Produktion reibungslos, sicher und zuverlässig läuft, wobei der Schwerpunkt auf Qualität, Lieferung und praktischen Entscheidungen liegt, wenn sich die Prioritäten verschieben.\n• Förderung kontinuierlicher Verbesserungsinitiativen, die sich auf Prozesseffizienz, Qualität, Kapazitätsverbesserung und Kostenreduzierung konzentrieren.\n• Führen Sie Projekte autonom und proaktiv voran, während Sie die tägliche Produktion unter Kontrolle halten.\n• Partner funktionsübergreifend mit Quality, QC, Projektteams und Kunden, wenn Produktionsprobleme auftreten, wie z. B. Verwechslungen oder andere betriebliche Probleme.",
+        "fr": "Apportez-vous une expérience pratique de leadership dans les opérations de production, avec le jugement d'équilibrer la livraison quotidienne, la gestion des personnes et l'amélioration continue? Avez-vous géré des équipes opérationnelles sur place en changeant les priorités tout en maintenant la qualité, la capacité, l'efficacité et les coûts au premier plan? Si cela vous ressemble et que vous êtes animé par le but, rejoignez l'équipe de production de SOPHiA GENETICS en tant que gestionnaire, Production et nous permettre d'avoir un impact positif sur les résultats pour les patients atteints de cancer et de maladies rares dans le monde entier. La nature de ce rôle signifie que vous pouvez vous attendre à être dans le bureau 5 jours par semaine pour cette opportunité, connecté à notre site de production à Rolle. Notre mission Nous croyons qu'il existe une façon plus intelligente et plus axée sur les données de prendre des décisions dans le domaine des soins de santé, et notre plate-forme SOPHiA DDM, alimentée par le cloud, fait de cette vision une réalité quotidienne. Vous aurez une contribution directe à notre mission de démocratisation de la médecine axée sur les données pour le bénéfice ultime des patients atteints de cancer et de maladies rares dans le monde entier. Votre mission En tant que responsable de la production, vous dirigerez au quotidien les opérations de production : établissement des priorités, planification des activités de l'équipe, résolution des problèmes et garantie que l'équipe peut fournir de façon fiable dans un environnement en évolution rapide. Vous gérerez une équipe de 5 personnes, en prenant en charge l'exécution quotidienne tout en conduisant des améliorations à travers la qualité, la capacité, l'efficacité et le coût. Il s'agit là d'un rôle de leadership pratique au besoin, mais pas de rôle de technicien : vous équilibrerez vos activités pour appuyer l'exécution urgente avec des projets de pointe qui améliorent le fonctionnement de l'équipe au fil du temps. La valeur ajoutée\n• Diriger et gérer l'équipe des opérations de production, en fournissant des priorités quotidiennes claires, du soutien et la planification de la couverture, de sorte que les opérations continuent de bouger.\n• Veiller à ce que la production se déroule en douceur, en toute sécurité et de façon fiable, en mettant fortement l'accent sur la qualité, la prestation et la prise de décisions pratiques lorsque les priorités changent.\n• Mener des initiatives d'amélioration continue axées sur l'efficacité des processus, la qualité, l'amélioration des capacités et la réduction des coûts.\n• Diriger les projets de façon autonome et proactive tout en maintenant la production quotidienne sous contrôle.\n• Partenaire interfonctionnel avec Qualité, QC, les équipes de projet et les clients lorsque des problèmes de production se posent, comme les mix-ups ou d'autres préoccupations opérationnelles."
       },
       "location": "Rolle",
       "canton": "VD",
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:52.959Z",
+      "crawledAt": "2026-07-09T12:20:19.411Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -478,9 +484,24 @@
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "jobReqId": "0C21CE35F7",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+        "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
+          "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle"
+        ],
+        "fr": [
+          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+        ],
+        "de": [
+          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
+        ]
       },
+      "firstSeenAt": "2026-07-08T22:10:52.959Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -492,19 +513,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:10:52.959Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
-        ],
-        "fr": [
-          "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
-        ]
-      },
-      "previousSlugs": [
-        "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
-      ]
+      }
     },
     {
       "id": "sophia-genetics-c95859987d12",
@@ -537,7 +546,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:52.771Z",
+      "crawledAt": "2026-07-09T12:20:19.070Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -557,6 +566,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:47.424Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -601,7 +611,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/892266C223/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:52.359Z",
+      "crawledAt": "2026-07-09T12:20:18.614Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -665,7 +675,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:10:52.170Z",
+      "crawledAt": "2026-07-09T12:20:18.337Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -696,7 +706,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-08T22:10:53.261Z",
+  "updatedAt": "2026-07-09T12:20:19.528Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/praktikum-digital-assurance-it-audit-and-process-analytics-sept-feb-financial-services/e95874ab-bb88-4836-81ea-b23408422e8f": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-08"
+    },
     "https://jobs.pwc.ch/job-vacancies/jurist-in-compliance-experte-in-im-bereich-finanzmarktrecht/ebd01fae-9f53-4778-b24f-cc22b9061a7b": {
       "location": "Zürich",
       "canton": "ZH",
@@ -272,8 +278,8 @@
       "postedDate": "2026-05-06"
     },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-compliance-center-spezialist-in-steuerdeklarationen/9d4a1e81-0d9e-4566-b3dd-a0337fdce13a": {
-      "location": "Basel",
-      "canton": "BS",
+      "location": "Zürich",
+      "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-05-06"
     },
@@ -302,8 +308,8 @@
       "postedDate": "2026-04-30"
     },
     "https://jobs.pwc.ch/job-vacancies/associate-compliance-center-spezialist-in-steuerdeklarationen/333a54a6-0be0-43ba-a59d-94c150e2e97e": {
-      "location": "Basel",
-      "canton": "BS",
+      "location": "Zürich",
+      "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-04-29"
     },
@@ -486,12 +492,6 @@
       "canton": "GE",
       "company": "PwC Switzerland",
       "postedDate": "2025-12-16"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-digital-audit-financial-services/711b54a7-94f2-4e92-9a35-7db1c9e7cdd8": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-11-05"
     },
     "https://jobs.pwc.ch/job-vacancies/manager-u-s-tax-private-clients/a37b390a-52e5-45e0-a813-72a0539c7106": {
       "location": "Zürich",
