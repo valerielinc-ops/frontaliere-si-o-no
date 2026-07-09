@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-07-08T22:18:46.849Z",
+  "assembledAt": "2026-07-09T12:48:49.581Z",
   "jobs": [
     {
       "id": "aldi-suisse-9e420fe21829",
@@ -79,13 +79,15 @@
       "url": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:43.526Z",
+      "crawledAt": "2026-07-09T12:48:45.300Z",
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -95,6 +97,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -184,7 +187,7 @@
       "url": "https://www.jobs.aldi.ch/job/1386919233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:43.524Z",
+      "crawledAt": "2026-07-09T12:48:45.298Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-ar9swf"
@@ -201,6 +204,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:19.769Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -289,13 +293,15 @@
       "url": "https://www.jobs.aldi.ch/job/1397187033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:43.065Z",
+      "crawledAt": "2026-07-09T12:48:43.853Z",
       "previousSlugs": [
-        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+        "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+          "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
         ],
         "en": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
@@ -305,6 +311,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:18.342Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -392,7 +399,7 @@
       "url": "https://www.jobs.aldi.ch/job/1412672633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:43.062Z",
+      "crawledAt": "2026-07-09T12:48:43.851Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
         "sales-associate-m-w-d-aldi-suisse-uster",
@@ -402,11 +409,13 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "sales-associate-m-w-d-aldi-suisse-meilen",
         "vendeur-se-m-w-d-aldi-suisse-meilen",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -416,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:37.858Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -503,7 +513,7 @@
       "url": "https://www.jobs.aldi.ch/job/1412164433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T11:36:36.611Z",
+      "crawledAt": "2026-07-09T12:48:42.361Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
@@ -511,21 +521,24 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
+        ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
         ]
       },
       "firstSeenAt": "2026-07-07T12:23:43.822Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -613,15 +626,17 @@
       "url": "https://www.jobs.aldi.ch/job/1411086333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:42.610Z",
+      "crawledAt": "2026-07-09T12:48:42.358Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -631,6 +646,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T10:41:34.907Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -659,17 +675,17 @@
       "companyDomain": "aldi.ch",
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
-        "it": "Addetto alle vendite (m/w/d)",
+        "it": "Addetto/a alle vendite (m/w/d)",
         "en": "Sales Associate (m/f/d)",
         "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Collaborateur de vente (h/f/d)"
+        "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8580 Amriswil, Schrofenstrasse 18​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
-        "it": "Compiti - Fornitura di beni - Cashing - Panettiera - Assistenza clienti - Pulizia della filiale - Cooperazione con il lavoro svolto Profilo - Esperienza professionale in vendita o in ambienti analoghi - Formazione professionale ideale nel settore del commercio al dettaglio o alimentare - Comportamento orientato al cliente e aspetto ben mantenuto - Alta motivazione, disponibilità all'uso e resilienza - Flessibilità per quanto riguarda l'orario di lavoro - Buona conoscenza tedesca Offriamo - Compiti diversi - Giorni lavorativi brevi - Lavorare in un ambiente gestibile\n\nTeam forte - Un salario superiore alla media e prestazioni sociali molto buone Luogo di lavoro 8580 Amriswil, Schrofenstrasse 18 Inizio del lavoro D'ora in poi o per accordo Applicare ora direttamente al lavoro Nota per i fornitori di servizi HR Prendiamo in considerazione solo le applicazioni dirette per questo lavoro.\n\nPertanto rifiutiamo qualsiasi responsabilità per le domande presentate non richieste. Grazie per la comprensione.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge We offer - Varied tasks - Short working days - Working in a manageable\n\nand strong team - An above-average salary and very good social benefits Place of work 8580 Amriswil, Schrofenstrasse 18 Start of work From now on or by agreement Apply now directly to the job Note for HR service providers We only take into account direct applications for this job.\n\nWe therefore reject any responsibility for unsolicited submitted applications. Thank you for your understanding.",
-        "de": "Aufgaben\n- Warenbereitstellung\n- Kassieren\n- Brot backen in der Panetteria\n- Unterstützung der Kunden\n- Reinigung der Filiale\n- Mitarbeit bei anfallenden Arbeiten\n\nProfil\n- Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n- Kundenorientiertes Verhalten und gepflegtes Auftreten\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n- Flexibilität betreffend der Einsatzzeiten\n- Gute Deutschkenntnisse\n\nWir bieten\n- Abwechslungsreiche Aufgaben\n- Kurzweilige Arbeitstage\n- Arbeiten in einem überschaubaren und starken Team\n- Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\n\nArbeitsort\n​8580 Amriswil, Schrofenstrasse 18​\n\nArbeitsbeginn\n​Ab sofort oder nach Vereinbarung​\n\nJetzt direkt auf die Stelle bewerben\n\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgeforderte eingereichte Bewerbungen. Vielen Dank für das Verständnis.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable\n\net une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Lieu de travail 8580 Amriswil, Schrofenstrasse 18 Début du travail Dès maintenant ou par accord Postuler directement à l'emploi Note pour les fournisseurs de services RH Nous ne prenons en compte que les demandes directes pour cet emploi.\n\nNous rejetons donc toute responsabilité pour les demandes soumises non sollicitées. Merci de votre compréhension."
+        "it": "Compiti - Fornitura di beni - Cashing - Panettiera - Assistenza clienti - Pulizia della filiale - Cooperazione con il lavoro svolto Profilo - Esperienza professionale in vendita o in ambienti analoghi - Formazione professionale ideale nel settore del commercio al dettaglio o alimentare - Comportamento orientato al cliente e aspetto ben mantenuto - Alta motivazione, disponibilità all'uso e resilienza - Flessibilità per quanto riguarda l'orario di lavoro - Buona conoscenza tedesca \n• Offriamo - Compiti diversi - Giorni lavorativi brevi - Lavorare in un ambiente gestibile Team forte - Un salario superiore alla media e prestazioni sociali molto buone Luogo di lavoro 8580 Amriswil, Schrofenstrasse 18 Inizio del lavoro D'ora in poi o per accordo Applicare ora direttamente al lavoro Nota per i fornitori di servizi HR Prendiamo in considerazione solo le applicazioni dirette per questo lavoro. Pertanto rifiutiamo qualsiasi responsabilità per le domande presentate non richieste. Grazie per la comprensione.",
+        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done \n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge \n• We offer - Varied tasks - Short working days - Working in a manageable and strong team - An above-average salary and very good social benefits Place of work 8580 Amriswil, Schrofenstrasse 18 Start of work From now on or by agreement Apply now directly to the job Note for HR service providers We only take into account direct applications for this job. We therefore reject any responsibility for unsolicited submitted applications. Thank you for your understanding.",
+        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse \n• Wir bieten - Abwechslungsreiche \n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Arbeitsort ​8580 Amriswil, Schrofenstrasse 18​ Arbeitsbeginn ​Ab sofort oder nach Vereinbarung​ Jetzt direkt auf die Stelle bewerben Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. Wir lehnen somit jegliche Verantwortung für unaufgeforderte eingereichte Bewerbungen. Vielen Dank für das Verständnis.",
+        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande \n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable et une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Lieu de travail 8580 Amriswil, Schrofenstrasse 18 Début du travail Dès maintenant ou par accord Postuler directement à l'emploi Note pour les fournisseurs de services RH Nous ne prenons en compte que les demandes directes pour cet emploi. Nous rejetons donc toute responsabilité pour les demandes soumises non sollicitées. Merci de votre compréhension."
       },
       "requirements": [
         "Warenbereitstellung",
@@ -718,17 +734,19 @@
       "url": "https://www.jobs.aldi.ch/job/1410907533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T11:36:36.606Z",
+      "crawledAt": "2026-07-09T12:48:42.356Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -738,6 +756,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:14:10.101Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -825,15 +844,17 @@
       "url": "https://www.jobs.aldi.ch/job/1409863933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:42.156Z",
+      "crawledAt": "2026-07-09T12:48:40.967Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -843,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T21:45:07.319Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -862,8 +884,8 @@
       "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
       "slugByLocale": {
         "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "en": "sales-associate-m-w-d-aldi-suisse-uster",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "fr": "vendeur-se-m-w-d-aldi-suisse-uster"
       },
       "company": "ALDI SUISSE",
@@ -872,16 +894,16 @@
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
         "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
         "en": "Sales Associate (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
         "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8610 Uster, Zürichstrasse 1​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
-        "it": "Compiti\n• Rendere disponibili le merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Funzionamento flessibile dal lunedì al sabato\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nUbicazione 8610 Uster, Zurichstrasse 1\nInizio del lavoro D'ora in poi o d'accordo\nOra applicare direttamente al lavoro\nInformazioni per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8610 Uster, Zürichstrasse 1​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-        "en": "Tasks\n• Making goods available\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibly operational from Monday to Saturday\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above average salary and very good social benefits\nLocation 8610 Uster, Zurichstrasse 1\nStart of work From now on or by agreement\nNow apply directly to the job\nInformation for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
-        "fr": "Tâche\n• Mise à disposition des biens\n\n• Trésoriers\n\n• Pain de cuisson dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle dans les ventes ou dans un environnement similaire\n\n• Une formation professionnelle idéalement achevée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexiblement opérationnel du lundi au samedi\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bonnes prestations sociales\nEmplacement 8610 Uster, Zurichstrasse 1\nDébut des travaux Dès maintenant ou par accord\nMaintenant postuler directement à l'emploi\nInformation des prestataires de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
+        "it": "Compiti\n• Rendere disponibili le merci\n• Cassiere\n• Pane da forno nella Panetteria\n• Supporto per i clienti\n• Servizi di pulizia del ramo\n• Collaborazione nel lavoro nascente Profilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n• Comportamento orientato al cliente e aspetto ben curato\n• Alta motivazione, impegno e resilienza\n• Funzionamento flessibile dal lunedì al sabato\n• Buona conoscenza del tedesco La nostra offerta\n• Attività varie\n• Giorni lavorativi temporanei\n• Lavorare in un team gestibile e forte\n• Uno stipendio superiore alla media e benefici sociali molto buoni Ubicazione 8610 Uster, Zurichstrasse 1 Inizio del lavoro D'ora in poi o d'accordo Ora applicare direttamente al lavoro Informazioni per i fornitori di servizi del personale Per questa posizione, consideriamo solo applicazioni dirette. Rifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
+        "en": "Tasks\n• Making goods available\n• Cashiers\n• Baking bread in the Panetteria\n• Support for customers\n• Branch cleaning services\n• Collaboration in arising work Profile\n• Professional experience in sales or a similar environment\n• Ideally completed vocational training in the retail trade or food sector\n• Customer-oriented behavior and well-groomed appearance\n• High motivation, commitment and resilience\n• Flexibly operational from Monday to Saturday\n• Good knowledge of German Our offer\n• Varied tasks\n• Temporary working days\n• Working in a manageable and strong team\n• An above average salary and very good social benefits Location 8610 Uster, Zurichstrasse 1 Start of work From now on or by agreement Now apply directly to the job Information for personnel service providers For this position, we only consider direct applications. We therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
+        "de": "Aufgaben\n• Warenbereitstellung\n• Kassieren\n• Brot backen in der Panetteria\n• Unterstützung der Kunden\n• Reinigung der Filiale\n• Mitarbeit bei anfallenden Arbeiten Profil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n• Flexibel einsatzbereit von Montag bis Samstag\n• Gute Deutschkenntnisse Unser Angebot\n• Abwechslungsreiche Aufgaben\n• Kurzweilige Arbeitstage\n• Arbeiten in einem überschaubaren und starken Team\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Arbeitsort​8610 Uster, Zürichstrasse 1​ Arbeitsbeginn​Ab sofort oder nach Vereinbarung​ Jetzt direkt auf die Stelle bewerben Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "fr": "Tâche\n• Mise à disposition des biens\n• Trésoriers\n• Pain de cuisson dans la Panetteria\n• Soutien aux clients\n• Services de nettoyage des succursales\n• Collaboration dans les travaux en cours Profil\n• Expérience professionnelle dans les ventes ou dans un environnement similaire\n• Une formation professionnelle idéalement achevée dans le secteur du commerce de détail ou de l'alimentation\n• Comportement orienté client et apparence soignée\n• Haute motivation, engagement et résilience\n• Flexiblement opérationnel du lundi au samedi\n• Bonne connaissance de l'allemand Notre offre\n• Tâches variées\n• Jours de travail temporaires\n• Travailler dans une équipe gérable et forte\n• Un salaire supérieur à la moyenne et de très bonnes prestations sociales Emplacement 8610 Uster, Zurichstrasse 1 Début des travaux Dès maintenant ou par accord Maintenant postuler directement à l'emploi Information des prestataires de services au personnel Pour cette position, nous ne considérons que les demandes directes. Nous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
       },
       "requirements": [
         "Warenbereitstellung",
@@ -910,15 +932,7 @@
           "Reinigung der Filiale",
           "Mitarbeit bei anfallenden Arbeiten",
           "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibel einsatzbereit von Montag bis Samstag",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
         ]
       },
       "location": "Uster",
@@ -938,21 +952,7 @@
       "url": "https://www.jobs.aldi.ch/job/1401920533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:32:17.723Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "firstSeenAt": "2026-07-07T22:32:17.723Z",
+      "crawledAt": "2026-07-09T12:48:40.966Z",
       "previousSlugs": [
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
@@ -968,7 +968,578 @@
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-6"
         ]
-      }
+      },
+      "firstSeenAt": "2026-07-07T22:32:17.723Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-68d4eb2aa905",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
+      "slugByLocale": {
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
+        "en": "sales-associate-m-w-d-aldi-suisse-zurich",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-zurich"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite (m/w/d)",
+        "en": "Sales Associate (m/f/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "fr": "Employé de vente (h/f/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8053 Zürich, Witikonerstrasse 279​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Uno stipendio superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 8053 Zurigo, Witikonerstrasse 279 - Inizio del lavoro: da subito o su appuntamento - Applicare ora direttamente al posto di lavoro Avviso per i fornitori di servizi per il personale - Per questo posto di lavoro prendiamo in considerazione esclusivamente le candidature dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
+        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with the work involved \n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge Our offer - Varied tasks - Short working days - Working in a manageable and strong team - An above-average salary and very good social benefits Contact - Place of work: 8053 Zurich, Witikonerstrasse 279 - Start of work: from now on or by arrangement - Apply now directly to the job Note for HR service providers - We take into account only direct applications for this job. - We therefore reject any responsibility for unsolicited applications and their terms and conditions. - Thank you for your understanding.",
+        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse Unser Angebot - Abwechslungsreiche \n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Kontakt - Arbeitsort: 8053 Zürich, Witikonerstrasse 279 - Arbeitsbeginn: ab sofort oder nach Vereinbarung - Jetzt direkt auf die Stelle bewerben Hinweis für Personaldienstleister - Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. - Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. - Vielen Dank für das Verständnis.",
+        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail concerné Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande Notre offre - tâches variées - Courts jours de travail - Travailler dans une entreprise équipe gérable et forte - Un salaire supérieur à la moyenne et très bon avantages sociaux Contact - Lieu de travail: 8053 Zurich, Witikonerstrasse 279 - Début du travail: désormais sur ou par arrangement - Postuler directement à l'emploi Note pour les fournisseurs de services RH - Nous ne prenons en compte que les demandes directes pour ce travail. Nous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs conditions générales."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibilität betreffend der Einsatzzeiten",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
+        ]
+      },
+      "location": "Zürich",
+      "postalCode": "8053",
+      "canton": "ZH",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "streetAddress": "Witikonerstrasse 279",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "40%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://www.jobs.aldi.ch/job/1400926333",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:48:39.441Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+        "sales-associate-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "vendeur-se-m-w-d-aldi-suisse-uster",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-10",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-10",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T08:26:36.212Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-f0f59711ae54",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
+      "slugByLocale": {
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
+        "en": "sales-associate-m-w-d-aldi-suisse-uster-77582a",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-uster-77582a"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite (m/w/d)",
+        "en": "Sales Associate (m/f/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "fr": "Employé de vente (h/f/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nEntgeltArbeitsort​8610 Uster, Industriepark 10​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online.\nWie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+      "descriptionByLocale": {
+        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco\n• Offriamo - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Uno stipendio superiore alla media e ottime prestazioni sociali Luogo di lavoro​: 8610 Uster, parco industriale 10​ Inizio del lavoro: da subito o su appuntamento​ Contatto Iscriviti ora online Vuoi entrare a far parte del team Aldi? Convincici con il tuo talento e candidati online. Qui puoi trovare informazioni su come candidarti e su come procedere.",
+        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge\n• We offer - Varied tasks - Short working days - Working in a manageable and strong team - An above average salary and very good social benefits Pay Place of work : 8610 Uster, Industriepark 10 Start of work : from now on or by arrangement Contact Apply online now Would you like to become part of the ALDI team? Convince us with your talent and apply online. You can find here how you can apply and how the next step is.",
+        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse\n• Wir bieten - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Entgelt Arbeitsort​: 8610 Uster, Industriepark 10​ Arbeitsbeginn​: ab sofort oder nach Vereinbarung​ Kontakt Jetzt online bewerben Du möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online. Wie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande\n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable et une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux.Paiement Lieu de travail : 8610 Uster, Industriepark 10 Début du travail : à partir de maintenant, sur ou par arrangement Contact Postuler en ligne maintenant Vous souhaitez faire partie de l'équipe ALDI? Convainquez-nous de votre talent et appliquez en ligne. Vous pouvez trouver ici comment vous pouvez postuler et comment la prochaine étape est."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibilität betreffend der Einsatzzeiten",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
+        ]
+      },
+      "location": "Uster",
+      "postalCode": "8610",
+      "canton": "ZH",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "streetAddress": "Industriepark 10",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "40-60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://www.jobs.aldi.ch/job/1397687833",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:48:39.436Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T08:26:34.607Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-82cd5a87eac1",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
+      "slugByLocale": {
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
+        "en": "sales-associate-m-w-d-aldi-suisse-biberist",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-biberist"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite (m/w/d)",
+        "en": "Sales Associate (m/f/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "fr": "Employé de vente (h/f/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4562 Biberist, Bürenstrasse 91​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online.\nWie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+      "descriptionByLocale": {
+        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco\n• Offriamo - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Luogo di lavoro 4562 Biberist, Bürenstrasse 91 Inizio del lavoro Da subito o su appuntamento Contatto Iscriviti ora online Vuoi entrare a far parte del team Aldi? Convincici con il tuo talento e candidati online. Qui puoi trovare informazioni su come candidarti e su come procedere.",
+        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge\n• We offer - Varied tasks - Short working days - Working in a manageable and strong team - An above average salary and very good social benefits Location 4562 Biberist, Bürenstrasse 91 Start of work From now on or by arrangement Contact Apply online now Would you like to become part of the ALDI team? Convince us with your talent and apply online. You can find here how you can apply and how the next step is.",
+        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse\n• Wir bieten - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Arbeitsort 4562 Biberist, Bürenstrasse 91 Arbeitsbeginn Ab sofort oder nach Vereinbarung Kontakt Jetzt online bewerben Du möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online. Wie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
+        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande\n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable et une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Emplacement 4562 Biberist, Bürenstrasse 91 Début du travail A partir de maintenant, sur ou par arrangement Contact Postuler en ligne maintenant Vous souhaitez faire partie de l'équipe ALDI? Convainquez-nous de votre talent et appliquez en ligne. Vous pouvez trouver ici comment vous pouvez postuler et comment la prochaine étape est."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibilität betreffend der Einsatzzeiten",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
+        ]
+      },
+      "location": "Biberist",
+      "postalCode": "4562",
+      "canton": "SO",
+      "addressLocality": "Biberist",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "streetAddress": "Bürenstrasse 91",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "50-60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://www.jobs.aldi.ch/job/1399109433",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:48:37.991Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T08:26:34.605Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-c5bebf950fe5",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
+      "slugByLocale": {
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
+        "en": "sales-associate-m-w-d-aldi-suisse-langenthal",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-langenthal"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Venditore (m/f/d)",
+        "en": "Sales Assistant (m/f/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "fr": "Vendeur (m/f/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4900 Langenthal, Brauihof 22​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibile dal lunedì al sabato - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 4900 Langenthal, Brauihof 22 - Inizio del lavoro: da subito o su appuntamento - Applicare ora direttamente al posto di lavoro Nota per i fornitori di servizi per il personale - Per questo posto di lavoro prendiamo in considerazione esclusivamente le assunzioni dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
+        "en": "Description - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexible use from Monday to Saturday - Good German skills Our offer - Varied tasks - Short working days - Working in a manageable and strong team - An above-average good salary and very good social benefits Contact - Place of work: 4900 Langenthal, Brauihof 22 - Start of work: From now on or by agreement - Apply now directly to the job Note for HR service providers - We take into account only direct applications for this job. - We therefore reject any responsibility for unsolicited applications and their terms and conditions. - Thank you for your understanding.",
+        "de": "Beschreibung - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibel einsatzbereit von Montag bis Samstag - Gute Deutschkenntnisse Unser Angebot - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Kontakt - Arbeitsort: 4900 Langenthal, Brauihof 22 - Arbeitsbeginn: Ab sofort oder nach Vereinbarung - Jetzt direkt auf die Stelle bewerben Hinweis für Personaldienstleister - Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. - Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. - Vielen Dank für das Verständnis.",
+        "fr": "Description - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou dans des environnements similaires - Idéalement terminé la formation professionnelle dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Usage flexible du lundi au samedi - Bonnes compétences allemandes Notre offre - tâches variées - Courts jours de travail - Travailler dans une entreprise équipe gérable et forte - Un bon salaire supérieur à la moyenne et très bon avantages sociaux Contact - Lieu de travail: 4900 Langenthal, Brauihof 22 - Début du travail: Dorénavant ou par accord - Postuler directement au poste Note pour les fournisseurs de services RH - Nous ne prenons en compte que les demandes directes pour ce poste. Nous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs conditions générales."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibel einsatzbereit von Montag bis Samstag",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
+        ]
+      },
+      "location": "Langenthal",
+      "postalCode": "4900",
+      "canton": "BE",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "streetAddress": "Brauihof 22",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "40-60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://www.jobs.aldi.ch/job/1381527933",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:48:37.977Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T08:26:33.101Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
+    },
+    {
+      "id": "aldi-suisse-7b03f79ecddb",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+      "slugByLocale": {
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+        "en": "sales-associate-m-w-d-aldi-suisse-rorschach",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-rorschach"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Membro del Vendo (m/f/d)",
+        "en": "Sales Associate (m/f/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "fr": "Commerçant (m/f/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9400 Rorschach, St. Gallerstrasse 43​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità operativa dal lunedì al sabato - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro divertenti - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 9400 Rorschach, St. Gallerstrasse 43 - Inizio del lavoro: da subito o su appuntamento - Candidarsi ora direttamente alla posizione Nota - Per questa posizione prendiamo in considerazione esclusivamente le candidature dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
+        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with the work involved\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexible use from Monday to Saturday - Good German skills Our offer - Varied tasks - Short-term working days - Working in a single manageable and strong team - An above-average salary and very good social benefits Contact - Place of work: 9400 Rorschach, St. Gallerstrasse 43 - Start of work: From now on or after agreement - Apply now directly to the job Note - For this job we only take into account direct applications. - We therefore reject any responsibility for unsolicited applications and their GTC,s. - Thank you for your understanding.",
+        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibel einsatzbereit von Montag bis Samstag - Gute Deutschkenntnisse Unser Angebot - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Kontakt - Arbeitsort: 9400 Rorschach, St. Gallerstrasse 43 - Arbeitsbeginn: Ab sofort oder nach Vereinbarung - Jetzt direkt auf die Stelle bewerben Hinweis - Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. - Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. - Vielen Dank für das Verständnis.",
+        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail concerné Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Usage flexible du lundi au samedi - Bonnes compétences allemandes Notre offre - tâches variées - Jours de travail à court terme - Travail en un seul lieu Une équipe gérable et forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Contact - Lieu de travail: 9400 Rorschach, St. Gallerstrasse 43 - Début du travail : désormais ou après accord - Postuler directement au poste Note - Pour ce poste, nous ne prenons en compte que les candidatures directes. - Nous rejetons donc toute responsabilité pour les candidatures non sollicitées et leurs CGV. - Merci de votre compréhension."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibel einsatzbereit von Montag bis Samstag",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
+        ]
+      },
+      "location": "Rorschach",
+      "postalCode": "9400",
+      "canton": "SG",
+      "addressLocality": "Rorschach",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "streetAddress": "St. Gallerstrasse 43",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "50-60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://www.jobs.aldi.ch/job/1371618733",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T12:48:36.565Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+        "sales-associate-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "vendeur-se-m-w-d-aldi-suisse-uster",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T08:26:31.517Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH"
     },
     {
       "id": "aldi-suisse-d13258a3333e",
@@ -1073,7 +1644,9 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-2a0ee1c5c7e7",
@@ -1181,330 +1754,8 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
-    },
-    {
-      "id": "aldi-suisse-68d4eb2aa905",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-        "en": "sales-associate-m-w-d-aldi-suisse-zurich",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-zurich"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto alle vendite (m/f/d)",
-        "en": "Sales Associate (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Employé de vente (h/f/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8053 Zürich, Witikonerstrasse 279​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Uno stipendio superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 8053 Zurigo, Witikonerstrasse 279 - Inizio del lavoro: da subito o su appuntamento - Applicare ora direttamente al posto di lavoro Avviso per i fornitori di servizi per il personale - Per questo posto di lavoro prendiamo in considerazione esclusivamente le candidature dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with the work involved Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge Our offer - Varied tasks - Short working days - Working in a\n\nmanageable and strong team - An above-average salary and very good social benefits Contact - Place of work: 8053 Zurich, Witikonerstrasse 279 - Start of work: from now on or by arrangement - Apply now directly to the job Note for HR service providers - We take into account only direct applications for this job.\n\n- We therefore reject any responsibility for unsolicited applications and their terms and conditions. - Thank you for your understanding.",
-        "de": "Aufgaben\n- Warenbereitstellung\n- Kassieren\n- Brot backen in der Panetteria\n- Unterstützung der Kunden\n- Reinigung der Filiale\n- Mitarbeit bei anfallenden Arbeiten\n\nProfil\n- Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n- Kundenorientiertes Verhalten und gepflegtes Auftreten\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n- Flexibilität betreffend der Einsatzzeiten\n- Gute Deutschkenntnisse\n\nUnser Angebot\n- Abwechslungsreiche Aufgaben\n- Kurzweilige Arbeitstage\n- Arbeiten in einem überschaubaren und starken Team\n- Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\n\nKontakt\n- Arbeitsort: 8053 Zürich, Witikonerstrasse 279\n- Arbeitsbeginn: ab sofort oder nach Vereinbarung\n- Jetzt direkt auf die Stelle bewerben\n\nHinweis für Personaldienstleister\n- Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n- Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab.\n- Vielen Dank für das Verständnis.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail concerné Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande Notre offre - tâches variées - Courts jours de travail - Travailler dans une entreprise\n\néquipe gérable et forte - Un salaire supérieur à la moyenne et très bon avantages sociaux Contact - Lieu de travail: 8053 Zurich, Witikonerstrasse 279 - Début du travail: désormais sur ou par arrangement - Postuler directement à l'emploi Note pour les fournisseurs de services RH - Nous ne prenons en compte que les demandes directes pour ce travail.\n\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs conditions générales."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibilität betreffend der Einsatzzeiten",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Zürich",
-      "postalCode": "8053",
-      "canton": "ZH",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Witikonerstrasse 279",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "40%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1400926333",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:23:39.539Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
-        "sales-associate-m-w-d-aldi-suisse-uster",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "vendeur-se-m-w-d-aldi-suisse-uster",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-10"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-10"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:36.212Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
-    },
-    {
-      "id": "aldi-suisse-f0f59711ae54",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
-        "en": "sales-associate-m-w-d-aldi-suisse-uster-77582a",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-uster-77582a"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite (m/w/d)",
-        "en": "Sales Associate (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Employé de vente (h/f/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nEntgeltArbeitsort​8610 Uster, Industriepark 10​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online.\nWie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
-      "descriptionByLocale": {
-        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco\n• Offriamo - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Uno stipendio superiore alla media e ottime prestazioni sociali Luogo di lavoro​: 8610 Uster, parco industriale 10​ Inizio del lavoro: da subito o su appuntamento​ Contatto Iscriviti ora online Vuoi entrare a far parte del team Aldi? Convincici con il tuo talento e candidati online. Qui puoi trovare informazioni su come candidarti e su come procedere.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge\n• We offer - Varied tasks - Short working days - Working in a manageable and strong team - An above average salary and very good social benefits Pay Place of work : 8610 Uster, Industriepark 10 Start of work : from now on or by arrangement Contact Apply online now Would you like to become part of the ALDI team? Convince us with your talent and apply online. You can find here how you can apply and how the next step is.",
-        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse\n• Wir bieten - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Entgelt Arbeitsort​: 8610 Uster, Industriepark 10​ Arbeitsbeginn​: ab sofort oder nach Vereinbarung​ Kontakt Jetzt online bewerben Du möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online. Wie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande\n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable et une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux.Paiement Lieu de travail : 8610 Uster, Industriepark 10 Début du travail : à partir de maintenant, sur ou par arrangement Contact Postuler en ligne maintenant Vous souhaitez faire partie de l'équipe ALDI? Convainquez-nous de votre talent et appliquez en ligne. Vous pouvez trouver ici comment vous pouvez postuler et comment la prochaine étape est."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibilität betreffend der Einsatzzeiten",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Uster",
-      "postalCode": "8610",
-      "canton": "ZH",
-      "addressLocality": "Uster",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Industriepark 10",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "40-60%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1397687833",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:41.247Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-12"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:34.607Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
-    },
-    {
-      "id": "aldi-suisse-82cd5a87eac1",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist",
-        "en": "sales-associate-m-w-d-aldi-suisse-biberist",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-biberist"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite (m/w/d)",
-        "en": "Sales Associate (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Employé de vente (h/f/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4562 Biberist, Bürenstrasse 91​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt online bewerbenDu möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online.\nWie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
-      "descriptionByLocale": {
-        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco\n• Offriamo - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Luogo di lavoro 4562 Biberist, Bürenstrasse 91 Inizio del lavoro Da subito o su appuntamento Contatto Iscriviti ora online Vuoi entrare a far parte del team Aldi? Convincici con il tuo talento e candidati online. Qui puoi trovare informazioni su come candidarti e su come procedere.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge\n• We offer - Varied tasks - Short working days - Working in a manageable and strong team - An above average salary and very good social benefits Location 4562 Biberist, Bürenstrasse 91 Start of work From now on or by arrangement Contact Apply online now Would you like to become part of the ALDI team? Convince us with your talent and apply online. You can find here how you can apply and how the next step is.",
-        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibilität betreffend der Einsatzzeiten - Gute Deutschkenntnisse\n• Wir bieten - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Arbeitsort 4562 Biberist, Bürenstrasse 91 Arbeitsbeginn Ab sofort oder nach Vereinbarung Kontakt Jetzt online bewerben Du möchtest Teil des ALDI-Teams werden? Überzeuge uns mit deinem Talent und bewirb dich online. Wie du dich bewerben kannst und wie das weitere Vorgehen ist, findest du hier.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande\n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable et une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Emplacement 4562 Biberist, Bürenstrasse 91 Début du travail A partir de maintenant, sur ou par arrangement Contact Postuler en ligne maintenant Vous souhaitez faire partie de l'équipe ALDI? Convainquez-nous de votre talent et appliquez en ligne. Vous pouvez trouver ici comment vous pouvez postuler et comment la prochaine étape est."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibilität betreffend der Einsatzzeiten",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Biberist",
-      "postalCode": "4562",
-      "canton": "SO",
-      "addressLocality": "Biberist",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "streetAddress": "Bürenstrasse 91",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "50-60%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1399109433",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:41.246Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:34.605Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1
     },
     {
       "id": "aldi-suisse-3ed9dfb36118",
@@ -1609,7 +1860,9 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-4cf37999f424",
@@ -1714,225 +1967,9 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
-    },
-    {
-      "id": "aldi-suisse-c5bebf950fe5",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
-        "en": "sales-associate-m-w-d-aldi-suisse-langenthal",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-langenthal"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Venditore (m/f/d)",
-        "en": "Sales Assistant (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Vendeur (m/f/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​4900 Langenthal, Brauihof 22​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibile dal lunedì al sabato - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 4900 Langenthal, Brauihof 22 - Inizio del lavoro: da subito o su appuntamento - Applicare ora direttamente al posto di lavoro Nota per i fornitori di servizi per il personale - Per questo posto di lavoro prendiamo in considerazione esclusivamente le assunzioni dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
-        "en": "Description - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexible use from Monday to Saturday - Good German skills Our offer - Varied tasks - Short working days - Working in a manageable and strong team - An above-average good salary and very good social benefits Contact - Place of work: 4900 Langenthal, Brauihof 22 - Start of work: From now on or by agreement - Apply now directly to the job Note for HR service providers - We take into account only direct applications for this job. - We therefore reject any responsibility for unsolicited applications and their terms and conditions. - Thank you for your understanding.",
-        "de": "Beschreibung - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibel einsatzbereit von Montag bis Samstag - Gute Deutschkenntnisse Unser Angebot - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Kontakt - Arbeitsort: 4900 Langenthal, Brauihof 22 - Arbeitsbeginn: Ab sofort oder nach Vereinbarung - Jetzt direkt auf die Stelle bewerben Hinweis für Personaldienstleister - Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. - Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. - Vielen Dank für das Verständnis.",
-        "fr": "Description - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou dans des environnements similaires - Idéalement terminé la formation professionnelle dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Usage flexible du lundi au samedi - Bonnes compétences allemandes Notre offre - tâches variées - Courts jours de travail - Travailler dans une entreprise équipe gérable et forte - Un bon salaire supérieur à la moyenne et très bon avantages sociaux Contact - Lieu de travail: 4900 Langenthal, Brauihof 22 - Début du travail: Dorénavant ou par accord - Postuler directement au poste Note pour les fournisseurs de services RH - Nous ne prenons en compte que les demandes directes pour ce poste. Nous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs conditions générales."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibel einsatzbereit von Montag bis Samstag",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Langenthal",
-      "postalCode": "4900",
-      "canton": "BE",
-      "addressLocality": "Langenthal",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "streetAddress": "Brauihof 22",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "40-60%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1381527933",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:40.347Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-16"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:33.101Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
-    },
-    {
-      "id": "aldi-suisse-7b03f79ecddb",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-        "en": "sales-associate-m-w-d-aldi-suisse-rorschach",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-rorschach"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Membro del Vendo (m/f/d)",
-        "en": "Sales Associate (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Commerçant (m/f/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9400 Rorschach, St. Gallerstrasse 43​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità operativa dal lunedì al sabato - Buona conoscenza del tedesco La nostra offerta - Compiti variegati - Giorni di lavoro divertenti - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Contatto - Luogo di lavoro: 9400 Rorschach, St. Gallerstrasse 43 - Inizio del lavoro: da subito o su appuntamento - Candidarsi ora direttamente alla posizione Nota - Per questa posizione prendiamo in considerazione esclusivamente le candidature dirette. - Decliniamo quindi ogni responsabilità per le candidature non richieste e i loro termini e condizioni. - Grazie per la comprensione.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with the work involved\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexible use from Monday to Saturday - Good German skills Our offer - Varied tasks - Short-term working days - Working in a single manageable and strong team - An above-average salary and very good social benefits Contact - Place of work: 9400 Rorschach, St. Gallerstrasse 43 - Start of work: From now on or after agreement - Apply now directly to the job Note - For this job we only take into account direct applications. - We therefore reject any responsibility for unsolicited applications and their GTC,s. - Thank you for your understanding.",
-        "de": "Aufgaben - Warenbereitstellung - Kassieren - Brot backen in der Panetteria - Unterstützung der Kunden - Reinigung der Filiale - Mitarbeit bei anfallenden Arbeiten Profil - Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich - Kundenorientiertes Verhalten und gepflegtes Auftreten - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Flexibel einsatzbereit von Montag bis Samstag - Gute Deutschkenntnisse Unser Angebot - Abwechslungsreiche\n• Aufgaben - Kurzweilige Arbeitstage - Arbeiten in einem überschaubaren und starken Team - Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen Kontakt - Arbeitsort: 9400 Rorschach, St. Gallerstrasse 43 - Arbeitsbeginn: Ab sofort oder nach Vereinbarung - Jetzt direkt auf die Stelle bewerben Hinweis - Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. - Wir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. - Vielen Dank für das Verständnis.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail concerné Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Usage flexible du lundi au samedi - Bonnes compétences allemandes Notre offre - tâches variées - Jours de travail à court terme - Travail en un seul lieu Une équipe gérable et forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux Contact - Lieu de travail: 9400 Rorschach, St. Gallerstrasse 43 - Début du travail : désormais ou après accord - Postuler directement au poste Note - Pour ce poste, nous ne prenons en compte que les candidatures directes. - Nous rejetons donc toute responsabilité pour les candidatures non sollicitées et leurs CGV. - Merci de votre compréhension."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibel einsatzbereit von Montag bis Samstag",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Rorschach",
-      "postalCode": "9400",
-      "canton": "SG",
-      "addressLocality": "Rorschach",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "streetAddress": "St. Gallerstrasse 43",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "50-60%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1371618733",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:18:40.346Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
-        "sales-associate-m-w-d-aldi-suisse-uster",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "vendeur-se-m-w-d-aldi-suisse-uster",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-17"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:31.517Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
+      "country": "CH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-f88aa0fe152e",
@@ -2036,234 +2073,8 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "aldi-suisse-24511f3d7b7f",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-wetzikon",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-wetzikon",
-        "en": "sales-associate-m-w-d-aldi-suisse-wetzikon",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "vendeur-se-m-w-d-aldi-suisse-wetzikon"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite (m/w/d)",
-        "en": "Sales Associate (m/f/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Vendeur/se (m/w/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8620 Wetzikon, Motorenstrasse 99​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Compiti - Preparazione della merce - Cassa - Cuocere il pane nella panetteria - Supporto ai clienti - Pulizia della filiale - Collaborazione per i lavori necessari Profilo - Esperienza professionale nella vendita o in un ambiente simile - Formazione professionale idealmente completata nel commercio al dettaglio o nel settore alimentare - Comportamento orientato al cliente e aspetto curato - Elevata motivazione, disponibilità e resilienza - Flessibilità per quanto riguarda i tempi di impiego - Buona conoscenza del tedesco\n• Offriamo - Compiti variegati - Giorni di lavoro brevi - Lavorare in un team gestibile e forte - Un salario superiore alla media e ottime prestazioni sociali Luogo di lavoro ​8620 Wetzikon, Motorenstrasse 99​ Inizio del lavoro Da subito o dopo l'accordo​ Contatto Richiedi ora direttamente il posto di lavoro Avviso per i fornitori di servizi per il personale Per questo posto di lavoro prendiamo in considerazione esclusivamente le candidature dirette. Pertanto, decliniamo ogni responsabilità per le candidature non richieste e i loro termini e condizioni. Grazie per la comprensione.",
-        "en": "Tasks - Supply of goods - Cashing - Baking bread in the Panetteria - Customer support - Cleaning of the branch - Cooperation with work done\n• Profile - Professional experience in sales or similar environments - Ideally completed vocational training in retail trade or food sector - Customer-oriented behaviour and well-maintained appearance - High motivation, willingness to use and resilience - Flexibility regarding the working hours - Good German knowledge\n• We offer - Varied tasks - Short working days - Working in a manageable\n\nand strong team - An above-average salary and very good social benefits Workplace 8620 Wetzikon, Motorenstrasse 99 Start of work From now on or after agreement Contact Apply now directly to the job Note for HR service providers We take into account only direct applications for this job.\n\nWe therefore reject any responsibility for unsolicited submitted applications and their GTC. Thank you for your understanding.",
-        "de": "Aufgaben\n- Warenbereitstellung\n- Kassieren\n- Brot backen in der Panetteria\n- Unterstützung der Kunden\n- Reinigung der Filiale\n- Mitarbeit bei anfallenden Arbeiten\n\nProfil\n- Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n- Kundenorientiertes Verhalten und gepflegtes Auftreten\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n- Flexibilität betreffend der Einsatzzeiten\n- Gute Deutschkenntnisse\n\nWir bieten\n- Abwechslungsreiche Aufgaben\n- Kurzweilige Arbeitstage\n- Arbeiten in einem überschaubaren und starken Team\n- Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\n\nArbeitsort\n​8620 Wetzikon, Motorenstrasse 99​\n\nArbeitsbeginn\n​Ab sofort oder nach Vereinbarung​\n\nKontakt\nJetzt direkt auf die Stelle bewerben\n\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgeforderte eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-        "fr": "Tâches - Fourniture de biens - Encaissement - Pain de cuisson dans la Panetteria - Service client - Nettoyage de la succursale - Coopération avec le travail fait Profil - Expérience professionnelle dans les ventes ou environnements similaires - Formation professionnelle idéalement complétée dans le commerce de détail ou le secteur alimentaire - Comportement orienté client et apparence bien entretenue - Haute motivation, volonté d'utilisation et résilience - Flexibilité en matière d'horaires de travail - Bonne connaissance allemande\n• Nous offrons - tâches variées - Courts jours de travail - Travailler dans un environnement gérable\n\net une équipe forte - Un salaire supérieur à la moyenne et de très bons avantages sociaux.Occasion 8620 Wetzikon, Motorenstrasse 99 Début du travail Dès maintenant, l'accord ou après l'accord Contact Postuler directement au travail Note pour les fournisseurs de services RH Nous ne prenons en compte que les demandes directes pour ce travail.\n\nNous rejetons donc toute responsabilité pour les demandes non sollicitées soumises et leur CGV. Merci de votre compréhension."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibilität betreffend der Einsatzzeiten",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
-        ]
-      },
-      "location": "Wetzikon",
-      "postalCode": "8620",
-      "canton": "ZH",
-      "addressLocality": "Wetzikon",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Motorenstrasse 99",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "40-60%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1393335933",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:23:38.153Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T08:26:34.602Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "aldi-suisse-28f9221c32d7",
-      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-      "slugByLocale": {
-        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
-        "en": "Sales Associate (m/w/d)",
-        "fr": "Vendeur/se (m/w/d)"
-      },
-      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8355 Aadorf, Wittenwilerstrasse 45​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Compiti\n• Rendere disponibili le merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Funzionamento flessibile dal lunedì al sabato\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nUbicazione 8355 Aadorf, Wittenwilerstrasse 45\nInizio del lavoro D'ora in poi o d'accordo\nOra applicare direttamente al lavoro\nInformazioni per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8355 Aadorf, Wittenwilerstrasse 45​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
-        "en": "Tasks\n• Making goods available\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibly operational from Monday to Saturday\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above average salary and very good social benefits\nLocation 8355 Aadorf, Wittenwilerstrasse 45\nStart of work From now on or by agreement\nNow apply directly to the job\nInformation for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
-        "fr": "Tâche\n• Mise à disposition des biens\n\n• Trésoriers\n\n• Pain de cuisson dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle dans les ventes ou dans un environnement similaire\n\n• Une formation professionnelle idéalement achevée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexiblement opérationnel du lundi au samedi\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bonnes prestations sociales\nEmplacement 8355 Aadorf, Wittenwilerstrasse 45\nDébut des travaux Dès maintenant ou par accord\nMaintenant postuler directement à l'emploi\nInformation des prestataires de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
-      },
-      "requirements": [
-        "Warenbereitstellung",
-        "Kassieren",
-        "Brot backen in der Panetteria",
-        "Unterstützung der Kunden",
-        "Reinigung der Filiale",
-        "Mitarbeit bei anfallenden Arbeiten",
-        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-        "Flexibel einsatzbereit von Montag bis Samstag",
-        "Gute Deutschkenntnisse",
-        "Abwechslungsreiche Aufgaben",
-        "Kurzweilige Arbeitstage",
-        "Arbeiten in einem überschaubaren und starken Team",
-        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Warenbereitstellung",
-          "Kassieren",
-          "Brot backen in der Panetteria",
-          "Unterstützung der Kunden",
-          "Reinigung der Filiale",
-          "Mitarbeit bei anfallenden Arbeiten",
-          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibel einsatzbereit von Montag bis Samstag",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
-        ]
-      },
-      "location": "Aadorf",
-      "postalCode": "8355",
-      "canton": "TG",
-      "addressLocality": "Aadorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "streetAddress": "Wittenwilerstrasse 45",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "50-70%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://www.jobs.aldi.ch/job/1401825833",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T12:23:41.107Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "firstSeenAt": "2026-07-07T12:23:41.107Z",
-      "previousSlugs": [
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
-        "sales-associate-m-w-d-aldi-suisse-meilen",
-        "vendeur-se-m-w-d-aldi-suisse-meilen",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
-        "sales-associate-m-w-d-aldi-suisse-uster",
-        "vendeur-se-m-w-d-aldi-suisse-uster",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
-        "sales-associate-m-w-d-aldi-suisse-winterthur-b714a0",
-        "vendeur-se-m-w-d-aldi-suisse-winterthur-b714a0"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
-        ],
-        "en": [
-          "sales-associate-m-w-d-aldi-suisse-meilen",
-          "sales-associate-m-w-d-aldi-suisse-winterthur-b714a0"
-        ],
-        "fr": [
-          "vendeur-se-m-w-d-aldi-suisse-meilen",
-          "vendeur-se-m-w-d-aldi-suisse-winterthur-b714a0"
-        ]
-      }
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
