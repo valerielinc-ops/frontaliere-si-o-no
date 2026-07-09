@@ -1,16 +1,16 @@
 {
   "key": "clinique-de-genolier",
   "label": "Clinique de Genolier",
-  "generatedAt": "2026-07-08T11:37:41.986Z",
-  "total": 9,
+  "generatedAt": "2026-07-09T22:32:31.694Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19524,
-  "avgDurationMs": 19524,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14849,
+  "avgDurationMs": 14849,
   "durationHistory": [
-    19524
+    14849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136236129-assistant-e-medical-e-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:33.518Z",
+      "crawledAt": "2026-07-09T22:32:21.898Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135437462-aide-soignant-transporteur",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:34.473Z",
+      "crawledAt": "2026-07-09T22:32:22.889Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135440139-infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:35.422Z",
+      "crawledAt": "2026-07-09T22:32:23.902Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135439280-infirmier-ere-polyvalent-e-polyclinique-endoscopie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:36.334Z",
+      "crawledAt": "2026-07-09T22:32:24.860Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135437219-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:37.277Z",
+      "crawledAt": "2026-07-09T22:32:25.816Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135436760-infirmier-ere-polyclinique",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:38.188Z",
+      "crawledAt": "2026-07-09T22:32:26.756Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135436930-infirmier-ere-medecine-oncologie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:39.105Z",
+      "crawledAt": "2026-07-09T22:32:27.764Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132374882-receptionniste-stagiaire",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T11:37:40.053Z",
+      "crawledAt": "2026-07-09T22:32:28.762Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -319,8 +319,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-de-genolier-e66c5879374b",
       "slug": "stage-controllo-di-gestione-clinique-de-genolier-genolier",
@@ -362,5 +361,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
