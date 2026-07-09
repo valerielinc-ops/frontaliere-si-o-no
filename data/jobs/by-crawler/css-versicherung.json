@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-07-09T12:36:58.390Z",
+  "assembledAt": "2026-07-09T22:39:19.846Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:55.711Z",
+      "crawledAt": "2026-07-09T22:39:16.506Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:47.770Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -110,7 +111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/77c68a9b-85f3-4d22-91cd-8de58c003d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:55.038Z",
+      "crawledAt": "2026-07-09T22:39:15.829Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -145,6 +146,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:46.981Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -189,7 +191,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/bcb70e3a-5f9a-4dd9-87f8-a113a08029b0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:54.365Z",
+      "crawledAt": "2026-07-09T22:39:15.165Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -233,7 +235,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-e75cc2c654ae",
@@ -266,7 +269,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a7fb511d-d61e-448c-a845-6a1d0e8220de",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:53.803Z",
+      "crawledAt": "2026-07-09T22:39:14.569Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -339,7 +342,7 @@
       "url": "https://jobs.css.ch/offene-stellen/vertrauensarzt-vertrauensaerztin/6b1f792d-bc1d-4c49-8bcb-0e88a2f3ce12",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:53.231Z",
+      "crawledAt": "2026-07-09T22:39:13.999Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -412,7 +415,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben/34525ee1-6d66-45f5-9eb7-e56567ea4dee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:52.604Z",
+      "crawledAt": "2026-07-09T22:39:13.428Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -452,7 +455,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-fdad179d5fd1",
@@ -485,7 +489,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung/d8f7d1ed-42ea-46b5-808d-a3f68d05db7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:52.049Z",
+      "crawledAt": "2026-07-09T22:39:12.820Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -558,7 +562,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-stationaer-pflege-drg-leistungspruefung/0e0dbc51-9e0d-4797-8792-f79f62a4cd0f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:51.478Z",
+      "crawledAt": "2026-07-09T22:39:12.286Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -631,7 +635,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-expertise/c67ee64e-73f4-40c6-a0b3-a0f6b5b86d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:50.913Z",
+      "crawledAt": "2026-07-09T22:39:11.670Z",
       "addressLocality": "Lausanne et/ou Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -660,6 +664,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -688,7 +693,7 @@
       "title": "Senior Cloud Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Cloud Ingegnere (w/m) 80-100%",
-        "en": "Senior Cloud Engineer (f/m) 80-100 %",
+        "en": "Senior Cloud Engineer (w/m) 80-100%",
         "de": "Senior Cloud Ingenieur (w/m) 80-100%",
         "fr": "Senior Cloud Ingénieur (w/m) 80-100%"
       },
@@ -704,7 +709,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-cloud-engineer-w-m/3e68320b-b9b0-4f2a-a32d-196ba3e0f1a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:50.340Z",
+      "crawledAt": "2026-07-09T22:39:11.096Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -723,6 +728,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:40.860Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 195000,
       "baseSalary": {
@@ -767,7 +773,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitaetssicherung/a4c4bbc6-cbad-4377-9140-0ffdb3c1f2b1",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:49.792Z",
+      "crawledAt": "2026-07-09T22:39:10.564Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -850,7 +856,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:49.197Z",
+      "crawledAt": "2026-07-09T22:39:10.035Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -929,7 +935,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:48.502Z",
+      "crawledAt": "2026-07-09T22:39:09.352Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -986,7 +992,7 @@
       "title": "Praktikum WMS/HMS im HR Recruiting 100% (August 2027)",
       "titleByLocale": {
         "it": "Praktikum WMS/HMS im Risorse Umane Recruiting 100% (August 2027)",
-        "en": "Internship WMS/HMS in HR Recruiting 100% (August 2027)",
+        "en": "Praktikum WMS/HMS im HR Recruiting 100% (August 2027)",
         "de": "Praktikum WMS/HMS im Personalwesen Recruiting 100% (August 2027)",
         "fr": "Praktikum WMS/HMS im Ressources Humaines Recruiting 100% (August 2027)"
       },
@@ -1002,7 +1008,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-recruiting-august-2027/7a46f2ad-7cb6-4be7-b00d-50f247c7be7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:47.937Z",
+      "crawledAt": "2026-07-09T22:39:08.802Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1021,6 +1027,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:36.595Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1065,7 +1072,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/cd1e1fe8-8676-40a5-ab74-43b4f9211a82",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:47.385Z",
+      "crawledAt": "2026-07-09T22:39:08.257Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1094,6 +1101,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:35.896Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1138,7 +1146,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e1d5b806-8c66-4982-bad1-eef96155b28d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:46.808Z",
+      "crawledAt": "2026-07-09T22:39:07.686Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1167,6 +1175,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:35.231Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1211,7 +1220,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/46b96d2e-89c0-4e24-9ed2-5c5d38c8dc6f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:46.237Z",
+      "crawledAt": "2026-07-09T22:39:07.133Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1240,6 +1249,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:34.526Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1284,7 +1294,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e2333279-8377-4fd4-81c3-97d4d7ab692e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:45.672Z",
+      "crawledAt": "2026-07-09T22:39:06.549Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1313,6 +1323,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:33.188Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1357,7 +1368,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/22909245-af4b-4fc2-989e-b8ca8a4c1ea9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:45.065Z",
+      "crawledAt": "2026-07-09T22:39:05.980Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1386,6 +1397,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:32.514Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1430,7 +1442,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/ba047f39-d148-4a27-bd30-115cbc3241d5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:44.518Z",
+      "crawledAt": "2026-07-09T22:39:05.437Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1471,6 +1483,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:31.858Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1515,7 +1528,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/47843161-c21d-4089-8c05-aabcf057f21c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:43.949Z",
+      "crawledAt": "2026-07-09T22:39:04.900Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1552,6 +1565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:22:47.522Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1596,7 +1610,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/164e34d5-1573-427f-b4af-ef4f42398424",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:43.204Z",
+      "crawledAt": "2026-07-09T22:39:04.335Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1625,6 +1639,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:29.845Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1669,7 +1684,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-vermittler-und-partnerschaften-august-2027/e7e13afd-788b-45a8-9877-573ccfd25a54",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:42.659Z",
+      "crawledAt": "2026-07-09T22:39:03.740Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1705,6 +1720,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:29.103Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1732,7 +1748,7 @@
       "companyDomain": "css.ch",
       "title": "Praktikum WMS/HMS im HR Service Center 100% (August 2027)",
       "titleByLocale": {
-        "it": "Internship WMS/HMS nel centro assistenza HR 100% (agosto 2027)",
+        "it": "Praktikum WMS/HMS im HR Service Center 100% (August 2027)",
         "en": "Internship WMS/HMS in the HR Service Center 100% (August 2027)",
         "de": "Praktikum WMS/HMS im Personalwesen Service Center 100% (August 2027)",
         "fr": "Praktikum WMS/HMS im Ressources Humaines Service Center 100% (August 2027)"
@@ -1749,7 +1765,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-service-center-august-2027/56b0b4de-f542-4546-a12e-2c5e32ff533d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:42.029Z",
+      "crawledAt": "2026-07-09T22:39:03.184Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1778,6 +1794,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:28.426Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1822,7 +1839,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-august-2027/b960af58-8f97-4994-ae69-b52632906b67",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:41.449Z",
+      "crawledAt": "2026-07-09T22:39:02.538Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1866,7 +1883,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-cc447c0e1999",
@@ -1899,7 +1917,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-august-2027/5172f03c-185e-4979-a152-558d3d55bec5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:40.877Z",
+      "crawledAt": "2026-07-09T22:39:01.932Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1979,7 +1997,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-privatkunden-wohlen-mit-vbv/a0480423-0405-4de0-93c2-3731137737fb",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:40.291Z",
+      "crawledAt": "2026-07-09T22:39:01.366Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1998,6 +2016,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:26.175Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2042,7 +2061,7 @@
       "url": "https://jobs.css.ch/offene-stellen/leistungsexpertin-leistungsexperte-leistungsgrundlagen-expertenwissen/5d01b71c-5f10-468f-b001-359f947a1a91",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:39.609Z",
+      "crawledAt": "2026-07-09T22:39:00.688Z",
       "addressLocality": "Luzern und/oder Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2095,7 +2114,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-410ae9ee4892",
@@ -2128,7 +2148,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/ad0d5dea-a283-4586-96e9-b2201b7f6a2e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:38.995Z",
+      "crawledAt": "2026-07-09T22:38:59.950Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -2205,7 +2225,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-versicherungsrecht-befristet/c42db141-30d8-4734-b978-c6569e60010b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:38.436Z",
+      "crawledAt": "2026-07-09T22:38:59.373Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2282,7 +2302,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/6b9dd2c7-03bd-4322-a2a3-53ef04382b7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:37.899Z",
+      "crawledAt": "2026-07-09T22:38:58.832Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2317,6 +2337,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:23.330Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2361,7 +2382,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-rheintal-mit-vbv/d8463033-afd3-4d29-8caa-75fcd1b5729c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:37.058Z",
+      "crawledAt": "2026-07-09T22:38:58.168Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2394,6 +2415,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:22.531Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2438,7 +2460,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-direktvertrieb-root-oder-lausanne/8faac91f-42ea-4766-9aab-1991fcd89985",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:36.002Z",
+      "crawledAt": "2026-07-09T22:38:57.413Z",
       "addressLocality": "Root und/oder Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2471,6 +2493,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:21.720Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2515,7 +2538,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne/96cb7b28-4e4e-475f-b1d5-9af82f917e60",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:35.427Z",
+      "crawledAt": "2026-07-09T22:38:56.866Z",
       "addressLocality": "Root et/ou Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2572,7 +2595,7 @@
       "title": "Spezialist/in Operations Leben",
       "titleByLocale": {
         "it": "Vita da Specialista Operativo",
-        "en": "Specialist/Living in Operations",
+        "en": "Spezialist/in Operations Leben",
         "de": "Spezialist/in Operations Leben",
         "fr": "Spécialiste/Vivre dans les opérations"
       },
@@ -2588,7 +2611,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-operations-leben/40d165a9-9956-4652-974c-e9c77b23fb26",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:34.838Z",
+      "crawledAt": "2026-07-09T22:38:56.294Z",
       "addressLocality": "Luzern oder Lausanne / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2625,6 +2648,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:19.631Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2669,7 +2693,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-neugeschaeft-underwriting-leben/da0af742-a415-41f7-97dc-33f6047240b7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:34.162Z",
+      "crawledAt": "2026-07-09T22:38:55.615Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2742,7 +2766,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-nouvelles-affaires-et-underwriting-vie/83bf1b47-1bd2-46a6-8346-cb95a644a03a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:33.598Z",
+      "crawledAt": "2026-07-09T22:38:55.065Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2815,7 +2839,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-operations-vie/fce56597-38b2-47bf-ab91-e9feae46fec5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:33.057Z",
+      "crawledAt": "2026-07-09T22:38:54.483Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2888,7 +2912,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/99f45573-b09c-479e-9447-685e082762a4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:32.337Z",
+      "crawledAt": "2026-07-09T22:38:53.832Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -2961,7 +2985,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-beschwerdenmanagement-mit-versicherungserfahrung/3f1e7315-6471-460a-af93-34f8afc1f6ac",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:31.760Z",
+      "crawledAt": "2026-07-09T22:38:53.240Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3024,7 +3048,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-privatkunden-solothurn/a50d971e-7ea0-4ceb-a1a8-2826297d1ca2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:31.133Z",
+      "crawledAt": "2026-07-09T22:38:52.649Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -3097,7 +3121,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung/61945026-407e-491a-a7aa-dcc732545475",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:30.419Z",
+      "crawledAt": "2026-07-09T22:38:51.982Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3170,7 +3194,7 @@
       "url": "https://jobs.css.ch/offene-stellen/junior-mediensprecher-in-deutschschweiz-befristet/9688bd42-08d0-459f-a341-317530f1783f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:29.828Z",
+      "crawledAt": "2026-07-09T22:38:51.413Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3243,7 +3267,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:29.051Z",
+      "crawledAt": "2026-07-09T22:38:50.693Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3306,7 +3330,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:28.501Z",
+      "crawledAt": "2026-07-09T22:38:50.158Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3363,7 +3387,7 @@
       "title": "Senior Frontend Engineer Web (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Frontend Ingegnere Web (w/m) 80-100%",
-        "en": "Senior Frontend Engineer Web (f/m) 80-100 %",
+        "en": "Senior Frontend Engineer Web (w/m) 80-100%",
         "de": "Senior Frontend Ingenieur Web (w/m) 80-100%",
         "fr": "Senior Frontend Ingénieur Web (w/m) 80-100%"
       },
@@ -3379,7 +3403,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-frontend-engineer-web-w-m/85f8c390-775e-4243-8874-046098397121",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:27.909Z",
+      "crawledAt": "2026-07-09T22:38:49.590Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3398,6 +3422,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:08.970Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3442,7 +3467,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/b66629d4-8742-45ba-867b-50058db70a79",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:27.351Z",
+      "crawledAt": "2026-07-09T22:38:49.000Z",
       "addressLocality": "Luzern / Root",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3471,6 +3496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:08.327Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -3499,7 +3525,7 @@
       "title": "Manager Resilienz (w/m) 80-100%",
       "titleByLocale": {
         "it": "Resilienza del Manager (f/m) 80-100%",
-        "en": "Manager Resilience (f/m) 80-100 %",
+        "en": "Manager Resilienz (w/m) 80-100%",
         "de": "Manager Resilienz (w/m) 80-100%",
         "fr": "Résilience du gestionnaire (f/m) 80-100 %"
       },
@@ -3515,7 +3541,7 @@
       "url": "https://jobs.css.ch/offene-stellen/manager-resilienz-w-m/70e29dd1-7f22-4539-a94a-3781566610b7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:26.839Z",
+      "crawledAt": "2026-07-09T22:38:48.519Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3534,6 +3560,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:07.183Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3578,7 +3605,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/1811bcab-057a-4c9c-b6b4-e6478b325c8a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:26.289Z",
+      "crawledAt": "2026-07-09T22:38:47.976Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3651,7 +3678,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/360db106-e1a6-49ea-81ce-96b40a5b3bed",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:25.720Z",
+      "crawledAt": "2026-07-09T22:38:47.440Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3708,7 +3735,7 @@
       "title": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Identity- e Access Management Ingegnere (w/m) 80-100%",
-        "en": "Senior Identity and Access Management Engineer (f/m) 80-100 %",
+        "en": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
         "de": "Senior Identity- und Access Management Ingenieur (w/m) 80-100%",
         "fr": "Senior Identity- und Access Management Ingénieur (w/m) 80-100%"
       },
@@ -3724,7 +3751,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-identity-und-access-management-engineer-w-m/11c90747-5262-431c-80c8-9e8da6216c9d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:25.162Z",
+      "crawledAt": "2026-07-09T22:38:46.827Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3751,6 +3778,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:05.024Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3795,7 +3823,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-bern/49d0d786-6a39-435d-83ca-8664dd2d02bf",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:24.337Z",
+      "crawledAt": "2026-07-09T22:38:46.040Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3828,6 +3856,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:04.116Z",
+      "needsRetranslation": true,
       "salaryMin": 61700,
       "salaryMax": 93600,
       "baseSalary": {
@@ -3872,7 +3901,7 @@
       "url": "https://jobs.css.ch/offene-stellen/werkstudent-in-internes-kontrollsystem-iks-befristet/ed59b46a-11de-4a92-9839-1c72fac21f22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:23.630Z",
+      "crawledAt": "2026-07-09T22:38:45.371Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3949,7 +3978,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-mediensprecher-in/40c8c107-86fa-4b95-b364-42d9c20fb750",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:23.100Z",
+      "crawledAt": "2026-07-09T22:38:44.743Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4022,7 +4051,7 @@
       "url": "https://jobs.css.ch/offene-stellen/assistant-e-au-service-du-medecin-conseil/6ad66121-2101-4f81-9390-1d7805f711cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:22.361Z",
+      "crawledAt": "2026-07-09T22:38:44.081Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4095,7 +4124,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-unfallversicherung-und-militaerversicherung/a39f289c-0f25-4705-ae36-562f30267086",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:21.705Z",
+      "crawledAt": "2026-07-09T22:38:43.546Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4156,7 +4185,7 @@
       "title": "Product Owner Data Warehouse (DWH) (w/m) 100%",
       "titleByLocale": {
         "it": "Product Owner Data Warehouse (DWH) (f/m) al 100%",
-        "en": "Product Owner Data Warehouse (DWH) (f/m) 100%",
+        "en": "Product Owner Data Warehouse (DWH) (w/m) 100%",
         "de": "Product Owner Data Warehouse (DWH) (w/m) 100%",
         "fr": "Entrepôt de données du propriétaire du produit (DHH) (f/m) 100%"
       },
@@ -4172,7 +4201,7 @@
       "url": "https://jobs.css.ch/offene-stellen/product-owner-data-warehouse-dwh-w-m/1e3f0ea9-9a9f-4816-bb40-bb20aecd0e49",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:21.165Z",
+      "crawledAt": "2026-07-09T22:38:43.025Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4191,6 +4220,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:44:59.917Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -4235,7 +4265,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-outbound-luzern/de77bdb4-690c-46cb-ac3e-5408c35621e7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:20.356Z",
+      "crawledAt": "2026-07-09T22:38:42.292Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4264,6 +4294,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:44:58.499Z",
+      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400,
       "baseSalary": {
@@ -4291,7 +4322,7 @@
       "companyDomain": "css.ch",
       "title": "Collaborateur/trice Contentieux",
       "titleByLocale": {
-        "it": "Litigazione del collaboratore",
+        "it": "Collaborateur/trice Contentieux",
         "en": "Collaborator Litigation",
         "de": "Collaborator Litigation",
         "fr": "Collaborateur/trice Contentieux"
@@ -4308,7 +4339,7 @@
       "url": "https://jobs.css.ch/offene-stellen/collaborateur-trice-contentieux/17475691-3b55-4a8e-accc-177644a2903b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:36:19.568Z",
+      "crawledAt": "2026-07-09T22:38:41.483Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4339,6 +4370,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:44:57.594Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4383,7 +4415,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-medienstelle-befristet/71ffe29e-ea2d-4dbe-91c0-2f64f10c7a77",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:19.105Z",
+      "crawledAt": "2026-07-09T22:38:40.808Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4444,7 +4476,7 @@
       "title": "Ressortleiter/in Business Process Management",
       "titleByLocale": {
         "it": "Responsabile della Gestione dei Processi Aziendali",
-        "en": "Head of Business Process Management",
+        "en": "Ressortleiter/in Business Process Management",
         "de": "Ressortleiter/in Business Process Management",
         "fr": "Chef de la gestion des processus opérationnels"
       },
@@ -4460,7 +4492,7 @@
       "url": "https://jobs.css.ch/offene-stellen/ressortleiter-in-business-process-management/86e7752a-14ec-449c-af95-6ca6e0cadb63",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:18.643Z",
+      "crawledAt": "2026-07-09T22:38:40.360Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4489,6 +4521,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:44:56.561Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4521,9 +4554,9 @@
         "de": "Experte / oder Sozialversicherung (w / m) Lugano General Agency 100%",
         "fr": "Expert/ou sécurité sociale (f/m) Agence générale Lugano 100%"
       },
-      "description": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione?\nCogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme!\n\nLa tua giornata tipo\n\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia.\n\nIl tuo apporto\n\n• Requisiti principali:\n\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n\n• Far percepisce che ami il contatto con le persone, Saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute.\n\nContatto\n\nDomande in merito al posto di lavoro alla tua/al tuo superiore?\nAndrea Zucchetti è a tua disposizione.\n058 277 29 11\n\nDomande sul processo di candidatura?\nJeannette Pizzi è a tua disposizione.\n058 277 29 76\n\nIl tuo team futuro\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
+      "description": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione?\nCogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme!\n\nLa tua giornata tipo\n\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia.\n\nIl tuo apporto\n\n• Requisiti principali:\n\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n\n• Far percepire che ami il contatto con le persone, saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali\n\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute.\n\nContatto\n\nDomande in merito al posto di lavoro alla tua/al tuo superiore?\nAndrea Zucchetti è a tua disposizione.\n058 277 29 11\n\nDomande sul processo di candidatura?\nJeannette Pizzi è a tua disposizione.\n058 277 29 76\n\nIl tuo team futuro\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
       "descriptionByLocale": {
-        "it": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione? Cogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme! La tua giornata tipo\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia. Il tuo apporto\n• Requisiti principali:\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n• Far percepisce che ami il contatto con le persone, Saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute. Contatto Domande in merito al posto di lavoro alla tua/al tuo superiore? Andrea Zucchetti è a tua disposizione. 058 277 29 11 Domande sul processo di candidatura? Jeannette Pizzi è a tua disposizione. 058 277 29 76 Il tuo team futuro Circa 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
+        "it": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione? Cogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme! La tua giornata tipo\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia. Il tuo apporto\n• Requisiti principali:\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n• Far percepire che ami il contatto con le persone, saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute. Contatto Domande in merito al posto di lavoro alla tua/al tuo superiore? Andrea Zucchetti è a tua disposizione. 058 277 29 11 Domande sul processo di candidatura? Jeannette Pizzi è a tua disposizione. 058 277 29 76 Il tuo team futuro Circa 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
         "en": "Do you have a great predisposition towards people and a strong sensitivity in understanding their needs? Do you have a rich experience in social welfare and a healthy ambition? Take a unique opportunity, contribute to the growth of our new \"Vita\" division. Support our agencies by strengthening customer advisors with targeted coaching in lead generation. Focus on consulting our customers by orienting it into the best choice of our new social security products. The agency consultants will help you by providing you with lead from our extensive database. We offer a first-rate work package, an excellent training and training offer, and also the flexibility necessary to allow you to combine well-work and private life. Let's talk together about our future and a project to build together! Your day, like\n• Process the lead of your general agency and as coach you support the consultants in their specialist development and in the field of sales.\n• Grow existing relationships and actively acquire new clients for private security.\n• Conduct counselling, personally or remotely, and develop individual solutions to sell successfully.\n• Strengthen the bond with portfolio customers, recognise sales opportunities and work closely with colleagues and colleagues to use these cross-selling and up-selling potentials.\n• Use modern tools for valuable customer interactions and present you with cutting-edge marketing and sales measures.\n• Reply to the requests and questions of our customers in a collaborative and very empathy. Your contribution\n• Main requirements:\n• Having completed a professional training and obtained the AFA certification life profile (FAFA all branches preferentially). If you have further training, such as financial advisor/or IAF? Better!\n• Have at least three years of experience in social welfare and pursue with great passion their sales goals.\n• Perceiving that you love contact with people, Know how to put in the shoes of the customer, understand their needs and adapt their advice in a personalized way, offering consistent solutions with its needs and objectives.\n• Express yourself very well in Italian (speaking and written) and speak other national languages.\n• Have a large network of contacts, cultivate it for a long time and live in Luganese/Bellinzonese.\n• Be flexible and available to move for advice outside the agency and, at the convenience, outside the official hours.\n• Works flexiblely: Adapt your work to your lifestyle every year, with options such as partial working time and other flexible models like home office and more.\n• It will please your portfolio: Benefit as bonuses, good Rekas, discounts for sick cash prizes and others, which can quickly match a few thousand francs a year.\n• Relax on holiday: You work 41 hours a week and enjoy 6 weeks of vacation.\n• He attends a training: We look forward to following an internal or external professional update and support you generously with time and money.\n• Celebrate with us: Work concentrated and celebrate joyfully. We love this combination and act regularly.\n• Stay fit: Ergonomic workplaces, promoting mental well-being and many other health benefits. Contact Questions about the workplace to your superior? Andrea Zucchetti is at your disposal. 058 277 29 11 Questions about the application process? Jeannette Pizzi is at your disposal. 058 277 29 76 Your future team Approximately 1.7 million customers, about 100 agencies, about 3000 collaborators and collaborators, and one of the leading health insurance companies in Switzerland. Yeah, we're really big. Luckily. Because so our chances of making a difference are great. Our roots date back to 1899. Since then we have grown in a healthy way, but do not rest on the laurels: for the future we still have many projects, perhaps along with you?",
         "de": "Haben Sie eine große Neigung gegenüber Menschen und eine starke Sensibilität im Verständnis ihrer Bedürfnisse? Haben Sie eine reiche Erfahrung in der Sozialfürsorge und einen gesunden Ehrgeiz? Nutzen Sie eine einzigartige Gelegenheit und tragen Sie zum Wachstum unserer neuen Division \"Vita\" bei. Unterstützen Sie unsere Agenturen durch die Stärkung von Kundenberatern mit gezieltem Coaching in der Leadgenerierung. Konzentrieren Sie sich auf die Beratung unserer Kunden, indem Sie sie auf die beste Auswahl unserer neuen Sozialversicherungsprodukte ausrichten. Die Agenturberater helfen Ihnen, indem sie Ihnen Lead aus unserer umfangreichen Datenbank zur Verfügung stellen. Wir bieten ein erstklassiges Arbeitspaket, ein exzellentes Schulungs- und Schulungsangebot und auch die nötige Flexibilität, damit Sie gut arbeiten und privat leben können. Lassen Sie uns gemeinsam über unsere Zukunft und ein Projekt zum gemeinsamen Bauen sprechen! Dein Tag, wie\n• Verarbeiten Sie die Führung Ihrer Generalagentur und als Coach unterstützen Sie die Berater in ihrer Fachentwicklung und im Bereich Sales.\n• Wachsen Sie bestehende Beziehungen und akquirieren Sie aktiv neue Kunden für private Sicherheit.\n• Führen Sie Beratung persönlich oder aus der Ferne durch und entwickeln Sie individuelle Lösungen, um erfolgreich zu verkaufen.\n• Stärken Sie die Bindung zu Portfoliokunden, erkennen Sie Absatzchancen und arbeiten Sie eng mit Kollegen und Kollegen zusammen, um diese Cross-Selling- und Up-Selling-Potenziale zu nutzen.\n• Nutzen Sie moderne Tools für wertvolle Kundeninteraktionen und präsentieren Sie Ihnen modernste Marketing- und Verkaufsmaßnahmen.\n• Beantworten Sie die Anfragen und Fragen unserer Kunden in einer kollaborativen und sehr Empathie. Ihr Beitrag\n• Hauptanforderungen:\n• Nach Abschluss einer Berufsausbildung und Erhalt des Lebensprofils der AFA-Zertifizierung (FAFA alle Zweige bevorzugt). Wenn Sie eine Weiterbildung wie Finanzberater / oder IAF haben? Besser!\n• Haben Sie mindestens drei Jahre Erfahrung in der Sozialfürsorge und verfolgen Sie mit großer Leidenschaft ihre Verkaufsziele.\n• Wahrnehmen, dass Sie den Kontakt mit Menschen lieben, wissen, wie man die Rolle des Kunden einnimmt, seine Bedürfnisse versteht und seine Beratung auf personalisierte Weise anpasst und konsistente Lösungen mit seinen Bedürfnissen und Zielen anbietet.\n• Drücken Sie sich sehr gut auf Italienisch aus (sprechend und geschrieben) und sprechen Sie andere Landessprachen.\n• Haben Sie ein großes Netzwerk von Kontakten, pflegen Sie es lange und leben Sie in Luganese / Bellinzonese.\n• Seien Sie flexibel und verfügbar, um sich außerhalb der Agentur und bequem außerhalb der offiziellen Zeiten beraten zu lassen.\n• Funktioniert flexibel: Passen Sie Ihre Arbeit jedes Jahr an Ihren Lebensstil an, mit Optionen wie Teilzeit und anderen flexiblen Modellen wie Home Office und mehr.\n• Es wird Ihrem Portfolio gefallen: Vorteile wie Boni, gute Rekas, Rabatte für kranke Geldpreise und andere, die schnell ein paar tausend Franken im Jahr erreichen können.\n• Entspannen Sie sich im Urlaub: Sie arbeiten 41 Stunden pro Woche und genießen 6 Wochen Urlaub.\n• Er besucht ein Training: Wir freuen uns auf ein internes oder externes professionelles Update und unterstützen Sie großzügig mit Zeit und Geld.\n• Feiern Sie mit uns: Konzentriert arbeiten und freudig feiern. Wir lieben diese Kombination und handeln regelmäßig.\n• Bleiben Sie fit: Ergonomische Arbeitsplätze, Förderung des psychischen Wohlbefindens und viele andere gesundheitliche Vorteile. Kontakt Fragen zum Arbeitsplatz an Ihren Vorgesetzten? Andrea Zucchetti steht Ihnen zur Verfügung. 058 277 29 11 Fragen zum Bewerbungsprozess? Jeannette Pizzi steht Ihnen zur Verfügung. 058 277 29 76 Ihr zukünftiges Team Rund 1,7 Millionen Kunden, rund 100 Agenturen, rund 3000 Mitarbeiter und Mitarbeiter sowie eine der führenden Krankenkassen der Schweiz. Ja, wir sind wirklich groß. Zum Glück. Denn unsere Chancen, einen Unterschied zu machen, sind groß. Unsere Wurzeln reichen bis ins Jahr 1899 zurück. Seitdem sind wir gesund gewachsen, ruhen uns aber nicht auf den Lorbeeren aus: Für die Zukunft haben wir noch viele Projekte, vielleicht mit Ihnen?",
         "fr": "Avez-vous une grande prédisposition envers les gens et une forte sensibilité à la compréhension de leurs besoins? Avez-vous une riche expérience de la protection sociale et une ambition saine? Profitez d'une occasion unique, contribuez à la croissance de notre nouvelle division \"Vita\". Soutenir nos agences en renforçant les conseillers clients avec un encadrement ciblé dans la génération de plomb. Concentrez-vous sur la consultation de nos clients en l'orientant vers le meilleur choix de nos nouveaux produits de sécurité sociale. Les consultants de l'agence vous aideront en vous fournissant le chef de file de notre vaste base de données. Nous offrons un forfait de travail de premier ordre, une excellente offre de formation et de formation, ainsi que la flexibilité nécessaire pour vous permettre de combiner bien travailler et vie privée. Parlons ensemble de notre avenir et d'un projet à construire ensemble ! Ton jour, comme\n• Procédez à la direction de votre agence générale et en tant qu'entraîneur vous aidez les consultants dans leur développement spécialisé et dans le domaine des ventes.\n• Développer les relations existantes et acquérir activement de nouveaux clients pour la sécurité privée.\n• Mener des consultations, personnellement ou à distance, et élaborer des solutions individuelles pour vendre avec succès.\n• Renforcer la liaison avec les clients du portefeuille, reconnaître les opportunités de vente et travailler en étroite collaboration avec des collègues et des collègues pour utiliser ces potentiels de vente croisée et de mise à jour.\n• Utilisez des outils modernes pour des interactions clients précieuses et vous présenter avec des mesures de marketing et de vente de pointe.\n• Répondre aux demandes et aux questions de nos clients dans une collaboration et très empathie. Votre contribution\n• Principales exigences:\n• Après avoir suivi une formation professionnelle et obtenu le profil de vie de certification AFA (FAFA toutes branches préférentiellement). Si vous avez une formation complémentaire, comme un conseiller financier ou une FAI? Mieux !\n• Avoir au moins trois ans d'expérience en protection sociale et poursuivre avec une grande passion leurs objectifs de vente.\n• Percevant que vous aimez le contact avec les gens, Savoir mettre dans les chaussures du client, comprendre leurs besoins et adapter leurs conseils de manière personnalisée, offrant des solutions cohérentes avec ses besoins et objectifs.\n• Exprimez-vous très bien en italien (parlant et écrit) et parlez d'autres langues nationales.\n• Avoir un vaste réseau de contacts, le cultiver pendant longtemps et vivre à Luganèse/Bellinzonese.\n• Être flexible et disponible pour se déplacer pour obtenir des conseils à l'extérieur de l'organisme et, à la convenance, en dehors des heures officielles.\n• Fonctionne avec flexibilité : Adaptez votre travail à votre style de vie chaque année, avec des options comme le temps partiel de travail et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n• Il plaira à votre portefeuille: Benefit comme bonus, bon Rekas, rabais pour les prix en espèces malades et autres, qui peuvent rapidement correspondre à quelques milliers de francs par an.\n• Détendez-vous en vacances: vous travaillez 41 heures par semaine et profitez de 6 semaines de vacances.\n• Il suit une formation : Nous sommes impatients de suivre une mise à jour professionnelle interne ou externe et de vous soutenir généreusement avec le temps et l'argent.\n• Célébrez avec nous: Travail concentré et fêtez joyeusement. Nous aimons cette combinaison et agissons régulièrement.\n• Rester en forme : milieux de travail ergonomiques, promouvoir le bien-être mental et bien d'autres avantages pour la santé. Personne à contacter Des questions sur le lieu de travail à votre supérieur ? Andrea Zucchetti est à votre disposition. 058 277 29 11 Des questions sur le processus de demande? Jeannette Pizzi est à votre disposition. 058 277 29 76 Votre future équipe Environ 1,7 million de clients, une centaine d'agences, environ 3000 collaborateurs et collaborateurs, et l'une des principales compagnies d'assurance maladie en Suisse. Oui, on est vraiment grands. Heureusement. Parce que nos chances de faire une différence sont grandes. Nos racines remontent à 1899. Depuis, nous avons grandi de manière saine, mais ne nous reposons pas sur les lauriers: pour l'avenir nous avons encore beaucoup de projets, peut-être avec vous?"
@@ -4533,7 +4566,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-lugano/825a0fb7-e609-468c-93ea-c7aaf9babf3f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:36:18.071Z",
+      "crawledAt": "2026-07-09T22:38:39.794Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -4584,9 +4617,9 @@
         "de": "Experte / oder Sozialversicherung (m / m) Bellinzona General Agency 100%",
         "fr": "Expert/ou sécurité sociale (f/m) Bellinzona Agence générale 100%"
       },
-      "description": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione?\nCogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme!\n\nLa tua giornata tipo\n\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia.\n\nIl tuo apporto\n\n• Requisiti principali:\n\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n\n• Far percepisce che ami il contatto con le persone, Saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute.\n\nContatto\n\nDomande in merito al posto di lavoro alla tua/al tuo superiore?\nMarzio Lombardi è a tua disposizione.\n058 277 26 56\n\nDomande sul processo di candidatura?\nJeannette Pizzi è a tua disposizione.\n058 277 29 76\n\nIl tuo team futuro\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
+      "description": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione?\nCogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme!\n\nLa tua giornata tipo\n\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia.\n\nIl tuo apporto\n\n• Requisiti principali:\n\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n\n• Far percepire che ami il contatto con le persone, saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute.\n\nContatto\n\nDomande in merito al posto di lavoro alla tua/al tuo superiore?\nMarzio Lombardi è a tua disposizione.\n058 277 26 56\n\nDomande sul processo di candidatura?\nJeannette Pizzi è a tua disposizione.\n058 277 29 76\n\nIl tuo team futuro\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
       "descriptionByLocale": {
-        "it": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione? Cogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme! La tua giornata tipo\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia. Il tuo apporto\n• Requisiti principali:\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n• Far percepisce che ami il contatto con le persone, Saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute. Contatto Domande in merito al posto di lavoro alla tua/al tuo superiore? Marzio Lombardi è a tua disposizione. 058 277 26 56 Domande sul processo di candidatura? Jeannette Pizzi è a tua disposizione. 058 277 29 76 Il tuo team futuro Circa 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
+        "it": "Hai una grande predisposizione verso le persone ed una spiccata sensibilità nel comprendere le loro esigenze? Vanti una ricca esperienza nella consulenza previdenziale ed una sana ambizione? Cogli un'opportunità unica, contribuisci alla crescita della nostra nuova divisione \"Vita\". Supporta le nostre agenzie rafforzando i consulenti alla clientela con un coaching mirato nella generazione di lead. Concentrati sulla consulenza alla nostra clientela orientandola nella miglior scelta dei nostri nuovi prodotti previdenziali. I consulenti dell'agenzia ti aiuteranno fornendoti lead dal nostro ampio data base. Proponiamo un pacchetto di lavoro di prim'ordine, un'eccellente offerta formativa e di perfezionamento, inoltre la flessibilità necessaria per permetterti di conciliare bene lavoro e vita privata. Parliamo insieme del nostro futuro e di un progetto da costruire insieme! La tua giornata tipo\n• Elabori i lead della tua agenzia generale e come coach sostieni le/i consulenti nel loro sviluppo specialistico e nell'ambito della vendita.\n• Coltivi le relazioni già esistenti e acquisisci attivamente nuovi clienti per la previdenza privata.\n• Svolgi consulenze in materia di previdenza, di persona o in remoto, e sviluppi soluzioni individuali da vendere con successo.\n• Rafforzi il legame con la clientela del portafoglio, riconosci le opportunità di vendita e lavori a stretto contatto con le colleghe e i colleghi per utilizzare questi potenziali di cross-selling e up-selling.\n• Utilizzi strumenti moderni per preziose interazioni con la clientela e ti presenti con misure di marketing e vendita all'avanguardia.\n• Rispondi alle richieste e alle domande della nostra clientela in modo collaborativo e molta empatia. Il tuo apporto\n• Requisiti principali:\n• Avere concluso una formazione professionale ed ottenuto la certificazione AFA profilo vita (AFA tutti i rami a titolo preferenziale). Qualora si disponga di una formazione ulteriore, come p. es. consulente finanziaria/o IAF? Tanto meglio!\n• Avere almeno tre anni di esperienza nella consulenza previdenziale e perseguire con grande passione i propri obiettivi di vendita.\n• Far percepire che ami il contatto con le persone, saperti mettere nei panni del cliente, comprenderne le esigenze e adattare la consulenza in modo personalizzato, offrendo soluzioni coerenti con i suoi bisogni e i suoi obiettivi.\n• Esprimerti molto bene in italiano (parlato e scritto) e parli altre lingue nazionali.\n• Avere una grande rete di contatti, coltivarla da tempo ed abitare nel Luganese/Bellinzonese.\n• Essere flessibile e disponibile allo spostamento per consulenze al di fuori dell'agenzia ed, all'evenienza, fuori dagli orari ufficiali.\n• Lavora in modo flessibile: Adatta ogni anno il tuo lavoro al tuo stile di vita, con opzioni come tempo di lavoro parziale e altri modelli flessibili come l'home office e altro ancora.\n• Farà piacere al tuo portafoglio: Benefit come bonus, buoni Reka, ribassi per i premi della cassa malati e altri, che possono corrispondere rapidamente a qualche migliaia di franchi all'anno.\n• Rilassati in vacanza: Lavori 41 ore alla settimana e ti godi 6 settimane di ferie.\n• Frequenta una formazione: Vediamo di buon occhio se segui un aggiornamento professionale interno o esterno e ti sosteniamo generosamente con tempo e denaro.\n• Festeggia con noi: Lavorare in modo concentrato e festeggiare allegramente. Amiamo questa combinazione e la attuiamo con regolarità.\n• Rimani in forma: Postazioni di lavoro ergonomiche, promozione del benessere mentale e tante altre offerte per la tua salute. Contatto Domande in merito al posto di lavoro alla tua/al tuo superiore? Marzio Lombardi è a tua disposizione. 058 277 26 56 Domande sul processo di candidatura? Jeannette Pizzi è a tua disposizione. 058 277 29 76 Il tuo team futuro Circa 1,7 milioni di clienti, circa 100 agenzie, circa 3000 collaboratrici e collaboratori e uno degli assicuratori malattie e di cose leader in Svizzera. Sì, siamo davvero grandi. Per fortuna. Perché così sono grandi anche le nostre possibilità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti in modo sano, ma non ci riposiamo sugli allori: per il futuro abbiamo ancora molti progetti, magari insieme a te?",
         "en": "Do you have a great predisposition towards people and a strong sensitivity in understanding their needs? Do you have a rich experience in social welfare and a healthy ambition? Take a unique opportunity, contribute to the growth of our new \"Vita\" division. Support our agencies by strengthening customer advisors with targeted coaching in lead generation. Focus on consulting our customers by orienting it into the best choice of our new social security products. The agency consultants will help you by providing you with lead from our extensive database. We offer a first-rate work package, an excellent training and training offer, and also the flexibility necessary to allow you to combine well-work and private life. Let's talk together about our future and a project to build together! Your day, like\n• Process the lead of your general agency and as coach you support the consultants in their specialist development and in the field of sales.\n• Grow existing relationships and actively acquire new clients for private security.\n• Conduct counselling, personally or remotely, and develop individual solutions to sell successfully.\n• Strengthen the bond with portfolio customers, recognise sales opportunities and work closely with colleagues and colleagues to use these cross-selling and up-selling potentials.\n• Use modern tools for valuable customer interactions and present you with cutting-edge marketing and sales measures.\n• Reply to the requests and questions of our customers in a collaborative and very empathy. Your contribution\n• Main requirements:\n• Having completed a professional training and obtained the AFA certification life profile (FAFA all branches preferentially). If you have further training, such as financial advisor/or IAF? Better!\n• Have at least three years of experience in social welfare and pursue with great passion their sales goals.\n• Perceiving that you love contact with people, Know how to put in the shoes of the customer, understand their needs and adapt their advice in a personalized way, offering consistent solutions with its needs and objectives.\n• Express yourself very well in Italian (speaking and written) and speak other national languages.\n• Have a large network of contacts, cultivate it for a long time and live in Luganese/Bellinzonese.\n• Be flexible and available to move for advice outside the agency and, at the convenience, outside the official hours.\n• Works flexiblely: Adapt your work to your lifestyle every year, with options such as partial working time and other flexible models like home office and more.\n• It will please your portfolio: Benefit as bonuses, good Rekas, discounts for sick cash prizes and others, which can quickly match a few thousand francs a year.\n• Relax on holiday: You work 41 hours a week and enjoy 6 weeks of vacation.\n• He attends a training: We look forward to following an internal or external professional update and support you generously with time and money.\n• Celebrate with us: Work concentrated and celebrate joyfully. We love this combination and act regularly.\n• Stay fit: Ergonomic workplaces, promoting mental well-being and many other health benefits. Contact Questions about the workplace to your superior? Marzio Lombardi is at your disposal. 058 277 26 56 Questions about the application process? Jeannette Pizzi is at your disposal. 058 277 29 76 Your future team Approximately 1.7 million customers, about 100 agencies, about 3000 collaborators and collaborators, and one of the leading health insurance companies in Switzerland. Yeah, we're really big. Luckily. Because so our chances of making a difference are great. Our roots date back to 1899. Since then we have grown in a healthy way, but do not rest on the laurels: for the future we still have many projects, perhaps along with you?",
         "de": "Haben Sie eine große Neigung gegenüber Menschen und eine starke Sensibilität im Verständnis ihrer Bedürfnisse? Haben Sie eine reiche Erfahrung in der Sozialfürsorge und einen gesunden Ehrgeiz? Nutzen Sie eine einzigartige Gelegenheit und tragen Sie zum Wachstum unserer neuen Division \"Vita\" bei. Unterstützen Sie unsere Agenturen durch die Stärkung von Kundenberatern mit gezieltem Coaching in der Leadgenerierung. Konzentrieren Sie sich auf die Beratung unserer Kunden, indem Sie sie auf die beste Auswahl unserer neuen Sozialversicherungsprodukte ausrichten. Die Agenturberater helfen Ihnen, indem sie Ihnen Lead aus unserer umfangreichen Datenbank zur Verfügung stellen. Wir bieten ein erstklassiges Arbeitspaket, ein exzellentes Schulungs- und Schulungsangebot und auch die nötige Flexibilität, damit Sie gut arbeiten und privat leben können. Lassen Sie uns gemeinsam über unsere Zukunft und ein Projekt zum gemeinsamen Bauen sprechen! Dein Tag, wie\n• Verarbeiten Sie die Führung Ihrer Generalagentur und als Coach unterstützen Sie die Berater in ihrer Fachentwicklung und im Bereich Sales.\n• Wachsen Sie bestehende Beziehungen und akquirieren Sie aktiv neue Kunden für private Sicherheit.\n• Führen Sie Beratung persönlich oder aus der Ferne durch und entwickeln Sie individuelle Lösungen, um erfolgreich zu verkaufen.\n• Stärken Sie die Bindung zu Portfoliokunden, erkennen Sie Absatzchancen und arbeiten Sie eng mit Kollegen und Kollegen zusammen, um diese Cross-Selling- und Up-Selling-Potenziale zu nutzen.\n• Nutzen Sie moderne Tools für wertvolle Kundeninteraktionen und präsentieren Sie Ihnen modernste Marketing- und Verkaufsmaßnahmen.\n• Beantworten Sie die Anfragen und Fragen unserer Kunden in einer kollaborativen und sehr Empathie. Ihr Beitrag\n• Hauptanforderungen:\n• Nach Abschluss einer Berufsausbildung und Erhalt des Lebensprofils der AFA-Zertifizierung (FAFA alle Zweige bevorzugt). Wenn Sie eine Weiterbildung wie Finanzberater / oder IAF haben? Besser!\n• Haben Sie mindestens drei Jahre Erfahrung in der Sozialfürsorge und verfolgen Sie mit großer Leidenschaft ihre Verkaufsziele.\n• Wahrnehmen, dass Sie den Kontakt mit Menschen lieben, wissen, wie man die Rolle des Kunden einnimmt, seine Bedürfnisse versteht und seine Beratung auf personalisierte Weise anpasst und konsistente Lösungen mit seinen Bedürfnissen und Zielen anbietet.\n• Drücken Sie sich sehr gut auf Italienisch aus (sprechend und geschrieben) und sprechen Sie andere Landessprachen.\n• Haben Sie ein großes Netzwerk von Kontakten, pflegen Sie es lange und leben Sie in Luganese / Bellinzonese.\n• Seien Sie flexibel und verfügbar, um sich außerhalb der Agentur und bequem außerhalb der offiziellen Zeiten beraten zu lassen.\n• Funktioniert flexibel: Passen Sie Ihre Arbeit jedes Jahr an Ihren Lebensstil an, mit Optionen wie Teilzeit und anderen flexiblen Modellen wie Home Office und mehr.\n• Es wird Ihrem Portfolio gefallen: Vorteile wie Boni, gute Rekas, Rabatte für kranke Geldpreise und andere, die schnell ein paar tausend Franken im Jahr erreichen können.\n• Entspannen Sie sich im Urlaub: Sie arbeiten 41 Stunden pro Woche und genießen 6 Wochen Urlaub.\n• Er besucht ein Training: Wir freuen uns auf ein internes oder externes professionelles Update und unterstützen Sie großzügig mit Zeit und Geld.\n• Feiern Sie mit uns: Konzentriert arbeiten und freudig feiern. Wir lieben diese Kombination und handeln regelmäßig.\n• Bleiben Sie fit: Ergonomische Arbeitsplätze, Förderung des psychischen Wohlbefindens und viele andere gesundheitliche Vorteile. Kontakt Fragen zum Arbeitsplatz an Ihren Vorgesetzten? Marzio Lombardi steht Ihnen zur Verfügung. 058 277 26 56 Fragen zum Bewerbungsprozess? Jeannette Pizzi steht Ihnen zur Verfügung. 058 277 29 76 Ihr zukünftiges Team Rund 1,7 Millionen Kunden, rund 100 Agenturen, rund 3000 Mitarbeiter und Mitarbeiter sowie eine der führenden Krankenkassen der Schweiz. Ja, wir sind wirklich groß. Zum Glück. Denn unsere Chancen, einen Unterschied zu machen, sind groß. Unsere Wurzeln reichen bis ins Jahr 1899 zurück. Seitdem sind wir gesund gewachsen, ruhen uns aber nicht auf den Lorbeeren aus: Für die Zukunft haben wir noch viele Projekte, vielleicht mit Ihnen?",
         "fr": "Avez-vous une grande prédisposition envers les gens et une forte sensibilité à la compréhension de leurs besoins? Avez-vous une riche expérience de la protection sociale et une ambition saine? Profitez d'une occasion unique, contribuez à la croissance de notre nouvelle division \"Vita\". Soutenir nos agences en renforçant les conseillers clients avec un encadrement ciblé dans la génération de plomb. Concentrez-vous sur la consultation de nos clients en l'orientant vers le meilleur choix de nos nouveaux produits de sécurité sociale. Les consultants de l'agence vous aideront en vous fournissant le chef de file de notre vaste base de données. Nous offrons un forfait de travail de premier ordre, une excellente offre de formation et de formation, ainsi que la flexibilité nécessaire pour vous permettre de combiner bien travailler et vie privée. Parlons ensemble de notre avenir et d'un projet à construire ensemble ! Ton jour, comme\n• Procédez à la direction de votre agence générale et en tant qu'entraîneur vous aidez les consultants dans leur développement spécialisé et dans le domaine des ventes.\n• Développer les relations existantes et acquérir activement de nouveaux clients pour la sécurité privée.\n• Mener des consultations, personnellement ou à distance, et élaborer des solutions individuelles pour vendre avec succès.\n• Renforcer la liaison avec les clients du portefeuille, reconnaître les opportunités de vente et travailler en étroite collaboration avec des collègues et des collègues pour utiliser ces potentiels de vente croisée et de mise à jour.\n• Utilisez des outils modernes pour des interactions clients précieuses et vous présenter avec des mesures de marketing et de vente de pointe.\n• Répondre aux demandes et aux questions de nos clients dans une collaboration et très empathie. Votre contribution\n• Principales exigences:\n• Après avoir suivi une formation professionnelle et obtenu le profil de vie de certification AFA (FAFA toutes branches préférentiellement). Si vous avez une formation complémentaire, comme un conseiller financier ou une FAI? Mieux !\n• Avoir au moins trois ans d'expérience en protection sociale et poursuivre avec une grande passion leurs objectifs de vente.\n• Percevant que vous aimez le contact avec les gens, Savoir mettre dans les chaussures du client, comprendre leurs besoins et adapter leurs conseils de manière personnalisée, offrant des solutions cohérentes avec ses besoins et objectifs.\n• Exprimez-vous très bien en italien (parlant et écrit) et parlez d'autres langues nationales.\n• Avoir un vaste réseau de contacts, le cultiver pendant longtemps et vivre à Luganèse/Bellinzonese.\n• Être flexible et disponible pour se déplacer pour obtenir des conseils à l'extérieur de l'organisme et, à la convenance, en dehors des heures officielles.\n• Fonctionne avec flexibilité : Adaptez votre travail à votre style de vie chaque année, avec des options comme le temps partiel de travail et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n• Il plaira à votre portefeuille: Benefit comme bonus, bon Rekas, rabais pour les prix en espèces malades et autres, qui peuvent rapidement correspondre à quelques milliers de francs par an.\n• Détendez-vous en vacances: vous travaillez 41 heures par semaine et profitez de 6 semaines de vacances.\n• Il suit une formation : Nous sommes impatients de suivre une mise à jour professionnelle interne ou externe et de vous soutenir généreusement avec le temps et l'argent.\n• Célébrez avec nous: Travail concentré et fêtez joyeusement. Nous aimons cette combinaison et agissons régulièrement.\n• Rester en forme : milieux de travail ergonomiques, promouvoir le bien-être mental et bien d'autres avantages pour la santé. Personne à contacter Des questions sur le lieu de travail à votre supérieur ? Marzio Lombardi est à votre disposition. 058 277 26 56 Des questions sur le processus de demande? Jeannette Pizzi est à votre disposition. 058 277 29 76 Votre future équipe Environ 1,7 million de clients, une centaine d'agences, environ 3000 collaborateurs et collaborateurs, et l'une des principales compagnies d'assurance maladie en Suisse. Oui, on est vraiment grands. Heureusement. Parce que nos chances de faire une différence sont grandes. Nos racines remontent à 1899. Depuis, nous avons grandi de manière saine, mais ne nous reposons pas sur les lauriers: pour l'avenir nous avons encore beaucoup de projets, peut-être avec vous?"
@@ -4596,7 +4629,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-bellinzona/2ad5d85a-6665-4121-826f-1b0515a323ee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:36:17.434Z",
+      "crawledAt": "2026-07-09T22:38:39.220Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -4643,7 +4676,7 @@
       "title": "CIO Office Manager/in 80-100%",
       "titleByLocale": {
         "it": "CIO Office Manager/in 80-100 %",
-        "en": "CIO Office Manager/in 80-100 %",
+        "en": "CIO Office Manager/in 80-100%",
         "de": "CIO Office Manager/in 80-100%",
         "fr": "Directeur de bureau de DPI/dans 80-100 %"
       },
@@ -4659,7 +4692,7 @@
       "url": "https://jobs.css.ch/offene-stellen/cio-office-manager-in/c0bc02f4-c234-4cf1-9e58-059d41ff2a8c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:36:16.849Z",
+      "crawledAt": "2026-07-09T22:38:38.586Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4678,6 +4711,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:30:57.506Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
