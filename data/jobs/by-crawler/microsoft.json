@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-07-08T22:14:02.158Z",
+  "assembledAt": "2026-07-09T12:20:56.705Z",
   "jobs": [
     {
       "id": "microsoft-200042292",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:59.628Z",
+      "crawledAt": "2026-07-09T12:20:53.990Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:59.624Z",
+      "crawledAt": "2026-07-09T12:20:53.986Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
