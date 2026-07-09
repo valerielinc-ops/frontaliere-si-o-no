@@ -505,9 +505,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
         "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-with-ndk-monitoring-care-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-suivi-ndk-kantonsspital-aarau-ksa",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-suivi-ndk-kantonsspital-aarau-ksa"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -521,14 +521,17 @@
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione\n\nInfermiere dipl./ Infermiere SSS /SUP con supervisione NDK - Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/3601/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.844Z",
+      "crawledAt": "2026-07-08T22:21:13.608Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -541,14 +544,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/3601/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -561,7 +563,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.844Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 105
     },
     {
       "id": "ksa-f35cb0abe3c9",
@@ -878,21 +883,23 @@
       "title": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
-        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie",
+        "fr": "Médecin principal (BF) Neurochirurgie",
         "it": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgia",
         "en": "Oberärztin / Oberarzt (ggf. mbF) Neurosurgery"
       },
       "description": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Öärztin / Oberarzt (ggf. mbF) Neurochir Sturge — Historispital Aarau (KSA), Aarau",
+        "fr": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgie — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Oberärztin / Oberarzt (ggf. mbF) Neurochirurgia — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Öärztin / Oberarzt (ggf. mbF) Neurochir Sturge — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5284/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:28:58.844Z",
+      "crawledAt": "2026-07-08T22:21:13.608Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -905,14 +912,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5284/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -925,7 +931,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.844Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 82
     },
     {
       "id": "ksa-883741971424",
@@ -3410,7 +3419,7 @@
       "slugByLocale": {
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
         "it": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "en": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
+        "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3419,21 +3428,23 @@
       "title": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
       "titleByLocale": {
         "de": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin)",
+        "fr": "Stage de soins indépendant de la formation (médecine)",
         "it": "Ausbildungsunabhängig (Medizin)",
-        "en": "Pflegepraktikum ausbildungsunabhängig (Medizin)"
+        "en": "Care internship independent of training (medicine)"
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Stage di assistenza infermieristica indipendente dalla formazione (Medicina) — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2730/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:28:58.844Z",
+      "crawledAt": "2026-07-08T22:21:13.608Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -3446,14 +3457,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/2730/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3466,15 +3476,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.844Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau"
-        ]
-      },
-      "previousSlugs": [
-        "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau"
-      ]
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 82
     },
     {
       "id": "ksa-6432c5336d51",
@@ -3787,14 +3792,17 @@
       },
       "description": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Oberärztin / Oberarzt i.V. oder Oberärztin / Oberarzt — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Medico Capo / Medico Capo ad interim o Medico Capo — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Senior Physician / Attending Physician i.V. or Senior Physician / Attending Physician — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Médecin-chef / Médecin-chef ad interim ou Médecin-chef — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5422/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -3807,7 +3815,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5422/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -3817,12 +3825,17 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-i-v-oder-oberarztin-oberarzt-ksa-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3835,7 +3848,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 88
     },
     {
       "id": "ksa-56dad415af4c",
@@ -3858,14 +3874,17 @@
       },
       "description": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Med. Praxisassistent/in oder Medizinstudent/in — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Assistente medico o studente di medicina — Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Medical Practice Assistant or Medical Student — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Assistant(e) en pratique médicale ou étudiant(e) en médecine — Hôpital cantonal d'Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5486/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -3878,22 +3897,28 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5486/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        ],
+        "fr": [
           "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3906,7 +3931,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-68a7e3f83d7f",
@@ -3914,7 +3940,7 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-interventionelle-kardiologie-ksa-ch",
         "it": "oberarztin-oberarzt-interventionelle-kardiologie-ksa-ch",
-        "en": "oberarztin-oberarzt-interventionelle-kardiologie-ksa-ch",
+        "en": "upper-physician-oberarzt-interventionelle-cardiology-kantonsspital-aarau-ksa-aarau",
         "fr": "oberarztin-oberarzt-interventionelle-kardiologie-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3923,21 +3949,23 @@
       "title": "Oberärztin/Oberarzt interventionelle Kardiologie",
       "titleByLocale": {
         "de": "Oberärztin/Oberarzt interventionelle Kardiologie",
-        "it": "Oberärztin/Oberarzt interventionelle Kardiologie",
-        "en": "Oberärztin/Oberarzt interventionelle Kardiologie",
+        "it": "Medico superiore/Oberarzt Interventiolle Cardiologia",
+        "en": "Upper physician/Oberarzt Interventionelle Cardiology",
         "fr": "Oberärztin/Oberarzt interventionnelle Kardiologie"
       },
       "description": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
-        "it": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Oberärztin/Oberarztepteptepteptelle Kardiologie. Kantonsspital Aarau (KSA), Aarau",
+        "it": "Oberärztin/Oberarzt interventionelle Kardiologie — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Senior Physician in Interventional Cardiology — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Médecin-chef en cardiologie interventionnelle — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5479/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -3950,14 +3978,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5479/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3970,15 +3997,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "upper-physician-oberarzt-interventionelle-cardiology-kantonsspital-aarau-ksa-aarau"
-        ]
-      },
-      "previousSlugs": [
-        "upper-physician-oberarzt-interventionelle-cardiology-kantonsspital-aarau-ksa-aarau"
-      ]
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 83
     },
     {
       "id": "ksa-3ddb5a8fa516",
@@ -4577,14 +4599,17 @@
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Überwachungspflege — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione\n\nInfermiere dipl./ Infermiere SSS /SUP con supervisione NDK - Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Dipl. Pflegefachfrau / Pflegefachmann HF/FH mit NDK-Surveillancepflege — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5553/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -4597,22 +4622,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5553/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4625,7 +4641,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+      ],
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 105
     },
     {
       "id": "ksa-39bae4f26a6a",
@@ -4648,14 +4675,17 @@
       },
       "description": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Fachangestellte/r Radiologie (MPA / Pflegeberuf) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Specialista in radiologia (MPA / professione infermieristica) — Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Specialist in radiology (MPA/care profession) — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Spécialiste en radiologie (MPA/professeur de soins) — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5223/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -4668,21 +4698,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5223/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
-      ],
       "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4696,7 +4718,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "en": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "fr": [
+          "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachangestellte-r-radiologie-mpa-pflegeberuf-ksa-ch"
+      ],
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-e44b8132fd3d",
@@ -4791,14 +4828,17 @@
       },
       "description": "Med. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau"
+        "de": "## Beschreibung\n\nMed. Praxisassistent/in oder Fachfrau/Fachmann Gesundheit Lungenfunktionslabor — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Descrizione\n\nAssistente medico o specialista in salute Laboratorio per la funzione polmonare - Ospedale cantonale di Aarau (KSA), Aarau",
+        "en": "Description Med. Assistant to the practice or specialist Health Lung Function Laboratory — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Description Médicament assistant au laboratoire de la fonction pulmonaire de la santé ou spécialiste — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5542/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -4811,7 +4851,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5542/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -4821,12 +4861,17 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4839,7 +4884,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z"
     },
     {
       "id": "ksa-1d4aff4dae80",
@@ -6172,7 +6217,7 @@
       "id": "ksa-07ec20d26c7e",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
@@ -6182,10 +6227,10 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "it": "Dipl. Pflegefachfrau/Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "de": "logi.Hyardfachfrau /Hyardfachmann",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "fr": "Pflegefachfrau / Pflegefachmann",
+        "en": "logi. Pflegefachfrau / Pflegefachmann"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -6196,7 +6241,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.608Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -6209,7 +6254,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -6229,12 +6274,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z",
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
       "previousSlugs": [
+        "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
-        "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau"
+        "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3"
       ],
+      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
+        "de": [
+          "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau",
+          "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3"
+        ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
         ],
@@ -6243,9 +6295,6 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
-        ],
-        "de": [
-          "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau"
         ]
       }
     },
@@ -6544,15 +6593,16 @@
       },
       "description": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Dipl.-Ing. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Professionista in Radiologia Dipl. / Tecnico in Radiologia Dipl. — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4773/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:28:58.843Z",
+      "crawledAt": "2026-07-08T22:21:13.608Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -6565,22 +6615,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/4773/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6593,7 +6634,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.843Z"
+      "firstSeenAt": "2026-07-08T22:21:13.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
+      ],
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 80
     },
     {
       "id": "ksa-dc3d5b6a3940",
@@ -7109,8 +7164,8 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "fr": "fachexpertin-fachexperte-pflege-ksa-ch-2"
+        "en": "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7118,9 +7173,9 @@
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Pflege",
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Specialist care expert",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "it": "Esperto in cure infermieristiche",
+        "en": "Specialist / specialist care",
+        "fr": "Spécialiste / soins spécialisés"
       },
       "description": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7131,7 +7186,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5533/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:28:58.842Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -7144,29 +7199,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5533/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachexpertin-fachexperte-pflege-ksa-ch"
-        ],
-        "en": [
-          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b"
-        ],
-        "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
-        ]
-      },
-      "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
-      ],
       "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7180,7 +7219,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.842Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-ksa-ch"
+      ],
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-8e60df47da07",
@@ -7637,8 +7685,8 @@
       "slug": "pflegeexpertin-pflegeexperte-ksa-ch",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
-        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
         "it": "pflegeexpertin-pflegeexperte-ksa-ch",
+        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
         "fr": "pflegeexpertin-pflegeexperte-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7648,8 +7696,8 @@
       "titleByLocale": {
         "de": "Pflegeexpertin",
         "en": "Pflegeexpertin / Pflegeexperte",
-        "it": "Pflegeexpertin / Pflegeexperte",
-        "fr": "Pflegeexpertin / Pflegeexperte"
+        "it": "Experta / Experto en cuidado",
+        "fr": "Pflegeexperttine / Pflegeexperte"
       },
       "description": "Pflegeexpertin / Pflegeexperte — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7660,7 +7708,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5475/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:28:58.842Z",
+      "crawledAt": "2026-07-08T22:21:13.607Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -7673,7 +7721,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5475/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7693,7 +7741,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.842Z"
+      "firstSeenAt": "2026-07-08T22:21:13.607Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksa-d4cac2401a08",
@@ -7858,14 +7907,17 @@
       },
       "description": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Med. Praxisassistent/in Kinderwunsch-Sprechstunde — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Assistente di pratica medica / Assistente di pratica medica per la consultazione di fertilità — Kantonsspital Aarau (KSA), Aarau",
+        "en": "Medical Practice Assistant in Fertility Consultation — Kantonsspital Aarau (KSA), Aarau",
+        "fr": "Assistante médicale en séance de souhaits pour enfants - Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5165/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:28:58.841Z",
+      "crawledAt": "2026-07-08T22:21:13.606Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -7878,22 +7930,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-08",
       "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5165/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7906,7 +7949,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:28:58.841Z"
+      "firstSeenAt": "2026-07-08T22:21:13.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
+      ],
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 84
     },
     {
       "id": "ksa-275b519cef1d",

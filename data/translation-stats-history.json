@@ -11398,5 +11398,119 @@
         "pending": 4
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-09T16:22:07.342Z",
+    "label": "before",
+    "total": 23952,
+    "needsRetranslation": 3491,
+    "suppressed": 207,
+    "incomplete": 599,
+    "complete": 23353,
+    "missingByLocale": {
+      "it": 565,
+      "en": 547,
+      "de": 362,
+      "fr": 544
+    },
+    "topPending": [
+      {
+        "company": "Swiss Re",
+        "pending": 194
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 186
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 83
+      },
+      {
+        "company": "Holcim Group",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 24
+      },
+      {
+        "company": "Canton du Valais",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 10
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-09T16:34:41.038Z",
+    "label": "after",
+    "total": 23952,
+    "needsRetranslation": 2925,
+    "suppressed": 215,
+    "incomplete": 597,
+    "complete": 23355,
+    "missingByLocale": {
+      "it": 563,
+      "en": 546,
+      "de": 362,
+      "fr": 543
+    },
+    "topPending": [
+      {
+        "company": "Swiss Re",
+        "pending": 194
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 186
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 82
+      },
+      {
+        "company": "Holcim Group",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 24
+      },
+      {
+        "company": "Canton du Valais",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 10
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
   }
 ]
