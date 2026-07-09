@@ -69,7 +69,6 @@
         "business-analyst-payments-focus-aziende-60-100-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -149,7 +148,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:43:29.166Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -179,7 +177,7 @@
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
         "it": "Responsabile Controllo e Governance IT (100%)",
-        "en": "IT-Controlling und Governance Manager (100%)",
+        "en": "IT Controlling and Governance Manager (100%)",
         "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "Gestionnaire du contrôle et de la gouvernance de la TI (100%)"
       },
@@ -235,7 +233,6 @@
         "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -825,7 +822,6 @@
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -915,8 +911,7 @@
       "previousSlugs": [
         "praktikant-in-bem-banking-chur-ab-august-2027-gkb-ch"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
