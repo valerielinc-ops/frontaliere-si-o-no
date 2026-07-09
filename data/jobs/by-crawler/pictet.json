@@ -574,12 +574,12 @@
     },
     {
       "id": "pictet-20a15879b05c",
-      "slug": "business-process-manager-pictet-geneva",
+      "slug": "gestione-dei-processi-aziendali-pictet-group-geneva",
       "slugByLocale": {
         "en": "business-process-manager-pictet-geneva",
-        "it": "business-process-manager-pictet-geneva",
-        "de": "business-process-manager-pictet-geneva",
-        "fr": "business-process-manager-pictet-geneva"
+        "it": "gestione-dei-processi-aziendali-pictet-group-geneva",
+        "de": "geschaftsprozessmanager-pictet-group-geneva",
+        "fr": "gestionnaire-de-processus-operationnels-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -634,16 +634,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:02.228Z"
+      "firstSeenAt": "2026-07-09T22:26:02.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-process-manager-pictet-geneva"
+        ],
+        "de": [
+          "business-process-manager-pictet-geneva"
+        ],
+        "fr": [
+          "business-process-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "business-process-manager-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-6bcf0fee7693",
-      "slug": "dach-origination-professional-direct-private-equity-pictet-zurich",
+      "slug": "dach-origination-professional-equita-privata-diretta-pictet-group-zurich",
       "slugByLocale": {
         "en": "dach-origination-professional-direct-private-equity-pictet-zurich",
-        "it": "dach-origination-professional-direct-private-equity-pictet-zurich",
+        "it": "dach-origination-professional-equita-privata-diretta-pictet-group-zurich",
         "de": "dach-origination-professional-direct-private-equity-pictet-zurich",
-        "fr": "dach-origination-professional-direct-private-equity-pictet-zurich"
+        "fr": "dach-professionnel-d-origine-actions-privees-directes-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -698,7 +712,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:01.043Z"
+      "firstSeenAt": "2026-07-09T22:26:01.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dach-origination-professional-direct-private-equity-pictet-zurich"
+        ],
+        "fr": [
+          "dach-origination-professional-direct-private-equity-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dach-origination-professional-direct-private-equity-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-1a6a1bd7288c",

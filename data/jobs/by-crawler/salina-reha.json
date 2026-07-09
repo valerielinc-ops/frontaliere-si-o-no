@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
-        "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
+        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
-          "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
+          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-05-20T06:04:07.242Z",
@@ -155,13 +153,11 @@
       },
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden",
-        "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden",
-        "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden"
+        "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeut-in-salina-rheinfelden",
-          "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden"
+          "psychotherapeut-in-salina-rheinfelden"
         ],
         "en": [
           "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden"
@@ -183,12 +179,12 @@
     },
     {
       "id": "salina-reha-9cd91f4572c9",
-      "slug": "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden",
+      "slug": "assistenza-assistente-salute-60-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden",
-        "it": "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden",
-        "en": "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden",
-        "fr": "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden"
+        "it": "assistenza-assistente-salute-60-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "care-assistance-assistant-in-health-60-salina-rehaklinik-rheinfelden-rheinfelden",
+        "fr": "aide-aux-soins-assistant-en-sante-60-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
       "companyKey": "salina-reha",
@@ -243,7 +239,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:53.966Z"
+      "firstSeenAt": "2026-07-09T22:26:53.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden"
+        ],
+        "en": [
+          "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden"
+        ],
+        "fr": [
+          "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehilfe-assistent-in-gesundheit-60-salina-rheinfelden"
+      ]
     }
   ]
 }

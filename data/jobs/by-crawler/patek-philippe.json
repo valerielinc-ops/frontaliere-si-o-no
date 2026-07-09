@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "patek-philippe-b8ecf423c0a6",
-      "slug": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
+      "slug": "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
-        "it": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
-        "en": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
-        "de": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+        "it": "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates",
+        "en": "manager-quality-assurance-industrialization-h-f-patek-philippe-plan-les-ouates",
+        "de": "manager-quality-assurance-industrialisierung-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -66,7 +66,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:51.046Z"
+      "firstSeenAt": "2026-07-09T22:26:51.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-2e1fa088d89b",
@@ -117,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-        "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-          "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -191,14 +203,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
-        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
-        "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
+        "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
-          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
-          "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
+          "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:11.734Z",
@@ -264,13 +274,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
-        "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve"
+        "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve",
-          "evento-e-assistente-amministrativo-h-f-patek-philippe-geneve"
+          "assistant-evenementiel-et-administratif-h-f-patek-philippe-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -339,13 +347,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
-        "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates"
+        "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
-          "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates"
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -412,13 +418,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-ventes-h-f-patek-philippe-geneve",
-        "consulente-commerciale-h-f-patek-philippe-geneve"
+        "conseiller-de-ventes-h-f-patek-philippe-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-ventes-h-f-patek-philippe-geneve",
-          "consulente-commerciale-h-f-patek-philippe-geneve"
+          "conseiller-de-ventes-h-f-patek-philippe-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -487,13 +491,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
-        "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
+        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
-          "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
+          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -560,13 +562,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "micromecanicien-h-f-patek-philippe-saint-imier",
-        "micromeccanica-h-f-patek-philippe-saint-imier"
+        "micromecanicien-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "micromecanicien-h-f-patek-philippe-saint-imier",
-          "micromeccanica-h-f-patek-philippe-saint-imier"
+          "micromecanicien-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -633,13 +633,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
-        "prototipi-industriali-h-f-patek-philippe-saint-imier"
+        "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
-          "prototipi-industriali-h-f-patek-philippe-saint-imier"
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
         ]
       },
       "needsRetranslation": true,
@@ -706,13 +704,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
-        "wand-h-f-patek-philippe-la-chaux-de-fonds"
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
-          "wand-h-f-patek-philippe-la-chaux-de-fonds"
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
       "needsRetranslation": true,
@@ -781,13 +777,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
-        "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
+        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
-          "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -856,13 +850,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dessinateur-h-f-patek-philippe-plan-les-ouates",
-        "abbozzo-h-f-patek-philippe-plan-les-ouates"
+        "dessinateur-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-h-f-patek-philippe-plan-les-ouates",
-          "abbozzo-h-f-patek-philippe-plan-les-ouates"
+          "dessinateur-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "needsRetranslation": true,
@@ -931,13 +923,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-rhabilleur-patek-philippe-plan-les-ouates",
-        "abbigliamento-dresser-patek-philippe-plan-les-ouates"
+        "horloger-rhabilleur-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-rhabilleur-patek-philippe-plan-les-ouates",
-          "abbigliamento-dresser-patek-philippe-plan-les-ouates"
+          "horloger-rhabilleur-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "horloger-rhabilleur-patek-philippe-plan-les-ouates"
@@ -1012,13 +1002,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
-        "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
+        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
-          "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
+          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
