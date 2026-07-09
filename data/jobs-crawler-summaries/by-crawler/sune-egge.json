@@ -1,21 +1,19 @@
 {
   "key": "sune-egge",
   "label": "Fachspital Sune-Egge",
-  "generatedAt": "2026-07-07T11:59:05.509Z",
+  "generatedAt": "2026-07-09T12:12:41.843Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 2417,
-  "avgDurationMs": 2417,
+  "unchangedCount": 0,
+  "durationMs": 2827,
+  "avgDurationMs": 2827,
   "durationHistory": [
-    2417
+    2827
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "sune-egge-6cdad7d7ac86",
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
@@ -28,7 +26,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2675698",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:59:03.986Z",
+      "crawledAt": "2026-07-09T12:12:39.834Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +63,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:59:03.985Z",
+      "crawledAt": "2026-07-09T12:12:39.830Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -102,7 +100,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:59:03.981Z",
+      "crawledAt": "2026-07-09T12:12:39.826Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,7 +137,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T11:59:03.982Z",
+      "crawledAt": "2026-07-09T12:12:39.828Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,5 +162,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
