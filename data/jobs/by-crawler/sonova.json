@@ -2,9 +2,12 @@
   "jobs": [
     {
       "id": "sonova-7e9b147f65a5",
-      "slug": "practical-trainee-manufacturing-process-development-m-f-d-sonova-ch",
+      "slug": "allenatore-pratico-sviluppo-del-processo-di-produzione-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
-        "en": "practical-trainee-manufacturing-process-development-m-f-d-sonova-ch"
+        "en": "practical-trainee-manufacturing-process-development-m-f-d-sonova-ch",
+        "it": "allenatore-pratico-sviluppo-del-processo-di-produzione-m-f-d-sonova-staefa-switzerland",
+        "de": "praktischer-trainee-entwicklung-des-herstellungsprozesses-m-w-d-sonova-staefa-switzerland",
+        "fr": "stage-pratique-elaboration-de-procedes-de-fabrication-m-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -44,7 +47,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "practical-trainee-manufacturing-process-development-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "practical-trainee-manufacturing-process-development-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-05280fbe6de4",
@@ -92,22 +103,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1412981233/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-head-of-intellectual-property-sonova-ch",
-        "global-responsabile-intellectual-property-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-head-of-intellectual-property-sonova-ch",
-          "global-responsabile-intellectual-property-sonova-staefa"
-        ],
-        "de": [
-          "global-head-of-intellectual-property-sonova-ch"
-        ],
-        "fr": [
-          "global-head-of-intellectual-property-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-08T22:05:55.683Z"
     },
     {
@@ -156,16 +151,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1411716033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-manager-product-quality-m-f-d-sonova-ch",
-        "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-product-quality-m-f-d-sonova-ch",
-          "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
-        ]
-      },
       "firstSeenAt": "2026-07-06T22:23:25.019Z"
     },
     {
@@ -215,20 +200,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
-        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa",
-        "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
+        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
-          "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
-        ],
-        "de": [
-          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch"
-        ],
         "fr": [
-          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
           "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
         ]
       },
@@ -280,22 +255,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1411094133/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "director-project-management-m-f-d-sonova-ch",
-        "direttore-project-management-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "director-project-management-m-f-d-sonova-ch",
-          "direttore-project-management-m-f-d-sonova-staefa"
-        ],
-        "de": [
-          "director-project-management-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "director-project-management-m-f-d-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-03T12:33:33.133Z"
     },
     {
@@ -344,22 +303,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1409692533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "director-fitting-software-solutions-m-f-d-sonova-ch",
-        "direttore-fitting-software-solutions-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "director-fitting-software-solutions-m-f-d-sonova-ch",
-          "direttore-fitting-software-solutions-m-f-d-sonova-staefa"
-        ],
-        "de": [
-          "director-fitting-software-solutions-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "director-fitting-software-solutions-m-f-d-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-30T12:19:34.420Z"
     },
     {
@@ -408,19 +351,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1409309433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-        "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-          "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
-        ],
-        "fr": [
-          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-29T13:55:14.784Z"
     },
     {
@@ -469,22 +399,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1408709833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "director-reliability-engineering-m-f-d-sonova-ch",
-        "direttore-reliability-engineering-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "director-reliability-engineering-m-f-d-sonova-ch",
-          "direttore-reliability-engineering-m-f-d-sonova-staefa"
-        ],
-        "de": [
-          "director-reliability-engineering-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "director-reliability-engineering-m-f-d-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-26T12:29:25.847Z"
     },
     {
@@ -533,19 +447,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch",
-          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-        ],
-        "fr": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:18:52.625Z"
     },
@@ -595,22 +496,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1406585333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hardware-verification-specialist-sonova-ch",
-        "hardware-verification-specialista-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hardware-verification-specialist-sonova-ch",
-          "hardware-verification-specialista-sonova-staefa"
-        ],
-        "de": [
-          "hardware-verification-specialist-sonova-ch"
-        ],
-        "fr": [
-          "hardware-verification-specialist-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-06-19T22:35:39.928Z"
     },
     {
@@ -659,22 +544,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1400424533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "deep-learning-engineer-sonova-ch",
-        "deep-learning-ingegnere-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "deep-learning-engineer-sonova-ch",
-          "deep-learning-ingegnere-sonova-staefa"
-        ],
-        "de": [
-          "deep-learning-engineer-sonova-ch"
-        ],
-        "fr": [
-          "deep-learning-engineer-sonova-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-06T22:23:25.102Z"
     },
     {
@@ -723,22 +592,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1287531701/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "produktionsmitarbeiter-elektronikfertigung-smt-aoi-sonova-ch",
-        "produzione-di-dipendenti-in-produzione-elettronica-smt-aoi-sonova-staefa-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "produktionsmitarbeiter-elektronikfertigung-smt-aoi-sonova-ch",
-          "produzione-di-dipendenti-in-produzione-elettronica-smt-aoi-sonova-staefa-switzerland"
-        ],
-        "en": [
-          "produktionsmitarbeiter-elektronikfertigung-smt-aoi-sonova-ch"
-        ],
-        "fr": [
-          "produktionsmitarbeiter-elektronikfertigung-smt-aoi-sonova-ch"
-        ]
-      },
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-13T22:42:45.615Z"
     },
@@ -788,19 +641,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1286553001/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleader-support-specialist-m-f-d-sonova-ch",
-        "teamleader-support-specialista-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleader-support-specialist-m-f-d-sonova-ch",
-          "teamleader-support-specialista-m-f-d-sonova-staefa"
-        ],
-        "fr": [
-          "teamleader-support-specialist-m-f-d-sonova-ch"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-13T22:42:45.620Z"
     },
@@ -850,22 +690,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1387283333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
-        "utensile-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
-          "utensile-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
-        ],
-        "en": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
-        ]
-      },
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-13T22:42:45.641Z"
     },
@@ -915,22 +739,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1385671733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "director-performance-management-and-capabilities-building-academies-sonova-ch",
-        "direttore-performance-management-and-capabilities-building-academies-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "director-performance-management-and-capabilities-building-academies-sonova-ch",
-          "direttore-performance-management-and-capabilities-building-academies-sonova-staefa"
-        ],
-        "de": [
-          "director-performance-management-and-capabilities-building-academies-sonova-ch"
-        ],
-        "fr": [
-          "director-performance-management-and-capabilities-building-academies-sonova-ch"
-        ]
-      },
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-13T22:42:45.654Z"
     }

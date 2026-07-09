@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg"
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-          "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
         ],
         "en": [
           "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
@@ -225,8 +223,8 @@
       "slugByLocale": {
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische",
         "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
-        "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische",
-        "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical-engineering-areas-spital",
+        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-chirurgicale-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -272,6 +270,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        ],
+        "en": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
+        ],
+        "fr": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-und-operationspflege-medizintechnische"
         ]
       },
       "previousSlugs": [
@@ -297,8 +301,8 @@
       "slugByLocale": {
         "de": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
         "it": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
-        "en": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
-        "fr": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        "en": "vocational-trainer-for-dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical-564c74",
+        "fr": "formateur-professionnel-pour-dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-564c74"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -344,6 +348,12 @@
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "en": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "fr": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
         ]
       },
       "previousSlugs": [
@@ -365,12 +375,12 @@
     },
     {
       "id": "spital-zollikerberg-5f58ce2b513a",
-      "slug": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
+      "slug": "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-        "it": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-        "en": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-        "fr": "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
+        "it": "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg",
+        "en": "head-head-of-instrumentation-care-op-medical-engineering-areas-spital-zollikerberg-zollikerberg",
+        "fr": "chef-chef-des-services-d-instrumentation-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -425,7 +435,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
+        ],
+        "en": [
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
+        ],
+        "fr": [
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-6d49853568b7",
