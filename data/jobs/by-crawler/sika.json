@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-07-08T22:27:44.789Z",
+  "assembledAt": "2026-07-09T12:27:51.430Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:42.650Z",
+      "crawledAt": "2026-07-09T12:27:47.290Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -90,7 +90,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic/electrician maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Maintenance de technicien/électricien en automatisation (m/f)"
       },
@@ -106,7 +106,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:41.140Z",
+      "crawledAt": "2026-07-09T12:27:46.340Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -141,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:40.265Z",
+      "crawledAt": "2026-07-09T12:27:45.431Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -231,7 +232,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-feac34a42cc0",
@@ -264,7 +266,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:38.804Z",
+      "crawledAt": "2026-07-09T12:27:44.503Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -343,7 +345,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48caac1b-4c20-4da6-b5f5-6cb710571336.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:37.448Z",
+      "crawledAt": "2026-07-09T12:27:43.614Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -422,7 +424,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:36.561Z",
+      "crawledAt": "2026-07-09T12:27:42.722Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -468,7 +470,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7fa26ed2a876",
@@ -501,7 +504,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-38ff13c5-35d4-4c51-bc64-402bf61f1c9f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:35.187Z",
+      "crawledAt": "2026-07-09T12:27:41.634Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -580,7 +583,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:34.155Z",
+      "crawledAt": "2026-07-09T12:27:40.678Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -626,7 +629,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a6edc3d5625d",
@@ -645,7 +649,7 @@
         "it": "Ingegnere di progettazione (m/f/d)",
         "en": "Design engineer (m/f/d)",
         "de": "Konstrukteur (m/w/d)",
-        "fr": "Ingénieur de conception (m/f/d)"
+        "fr": "Konstrukteur (m/w/d)"
       },
       "description": "Konstruktion von Spritzgusswerkzeugen und -artikel von der Entwicklung bis zur technischen Freigabe Technische Schnittstelle zwischen Produktion, Engineering und externen Partnern Entwicklung und Prüfung von Werkzeugkonzepten sowie Heisskanalauslegung mittels Moldflow Durchführung von Design-Reviews und Optimierungen anhand Füllsimulationen Umsetzung von Änderungs- und Korrekturaufträgen inklusive Kosten- und Qualitätsverfolgung Prozessverbesserungen und Standardisierung aktive Mitgestaltung von Abläufen und Normen Dokumentation und Know-how-Transfer",
       "descriptionByLocale": {
@@ -659,7 +663,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c1fddc77-8f3c-4c3f-b470-7b0b7fb8e0d7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:32.449Z",
+      "crawledAt": "2026-07-09T12:27:39.537Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -695,6 +699,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -739,7 +744,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:31.066Z",
+      "crawledAt": "2026-07-09T12:27:38.157Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -771,6 +776,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -815,7 +821,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:29.885Z",
+      "crawledAt": "2026-07-09T12:27:36.768Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -894,7 +900,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d3e93da9-39f2-46d2-83bc-7c0e15824ec7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:28.673Z",
+      "crawledAt": "2026-07-09T12:27:35.827Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -913,6 +919,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-19T13:20:06.933Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -957,7 +964,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:27.299Z",
+      "crawledAt": "2026-07-09T12:27:34.801Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1036,7 +1043,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4b36ff42-9605-4fab-8179-f8c2e29695c6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:26.302Z",
+      "crawledAt": "2026-07-09T12:27:34.392Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1115,7 +1122,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:25.409Z",
+      "crawledAt": "2026-07-09T12:27:33.454Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1178,7 +1185,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic / PLC programmer / automation technician (m/f/d)",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "fr": "Automatique (m/f/d)"
       },
@@ -1194,7 +1201,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:24.515Z",
+      "crawledAt": "2026-07-09T12:27:32.558Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1235,6 +1242,7 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -1279,7 +1287,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:23.104Z",
+      "crawledAt": "2026-07-09T12:27:31.675Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1358,7 +1366,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:27:21.700Z",
+      "crawledAt": "2026-07-09T12:27:30.679Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1387,6 +1395,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1431,7 +1440,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:20.379Z",
+      "crawledAt": "2026-07-09T12:27:29.700Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1510,7 +1519,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:19.072Z",
+      "crawledAt": "2026-07-09T12:27:28.753Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1589,7 +1598,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:18.190Z",
+      "crawledAt": "2026-07-09T12:27:28.337Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1624,6 +1633,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1652,7 +1662,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Installation operator (m/f/d) Extrusion lines - Process operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1668,7 +1678,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:16.715Z",
+      "crawledAt": "2026-07-09T12:27:27.329Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1704,6 +1714,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1732,7 +1743,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -1748,7 +1759,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:15.773Z",
+      "crawledAt": "2026-07-09T12:27:26.921Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1780,6 +1791,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1807,7 +1819,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1824,7 +1836,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:14.359Z",
+      "crawledAt": "2026-07-09T12:27:25.947Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1861,6 +1873,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1905,7 +1918,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e4d8e3c0-d578-4803-81e6-ebe05a58d9b2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:12.948Z",
+      "crawledAt": "2026-07-09T12:27:25.050Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1970,7 +1983,7 @@
       "title": "Payroll Specialist 100% (m/w/d)",
       "titleByLocale": {
         "it": "Specialista delle Paghe al 100% (lun/f/d)",
-        "en": "Payroll Specialist 100% (m/f/d)",
+        "en": "Payroll Specialist 100% (m/w/d)",
         "de": "Payroll Spezialist 100% (m/w/d)",
         "fr": "Spécialiste en paie à 100 % (l/f/d)"
       },
@@ -1986,7 +1999,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:11.470Z",
+      "crawledAt": "2026-07-09T12:27:24.146Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2018,6 +2031,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:52.994Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2062,7 +2076,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f724b276-7bbb-462a-be82-28b329b8ff87.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:10.126Z",
+      "crawledAt": "2026-07-09T12:27:23.141Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2141,7 +2155,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:08.690Z",
+      "crawledAt": "2026-07-09T12:27:21.589Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2220,7 +2234,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:27:07.803Z",
+      "crawledAt": "2026-07-09T12:27:20.703Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2285,7 +2299,7 @@
         "it": "International Traineeship Program - A&I - Technical Department",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -2299,7 +2313,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:06.464Z",
+      "crawledAt": "2026-07-09T12:27:19.749Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2321,6 +2335,7 @@
         "international-traineeship-program-a-i-technical-department-sika-widen"
       ],
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2365,7 +2380,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:04.931Z",
+      "crawledAt": "2026-07-09T12:27:19.332Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2397,6 +2412,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:47.313Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2441,7 +2457,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:03.574Z",
+      "crawledAt": "2026-07-09T12:27:18.370Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2505,7 +2521,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c3f40918-4618-41d1-8d8c-01a92affa308.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:02.666Z",
+      "crawledAt": "2026-07-09T12:27:17.958Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2537,6 +2553,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:10:45.678Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2546,69 +2563,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-4e66bb3313b1",
-      "slug": "m-a-manager-sika-ch",
-      "slugByLocale": {
-        "it": "m-a-manager-sika-ch",
-        "en": "m-a-manager-sika-ch",
-        "de": "m-a-manager-sika-ch",
-        "fr": "gestionnaire-de-m-a-sika-baar-canton-of-zug-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "M&A Manager",
-      "titleByLocale": {
-        "it": "M&A Manager",
-        "en": "M&A Manager",
-        "de": "M&A Manager",
-        "fr": "Gestionnaire de M&A"
-      },
-      "description": "We are seeking a driven M&A Manager to lead the end-to-end transaction process, from target assessment and valuation to due diligence and deal closing. Reporting to the Head of M&A, you will partner closely with the CFO and support key financial and administrative activities. You will also lead finance integration initiatives for acquired companies and contribute to post-merger integration efforts. The ideal candidate brings proven experience in a multinational environment and is a strong, collaborative team player with a hands-on approach. Prepare/review/negotiate SPA’s from a finance perspective and deal execution Review and analysis of past and future financial data/models (perform company valuations) Request for proposal, negotiations with advisors regarding the finance due diligence scope Organization of extensive due diligence processes Prepare internal approval documents/presentations in cooperation with line management Development and evaluation of transaction structures Lead internal integration project for Finance Liaise with acquired company personnel and country specific controllers Review and control of acquisition costs (i.e. Group’s acquisition reporting) Support and manage the closing process for post-acquisition (incl. Purchase price allocation) Ad Hoc reporting and other projects",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un M&A Manager guidato per guidare il processo di transazione end-to-end, dalla valutazione di destinazione e valutazione alla dovuta diligenza e alla chiusura dei contratti. Segnalando al Capo della M&A, si partnerrà a stretto contatto con il CFO e sosterrà le attività finanziarie e amministrative chiave. Condurrai anche iniziative di integrazione finanziaria per le aziende acquisite e contribuirai agli sforzi di integrazione post-emergenza. Il candidato ideale porta esperienza comprovata in un ambiente multinazionale ed è un giocatore di squadra forte e collaborativo con un approccio pratico. Preparare/recendere/negoziare SPA da una prospettiva di finanza e gestire l’esecuzione Recensione e analisi di dati/modelli finanziari passati e futuri (valutazioni aziendali) Richiesta di proposta, trattative con consulenti per quanto riguarda il campo finanziario di due diligence Organizzazione di estesi processi di due diligence Preparare documenti di approvazione interni/presentazioni in collaborazione con la gestione della linea Sviluppo e valutazione delle strutture di transazione Piombo progetto di integrazione interna per Finance Liaise con personale aziendale acquisito e controllo dei costi di acquisizione (cioè report di acquisizione del Gruppo) Supporto e gestione del processo di chiusura per post acquisizione (incl. Distribuzione dei prezzi di acquisto) Ad Hoc reporting e altri progetti",
-        "en": "We are seeking a driven M&A Manager to lead the end-to-end transaction process, from target assessment and valuation to due diligence and deal closing. Reporting to the Head of M&A, you will partner closely with the CFO and support key financial and administrative activities. You will also lead finance integration initiatives for acquired companies and contribute to post-merger integration efforts. The ideal candidate brings proven experience in a multinational environment and is a strong, collaborative team player with a hands-on approach. Prepare/review/negotiate SPA’s from a finance perspective and deal execution Review and analysis of past and future financial data/models (perform company valuations) Request for proposal, negotiations with advisors regarding the finance due diligence scope Organization of extensive due diligence processes Prepare internal approval documents/presentations in cooperation with line management Development and evaluation of transaction structures Lead internal integration project for Finance Liaise with acquired company personnel and country specific controllers Review and control of acquisition costs (i.e. Group’s acquisition reporting) Support and manage the closing process for post-acquisition (incl. Purchase price allocation) Ad Hoc reporting and other projects",
-        "de": "Wir suchen einen motivierten M&A-Manager, der den End-to-End-Transaktionsprozess leitet, von der Zielbewertung und -bewertung bis hin zur Due Diligence und zum Abschluss von Geschäften. Berichterstattung an den Head of M&A, werden Sie eng mit dem CFO zusammenarbeiten und wichtige finanzielle und administrative Aktivitäten unterstützen. Sie werden auch Finanzintegrationsinitiativen für erworbene Unternehmen leiten und zu den Integrationsbemühungen nach der Fusion beitragen. Der ideale Kandidat bringt bewährte Erfahrung in einem multinationalen Umfeld mit und ist ein starker, kooperativer Teamplayer mit einem praktischen Ansatz. Vorbereitung/Überprüfung/Verhandlung von SPAs aus finanzieller Sicht und Ausführung von Geschäften Überprüfung und Analyse vergangener und zukünftiger Finanzdaten/Modelle (durchführen von Unternehmensbewertungen) Antragstellung, Verhandlungen mit Beratern bezüglich des Umfangs der Finance Due Diligence Organisation von umfangreichen Due Diligence Prozessen Bereiten Sie interne Genehmigungsdokumente/Präsentationen in Zusammenarbeit mit dem Linienmanagement Entwicklung und Bewertung von Transaktionsstrukturen Führen Sie internes Integrationsprojekt für Finance Liaise mit erworbenem Unternehmenspersonal und länderspezifischen Controllern Überprüfung und Kontrolle der Akquisitionskosten (d.h. Akquisitionsberichterstattung der Gruppe) Unterstützung und Verwaltung des Abschlussprozesses für die Zeit nach dem Erwerb (incl. Aufteilung des Kaufpreises Ad Hoc Reporting und andere Projekte",
-        "fr": "Nous cherchons un gestionnaire de S et A déterminé à diriger le processus de transaction de bout en bout, de l'évaluation et de l'évaluation des cibles à la diligence raisonnable et à la clôture des transactions. Sous l'autorité du chef des fusions-acquisitions, vous collaborerez étroitement avec le DPF et appuierez les principales activités financières et administratives. Vous dirigerez également des initiatives d'intégration financière pour les entreprises acquises et contribuerez aux efforts d'intégration post-fusion. Le candidat idéal apporte une expérience éprouvée dans un environnement multinational et est un joueur d'équipe solide et collaboratif avec une approche pratique. Préparation/examen/négociation des SPA dans une perspective financière et exécution des transactions Examen et analyse des données/modèles financiers passés et futurs (réalisation des évaluations des entreprises) Demande de proposition, négociations avec les conseillers concernant le champ d'application de la diligence raisonnable en matière de finances Organisation d'importants processus de diligence raisonnable Préparer des documents/présentations d'approbation interne en collaboration avec la direction hiérarchique Élaboration et évaluation de structures de transaction Diriger le projet d'intégration interne pour la liaison financière avec le personnel d'entreprise acquis et les contrôleurs par pays Examen et contrôle des coûts d'acquisition (c.-à-d. rapports d'acquisition du Groupe) Appuyer et gérer le processus de clôture de l'acquisition (incl. Répartition des prix d'achat) Rapports spéciaux et autres projets"
-      },
-      "location": "Baar, Canton of Zug, Switzerland",
-      "canton": "ZG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-2a1e1b79-0ac4-4538-a1ec-de2fdc553cdb.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:01.784Z",
-      "addressLocality": "Baar",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Canton of Zug",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-2a1e1b79-0ac4-4538-a1ec-de2fdc553cdb.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T14:18:53.292Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
@@ -2644,7 +2598,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:27:00.343Z",
+      "crawledAt": "2026-07-09T12:27:16.970Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
