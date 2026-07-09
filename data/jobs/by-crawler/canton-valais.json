@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "canton-valais-e50630c46d97",
-      "slug": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
+      "slug": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
-        "it": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
-        "en": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton",
-        "de": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        "it": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
+        "en": "an-engineer-noise-specialist-50-2-years-term-canton-du-valais-sion",
+        "de": "ein-ingenieur-larmspezialist-50-2-jahre-laufzeit-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -62,7 +62,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:26.658Z"
+      "firstSeenAt": "2026-07-08T22:07:26.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        ],
+        "en": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        ],
+        "de": [
+          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+        ]
+      },
+      "previousSlugs": [
+        "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
+      ]
     },
     {
       "id": "canton-valais-715cbfa4d904",
@@ -70,8 +84,8 @@
       "slugByLocale": {
         "fr": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch",
         "it": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-du-valais-sion",
-        "en": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch",
-        "de": "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
+        "en": "assistant-delivery-manager-50-canton-du-valais-sion",
+        "de": "assistent-delivery-manager-50-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -115,6 +129,12 @@
       "previousSlugsByLocale": {
         "it": [
           "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
+        ],
+        "en": [
+          "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
+        ],
+        "de": [
+          "un-adjoint-ou-une-adjointe-delivery-manager-50-canton-valais-ch"
         ]
       },
       "previousSlugs": [
@@ -139,8 +159,8 @@
       "slug": "un-e-secretaire-de-direction-a-50-60-canton-valais-ch",
       "slugByLocale": {
         "it": "un-e-secretaire-de-direction-a-50-60-canton-valais-ch",
-        "en": "un-e-secretaire-de-direction-a-50-60-canton-valais-ch",
-        "de": "un-e-secretaire-de-direction-a-50-60-canton-valais-ch",
+        "en": "has-executive-secretary-at-50-60-canton-du-valais-sion",
+        "de": "hat-exekutivsekretar-bei-50-60-canton-du-valais-sion",
         "fr": "un-e-secretaire-de-direction-a-50-60-canton-valais-ch"
       },
       "company": "Canton du Valais",
@@ -268,12 +288,12 @@
     },
     {
       "id": "canton-valais-2dff24731bb2",
-      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
+      "slug": "un-collaboratore-amministrativo-70-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        "it": "un-collaboratore-amministrativo-70-canton-du-valais-sion",
+        "en": "an-administrative-collaborator-70-canton-du-valais-sion",
+        "de": "ein-administrativer-mitarbeiter-70-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -326,16 +346,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:25.449Z"
+      "firstSeenAt": "2026-07-08T22:07:25.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-58244e8fac0f",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
+      "slug": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        "it": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-human-resources-collaborator-80-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-mitarbeiter-des-personalwesens-80-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -392,7 +426,21 @@
         }
       },
       "firstSeenAt": "2026-07-08T22:07:25.148Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
+      ]
     },
     {
       "id": "canton-valais-8415f1dd8a33",
@@ -400,8 +448,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
         "it": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
-        "en": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
-        "fr": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
+        "en": "personnel-80-100-of-which-10-for-a-temporary-period-canton-du-valais-visp",
+        "fr": "personnel-80-a-100-dont-10-pour-une-periode-temporaire-canton-du-valais-visp"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -448,6 +496,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
         ]
       },
       "previousSlugs": [
@@ -470,12 +524,12 @@
     },
     {
       "id": "canton-valais-0a82a97b7cff",
-      "slug": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
+      "slug": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
       "slugByLocale": {
         "fr": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
-        "it": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
-        "en": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch",
-        "de": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        "it": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
+        "en": "a-social-educator-or-social-educator-80-100-canton-du-valais-st-gingolph",
+        "de": "ein-sozialpadagoge-oder-sozialpadagoge-80-100-canton-du-valais-st-gingolph"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -528,16 +582,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:24.545Z"
+      "firstSeenAt": "2026-07-08T22:07:24.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-45595232ff58",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-70-80-canton-du-valais-sion",
+        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-70-80-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -593,16 +661,30 @@
         }
       },
       "firstSeenAt": "2026-07-08T22:07:24.229Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-890b4e965e72",
-      "slug": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
+      "slug": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
       "slugByLocale": {
         "fr": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
-        "it": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
-        "en": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch",
-        "de": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        "it": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
+        "en": "an-engineer-from-upper-valais-80-100-canton-du-valais-brigue",
+        "de": "ingenieur-aus-oberwallis-80-100-canton-du-valais-brigue"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -655,16 +737,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:23.928Z"
+      "firstSeenAt": "2026-07-08T22:07:23.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-2fe1812167d6",
-      "slug": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
+      "slug": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
       "slugByLocale": {
         "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
-        "it": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
-        "en": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie",
-        "de": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        "it": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
+        "en": "a-scientific-collaborator-water-quality-and-micropollutant-strategy-80-for-a-fixed-period-of-2-years-canton-du-valais",
+        "de": "ein-wissenschaftlicher-mitarbeiter-wasserqualitat-und-mikroschadstoffstrategie-80-fur-einen-festen-zeitraum-von-2-jahren"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -717,16 +813,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:23.605Z"
+      "firstSeenAt": "2026-07-08T22:07:23.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
+      ]
     },
     {
       "id": "canton-valais-6eb8bbae5f66",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-80-from-1-august-2026-to-31-december-2026-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-80-vom-1-august-2026-bis-zum-31-dezember-2026"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -779,16 +889,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:23.303Z"
+      "firstSeenAt": "2026-07-08T22:07:23.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
+      ]
     },
     {
       "id": "canton-valais-ba6c50573060",
-      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+      "slug": "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
-        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
-        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
-        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        "it": "personale-amministrativo-o-amministrativo-20-canton-du-valais-sion",
+        "en": "administrative-staff-or-administrative-staff-20-canton-du-valais-sion",
+        "de": "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -841,16 +965,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:23.002Z"
+      "firstSeenAt": "2026-07-08T22:07:23.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-3498c59799aa",
-      "slug": "un-ou-une-secretaire-100-canton-valais-ch",
+      "slug": "una-segretaria-100-canton-du-valais-martigny",
       "slugByLocale": {
         "fr": "un-ou-une-secretaire-100-canton-valais-ch",
-        "it": "un-ou-une-secretaire-100-canton-valais-ch",
-        "en": "un-ou-une-secretaire-100-canton-valais-ch",
-        "de": "un-ou-une-secretaire-100-canton-valais-ch"
+        "it": "una-segretaria-100-canton-du-valais-martigny",
+        "en": "a-secretary-100-canton-du-valais-martigny",
+        "de": "eine-sekretarin-100-canton-du-valais-martigny"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -905,16 +1043,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:22.701Z"
+      "firstSeenAt": "2026-07-08T22:07:22.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ou-une-secretaire-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-ou-une-secretaire-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-ou-une-secretaire-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-ou-une-secretaire-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-194285306e11",
-      "slug": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
+      "slug": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
       "slugByLocale": {
         "fr": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
-        "it": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
-        "en": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice",
-        "de": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        "it": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
+        "en": "a-technical-collaborator-construction-police-inspector-or-a-technical-collaborator-construction-police-inspector-100-2",
+        "de": "ein-technischer-mitarbeiter-baupolizeiinspektor-oder-ein-technischer-mitarbeiter-baupolizeiinspektor-100-2-jahre-feste"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -969,16 +1121,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:22.401Z"
+      "firstSeenAt": "2026-07-08T22:07:22.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        ],
+        "en": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        ],
+        "de": [
+          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
+      ]
     },
     {
       "id": "canton-valais-f86ae3ca0732",
-      "slug": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
+      "slug": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
-        "it": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
-        "en": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique",
-        "de": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        "it": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
+        "en": "a-specialist-technical-electrician-employee-or-a-specialist-technical-electrician-employee-100-canton-du-valais-sion",
+        "de": "ein-technischer-elektriker-oder-ein-technischer-elektriker-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1035,16 +1201,30 @@
         }
       },
       "firstSeenAt": "2026-07-08T22:07:22.100Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        ],
+        "en": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        ],
+        "de": [
+          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
+      ]
     },
     {
       "id": "canton-valais-8d9e3d294253",
-      "slug": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
+      "slug": "tecnico-sostanziale-80-100-canton-du-valais-brig",
       "slugByLocale": {
         "de": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
-        "it": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
-        "en": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
-        "fr": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        "it": "tecnico-sostanziale-80-100-canton-du-valais-brig",
+        "en": "technical-substantial-80-100-canton-du-valais-brig",
+        "fr": "technique-important-80-100-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1101,16 +1281,30 @@
         }
       },
       "firstSeenAt": "2026-07-08T22:07:21.799Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        ],
+        "fr": [
+          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-3b1751b9c6ba",
-      "slug": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+      "slug": "un-collaboratore-scientifico-70-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-        "it": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-        "en": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-        "de": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        "it": "un-collaboratore-scientifico-70-canton-du-valais-sion",
+        "en": "a-scientific-collaborator-70-canton-du-valais-sion",
+        "de": "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1167,7 +1361,21 @@
         }
       },
       "firstSeenAt": "2026-07-08T22:07:21.498Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-0a380ca0bc8a",

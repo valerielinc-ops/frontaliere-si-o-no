@@ -178,9 +178,9 @@
     },
     {
       "id": "corner-banca-b69f1f79bbe3",
-      "slug": "customer-advisor-40-corner-banca-wallisellen",
+      "slug": "customer-consulente-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-40-corner-banca-wallisellen",
+        "it": "customer-consulente-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
         "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
         "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
@@ -246,10 +246,14 @@
       "previousSlugsByLocale": {
         "en": [
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        ],
+        "it": [
+          "customer-advisor-40-corner-banca-wallisellen"
         ]
       },
       "previousSlugs": [
-        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
+        "customer-advisor-40-corner-banca-wallisellen"
       ],
       "needsRetranslation": true,
       "salaryMin": 33200,

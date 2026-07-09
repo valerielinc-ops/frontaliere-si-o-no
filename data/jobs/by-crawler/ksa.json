@@ -272,8 +272,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-system-engineering-it-ksa-ch",
         "it": "responsabile-di-progetto-system-engineering-it-kantonsspital-aarau-ksa-aarau",
-        "en": "projektleiter-in-system-engineering-it-ksa-ch",
-        "fr": "projektleiter-in-system-engineering-it-ksa-ch"
+        "en": "project-manager-system-engineering-it-kantonsspital-aarau-ksa-aarau",
+        "fr": "chef-de-projet-system-engineering-it-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -317,6 +317,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-system-engineering-it-ksa-ch"
+        ],
+        "en": [
+          "projektleiter-in-system-engineering-it-ksa-ch"
+        ],
+        "fr": [
           "projektleiter-in-system-engineering-it-ksa-ch"
         ]
       },

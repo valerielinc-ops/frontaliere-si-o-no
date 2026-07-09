@@ -1031,8 +1031,8 @@
       "slugByLocale": {
         "de": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf",
         "it": "teamleitung-pflege-e-stv-pflegedienstleitung-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf",
-        "fr": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        "en": "team-management-care-and-stv-care-services-gesundheitszentrum-dielsdorf-regensdorf",
+        "fr": "gestion-d-equipe-soins-et-services-de-soins-stv-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1078,6 +1078,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        ],
+        "fr": [
           "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
         ]
       },
