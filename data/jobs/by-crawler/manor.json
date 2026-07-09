@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "manor",
-  "assembledAt": "2026-07-08T22:31:01.052Z",
   "jobs": [
     {
       "title": "Collaborateur/trice visual merchandising 60%",
@@ -4875,18 +4873,16 @@
         "fr": "Retail Media Sales Manager 100%"
       },
       "sourceLang": "it",
-      "id": "manor-a15099ee2878",
-      "previousSlugs": [
-        "manor-retail-media-sales-manager-100-basel-retail-media-sales-3"
-      ],
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-retail-media-sales-manager-100-basel-retail-media-sales-3"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:11.926Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales-3"
+      ],
+      "id": "manor-a15099ee2878",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -4903,7 +4899,8 @@
       "addressLocality": "Basel Retail Media Sales",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-07-08T11:24:11.926Z"
     },
     {
       "title": "Collaborateur/trice vente (Lingerie Dames) 50%",
@@ -8856,5 +8853,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
     }
-  ]
+  ],
+  "crawlerKey": "manor",
+  "assembledAt": "2026-07-08T22:31:01.052Z"
 }

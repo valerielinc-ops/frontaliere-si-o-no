@@ -1069,33 +1069,36 @@
     },
     {
       "id": "swiss-re-b99ed7474fa1",
-      "slug": "casualty-and-financial-lines-specialista-d-o-finpro-claims-corso-swiss-re-zurich",
+      "slug": "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
       "slugByLocale": {
-        "it": "casualty-and-financial-lines-specialista-d-o-finpro-claims-corso-swiss-re-zurich",
         "en": "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
-        "de": "casualty-and-financial-lines-spezialist-d-o-finpro-claims-corso-swiss-re-zurich",
-        "fr": "casualty-and-financial-lines-specialiste-d-o-finpro-claims-corso-swiss-re-zurich"
+        "it": "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
+        "de": "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
+        "fr": "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Casualty and Financial Lines Specialist - D&O / FinPro / Claims - CorSo",
       "titleByLocale": {
-        "it": "Casualty and Financial Lines Specialista - D&O / FinPro / Claims - CorSo",
         "en": "Casualty and Financial Lines Specialist - D&O / FinPro / Claims - CorSo",
+        "it": "Casualty and Financial Lines Specialista - D&O / FinPro / Claims - CorSo",
         "de": "Casualty and Financial Lines Spezialist - D&O / FinPro / Claims - CorSo",
         "fr": "Casualty and Financial Lines Spécialiste - D&O / FinPro / Claims - CorSo"
       },
       "description": "Casualty and Financial Lines Specialist - D&O / FinPro / Claims - CorSo — Swiss Re",
       "descriptionByLocale": {
-        "en": "Casualty and Financial Lines Specialist - D&O / FinPro / Claims - CorSo — Swiss Re"
+        "en": "Casualty and Financial Lines Specialist - D&O / FinPro / Claims - CorSo — Swiss Re",
+        "it": "Specialista Casualty e Financial Lines - D&O / FinPro / Claims - CorSo — Swiss Re",
+        "de": "Versicherungsfachmann für Unfall- und Finanzdienstleistungen - D&O / FinPro / Claims - CorSo — Swiss Re",
+        "fr": "Spécialiste des pertes et des lignes financières - D&O / FinPro / Revendications - CorSo — Swiss Re"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.swissre.com/careers/job/Casualty-and-Financial-Lines-Specialist-D-and-O-FinPro-Claims-CorSo/1403536833",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:07.769Z",
+      "crawledAt": "2026-07-08T11:24:13.654Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1109,23 +1112,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Casualty-and-Financial-Lines-Specialist-D-and-O-FinPro-Claims-CorSo/1403536833",
       "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:13.654Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
-        ],
-        "de": [
-          "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
-        ],
-        "fr": [
-          "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
-      "previousSlugs": [
-        "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1138,7 +1128,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:13.654Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-8efa2968a6ac",
@@ -1219,9 +1211,9 @@
       "id": "swiss-re-cff63801c265",
       "slug": "trattato-di-proprieta-senior-underwriter-us-globals-swiss-re-zurich",
       "slugByLocale": {
+        "de": "senior-property-treaty-underwriter-us-globals-swiss-re-ch",
         "it": "trattato-di-proprieta-senior-underwriter-us-globals-swiss-re-zurich",
         "en": "senior-property-treaty-underwriter-us-globals-swiss-re-ch",
-        "de": "senior-property-treaty-underwriter-us-globals-swiss-re-ch",
         "fr": "underwriter-senior-du-traite-de-propriete-us-globals-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -1229,9 +1221,9 @@
       "companyDomain": "swissre.com",
       "title": "Senior Property Treaty Underwriter, US Globals",
       "titleByLocale": {
-        "it": "Trattato di proprietà senior Underwriter, US Globals",
-        "en": "Senior Property Treaty Underwriter, US Globals",
         "de": "Senior Property Treaty Underwriter, US Globals",
+        "it": "Trattato di proprietà senior Underwriter, US Globals",
+        "en": "Senior Property Treaty Under Under 107, US Globals",
         "fr": "Underwriter senior du Traité de propriété, US Globals"
       },
       "description": "Senior Property Treaty Underwriter, US Globals — Swiss Re",
@@ -1243,7 +1235,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Property-Treaty-Underwriter-US-Globals/1393569833",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:06.559Z",
+      "crawledAt": "2026-07-08T11:24:12.407Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1257,22 +1249,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Property-Treaty-Underwriter-US-Globals/1393569833",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-property-treaty-underwriter-us-globals-swiss-re-ch",
-        "trattato-di-proprieta-senior-underwriter-us-globals-swiss-re-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-property-treaty-underwriter-us-globals-swiss-re-ch",
-          "trattato-di-proprieta-senior-underwriter-us-globals-swiss-re-zurich"
-        ],
-        "fr": [
-          "senior-property-treaty-underwriter-us-globals-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:12.407Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1285,7 +1265,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:12.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-property-treaty-underwriter-us-globals-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-property-treaty-underwriter-us-globals-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-property-treaty-underwriter-us-globals-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-bc3ad6599122",
@@ -2002,8 +1995,8 @@
       "id": "swiss-re-af1038f03df5",
       "slug": "pricing-actuary-hybrid-80-100-swiss-re-ch-2",
       "slugByLocale": {
-        "it": "pricing-actuary-hybrid-80-100-swiss-re-ch-2",
         "en": "pricing-actuary-hybrid-80-100-swiss-re-ch",
+        "it": "pricing-actuary-hybrid-80-100-swiss-re-ch-2",
         "de": "pricing-actuary-hybrid-80-100-swiss-re-ch-2",
         "fr": "pricing-actuary-hybrid-80-100-swiss-re-ch-2"
       },
@@ -2012,9 +2005,9 @@
       "companyDomain": "swissre.com",
       "title": "Pricing Actuary (Hybrid, 80 - 100%)",
       "titleByLocale": {
-        "it": "Attuario dei prezzi (Hybrid, 80 - 100%)",
         "en": "Pricing Actuary (Hybrid, 80 - 100%)",
-        "de": "Pricing Actuary (Hybrid, 80 - 100%)",
+        "it": "Attuario dei prezzi (Hybrid, 80 - 100%)",
+        "de": "Preisgestaltung (Hybrid, 80 - 100%)",
         "fr": "Actuaire de tarification (Hybrid, 80 - 100%)"
       },
       "description": "Pricing Actuary (Hybrid, 80 - 100%) — Swiss Re",
@@ -2026,7 +2019,7 @@
       "url": "https://www.swissre.com/careers/job/Pricing-Actuary-Hybrid-80-100-/1394033633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:01.113Z",
+      "crawledAt": "2026-07-08T11:24:06.931Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2040,17 +2033,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Pricing-Actuary-Hybrid-80-100-/1394033633",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pricing-actuary-hybrid-80-100-swiss-re-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pricing-actuary-hybrid-80-100-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:06.931Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2063,37 +2049,49 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:06.931Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-actuary-hybrid-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-actuary-hybrid-80-100-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-7db7d27c462e",
-      "slug": "senior-security-ingegnere-applications-identity-and-access-management-swiss-re-zurich",
+      "slug": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch",
       "slugByLocale": {
-        "it": "senior-security-ingegnere-applications-identity-and-access-management-swiss-re-zurich",
+        "fr": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch",
+        "it": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch",
         "en": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch",
-        "de": "senior-security-ingenieur-applications-identity-and-access-management-swiss-re-zurich",
-        "fr": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch"
+        "de": "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Senior Security Engineer - Applications Identity and Access Management",
       "titleByLocale": {
-        "it": "Senior Security Ingegnere - Applications Identity and Access Management",
+        "fr": "Senior Security Ingénieur - Applications Identity and Access Management",
         "en": "Senior Security Engineer - Applications Identity and Access Management",
-        "de": "Senior Security Ingenieur - Applications Identity and Access Management",
-        "fr": "Senior Security Ingénieur - Applications Identity and Access Management"
+        "it": "Senior Security Ingegnere - Applications Identity and Access Management",
+        "de": "Senior Security Ingenieur - Applications Identity and Access Management"
       },
       "description": "Senior Security Engineer - Applications Identity and Access Management — Swiss Re",
       "descriptionByLocale": {
-        "fr": "Senior Security Engineer - Applications Identity and Access Management — Swiss Re"
+        "fr": "Senior Security Engineer - Applications Identity and Access Management — Swiss Re",
+        "it": "Ingegnere Senior della Sicurezza - Gestione delle Identità e degli Accessi delle Applicazioni — Swiss Re",
+        "de": "Senior Security Engineer - Anwendungen Identitäts- und Zugriffsmanagement — Swiss Re"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.swissre.com/careers/job/Senior-Security-Engineer-Applications-Identity-and-Access-Management/1394085733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:13:00.812Z",
+      "crawledAt": "2026-07-08T11:24:06.630Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2107,20 +2105,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Security-Engineer-Applications-Identity-and-Access-Management/1394085733",
       "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:06.630Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch"
-        ],
-        "de": [
-          "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "previousSlugs": [
-        "senior-security-engineer-applications-identity-and-access-management-swiss-re-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2133,7 +2121,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:06.630Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-96c5dbdb5114",
@@ -2843,9 +2833,9 @@
     },
     {
       "id": "swiss-re-471955e188e7",
-      "slug": "senior-operational-excellence-lead-swiss-re-ch",
+      "slug": "leader-dell-eccellenza-operativa-senior-swiss-re-zurich",
       "slugByLocale": {
-        "it": "senior-operational-excellence-lead-swiss-re-ch",
+        "it": "leader-dell-eccellenza-operativa-senior-swiss-re-zurich",
         "en": "senior-operational-excellence-lead-swiss-re-ch",
         "de": "senior-operational-excellence-lead-swiss-re-ch",
         "fr": "chef-principal-de-l-excellence-operationnelle-swiss-re-zurich"
@@ -2855,9 +2845,9 @@
       "companyDomain": "swissre.com",
       "title": "Senior Operational Excellence Lead",
       "titleByLocale": {
-        "it": "Senior Operational Excellence Lead",
+        "it": "Leader dell'eccellenza operativa senior",
         "en": "Senior Operational Excellence Lead",
-        "de": "Senior Operational Excellence Lead",
+        "de": "Führender operativer Exzellenzrang",
         "fr": "Chef principal de l'excellence opérationnelle"
       },
       "description": "Senior Operational Excellence Lead — Swiss Re",
@@ -2869,7 +2859,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Operational-Excellence-Lead/1405214833",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:12:55.669Z",
+      "crawledAt": "2026-07-08T11:24:01.482Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2883,22 +2873,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Operational-Excellence-Lead/1405214833",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "leader-dell-eccellenza-operativa-senior-swiss-re-zurich",
-          "senior-operational-excellence-lead-swiss-re-ch"
-        ],
-        "fr": [
-          "senior-operational-excellence-lead-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "it": []
       },
-      "previousSlugs": [
-        "leader-dell-eccellenza-operativa-senior-swiss-re-zurich",
-        "senior-operational-excellence-lead-swiss-re-ch"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:01.482Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2911,7 +2889,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:01.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-operational-excellence-lead-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-operational-excellence-lead-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-operational-excellence-lead-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-a43eed6623d0",
@@ -3628,9 +3619,9 @@
       "id": "swiss-re-2c93cb140887",
       "slug": "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich",
       "slugByLocale": {
+        "de": "underwriter-agriculture-p-c-re-swiss-re-ch",
         "it": "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich",
         "en": "underwriter-agriculture-p-c-re-swiss-re-ch",
-        "de": "underwriter-agriculture-p-c-re-swiss-re-ch",
         "fr": "underwriter-agriculture-p-c-re-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -3638,10 +3629,10 @@
       "companyDomain": "swissre.com",
       "title": "Underwriter Agriculture P&C Re",
       "titleByLocale": {
-        "it": "Sottoscrittore Agricoltura P&C Re",
-        "en": "Underwriter Agriculture P&C Re",
         "de": "Underwriter Agriculture P&C Re",
-        "fr": "Underwriter Agriculture P&C Re"
+        "it": "Sottoscrittore Agricoltura P&C Re",
+        "en": "Under 107 0,2 % of the total",
+        "fr": "Moins de 107,2 % du total"
       },
       "description": "Underwriter Agriculture P&C Re — Swiss Re",
       "descriptionByLocale": {
@@ -3652,7 +3643,7 @@
       "url": "https://www.swissre.com/careers/job/Underwriter-Agriculture-P-and-C-Re/1406153233",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:12:47.806Z",
+      "crawledAt": "2026-07-08T11:23:54.824Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3666,19 +3657,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Underwriter-Agriculture-P-and-C-Re/1406153233",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "underwriter-agriculture-p-c-re-swiss-re-ch",
-        "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "underwriter-agriculture-p-c-re-swiss-re-ch",
-          "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:54.824Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3691,7 +3673,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:54.824Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "underwriter-agriculture-p-c-re-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "underwriter-agriculture-p-c-re-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-e23d28b98492",
@@ -4289,33 +4281,35 @@
     },
     {
       "id": "swiss-re-1e770b192c2c",
-      "slug": "senior-sales-executive-risk-data-solutions-saas-clima-risk-swiss-re-zurich",
+      "slug": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch",
       "slugByLocale": {
-        "it": "senior-sales-executive-risk-data-solutions-saas-clima-risk-swiss-re-zurich",
+        "fr": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch",
+        "it": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch",
         "en": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch",
-        "de": "senior-sales-executive-risk-data-solutions-saas-klima-immobilienrisiko-swiss-re-zurich",
-        "fr": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
+        "de": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk)",
       "titleByLocale": {
-        "it": "Senior Sales Executive, Risk Data Solutions (SaaS, Clima, Risk)",
+        "fr": "Cadre de ventes principal, Solutions de données de risque (SaaS, Climat, Risque immobilier)",
         "en": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk)",
-        "de": "Senior Sales Executive, Risk Data Solutions (SaaS, Klima, Immobilienrisiko)",
-        "fr": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk)"
+        "it": "Senior Sales Executive, Risk Data Solutions (SaaS, Clima, Risk)",
+        "de": "Senior Sales Executive, Risk Data Solutions (SaaS, Klima, Immobilienrisiko)"
       },
       "description": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk) — Swiss Re",
       "descriptionByLocale": {
-        "fr": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk) — Swiss Re"
+        "fr": "Senior Sales Executive, Risk Data Solutions (SaaS, Climate, Property Risk) — Swiss Re",
+        "it": "Senior Sales Executive, Risk Data Solutions (SaaS, Clima, Rischio Immobiliare) — Swiss Re",
+        "de": "Senior Sales Executive, Risk Data Solutions (SaaS, Klima, Immobilienrisiko) — Swiss Re"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.swissre.com/careers/job/Senior-Sales-Executive-Risk-Data-Solutions-SaaS-Climate-Property-Risk-/1396697533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:43.566Z",
+      "crawledAt": "2026-07-08T11:23:48.474Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4329,20 +4323,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Sales-Executive-Risk-Data-Solutions-SaaS-Climate-Property-Risk-/1396697533",
       "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:48.474Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
-        ],
-        "de": [
-          "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "previousSlugs": [
-        "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4355,7 +4339,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:48.474Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-5a388911e004",
@@ -4841,7 +4827,7 @@
       "title": "Senior Structurer, Property & Casualty",
       "titleByLocale": {
         "it": "Senior Structurer, Property & Casualty",
-        "en": "Senior Structurer, Property & Casualty",
+        "en": "Senior Structurer, Propertyy",
         "de": "Senior Structurer, Eigentum & Unfall",
         "fr": "Structurer principal, propriété et perte"
       },
@@ -4854,7 +4840,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Structurer-Property-and-Casualty/1407129533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:12:40.236Z",
+      "crawledAt": "2026-07-08T11:23:45.145Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4868,9 +4854,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Structurer-Property-and-Casualty/1407129533",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:45.145Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4883,7 +4870,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:45.145Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-fd39edc7e056",
@@ -5082,8 +5071,8 @@
       "id": "swiss-re-52bd2abd4fab",
       "slug": "legal-counsel-credit-surety-hybrid-swiss-re-ch",
       "slugByLocale": {
-        "it": "legal-counsel-credit-surety-hybrid-swiss-re-ch",
         "en": "legal-counsel-credit-surety-hybrid-swiss-re-ch",
+        "it": "legal-counsel-credit-surety-hybrid-swiss-re-ch",
         "de": "rechtsberatung-kredit-burgschaft-hybrid-swiss-re-zurich",
         "fr": "legal-counsel-credit-surety-hybrid-swiss-re-ch"
       },
@@ -5092,10 +5081,10 @@
       "companyDomain": "swissre.com",
       "title": "Legal Counsel - Credit & Surety - Hybrid",
       "titleByLocale": {
-        "it": "Legal Counsel - Credit & Surety - Hybrid",
         "en": "Legal Counsel - Credit & Surety - Hybrid",
-        "de": "Rechtsberatung - Kredit & Bürgschaft - Hybrid",
-        "fr": "Legal Counsel - Credit & Surety - Hybrid"
+        "fr": "Conseiller juridique - Crédit et caution - Hybride",
+        "it": "Consulente legale - Credito e fideiussione - Ibrido",
+        "de": "Rechtsberatung - Kredit & Bürgschaft - Hybrid"
       },
       "description": "Legal Counsel - Credit & Surety - Hybrid — Swiss Re",
       "descriptionByLocale": {
@@ -5106,7 +5095,7 @@
       "url": "https://www.swissre.com/careers/job/Legal-Counsel-Credit-and-Surety-Hybrid/1377179633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:38.422Z",
+      "crawledAt": "2026-07-08T11:23:44.240Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5120,9 +5109,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Legal-Counsel-Credit-and-Surety-Hybrid/1377179633",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:44.240Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5135,7 +5125,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:44.240Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-d5ee95516ca0",
@@ -7139,20 +7131,20 @@
       "id": "swiss-re-af646865a8d3",
       "slug": "sales-operations-manager-us-canada-swiss-re-ch",
       "slugByLocale": {
+        "fr": "sales-operations-manager-us-canada-swiss-re-ch",
         "it": "sales-operations-manager-us-canada-swiss-re-ch",
         "en": "sales-operations-manager-us-canada-swiss-re-ch",
-        "de": "sales-operations-manager-usa-kanada-swiss-re-zurich",
-        "fr": "sales-operations-manager-us-canada-swiss-re-ch"
+        "de": "sales-operations-manager-us-canada-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Sales Operations Manager- US & Canada",
       "titleByLocale": {
-        "it": "Sales Operations Manager - USA & Canada",
+        "fr": "Directeur des opérations commerciales - États-Unis et Canada",
         "en": "Sales Operations Manager- US & Canada",
-        "de": "Sales Operations Manager - USA & Kanada",
-        "fr": "Sales Operations Manager- US & Canada"
+        "it": "Sales Operations Manager - USA & Canada",
+        "de": "Sales Operations Manager - USA & Kanada"
       },
       "description": "Sales Operations Manager- US & Canada — Swiss Re",
       "descriptionByLocale": {
@@ -7163,7 +7155,7 @@
       "url": "https://www.swissre.com/careers/job/Sales-Operations-Manager-US-and-Canada/1409050733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:23.889Z",
+      "crawledAt": "2026-07-08T11:23:27.588Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7177,9 +7169,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Sales-Operations-Manager-US-and-Canada/1409050733",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "fr": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:27.588Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7192,7 +7185,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:27.588Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-adeb6fea53ea",
@@ -8272,22 +8267,22 @@
     },
     {
       "id": "swiss-re-511bd2d6933b",
-      "slug": "risk-consulente-p-c-insurance-swiss-re-zurich",
+      "slug": "risk-consultant-p-c-insurance-swiss-re-ch",
       "slugByLocale": {
-        "it": "risk-consulente-p-c-insurance-swiss-re-zurich",
+        "fr": "risk-consultant-p-c-insurance-swiss-re-ch",
+        "it": "risk-consultant-p-c-insurance-swiss-re-ch",
         "en": "risk-consultant-p-c-insurance-swiss-re-ch",
-        "de": "risk-berater-p-c-insurance-swiss-re-zurich",
-        "fr": "risk-consultant-p-c-insurance-swiss-re-ch"
+        "de": "risk-consultant-p-c-insurance-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Risk Consultant- P&C Insurance",
       "titleByLocale": {
-        "it": "Risk Consulente- P&C Insurance",
+        "fr": "Conseiller en risque - Assurances P&C",
         "en": "Risk Consultant- P&C Insurance",
-        "de": "Risk Berater- P&C Insurance",
-        "fr": "Risk Consultant- P&C Insurance"
+        "it": "Risk Consulente- P&C Insurance",
+        "de": "Risk Berater- P&C Insurance"
       },
       "description": "Risk Consultant- P&C Insurance — Swiss Re",
       "descriptionByLocale": {
@@ -8298,7 +8293,7 @@
       "url": "https://www.swissre.com/careers/job/Risk-Consultant-P-and-C-Insurance/1398474433",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:14.499Z",
+      "crawledAt": "2026-07-08T11:23:20.323Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8312,20 +8307,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Risk-Consultant-P-and-C-Insurance/1398474433",
       "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:20.323Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "risk-consultant-p-c-insurance-swiss-re-ch"
-        ],
-        "de": [
-          "risk-consultant-p-c-insurance-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "previousSlugs": [
-        "risk-consultant-p-c-insurance-swiss-re-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8338,7 +8323,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:20.323Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-999628131a21",
@@ -8669,31 +8656,34 @@
       "id": "swiss-re-c806ac20e4af",
       "slug": "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-zurich",
       "slugByLocale": {
+        "fr": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
         "it": "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-zurich",
         "en": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "de": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "de": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
       "companyDomain": "swissre.com",
       "title": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%)",
       "titleByLocale": {
+        "fr": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%)",
         "it": "Consigliere Legale - Transazioni Globali & Governance Legale (Hybrid; m/e/x/d; 80-100%)",
         "en": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/e/x/d; 80-100%)",
-        "de": "Rechtsberatung - Global Transactions & Legal Governance (Hybrid; m/e/x/d; 80-100%)",
-        "fr": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%)"
+        "de": "Rechtsberatung - Global Transactions & Legal Governance (Hybrid; m/e/x/d; 80-100%)"
       },
       "description": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%) — Swiss Re",
       "descriptionByLocale": {
-        "fr": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%) — Swiss Re"
+        "fr": "Legal Counsel - Global Transactions & Legal Governance (Hybrid; m/f/x/d; 80-100%) — Swiss Re",
+        "it": "Consulente legale - Transazioni globali e Governance legale (Ibrido; m/f/x/d; 80-100%) — Swiss Re",
+        "en": "Legal Counsel - Globallands & Legal Governance (Hybrid; m/e/x/d; 80-100%) — Swiss Re",
+        "de": "Rechtsberater - Globallands & Legal Governance (Hybrid; m/e/x/d; 80-100%) — Swiss Re"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.swissre.com/careers/job/Legal-Counsel-Global-Transactions-and-Legal-Governance-Hybrid-m-f-x-d-80-100-/1409900333",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:11.776Z",
+      "crawledAt": "2026-07-08T11:23:17.597Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8707,19 +8697,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Legal-Counsel-Global-Transactions-and-Legal-Governance-Hybrid-m-f-x-d-80-100-/1409900333",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
-          "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-zurich"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:17.597Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8732,7 +8713,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:17.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-3fcb3e2a6449",
@@ -8951,8 +8942,8 @@
       "id": "swiss-re-3d2be7fb2113",
       "slug": "ufficio-locale-underwriter-stati-uniti-per-i-programmi-internazionali-casualty-corso-swiss-re-zurich",
       "slugByLocale": {
-        "it": "ufficio-locale-underwriter-stati-uniti-per-i-programmi-internazionali-casualty-corso-swiss-re-zurich",
         "en": "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch",
+        "it": "ufficio-locale-underwriter-stati-uniti-per-i-programmi-internazionali-casualty-corso-swiss-re-zurich",
         "de": "local-office-underwriter-usa-fur-internationale-programme-unfall-corso-swiss-re-zurich",
         "fr": "local-office-underwriter-etats-unis-pour-les-programmes-internationaux-casualty-corso-swiss-re-zurich"
       },
@@ -8961,21 +8952,24 @@
       "companyDomain": "swissre.com",
       "title": "Local Office Underwriter - US for International Programs - Casualty - CorSo",
       "titleByLocale": {
-        "it": "Ufficio locale Underwriter - Stati Uniti per i programmi internazionali - Casualty - CorSo",
         "en": "Local Office Underwriter - US for International Programs - Casualty - CorSo",
+        "it": "Ufficio locale Underwriter - Stati Uniti per i programmi internazionali - Casualty - CorSo",
         "de": "Local Office Underwriter - USA für internationale Programme - Unfall - CorSo",
         "fr": "Local Office Underwriter - États-Unis pour les programmes internationaux - Casualty - CorSo"
       },
       "description": "Local Office Underwriter - US for International Programs - Casualty - CorSo — Swiss Re",
       "descriptionByLocale": {
-        "en": "Local Office Underwriter - US for International Programs - Casualty - CorSo — Swiss Re"
+        "en": "Local Office Underwriter - US for International Programs - Casualty - CorSo — Swiss Re",
+        "it": "Sottoscrittore di uffici locali - Stati Uniti per i programmi internazionali - Casualty - CorSo. Swiss Re",
+        "de": "Local Office Underwriter - USA für internationale Programme - Unfall - CorSo — Swiss Re",
+        "fr": "Sous-traitant de bureau local - États-Unis pour les programmes internationaux - Casualty - CorSo — Swiss Re"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.swissre.com/careers/job/Local-Office-Underwriter-US-for-International-Programs-Casualty-CorSo/1410025333",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:12:09.354Z",
+      "crawledAt": "2026-07-08T11:23:15.163Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8989,25 +8983,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Local-Office-Underwriter-US-for-International-Programs-Casualty-CorSo/1410025333",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch",
-        "ufficio-locale-underwriter-stati-uniti-per-i-programmi-internazionali-casualty-corso-swiss-re-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch",
-          "ufficio-locale-underwriter-stati-uniti-per-i-programmi-internazionali-casualty-corso-swiss-re-zurich"
-        ],
-        "de": [
-          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
-        ],
-        "fr": [
-          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:15.163Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9020,7 +8999,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:15.163Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
+        ],
+        "de": [
+          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
+        ],
+        "fr": [
+          "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "local-office-underwriter-us-for-international-programs-casualty-corso-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-f3cee94a2c62",
@@ -9085,8 +9080,8 @@
       "id": "swiss-re-2605d1e377cf",
       "slug": "strutturatore-senior-fronte-captivo-servizi-art-swiss-re-zurich",
       "slugByLocale": {
-        "it": "strutturatore-senior-fronte-captivo-servizi-art-swiss-re-zurich",
         "en": "senior-structurer-captive-fronting-services-art-swiss-re-ch",
+        "it": "strutturatore-senior-fronte-captivo-servizi-art-swiss-re-zurich",
         "de": "senior-structurer-captive-fronting-services-art-swiss-re-ch",
         "fr": "structurer-principal-frontage-et-services-captifs-art-swiss-re-zurich"
       },
@@ -9095,9 +9090,9 @@
       "companyDomain": "swissre.com",
       "title": "Senior Structurer - Captive Fronting & Services (ART)",
       "titleByLocale": {
-        "it": "Strutturatore senior - Fronte Captivo & Servizi (ART)",
         "en": "Senior Structurer - Captive Fronting & Services (ART)",
-        "de": "Senior Structurer - Captive Fronting & Services (ART)",
+        "it": "Strutturatore senior - Fronte Captivo & Servizi (ART)",
+        "de": "Senior Structurer - Captive Fronting & Services (KUNST)",
         "fr": "Structurer principal - Frontage et services captifs (ART)"
       },
       "description": "Senior Structurer - Captive Fronting & Services (ART) — Swiss Re",
@@ -9109,7 +9104,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Structurer-Captive-Fronting-and-Services-ART-/1410447233",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:12:08.746Z",
+      "crawledAt": "2026-07-08T11:23:10.591Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9123,22 +9118,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Structurer-Captive-Fronting-and-Services-ART-/1410447233",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-structurer-captive-fronting-services-art-swiss-re-ch",
-        "strutturatore-senior-fronte-captivo-servizi-art-swiss-re-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-structurer-captive-fronting-services-art-swiss-re-ch",
-          "strutturatore-senior-fronte-captivo-servizi-art-swiss-re-zurich"
-        ],
-        "fr": [
-          "senior-structurer-captive-fronting-services-art-swiss-re-ch"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:10.591Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9151,7 +9134,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:23:10.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-structurer-captive-fronting-services-art-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-structurer-captive-fronting-services-art-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-structurer-captive-fronting-services-art-swiss-re-ch"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-036f469708d6",
@@ -12309,10 +12305,10 @@
       "companyDomain": "swissre.com",
       "title": "International Property Underwriter -- CorSo",
       "titleByLocale": {
-        "it": "International Property Underwriter -- CorSo",
-        "en": "International Property Underwriter -- CorSo",
-        "de": "International Property Underwriter - CorSo",
-        "fr": "International Property Underwriter -- CorSo"
+        "it": "(CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR\n\n(C/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+        "fr": "International Property Underwriter -- CorSo",
+        "en": "International Property Under (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (CPR) (C) (CPR) (C) (CPR) (C) (CPR) (C) (C/) (C) (C/) (C/) (C/) (C/) (C/) (C/) (C/) (C/) (C/(C/) (C////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+        "de": "International Property Underwriter - CorSo"
       },
       "description": "International Property Underwriter -- CorSo — Swiss Re",
       "descriptionByLocale": {
@@ -12323,7 +12319,7 @@
       "url": "https://www.swissre.com/careers/job/International-Property-Underwriter-CorSo/1412514633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:11:47.376Z",
+      "crawledAt": "2026-07-08T11:22:54.809Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -12337,9 +12333,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/International-Property-Underwriter-CorSo/1412514633",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:22:54.809Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12352,7 +12349,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:22:54.809Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-680b7a0acb88",
@@ -12813,9 +12812,9 @@
       "id": "swiss-re-f40fe83c2658",
       "slug": "senior-underwriter-accident-health-corso-swiss-re-ch",
       "slugByLocale": {
+        "de": "senior-underwriter-accident-health-corso-swiss-re-ch",
         "it": "senior-underwriter-accident-health-corso-swiss-re-ch",
         "en": "senior-underwriter-accident-health-corso-swiss-re-ch",
-        "de": "senior-underwriter-accident-health-corso-swiss-re-ch",
         "fr": "accident-et-sante-de-l-assureur-senior-corso-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -12823,9 +12822,9 @@
       "companyDomain": "swissre.com",
       "title": "Senior Underwriter Accident & Health - CorSo",
       "titleByLocale": {
-        "it": "Senior Underwriter Accident & Health - CorSo",
-        "en": "Senior Underwriter Accident & Health - CorSo",
         "de": "Senior Underwriter Accident & Health - CorSo",
+        "it": "Senior Under 107,236 & Health - CorSo",
+        "en": "Senior Under 107,236 & Health - CorSo",
         "fr": "Accident et santé de l'assureur senior - CorSo"
       },
       "description": "Senior Underwriter Accident & Health - CorSo — Swiss Re",
@@ -12837,7 +12836,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Underwriter-Accident-and-Health-CorSo/1402071133",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:11:42.221Z",
+      "crawledAt": "2026-07-08T11:24:20.692Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -12851,9 +12850,10 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Underwriter-Accident-and-Health-CorSo/1402071133",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:20.692Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -12866,7 +12866,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-08T11:24:20.692Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "swiss-re-997cd855a282",

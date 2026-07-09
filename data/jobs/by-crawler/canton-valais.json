@@ -17,9 +17,9 @@
       "title": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
       "titleByLocale": {
         "fr": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
-        "it": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
-        "en": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
-        "de": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)"
+        "it": "Un ingegnere – specialista del rumore (50% – 2 anni di termine)",
+        "en": "An engineer – noise specialist (50% – 2 years term)",
+        "de": "Ein Ingenieur – Lärmspezialist (50% – 2 Jahre Laufzeit)"
       },
       "description": "auprès du Service de l’environnement (SEN), à Sion",
       "descriptionByLocale": {
@@ -79,9 +79,9 @@
       "title": "Un adjoint ou une adjointe / Delivery Manager (50%)",
       "titleByLocale": {
         "fr": "Un adjoint ou une adjointe / Delivery Manager (50%)",
-        "en": "Un adjoint ou une adjointe / Delivery Manager (50%)",
-        "it": "Un adjoint ou une adjointe / Delivery Manager (50%)",
-        "de": "Un adjoint ou une adjointe / Delivery Manager (50%)"
+        "en": "Assistant / Delivery Manager (50%)",
+        "it": "Assistente / Responsabile Consegna (50%)",
+        "de": "Assistent / Delivery Manager (50%)"
       },
       "description": "auprès du Tribunal cantonal (Programme eJustice VS) à Sion",
       "descriptionByLocale": {
@@ -149,13 +149,16 @@
       "title": "Un(e) secrétaire de direction à 50-60%",
       "titleByLocale": {
         "it": "Un(e) secrétaire de direction à 50-60%",
-        "fr": "Un(e) secrétaire de direction à 50-60%",
-        "en": "Un(e) secrétaire de direction à 50-60%",
-        "de": "Un(e) secrétaire de direction à 50-60%"
+        "fr": "A secrétaire de direction à 50-60%",
+        "en": "Has Executive Secretary at 50-60%",
+        "de": "Hat Exekutivsekretär bei 50-60%"
       },
       "description": "auprès des tribunaux du Valais central (rattaché-e au tribunal de district de Sion à Sion)",
       "descriptionByLocale": {
-        "it": "auprès des tribunaux du Valais central (rattaché-e au tribunal de district de Sion à Sion)"
+        "it": "auprès des tribunaux du Valais central (rattaché-e au tribunal de district de Sion à Sion)",
+        "en": "auprès des tribunalaux du Valais central (rattaché-e au Brigg de district de Sion à Sion)",
+        "de": "auprès des Tribunalaux du Valais central (rattaché-e au Brigg de circuit de Sion à Sion)",
+        "fr": "auprès des tribunaux du Valais central (rattaché-e au Brigg de district de Sion à Sion)"
       },
       "location": "Sion",
       "canton": "VS",
@@ -194,7 +197,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:26.051Z"
+      "firstSeenAt": "2026-07-08T22:07:26.051Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-1a5544347ab3",
@@ -210,14 +214,17 @@
       "companyDomain": "vs.ch",
       "title": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
       "titleByLocale": {
-        "it": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
+        "it": "Un ufficiale giudiziario-segretario di direzione o un ufficiale giudiziario-segretario di direzione (100%)",
         "fr": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
-        "en": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
-        "de": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)"
+        "en": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
+        "de": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100 %)"
       },
       "description": "auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion",
       "descriptionByLocale": {
-        "it": "auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion"
+        "it": "auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion",
+        "en": "auprès du Carbon de district de Sion et du Carbon du Lombard des Lombard d.Hérens et Conthey à Sion",
+        "de": "auprès du Carbon de district de Sion et du Carbon du Lombard des Lombard d.Hérens et Conthey à Sion",
+        "fr": "auprès du Carbon de district de Sion et du Carbon du Lombard des Lombard d.Hérens et Conthey à Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -256,7 +263,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:25.750Z"
+      "firstSeenAt": "2026-07-08T22:07:25.750Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-2dff24731bb2",
@@ -273,9 +281,9 @@
       "title": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
       "titleByLocale": {
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
-        "it": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
-        "en": "Un collaborateur administratif ou une collaboratrice administrative (70%)",
-        "de": "Un collaborateur administratif ou une collaboratrice administrative (70%)"
+        "it": "Un collaboratore amministrativo (70%)",
+        "en": "An administrative collaborator (70%)",
+        "de": "Ein administrativer Mitarbeiter (70%)"
       },
       "description": "auprès du Tribunal cantonal (Programme eJustice VS) à Sion",
       "descriptionByLocale": {
@@ -335,13 +343,16 @@
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
       "titleByLocale": {
         "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
-        "it": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
-        "en": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
-        "de": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)"
+        "it": "Collaboratore specializzato o collaboratore di risorse umane (80%)",
+        "en": "A specialist collaborator or a human resources collaborator (80%)",
+        "de": "Ein spezialisierter Mitarbeiter oder ein Mitarbeiter des Personalwesens (80%)"
       },
       "description": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion",
       "descriptionByLocale": {
-        "fr": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion"
+        "fr": "auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion",
+        "it": "presso la Direzione del Servizio di applicazione delle pene e delle misure (SAPEM), a Sion",
+        "en": "to the Directorate of the Service for the Enforcement of Sentences and Measures (SAPEM), Sion",
+        "de": "an die Direktion des Dienstes für die Vollstreckung von Strafen und Maßnahmen (SAPEM), Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -380,7 +391,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:25.148Z"
+      "firstSeenAt": "2026-07-08T22:07:25.148Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-8415f1dd8a33",
@@ -398,12 +410,15 @@
       "titleByLocale": {
         "de": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
         "it": "Sachbearbeiter/in (80-100%, davon 10% per eine befristete Dauer)",
-        "en": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
-        "fr": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)"
+        "en": "Personnel (80-100%, of which 10% for a temporary period)",
+        "fr": "Personnel (80 à 100 %, dont 10 % pour une période temporaire)"
       },
       "description": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
       "descriptionByLocale": {
-        "de": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp"
+        "de": "bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp",
+        "it": "presso l'Ufficio delle esecuzioni e dei fallimenti, Ufficio fallimenti dell'Alto Vallese a Visp",
+        "en": "at the Office for Excise and Bankruptcy, Oberwallis Office for Bankruptcy in Visp",
+        "fr": "au Bureau de l'accise et de la faillite, Bureau de la faillite d'Oberwallis à Viège"
       },
       "location": "Visp",
       "canton": "VS",
@@ -450,7 +465,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:24.846Z"
+      "firstSeenAt": "2026-07-08T22:07:24.846Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-0a82a97b7cff",
@@ -467,9 +483,9 @@
       "title": "Un éducateur social ou une éducatrice sociale (80-100%)",
       "titleByLocale": {
         "fr": "Un éducateur social ou une éducatrice sociale (80-100%)",
-        "it": "Un éducateur social ou une éducatrice sociale (80-100%)",
-        "en": "Un éducateur social ou une éducatrice sociale (80-100%)",
-        "de": "Un éducateur social ou une éducatrice sociale (80-100%)"
+        "it": "Un educatore sociale o educatore sociale (80-100%)",
+        "en": "A social educator or social educator (80-100%)",
+        "de": "Ein Sozialpädagoge oder Sozialpädagoge (80-100%)"
       },
       "description": "auprès du Service de l’action sociale, Office de l’asile, au sein du foyer de l’Ecole des Missions à St-Gingolph",
       "descriptionByLocale": {
@@ -529,13 +545,15 @@
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
       "titleByLocale": {
         "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
-        "it": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
-        "en": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
-        "de": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)"
+        "it": "Collaboratore specializzato o collaboratore specializzato (70-80%)",
+        "en": "A specialist collaborator or a specialist collaborator (70-80%)",
+        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (70-80%)"
       },
       "description": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion",
       "descriptionByLocale": {
-        "fr": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion"
+        "fr": "auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion",
+        "it": "presso il Servizio dell'azione sociale, Ufficio di coordinamento delle prestazioni sociali a Sion",
+        "de": "bei der Abteilung für Sozialarbeit, Koordinationsstelle für Sozialleistungen in Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -574,7 +592,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:24.229Z"
+      "firstSeenAt": "2026-07-08T22:07:24.229Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-890b4e965e72",
@@ -591,9 +610,9 @@
       "title": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
       "titleByLocale": {
         "fr": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
-        "it": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
-        "en": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
-        "de": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)"
+        "it": "Un ingegnere dell'Alta Vallese (80-100%)",
+        "en": "An engineer from Upper Valais (80-100%)",
+        "de": "Ingenieur aus Oberwallis (80-100%)"
       },
       "description": "auprès de la section Rhône et Léman du Service des dangers naturels (SDANA), à Brigue",
       "descriptionByLocale": {
@@ -653,9 +672,9 @@
       "title": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
       "titleByLocale": {
         "fr": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
-        "it": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
-        "en": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
-        "de": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)"
+        "it": "Un collaboratore scientifico – qualità dell'acqua e strategia microinquinante (80% – per un periodo fisso di 2 anni)",
+        "en": "A scientific collaborator – water quality and micropollutant strategy (80% – for a fixed period of 2 years)",
+        "de": "Ein wissenschaftlicher Mitarbeiter - Wasserqualität und Mikroschadstoffstrategie (80% - für einen festen Zeitraum von 2 Jahren)"
       },
       "description": "auprès du Service de l’environnement, section Protection des eaux, à Sion",
       "descriptionByLocale": {
@@ -715,9 +734,9 @@
       "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
       "titleByLocale": {
         "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
-        "it": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
-        "en": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
-        "de": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)"
+        "it": "Collaboratore specializzato o collaboratore specializzato (80%) – dal 1° agosto 2026 al 31 dicembre 2026)",
+        "en": "A specialist collaborator or a specialist collaborator (80%) – from 1 August 2026 to 31 December 2026)",
+        "de": "Ein spezialisierter Mitarbeiter oder ein spezialisierter Mitarbeiter (80%) – vom 1. August 2026 bis zum 31. Dezember 2026"
       },
       "description": "auprès de l’Office cantonal du sport (OCS) à Sion",
       "descriptionByLocale": {
@@ -777,9 +796,9 @@
       "title": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
       "titleByLocale": {
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
-        "it": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
-        "en": "Un collaborateur administratif ou une collaboratrice administrative (20%)",
-        "de": "Un collaborateur administratif ou une collaboratrice administrative (20%)"
+        "it": "Personale amministrativo o amministrativo (20%)",
+        "en": "Administrative staff or administrative staff (20%)",
+        "de": "Verwaltungspersonal oder Verwaltungspersonal (20 %)"
       },
       "description": "auprès du Service de l’enseignement, Office de l’éducation numérique, à Sion",
       "descriptionByLocale": {
@@ -839,16 +858,16 @@
       "title": "Un ou une secrétaire (100%)",
       "titleByLocale": {
         "fr": "Un ou une secrétaire (100%)",
-        "it": "Un ou une secrétaire (100%)",
-        "en": "Un ou une secrétaire (100%)",
-        "de": "Un ou une secrétaire (100%)"
+        "it": "Una segretaria (100%)",
+        "en": "A secretary (100%)",
+        "de": "Eine Sekretärin (100%)"
       },
       "description": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
       "descriptionByLocale": {
-        "fr": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
-        "it": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
-        "en": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
-        "de": "auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny"
+        "fr": "## Description\n- auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny",
+        "it": "Descrizione\n- presso l’Ufficio di orientamento scolastico, professionale e di carriera, per il Centro di informazione e orientamento (CIO) di Martigny",
+        "en": "Description - at the Office d', orientation scolaire, professionnel et de carrière, for the Centre d, information et d, orientation (CIO) in Martigny",
+        "de": "Beschreibung - im Büro d', Orientierungs- scolaire, professionnel et de carrière, für das Zentrum d, Information et d, Orientierung (CIO) in Martigny"
       },
       "location": "Martigny",
       "canton": "VS",
@@ -874,7 +893,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -904,16 +922,16 @@
       "title": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
       "titleByLocale": {
         "fr": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
-        "it": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
-        "en": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
-        "de": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)"
+        "it": "Un collaboratore tecnico / ispettore della polizia di costruzione o un collaboratore tecnico / ispettore della polizia di costruzione (100% – 2 anni di durata fissa)",
+        "en": "A technical collaborator / construction police inspector or a technical collaborator / construction police inspector (100% – 2 years fixed duration)",
+        "de": "Ein technischer Mitarbeiter / Baupolizeiinspektor oder ein technischer Mitarbeiter / Baupolizeiinspektor (100% - 2 Jahre feste Dauer)"
       },
       "description": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
       "descriptionByLocale": {
         "fr": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
-        "it": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
-        "en": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion",
-        "de": "auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion"
+        "it": "al Servizio Amministrativo e Legale del Dipartimento di Mobilità, Territorio e Ambiente – Sezione Segreteria della Commissione cantonale per la Costruzione e la Costruzione di Polizia, Sion",
+        "en": "to the Administrative and Legal Service of the Department of Mobility, Territory and Environment – Secretariat section of the Cantonal Commission for Construction and Construction Police, Sion",
+        "de": "an den Verwaltungs- und Rechtsdienst des Departements für Mobilität, Gebiete und Umwelt – Sekretariatssektion der kantonalen Baukommission und Baupolizei, Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -939,7 +957,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -969,13 +986,16 @@
       "title": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
       "titleByLocale": {
         "fr": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
-        "it": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
-        "en": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
-        "de": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)"
+        "it": "Un impiegato tecnico specializzato o un impiegato tecnico specializzato (100%)",
+        "en": "A specialist technical electrician employee or a specialist technical electrician employee (100%)",
+        "de": "Ein technischer Elektriker oder ein technischer Elektriker (100%)"
       },
       "description": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion",
       "descriptionByLocale": {
-        "fr": "auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion"
+        "fr": "## Description\n\nauprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion",
+        "it": "Descrizione\n\npresso il Servizio della mobilità, sezione logistica di manutenzione delle strade cantonali (Log-RC) a Sion",
+        "en": "Description with the Mobility Service, Logistics Section d, maintenance of cantonal roads (Log-RC) in Sion",
+        "de": "Beschreibung mit dem Mobilitätsservice, Logistikabteilung d, Instandhaltung der Kantonsstraßen (Log-RC) in Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -1014,7 +1034,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:22.100Z"
+      "firstSeenAt": "2026-07-08T22:07:22.100Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-8d9e3d294253",
@@ -1031,13 +1052,16 @@
       "title": "Technische/r Sachbearbeiter/in (80-100%)",
       "titleByLocale": {
         "de": "Technische/r Sachbearbeiter/in (80-100%)",
-        "it": "Technische/r Sachbearbeiter/in (80-100%)",
-        "en": "Technische/r Sachbearbeiter/in (80-100%)",
-        "fr": "Technische/r Sachbearbeiter/in (80-100%)"
+        "it": "Tecnico/sostanziale (80-100%)",
+        "en": "Technical/substantial (80-100%)",
+        "fr": "Technique/important (80-100%)"
       },
       "description": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
       "descriptionByLocale": {
-        "de": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)"
+        "de": "bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk)",
+        "it": "presso l'Ufficio del registro fondiario, introduzione e informatizzazione dell'Alto Vallese (Briga e Leuk)",
+        "en": "at the Land Register Service, introduction and computerisation of Oberwallis (Brig and Leuk)",
+        "fr": "au Service du registre foncier, introduction et informatisation d'Oberwallis (Brig et Leuk)"
       },
       "location": "Brig",
       "canton": "VS",
@@ -1076,7 +1100,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:21.799Z"
+      "firstSeenAt": "2026-07-08T22:07:21.799Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-3b1751b9c6ba",
@@ -1093,13 +1118,16 @@
       "title": "Un collaborateur ou une collaboratrice scientifique (70%)",
       "titleByLocale": {
         "fr": "Un collaborateur ou une collaboratrice scientifique (70%)",
-        "it": "Un collaborateur ou une collaboratrice scientifique (70%)",
-        "en": "Un collaborateur ou une collaboratrice scientifique (70%)",
-        "de": "Un collaborateur ou une collaboratrice scientifique (70%)"
+        "it": "Un collaboratore scientifico (70%)",
+        "en": "A scientific collaborator (70%)",
+        "de": "Ein wissenschaftlicher Mitarbeiter (70%)"
       },
       "description": "auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion",
       "descriptionByLocale": {
-        "fr": "auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion"
+        "fr": "## Description\n\nauprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion",
+        "it": "Descrizione\n\npresso il Servizio di azione sociale, presso l’Ufficio di coordinamento delle prestazioni sociali (OCPS) a Sion",
+        "en": "Description of the Social Action Service, Office for the Coordination of Social Benefits (OCPS) in Sion",
+        "de": "Beschreibung des Dienstes für soziale Maßnahmen, Amt für die Koordinierung der Sozialleistungen (OCPS) in Sion"
       },
       "location": "Sion",
       "canton": "VS",
@@ -1138,7 +1166,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T22:07:21.498Z"
+      "firstSeenAt": "2026-07-08T22:07:21.498Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "canton-valais-0a380ca0bc8a",
@@ -1155,9 +1184,9 @@
       "title": "Arbeiter/in-Chauffeur/in (100%)",
       "titleByLocale": {
         "de": "Arbeiter/in-Chauffeur/in (100%)",
-        "it": "Arbeiter/in-Chauffeur/in (100%)",
-        "en": "Arbeiter/in-Chauffeur/in (100%)",
-        "fr": "Arbeiter/in-Chauffeur/in (100%)"
+        "it": "Lavoratore/in-chauffeur/in (100%)",
+        "en": "Worker/in-chauffeur/in (100%)",
+        "fr": "Travailleur/in-chauffeur/in (100%)"
       },
       "description": "bei der Dienststelle Gebietseinheit III, in Brig",
       "descriptionByLocale": {

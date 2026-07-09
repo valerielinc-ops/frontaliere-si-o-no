@@ -149,7 +149,6 @@
         "ingenieur-process-h-f-d-givaudan-ch"
       ],
       "firstSeenAt": "2026-07-08T11:12:47.516Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -223,8 +222,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-91f1e0f53dbf",
@@ -286,8 +284,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-0bd39b197183",
@@ -425,7 +422,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -529,7 +525,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -758,7 +753,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -831,7 +825,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -987,8 +980,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-3aa0007d7140",
@@ -1161,7 +1153,7 @@
       "title": "Quality Assurance & Sample Technician (m/w/d)",
       "titleByLocale": {
         "it": "Garanzia di qualità & campione tecnico (m/f/d)",
-        "en": "Quality Assurance & Sample Technician (m/w/d)",
+        "en": "Quality Assurance & Sample Technician (m/f/d)",
         "de": "Qualität Assurance & Sample Techniker (m/w/d)",
         "fr": "Technicien en assurance de la qualité et échantillon (m/f/d)"
       },
@@ -1216,7 +1208,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:40:09.062Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1379,8 +1370,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
