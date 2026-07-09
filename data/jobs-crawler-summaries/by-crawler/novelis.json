@@ -1,18 +1,54 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-08T22:12:03.964Z",
+  "generatedAt": "2026-07-09T22:26:50.552Z",
   "total": 11,
-  "newCount": 0,
-  "updatedCount": 11,
+  "newCount": 1,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9979,
-  "avgDurationMs": 9979,
+  "unchangedCount": 1,
+  "durationMs": 9122,
+  "avgDurationMs": 9122,
   "durationHistory": [
-    9979
+    9122
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "novelis-28ac4c763380",
+      "slug": "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
+      "company": "Novelis",
+      "companyKey": "novelis",
+      "companyDomain": "novelis.com",
+      "title": "Finance Lead (m/f/d) – Digital Transformation & Business Projects",
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "url": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
+      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
+      "source": "Novelis Dedicated Parser (iCIMS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-09T22:26:43.200Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "novelis-afad27588e25",
@@ -40,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:11:55.097Z",
+      "crawledAt": "2026-07-09T22:26:42.602Z",
       "firstSeenAt": "2026-07-08T11:23:08.808Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -48,42 +84,6 @@
         "richness": 20,
         "translation": 25,
         "completeness": 17
-      }
-    },
-    {
-      "id": "novelis-718525816dcd",
-      "slug": "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
-      "company": "Novelis",
-      "companyKey": "novelis",
-      "companyDomain": "novelis.com",
-      "title": "Manager (m/f/d) Finance – Digital Transformation & Business Projects",
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Metallurgia / Alluminio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://ch-external-novelis.icims.com/jobs/52696/manager-%28m-f-d%29-finance-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
-      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/manager-%28m-f-d%29-finance-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
-      "source": "Novelis Dedicated Parser (iCIMS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:55.704Z",
-      "firstSeenAt": "2026-07-08T11:23:09.539Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
       }
     },
     {
@@ -112,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:56.300Z",
+      "crawledAt": "2026-07-09T22:26:43.828Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -148,7 +148,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:11:56.874Z",
+      "crawledAt": "2026-07-09T22:26:44.395Z",
       "firstSeenAt": "2026-07-08T11:23:10.893Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:57.451Z",
+      "crawledAt": "2026-07-09T22:26:44.995Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52570/site-ehs-manager/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:58.075Z",
+      "crawledAt": "2026-07-09T22:26:45.594Z",
       "firstSeenAt": "2026-07-08T11:23:12.256Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -256,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52569/site-manager/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:58.746Z",
+      "crawledAt": "2026-07-09T22:26:46.187Z",
       "firstSeenAt": "2026-07-08T11:23:12.859Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -292,7 +292,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52551/industrial-fluids-process-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:11:59.328Z",
+      "crawledAt": "2026-07-09T22:26:46.743Z",
       "firstSeenAt": "2026-07-08T11:23:13.625Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -328,7 +328,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52531/lead-engineer-auto-product-%26-process-development/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:11:59.836Z",
+      "crawledAt": "2026-07-09T22:26:47.268Z",
       "firstSeenAt": "2026-07-08T11:23:14.186Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -364,7 +364,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52471/molten-metal-treatment-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:12:00.344Z",
+      "crawledAt": "2026-07-09T22:26:47.804Z",
       "firstSeenAt": "2026-07-08T11:23:14.761Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -400,7 +400,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:12:00.836Z",
+      "crawledAt": "2026-07-09T22:26:48.398Z",
       "firstSeenAt": "2026-07-08T11:23:15.394Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -412,5 +412,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "novelis-718525816dcd",
+      "slug": "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
+      "company": "Novelis",
+      "companyKey": "novelis",
+      "companyDomain": "novelis.com",
+      "title": "Manager (m/f/d) Finance – Digital Transformation & Business Projects",
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://ch-external-novelis.icims.com/jobs/52696/manager-%28m-f-d%29-finance-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
+      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/manager-%28m-f-d%29-finance-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
+      "source": "Novelis Dedicated Parser (iCIMS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-08T22:11:55.704Z",
+      "firstSeenAt": "2026-07-08T11:23:09.539Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }
