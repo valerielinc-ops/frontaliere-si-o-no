@@ -1,19 +1,21 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-08T22:15:44.064Z",
-  "total": 380,
+  "generatedAt": "2026-07-09T12:22:45.861Z",
+  "total": 381,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 109114,
-  "avgDurationMs": 109114,
+  "unchangedCount": 1,
+  "durationMs": 110697,
+  "avgDurationMs": 110697,
   "durationHistory": [
-    109114
+    110697
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistante en pharmacie  (f/h/d)",
       "company": "Galenica AG (Galenica)",
@@ -28,7 +30,7 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+      "slug": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
       "id": "galenica-8a75894cbcb0",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -40,7 +42,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,7 +51,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
