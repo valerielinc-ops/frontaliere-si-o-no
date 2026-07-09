@@ -1,16 +1,16 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-07-08T22:14:05.376Z",
+  "generatedAt": "2026-07-09T12:20:59.662Z",
   "total": 11,
-  "newCount": 2,
-  "updatedCount": 8,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13873,
-  "avgDurationMs": 13873,
+  "durationMs": 12308,
+  "avgDurationMs": 12308,
   "durationHistory": [
-    13873
+    12308
   ],
   "newJobs": [
     {
@@ -25,7 +25,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:54.276Z",
+      "crawledAt": "2026-07-09T12:20:49.239Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -37,7 +37,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "2026-07-09",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "department": "Loge",
       "hotelName": "Tschuggen Grand Hotel",
@@ -48,7 +48,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "tschuggen-451b0e78fc49",
       "slug": "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
@@ -61,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:55.244Z",
+      "crawledAt": "2026-07-09T12:20:50.175Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "department": "Housekeeping",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-08T22:13:55.244Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "tschuggen-1d5e09482f0b",
       "slug": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
@@ -99,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1372/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:56.226Z",
+      "crawledAt": "2026-07-09T12:20:50.849Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -136,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1363/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:58.088Z",
+      "crawledAt": "2026-07-09T12:20:52.635Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -176,7 +177,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:01.577Z",
+      "crawledAt": "2026-07-09T12:20:56.134Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -213,7 +214,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:02.468Z",
+      "crawledAt": "2026-07-09T12:20:57.019Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -251,7 +252,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:00.643Z",
+      "crawledAt": "2026-07-09T12:20:55.278Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -288,7 +289,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:57.168Z",
+      "crawledAt": "2026-07-09T12:20:51.737Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -326,7 +327,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:59.023Z",
+      "crawledAt": "2026-07-09T12:20:53.502Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -363,7 +364,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:59.969Z",
+      "crawledAt": "2026-07-09T12:20:54.388Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -423,7 +424,7 @@
       "salaryMin": 79000,
       "salaryMax": 120000,
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

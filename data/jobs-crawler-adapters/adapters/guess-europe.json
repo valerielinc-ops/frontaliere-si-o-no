@@ -16,10 +16,11 @@
     "https://apply.workable.com/guess-europe-sagl/j/31D1B48D9E/",
     "https://apply.workable.com/guess-europe-sagl/j/ED9AE9C6E0/",
     "https://apply.workable.com/guess-europe-sagl/j/DAFB0EA86C/",
+    "https://apply.workable.com/guess-europe-sagl/j/22FA8D9B39/",
     "https://apply.workable.com/guess-europe-sagl/j/ACECC0A61B/"
   ],
   "notes": "Dedicated Guess crawler uses Workable widget API + Workable v2 job detail API for Ticino jobs.",
-  "updatedAt": "2026-07-08T22:14:36.808Z",
+  "updatedAt": "2026-07-09T12:22:03.869Z",
   "seedMetaByUrl": {
     "https://apply.workable.com/guess-europe-sagl/j/ACF63C9D30/": {
       "location": "Bioggio",
@@ -56,6 +57,12 @@
       "canton": "ZH",
       "company": "Guess Europe Sagl",
       "postedDate": "2026-05-21"
+    },
+    "https://apply.workable.com/guess-europe-sagl/j/22FA8D9B39/": {
+      "location": "Aubonne",
+      "canton": "VD",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-07-09"
     },
     "https://apply.workable.com/guess-europe-sagl/j/ACECC0A61B/": {
       "location": "Bioggio",
