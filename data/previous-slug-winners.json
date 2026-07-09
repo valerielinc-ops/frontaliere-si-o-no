@@ -16086,7 +16086,7 @@
     "winnerJobIdentifier": "richemont-c4a05a134548",
     "winnerCanonical": "gruppe-l-d-praktikant-richemont-bellevue",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "GE"
@@ -16374,7 +16374,7 @@
     "winnerJobIdentifier": "richemont-c4a05a134548",
     "winnerCanonical": "group-l-d-intern-richemont-bellevue",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 2,
     "canton": "GE"
@@ -16599,7 +16599,7 @@
     "winnerJobIdentifier": "richemont-c4a05a134548",
     "winnerCanonical": "stagiaire-l-d-du-groupe-richemont-bellevue",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "GE"
@@ -16692,6 +16692,15 @@
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 0.0526,
     "candidatesCount": 1,
+    "canton": "GE"
+  },
+  "GE::fr::stagiaire-d-accueil-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "stagiaire-en-hotellerie-richemont-meyrin",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "GE"
   },
   "GE::fr::stagiaire-de-reception-richemont-meyrin": {
@@ -17348,6 +17357,24 @@
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-07-09T00:00:00.000Z",
     "score": 1,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::it::tirocinante-in-ospitalita-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "hospitality-tirocinante-richemont-meyrin",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::it::tirocinio-di-accoglienza-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "hospitality-tirocinante-richemont-meyrin",
+    "decidedAt": "2026-07-09T00:00:00.000Z",
+    "lastSeenAt": "2026-07-09T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "GE"
   },
