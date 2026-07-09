@@ -17,13 +17,11 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-automatiker-in-efz-2027/e5115d98-fabd-4c70-b86f-8ec2c4dd88bb",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-elektroniker-in-efz-2027/b10df6a2-4457-493a-8064-60fdb52f30b1",
     "https://jobs.ruag.ch/offene-stellen/gebaeude-und-elektrotechnik-spezialistin/10071ee0-626c-4b21-bd91-04a5469914e0",
-    "https://jobs.ruag.ch/offene-stellen/ict-solution-architekt-sap/272aa17b-907a-425c-b0f1-7a7e20bc5e8f",
     "https://jobs.ruag.ch/offene-stellen/ai-engineer-c5i/4afaa9aa-74c1-4b4d-9232-cf65651ce8ec",
     "https://jobs.ruag.ch/offene-stellen/software-engineer-c5i/ec08db9a-3b4f-4aad-8eb5-6134c5e87458",
     "https://jobs.ruag.ch/offene-stellen/system-manager/04aa0289-fe40-42d3-9165-619ee3e17e0d",
     "https://jobs.ruag.ch/offene-stellen/polymechaniker/cf868539-fd24-48ea-853f-352474b4469a",
     "https://jobs.ruag.ch/offene-stellen/technische-r-projektleiterin/813e247b-c8af-4618-b5b0-d520dfbbbd75",
-    "https://jobs.ruag.ch/offene-stellen/devops-engineer-c5i/349979ee-d679-4dcf-acba-66662b0a1ecf",
     "https://jobs.ruag.ch/offene-stellen/senior-devops-kubernetes-engineer-c5i/2eef27f6-9546-499d-8492-c1cec22f548a",
     "https://jobs.ruag.ch/offene-stellen/project-management-officer-c5i/a1751097-1da7-4210-b0f1-c75d18fba7ca",
     "https://jobs.ruag.ch/offene-stellen/administrative-coordinator-c5i/df707189-3c2f-4308-ac9c-83f273f5f45a",
@@ -33,16 +31,17 @@
     "https://jobs.ruag.ch/offene-stellen/strategische-r-einkaeuferin-immobilien-bauleistungen-generalplaner-generalunternehmer/ca1d5908-4c07-4867-b18c-55448e525188",
     "https://jobs.ruag.ch/offene-stellen/risk-management-assistant/6660c90c-99fd-4df4-9435-c85c586a76a6",
     "https://jobs.ruag.ch/offene-stellen/gebaeudetechnikerin-sanitaer-heizungsinstallateurin/63ae7f4e-efa5-4ba3-ba28-f9dd8a26dbb7",
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671",
     "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6",
-    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-east/c99ccd4e-01b2-4069-8107-74f4247c4f93",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-governance/dbc78305-e271-4052-9d9c-9d411ccc27f0",
-    "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c"
+    "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c",
+    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f",
+    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926",
+    "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-08T22:14:21.608Z",
+  "updatedAt": "2026-07-09T12:47:57.266Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -86,12 +85,6 @@
       "company": "RUAG AG",
       "postedDate": "2026-06-30"
     },
-    "https://jobs.ruag.ch/offene-stellen/ict-solution-architekt-sap/272aa17b-907a-425c-b0f1-7a7e20bc5e8f": {
-      "location": "Emmen",
-      "canton": "LU",
-      "company": "RUAG AG",
-      "postedDate": "2026-06-30"
-    },
     "https://jobs.ruag.ch/offene-stellen/ai-engineer-c5i/4afaa9aa-74c1-4b4d-9232-cf65651ce8ec": {
       "location": "Thun",
       "canton": "BE",
@@ -121,12 +114,6 @@
       "canton": "ZH",
       "company": "RUAG AG",
       "postedDate": "2026-07-01"
-    },
-    "https://jobs.ruag.ch/offene-stellen/devops-engineer-c5i/349979ee-d679-4dcf-acba-66662b0a1ecf": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2025-12-16"
     },
     "https://jobs.ruag.ch/offene-stellen/senior-devops-kubernetes-engineer-c5i/2eef27f6-9546-499d-8492-c1cec22f548a": {
       "location": "Thun",
@@ -182,23 +169,11 @@
       "company": "RUAG AG",
       "postedDate": "2026-04-21"
     },
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/7d62a2cf-60ef-4069-b2fb-26df66e89671": {
-      "location": "Wilderswil",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-07"
-    },
     "https://jobs.ruag.ch/offene-stellen/principal-cyber-security-c5i/0a59f7e8-c226-4939-9dcb-e52d75ce0ab6": {
       "location": "Thun",
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-03-27"
-    },
-    "https://jobs.ruag.ch/offene-stellen/operations-consultant-c5i/0f88429c-91c3-46f5-81e6-5e94b71a6d0d": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-07"
     },
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c": {
       "location": "Bern",
@@ -223,6 +198,24 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-08"
+    },
+    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f": {
+      "location": "Wangen",
+      "canton": "",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-09"
+    },
+    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-04-24"
+    },
+    "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322": {
+      "location": "Alpnach",
+      "canton": "OW",
+      "company": "RUAG AG",
+      "postedDate": "2026-04-23"
     }
   }
 }
