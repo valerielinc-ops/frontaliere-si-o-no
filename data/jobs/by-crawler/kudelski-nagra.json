@@ -1,15 +1,15 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-07-09T12:12:37.157Z",
+  "assembledAt": "2026-07-09T22:24:31.678Z",
   "jobs": [
     {
       "id": "kudelski-nagra-027fe8cc43fc",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
       "slugByLocale": {
         "it": "security-operations-engineer-kudelski-nagra-ch",
-        "fr": "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-38306c",
         "en": "security-operations-engineer-kudelski-nagra-ch",
-        "de": "security-operations-engineer-kudelski-nagra-ch"
+        "de": "security-operations-ingenieur-kudelski-nagra-switzerland",
+        "fr": "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-38306c"
       },
       "company": "Kudelski NAGRA",
       "companyKey": "kudelski-nagra",
@@ -17,23 +17,23 @@
       "title": "Security Operations Engineer",
       "titleByLocale": {
         "it": "Security Operations Ingegnere",
-        "fr": "Ingénieur des opérations de sécurité",
         "en": "Security Operations Engineer",
-        "de": "Security Operations Ingenieur"
+        "de": "Security Operations Ingenieur",
+        "fr": "Ingénieur des opérations de sécurité"
       },
       "description": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology.",
       "descriptionByLocale": {
         "it": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+        "en": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology.",
         "de": "Permanent CDI bei Kudelski Security, Teil der Kudelski Group – ein weltweit führender Anbieter von Technologien für digitale Sicherheit und Inhaltsschutz.",
-        "fr": "CDI permanent chez Kudelski Security, membre du groupe Kudelski, un leader mondial de la sécurité numérique et de la protection des contenus.",
-        "en": "Permanent CDI at Kudelski Security, part of the Kudelski Group — a global leader in digital security and content protection technology."
+        "fr": "CDI permanent chez Kudelski Security, membre du groupe Kudelski, un leader mondial de la sécurité numérique et de la protection des contenus."
       },
       "location": "Switzerland",
       "canton": "TI",
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:12:34.365Z",
+      "crawledAt": "2026-07-09T22:24:29.455Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -50,17 +50,18 @@
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-9a4354",
+        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-9a4354",
           "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland"
         ]
       },
-      "previousSlugs": [
-        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland-9a4354",
-        "ingenieur-des-operations-de-securite-kudelski-nagra-switzerland"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T12:12:34.365Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -72,9 +73,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-09T12:12:34.365Z"
+      }
     }
-  ],
-  "assembledAt": "2026-07-09T12:17:06.833Z"
+  ]
 }
