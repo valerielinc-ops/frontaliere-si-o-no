@@ -1,18 +1,19 @@
 {
   "key": "solina",
   "label": "Stiftung Solina",
-  "generatedAt": "2026-07-09T12:13:46.605Z",
+  "generatedAt": "2026-07-09T22:25:24.473Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 8576,
-  "avgDurationMs": 8576,
+  "durationMs": 7080,
+  "avgDurationMs": 7080,
   "durationHistory": [
-    8576
+    7080
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "solina-9538262d34c6",
       "slug": "vorpraktikant-in-solina-spiez",
@@ -20,13 +21,13 @@
       "companyKey": "solina",
       "companyDomain": "solina.ch",
       "title": "Vorpraktikant:in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:42.319Z",
+      "crawledAt": "2026-07-09T22:25:20.469Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://stiftung-solina.onlyfy.jobs/application/apply/edjhnthmv4l8cegmu50x41wxs306jq",
-      "_qualityScore": 65,
+      "firstSeenAt": "2026-07-09T12:13:42.319Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "solina",
       "companyDomain": "solina.ch",
       "title": "Praktikant:in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Standortübergreifend",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:13:42.897Z",
+      "crawledAt": "2026-07-09T22:25:20.845Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,16 +79,16 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://stiftung-solina.onlyfy.jobs/application/apply/7pp31v16v3lvxvyuu8aopff6v8hqs6",
-      "_qualityScore": 65,
+      "firstSeenAt": "2026-07-09T12:13:42.897Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -120,7 +122,7 @@
       "firstSeenAt": "2026-07-02T23:10:49.750Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -160,7 +162,7 @@
       "firstSeenAt": "2026-07-02T23:10:49.328Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,7 +202,7 @@
       "firstSeenAt": "2026-07-02T23:10:48.064Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -240,7 +242,7 @@
       "firstSeenAt": "2026-07-02T23:10:47.641Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -279,7 +281,7 @@
       "firstSeenAt": "2026-07-02T23:10:47.219Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -319,7 +321,7 @@
       "firstSeenAt": "2026-07-02T23:10:46.794Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -358,7 +360,7 @@
       "firstSeenAt": "2026-07-02T23:10:46.370Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
