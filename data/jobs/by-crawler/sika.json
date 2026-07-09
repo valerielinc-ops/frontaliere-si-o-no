@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-07-09T12:44:43.256Z",
+  "assembledAt": "2026-07-09T22:46:16.117Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:47.290Z",
+      "crawledAt": "2026-07-09T22:46:12.199Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -90,7 +90,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic/electrician maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Maintenance de technicien/électricien en automatisation (m/f)"
       },
@@ -106,7 +106,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:46.340Z",
+      "crawledAt": "2026-07-09T22:46:11.269Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -141,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:45.431Z",
+      "crawledAt": "2026-07-09T22:46:10.241Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -231,7 +232,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-feac34a42cc0",
@@ -264,7 +266,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:44.503Z",
+      "crawledAt": "2026-07-09T22:46:09.258Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -343,7 +345,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48caac1b-4c20-4da6-b5f5-6cb710571336.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:43.614Z",
+      "crawledAt": "2026-07-09T22:46:08.309Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -422,7 +424,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:42.722Z",
+      "crawledAt": "2026-07-09T22:46:07.292Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -468,7 +470,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7fa26ed2a876",
@@ -501,7 +504,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-38ff13c5-35d4-4c51-bc64-402bf61f1c9f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:41.634Z",
+      "crawledAt": "2026-07-09T22:46:06.218Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -580,7 +583,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:40.678Z",
+      "crawledAt": "2026-07-09T22:46:05.251Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -626,7 +629,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a6edc3d5625d",
@@ -645,7 +649,7 @@
         "it": "Ingegnere di progettazione (m/f/d)",
         "en": "Design engineer (m/f/d)",
         "de": "Konstrukteur (m/w/d)",
-        "fr": "Ingénieur de conception (m/f/d)"
+        "fr": "Konstrukteur (m/w/d)"
       },
       "description": "Konstruktion von Spritzgusswerkzeugen und -artikel von der Entwicklung bis zur technischen Freigabe Technische Schnittstelle zwischen Produktion, Engineering und externen Partnern Entwicklung und Prüfung von Werkzeugkonzepten sowie Heisskanalauslegung mittels Moldflow Durchführung von Design-Reviews und Optimierungen anhand Füllsimulationen Umsetzung von Änderungs- und Korrekturaufträgen inklusive Kosten- und Qualitätsverfolgung Prozessverbesserungen und Standardisierung aktive Mitgestaltung von Abläufen und Normen Dokumentation und Know-how-Transfer",
       "descriptionByLocale": {
@@ -659,7 +663,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c1fddc77-8f3c-4c3f-b470-7b0b7fb8e0d7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:39.537Z",
+      "crawledAt": "2026-07-09T22:46:04.272Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -695,6 +699,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -739,7 +744,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:38.157Z",
+      "crawledAt": "2026-07-09T22:46:03.325Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -771,6 +776,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -815,7 +821,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:36.768Z",
+      "crawledAt": "2026-07-09T22:46:02.017Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -894,7 +900,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d3e93da9-39f2-46d2-83bc-7c0e15824ec7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:35.827Z",
+      "crawledAt": "2026-07-09T22:46:01.026Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -913,6 +919,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-19T13:20:06.933Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -957,7 +964,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:34.801Z",
+      "crawledAt": "2026-07-09T22:45:59.957Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1036,7 +1043,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4b36ff42-9605-4fab-8179-f8c2e29695c6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:34.392Z",
+      "crawledAt": "2026-07-09T22:45:58.891Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1115,7 +1122,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:33.454Z",
+      "crawledAt": "2026-07-09T22:45:57.723Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1178,7 +1185,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic / PLC programmer / automation technician (m/f/d)",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "fr": "Automatique (m/f/d)"
       },
@@ -1194,7 +1201,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:32.558Z",
+      "crawledAt": "2026-07-09T22:45:56.104Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1235,6 +1242,7 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -1279,7 +1287,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:31.675Z",
+      "crawledAt": "2026-07-09T22:45:54.630Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1358,7 +1366,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:27:30.679Z",
+      "crawledAt": "2026-07-09T22:45:53.708Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1387,6 +1395,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1431,7 +1440,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:29.700Z",
+      "crawledAt": "2026-07-09T22:45:52.731Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1510,7 +1519,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:28.753Z",
+      "crawledAt": "2026-07-09T22:45:51.822Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1589,7 +1598,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:28.337Z",
+      "crawledAt": "2026-07-09T22:45:50.878Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1624,6 +1633,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1652,7 +1662,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Installation operator (m/f/d) Extrusion lines - Process operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1668,7 +1678,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:27.329Z",
+      "crawledAt": "2026-07-09T22:45:49.863Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1704,6 +1714,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1732,7 +1743,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -1748,7 +1759,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:26.921Z",
+      "crawledAt": "2026-07-09T22:45:48.918Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1780,6 +1791,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1807,7 +1819,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1824,7 +1836,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:25.947Z",
+      "crawledAt": "2026-07-09T22:45:47.868Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1861,6 +1873,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1905,7 +1918,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e4d8e3c0-d578-4803-81e6-ebe05a58d9b2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:25.050Z",
+      "crawledAt": "2026-07-09T22:45:46.883Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1970,7 +1983,7 @@
       "title": "Payroll Specialist 100% (m/w/d)",
       "titleByLocale": {
         "it": "Specialista delle Paghe al 100% (lun/f/d)",
-        "en": "Payroll Specialist 100% (m/f/d)",
+        "en": "Payroll Specialist 100% (m/w/d)",
         "de": "Payroll Spezialist 100% (m/w/d)",
         "fr": "Spécialiste en paie à 100 % (l/f/d)"
       },
@@ -1986,7 +1999,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:24.146Z",
+      "crawledAt": "2026-07-09T22:45:45.873Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2018,6 +2031,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:52.994Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2062,7 +2076,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f724b276-7bbb-462a-be82-28b329b8ff87.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:23.141Z",
+      "crawledAt": "2026-07-09T22:45:44.913Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2141,7 +2155,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:21.589Z",
+      "crawledAt": "2026-07-09T22:45:43.956Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2220,7 +2234,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:27:20.703Z",
+      "crawledAt": "2026-07-09T22:45:42.975Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2285,7 +2299,7 @@
         "it": "International Traineeship Program - A&I - Technical Department",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -2299,7 +2313,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:19.749Z",
+      "crawledAt": "2026-07-09T22:45:41.919Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2321,6 +2335,7 @@
         "international-traineeship-program-a-i-technical-department-sika-widen"
       ],
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2365,7 +2380,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:19.332Z",
+      "crawledAt": "2026-07-09T22:45:40.838Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2397,6 +2412,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:47.313Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2441,7 +2457,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:18.370Z",
+      "crawledAt": "2026-07-09T22:45:39.947Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2470,82 +2486,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-bcec471c378a",
-      "slug": "assicurazione-gruppo-manager-80-100-sika-zurich-zurich-switzerland",
-      "slugByLocale": {
-        "it": "assicurazione-gruppo-manager-80-100-sika-zurich-zurich-switzerland",
-        "en": "manager-group-assurance-80-100-sika-ch",
-        "de": "manager-group-assurance-80-100-sika-ch",
-        "fr": "gestionnaire-assurance-de-groupe-80-100-sika-zurich-zurich-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Manager Group Assurance (80-100%)",
-      "titleByLocale": {
-        "it": "Assicurazione Gruppo Manager (80-100%)",
-        "en": "Manager Group Assurance (80-100%)",
-        "de": "Manager Group Assurance (80-100%)",
-        "fr": "Gestionnaire Assurance de groupe (80-100%)"
-      },
-      "description": "At Sika, we are strengthening our global assurance landscape to ensure transparency, consistency, and effectiveness across all governance, risk, and control activities. To support this, the Group Risk Management Team is looking for a highly motivated and experienced professional to coordinate assurance activities across the Sika Group. Your \n• Responsibilities Coordinate and align all assurance activities across the Sika Group, including internal audits, internal control assessments, compliance reviews, HR audits, supplier audits, IT security audits and other functional assessments Act as central point of contact for assurance planning, ensuring transparency, avoiding duplication, and optimizing coverage across functions and regions Collaborate closely with Internal Audit, Internal Controls, Legal & Compliance, HR, Procurement, Cyber Security and other assurance functions Support the development and continuous improvement of the global assurance framework and methodology. Drive efficiency, standardization, and best practice sharing across assurance providers. Facilitate risk-based planning and promote a consistent assurance approach across the organization Consolidate and report key insights and critical findings, as well as recurring issues. Ensure the timely escalation of major findings and remediation gaps to the appropriate management level. Participate in the operation and development of Sika’s Enterprise Risk Management, Internal Control System and Insurance Management",
-      "descriptionByLocale": {
-        "it": "A Sika, stiamo rafforzando il nostro panorama di garanzia globale per garantire trasparenza, coerenza ed efficacia in tutte le attività di governance, rischio e controllo. Per sostenere questo, il Team Group Risk Management sta cercando un professionista altamente motivato ed esperto per coordinare le attività di assicurazione attraverso il Gruppo Sika. Il tuo\n• Coordinare e allineare tutte le attività di assicurazione in tutto il Gruppo Sika, compresi gli audit interni, le valutazioni di controllo interno, le revisioni di conformità, gli audit HR, i controlli dei fornitori, i controlli di sicurezza IT e altre valutazioni funzionali Act come punto centrale di contatto per la pianificazione delle assicurazioni, garantire la trasparenza, evitare la duplicazione, e ottimizzare la copertura tra le funzioni e le regioni Collaborare a stretto contatto con l'audit interno, controlli interni, la metodologia legale e conformità, la sicurezza globale Efficienza dell'azionamento, standardizzazione e migliore condivisione delle pratiche tra i fornitori di assicurazione. Facilitare la pianificazione basata sul rischio e promuovere un approccio di garanzia coerente in tutta l'organizzazione Consolidare e segnalare intuizioni chiave e risultati critici, nonché problemi ricorrenti. Assicurare l'escalation tempestiva dei principali risultati e delle lacune di bonifica al livello di gestione appropriato. Partecipa al funzionamento e allo sviluppo della gestione dei rischi aziendali di Sika, del sistema di controllo interno e della gestione delle assicurazioni",
-        "en": "At Sika, we are strengthening our global assurance landscape to ensure transparency, consistency, and effectiveness across all governance, risk, and control activities. To support this, the Group Risk Management Team is looking for a highly motivated and experienced professional to coordinate assurance activities across the Sika Group. Your \n• Responsibilities Coordinate and align all assurance activities across the Sika Group, including internal audits, internal control assessments, compliance reviews, HR audits, supplier audits, IT security audits and other functional assessments Act as central point of contact for assurance planning, ensuring transparency, avoiding duplication, and optimizing coverage across functions and regions Collaborate closely with Internal Audit, Internal Controls, Legal & Compliance, HR, Procurement, Cyber Security and other assurance functions Support the development and continuous improvement of the global assurance framework and methodology. Drive efficiency, standardization, and best practice sharing across assurance providers. Facilitate risk-based planning and promote a consistent assurance approach across the organization Consolidate and report key insights and critical findings, as well as recurring issues. Ensure the timely escalation of major findings and remediation gaps to the appropriate management level. Participate in the operation and development of Sika’s Enterprise Risk Management, Internal Control System and Insurance Management",
-        "de": "Bei Sika stärken wir unsere globale Versicherungslandschaft, um Transparenz, Konsistenz und Effektivität bei allen Governance-, Risiko- und Kontrollaktivitäten zu gewährleisten. Um dies zu unterstützen, sucht das Group Risk Management Team einen hoch motivierten und erfahrenen Fachmann, der die Assurance-Aktivitäten in der Sika-Gruppe koordiniert. Ihr\n• Verantwortlichkeiten Koordination und Abstimmung aller Assurance-Aktivitäten in der Sika-Gruppe, einschließlich interner Audits, interner Kontrollbewertungen, Compliance-Prüfungen, HR-Audits, Lieferantenaudits, IT-Sicherheitsaudits und anderer funktionaler Bewertungen Act als zentraler Ansprechpartner für Assurance-Planung, Gewährleistung von Transparenz, Vermeidung von Doppelarbeit und Optimierung der Abdeckung über Funktionen und Regionen Zusammenarbeit eng mit Internal Audit, Internal Controls, Legal & Compliance, HR, Procurement, Cyber Security und anderen Assurance-Funktionen Unterstützung der Entwicklung und kontinuierlichen Verbesserung des globalen Assurance-Rahmens und der Methodik. Steigern Sie Effizienz, Standardisierung und Best Practice-Sharing zwischen Assurance-Anbietern. Erleichterung der risikobasierten Planung und Förderung eines konsistenten Assurance-Ansatzes in der gesamten Organisation Konsolidierung und Berichterstattung über wichtige Erkenntnisse und kritische Erkenntnisse sowie wiederkehrende Probleme. Gewährleistung der rechtzeitigen Eskalation wichtiger Erkenntnisse und der Mängel bei der Behebung auf die geeignete Managementebene. Beteiligen Sie sich am Betrieb und der Entwicklung von Sikas Enterprise Risk Management, Internal Control System und Insurance Management",
-        "fr": "Chez Sika, nous renforçons notre paysage mondial d'assurance pour assurer la transparence, la cohérence et l'efficacité de toutes les activités de gouvernance, de risque et de contrôle. À cette fin, l'équipe de gestion des risques du groupe recherche un professionnel hautement motivé et expérimenté pour coordonner les activités d'assurance dans l'ensemble du groupe Sika. Votre\n• Responsabilités Coordonner et harmoniser toutes les activités d'assurance dans l'ensemble du groupe Sika, y compris les vérifications internes, les évaluations des contrôles internes, les examens de conformité, les vérifications des RH, les vérifications des fournisseurs, les vérifications de sécurité des TI et d'autres évaluations fonctionnelles Agir comme point de contact central pour la planification de l'assurance, assurer la transparence, éviter les doubles emplois et optimiser la couverture entre les fonctions et les régions Collaborer étroitement avec l'audit interne, les contrôles internes, les vérifications juridiques et de conformité, les RH, les achats, la cybersécurité et d'autres fonctions d'assurance Appuyer l'élaboration et l'amélioration continue du cadre et de la méthodologie d'assurance globale. Favoriser l'efficacité, la normalisation et le partage des meilleures pratiques entre les fournisseurs d'assurance. Faciliter la planification axée sur le risque et promouvoir une approche d'assurance uniforme dans l'ensemble de l'organisation. Veiller à ce que les principales constatations et les lacunes en matière d'assainissement augmentent rapidement au niveau approprié de la gestion. Participer au fonctionnement et au développement de la gestion des risques de l'entreprise, du système de contrôle interne et de la gestion des assurances"
-      },
-      "location": "Zürich, Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c3f40918-4618-41d1-8d8c-01a92affa308.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:17.958Z",
-      "addressLocality": "Zürich",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c3f40918-4618-41d1-8d8c-01a92affa308.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-group-assurance-80-100-sika-ch",
-        "assicurazione-gruppo-manager-80-100-sika-zurich-zurich-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-group-assurance-80-100-sika-ch",
-          "assicurazione-gruppo-manager-80-100-sika-zurich-zurich-switzerland"
-        ],
-        "fr": [
-          "manager-group-assurance-80-100-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T23:10:45.678Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -2581,7 +2521,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:16.970Z",
+      "crawledAt": "2026-07-09T22:45:38.924Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
