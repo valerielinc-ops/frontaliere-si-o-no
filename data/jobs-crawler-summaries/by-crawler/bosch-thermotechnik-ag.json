@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-09T12:21:33.797Z",
+  "generatedAt": "2026-07-09T22:27:40.781Z",
   "total": 8,
-  "newCount": 2,
-  "updatedCount": 6,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21568,
-  "avgDurationMs": 21568,
+  "durationMs": 18403,
+  "avgDurationMs": 18403,
   "durationHistory": [
-    21568
+    18403
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sachbearbeiter Debitorenbuchhaltung 60% (w/m/div.) REF291116Z",
       "slug": "sachbearbeiter-debitorenbuchhaltung-60-w-m-div-ref291116z-bosch-pratteln",
@@ -35,12 +36,17 @@
       "sourceLang": "de",
       "postedDate": "2026-07-09",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-4c4cf5d9778f",
+      "salaryMin": 37200,
+      "salaryMax": 56400,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-09T12:21:33.795Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -65,16 +71,19 @@
       "sourceLang": "de",
       "postedDate": "2026-07-09",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-ca7e65cc5535",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-09T12:21:33.795Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Lehrstelle Kauffrau / Kaufmann 2027 - REF289852B",
       "slug": "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus",
@@ -286,79 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Inside Sales DACH 80%-100% (w/m/d) REF290650V",
-      "slug": "dach-80-100-w-m-d-ref290650-vv-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF290650V-inside-sales-dach-80-100-w-m-d-ref290650v",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136437179-inside-sales-dach-80-100-w-m-d-ref290650v?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-06",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-1ec41952f184",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "currency": "CHF",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-07-06T22:21:31.872Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "BPS/Lean und IE (Industrial Ingenieur) Spezialist – Power Tools Accessories 100% (f/m/div.) REF282131O",
-      "slug": "bps-lean-e-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o-bosch-thermotechnik-ag-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF282131O-bps-lean-und-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136163360-bps-lean-und-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-07",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-dcf96acbde29",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-07-07T12:08:34.267Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
