@@ -1,21 +1,19 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-07-08T11:13:21.682Z",
+  "generatedAt": "2026-07-09T12:12:22.366Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 24273,
-  "avgDurationMs": 24273,
+  "unchangedCount": 0,
+  "durationMs": 5740,
+  "avgDurationMs": 5740,
   "durationHistory": [
-    24273
+    5740
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "reha-andeer-2026-stelleninserat-nachtwache-dad4ae1a3395",
       "slug": "nachtwache-reha-andeer-andeer",
@@ -30,7 +28,7 @@
       "applyUrl": "https://reha-andeer.ch/offene-stellen/",
       "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T11:13:19.473Z",
+      "crawledAt": "2026-07-09T12:12:18.173Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -67,7 +65,7 @@
       "applyUrl": "https://reha-andeer.ch/offene-stellen/",
       "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T11:13:19.916Z",
+      "crawledAt": "2026-07-09T12:12:18.840Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -90,5 +88,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
