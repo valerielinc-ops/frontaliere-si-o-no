@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-07-08T22:06:26.501Z",
+  "assembledAt": "2026-07-09T12:13:00.035Z",
   "jobs": [
     {
       "id": "elettra-1938-4eb9d2395e16",
@@ -25,7 +25,7 @@
       "descriptionByLocale": {
         "it": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
         "en": "For our headquarters in Stabio we are looking for a production operator who will take care of the following tasks: battery handling; test and repair activities; electronic card assembly; line-up activities...",
-        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende \n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
+        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende\n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
         "fr": "Pour notre siège social à Stabio, nous recherchons un opérateur de production qui s'occupera des tâches suivantes : la manipulation des batteries ; les activités de test et de réparation ; l'assemblage de cartes électroniques ; les activités de line-up..."
       },
       "location": "Stabio Svizzera",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:06:24.959Z",
+      "crawledAt": "2026-07-09T12:12:58.144Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:06:24.959Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -61,8 +62,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:06:24.959Z"
+      }
     },
     {
       "id": "elettra-1938-cf83501f909d",
@@ -87,7 +87,7 @@
       "descriptionByLocale": {
         "it": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
         "en": "For the strengthening of our team at the Stabio headquarters, we look for an Electromechanical Keeper who will take care of the following tasks: Diagnosis and fault resolution on electrical installations and components Maintenance. .",
-        "de": "Für die Verstärkung unseres Teams in der Stabio-Zentrale suchen wir einen elektromechanischen Halter, der sich um folgende \n• Aufgaben kümmert: Diagnose und Fehlerbehebung bei Elektroinstallationen und Komponentenwartung.",
+        "de": "Für die Verstärkung unseres Teams in der Stabio-Zentrale suchen wir einen elektromechanischen Halter, der sich um folgende\n• Aufgaben kümmert: Diagnose und Fehlerbehebung bei Elektroinstallationen und Komponentenwartung.",
         "fr": "Pour le renforcement de notre équipe au siège de Stabio, nous recherchons un gardien électromécanique qui s'occupera des tâches suivantes : Diagnostic et résolution de défaillance sur les installations et composants électriques Entretien. ."
       },
       "location": "Stabio Svizzera",
@@ -95,7 +95,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-08T22:06:24.656Z",
+      "crawledAt": "2026-07-09T12:12:57.842Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -112,6 +112,7 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:06:24.656Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -123,8 +124,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:06:24.656Z"
+      }
     }
   ]
 }
