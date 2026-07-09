@@ -320508,7 +320508,7 @@
     "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
-      "it": "infermiere-a-dipl-servizio-notturno-kantonsspital-aarau-ksa-aarau",
+      "it": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
       "en": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
       "fr": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch"
     },
@@ -320597,7 +320597,7 @@
     "slugByLocale": {
       "de": "fachexpertin-fachexperte-pflege-ksa-ch",
       "it": "fachexpertin-fachexperte-pflege-ksa-ch",
-      "en": "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+      "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
       "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-09",
@@ -320850,7 +320850,7 @@
     "slugByLocale": {
       "de": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch",
       "it": "service-unterhaltstechniker-in-heizung-kalte-ksa-ch",
-      "en": "service-maintenance-technician-in-heating-refrigeration-kantonsspital-aarau-ksa-aarau",
+      "en": "service-maintenance-technician-heating-cooling-kantonsspital-aarau-ksa-aarau",
       "fr": "service-materiel-entretien-chauffage-frigorifique-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-09",
@@ -321520,7 +321520,7 @@
     "canonicalSlug": "fachexpertin-fachexperte-pflege-ksa-ch-2",
     "slugByLocale": {
       "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-      "en": "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
+      "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
       "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
     },
     "createdAt": "2026-07-09",
@@ -321552,7 +321552,7 @@
     "canonicalSlug": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
     "slugByLocale": {
       "de": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
-      "it": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
+      "it": "responsabile-servizi-ict-in-ingegneria-storage-cloud-kantonsspital-aarau-ksa-aarau",
       "en": "ict-service-manager-in-storage-cloud-engineering-ksa-ch",
       "fr": "ict-service-manager-in-storage-cloud-engineering-ksa-ch"
     },
@@ -321584,7 +321584,7 @@
     "canonicalSlug": "ergotherapeut-in-ksa-ch",
     "slugByLocale": {
       "de": "ergo-nr-kantonsspital-aarau-ksa-aarau",
-      "it": "ergoterapeutico-in-kantonsspital-aarau-ksa-aarau",
+      "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
       "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
       "fr": "ergotherapeut-in-ksa-ch"
     },
@@ -321781,7 +321781,7 @@
       "de": "senior-project-manager-automation-a-100-bachem-bubendorf",
       "it": "senior-project-manager-automation-a-100-bachem-bubendorf",
       "en": "senior-project-manager-automation-a-100-bachem-bubendorf",
-      "fr": "senior-project-manager-automation-a-100-bachem-bubendorf"
+      "fr": "gestionnaire-de-projet-principal-automatisation-a-100-bachem-ag-bubendorf"
     },
     "createdAt": "2026-07-09",
     "canton": "BL"
@@ -321835,7 +321835,7 @@
     "slugByLocale": {
       "it": "senior-project-manager-automation-a-100-bachem-bubendorf-2",
       "de": "senior-project-manager-automation-a-100-bachem-bubendorf-2",
-      "fr": "senior-project-manager-automation-a-100-bachem-bubendorf-2"
+      "fr": "gestionnaire-de-projet-principal-automatisation-a-100-bachem-ag-bubendorf-8df501"
     },
     "createdAt": "2026-07-09",
     "canton": "BL"
@@ -321844,9 +321844,9 @@
     "canonicalSlug": "patent-counsel-a-80-100-bachem-bubendorf",
     "slugByLocale": {
       "en": "patent-counsel-a-80-100-bachem-bubendorf",
-      "it": "patent-counsel-a-80-100-bachem-bubendorf",
+      "it": "avvocato-brevetti-a-80-100-bachem-ag-bubendorf",
       "de": "patent-counsel-a-80-100-bachem-bubendorf",
-      "fr": "patent-counsel-a-80-100-bachem-bubendorf"
+      "fr": "conseiller-en-brevets-a-80-100-bachem-ag-bubendorf"
     },
     "createdAt": "2026-07-09",
     "canton": "BL"
@@ -321898,7 +321898,9 @@
   "id|solique.ch|4034295": {
     "canonicalSlug": "disponent-m-w-d-planzer-zurich",
     "slugByLocale": {
-      "de": "disponent-m-w-d-planzer-zurich"
+      "de": "disponent-m-w-d-planzer-zurich",
+      "it": "m-w-d-planzer-zurich",
+      "fr": "detenteur-m-w-d-planzer-zurich"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
@@ -321907,8 +321909,8 @@
     "canonicalSlug": "chauffeur-kat-ce-m-w-d-planzer-zurich",
     "slugByLocale": {
       "de": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-      "it": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-      "en": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+      "it": "gatto-di-chauffeur-ce-m-f-d-planzer-zurich",
+      "en": "chauffeur-cat-ce-m-f-d-planzer-zurich",
       "fr": "chauffeur-kat-ce-m-w-d-planzer-zurich"
     },
     "createdAt": "2026-07-09",
@@ -321918,9 +321920,9 @@
     "canonicalSlug": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
     "slugByLocale": {
       "de": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-      "it": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-      "en": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon",
-      "fr": "verantwortlicher-sperrgut-gruppe-m-w-d-planzer-dietikon"
+      "it": "prodotti-ingombranti-responsabili-gruppo-m-f-d-planzer-dietikon",
+      "en": "responsible-bulky-goods-group-m-f-d-planzer-dietikon",
+      "fr": "marchandises-volumineuses-responsables-groupe-m-f-d-planzer-dietikon"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
@@ -321929,9 +321931,9 @@
     "canonicalSlug": "paketzusteller-m-w-d-planzer-kolliken",
     "slugByLocale": {
       "de": "paketzusteller-m-w-d-planzer-kolliken",
-      "it": "paketzusteller-m-w-d-planzer-kolliken",
-      "en": "paketzusteller-m-w-d-planzer-kolliken",
-      "fr": "paketzusteller-m-w-d-planzer-kolliken"
+      "it": "consegna-dei-pacchi-m-f-d-planzer-kolliken",
+      "en": "parcel-delivery-m-f-d-planzer-kolliken",
+      "fr": "livraison-de-colis-m-f-d-planzer-kolliken"
     },
     "createdAt": "2026-07-09",
     "canton": "AG"
@@ -321940,9 +321942,9 @@
     "canonicalSlug": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
     "slugByLocale": {
       "de": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-      "it": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-      "en": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-      "fr": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+      "it": "cambiamento-giornaliero-della-busta-dei-dipendenti-m-f-d-planzer-kallnach",
+      "en": "employee-envelope-day-shift-m-f-d-planzer-kallnach",
+      "fr": "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
     },
     "createdAt": "2026-07-09",
     "canton": "BE"
@@ -321953,7 +321955,7 @@
       "de": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
       "it": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
       "en": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-      "fr": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon"
+      "fr": "ingenieur-de-logiciels-informatiques-frontend-wms-m-f-d-planzer-dietikon"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
@@ -321964,7 +321966,7 @@
       "de": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
       "it": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
       "en": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon",
-      "fr": "it-software-engineer-backend-wms-m-w-d-planzer-dietikon"
+      "fr": "moteur-de-logiciels-informatiques-wms-m-f-d-planzer-dietikon"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
@@ -321984,9 +321986,9 @@
     "canonicalSlug": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
     "slugByLocale": {
       "de": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-      "it": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-      "en": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf",
-      "fr": "chauffeur-kat-b-nachtschicht-m-w-d-planzer-regensdorf"
+      "it": "chauffeur-cat-b-turno-notturno-m-f-d-planzer-regensdorf",
+      "en": "chauffeur-cat-b-night-shift-m-f-d-planzer-regensdorf",
+      "fr": "chauffeur-cat-b-garde-de-nuit-m-f-d-planzer-regensdorf"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
@@ -321995,7 +321997,7 @@
     "canonicalSlug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
     "slugByLocale": {
       "de": "med-praxisassistent-in-ksa-ch",
-      "it": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "it": "med-praxisassistente-in-kantonsspital-aarau-ksa-aarau",
       "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
       "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
     },
@@ -322005,7 +322007,7 @@
   "id|umantis.com|5562": {
     "canonicalSlug": "collaboratore-trice-guest-relations-kantonsspital-aarau-ksa-aarau",
     "slugByLocale": {
-      "de": "mitarbeiter-in-guest-relations-ksa-ch",
+      "de": "mitarbeiter-in-gastbeziehungen-kantonsspital-aarau-ksa-aarau",
       "it": "collaboratore-trice-guest-relations-kantonsspital-aarau-ksa-aarau",
       "en": "mitarbeiter-in-guest-relations-ksa-ch",
       "fr": "mitarbeiter-in-guest-relations-ksa-ch"
@@ -322018,8 +322020,8 @@
     "slugByLocale": {
       "de": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch",
       "it": "facharztin-facharzt-per-medizinische-genetik-fmh-kantonsspital-aarau-ksa-aarau",
-      "en": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch",
-      "fr": "facharztin-facharzt-fur-medizinische-genetik-fmh-ksa-ch"
+      "en": "specialist-specialist-in-medical-genetics-fmh-kantonsspital-aarau-ksa-aarau",
+      "fr": "specialiste-en-genetique-medicale-fmh-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-09",
     "canton": "AG"
@@ -322039,9 +322041,9 @@
     "canonicalSlug": "elettricista-con-comprovata-esperienza-pemsa-romont-fr",
     "slugByLocale": {
       "it": "elettricista-con-comprovata-esperienza-pemsa-romont-fr",
-      "en": "elettricista-con-comprovata-esperienza-pemsa-romont-fr",
-      "de": "elettricista-con-comprovata-esperienza-pemsa-romont-fr",
-      "fr": "elettricista-con-comprovata-esperienza-pemsa-romont-fr"
+      "en": "electrician-with-proven-experience-pemsa-romont-fr",
+      "de": "elektriker-mit-nachgewiesener-erfahrung-pemsa-romont-fr",
+      "fr": "electricien-ayant-une-experience-eprouvee-pemsa-romont-fr"
     },
     "createdAt": "2026-07-09",
     "canton": "FR"
@@ -322050,9 +322052,9 @@
     "canonicalSlug": "impermeabilizzatore-m-f-pemsa-geneve",
     "slugByLocale": {
       "it": "impermeabilizzatore-m-f-pemsa-geneve",
-      "en": "impermeabilizzatore-m-f-pemsa-geneve",
-      "de": "impermeabilizzatore-m-f-pemsa-geneve",
-      "fr": "impermeabilizzatore-m-f-pemsa-geneve"
+      "en": "waterproofer-m-f-pemsa-geneve",
+      "de": "wasserdichter-m-f-pemsa-geneve",
+      "fr": "etanche-m-f-pemsa-geneve"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
@@ -322061,9 +322063,9 @@
     "canonicalSlug": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
     "slugByLocale": {
       "it": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
-      "en": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
-      "de": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
-      "fr": "installatore-di-impianti-di-ventilazione-pemsa-geneve"
+      "en": "installation-of-ventilation-systems-pemsa-geneve",
+      "de": "installation-von-luftungssystemen-pemsa-geneve",
+      "fr": "installation-des-systemes-de-ventilation-pemsa-geneve"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
@@ -322072,9 +322074,9 @@
     "canonicalSlug": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve",
     "slugByLocale": {
       "it": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve",
-      "en": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve",
-      "de": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve",
-      "fr": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve"
+      "en": "piping-installer-welder-in-the-heating-industry-pemsa-geneve",
+      "de": "rohrinstallateur-schwei-er-in-der-heizungsindustrie-pemsa-geneve",
+      "fr": "installateur-de-tuyauterie-soudeur-dans-l-industrie-du-chauffage-pemsa-geneve"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
@@ -322083,9 +322085,9 @@
     "canonicalSlug": "operatore-operatrice-per-la-bonifica-dall-amp-8217-amianto-pemsa-plan-les-ouates",
     "slugByLocale": {
       "it": "operatore-operatrice-per-la-bonifica-dall-amp-8217-amianto-pemsa-plan-les-ouates",
-      "en": "operatore-operatrice-per-la-bonifica-dall-amp-8217-amianto-pemsa-plan-les-ouates",
-      "de": "operatore-operatrice-per-la-bonifica-dall-amp-8217-amianto-pemsa-plan-les-ouates",
-      "fr": "operatore-operatrice-per-la-bonifica-dall-amp-8217-amianto-pemsa-plan-les-ouates"
+      "en": "operator-operator-for-asbestos-reclamation-pemsa-plan-les-ouates",
+      "de": "betreiber-betreiber-der-asbestruckgewinnung-pemsa-plan-les-ouates",
+      "fr": "operateur-exploitant-pour-la-remise-en-etat-de-l-amiante-pemsa-plan-les-ouates"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
@@ -322094,9 +322096,9 @@
     "canonicalSlug": "tecnico-frigorista-m-f-pemsa-geneve",
     "slugByLocale": {
       "it": "tecnico-frigorista-m-f-pemsa-geneve",
-      "en": "tecnico-frigorista-m-f-pemsa-geneve",
-      "de": "tecnico-frigorista-m-f-pemsa-geneve",
-      "fr": "tecnico-frigorista-m-f-pemsa-geneve"
+      "en": "technician-frigorista-m-f-pemsa-geneve",
+      "de": "techniker-frigorista-m-f-pemsa-geneve",
+      "fr": "technicien-frigorista-m-f-pemsa-geneve"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
