@@ -1,18 +1,19 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-07-08T22:07:32.747Z",
+  "generatedAt": "2026-07-09T22:24:14.533Z",
   "total": 11,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 14034,
-  "avgDurationMs": 14034,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 13356,
+  "avgDurationMs": 13356,
   "durationHistory": [
-    14034
+    13356
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "huber-suhner-a75d4fabb907",
       "slug": "polymechaniker-prazisionsdrehen-huber-suhner-herisau",
@@ -20,13 +21,13 @@
       "companyKey": "huber-suhner",
       "companyDomain": "hubersuhner.com",
       "title": "Polymechaniker Präzisionsdrehen",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://recruiting.hubersuhner.com/Vacancies/8007/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:21.704Z",
+      "crawledAt": "2026-07-09T22:24:04.369Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -46,16 +47,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-08T22:07:21.704Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "huber-suhner-9292399043c3",
       "slug": "oberflachenbeschichter-efz-anlagenfuhrer-galvanik-produktion-huber-suhner-herisau",
@@ -69,7 +69,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8003/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:22.802Z",
+      "crawledAt": "2026-07-09T22:24:05.403Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7806/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:23.745Z",
+      "crawledAt": "2026-07-09T22:24:06.297Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7981/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:24.709Z",
+      "crawledAt": "2026-07-09T22:24:07.206Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7956/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:25.625Z",
+      "crawledAt": "2026-07-09T22:24:08.126Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -237,7 +237,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7954/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:26.744Z",
+      "crawledAt": "2026-07-09T22:24:09.153Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7860/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:27.818Z",
+      "crawledAt": "2026-07-09T22:24:10.185Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -321,7 +321,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7955/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:07:28.441Z",
+      "crawledAt": "2026-07-09T22:24:11.182Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7967/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:07:29.366Z",
+      "crawledAt": "2026-07-09T22:24:12.239Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -391,15 +391,17 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "huber-suhner-9889439ecd19",
-      "slug": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
+      "slug": "ingegneria-dei-processi-e-della-tecnologia-rf-per-studenti-lavoratori-huber-suhner-ag-herisau",
       "company": "Huber+Suhner AG",
       "companyKey": "huber-suhner",
       "companyDomain": "hubersuhner.com",
       "title": "Werkstudent RF Process and Technology Engineering",
-      "needsRetranslation": false,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://recruiting.hubersuhner.com/Vacancies/6339/Description/1",
@@ -426,53 +428,9 @@
       "pensumMax": 60,
       "pensum": "40-60%",
       "firstSeenAt": "2026-07-04T11:08:49.057Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "huber-suhner-ab080184a94a",
-      "slug": "tecnico-di-automazione-manutenzione-huber-suhner-ag-herisau",
-      "company": "Huber+Suhner AG",
-      "companyKey": "huber-suhner",
-      "companyDomain": "hubersuhner.com",
-      "title": "Automatiker / Instandhaltungstechniker",
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://recruiting.hubersuhner.com/Vacancies/7355/Description/1",
-      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:15:16.614Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "streetAddress": "Degersheimerstrasse 14",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "contractDuration": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7355/Application/CheckLogin/1",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-07-04T11:08:51.736Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -480,9 +438,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "huber-suhner-aa1bb70ac296",
       "slug": "responsabile-di-progetto-hvac-huber-suhner-ag-pfaffikon",
@@ -519,7 +475,7 @@
       "firstSeenAt": "2026-07-04T11:08:50.850Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
