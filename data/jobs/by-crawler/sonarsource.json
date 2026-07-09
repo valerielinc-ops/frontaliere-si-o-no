@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-07-08T22:13:58.718Z",
+  "assembledAt": "2026-07-09T12:47:07.065Z",
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:55.704Z",
+      "crawledAt": "2026-07-09T12:47:03.965Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.827Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -107,7 +108,7 @@
       "url": "https://jobs.lever.co/sonarsource/6f3f1499-d6f0-4348-bc8d-15411e986ae4",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:55.402Z",
+      "crawledAt": "2026-07-09T12:47:03.662Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +152,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-572b49e7791c",
@@ -184,7 +186,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:55.099Z",
+      "crawledAt": "2026-07-09T12:47:03.360Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,7 +230,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-610c905855c1",
@@ -261,7 +264,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:54.797Z",
+      "crawledAt": "2026-07-09T12:47:03.059Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,7 +325,7 @@
       "url": "https://jobs.lever.co/sonarsource/4a00b120-bd33-460b-a5bf-b935919fc19e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:54.495Z",
+      "crawledAt": "2026-07-09T12:47:02.757Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,7 +369,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-3930161b1335",
@@ -399,7 +403,7 @@
       "url": "https://jobs.lever.co/sonarsource/273df915-3a88-40e8-9fbb-522b2d894f46",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:54.192Z",
+      "crawledAt": "2026-07-09T12:47:02.455Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -476,7 +480,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:53.889Z",
+      "crawledAt": "2026-07-09T12:47:02.154Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -553,7 +557,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:53.587Z",
+      "crawledAt": "2026-07-09T12:47:01.852Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -630,7 +634,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:53.285Z",
+      "crawledAt": "2026-07-09T12:47:01.551Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -707,7 +711,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:52.982Z",
+      "crawledAt": "2026-07-09T12:47:01.249Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,7 +788,7 @@
       "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:52.680Z",
+      "crawledAt": "2026-07-09T12:47:00.947Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -816,6 +820,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -861,7 +866,7 @@
       "url": "https://jobs.lever.co/sonarsource/211564f9-5d51-454b-94c5-9b7fcfa3c229",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:52.378Z",
+      "crawledAt": "2026-07-09T12:47:00.645Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -921,7 +926,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Amministratore",
+        "it": "NetSuite & Payroll Systems Administrator",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "NetSuite & Payroll Systems Administrator",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -938,7 +943,7 @@
       "url": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:52.075Z",
+      "crawledAt": "2026-07-09T12:47:00.343Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -954,6 +959,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:17:41.300Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -982,7 +988,7 @@
       "companyDomain": "sonarsource.com",
       "title": "Mid-Market Account Executive - Italy",
       "titleByLocale": {
-        "it": "Mid-Market Account Executive - Italia",
+        "it": "Mid-Market Account Executive - Italy",
         "en": "Mid-Market Account Executive - Italy",
         "de": "Mid-Market Account Executive - Italien",
         "fr": "Exécutif de compte Mid-Market - Italie"
@@ -999,7 +1005,7 @@
       "url": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:51.772Z",
+      "crawledAt": "2026-07-09T12:47:00.041Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1015,6 +1021,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:17:40.998Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1060,7 +1067,7 @@
       "url": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:51.470Z",
+      "crawledAt": "2026-07-09T12:46:59.740Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1086,6 +1093,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:40.696Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1131,7 +1139,7 @@
       "url": "https://jobs.lever.co/sonarsource/dfb8492a-8d96-4033-9c7b-e87dfe1b07b0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:51.167Z",
+      "crawledAt": "2026-07-09T12:46:59.438Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1208,7 +1216,7 @@
       "url": "https://jobs.lever.co/sonarsource/2d8bf9bd-dc47-4396-9e7c-b692ffdba08f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:50.865Z",
+      "crawledAt": "2026-07-09T12:46:59.136Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1285,7 +1293,7 @@
       "url": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:50.563Z",
+      "crawledAt": "2026-07-09T12:46:58.834Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1362,7 +1370,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:50.261Z",
+      "crawledAt": "2026-07-09T12:46:58.532Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1444,7 +1452,7 @@
       "url": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:49.953Z",
+      "crawledAt": "2026-07-09T12:46:58.229Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1518,7 +1526,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-08T22:13:49.648Z",
+      "crawledAt": "2026-07-09T12:46:57.923Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1563,84 +1571,6 @@
         }
       },
       "addressRegion": "GE"
-    },
-    {
-      "id": "sonarsource-ea3e697411d4",
-      "slug": "infrastructure-security-ingegnere-sonarsource-sonar-geneva",
-      "slugByLocale": {
-        "it": "infrastructure-security-ingegnere-sonarsource-sonar-geneva",
-        "en": "infrastructure-security-engineer-sonarsource-ch",
-        "de": "infrastructure-security-ingenieur-sonarsource-sonar-geneva",
-        "fr": "infrastructure-security-ingenieur-sonarsource-sonar-geneva"
-      },
-      "company": "SonarSource (Sonar)",
-      "companyKey": "sonarsource",
-      "companyDomain": "sonarsource.com",
-      "title": "Infrastructure Security Engineer",
-      "titleByLocale": {
-        "it": "Infrastructure Security Ingegnere",
-        "en": "Infrastructure Security Engineer",
-        "de": "Infrastructure Security Ingenieur",
-        "fr": "Infrastructure Security Ingénieur"
-      },
-      "description": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code review and verification, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n•\n SonarQube: The world’s leading AI code review and verification platform.\n\n•\n SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n•\n SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n•\n Committed to our customers and community.\n\n•\n Obsessed with quality.\n\n•\n Deliberate in our decisions.\n\n•\n Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nWe are still at the beginning of our growth journey and are continuously introducing new processes, technologies, and tools. In this role, you will:\n\n•\n Be a pivotal engineering contributor to the design, implementation, and operation of security controls and automation across our identity platforms, endpoints, and core IT services.\n\n•\n Own key parts of our IdP and access automation stack (e.g., SSO, SCIM, group‑based access, JIT access), ensuring that users get the right access at the right time with strong controls and auditability.\n\n•\n Design and maintain security monitoring, alerting, and SIEM integrations that give us real‑time visibility into identity, endpoint, and SaaS risks.\n\n•\n Partner with IT Ops, Information Security, and Infrastructure Engineering to ensure security controls are deeply integrated into operations (incident management, change, and problem processes), not bolted on.\n\n•\n Use and champion AI tooling to make security operations more efficient — from alert triage and runbook execution to knowledge retrieval and reporting.\n\n•\n Help define and improve how we measure the reliability and effectiveness of our security controls (SLIs/SLOs, error budgets, and dashboards), making risk and performance visible and actionable to stakeholders.\n\nWhat you will do\n\n•\n Security Monitoring, Alerting & SIEM Ownership : Working with the Information Security team, design, implement, and maintain alerting rules, dashboards, and runbooks across our SIEM and logging platforms, with a focus on identity, access, and SaaS security signals. Continuously tune alerts to reduce noise, improve fidelity, and align with error budgets and SLOs for critical security and identity services.\n\n•\n Endpoint Defense In Depth: Architect and implement our multilayer endpoint defence systems (e.g. Crowdstrike, Cyberark, Cloudflare, secure browser policies), balancing risk against usability in coordination with the Information Security team.\n\n•\n Identity Platform & Access Automation : Build and maintain automation for our identity platforms (e.g., SSO, SCIM provisioning, group‑based access policies, lifecycle workflows) in partnership with Information Security. Implement guardrails and policy‑as‑code for identity, ensuring changes are reviewed, tested, and auditable before reaching production.\n\n•\n Infrastructure as Code & Security Controls as Code : Use IaC and configuration management (e.g., Terraform, Ansible, or similar) plus scripting languages (e.g., Python, Go) to deploy and manage security tooling, integrations, and policies. Treat security controls (e.g., logging, scanning, hardening, secret management) as software artifacts that can be versioned, tested, and rolled back safely.\n\n•\n Observability & Integration with Core IT Operations : Ensure that logging, metrics, and tracing for security‑relevant systems (IdP, VPN, endpoint protection, critical SaaS) are robust, accurate, and integrated into our observability stack. Integrate security events and automations with ITSM and incident management workflows, enabling fast routing, triage, and resolution.\n\n•\n Incident Response & Post‑Incident Engineering : Participate in the on‑call rotation for relevant security and identity services. Lead or contribute to post‑incident reviews, turning root causes into preventative engineering changes (new alerts, automations, guardrails, or documentation) that reduce MTTR and recurrence.\n\n•\n AI‑Enabled Security Operations : Use AI tooling (e.g., LLM‑based assistants, automation platforms) to accelerate alert triage, enrichment, and investigation, while keeping humans in control of decisions. Identify opportunities to embed AI in security and IT operations workflows (e.g., threat intelligence and alert correlation) and help implement these safely and effectively.\n\nExperience and qualifications\n\n•\n Security Engineering & Operations Background : Significant hands‑on experience (4–7 years) in security engineering, security operations, or closely related roles in modern, fast‑paced environments (e.g., SaaS, enterprise IT, cloud‑native infrastructure).\n\n•\n Identity & Access Management Expertise : Practical experience operating IdPs and IAM systems at scale (e.g., Okta, Azure AD, or similar), including SSO, MFA, lifecycle management, and least‑privilege policies. Experience designing and implementing automated provisioning and deprovisioning (e.g., SCIM, HRIS integrations, group‑based and role‑based access models).\n\n•\n SIEM, Logging & Observability : Proven experience with SIEM and observability platforms (e.g., ELK/EFK, Splunk, Datadog, or similar), including writing and tuning detection rules, building dashboards, and working with large‑scale log ingestion. Comfort working with SLIs/SLOs and error budgets for critical services, and using these to guide priorities for hardening and automation.\n\n•\n Automation & Infrastructure as Code: Strong experience with IaC and configuration management tools (e.g., Terraform, CloudFormation, Ansible, or similar) and with scripting/programming languages (e.g., Python, Go, or equivalent) to automate security and operational tasks. Track record of converting manual, repetitive operational work into reliable automation and self‑service capabilities .\n\n•\n Security Controls Implementation : Experience implementing and operating security controls as code: vulnerability scanning, configuration baselines, secret management (e.g., HashiCorp Vault), key rotation, and certificate management.\n\n•\n Incident Management & Cross‑Functional Collaboration : Demonstrated experience participating in or leading incident response, root cause analysis, and post‑incident follow‑through in partnership with IT Ops, Security, and Engineering. Strong communication skills in English, able to explain complex security and operational topics to both technical and non‑technical audiences.\n\n•\n AI Fluency : Comfortable using modern AI tooling (e.g., LLM‑based assistants, automation frameworks) as part of daily work for analysis, content generation, and workflow automation. Ability to reason about where AI is and isn’t appropriate in security and operations , balancing speed with risk and control.\n\nAdditional comments\n\nThis role is based in Geneva. We are unable to consider candidates unwilling to be in Geneva, but we are willing to relocate the right candidate.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nWe do not currently support visa candidates in the US.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
-      "descriptionByLocale": {
-        "it": "Chi è Sonar? Sonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella revisione e nella verifica del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile. Integrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA. Crediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). I giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company contano su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA attraverso prodotti come:\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci. Il nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n• Impegnati ai nostri clienti e comunità.\n• Obsessed con qualità.\n• Deliberate nelle nostre decisioni.\n• Efficace come una squadra. Con oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te. Descrizione della posizione Siamo ancora all'inizio del nostro viaggio di crescita e stiamo continuamente introducendo nuovi processi, tecnologie e strumenti. In questo ruolo, voi:\n• Essere un contributo fondamentale di ingegneria per la progettazione, l'implementazione e il funzionamento dei controlli di sicurezza e l'automazione attraverso le nostre piattaforme di identità, endpoint e servizi IT di base.\n• Le proprie parti chiave del nostro stack di automazione IdP e di accesso (ad esempio, SSO, SCIM, accesso basato su gruppo, accesso JIT), assicurando agli utenti di ottenere l'accesso giusto al momento giusto con controlli forti e verificabilità.\n• Progettare e mantenere il monitoraggio della sicurezza, l'avviso e le integrazioni SIEM che ci danno visibilità in tempo reale sui rischi di identità, endpoint e SaaS.\n• Partner di IT Ops, Information Security e Infrastructure Engineering per garantire che i controlli di sicurezza siano profondamente integrati nelle operazioni (gestione degli incidenti, cambiamento e processi di problema), non bloccati.\n• Utilizzare e campione AI tooling per rendere le operazioni di sicurezza più efficienti - dal triage di avviso e esecuzione di runbook al recupero di conoscenze e reporting.\n• Aiuta a definire e migliorare il modo in cui misuramo l'affidabilità e l'efficacia dei nostri controlli di sicurezza (SLIs/SLO, budget di errore e dashboard), rendendo visibile e visibile il rischio e le prestazioni alle parti interessate. Cosa farai\n• Monitoraggio della sicurezza, Alerting & SIEM ProprietÃ: Lavorare con il team di sicurezza delle informazioni, progettare, implementare e mantenere le regole di allerta, dashboard e runbook attraverso le nostre piattaforme SIEM e di registrazione, con un focus sui segnali di identitÃ, accesso e sicurezza SaaS. Avvisi costantemente sintonizzati per ridurre il rumore, migliorare la fedeltà, e allineare con budget di errore e SLO per servizi critici di sicurezza e identità.\n• Endpoint Defense In Depth: Architetto e implementa i nostri sistemi di difesa endpoint multistrato (ad esempio Crowdstrike, Cyberark, Cloudflare, politiche di browser sicure), bilanciando il rischio di usabilità in coordinamento con il team di Information Security.\n• Identity Platform & Access Automation: Costruire e mantenere l'automazione per le nostre piattaforme di identità (ad esempio, SSO, SCIM provisioning, politiche di accesso basate su gruppo, flussi di lavoro del ciclo di vita) in collaborazione con Information Security. Implement guardrails e policy-as-code per l'identità, assicurando che i cambiamenti siano esaminati, testati e verificabili prima di raggiungere la produzione.\n• Infrastructure as Code & Security Controls as Code : Utilizzare IaC e la gestione della configurazione (ad esempio, Terraform, Ansible, or similar) più linguaggi di scripting (ad esempio, Python, Go) per distribuire e gestire strumenti di sicurezza, integrazioni e politiche. Tratta i controlli di sicurezza (ad esempio, registrazione, scansione, indurimento, gestione segreta) come artefatti software che possono essere versioneti, testati e rotolati in modo sicuro.\n• Osservabilità e integrazione con core IT Operations: Assicurarsi che la registrazione, le metriche e il tracciamento per i sistemi di sicurezza-relevant (IdP, VPN, protezione endpoint, SaaS critico) siano robusti, accurati e integrati nel nostro stack di osservabilità. Integra eventi di sicurezza e automazione con ITSM e flussi di lavoro di gestione degli incidenti, consentendo un rapido routing, triage e risoluzione.\n• Incident Response & Post-Incident Engineering: Partecipa alla rotazione on-call per i servizi di sicurezza e identità rilevanti. Condurre o contribuire a recensioni post-incidenti, trasformando le cause della radice in cambiamenti di ingegneria preventiva (nuovi avvisi, automazioni, guardrails, o documentazione) che riducono MTTR e ricorrenza.\n• AI-Enabled Security Operations: Utilizzare gli strumenti AI (ad esempio, assistenti basati su LLM, piattaforme di automazione) per accelerare il triage di allarme, l'arricchimento e l'indagine, mantenendo gli esseri umani nel controllo delle decisioni. Identificare le opportunità di incorporare l'IA in flussi di lavoro di sicurezza e operazioni IT (ad esempio, l'intelligenza di minaccia e la correlazione di avviso) e aiutare a implementare questi in modo sicuro ed efficace. Esperienza e qualifiche\n• Sfondo: Esperienza pratica significativa (4-7 anni) in ingegneria della sicurezza, operazioni di sicurezza, o ruoli strettamente correlati in ambienti moderni e veloci (ad esempio, SaaS, Enterprise IT, infrastruttura cloud-native).\n• Competenza & Access Management Expertise: Esperienza pratica che opera i sistemi IdPs e IAM in scala (ad esempio, Okta, Azure AD o simili), tra cui SSO, MFA, gestione del ciclo di vita e politiche meno-privilege. La progettazione e l'implementazione di provisioning e deprovisioning automatizzati (ad esempio, integrazioni SCIM, HRIS, modelli di accesso basati su gruppi e basati su ruoli).\n• SIEM, Logging & Observability: Esperienza comprovata con SIEM e piattaforme di osservabilità (ad esempio, ELK/EFK, Splunk, Datadog, o simili), comprese le regole di rilevamento della scrittura e dell'ottimizzazione, le dashboard di costruzione e il lavoro con ingestione di log su larga scala. Comfort lavorando con SLIs/SLOs e budget di errore per servizi critici, e utilizzando questi per guidare le priorità per l'indurimento e l'automazione.\n• Automation & Infrastructure as Code: Forte esperienza con IaC e strumenti di gestione delle configurazioni (ad esempio, Terraform, CloudFormation, Ansible, or similar) e con linguaggi di scripting/programming (ad esempio, Python, Go o equivalente) per automatizzare la sicurezza e le attività operative. Tracciare il record di conversione manuale, ripetitivo lavoro operativo in automazione affidabile e capacità self-service .\n• Attuazione dei controlli di sicurezza: esperienza dei controlli di sicurezza applicativi e operativi come codice: scansione delle vulnerabilità, basi di configurazione, gestione segreta (ad esempio, HashiCorp Vault), rotazione delle chiavi e gestione dei certificati.\n• Gestione degli incidenti e collaborazione trasversale: Esperienza dimostrata che partecipa o guida risposta agli incidenti, analisi delle cause radicali e follow-through post-incident in collaborazione con IT Ops, Sicurezza e Ingegneria. Forte capacità di comunicazione in inglese, in grado di spiegare temi complessi di sicurezza e operativi sia al pubblico tecnico che non tecnico.\n• AI Fluency: Confortevole utilizzo di moderni strumenti AI (ad esempio, assistenti basati su LLM, framework di automazione) come parte del lavoro quotidiano per analisi, generazione di contenuti e automazione del flusso di lavoro. Capacità di ragionare su dove l'intelligenza artificiale è e non è appropriato in sicurezza e operazioni , bilanciando la velocità con rischio e controllo. Ulteriori commenti Questo ruolo è basato a Ginevra. Non siamo in grado di considerare i candidati che non vogliono essere a Ginevra, ma siamo disposti a trasferire il candidato giusto. Valoriamo la diversità, l'equità e l'inclusione A Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, sesso, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano. Se avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com . Tutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio. Attualmente non sosteniamo i candidati del visto negli Stati Uniti. Le domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
-        "en": "Who is Sonar? Sonar is driving the future of agent-centric software development. As the leader in AI code review and verification, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable. Integrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code. We believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n• SonarQube: The world’s leading AI code review and verification platform.\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective. Our team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n• Committed to our customers and community.\n• Obsessed with quality.\n• Deliberate in our decisions.\n• Effective as one team. With over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you. Position description We are still at the beginning of our growth journey and are continuously introducing new processes, technologies, and tools. In this role, you will:\n• Be a pivotal engineering contributor to the design, implementation, and operation of security controls and automation across our identity platforms, endpoints, and core IT services.\n• Own key parts of our IdP and access automation stack (e.g., SSO, SCIM, group‑based access, JIT access), ensuring that users get the right access at the right time with strong controls and auditability.\n• Design and maintain security monitoring, alerting, and SIEM integrations that give us real‑time visibility into identity, endpoint, and SaaS risks.\n• Partner with IT Ops, Information Security, and Infrastructure Engineering to ensure security controls are deeply integrated into operations (incident management, change, and problem processes), not bolted on.\n• Use and champion AI tooling to make security operations more efficient — from alert triage and runbook execution to knowledge retrieval and reporting.\n• Help define and improve how we measure the reliability and effectiveness of our security controls (SLIs/SLOs, error budgets, and dashboards), making risk and performance visible and actionable to stakeholders. What you will do\n• Security Monitoring, Alerting & SIEM Ownership : Working with the Information Security team, design, implement, and maintain alerting rules, dashboards, and runbooks across our SIEM and logging platforms, with a focus on identity, access, and SaaS security signals. Continuously tune alerts to reduce noise, improve fidelity, and align with error budgets and SLOs for critical security and identity services.\n• Endpoint Defense In Depth: Architect and implement our multilayer endpoint defence systems (e.g. Crowdstrike, Cyberark, Cloudflare, secure browser policies), balancing risk against usability in coordination with the Information Security team.\n• Identity Platform & Access Automation : Build and maintain automation for our identity platforms (e.g., SSO, SCIM provisioning, group‑based access policies, lifecycle workflows) in partnership with Information Security. Implement guardrails and policy‑as‑code for identity, ensuring changes are reviewed, tested, and auditable before reaching production.\n• Infrastructure as Code & Security Controls as Code : Use IaC and configuration management (e.g., Terraform, Ansible, or similar) plus scripting languages (e.g., Python, Go) to deploy and manage security tooling, integrations, and policies. Treat security controls (e.g., logging, scanning, hardening, secret management) as software artifacts that can be versioned, tested, and rolled back safely.\n• Observability & Integration with Core IT Operations : Ensure that logging, metrics, and tracing for security‑relevant systems (IdP, VPN, endpoint protection, critical SaaS) are robust, accurate, and integrated into our observability stack. Integrate security events and automations with ITSM and incident management workflows, enabling fast routing, triage, and resolution.\n• Incident Response & Post‑Incident Engineering : Participate in the on‑call rotation for relevant security and identity services. Lead or contribute to post‑incident reviews, turning root causes into preventative engineering changes (new alerts, automations, guardrails, or documentation) that reduce MTTR and recurrence.\n• AI‑Enabled Security Operations : Use AI tooling (e.g., LLM‑based assistants, automation platforms) to accelerate alert triage, enrichment, and investigation, while keeping humans in control of decisions. Identify opportunities to embed AI in security and IT operations workflows (e.g., threat intelligence and alert correlation) and help implement these safely and effectively. Experience and qualifications\n• Security Engineering & Operations Background : Significant hands‑on experience (4–7 years) in security engineering, security operations, or closely related roles in modern, fast‑paced environments (e.g., SaaS, enterprise IT, cloud‑native infrastructure).\n• Identity & Access Management Expertise : Practical experience operating IdPs and IAM systems at scale (e.g., Okta, Azure AD, or similar), including SSO, MFA, lifecycle management, and least‑privilege policies. Experience designing and implementing automated provisioning and deprovisioning (e.g., SCIM, HRIS integrations, group‑based and role‑based access models).\n• SIEM, Logging & Observability : Proven experience with SIEM and observability platforms (e.g., ELK/EFK, Splunk, Datadog, or similar), including writing and tuning detection rules, building dashboards, and working with large‑scale log ingestion. Comfort working with SLIs/SLOs and error budgets for critical services, and using these to guide priorities for hardening and automation.\n• Automation & Infrastructure as Code: Strong experience with IaC and configuration management tools (e.g., Terraform, CloudFormation, Ansible, or similar) and with scripting/programming languages (e.g., Python, Go, or equivalent) to automate security and operational tasks. Track record of converting manual, repetitive operational work into reliable automation and self‑service capabilities .\n• Security Controls Implementation : Experience implementing and operating security controls as code: vulnerability scanning, configuration baselines, secret management (e.g., HashiCorp Vault), key rotation, and certificate management.\n• Incident Management & Cross‑Functional Collaboration : Demonstrated experience participating in or leading incident response, root cause analysis, and post‑incident follow‑through in partnership with IT Ops, Security, and Engineering. Strong communication skills in English, able to explain complex security and operational topics to both technical and non‑technical audiences.\n• AI Fluency : Comfortable using modern AI tooling (e.g., LLM‑based assistants, automation frameworks) as part of daily work for analysis, content generation, and workflow automation. Ability to reason about where AI is and isn’t appropriate in security and operations , balancing speed with risk and control. Additional comments This role is based in Geneva. We are unable to consider candidates unwilling to be in Geneva, but we are willing to relocate the right candidate. We value diversity, equity, and inclusion At Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status. If you need any accommodation, please reach out to us at hiring@sonarsource.com . All offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date. We do not currently support visa candidates in the US. Applications that are submitted through agencies or third party recruiters will not be considered.",
-        "de": "Wer ist Sonar? Sonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führendes Unternehmen im Bereich der Überprüfung und Verifizierung von KI-Codes lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist. Durch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, haben eine um 44% geringere Wahrscheinlichkeit, einen Ausfall aufgrund von AI-generiertem Code zu melden. Wir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein. Unser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n• Unseren Kunden und der Community verpflichtet.\n• Besessen von Qualität.\n• Absichtlich in unseren Entscheidungen.\n• Effektiv als ein Team. Mit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören. Positionsbeschreibung Wir stehen noch am Anfang unserer Wachstumsreise und führen kontinuierlich neue Prozesse, Technologien und Werkzeuge ein. In dieser Rolle werden Sie:\n• Seien Sie ein entscheidender Engineering-Beitrag zur Gestaltung, Implementierung und zum Betrieb von Sicherheitskontrollen und Automatisierung auf unseren Identitätsplattformen, Endpunkten und Kern-IT-Services.\n• Eigene Schlüsselteile unseres IdP- und Access-Automation-Stacks (z. B. SSO, SCIM, gruppenbasierter Zugriff, JIT-Zugriff), die sicherstellen, dass Benutzer mit starken Kontrollen und Auditierbarkeit den richtigen Zugriff zur richtigen Zeit erhalten.\n• Konzipieren und pflegen Sie Sicherheitsüberwachungs-, Alarmierungs- und SIEM-Integrationen, die uns in Echtzeit Einblick in Identitäts-, Endpunkt- und SaaS-Risiken geben.\n• Zusammenarbeit mit IT-Ops, Informationssicherheit und Infrastrukturtechnik, um sicherzustellen, dass Sicherheitskontrollen tief in den Betrieb integriert sind (Incident Management, Change- und Problemprozesse), nicht verschraubt.\n• Verwenden und Verfechten von KI-Tools, um Sicherheitsoperationen effizienter zu gestalten - von Alarm-Triage und Runbook-Ausführung bis hin zu Wissensabruf und Reporting.\n• Helfen Sie mit, zu definieren und zu verbessern, wie wir die Zuverlässigkeit und Effektivität unserer Sicherheitskontrollen (SLIs / SLOs, Fehlerbudgets und Dashboards) messen, um Risiko und Leistung für Stakeholder sichtbar und umsetzbar zu machen. Was du tun wirst\n• Security Monitoring, Alerting & SIEM Ownership: Arbeiten mit dem Informationssicherheitsteam, entwerfen, implementieren und pflegen Sie Warnregeln, Dashboards und Runbooks auf unseren SIEM- und Logging-Plattformen, mit Schwerpunkt auf Identitäts-, Zugriffs- und SaaS-Sicherheitssignalen. Kontinuierliche Abstimmung von Warnungen, um Lärm zu reduzieren, die Genauigkeit zu verbessern und sich an Fehlerbudgets und SLOs für kritische Sicherheits- und Identitätsdienste anzupassen.\n• Endpoint Defense In Depth: Architektur und Implementierung unserer Multilayer-Endpoint-Verteidigungssysteme (z. B. Crowdstrike, Cyberark, Cloudflare, sichere Browserrichtlinien) in Abstimmung mit dem IT-Sicherheitsteam.\n• Identity Platform & Access Automation: Aufbau und Wartung der Automatisierung für unsere Identitätsplattformen (z. B. SSO, SCIM-Bereitstellung, gruppenbasierte Zugriffsrichtlinien, Lifecycle-Workflows) in Partnerschaft mit Information Security. Implementieren Sie Leitplanken und einen Policy-as-Code für Identität, um sicherzustellen, dass Änderungen überprüft, getestet und überprüfbar sind, bevor sie die Produktion erreichen.\n• Infrastructure as Code & Security Controls as Code: Verwenden Sie IaC und Konfigurationsmanagement (z. B. Terraform, Ansible oder ähnliches) sowie Skriptsprachen (z. B. Python, Go), um Sicherheitstools, Integrationen und Richtlinien bereitzustellen und zu verwalten. Behandeln Sie Sicherheitskontrollen (z. B. Protokollieren, Scannen, Härten, Geheimmanagement) als Software-Artefakte, die versioniert, getestet und sicher zurückgesetzt werden können.\n• Observability & Integration with Core IT Operations: Stellen Sie sicher, dass Protokollierung, Metriken und Tracing für sicherheitsrelevante Systeme (IdP, VPN, Endpoint Protection, Critical SaaS) robust, genau und in unseren Observability Stack integriert sind. Integrieren Sie Sicherheitsereignisse und Automatisierungen mit ITSM- und Incident-Management-Workflows und ermöglichen Sie schnelles Routing, Triage und Auflösung.\n• Incident Response & Post‐Incident Engineering: Beteiligen Sie sich an der On‐Call-Rotation für relevante Sicherheits- und Identitätsdienste. Führen oder tragen Sie zu Überprüfungen nach Zwischenfällen bei und verwandeln Sie Ursachen in präventive technische Änderungen (neue Warnungen, Automatisierungen, Leitplanken oder Dokumentation), die MTTR und Wiederholung reduzieren.\n• AI-Enabled Security Operations: Verwenden Sie KI-Tools (z. B. LLM-basierte Assistenten, Automatisierungsplattformen), um die Triage, Anreicherung und Untersuchung von Warnungen zu beschleunigen und gleichzeitig den Menschen die Kontrolle über Entscheidungen zu behalten. Identifizieren Sie Möglichkeiten, KI in Sicherheits- und IT-Betriebs-Workflows einzubetten (z. B. Threat Intelligence und Alarmkorrelation) und helfen Sie, diese sicher und effektiv zu implementieren. Erfahrung und Qualifikationen\n• Security Engineering & Operations Hintergrund: Bedeutende praktische Erfahrung (4-7 Jahre) in Security Engineering, Security Operations oder eng verwandten Rollen in modernen, schnelllebigen Umgebungen (z. B. SaaS, Enterprise IT, Cloud-native Infrastruktur).\n• Identity & Access Management Expertise: Praktische Erfahrung im Betrieb von IdPs und IAM-Systemen in großem Maßstab (z. B. Okta, Azure AD oder ähnliches), einschließlich SSO, MFA, Lifecycle Management und Richtlinien zu den geringsten Privilegien. Erfahrung im Entwerfen und Implementieren von automatisiertem Provisioning und Deprovisioning (z. B. SCIM, HRIS-Integrationen, gruppen- und rollenbasierte Zugangsmodelle).\n• SIEM, Logging & Observability: Nachgewiesene Erfahrung mit SIEM und Observability Plattformen (z.B. ELK/EFK, Splunk, Datadog, oder ähnliches), einschließlich Schreib- und Tuning-Erkennungsregeln, Aufbau von Dashboards und Arbeiten mit groß angelegter Protokollaufnahme. Komfort beim Arbeiten mit SLIs/SLOs und Fehlerbudgets für kritische Dienste und deren Verwendung als Richtschnur für die Prioritäten für Härten und Automatisierung.\n• Automation & Infrastructure as Code: Starke Erfahrung mit IaC- und Konfigurationsmanagement-Tools (z. B. Terraform, CloudFormation, Ansible oder ähnliche) und mit Skript- / Programmiersprachen (z. B. Python, Go oder gleichwertig) zur Automatisierung von Sicherheits- und Betriebsaufgaben. Erfolgsbilanz bei der Umwandlung manueller, sich wiederholender Betriebsarbeiten in zuverlässige Automatisierungs- und Self-Service-Funktionen.\n• Implementierung von Sicherheitskontrollen: Erfahrung mit der Implementierung und dem Betrieb von Sicherheitskontrollen als Code: Schwachstellenscanning, Konfigurations-Baselines, geheime Verwaltung (z. B. HashiCorp Vault), Schlüsselrotation und Zertifikatsverwaltung.\n• Incident Management & Cross-Functional Collaboration: Nachgewiesene Erfahrung in der Teilnahme an oder Leitung von Incident Response, Ursachenanalyse und Post-Incident Follow-Through in Partnerschaft mit IT Ops, Security und Engineering. Starke Kommunikationsfähigkeiten in Englisch, die komplexe Sicherheits- und Betriebsthemen sowohl dem technischen als auch dem nichttechnischen Publikum erklären können.\n• AI Fluency: Komfortabel mit modernen KI-Tools (z. B. LLM-basierte Assistenten, Automatisierungs-Frameworks) als Teil der täglichen Arbeit für Analyse, Content-Generierung und Workflow-Automatisierung. Fähigkeit, darüber nachzudenken, wo KI in Sicherheit und Betrieb angemessen ist und wo nicht, indem Geschwindigkeit mit Risiko und Kontrolle ausgeglichen wird. Zusätzliche Bemerkungen Diese Rolle hat ihren Sitz in Genf. Wir können nicht davon ausgehen, dass Kandidaten nicht in Genf sein wollen, aber wir sind bereit, den richtigen Kandidaten umzusiedeln. Wir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion Bei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus. Wenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com. Alle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden. Wir unterstützen derzeit keine Visakandidaten in den USA. Bewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
-        "fr": "Qui est Sonar ? Sonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que leader de l'examen et de la vérification des codes d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par les développeurs assistés par AI ou les agents autonomes soient fiables, sécurisés et durables. En s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA. Nous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Les géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company comptent sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n• SonarQube: Le monde est la principale plate-forme de révision et de vérification de code AI.\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces. Notre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n• Engagement envers nos clients et notre communauté.\n• Obsédé par la qualité.\n• Délibérer dans nos décisions.\n• Efficace comme une seule équipe. Avec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous. Description de la position Nous sommes encore au début de notre cheminement de croissance et nous introduisons continuellement de nouveaux processus, technologies et outils. Dans ce rôle, vous :\n• Soyez un acteur clé de l'ingénierie dans la conception, la mise en œuvre et le fonctionnement des contrôles de sécurité et de l'automatisation sur nos plateformes d'identité, terminaux et services informatiques de base.\n• Les éléments clés de notre pile IdP et d'automatisation d'accès (p. ex., SSO, SCIM, accès par groupe, accès JIT) assurent aux utilisateurs un accès adéquat au bon moment, avec de solides contrôles et une grande vérifiabilité.\n• Concevoir et maintenir des intégrations de surveillance de sécurité, d'alerte et de SIEM qui nous donnent une visibilité en temps réel dans l'identité, le paramètre et les risques SaaS.\n• S'associer aux opérations de TI, à la sécurité de l'information et au génie de l'infrastructure pour s'assurer que les contrôles de sécurité sont profondément intégrés aux opérations (gestion des incidents, changements et processus de problèmes), et non fixés.\n• Utiliser et promouvoir les outils d'intelligence artificielle pour rendre les opérations de sécurité plus efficaces, du triage des alertes et de l'exécution des runbooks à la récupération des connaissances et à l'établissement de rapports.\n• Aidez à définir et à améliorer la façon dont nous mesurons la fiabilité et l'efficacité de nos contrôles de sécurité (SLI/SLO, budgets d'erreurs et tableaux de bord), rendant les risques et les performances visibles et réalisables pour les intervenants. Ce que vous ferez\n• Surveillance de la sécurité, alerte & SIEM Propriété : Travailler avec l'équipe Sécurité de l'information, concevoir, mettre en œuvre et maintenir des règles d'alerte, des tableaux de bord et des runbooks sur nos plateformes SIEM et de journalisation, en mettant l'accent sur les signaux d'identité, d'accès et de sécurité SaaS. Aligner continuellement les alertes pour réduire le bruit, améliorer la fidélité et s'aligner sur les budgets d'erreurs et les ALS pour les services de sécurité et d'identité critiques.\n• Endpoint Defense In Depth: Architecte et implémente nos systèmes de défense multicouches (p. ex. Crowdstrike, Cyberark, Cloudflare, politiques de navigateur sécurisé), équilibrage des risques par rapport à la facilité d'utilisation en coordination avec l'équipe Sécurité de l'information.\n• Identity Platform & Access Automation : Construisez et maintenez l'automatisation de nos plates-formes d'identité (p. ex. SSO, fourniture SCIM, politiques d'accès en groupe, flux de travail du cycle de vie) en partenariat avec la Sécurité de l'information. Mettre en oeuvre des garde-corps et des politiques en tant que code d'identité, en veillant à ce que les changements soient examinés, testés et vérifiables avant d'atteindre la production.\n• Infrastructure comme code et contrôles de sécurité comme code : Utilisez IaC et la gestion de configuration (p. ex. Terraform, Ansible, ou similaire) plus les langages de script (p. ex. Python, Go) pour déployer et gérer l'outillage de sécurité, les intégrations et les politiques. Traiter les contrôles de sécurité (par exemple, l'enregistrement, la numérisation, le durcissement, la gestion secrète) comme des artefacts logiciels qui peuvent être mis en version, testés et roulés en toute sécurité.\n• Observabilité et intégration avec les opérations informatiques de base : veillez à ce que l'enregistrement, les mesures et le traçage des systèmes de sécurité (IdP, VPN, protection des paramètres, SaaS critique) soient robustes, précis et intégrés à notre pile d'observation. Intégrer les événements de sécurité et les automatisations avec l'ITSM et les workflows de gestion des incidents, permettant un routage, un tri et une résolution rapides.\n• Réponse aux incidents et génie post-incident : Participer à la rotation sur appel pour les services de sécurité et d'identité pertinents. Diriger ou contribuer à des examens post-incident, transformer les causes profondes en changements d'ingénierie préventive (nouvelles alertes, automatismes, garde-corps ou documentation) qui réduisent le MTTR et la récurrence.\n• Opérations de sécurité activées par l'IA : Utilisez l'outil d'IA (p. ex. assistants basés sur LLM, plateformes d'automatisation) pour accélérer le triage d'alerte, l'enrichissement et l'investigation, tout en maintenant les humains dans le contrôle des décisions. Déterminer les possibilités d'intégrer l'IA dans les flux de travail des opérations de sécurité et de TI (p. ex., renseignements sur les menaces et corrélation d'alerte) et aider à les mettre en oeuvre de façon sécuritaire et efficace. Expérience et qualifications\n• Ingénierie et opérations de sécurité Contexte : Expérience pratique importante (4-7 ans) en ingénierie de la sécurité, en opérations de sécurité ou en rôles étroitement liés dans des environnements modernes et rapides (p. ex. SaaS, IT d'entreprise, infrastructure native du cloud).\n• Expertise en gestion de l'identité et de l'accès : Expérience pratique d'exploitation des IdP et des systèmes IAM à l'échelle (p. ex. Okta, Azure AD, ou similaire), y compris SSO, MFA, gestion du cycle de vie, et les politiques des moins favorisés. Expérience de la conception et de la mise en oeuvre de l'offre et de la fourniture automatisées (p. ex. SCIM, intégrations HRIS, modèles d'accès par groupe et par rôle).\n• SIEM, Logging & Observability : Expérience éprouvée avec SIEM et plateformes d'observation (p. ex. ELK/EFK, Spunk, Datadog, ou similaire), y compris les règles de détection de l'écriture et de l'accordage, les tableaux de bord de construction et le travail avec l'ingestion de log à grande échelle. Confort de travailler avec les SLI/SLO et les budgets d'erreurs pour les services essentiels, et les utiliser pour guider les priorités de durcissement et d'automatisation.\n• Automatisation et infrastructure en tant que code : Forte expérience des outils de gestion de configuration (p. ex. Terraform, CloudFormation, Ansible ou similaire) et des langages de script/programmation (p. ex. Python, Go, ou équivalent) pour automatiser les tâches de sécurité et opérationnelles. Track record de conversion de travail manuel et opérationnel répétitif en capacités d'automatisation et de libre-service fiables.\n• Mise en œuvre des contrôles de sécurité : Expérience de la mise en œuvre et de l'exploitation des contrôles de sécurité comme code : analyse de vulnérabilité, bases de configuration, gestion secrète (p. ex., HashiCorp Vault), rotation des clés et gestion des certificats.\n• Gestion des incidents et collaboration interfonctionnelle : Expérience démontrée participant ou menant une intervention en cas d'incident, une analyse des causes profondes et un suivi post-incident en partenariat avec les Opérations de TI, Sécurité et Ingénierie. Fortes compétences en communication en anglais, capables d'expliquer des sujets complexes de sécurité et d'exploitation aux publics techniques et non techniques.\n• Fluidité de l'IA : Confortable grâce à l'utilisation d'outils modernes de l'IA (p. ex. assistants basés sur LLM, cadres d'automatisation) dans le cadre du travail quotidien d'analyse, de production de contenu et d'automatisation des flux de travail. Capacité de raisonner sur l'endroit où l'IA est et n'est pas approprié dans la sécurité et les opérations , équilibrer la vitesse avec le risque et le contrôle. Commentaires supplémentaires Ce rôle est basé à Genève. Nous ne sommes pas en mesure de considérer les candidats qui ne veulent pas être à Genève, mais nous sommes prêts à déplacer le bon candidat. Nous apprécions la diversité, l'équité et l'inclusion Chez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran. Si vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com . Toutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début. Nous ne soutenons pas actuellement les candidats au visa aux États-Unis. Les demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
-      "source": "SonarSource (Sonar) Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-07T08:22:27.287Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Software / Dev Tools",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://jobs.lever.co/sonarsource/a245e1bd-27b9-4c1a-b5d1-bfaeed1e6d5e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infrastructure-security-engineer-sonarsource-ch",
-        "infrastructure-security-ingegnere-sonarsource-sonar-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infrastructure-security-engineer-sonarsource-ch",
-          "infrastructure-security-ingegnere-sonarsource-sonar-geneva"
-        ],
-        "de": [
-          "infrastructure-security-engineer-sonarsource-ch"
-        ],
-        "fr": [
-          "infrastructure-security-engineer-sonarsource-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:17:40.394Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE",
-      "crawlerMissStreak": 2
     }
   ]
 }
