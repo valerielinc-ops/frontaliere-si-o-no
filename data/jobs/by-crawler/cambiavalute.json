@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-07-08T22:09:14.888Z",
+  "assembledAt": "2026-07-09T12:15:24.070Z",
   "jobs": [
     {
       "id": "company-kbhp6",
@@ -82,7 +82,8 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-viaqie",
@@ -115,7 +116,7 @@
       "crawledAt": "2026-07-08T11:14:55.248Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "titleByLocale": {
-        "fr": "Spécialiste des questions juridiques et du respect des dispositions",
+        "fr": "Legal & Compliance Officer",
         "it": "Legal & Compliance Officer",
         "en": "Legal and Compliance Officer",
         "de": "Legal und Compliance Officer"
@@ -168,7 +169,8 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fooban",
@@ -204,7 +206,7 @@
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer Support Assistant (German Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Tedesco)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "fr": "Assistant de vente, marketing et support à la clientèle (marché allemand)"
@@ -248,7 +250,8 @@
       },
       "previousSlugs": [
         "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -284,7 +287,7 @@
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer Support assistant (French Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Francese)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "fr": "Assistant Ventes, Marketing et Service clientèle (Marché français)"
@@ -328,7 +331,8 @@
       },
       "previousSlugs": [
         "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
