@@ -1,18 +1,55 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-07-08T22:25:45.054Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-07-09T22:38:51.037Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 84377,
-  "avgDurationMs": 84377,
+  "unchangedCount": 1,
+  "durationMs": 82273,
+  "avgDurationMs": 82273,
   "durationHistory": [
-    84377
+    82273
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "heineken-ch-3d1c80a02409",
+      "jobReqId": "149552",
+      "slug": "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Elektroinstallateur/Automatiker Chur (m/w)",
+      "location": "Chur",
+      "canton": "GR",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Chur, Graubünden",
+      "category": "Tecnica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/elektroinstallateurautomatiker-chur-mw?jobid=149552",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:38:49.171Z",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "heineken-ch-b7ac2b956d7d",
@@ -41,7 +78,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:24:30.099Z",
+      "crawledAt": "2026-07-09T22:37:37.744Z",
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -78,7 +115,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159426&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:24:37.466Z",
+      "crawledAt": "2026-07-09T22:37:45.637Z",
       "firstSeenAt": "2026-06-12T22:29:24.985Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -115,7 +152,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:24:45.592Z",
+      "crawledAt": "2026-07-09T22:37:53.798Z",
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -152,7 +189,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:24:52.791Z",
+      "crawledAt": "2026-07-09T22:38:01.719Z",
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -189,7 +226,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:01.273Z",
+      "crawledAt": "2026-07-09T22:38:09.447Z",
       "firstSeenAt": "2026-05-28T12:46:57.564Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -226,7 +263,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:08.986Z",
+      "crawledAt": "2026-07-09T22:38:17.511Z",
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -263,45 +300,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:17.135Z",
+      "crawledAt": "2026-07-09T22:38:25.298Z",
       "firstSeenAt": "2026-05-13T11:12:35.070Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "heineken-ch-55500a0e61dd",
-      "jobReqId": "154479",
-      "slug": "logistician-heineken-ch-denges",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Logistician",
-      "location": "Denges",
-      "canton": "VD",
-      "addressLocality": "Denges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Denges, VD",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistician?jobid=154479",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:25.704Z",
-      "firstSeenAt": "2026-05-13T11:12:42.166Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -337,7 +337,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:33.119Z",
+      "crawledAt": "2026-07-09T22:38:33.101Z",
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -374,7 +374,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:25:43.029Z",
+      "crawledAt": "2026-07-09T22:38:41.425Z",
       "firstSeenAt": "2026-05-13T11:12:58.806Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -386,5 +386,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "heineken-ch-55500a0e61dd",
+      "jobReqId": "154479",
+      "slug": "logistician-heineken-switzerland-denges",
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Logistician",
+      "location": "Denges",
+      "canton": "VD",
+      "addressLocality": "Denges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Denges, VD",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistician?jobid=154479",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-08T22:25:25.704Z",
+      "firstSeenAt": "2026-05-13T11:12:42.166Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
