@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-08T22:14:03.052Z",
+  "assembledAt": "2026-07-09T12:55:32.557Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -1784,76 +1784,6 @@
         }
       },
       "addressRegion": "SG"
-    },
-    {
-      "id": "swiss-re-ea4b80549dfa",
-      "slug": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
-      "slugByLocale": {
-        "it": "ai-engineering-tirocinante-50-fte-student-role-swiss-re-bratislava-sk",
-        "en": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
-        "de": "ai-engineering-intern-50-fte-student-role-swiss-re-ch",
-        "fr": "ai-engineering-stagiaire-50-fte-student-role-swiss-re-bratislava-sk"
-      },
-      "company": "Swiss Re",
-      "companyKey": "swiss-re",
-      "companyDomain": "swissre.com",
-      "title": "AI Engineering Intern (50 % FTE, student role)",
-      "titleByLocale": {
-        "it": "AI Engineering Tirocinante (50 % FTE, student role)",
-        "en": "AI Engineering Intern (50 % FTE, student role)",
-        "de": "AI Engineering Praktikant (50 % FTE, student role)",
-        "fr": "AI Engineering Stagiaire (50 % FTE, student role)"
-      },
-      "description": "AI Engineering Intern (50 % FTE, student role) — Swiss Re",
-      "descriptionByLocale": {
-        "de": "AI Engineering Intern (50 % FTE, student role) — Swiss Re"
-      },
-      "location": "Bratislava, SK",
-      "canton": "ZH",
-      "url": "https://www.swissre.com/careers/job/AI-Engineering-Intern-50-FTE-student-role-/1393751533",
-      "source": "Swiss Re Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:13:02.931Z",
-      "addressLocality": "Bratislava, SK",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.swissre.com/careers/job/AI-Engineering-Intern-50-FTE-student-role-/1393751533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:24:08.763Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-        ],
-        "fr": [
-          "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-        ]
-      },
-      "previousSlugs": [
-        "ai-engineering-intern-50-fte-student-role-swiss-re-ch"
-      ],
-      "salaryMin": 31000,
-      "salaryMax": 47000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-72ce1641c2f0",
