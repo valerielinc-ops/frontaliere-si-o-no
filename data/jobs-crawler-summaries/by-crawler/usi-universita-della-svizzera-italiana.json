@@ -1,81 +1,18 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-07-10T10:25:30.326Z",
+  "generatedAt": "2026-07-10T12:50:17.410Z",
   "total": 22,
-  "newCount": 2,
-  "updatedCount": 20,
+  "newCount": 0,
+  "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 85908,
-  "avgDurationMs": 85908,
+  "durationMs": 57009,
+  "avgDurationMs": 57009,
   "durationHistory": [
-    85908
+    57009
   ],
-  "newJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
-      "title": "Assistente di Ricerca.",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "assistente-di-ricerca-usi-mendrisio",
-      "department": "Academy of Architecture",
-      "category": "staff",
-      "datePosted": "2026-07-10",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-e0ffeaa92fff",
-      "sourceLang": "en",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
-      "title": "Tirocinio",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "tirocinio-usi-mendrisio",
-      "department": "Academy of Architecture",
-      "category": "internship",
-      "datePosted": "2026-07-10",
-      "source": "usi-drupal-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "en",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -494,6 +431,70 @@
       }
     },
     {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
+      "title": "Assistente di Ricerca.",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "assistente-di-ricerca-usi-mendrisio",
+      "department": "Academy of Architecture",
+      "category": "staff",
+      "datePosted": "2026-07-10",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-e0ffeaa92fff",
+      "sourceLang": "en",
+      "firstSeenAt": "2026-07-10T10:25:30.321Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
+      "title": "Tirocinio",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "tirocinio-usi-mendrisio",
+      "department": "Academy of Architecture",
+      "category": "internship",
+      "datePosted": "2026-07-10",
+      "source": "usi-drupal-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
+      "sourceLang": "en",
+      "firstSeenAt": "2026-07-10T10:25:30.321Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 9
+      }
+    },
+    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-giuridico/serv-giuridico-collaboratrice-tore-senior.pdf",
       "title": "Collaboratrice/Collaboratore giuridica/o senior",
@@ -515,6 +516,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-bea2e2769328",
+      "needsRetranslation": false,
       "sourceLang": "it",
       "firstSeenAt": "2026-05-27T14:21:30.822Z",
       "_qualityScore": 79,

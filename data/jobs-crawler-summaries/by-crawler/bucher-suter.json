@@ -1,16 +1,16 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-07-07T22:14:57.383Z",
+  "generatedAt": "2026-07-10T12:48:58.186Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6937,
-  "avgDurationMs": 6937,
+  "unchangedCount": 1,
+  "durationMs": 4080,
+  "avgDurationMs": 4080,
   "durationHistory": [
-    6937
+    4080
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:51.993Z",
+      "crawledAt": "2026-07-10T12:48:55.788Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.bucher-suter.com/jobs/it-project-manager/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:55.502Z",
+      "crawledAt": "2026-07-10T12:48:56.460Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.bucher-suter.com/jobs/it-project-manager-2/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:52.959Z",
+      "crawledAt": "2026-07-10T12:48:55.950Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:54.645Z",
+      "crawledAt": "2026-07-10T12:48:56.293Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,7 +165,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bucher-suter-34ff734d6739",
       "slug": "linux-system-administrator-engineer-bucher-suter-bern",
@@ -196,15 +199,16 @@
       "postedDate": "2026-06-24",
       "applyUrl": "https://www.bucher-suter.com/jobs/linux-system-administrator-engineer/",
       "firstSeenAt": "2026-07-04T10:22:03.268Z",
-      "_qualityScore": 90,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

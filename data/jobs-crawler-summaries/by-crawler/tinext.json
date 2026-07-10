@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-07-08T11:28:30.606Z",
+  "generatedAt": "2026-07-10T12:50:48.233Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1544,
-  "avgDurationMs": 1544,
+  "durationMs": 1394,
+  "avgDurationMs": 1394,
   "durationHistory": [
-    1544
+    1394
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-08",
+      "postedDate": "2026-07-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -69,7 +69,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-08",
+      "postedDate": "2026-07-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -88,44 +88,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Impiegato/a amministrativo-contabile",
-      "slug": "impiegato-a-amministrativo-contabile-tinext-sa-morbio",
-      "url": "https://tinext.kenjo.io/backoffthb",
-      "applyUrl": "https://tinext.kenjo.io/backoffthb",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-01",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "tinext-02ce24a236a5",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-07-01T13:10:04.732Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
