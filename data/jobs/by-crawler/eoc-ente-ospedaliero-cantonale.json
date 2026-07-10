@@ -1071,9 +1071,9 @@
       },
       "slugByLocale": {
         "it": "medico-capoclinica-di-pronto-soccorso-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-capoclinica-di-pronto-soccorso-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "medico-capoclinica-di-pronto-soccorso-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "medico-capoclinica-di-pronto-soccorso-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "first-aid-doctor-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "erste-hilfe-arzt-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "premiers-soins-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1159,9 +1159,9 @@
       },
       "slugByLocale": {
         "it": "cuoco-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "cuoco-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "cuoco-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "cuoco-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "cook-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "kochen-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "cuire-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1326,10 +1326,10 @@
       "crawledAt": "2026-07-10T10:26:53.151Z",
       "firstSeenAt": "2026-07-10T10:26:53.151Z",
       "slugByLocale": {
-        "de": "kauffrau-kaufmann-e-profil-kanton-aargau-ch",
+        "de": "facharzt-fur-kinderchirurgie-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "it": "profilo-elettronico-impiegato-commerciale-kanton-aargau-aarau",
-        "en": "kauffrau-kaufmann-e-profile-kanton-aargau-aarau",
-        "fr": "medico-specialista-in-chirurgia-pediatrica-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "medical-specialist-in-pediatric-surgery-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "specialiste-medical-en-chirurgie-pediatrique-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Medico Specialista in chirurgia pediatrica IPSI (100%)",
@@ -1357,11 +1357,21 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "fr": [
-          "medico-specialista-in-chirurgia-pediatrica-ipsi-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-uilr4j"
+          "medico-specialista-in-chirurgia-pediatrica-ipsi-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-uilr4j",
+          "medico-specialista-in-chirurgia-pediatrica-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "en": [
+          "kauffrau-kaufmann-e-profile-kanton-aargau-aarau"
+        ],
+        "de": [
+          "kauffrau-kaufmann-e-profil-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "medico-specialista-in-chirurgia-pediatrica-ipsi-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-uilr4j"
+        "medico-specialista-in-chirurgia-pediatrica-ipsi-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-uilr4j",
+        "kauffrau-kaufmann-e-profile-kanton-aargau-aarau",
+        "kauffrau-kaufmann-e-profil-kanton-aargau-ch",
+        "medico-specialista-in-chirurgia-pediatrica-ipsi-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -1407,10 +1417,10 @@
       "crawledAt": "2026-07-10T10:26:53.151Z",
       "firstSeenAt": "2026-07-10T10:26:53.151Z",
       "slugByLocale": {
-        "de": "fachspezialist-in-straf-und-massnahmenvollzug-50-kanton-aargau-ch",
+        "de": "medizinische-studienassistentin-50-70-eoc-ente-ospedaliero-cantonale-locarno",
         "it": "fachspezialist-in-straf-e-massnahmenvollzug-50-kanton-aargau-aarau",
-        "en": "specialist-in-penal-and-implementation-of-measures-50-kanton-aargau-aarau",
-        "fr": "specialiste-en-matiere-penale-et-mise-en-uvre-des-mesures-50-kanton-aargau-aarau"
+        "en": "medical-study-assistant-50-70-eoc-ente-ospedaliero-cantonale-locarno-31e5b8",
+        "fr": "assistant-d-etudes-medicales-50-70-eoc-ente-ospedaliero-cantonale-locarno-31e5b8"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico (50-70%)",
@@ -1450,7 +1460,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "specialist-in-penal-and-implementation-of-measures-50-kanton-aargau-aarau"
+        ],
+        "de": [
+          "fachspezialist-in-straf-und-massnahmenvollzug-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "specialiste-en-matiere-penale-et-mise-en-uvre-des-mesures-50-kanton-aargau-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-in-penal-and-implementation-of-measures-50-kanton-aargau-aarau",
+        "fachspezialist-in-straf-und-massnahmenvollzug-50-kanton-aargau-ch",
+        "specialiste-en-matiere-penale-et-mise-en-uvre-des-mesures-50-kanton-aargau-aarau"
+      ]
     },
     {
       "id": "company-uilr3v",
@@ -1473,10 +1499,10 @@
       "crawledAt": "2026-07-10T10:26:53.151Z",
       "firstSeenAt": "2026-07-10T10:26:53.151Z",
       "slugByLocale": {
-        "de": "meister-i-buchbinderei-100-kanton-aargau-ch",
+        "de": "mitarbeiter-in-alla-wartung-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "it": "master-i-rilegatura-al-100-kanton-aargau-aarau",
-        "en": "master-i-bookbinding-100-kanton-aargau-aarau",
-        "fr": "master-i-reliure-100-kanton-aargau-aarau"
+        "en": "associate-alla-maintenance-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "prepose-e-alla-maintenance-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Addetto/a alla manutenzione (100%)",
@@ -1510,7 +1536,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "master-i-bookbinding-100-kanton-aargau-aarau"
+        ],
+        "de": [
+          "meister-i-buchbinderei-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "master-i-reliure-100-kanton-aargau-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "master-i-bookbinding-100-kanton-aargau-aarau",
+        "meister-i-buchbinderei-100-kanton-aargau-ch",
+        "master-i-reliure-100-kanton-aargau-aarau"
+      ]
     },
     {
       "id": "company-uilr3r",

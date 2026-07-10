@@ -700,12 +700,12 @@
     },
     {
       "id": "denner-0d5851853e01",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-denner-hasle-b",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner-hasle-b-burgdorf",
+        "it": "venditore-denner-hasle-b",
+        "en": "seller-denner-hasle-b",
         "de": "verkaufer-in-denner-hasle-b-burgdorf",
-        "fr": "verkaufer-in-denner-hasle-b-burgdorf"
+        "fr": "vendeur-denner-hasle-b"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -775,7 +775,22 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-10T12:31:01.662Z"
+      "firstSeenAt": "2026-07-10T12:31:01.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-hasle-b-burgdorf"
+        ],
+        "fr": [
+          "verkaufer-in-denner-hasle-b-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-hasle-b-burgdorf"
+      ]
     },
     {
       "id": "denner-d9f2114f6fde",
@@ -2519,12 +2534,12 @@
     },
     {
       "id": "denner-c25d25d4309d",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-konolfingen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-konolfingen",
+        "it": "venditore-nel-salario-orario-denner-konolfingen",
+        "en": "seller-in-the-hourly-wage-denner-konolfingen",
         "de": "verkaufer-in-im-stundenlohn-denner-konolfingen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-konolfingen"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-konolfingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2594,16 +2609,31 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-10T12:30:58.162Z"
+      "firstSeenAt": "2026-07-10T12:30:58.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-konolfingen"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-konolfingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-konolfingen"
+      ]
     },
     {
       "id": "denner-9704b8b58631",
-      "slug": "produkt-manager-spirituosen-w-m-d-denner",
+      "slug": "product-manager-spirits-f-m-d-denner-zurich",
       "slugByLocale": {
-        "it": "produkt-manager-spirituosen-w-m-d-denner",
+        "it": "product-manager-spirits-f-m-d-denner-zurich",
         "en": "produkt-manager-spirituosen-w-m-d-denner",
         "de": "produkt-manager-spirituosen-w-m-d-denner",
-        "fr": "produkt-manager-spirituosen-w-m-d-denner"
+        "fr": "gestionnaire-de-produits-spiritueux-f-m-d-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2677,7 +2707,18 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-10T12:30:58.159Z"
+      "firstSeenAt": "2026-07-10T12:30:58.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produkt-manager-spirituosen-w-m-d-denner"
+        ],
+        "fr": [
+          "produkt-manager-spirituosen-w-m-d-denner"
+        ]
+      },
+      "previousSlugs": [
+        "produkt-manager-spirituosen-w-m-d-denner"
+      ]
     },
     {
       "id": "denner-f9cfc736893d",

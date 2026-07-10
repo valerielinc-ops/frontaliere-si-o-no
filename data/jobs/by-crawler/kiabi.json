@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f",
-        "consulente-di-vendita-contratto-on-time-cdi-studente-part-time-m-f-nb-kiabi-friburgo-kiabi-suisse-fribourg"
+        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f",
-          "consulente-di-vendita-contratto-on-time-cdi-studente-part-time-m-f-nb-kiabi-friburgo-kiabi-suisse-fribourg"
+          "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f"
         ],
         "en": [
           "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f"
@@ -85,12 +83,12 @@
     },
     {
       "id": "kiabi-c8b01d60abdc",
-      "slug": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle",
+      "slug": "consigliere-vendite-kiabi-aigle-h-f-nb-kiabi-suisse-aigle",
       "slugByLocale": {
         "fr": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle",
-        "it": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle",
-        "en": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle",
-        "de": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle"
+        "it": "consigliere-vendite-kiabi-aigle-h-f-nb-kiabi-suisse-aigle",
+        "en": "sales-advisor-kiabi-aigle-h-f-nb-kiabi-suisse-aigle",
+        "de": "verkaufsberater-kiabi-aigle-h-f-nb-kiabi-suisse-aigle"
       },
       "company": "Kiabi Suisse",
       "companyKey": "kiabi",
@@ -147,7 +145,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.278Z"
+      "firstSeenAt": "2026-07-10T10:23:20.278Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle"
+        ],
+        "en": [
+          "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle"
+        ],
+        "de": [
+          "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle"
+      ]
     }
   ]
 }

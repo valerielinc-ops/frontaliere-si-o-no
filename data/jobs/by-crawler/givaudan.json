@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d-givaudan-ch",
-        "specialista-in-attrezzature-a-pressione-e-conformita-normativa-m-f-d-givaudan-vernier"
+        "specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d-givaudan-ch",
-          "specialista-in-attrezzature-a-pressione-e-conformita-normativa-m-f-d-givaudan-vernier"
+          "specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
@@ -124,14 +122,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automation-engineer-h-f-d-givaudan-ch",
-        "automation-engineer-m-f-d-givaudan-vernier",
-        "automation-ingegnere-f-m-d-givaudan-vernier-switzerland"
+        "automation-engineer-m-f-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automation-engineer-h-f-d-givaudan-ch",
-          "automation-engineer-m-f-d-givaudan-vernier",
-          "automation-ingegnere-f-m-d-givaudan-vernier-switzerland"
+          "automation-engineer-m-f-d-givaudan-vernier"
         ],
         "de": [
           "automation-engineer-m-f-d-givaudan-vernier"
@@ -202,13 +198,11 @@
       "previousSlugs": [
         "process-engineer-givaudan-ch",
         "process-engineer-givaudan-vernier",
-        "ingenieur-process-h-f-d-givaudan-ch",
-        "ingegnere-di-processo-m-f-d-givaudan-vernier"
+        "ingenieur-process-h-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "process-engineer-givaudan-ch",
-          "ingegnere-di-processo-m-f-d-givaudan-vernier"
+          "process-engineer-givaudan-ch"
         ],
         "en": [
           "process-engineer-givaudan-vernier"
@@ -298,12 +292,12 @@
     },
     {
       "id": "givaudan-0a177f1dc3f0",
-      "slug": "quality-control-technician-m-w-d-givaudan-ch",
+      "slug": "tecnologia-di-controllo-qualita-m-f-d-givaudan-bischofszell-switzerland",
       "slugByLocale": {
         "de": "quality-control-technician-m-w-d-givaudan-ch",
-        "it": "quality-control-technician-m-w-d-givaudan-ch",
+        "it": "tecnologia-di-controllo-qualita-m-f-d-givaudan-bischofszell-switzerland",
         "en": "quality-control-technician-m-w-d-givaudan-ch",
-        "fr": "quality-control-technician-m-w-d-givaudan-ch"
+        "fr": "qualite-control-technicien-m-w-d-givaudan-bischofszell-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -358,16 +352,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T11:58:10.965Z"
+      "firstSeenAt": "2026-07-10T11:58:10.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-technician-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "quality-control-technician-m-w-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-technician-m-w-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-ecb702208324",
-      "slug": "quality-control-technician-50-m-w-d-givaudan-ch",
+      "slug": "controllo-qualita-tecnico-50-m-f-d-givaudan-bischofszell-switzerland",
       "slugByLocale": {
         "de": "quality-control-technician-50-m-w-d-givaudan-ch",
-        "it": "quality-control-technician-50-m-w-d-givaudan-ch",
+        "it": "controllo-qualita-tecnico-50-m-f-d-givaudan-bischofszell-switzerland",
         "en": "quality-control-technician-50-m-w-d-givaudan-ch",
-        "fr": "quality-control-technician-50-m-w-d-givaudan-ch"
+        "fr": "qualite-control-technicien-50-m-w-d-givaudan-bischofszell-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -422,7 +427,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T11:58:10.483Z"
+      "firstSeenAt": "2026-07-10T11:58:10.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-technician-50-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "quality-control-technician-50-m-w-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-technician-50-m-w-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-b96181b4a037",
@@ -536,14 +552,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-quality-f-b-eame-givaudan-ch",
-        "capo-qualita-f-b-eame-givaudan-vernier",
-        "responsabile-quality-f-b-eame-givaudan-vernier-switzerland"
+        "capo-qualita-f-b-eame-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-quality-f-b-eame-givaudan-ch",
-          "capo-qualita-f-b-eame-givaudan-vernier",
-          "responsabile-quality-f-b-eame-givaudan-vernier-switzerland"
+          "capo-qualita-f-b-eame-givaudan-vernier"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.837Z",
@@ -609,13 +623,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ehs-specialist-m-w-d-your-next-role-givaudan-ch",
-        "specialista-ehs-m-s-d-il-tuo-prossimo-ruolo-givaudan-vernier"
+        "ehs-specialist-m-w-d-your-next-role-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ehs-specialist-m-w-d-your-next-role-givaudan-ch",
-          "specialista-ehs-m-s-d-il-tuo-prossimo-ruolo-givaudan-vernier"
+          "ehs-specialist-m-w-d-your-next-role-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.817Z",
@@ -681,13 +693,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
-        "acquirente-operativo-60-80-m-f-d-givaudan-volketswil-switzerland"
+        "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
-          "acquirente-operativo-60-80-m-f-d-givaudan-volketswil-switzerland"
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
         ],
         "en": [
           "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
@@ -759,13 +769,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-strategic-supply-givaudan-ch",
-        "global-responsabile-strategic-supply-givaudan-vernier"
+        "global-head-of-strategic-supply-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-strategic-supply-givaudan-ch",
-          "global-responsabile-strategic-supply-givaudan-vernier"
+          "global-head-of-strategic-supply-givaudan-ch"
         ],
         "de": [
           "global-head-of-strategic-supply-givaudan-ch"
@@ -868,13 +876,11 @@
         ]
       },
       "previousSlugs": [
-        "head-of-procurement-ingredients-givaudan-ch",
-        "responsabile-approvvigionamento-ingredienti-givaudan-vernier"
+        "head-of-procurement-ingredients-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-procurement-ingredients-givaudan-ch",
-          "responsabile-approvvigionamento-ingredienti-givaudan-vernier"
+          "head-of-procurement-ingredients-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
@@ -1004,14 +1010,12 @@
       "previousSlugs": [
         "quality-control-analyst-h-f-d-givaudan-ch",
         "analista-di-controllo-qualita-m-f-d-givaudan-vernier",
-        "qualitatskontrolle-analyst-m-w-d-givaudan-vernier",
-        "quality-control-analista-f-m-d-givaudan-vernier-switzerland"
+        "qualitatskontrolle-analyst-m-w-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-control-analyst-h-f-d-givaudan-ch",
-          "analista-di-controllo-qualita-m-f-d-givaudan-vernier",
-          "quality-control-analista-f-m-d-givaudan-vernier-switzerland"
+          "analista-di-controllo-qualita-m-f-d-givaudan-vernier"
         ],
         "de": [
           "qualitatskontrolle-analyst-m-w-d-givaudan-vernier"
@@ -1080,13 +1084,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch",
-        "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier"
+        "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch",
-          "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier"
+          "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.822Z",
@@ -1152,13 +1154,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "patent-attorney-m-f-d-givaudan-ch",
-        "avvocato-del-brevetto-m-f-d-givaudan-zug-switzerland"
+        "patent-attorney-m-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "patent-attorney-m-f-d-givaudan-ch",
-          "avvocato-del-brevetto-m-f-d-givaudan-zug-switzerland"
+          "patent-attorney-m-f-d-givaudan-ch"
         ],
         "de": [
           "patent-attorney-m-f-d-givaudan-ch"
@@ -1230,13 +1230,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
-        "capo-degli-ingredienti-di-fragranza-m-f-d-givaudan-vernier-switzerland"
+        "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
-          "capo-degli-ingredienti-di-fragranza-m-f-d-givaudan-vernier-switzerland"
+          "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
         ],
         "de": [
           "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
@@ -1311,14 +1309,12 @@
         "quality-assurance-sample-technician-m-w-d-givaudan-ch",
         "controllo-qualita-e-tecnico-dei-campioni-m-p-g-givaudan-burgdorf",
         "qualitatssicherung-mustertechniker-m-w-d-givaudan-burgdorf",
-        "qualite-assurance-sample-technicien-m-w-d-givaudan-burgdorf",
-        "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland"
+        "qualite-assurance-sample-technicien-m-w-d-givaudan-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-assurance-sample-technician-m-w-d-givaudan-ch",
-          "controllo-qualita-e-tecnico-dei-campioni-m-p-g-givaudan-burgdorf",
-          "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland"
+          "controllo-qualita-e-tecnico-dei-campioni-m-p-g-givaudan-burgdorf"
         ],
         "de": [
           "qualitatssicherung-mustertechniker-m-w-d-givaudan-burgdorf"
@@ -1391,13 +1387,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "environmental-lab-manager-m-w-d-your-next-role-givaudan-ch",
-        "responsabile-di-laboratorio-ambientale-m-f-d-givaudan-vernier"
+        "environmental-lab-manager-m-w-d-your-next-role-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "environmental-lab-manager-m-w-d-your-next-role-givaudan-ch",
-          "responsabile-di-laboratorio-ambientale-m-f-d-givaudan-vernier"
+          "environmental-lab-manager-m-w-d-your-next-role-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.837Z",
@@ -1463,13 +1457,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmechaniker-m-w-d-givaudan-ch",
-        "operatore-di-macchinari-givaudan-burgdorf"
+        "betriebsmechaniker-m-w-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-m-w-d-givaudan-ch",
-          "operatore-di-macchinari-givaudan-burgdorf"
+          "betriebsmechaniker-m-w-d-givaudan-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.839Z",

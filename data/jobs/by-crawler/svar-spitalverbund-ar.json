@@ -52,13 +52,11 @@
       "requirementsByLocale": {},
       "externalId": "4032806",
       "previousSlugs": [
-        "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "psichiatria-generale-dipl-cura-professionale-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-          "psichiatria-generale-dipl-cura-professionale-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "en": [
           "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
@@ -133,14 +131,12 @@
       "externalId": "4033987",
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
@@ -165,12 +161,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-85ee452f4c06",
-      "slug": "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "servizio-di-allattamento-aggiunto-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "servizio-di-allattamento-aggiunto-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "deputy-nursing-service-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "services-infirmiers-adjoints-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -224,16 +220,30 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-pflegedienstleitung-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-840e2ab0108e",
       "slug": "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische",
+        "en": "professional-health-efz-or-mpa-for-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-spitalverbund",
         "de": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische",
-        "fr": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische"
+        "fr": "sante-professionnelle-efz-ou-mpa-pour-les-postes-de-lit-interdisciplinaires-obstetricaux-et-gynecologiques-m-f-d"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -276,13 +286,17 @@
       "requirementsByLocale": {},
       "externalId": "4033231",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische",
-        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische",
-          "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-geburtshilfliche-und-gynakologische"
         ]
       },
       "firstSeenAt": "2026-07-10T10:45:06.507Z",
@@ -304,9 +318,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-per-bettenstation-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-per-bettenstation-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar",
+        "en": "dipl-nurse-hf-fh-for-bed-station-surgery-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
+        "fr": "dipl-infirmiere-hf-fh-pour-chirurgie-au-lit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -354,6 +368,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "firstSeenAt": "2026-07-10T10:45:05.897Z",
@@ -372,12 +392,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-7486d3bbe2b4",
-      "slug": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-infermiera-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "dipl-infermiera-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "dipl-infirmiere-hf-med-diagnostic-endoscopie-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -431,16 +451,30 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-8fc11b3e01b7",
       "slug": "dipl-fachperson-per-medizinisch-technische-radiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "dipl-fachperson-per-medizinisch-technische-radiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau",
+        "en": "dipl-specialist-in-medical-technical-radiology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "specialiste-en-radiologie-medicale-et-technique-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -488,6 +522,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "firstSeenAt": "2026-07-10T10:45:04.622Z",
@@ -506,12 +546,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-9125a13a92c1",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-specialista-dipl-professionale-in-tecnica-chirurgica-hf-toa-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "dipl-specialista-dipl-professionale-in-tecnica-chirurgica-hf-toa-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-specialist-dipl-professional-in-surgical-technique-hf-toa-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "dipl-specialiste-dipl-professionnel-en-technique-chirurgicale-hf-toa-m-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -565,16 +605,30 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-92fb169f4a09",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "dipl-cura-di-anestesia-esperto-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-expert-anesthesia-care-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "dipl-soins-anesthesiques-specialises-nds-hf-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -628,16 +682,30 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-6369e39da319",
       "slug": "dipl-ergotherapeut-in-fh-bsc-per-akutgeriatrie-e-gerontotraumatologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "dipl-ergotherapeut-in-fh-bsc-per-akutgeriatrie-e-gerontotraumatologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar",
+        "en": "dipl-occupational-therapist-in-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-m-f-d-spitalverbund-appenzell",
         "de": "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar",
-        "fr": "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar"
+        "fr": "dipl-ergotherapeute-en-bsc-fh-pour-la-geriatrie-aigue-et-la-gerontotraumatologie-m-f-d-spitalverbund-appenzell"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -684,6 +752,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar"
+        ],
+        "fr": [
           "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar"
         ]
       },
@@ -752,13 +826,11 @@
       "requirementsByLocale": {},
       "externalId": "4030260",
       "previousSlugs": [
-        "dipl-pflegefachpersonen-hf-fh-und-fachpersonen-gesundheit-efz-m-w-d-svar-spitalverbund-ar",
-        "dipl-pflegefachpersonen-hf-fh-e-fachpersonen-gesundheit-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-pflegefachpersonen-hf-fh-und-fachpersonen-gesundheit-efz-m-w-d-svar-spitalverbund-ar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachpersonen-hf-fh-und-fachpersonen-gesundheit-efz-m-w-d-svar-spitalverbund-ar",
-          "dipl-pflegefachpersonen-hf-fh-e-fachpersonen-gesundheit-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-pflegefachpersonen-hf-fh-und-fachpersonen-gesundheit-efz-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "firstSeenAt": "2026-06-30T23:24:43.474Z",
@@ -827,13 +899,11 @@
       "externalId": "4029788",
       "previousSlugs": [
         "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "unita-di-cura-acuta-infermiera-laureata-in-hf-fh-lunedi-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-          "unita-di-cura-acuta-infermiera-laureata-in-hf-fh-lunedi-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "firstSeenAt": "2026-06-30T12:40:26.134Z",
@@ -903,14 +973,12 @@
       "externalId": "4029773",
       "previousSlugs": [
         "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-svar-spitalverbund-ar-herisau",
-        "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste",
-        "reparto-per-la-dipendenza-abhb-specialista-sanitario-lun-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-svar-spitalverbund-ar-herisau",
-          "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste",
-          "reparto-per-la-dipendenza-abhb-specialista-sanitario-lun-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-keine-nachtdienste-wochenenddienste"
         ],
         "en": [
           "abhangigkeitsstation-abhb-fachperson-gesundheit-m-w-d-svar-spitalverbund-ar-herisau"
@@ -988,13 +1056,11 @@
       "requirementsByLocale": {},
       "externalId": "4028810",
       "previousSlugs": [
-        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-          "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "firstSeenAt": "2026-07-04T23:02:20.743Z",
@@ -1141,14 +1207,12 @@
       "externalId": "4033203",
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "infermieristica-hf-in-formazione-psichiatria-specializzata-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "infermieristica-hf-in-formazione-psichiatria-specializzata-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
@@ -1224,14 +1288,12 @@
       "externalId": "4033247",
       "previousSlugs": [
         "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "salute-professionale-nell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-22cb6b"
+        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "salute-professionale-nell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-22cb6b"
+          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
@@ -1306,13 +1368,11 @@
       "requirementsByLocale": {},
       "externalId": "4033251",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-        "salute-professionale-nell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-          "salute-professionale-nell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "en": [
           "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"

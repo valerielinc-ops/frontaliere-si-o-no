@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pzm-muensingen-dc51e71b726b",
-      "slug": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+      "slug": "dipl-cura-professionale-di-giorno-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+        "it": "dipl-cura-professionale-di-giorno-psychiatriezentrum-munsingen-munsingen",
+        "en": "dipl-day-care-professional-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        "fr": "dipl-professionnels-de-jour-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -54,11 +54,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
-        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen-wj2jm5"
+        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen-wj2jm5",
+        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen"
+          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:57:56.828Z",
@@ -77,12 +85,12 @@
     },
     {
       "id": "pzm-muensingen-48051a02b898",
-      "slug": "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen",
+      "slug": "dipl-cura-del-giorno-professionale-opm-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen",
+        "it": "dipl-cura-del-giorno-professionale-opm-psychiatriezentrum-munsingen-munsingen",
+        "en": "dipl-day-care-professional-opm-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
+        "fr": "dipl-specialiste-des-garderies-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -126,11 +134,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen"
+        "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen",
+        "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen"
+          "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen",
+          "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-09T22:58:30.526Z",
@@ -223,12 +239,12 @@
     },
     {
       "id": "pzm-muensingen-38b16dda7b48",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen",
+      "slug": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-ddm-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen",
+        "it": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-ddm-psychiatriezentrum-munsingen-munsingen",
+        "en": "assistant-doctor-assistant-doctor-of-old-age-psychiatry-ddm-psychiatriezentrum-munsingen-munsingen",
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
+        "fr": "assistant-medecin-assistant-medecin-de-la-psychiatrie-de-vieillesse-ddm-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -272,11 +288,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen"
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen",
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen"
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen",
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-12T22:59:08.931Z",
@@ -295,12 +319,12 @@
     },
     {
       "id": "pzm-muensingen-c6a35136f810",
-      "slug": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
+      "slug": "infermiere-qualificato-con-funzione-aggiuntiva-come-formatore-professionale-focus-sull-ansia-psychiatriezentrum",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
+        "it": "infermiere-qualificato-con-funzione-aggiuntiva-come-formatore-professionale-focus-sull-ansia-psychiatriezentrum",
+        "en": "qualified-nurse-with-additional-function-as-a-vocational-trainer-focus-on-anxiety-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen",
-        "fr": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+        "fr": "infirmier-diplome-avec-une-fonction-supplementaire-de-formateur-professionnel-focus-sur-l-anxiete-psychiatriezentrum"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -344,11 +368,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen"
+        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen",
+        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen"
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen",
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-12T22:59:08.926Z",
@@ -445,12 +477,12 @@
     },
     {
       "id": "pzm-muensingen-395df6c1703d",
-      "slug": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
+      "slug": "servizio-di-pulizia-capo-squadra-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
-        "en": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
+        "it": "servizio-di-pulizia-capo-squadra-psychiatriezentrum-munsingen-munsingen",
+        "en": "team-leader-cleaning-service-psychiatriezentrum-munsingen-munsingen",
         "de": "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
-        "fr": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
+        "fr": "service-de-nettoyage-de-chef-d-equipe-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -494,11 +526,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen"
+        "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
+        "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen"
+          "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
+          "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-19T13:12:28.364Z",

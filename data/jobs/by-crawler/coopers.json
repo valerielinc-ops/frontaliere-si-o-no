@@ -762,8 +762,7 @@
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
-          "engineering-planner-m-f-d-coopers-wallis",
-          "engineering-planer-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis"
         ],
         "de": [
           "engineering-planer-m-f-d-coopers-wallis"
@@ -1041,8 +1040,7 @@
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
         ],
         "de": [
-          "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "projectmanagement-officer-pmo-m-w-d-coopers-bern"
+          "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
@@ -1737,13 +1735,11 @@
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-in-m-w-d-coopers-basel-region",
-        "gestore-immobiliare-m-f-d-coopers-group-ag-basel-region"
+        "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-in-m-w-d-coopers-basel-region",
-          "gestore-immobiliare-m-f-d-coopers-group-ag-basel-region"
+          "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
         ]
       },
       "needsRetranslation": true,
@@ -2759,18 +2755,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "operative-r-transportleiter-in-m-w-d-coopers-basel-region",
-          "leiter-in-bu-transport-m-w-d-coopers-basel-landschaft"
+          "operative-r-transportleiter-in-m-w-d-coopers-basel-region"
         ],
         "it": [
-          "operative-r-transportleiter-in-m-w-d-coopers-basel-region",
-          "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft"
+          "operative-r-transportleiter-in-m-w-d-coopers-basel-region"
         ]
       },
       "previousSlugs": [
-        "operative-r-transportleiter-in-m-w-d-coopers-basel-region",
-        "leiter-in-bu-transport-m-w-d-coopers-basel-landschaft",
-        "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft"
+        "operative-r-transportleiter-in-m-w-d-coopers-basel-region"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:10:06.286Z",
@@ -3524,13 +3516,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-product-owner-m-w-d-coopers-bern",
-        "titolare-del-prodotto-senior-m-f-d-coopers-group-ag-bern"
+        "senior-product-owner-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-owner-m-w-d-coopers-bern",
-          "titolare-del-prodotto-senior-m-f-d-coopers-group-ag-bern"
+          "senior-product-owner-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-product-owner-m-w-d-coopers-bern"
@@ -3614,13 +3604,11 @@
         ]
       },
       "previousSlugs": [
-        "application-developer-java-php-m-f-d-coopers-basel-landschaft",
-        "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
+        "application-developer-java-php-m-f-d-coopers-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-developer-java-php-m-f-d-coopers-basel-landschaft",
-          "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
+          "application-developer-java-php-m-f-d-coopers-basel-landschaft"
         ],
         "de": [
           "application-developer-java-php-m-f-d-coopers-basel-landschaft"
@@ -3973,15 +3961,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "quality-control-inspector-m-w-d-coopers-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "quality-control-inspector-m-w-d-coopers-luzern"
-      ]
+      }
     },
     {
       "id": "coopers-a558efe4a689",
@@ -4140,10 +4120,10 @@
     },
     {
       "id": "coopers-b48f8814694a",
-      "slug": "zabbix-engineer-m-w-d-coopers-bern",
+      "slug": "zabbix-ingegnere-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "zabbix-engineer-m-w-d-coopers-bern",
-        "it": "zabbix-engineer-m-w-d-coopers-bern",
+        "it": "zabbix-ingegnere-m-w-d-coopers-group-ag-bern",
         "en": "zabbix-engineer-m-w-d-coopers-bern",
         "fr": "zabbix-engineer-m-w-d-coopers-bern"
       },
@@ -4217,7 +4197,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:28:37.373Z"
+      "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zabbix-engineer-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "zabbix-engineer-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-f1c5f618888c",

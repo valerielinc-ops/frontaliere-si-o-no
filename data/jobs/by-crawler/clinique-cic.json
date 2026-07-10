@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-        "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-          "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
         ],
         "en": [
           "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
@@ -82,10 +80,10 @@
     },
     {
       "id": "clinique-cic-2e39014738ef",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens",
       "slugByLocale": {
-        "it": "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
-        "en": "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens",
+        "en": "community-health-and-care-assistant-chs-clinique-cic-clarens-clarens",
         "de": "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
         "fr": "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
       },
@@ -140,15 +138,26 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
+      ]
     },
     {
       "id": "clinique-cic-4044aae2d98f",
-      "slug": "infirmier-ere-clinique-cic-clarens",
+      "slug": "infermiera-clinique-cic-clarens-clarens",
       "slugByLocale": {
-        "it": "infirmier-ere-clinique-cic-clarens",
-        "en": "infirmier-ere-clinique-cic-clarens",
-        "de": "infirmier-ere-clinique-cic-clarens",
+        "it": "infermiera-clinique-cic-clarens-clarens",
+        "en": "nurse-clinique-cic-clarens-clarens",
+        "de": "krankenschwester-clinique-cic-clarens-clarens",
         "fr": "infirmier-ere-clinique-cic-clarens"
       },
       "company": "Clinique CIC Clarens",
@@ -202,7 +211,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinique-cic-clarens"
+        ],
+        "en": [
+          "infirmier-ere-clinique-cic-clarens"
+        ],
+        "de": [
+          "infirmier-ere-clinique-cic-clarens"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinique-cic-clarens"
+      ]
     }
   ]
 }

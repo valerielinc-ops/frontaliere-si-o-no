@@ -25,10 +25,11 @@
         "it": "Assistente medico 60-80%",
         "de": "Medizinische Assistenz 60-80%"
       },
-      "slug": "assistante-medicale-60-80-swiss-medical-network",
+      "slug": "assistente-medico-60-80-swiss-medical-network-saint-imier",
       "slugByLocale": {
-        "en": "assistante-medicale-60-80-swiss-medical-network",
-        "it": "assistante-medicale-60-80-swiss-medical-network"
+        "en": "medical-assistant-60-80-swiss-medical-network-saint-imier",
+        "it": "assistente-medico-60-80-swiss-medical-network-saint-imier",
+        "de": "medizinische-assistenz-60-80-swiss-medical-network-saint-imier"
       },
       "category": "admin",
       "datePosted": "2026-07-10",
@@ -55,7 +56,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:19:01.988Z"
+      "firstSeenAt": "2026-07-10T12:19:01.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-medicale-60-80-swiss-medical-network"
+        ],
+        "en": [
+          "assistante-medicale-60-80-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-medicale-60-80-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137082190-assistant-e-s-medicale-s-d-f",
@@ -80,10 +92,11 @@
         "it": "Assistente medico(i) D/F",
         "de": "Medizinische(r) Assistent(in)"
       },
-      "slug": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
+      "slug": "assistente-medico-i-d-f-swiss-medical-network-biel",
       "slugByLocale": {
-        "it": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
-        "en": "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+        "it": "assistente-medico-i-d-f-swiss-medical-network-biel",
+        "en": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
+        "de": "medizinische-r-assistent-in-swiss-medical-network-biel"
       },
       "category": "admin",
       "datePosted": "2026-07-10",
@@ -110,7 +123,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136167655-cuoco-all-80-",
@@ -260,8 +281,9 @@
       },
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-beromunster",
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
       },
       "category": "medical",
       "datePosted": "2026-07-10",
@@ -1485,9 +1507,7 @@
       "previousSlugs": [
         "medizinische-praxisassistenz-per-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
         "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
-        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "assistente-medico-per-la-medicina-interna-generale-swiss-medical-network-stein-am-rhein"
+        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:15:44.806Z",
@@ -1504,15 +1524,6 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-          "assistente-medico-per-la-medicina-interna-generale-swiss-medical-network-stein-am-rhein"
-        ],
-        "en": [
-          "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
-        ]
       }
     },
     {
@@ -1787,10 +1798,11 @@
         "it": "Specialista in Medicina Interna Generale",
         "fr": "Spécialiste en médecine interne générale"
       },
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "specialista-in-medicina-interna-generale-swiss-medical-network-wengen",
       "slugByLocale": {
-        "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "specialist-in-general-internal-medicine-swiss-medical-network-wengen",
+        "it": "specialista-in-medicina-interna-generale-swiss-medical-network-wengen",
+        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
       },
       "category": "healthcare",
       "datePosted": "2026-07-10",
@@ -1817,7 +1829,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:19:01.988Z"
+      "firstSeenAt": "2026-07-10T12:19:01.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        ],
+        "en": [
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133349716-assistant-e-medical-e-en-pneumologie-et-cardiologie-cdm",
@@ -1971,10 +1994,11 @@
         "it": "Specialista / Specialista in Medicina Interna Generale 50 - 100%",
         "fr": "Spécialiste / Spécialiste en médecine interne générale 50 - 100%"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
+      "slug": "specialista-specialista-in-medicina-interna-generale-50-100-swiss-medical-network-schaffhausen",
       "slugByLocale": {
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
+        "it": "specialista-specialista-in-medicina-interna-generale-50-100-swiss-medical-network-schaffhausen",
+        "en": "specialist-specialist-for-general-internal-medicine-50-100-swiss-medical-network-schaffhausen",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-50-100-swiss-medical-network-schaffhausen"
       },
       "category": "medical",
       "datePosted": "2026-07-10",
@@ -2001,7 +2025,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
@@ -2537,9 +2572,7 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-swiss-medical-network-moutier",
-        "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-swiss-medical-network",
-        "una-testa-di-clinica-con-fmh-o-assistente-capo-di-clinica-a-pedopsychiatry-swiss-medical-network-moutier"
+        "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-swiss-medical-network-moutier"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 4938,
@@ -2559,16 +2592,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-swiss-medical-network",
-          "una-testa-di-clinica-con-fmh-o-assistente-capo-di-clinica-a-pedopsychiatry-swiss-medical-network-moutier"
-        ],
-        "en": [
-          "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-swiss-medical-network"
-        ]
-      }
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
@@ -3113,10 +3137,10 @@
         "it": "Controllo della gestione dei treni",
         "de": "Trainee Management Control"
       },
-      "slug": "stagiaire-controle-de-gestion-swiss-medical-network",
+      "slug": "controllo-della-gestione-dei-treni-swiss-medical-network-genolier",
       "slugByLocale": {
-        "en": "stagiaire-controle-de-gestion-swiss-medical-network",
-        "it": "stagiaire-controle-de-gestion-swiss-medical-network"
+        "en": "trainee-management-control-swiss-medical-network-genolier",
+        "it": "controllo-della-gestione-dei-treni-swiss-medical-network-genolier"
       },
       "category": "healthcare",
       "datePosted": "2026-07-10",
@@ -3144,7 +3168,18 @@
         }
       },
       "firstSeenAt": "2026-07-10T10:23:52.787Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-controle-de-gestion-swiss-medical-network"
+        ],
+        "en": [
+          "stagiaire-controle-de-gestion-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-controle-de-gestion-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130522600-mitarbeiter-in-patientenabrechnung",

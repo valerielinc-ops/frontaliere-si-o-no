@@ -80,12 +80,12 @@
     },
     {
       "id": "privatklinik-obach-05513a59a24d",
-      "slug": "fisioterapista-in-swiss-medical-network-solothurn",
+      "slug": "fisioterapista-in-privatklinik-obach-solothurn",
       "slugByLocale": {
         "de": "fisioterapista-in-swiss-medical-network-solothurn",
         "en": "sports-physiotherapist-in-swiss-medical-network-solothurn",
         "fr": "physiotherapie-sportive-in-swiss-medical-network-solothurn",
-        "it": "fisioterapista-in-swiss-medical-network-solothurn"
+        "it": "fisioterapista-in-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -131,14 +131,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sportphysiotherapeut-in-privatklinik-obach"
+          "sportphysiotherapeut-in-privatklinik-obach",
+          "fisioterapista-in-swiss-medical-network-solothurn"
         ],
         "de": [
           "sportphysiotherapeut-in-privatklinik-obach"
         ]
       },
       "previousSlugs": [
-        "sportphysiotherapeut-in-privatklinik-obach"
+        "sportphysiotherapeut-in-privatklinik-obach",
+        "fisioterapista-in-swiss-medical-network-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -156,12 +158,12 @@
     },
     {
       "id": "privatklinik-obach-4437b662e47a",
-      "slug": "dipl-fisioterapista-in-swiss-medical-network-solothurn",
+      "slug": "dipl-fisioterapista-in-privatklinik-obach-solothurn",
       "slugByLocale": {
         "de": "dipl-fisioterapista-in-swiss-medical-network-solothurn",
         "en": "dipl-physiotherapist-in-swiss-medical-network-solothurn",
         "fr": "dipl-physiotherapeute-in-swiss-medical-network-solothurn",
-        "it": "dipl-fisioterapista-in-swiss-medical-network-solothurn"
+        "it": "dipl-fisioterapista-in-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -207,14 +209,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-privatklinik-obach"
+          "dipl-physiotherapeut-in-privatklinik-obach",
+          "dipl-fisioterapista-in-swiss-medical-network-solothurn"
         ],
         "de": [
           "dipl-physiotherapeut-in-privatklinik-obach"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-privatklinik-obach"
+        "dipl-physiotherapeut-in-privatklinik-obach",
+        "dipl-fisioterapista-in-swiss-medical-network-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -281,13 +285,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lagerungspfleger-in-60-100-privatklinik-obach",
-        "responsabile-stoccaggio-60-100-privatklinik-obach-solothurn"
+        "lagerungspfleger-in-60-100-privatklinik-obach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lagerungspfleger-in-60-100-privatklinik-obach",
-          "responsabile-stoccaggio-60-100-privatklinik-obach-solothurn"
+          "lagerungspfleger-in-60-100-privatklinik-obach"
         ],
         "en": [
           "lagerungspfleger-in-60-100-privatklinik-obach"

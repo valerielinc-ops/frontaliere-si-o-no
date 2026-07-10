@@ -2483,12 +2483,12 @@
     },
     {
       "id": "balgrist-d79b9afb12fa",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+      "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -2534,11 +2534,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

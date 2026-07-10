@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medartis-6007363883a3",
-      "slug": "senior-legal-counsel-medartis-basel",
+      "slug": "consigliere-legale-senior-medartis-basel",
       "slugByLocale": {
-        "it": "senior-legal-counsel-medartis-basel",
+        "it": "consigliere-legale-senior-medartis-basel",
         "en": "senior-legal-counsel-medartis-basel",
         "de": "senior-legal-counsel-medartis-basel",
-        "fr": "senior-legal-counsel-medartis-basel"
+        "fr": "conseiller-juridique-principal-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -63,7 +63,18 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-legal-counsel-medartis-basel"
+        ],
+        "fr": [
+          "senior-legal-counsel-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-legal-counsel-medartis-basel"
+      ]
     },
     {
       "id": "medartis-58ad858cd23e",
@@ -114,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechanist-screws-100-medartis-basel",
-        "viti-meccanici-100-medartis-basel"
+        "mechanist-screws-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanist-screws-100-medartis-basel",
-          "viti-meccanici-100-medartis-basel"
+          "mechanist-screws-100-medartis-basel"
         ],
         "fr": [
           "mechanist-screws-100-medartis-basel"
@@ -315,13 +324,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechanist-plates-medartis-basel",
-        "piatti-meccanici-medartis-basel"
+        "mechanist-plates-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanist-plates-medartis-basel",
-          "piatti-meccanici-medartis-basel"
+          "mechanist-plates-medartis-basel"
         ],
         "fr": [
           "mechanist-plates-medartis-basel"
@@ -452,13 +459,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operator-plates-a-medartis-basel",
-        "piastre-di-comando-a-medartis-basel"
+        "operator-plates-a-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operator-plates-a-medartis-basel",
-          "piastre-di-comando-a-medartis-basel"
+          "operator-plates-a-medartis-basel"
         ],
         "fr": [
           "operator-plates-a-medartis-basel"
@@ -527,13 +532,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-documentation-manager-medartis-basel",
-        "gestione-della-documentazione-associata-medartis-basel"
+        "associate-documentation-manager-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-documentation-manager-medartis-basel",
-          "gestione-della-documentazione-associata-medartis-basel"
+          "associate-documentation-manager-medartis-basel"
         ],
         "fr": [
           "associate-documentation-manager-medartis-basel"
@@ -634,14 +637,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "group-manager-regulatory-affairs-100-medartis-basel",
-          "gruppenleiter-regulatory-affairs-100-medartis-basel"
+          "group-manager-regulatory-affairs-100-medartis-basel"
         ],
         "it": [
           "group-manager-regulatory-affairs-100-medartis-basel",
           "responsabile-regulatory-affairs-gruppo-medartis-basel",
-          "gestione-del-gruppo-regolatori-100-medartis-basel",
-          "group-manager-affari-regolatori-100-medartis-basel"
+          "gestione-del-gruppo-regolatori-100-medartis-basel"
         ],
         "fr": [
           "responsable-reglementaire-groupe-medartis-basel",
@@ -653,9 +654,7 @@
         "responsabile-regulatory-affairs-gruppo-medartis-basel",
         "gestione-del-gruppo-regolatori-100-medartis-basel",
         "responsable-reglementaire-groupe-medartis-basel",
-        "gestionnaire-de-groupe-affaires-reglementaires-100-medartis-basel",
-        "gruppenleiter-regulatory-affairs-100-medartis-basel",
-        "group-manager-affari-regolatori-100-medartis-basel"
+        "gestionnaire-de-groupe-affaires-reglementaires-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:25.039Z",
       "salaryMin": 85500,
@@ -755,15 +754,13 @@
         "apprendistato-come-polimeccanico-a-efz-medartis-basel",
         "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
         "apprenticeship-as-mechanical-engineer-efz-medartis-basel",
-        "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel",
-        "stage-per-polimeccanico-a-efz-medartis-basel"
+        "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
           "apprendistato-come-polimeccanico-a-efz-medartis-basel",
-          "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
-          "stage-per-polimeccanico-a-efz-medartis-basel"
+          "apprendistato-come-polymechaniker-in-cfc-medartis-basel"
         ],
         "en": [
           "apprenticeship-as-mechanical-engineer-efz-medartis-basel"
@@ -869,13 +866,11 @@
           "klinische-verkaufsspezialistin-romandie-medartis-basel",
           "klinischer-vertriebsmitarbeiter-romandie-medartis-basel",
           "clinical-sales-specialist-romandie-medartis-basel",
-          "clinical-sales-spezialist-romandie-medartis-basel",
-          "klinischer-vertriebsspezialist-romandie-medartis-basel"
+          "clinical-sales-spezialist-romandie-medartis-basel"
         ],
         "it": [
           "clinical-sales-specialist-romandie-medartis-basel",
-          "specialista-di-vendita-clinica-romandie-medartis-basel",
-          "clinical-sales-specialista-romandie-medartis-basel"
+          "specialista-di-vendita-clinica-romandie-medartis-basel"
         ]
       },
       "previousSlugs": [
@@ -883,9 +878,7 @@
         "klinischer-vertriebsmitarbeiter-romandie-medartis-basel",
         "clinical-sales-specialist-romandie-medartis-basel",
         "clinical-sales-spezialist-romandie-medartis-basel",
-        "specialista-di-vendita-clinica-romandie-medartis-basel",
-        "klinischer-vertriebsspezialist-romandie-medartis-basel",
-        "clinical-sales-specialista-romandie-medartis-basel"
+        "specialista-di-vendita-clinica-romandie-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:19.373Z",
       "salaryMin": 62000,
@@ -982,13 +975,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "computer-system-validation-manager-100-medartis-basel",
-          "computersystem-validierungs-manager-100-medartis-basel"
+          "computer-system-validation-manager-100-medartis-basel"
         ],
         "it": [
           "computer-system-validation-manager-100-medartis-basel",
-          "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel",
-          "responsabile-validazione-sistemi-informatici-100-medartis-basel"
+          "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel"
         ],
         "fr": [
           "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel"
@@ -997,9 +988,7 @@
       "previousSlugs": [
         "computer-system-validation-manager-100-medartis-basel",
         "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel",
-        "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel",
-        "computersystem-validierungs-manager-100-medartis-basel",
-        "responsabile-validazione-sistemi-informatici-100-medartis-basel"
+        "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:18.881Z",
       "salaryMin": 99500,
@@ -1096,18 +1085,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "manufacturing-engineer-100-medartis-basel",
-          "fertigungsingenieur-medartis-basel"
+          "manufacturing-engineer-100-medartis-basel"
         ],
         "it": [
-          "manufacturing-engineer-100-medartis-basel",
-          "ingegnere-di-produzione-100-medartis-basel"
+          "manufacturing-engineer-100-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "manufacturing-engineer-100-medartis-basel",
-        "fertigungsingenieur-medartis-basel",
-        "ingegnere-di-produzione-100-medartis-basel"
+        "manufacturing-engineer-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:22.745Z",
       "salaryMin": 62000,
@@ -1204,18 +1189,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "quality-inspector-100-medartis-basel",
-          "qualitatsprufer-medartis-basel"
+          "quality-inspector-100-medartis-basel"
         ],
         "it": [
-          "quality-inspector-100-medartis-basel",
-          "responsabile-della-qualita-100-medartis-basel"
+          "quality-inspector-100-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "quality-inspector-100-medartis-basel",
-        "qualitatsprufer-medartis-basel",
-        "responsabile-della-qualita-100-medartis-basel"
+        "quality-inspector-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:19.848Z",
       "salaryMin": 85500,
@@ -1311,13 +1292,11 @@
         ]
       },
       "previousSlugs": [
-        "cnc-instandhaltungstechniker-in-medartis-basel",
-        "tecnico-di-manutenzione-cnc-medartis-basel"
+        "cnc-instandhaltungstechniker-in-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cnc-instandhaltungstechniker-in-medartis-basel",
-          "tecnico-di-manutenzione-cnc-medartis-basel"
+          "cnc-instandhaltungstechniker-in-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:20.335Z",
@@ -1414,13 +1393,11 @@
         ]
       },
       "previousSlugs": [
-        "development-engineer-100-m-w-medartis-basel",
-        "ingegnere-sviluppo-100-m-f-medartis-basel"
+        "development-engineer-100-m-w-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-100-m-w-medartis-basel",
-          "ingegnere-sviluppo-100-m-f-medartis-basel"
+          "development-engineer-100-m-w-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:21.308Z",
@@ -1519,14 +1496,12 @@
       },
       "previousSlugs": [
         "sap-btp-platform-manager-medartis-basel",
-        "manager-di-piattaforma-sap-btp-medartis-basel",
-        "responsabile-della-piattaforma-sap-btp-medartis-basel"
+        "manager-di-piattaforma-sap-btp-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-btp-platform-manager-medartis-basel",
-          "manager-di-piattaforma-sap-btp-medartis-basel",
-          "responsabile-della-piattaforma-sap-btp-medartis-basel"
+          "manager-di-piattaforma-sap-btp-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:20.810Z",
@@ -1593,13 +1568,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "validation-engineer-100-medartis-basel",
-        "validation-ingenieur-100-medartis-basel",
-        "validation-ingegnere-100-medartis-basel"
+        "validation-ingenieur-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "validation-engineer-100-medartis-basel",
-          "validation-ingegnere-100-medartis-basel"
+          "validation-engineer-100-medartis-basel"
         ],
         "fr": [
           "validation-ingenieur-100-medartis-basel",
@@ -1669,13 +1642,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "supply-and-production-planner-100-medartis-basel",
-        "fornitura-e-produzione-planner-100-medartis-basel"
+        "supply-and-production-planner-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supply-and-production-planner-100-medartis-basel",
-          "fornitura-e-produzione-planner-100-medartis-basel"
+          "supply-and-production-planner-100-medartis-basel"
         ],
         "fr": [
           "supply-and-production-planner-100-medartis-basel"
@@ -1870,13 +1841,11 @@
       "previousSlugs": [
         "hr-process-excellence-systems-specialist-100-medartis-basel",
         "hr-prozessexzellenz-systemspezialist-zu-100-medartis-basel",
-        "hr-prozess-und-systemexperte-in-100-medartis-basel",
-        "risorse-umane-process-excellence-systems-specialista-100-medartis-basel"
+        "hr-prozess-und-systemexperte-in-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-process-excellence-systems-specialist-100-medartis-basel",
-          "risorse-umane-process-excellence-systems-specialista-100-medartis-basel"
+          "hr-process-excellence-systems-specialist-100-medartis-basel"
         ],
         "de": [
           "hr-prozessexzellenz-systemspezialist-zu-100-medartis-basel",
@@ -1950,14 +1919,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-total-reward-specialist-medartis-basel",
-        "specialista-senior-della-ricompensa-totale-medartis-basel",
-        "specialista-totale-del-premio-medartis-basel"
+        "specialista-senior-della-ricompensa-totale-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-total-reward-specialist-medartis-basel",
-          "specialista-senior-della-ricompensa-totale-medartis-basel",
-          "specialista-totale-del-premio-medartis-basel"
+          "specialista-senior-della-ricompensa-totale-medartis-basel"
         ],
         "fr": [
           "senior-total-reward-specialist-medartis-basel"
