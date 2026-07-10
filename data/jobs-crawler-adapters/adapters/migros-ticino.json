@@ -10,6 +10,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-metzgerei/e4320d51-95d8-46e1-b588-e5026b9ab381",
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-logistics/sachbearbeiterin-koordinationloge/8730f435-f067-4be5-8eb8-2ef273cdc291",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/stellvertreterin-marktleitung-supermarkt/6f95304c-3912-4369-bc97-948becf51211",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/mitarbeiterin-ladenaufsicht/3c40f8e6-8c17-4fe2-8abf-e3984e2dac24",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/fitness-instructor-wmd/06929f5d-b239-4681-8d4a-3479505d3d81",
@@ -583,7 +585,6 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/micarna-gruppe/kochkochin/4f9dd2c8-125a-493f-85d2-2e984c752f32",
     "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-neuchatel-fribourg/vendeurse-polyvalente/e6fce2a2-ad45-4c49-84da-cc63023d7a42",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/luchingerschmid/teamleiterin-packerei/274f0a19-c07f-4a8c-98a8-c7adf77aec85",
-    "https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/business-development-manager-de-int-mwd-fmcg-100/ce1cfb41-547c-40cc-969d-d7156fe50d6e",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/luchingerschmid/fachspezialist-demand-supply-planer/cb6d58bd-6dc6-484f-9890-0b2e8575aa4c",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/projektleiterin-grossprojekte/698dab8d-1703-46cc-838b-c33ed9a3931d",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0663be85-be66-49ec-9221-1638b39d0397",
@@ -811,7 +812,6 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/fitness-instructor-wmd/56ad43d1-3e1c-4fba-a542-ca397c667741",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/fitness-instructor-wmd-quereinsteigerin/058e1621-0b4d-408d-82ca-6c618fd1429d",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/b9bafbcc-9566-4874-a7a9-c76273594837",
-    "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/1aca9f29-cfeb-4b8c-b52c-0126c7126a21",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/mitarbeiterin-wochenenddienst-im-stundenlohn/61622150-4c18-4ca2-a683-bb8ab873c97e",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-verkaufmagazin/633a04e4-ff14-49e9-a0f0-da835f08b83d",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/fd9288e4-a071-4782-91c2-859c3b052ad4",
@@ -840,7 +840,6 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/fachverkauferin-fleischfisch/7eedb47f-9e0a-4e46-970d-2b8ffca8c688",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/66a0ecf5-eda8-4f03-8ee8-96a04804d7cc",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/759082d5-7245-4f67-bb84-52b845bda553",
-    "https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/mitarbeiterin-empfang/0d500fbd-a693-443b-9daf-7a8e6c7a3b06",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/koch-mwd-als-anlagenfuhrerin/cdc2639d-1bbc-451e-aeba-be7887201b23",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin/bc74401d-de14-4cc2-bf12-a35ae1ff8d6f",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-gastronomie/8d075674-09fa-4f3f-af3f-e4ea57c4f78d",
@@ -1169,5 +1168,5 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-im-stundenlohn/61c2d836-de48-4038-8678-1ac9faa2e2a2"
   ],
   "notes": "Nuxt.js SSR careers portal — detail URLs scraped from listing pages, each page has rich HTML content.",
-  "updatedAt": "2026-07-10T12:06:56.441Z"
+  "updatedAt": "2026-07-10T12:49:24.563Z"
 }
