@@ -1,18 +1,19 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-07-09T12:27:38.075Z",
+  "generatedAt": "2026-07-10T13:26:41.324Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6743,
-  "avgDurationMs": 6743,
+  "durationMs": 5883,
+  "avgDurationMs": 5883,
   "durationHistory": [
-    6743
+    5883
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ricola-6e3762cab55f",
       "slug": "head-of-health-safety-80-ricola-ch",
@@ -20,13 +21,13 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Health & Safety 80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:34.476Z",
+      "crawledAt": "2026-07-10T13:26:39.002Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-09T12:27:34.476Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "ricola-7fb8ab2c71cb",
       "slug": "area-sales-manager-region-zurich-ricola-ch",
@@ -65,7 +65,7 @@
       "url": "https://career.ricola.com/Vacancies/1057/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:34.927Z",
+      "crawledAt": "2026-07-10T13:26:39.432Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -103,7 +103,7 @@
       "url": "https://career.ricola.com/Vacancies/1048/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:27:35.337Z",
+      "crawledAt": "2026-07-10T13:26:39.845Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",

@@ -1,16 +1,17 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-07-10T12:42:25.080Z",
+  "generatedAt": "2026-07-10T13:27:18.754Z",
   "total": 39,
   "newCount": 2,
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 22,
-  "durationMs": 62686,
-  "avgDurationMs": 62686,
+  "durationMs": 94523,
+  "avgDurationMs": 94523,
   "durationHistory": [
-    62686
+    62686,
+    94523
   ],
   "newJobs": [
     {
@@ -34,8 +35,8 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-10T12:42:22.236Z",
-      "firstSeenAt": "2026-07-10T12:42:22.236Z",
+      "crawledAt": "2026-07-10T13:27:16.778Z",
+      "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "sourceLang": "de",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -66,8 +67,8 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-10T12:42:22.236Z",
-      "firstSeenAt": "2026-07-10T12:42:22.236Z",
+      "crawledAt": "2026-07-10T13:27:16.778Z",
+      "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "_qualityScore": 77,
