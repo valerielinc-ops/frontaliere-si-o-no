@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "en": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "de": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "fr": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+        "en": "team-leader-industrial-infrastructures-railway-power-lines-pemsa-lausanne",
+        "de": "teamleiter-industrielle-infrastruktur-eisenbahn-stromleitungen-pemsa-lausanne",
+        "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-lausanne"
       },
       "id": "pemsa-df3945aed495",
       "salaryMin": 83500,
@@ -96,9 +96,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "en": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "de": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
-        "fr": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
+        "en": "versatile-electromechanical-technician-agricultural-and-green-care-machines-pemsa-lausanne",
+        "de": "vielseitiger-elektromechaniker-landmaschinen-und-grunpflegegerate-pemsa-lausanne",
+        "fr": "technicien-electromecanicien-polyvalent-machines-agricoles-et-de-jardinage-pemsa-lausanne"
       },
       "id": "pemsa-5d275ac9ca5a",
       "salaryMin": 60500,
@@ -153,9 +153,9 @@
       },
       "slugByLocale": {
         "it": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "en": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "de": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne",
-        "fr": "installatore-elettricista-afc-riparazioni-assistenza-post-vendita-pemsa-lausanne"
+        "en": "electrician-installer-afc-repairs-after-sales-support-pemsa-lausanne",
+        "de": "elektroinstallateur-afc-reparaturen-after-sales-service-pemsa-lausanne",
+        "fr": "installateur-electricien-afc-reparations-service-apres-vente-pemsa-lausanne"
       },
       "id": "pemsa-ecf76a3ff270",
       "salaryMin": 60500,
@@ -381,9 +381,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-afc-pemsa-lausanne",
-        "en": "lattoniere-afc-pemsa-lausanne",
-        "de": "lattoniere-afc-pemsa-lausanne",
-        "fr": "lattoniere-afc-pemsa-lausanne"
+        "en": "roofing-installer-afc-pemsa-lausanne",
+        "de": "dachdecker-afc-pemsa-lausanne",
+        "fr": "couvreur-afc-pemsa-lausanne"
       },
       "id": "pemsa-eabf5a2447df",
       "salaryMin": 60500,
@@ -609,9 +609,9 @@
       },
       "slugByLocale": {
         "it": "operaio-addetto-alla-demolizione-pemsa-geneve",
-        "en": "operaio-addetto-alla-demolizione-pemsa-geneve",
-        "de": "operaio-addetto-alla-demolizione-pemsa-geneve",
-        "fr": "operaio-addetto-alla-demolizione-pemsa-geneve"
+        "en": "demolition-worker-pemsa-geneve",
+        "de": "abrissarbeiter-pemsa-geneve",
+        "fr": "ouvrier-en-demolition-pemsa-geneve"
       },
       "id": "pemsa-a9bf56ee6388",
       "salaryMin": 60500,
@@ -5140,10 +5140,7 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0,
-      "previousSlugs": [
-        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
