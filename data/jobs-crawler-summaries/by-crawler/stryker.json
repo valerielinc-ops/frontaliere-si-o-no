@@ -1,16 +1,16 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-07-10T12:38:50.599Z",
-  "total": 9,
+  "generatedAt": "2026-07-10T22:45:27.517Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9638,
-  "avgDurationMs": 9638,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8771,
+  "avgDurationMs": 8771,
   "durationHistory": [
-    9638
+    8771
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:43.340Z",
+      "crawledAt": "2026-07-10T22:45:20.130Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R568814",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:44.105Z",
+      "crawledAt": "2026-07-10T22:45:20.827Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regional-Sales-Manager--m-w-d--Endoscopy-Schweiz_R567199-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:45.710Z",
+      "crawledAt": "2026-07-10T22:45:22.326Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Vienna-Austria/Regional-Sales-Manager--Peripheral-Vascular---Switzerland---Austria_R567401",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:38:44.939Z",
+      "crawledAt": "2026-07-10T22:45:21.546Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Senior-Staff-Microbiologist_R566460",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:38:46.526Z",
+      "crawledAt": "2026-07-10T22:45:23.035Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R565378",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:47.261Z",
+      "crawledAt": "2026-07-10T22:45:23.720Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:48.008Z",
+      "crawledAt": "2026-07-10T22:45:24.442Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:38:48.766Z",
+      "crawledAt": "2026-07-10T22:45:25.160Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stryker-f58e3d5b8260",
       "slug": "istruzione-commerciale-m-f-d-stryker-selzach",
@@ -352,5 +351,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
