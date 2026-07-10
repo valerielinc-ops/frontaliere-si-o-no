@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-07-10T10:43:09.691Z",
+  "generatedAt": "2026-07-10T11:36:48.402Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4796,
-  "avgDurationMs": 4796,
+  "durationMs": 4641,
+  "avgDurationMs": 4641,
   "durationHistory": [
-    4796
+    4641
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -191,6 +192,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -302,6 +304,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
