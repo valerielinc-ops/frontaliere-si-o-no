@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-10T12:28:18.256Z",
+  "assembledAt": "2026-07-10T22:55:42.983Z",
   "jobs": [
     {
       "id": "postauto-bf2947cb041f",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74080-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:15.875Z",
+      "crawledAt": "2026-07-10T22:55:40.713Z",
       "addressLocality": "Engelburg",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -115,7 +115,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:14.937Z",
+      "crawledAt": "2026-07-10T22:55:39.540Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -191,7 +191,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:13.996Z",
+      "crawledAt": "2026-07-10T22:55:38.259Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -224,6 +224,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:36.090Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -268,7 +269,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:12.974Z",
+      "crawledAt": "2026-07-10T22:55:36.957Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -312,6 +313,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -356,7 +358,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:12.049Z",
+      "crawledAt": "2026-07-10T22:55:35.682Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -392,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -436,7 +439,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:11.096Z",
+      "crawledAt": "2026-07-10T22:55:34.485Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -524,7 +527,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:10.171Z",
+      "crawledAt": "2026-07-10T22:55:33.299Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -612,7 +615,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:09.222Z",
+      "crawledAt": "2026-07-10T22:55:32.132Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -688,7 +691,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:08.279Z",
+      "crawledAt": "2026-07-10T22:55:30.802Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -776,7 +779,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:07.371Z",
+      "crawledAt": "2026-07-10T22:55:29.497Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -869,7 +872,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:06.461Z",
+      "crawledAt": "2026-07-10T22:55:28.337Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -951,7 +954,7 @@
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:05.366Z",
+      "crawledAt": "2026-07-10T22:55:27.114Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1033,7 +1036,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:04.431Z",
+      "crawledAt": "2026-07-10T22:55:25.761Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1115,7 +1118,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:03.491Z",
+      "crawledAt": "2026-07-10T22:55:24.599Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1151,6 +1154,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1195,7 +1199,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:02.543Z",
+      "crawledAt": "2026-07-10T22:55:23.323Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1277,7 +1281,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:01.547Z",
+      "crawledAt": "2026-07-10T22:55:22.143Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1359,7 +1363,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:28:00.592Z",
+      "crawledAt": "2026-07-10T22:55:20.960Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1441,7 +1445,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:59.555Z",
+      "crawledAt": "2026-07-10T22:55:19.779Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1523,7 +1527,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:58.324Z",
+      "crawledAt": "2026-07-10T22:55:18.611Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1605,7 +1609,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:57.272Z",
+      "crawledAt": "2026-07-10T22:55:17.240Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1655,84 +1659,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "postauto-0958e71f5451",
-      "slug": "postbus-driver-in-postauto-hausen-am-albis",
-      "slugByLocale": {
-        "it": "postbus-driver-in-postauto-hausen-am-albis",
-        "en": "postauto-fahrer-in-post",
-        "de": "postauto-fahrer-in-postauto-wilderswil",
-        "fr": "pilote-postbus-in-postauto-hausen-am-albis"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "PostBus driver:in",
-        "en": "PostBus driver",
-        "de": "PostAuto-Fahrer:in",
-        "fr": "Chauffeur PostBus"
-      },
-      "description": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n-\n\nAuf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\nDu bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\nDer tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\nAls Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\nDu verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\nFür diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\nZuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\nDu verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-      "descriptionByLocale": {
-        "it": "Ti piace incontrare nuove persone ogni giorno e vuoi lavorare in modo indipendente? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione. Puoi farlo. - Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica. Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari. Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti. Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno. Lo porti con te. Hai la pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e festivi) portare con loro. Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido. Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza. Hai una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
-        "en": "Description Do you love meeting new people every day and want to work independently? Then we're looking for you, because with you at the wheel, our passengers reach their destination safely and on time. Mansioni - - On our varied regional lines you take our passengers to their destination from Monday to Sunday. - You are the host in our post buses and advise our customers on tariff and timetable questions. - Daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers. - As a driver, you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n• Requisiti - You have driving experience in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them. - For this position you need a category D driving license and a valid driver qualification certificate. - Reliability and enjoyment of daily customer contact are among your strengths. - You have very good knowledge of German and are adept at using digital devices.",
-        "de": "Liebst du es, jeden Tag neue Menschen zu treffen und möchtest eigenverantwortlich arbeiten? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel. Das kannst du bewirken - Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel. - Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen. - Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft. - Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen. Das bringst du mit - Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen. - Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis. - Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken. - Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-        "fr": "Description Vous aimez rencontrer de nouvelles personnes chaque jour et souhaitez travailler de manière indépendante ? Alors nous recherchons pour vous, car avec vous au volant, nos passagers arrivent à destination en toute sécurité et à temps. Mansioni - - Sur nos diverses lignes régionales, vous emmenez nos passagers à destination du lundi au dimanche. - Vous êtes l'hôte de nos car postaux et conseillez nos clients sur les questions de tarifs et d'horaires. - Le contact quotidien avec vos passagers enrichit votre quotidien de rencontres passionnantes et vous créez des expériences positives pour nos clients. - En tant que conducteur, vous déplacez bien plus que votre véhicule sur la route. En contact direct avec le client, vous vivez chaque jour des situations nouvelles et variées.\n• Requisiti - Vous avez une expérience de conduite dans le transport de personnes et appréciez la variété qu'apportent les horaires de travail irréguliers (y compris les dimanches et jours fériés). - Pour ce poste, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide. - La fiabilité et le plaisir du contact client quotidien font partie de vos points forts. - Vous avez une très bonne connaissance de l'allemand et maîtrisez l'utilisation des appareils numériques."
-      },
-      "location": "Hausen am Albis",
-      "canton": "ZH",
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74077-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:19:39.051Z",
-      "addressLocality": "Hausen am Albis",
-      "addressRegion": "ZH",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "validThrough": "2026-07-14",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74077-de_DE",
-      "jobReqId": "74077",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "postauto-fahrer-in-postauto-hausen-am-albis"
-        ],
-        "it": [
-          "postauto-fahrer-in-postauto-hausen-am-albis"
-        ]
-      },
-      "previousSlugs": [
-        "postauto-fahrer-in-postauto-hausen-am-albis"
-      ],
-      "firstSeenAt": "2026-07-04T11:33:39.026Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
