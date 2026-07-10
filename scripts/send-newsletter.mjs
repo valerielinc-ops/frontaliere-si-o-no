@@ -1953,6 +1953,40 @@ async function main() {
     subscribers = await fetchSubscribers();
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
 
+    // ── Job-alert cooldown (symmetric to the 36h newsletter cooldown in
+    // send-job-alerts.mjs:NEWSLETTER_COOLDOWN_MS): skip subscribers who
+    // received a job alert in the last 36h, so nobody gets two automated
+    // emails within the same ~1.5-day window. Reads job_alert_subscribers/
+    // {email}.last_sent_at, written by send-job-alerts.mjs after each send.
+    // SKIP_JOB_ALERT_COOLDOWN=1 bypasses this (manual/test sends).
+    const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
+    if (JOB_ALERT_COOLDOWN_MS > 0 && db) {
+      const nowMs = Date.now();
+      const cooldownSet = new Set();
+      const emails = [...new Set(subscribers.map((s) => normalizeEmail(s.email)).filter(Boolean))];
+      const LOOKUP_CHUNK_SIZE = 200;
+      for (let i = 0; i < emails.length; i += LOOKUP_CHUNK_SIZE) {
+        const chunk = emails.slice(i, i + LOOKUP_CHUNK_SIZE);
+        try {
+          const refs = chunk.map((email) => db.collection('job_alert_subscribers').doc(email));
+          const snaps = await db.getAll(...refs);
+          snaps.forEach((snap, idx) => {
+            if (!snap.exists) return;
+            const lastSentAt = snap.data()?.last_sent_at;
+            if (!lastSentAt) return;
+            const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
+            if (nowMs - ts < JOB_ALERT_COOLDOWN_MS) cooldownSet.add(chunk[idx]);
+          });
+        } catch (e) {
+          console.warn(`\u26a0\ufe0f  Job-alert cooldown lookup failed for ${chunk.length} email(s): ${e?.message || e}`);
+        }
+      }
+      if (cooldownSet.size > 0) {
+        const before = subscribers.length;
+        subscribers = subscribers.filter((s) => !cooldownSet.has(normalizeEmail(s.email)));
+        console.log(`\ud83d\udce8 Job-alert cooldown (36h): ${before - subscribers.length} subscriber(s) deferred (job alert sent recently)`);
+      }
+    }
     // ── Digest targeting ──
     // Design decision: By default, ALL subscribers receive the weekly Monday digest.
     // The subscriber `type` field (e.g., 'weekly_digest', 'general') is informational
