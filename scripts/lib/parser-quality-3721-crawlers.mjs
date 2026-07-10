@@ -51,4 +51,11 @@ export const TARGET_KEYS = new Set([
   'ferrovia-retica',
   'helsana',
   'postauto',
+  // 2026-07-10 (#3836): NEW-OFFENDER set from the no-structure ratchet. Their
+  // source-language `description` still has bullets but every byLocale slot was
+  // flattened by the (now fixed) mergeLocaleTextMap normalizeSpace defect —
+  // invisible to the original byLocale-only structure-evidence scan.
+  'idorsia',
+  'interdiscount',
+  'spitaeler-schaffhausen',
 ]);
