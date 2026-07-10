@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bethesda-spital",
-  "assembledAt": "2026-07-10T13:07:58.714Z",
+  "assembledAt": "2026-07-10T22:25:51.814Z",
   "jobs": [
     {
       "id": "bethesda-spital-baf39e2a8c2a",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/408/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:56.981Z",
+      "crawledAt": "2026-07-10T22:25:49.785Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel"
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel",
+        "formazione-professionale-in-tecnologia-chirurgica-nel-carico-di-lavoro-desiderato-80-100-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel"
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel",
+          "formazione-professionale-in-tecnologia-chirurgica-nel-carico-di-lavoro-desiderato-80-100-bethesda-spital-basel"
         ],
         "en": [
           "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel"
@@ -81,11 +83,11 @@
     },
     {
       "id": "bethesda-spital-a406627be192",
-      "slug": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-bethesda-spital-basel",
+      "slug": "praktikantin-di-psicologia-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "it": "praktikantin-di-psicologia-klinik-sonnenhalde-riehen",
         "en": "psychology-practitioner-klinik-sonnenhalde-riehen",
-        "de": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-bethesda-spital-basel",
+        "de": "psychologiepraktikantin-klinik-sonnenhalde-riehen",
         "fr": "diplome-expert-expert-soins-d-anesthesie-hf-dans-la-gamme-souhaitee-40-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
@@ -105,13 +107,13 @@
         "de": "Bethesda Spital AG | online seit : 29.08.2025 Als erfolgreiche Basler Klinik mit privat Charakter kombiniert das Bethesda Spital Spitzenmedizin mit erstklassigem Service und einem einzigartigen Wohlfühlambiente. Mit den fünf Fokusthemen Frauenmedizin, Schwangerschaft & Geburt, Bewegungsapparat und Rehabilitation sowie Palliative Care profitieren unsere jährlich 6000 stationären Patientinnen und Patienten von modernsten Behandlungszentren unter einem Dach – und das mitten in einem der schönsten Spitalparks der Nordwestschweiz. Für unser Team der Anästhesiepflege suchen wir per sofort oder nach Vereinbarung eine/n Dipl. Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%\n• Ihre Aufgaben\n\n• Selbständige Durchführung von Allgemeinanästhesien in fachärztlicher Betreuung\n\nSie bringen mit\n\n• Abgeschlossenes Nachdiplomstudium zur/zum Dipl. Expertin/Experte Anästhesiepflege NDS HF und idealerweise Berufserfahrung in der Anästhesiepflege\n\nWir bieten\n\nHier kommen Sie zu den Anstellungsbedingungen bei Bethesda\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Bethesda Spital AG en ligne depuis 29.08.2025 En tant que clinique bâloise à succès à caractère privé, la Bethesda Spital combine la médecine de haut niveau avec un service de première classe et une atmosphère unique. Avec les cinq thèmes principaux de la médecine féminine, de la grossesse et de l'accouchement, du système musculo-squelettique et de la réadaptation ainsi que des soins palliatifs, nos 6 000 malades bénéficient chaque année de centres de traitement de pointe sous un même toit, au milieu de l'un des plus beaux parcs hospitaliers du nord-ouest de la Suisse. Pour notre équipe de soins d'anesthésie, nous cherchons un Dipl immédiatement ou sur rendez-vous. Expert / Expert soins anesthésiques HF dans la gamme souhaitée 40-100 %\n• Leurs tâches\n• Performance indépendante de l'anesthésie générale sous supervision spécialisée Ils apportent avec eux\n• Études supérieures terminées pour / pour le Dipl. Soins d'anesthésie experts NDS HF et une expérience idéalement professionnelle en soins d'anesthésie Nous offrons Ici vous venez aux conditions d'emploi à Bethesda\n• Domaine: soins\n• Type: Temps plein\n• Terme temporaire : illimité"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/343/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:56.105Z",
+      "crawledAt": "2026-07-10T22:25:49.061Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -128,7 +130,18 @@
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/343/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-bethesda-spital-basel"
+        ],
+        "de": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-bethesda-spital-basel"
+        ]
+      },
       "firstSeenAt": "2026-06-29T12:44:29.744Z",
+      "previousSlugs": [
+        "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-bethesda-spital-basel"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -140,11 +153,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": []
-      },
-      "previousSlugs": []
+      }
     },
     {
       "id": "bethesda-spital-3c5bfaadb012",
@@ -178,7 +187,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/328/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:55.235Z",
+      "crawledAt": "2026-07-10T22:25:48.443Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -249,7 +258,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/390/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:54.377Z",
+      "crawledAt": "2026-07-10T22:25:47.775Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -276,6 +285,16 @@
           "Formation terminée en tant que spécialiste en radiologie dipl."
         ]
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel",
+          "tecnico-di-radiologia-dipl-60-bethesda-spital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel",
+        "tecnico-di-radiologia-dipl-60-bethesda-spital-basel"
+      ],
       "firstSeenAt": "2026-05-19T10:23:25.752Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -288,13 +307,7 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [],
-        "it": [],
-        "fr": []
-      },
-      "previousSlugs": []
+      }
     },
     {
       "id": "bethesda-spital-f45b429950e8",
@@ -328,7 +341,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/415/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:53.444Z",
+      "crawledAt": "2026-07-10T22:25:47.142Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -356,11 +369,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel"
+        "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel",
+        "primario-a-di-clinica-ostetrica-e-ginecologica-60-100-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel"
+          "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel",
+          "primario-a-di-clinica-ostetrica-e-ginecologica-60-100-bethesda-spital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:24.993Z",
@@ -379,11 +394,11 @@
     },
     {
       "id": "bethesda-spital-804294b376ee",
-      "slug": "insegnante-di-formazione-professionale-in-anestesia-80-100-bethesda-spital-basel",
+      "slug": "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "it": "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
         "en": "patient-management-billing-coordinator-klinik-sonnenhalde-riehen",
-        "de": "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel",
+        "de": "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
         "fr": "coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen"
       },
       "company": "Bethesda Spital",
@@ -409,7 +424,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/393/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:52.559Z",
+      "crawledAt": "2026-07-10T22:25:46.500Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -436,6 +451,27 @@
           "NDS en soins anesthésie complété"
         ]
       },
+      "previousSlugs": [
+        "anesthesia-nursing-trainer-80-100-bethesda-spital-basel",
+        "formateur-trice-en-soins-anesthesie-80-100-bethesda-spital-basel",
+        "insegnante-di-formazione-professionale-in-anestesia-80-100-bethesda-spital-basel",
+        "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "anesthesia-nursing-trainer-80-100-bethesda-spital-basel"
+        ],
+        "fr": [
+          "formateur-trice-en-soins-anesthesie-80-100-bethesda-spital-basel"
+        ],
+        "it": [
+          "insegnante-di-formazione-professionale-in-anestesia-80-100-bethesda-spital-basel",
+          "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel"
+        ],
+        "de": [
+          "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel"
+        ]
+      },
       "firstSeenAt": "2026-05-19T10:23:21.992Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -448,20 +484,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [],
-        "en": [
-          "anesthesia-nursing-trainer-80-100-bethesda-spital-basel"
-        ],
-        "fr": [
-          "formateur-trice-en-soins-anesthesie-80-100-bethesda-spital-basel"
-        ]
-      },
-      "previousSlugs": [
-        "anesthesia-nursing-trainer-80-100-bethesda-spital-basel",
-        "formateur-trice-en-soins-anesthesie-80-100-bethesda-spital-basel"
-      ]
+      }
     },
     {
       "id": "bethesda-spital-6e56d84858d3",
@@ -495,7 +518,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/426/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:51.694Z",
+      "crawledAt": "2026-07-10T22:25:45.683Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -513,11 +536,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-notfallmedizin-60-80-bethesda-spital-basel"
+        "oberarztin-oberarzt-notfallmedizin-60-80-bethesda-spital-basel",
+        "medico-medica-d-emergenza-60-80-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-notfallmedizin-60-80-bethesda-spital-basel"
+          "oberarztin-oberarzt-notfallmedizin-60-80-bethesda-spital-basel",
+          "medico-medica-d-emergenza-60-80-bethesda-spital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:20.493Z",
@@ -566,7 +591,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/450/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:50.847Z",
+      "crawledAt": "2026-07-10T22:25:44.866Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -584,11 +609,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "urotherapeut-in-60-80-bethesda-spital-basel"
+        "urotherapeut-in-60-80-bethesda-spital-basel",
+        "uroterapista-60-80-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "urotherapeut-in-60-80-bethesda-spital-basel"
+          "urotherapeut-in-60-80-bethesda-spital-basel",
+          "uroterapista-60-80-bethesda-spital-basel"
         ],
         "en": [
           "urotherapeut-in-60-80-bethesda-spital-basel"
@@ -617,7 +644,7 @@
       "slugByLocale": {
         "it": "infermiera-hf-fh-70-100-bethesda-spital-basel",
         "en": "dipl-nurse-hf-fh-70-100-bethesda-spital-basel",
-        "de": "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
+        "de": "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
         "fr": "infirmiere-diplomee-hf-fh-70-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
@@ -643,7 +670,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/451/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:49.906Z",
+      "crawledAt": "2026-07-10T22:25:44.038Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -661,14 +688,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "kmu-supporter-in-im-aussendienst-w-m-d-80-100"
+        "de": [
+          "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
+          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
+          "infermiera-hf-fh-70-100-bethesda-spital-basel"
         ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+        "en": [
+          "kmu-supporter-in-im-aussendienst-w-m-d-80-100"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
@@ -676,7 +705,8 @@
       },
       "previousSlugs": [
         "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
-        "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+        "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
+        "infermiera-hf-fh-70-100-bethesda-spital-basel"
       ],
       "firstSeenAt": "2026-06-17T22:14:37.769Z",
       "salaryMin": 62000,
@@ -724,7 +754,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/377/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:49.012Z",
+      "crawledAt": "2026-07-10T22:25:43.205Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -742,11 +772,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel"
+        "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel",
+        "observice-observice-radiology-80-100-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel"
+          "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel",
+          "observice-observice-radiology-80-100-bethesda-spital-basel"
         ],
         "en": [
           "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel"
