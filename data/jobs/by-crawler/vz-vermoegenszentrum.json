@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-865b8fcb7f9c",
-      "slug": "dipendenti-in-accounting-pension-foundations-80-100-vz-vermogenszentrum-zurich-zurich",
+      "slug": "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch",
       "slugByLocale": {
         "de": "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch",
-        "it": "dipendenti-in-accounting-pension-foundations-80-100-vz-vermogenszentrum-zurich-zurich",
-        "en": "employee-in-accounting-pension-foundations-80-100-vz-vermogenszentrum-zurich-zurich",
-        "fr": "employe-en-fondations-comptables-de-retraite-80-100-vz-vermogenszentrum-zurich-zurich"
+        "it": "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch",
+        "en": "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch",
+        "fr": "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -65,21 +65,7 @@
           "• IT-Affinität und versierter Umgang mit MS Excel",
           "• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten"
         ]
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-accounting-vorsorgestiftungen-80-100-vz-vermoegenszentrum-ch"
-      ]
+      }
     },
     {
       "id": "vz-vermoegenszentrum-90f1d58108f5",
@@ -1216,12 +1202,16 @@
       },
       "previousSlugs": [
         "teamleiter-in-hr-administration-90-100-vz-vermoegenszentrum-ch",
-        "teamleiter-in-hr-administration-90-100-vz-vermogenszentrum-zurich"
+        "leiter-in-hr-administration-90-100-vz-vermoegenszentrum-ch",
+        "teamleiter-in-hr-administration-90-100-vz-vermogenszentrum-zurich",
+        "responsabile-risorse-umane-administration-90-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-hr-administration-90-100-vz-vermoegenszentrum-ch",
-          "teamleiter-in-hr-administration-90-100-vz-vermogenszentrum-zurich"
+          "leiter-in-hr-administration-90-100-vz-vermoegenszentrum-ch",
+          "teamleiter-in-hr-administration-90-100-vz-vermogenszentrum-zurich",
+          "responsabile-risorse-umane-administration-90-100-vz-vermogenszentrum-zurich-zurich"
         ],
         "de": [
           "teamleiter-in-hr-administration-90-100-vz-vermoegenszentrum-ch"
