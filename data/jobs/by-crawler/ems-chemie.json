@@ -1,5 +1,823 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-07-06T22:17:56.740Z",
-  "jobs": []
+  "assembledAt": "2026-07-10T10:23:20.076Z",
+  "jobs": [
+    {
+      "title": "Sachbearbeiter Rechnungswesen (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-rechnungswesen-m-w-d/1565d92a-3b00-482a-a679-5f14c0dc7b4b",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Sachbearbeiter Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+        "en": "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+        "de": "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Sachbearbeiter Rechnungswesen (m/w/d) 100%",
+        "en": "Sachbearbeiter Rechnungswesen (m/w/d) 100%",
+        "de": "Sachbearbeiter Rechnungswesen (m/w/d) 100%",
+        "fr": "Sachbearbeiter Rechnungswesen (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Sachbearbeiter Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Sachbearbeiter Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Sachbearbeiter Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Sachbearbeiter Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-a825ea5f83c7",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/produktentwickler-entwicklungschemiker-m-w-d/2ac400e4-fa37-4933-ad92-d82368085102",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Produktentwickler / Entwicklungschemiker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "produktentwickler-entwicklungschemiker-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "produktentwickler-entwicklungschemiker-m-w-d-100-ems-chemie-domat-ems",
+        "en": "produktentwickler-entwicklungschemiker-m-w-d-100-ems-chemie-domat-ems",
+        "de": "produktentwickler-entwicklungschemiker-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "produktentwickler-entwicklungschemiker-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
+        "en": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
+        "de": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
+        "fr": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Produktentwickler / Entwicklungschemiker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Produktentwickler / Entwicklungschemiker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Produktentwickler / Entwicklungschemiker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Produktentwickler / Entwicklungschemiker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-ad43af925f9f",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Area Sales Manager (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/area-sales-manager-m-w-d/9df1e07e-0005-43f8-9656-9f55cbbf18f2",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Area Sales Manager (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
+        "en": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
+        "de": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Area Sales Manager (m/w/d) 100%",
+        "en": "Area Sales Manager (m/w/d) 100%",
+        "de": "Area Sales Manager (m/w/d) 100%",
+        "fr": "Area Sales Manager (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Area Sales Manager (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Area Sales Manager (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Area Sales Manager (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Area Sales Manager (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-eff2a961b369",
+      "sourceLang": "it",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/automatiker-elektriker-in-im-schichtdienst-m-w-d/cb62c8c1-84de-4b18-9b0c-b12f0dbd4f68",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "automatiker-elektriker-in-im-schichtdienst-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "automatiker-elektriker-in-im-schichtdienst-m-w-d-100-ems-chemie-domat-ems",
+        "en": "automatiker-elektriker-in-im-schichtdienst-m-w-d-100-ems-chemie-domat-ems",
+        "de": "automatiker-elektriker-in-im-schichtdienst-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "automatiker-elektriker-in-im-schichtdienst-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
+        "en": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
+        "de": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
+        "fr": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-238bf4e69d28",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3048b298-75b3-4031-aa8a-1e647929eda3",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+        "en": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+        "de": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
+        "en": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
+        "de": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
+        "fr": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-a43762181457",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Mitarbeiter Umweltschutz (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/mitarbeiter-umweltschutz-m-w-d/14dd26a7-006c-4064-a468-64edd9e5ebe8",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Mitarbeiter Umweltschutz (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "collaboratore-trice-umweltschutz-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slugByLocale": {
+        "it": "collaboratore-trice-umweltschutz-m-w-d-100-ems-chemie-ag-domat-ems",
+        "en": "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems",
+        "de": "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice Umweltschutz (m/w/d) 100%",
+        "en": "Mitarbeiter Umweltschutz (m/w/d) 100%",
+        "de": "Mitarbeiter Umweltschutz (m/w/d) 100%",
+        "fr": "Mitarbeiter Umweltschutz (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "descriptionByLocale": {
+        "it": "Mitarbeiter Umweltschutz (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Mitarbeiter Umweltschutz (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Mitarbeiter Umweltschutz (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Mitarbeiter Umweltschutz (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-87d3965eaa11",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/verfahrensingenieur-spritzgiessen-m-w-d/ac7732a2-6d62-4854-afbe-35ce8d138402",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Verfahrensingenieur Spritzgiessen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "verfahrensingenieur-spritzgiessen-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "verfahrensingenieur-spritzgiessen-m-w-d-100-ems-chemie-domat-ems",
+        "en": "verfahrensingenieur-spritzgiessen-m-w-d-100-ems-chemie-domat-ems",
+        "de": "verfahrensingenieur-spritzgiessen-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "verfahrensingenieur-spritzgiessen-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%",
+        "en": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%",
+        "de": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%",
+        "fr": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Verfahrensingenieur Spritzgiessen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Verfahrensingenieur Spritzgiessen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Verfahrensingenieur Spritzgiessen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Verfahrensingenieur Spritzgiessen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-c612fb14b671",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Polymechaniker (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/41e571d7-dc70-4cf2-b56a-22c2e4023a56",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Polymechaniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+        "en": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+        "de": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "polymecaniker-m-p-j-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Polymechaniker (m/w/d) 100%",
+        "en": "Polymechaniker (m/w/d) 100%",
+        "de": "Polymechaniker (m/w/d) 100%",
+        "fr": "Polymechaniker (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Polymechaniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Polymechaniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Polymechaniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Polymechaniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-649743f67c19",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/186c6e44-8af1-426a-aefd-929b5de8c0e1",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slugByLocale": {
+        "it": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
+        "en": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+        "de": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "projektleiter-kunstoffanwendungen-industrie-et-soins-de-sante-m-m-j-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+        "en": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+        "fr": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "fr": [
+          "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "de": [
+          "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "descriptionByLocale": {
+        "it": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-a010b43d8138",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/ddd72e1b-2b75-4ae8-b14e-9eeb26f2f36b",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slugByLocale": {
+        "it": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+        "en": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+        "de": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "projektleiter-kunstoffanwendungen-automobile-m-m-j-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+        "en": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+        "fr": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "fr": [
+          "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "descriptionByLocale": {
+        "it": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-f431a86f7cb1",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/45377eb3-090f-4e6d-a351-14f55daecaba",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "sap-modulbetreuer-sd-wm-ewm-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "sap-modulbetreuer-sd-wm-ewm-m-w-d-100-ems-chemie-domat-ems",
+        "en": "sap-module-manager-sd-wm-ewm-m-f-d-100-ems-chemie-ag-domat-ems",
+        "de": "sap-modulbetreuer-sd-wm-ewm-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "responsable-de-module-sap-sd-wm-ewm-h-f-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
+        "en": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
+        "de": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
+        "fr": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-2d147fb30a1b",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwickler-produktion-m-w-d/28830f7d-044a-4ca9-9967-d69a928f7e34",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "prozessingenieur-betriebsentwickler-produktion-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "prozessingenieur-betriebsentwickler-produktion-m-w-d-100-ems-chemie-domat-ems",
+        "en": "prozessingenieur-betriebsentwickler-produktion-m-w-d-100-ems-chemie-domat-ems",
+        "de": "prozessingenieur-betriebsingenieure-m-w-d-100-ems-chemie-ag-domat-ems",
+        "fr": "ingenieur-de-processus-ingenieur-de-developpement-de-production-h-f-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
+        "en": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
+        "de": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
+        "fr": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-678f7d553841",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "IT System Engineer (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/it-system-engineer-m-w-d/f61dd9e2-3c5e-48f7-a37e-3a431ca35ebc",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "IT System Engineer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
+        "en": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
+        "de": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "system-engineer-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "IT System Ingegnere (m/w/d) 100%",
+        "en": "IT System Engineer (m/w/d) 100%",
+        "de": "IT System Ingenieur (m/w/d) 100%",
+        "fr": "IT System Ingénieur (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "IT System Engineer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "IT System Engineer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "IT System Engineer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "IT System Engineer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-61df69a39251",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    },
+    {
+      "title": "Raumpfleger (m/w/d) 20%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/0dee34f0-b9d3-4a4e-8702-cb265ebf8e11",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-10",
+      "source": "company-website",
+      "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "en": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "de": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "fr": "raumpfleger-m-w-d-20-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Raumpfleger (m/w/d) 20%",
+        "en": "Raumpfleger (m/w/d) 20%",
+        "de": "Raumpfleger (m/w/d) 20%",
+        "fr": "Raumpfleger (m/w/d) 20%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-ed7f346f25fd",
+      "sourceLang": "it",
+      "salaryMin": 11500,
+      "salaryMax": 17400,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 11500,
+          "maxValue": 17400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+    }
+  ]
 }
