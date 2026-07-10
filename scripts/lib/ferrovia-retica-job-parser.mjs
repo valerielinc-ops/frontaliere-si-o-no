@@ -14,8 +14,8 @@
  *   - Employment type, percentage
  *   - Link to detail page
  *
- * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace,
- *          isGrigioniItalianoJob
+ * Exports: parseListingPage, parseDetailPage, buildJob, sourceLangFromUrl,
+ *          stripHtml, normalizeSpace, isGrigioniItalianoJob
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -329,6 +329,20 @@ export function buildFallbackDescription(title, location, percentage) {
 
 /* ── Job builder ───────────────────────────────────────────── */
 
+const URL_LOCALE_RE = /\/(it|de|en|fr)\/job\//i;
+
+/**
+ * RhB publishes job detail pages at distinct per-locale URLs
+ * (`/it/job/...`, `/de/job/...`, `/en/job/...`, `/fr/job/...`). The crawled
+ * URL's locale segment tells us which language the extracted description
+ * actually is in — default to 'de' only when the URL carries no locale
+ * segment (e.g. a Pattern-1/3 listing fallback).
+ */
+export function sourceLangFromUrl(url = '') {
+  const match = String(url || '').match(URL_LOCALE_RE);
+  return match ? match[1].toLowerCase() : 'de';
+}
+
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
 
@@ -357,6 +371,7 @@ export function buildJob(raw) {
   // "Ferrovia Retica (RhB)" slugifies to "ferrovia-retica-rhb" — this matches the
   // stable form that hardenJobLocaleFields produces from the company name.
   const baseSlug = slugify(`${title}-ferrovia-retica-rhb-${location}`);
+  const sourceLang = sourceLangFromUrl(raw.url);
 
   return {
     title,
@@ -373,10 +388,10 @@ export function buildJob(raw) {
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
-    sourceLang: 'de',
+    sourceLang,
     slug: baseSlug,
     slugByLocale: { it: baseSlug, en: baseSlug, de: baseSlug, fr: baseSlug },
-    titleByLocale: { de: title },
+    titleByLocale: { [sourceLang]: title },
     percentage: raw.percentage || '',
   };
 }
