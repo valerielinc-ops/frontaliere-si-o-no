@@ -1,18 +1,19 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-07-09T22:28:02.381Z",
+  "generatedAt": "2026-07-10T22:09:58.248Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 16312,
-  "avgDurationMs": 16312,
+  "durationMs": 8943,
+  "avgDurationMs": 8943,
   "durationHistory": [
-    16312
+    8943
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "wagerenhof-e5f225fce6d0",
       "slug": "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
@@ -20,13 +21,13 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Mitarbeiter/-in Technischer Dienst",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-535&cHash=35a4cedfc1091d73415c31e6ac0d32d9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:27:50.852Z",
+      "crawledAt": "2026-07-10T22:09:51.502Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-535&cHash=35a4cedfc1091d73415c31e6ac0d32d9",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-09T22:27:50.852Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "wagerenhof-61b58ac47fcf",
       "slug": "fachexpertin-fachexperte-pflege-wagerenhof-uster",
@@ -64,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:27:52.698Z",
+      "crawledAt": "2026-07-10T22:09:52.485Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-530&cHash=0ee055ce35ffdf3d0fee58f4912f6fb0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:27:55.220Z",
+      "crawledAt": "2026-07-10T22:09:53.397Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-529&cHash=d4f19de832552b6503947a9af5469122",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:27:56.750Z",
+      "crawledAt": "2026-07-10T22:09:54.179Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-534&cHash=1ca4d2394dae9c08f74b599db4133869",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:27:58.696Z",
+      "crawledAt": "2026-07-10T22:09:55.088Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -232,7 +232,7 @@
       "firstSeenAt": "2026-07-03T23:38:22.979Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
