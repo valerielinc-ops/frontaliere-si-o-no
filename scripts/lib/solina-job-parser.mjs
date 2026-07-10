@@ -12,8 +12,15 @@
  * Public career site:   https://jobs.solina.ch/offene-stellen
  * Apply URL pattern:    https://stiftung-solina.onlyfy.jobs/application/apply/{hash}
  *
- * Listing pages live at `https://jobs.solina.ch/offene-stellen/{category}`
- * with detail pages at  `https://jobs.solina.ch/offene-stellen/{category}/details/{slug-hash}`.
+ * Listing lives at `https://jobs.solina.ch/offene-stellen` (most category
+ * sub-paths 301-redirect there since a 2026-07 site restructure), but the
+ * restructure is only partial and three detail-URL shapes coexist:
+ *   - new (restructured):  /offene-stellen/{category}/{slug-hash}
+ *   - old (not migrated):  /offene-stellen/{category}/details/{slug-hash}
+ *     (still served by ausbildung-praktika)
+ *   - lehrstellen:         /offene-stellen/{category}/lehrstellen/{slug-hash}
+ * Discovery therefore accepts any depth ≥2 under /offene-stellen/ and relies
+ * on the trailing "-{hash}" suffix to discriminate jobs from static pages.
  *
  * Detail pages expose:
  *   - <h1 class="...page-title">{title}</h1>
@@ -78,14 +85,27 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── HTML parsing ─────────────────────────────────────────── */
 
-function parseSolinaListing(html) {
+export function parseSolinaListing(html) {
   const out = [];
   const seen = new Set();
-  // Match category-scoped detail URLs (preserves category path)
-  const rx = /href="(\/offene-stellen\/[a-z0-9-]+\/details\/[a-z0-9-]+)"/gi;
+  // Match detail URLs with ≥2 path segments under /offene-stellen/. The
+  // 2026-07 site restructure is only partial, so three shapes coexist:
+  //   - new:        /offene-stellen/{category}/{slug-hash}
+  //   - old:        /offene-stellen/{category}/details/{slug-hash}
+  //   - lehrstellen: /offene-stellen/{category}/lehrstellen/{slug-hash}
+  // In every shape the trailing slug segment ends in "-{hash}" (a random
+  // 6-10 char alphanumeric suffix) — this excludes non-job links that share
+  // the same shape but have no hash suffix, e.g. the static
+  // "/offene-stellen/zivildienst/bewerbung" apply-now button.
+  const rx = /href="(\/offene-stellen\/[a-z0-9-]+(?:\/[a-z0-9-]+)+)"/gi;
   let m;
   while ((m = rx.exec(html))) {
     const path = m[1];
+    const lastSegment = path.slice(path.lastIndexOf('/') + 1);
+    const dashIdx = lastSegment.lastIndexOf('-');
+    if (dashIdx === -1) continue;
+    const hash = lastSegment.slice(dashIdx + 1);
+    if (hash.length < 6 || hash.length > 10) continue;
     if (seen.has(path)) continue;
     seen.add(path);
     out.push(`${PORTAL_BASE}${path}`);
