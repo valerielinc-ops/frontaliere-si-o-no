@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-07-08T22:22:21.357Z",
-  "total": 2,
+  "generatedAt": "2026-07-10T12:40:11.632Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6141,
-  "avgDurationMs": 6141,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2681,
+  "avgDurationMs": 2681,
   "durationHistory": [
-    6141
+    2681
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:22:18.971Z",
+      "crawledAt": "2026-07-10T12:40:09.996Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-generale-ste-anne-7448b60f11f5",
       "slug": "tso-o-strumentista-in-sala-operatoria-al-60-100-clinique-generale-ste-anne-fribourg",
@@ -86,7 +85,7 @@
       "firstSeenAt": "2026-06-14T19:10:02.812Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -95,5 +94,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
