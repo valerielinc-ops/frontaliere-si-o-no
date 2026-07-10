@@ -2,21 +2,36 @@
 /**
  * APG|SGA job parser — Fetcher and job builder.
  *
- * Source: https://www.apgsga.ch/de/karriere/offene-stellen/
+ * Source: https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/jobs/
  *
- * Exports the 4 required functions for the crawler template:
+ * APG|SGA publishes its openings through the Ostendis Job Publisher (OJP)
+ * widget: the career page embeds `OSTENDISJOBS.embed("{token}", "DE", …)` and
+ * the widget hydrates from a public JSON feed:
+ *
+ *   1. GET https://odm.ostendis.com/ojp/assets/version/{token} → { version: "vNN" }
+ *   2. GET https://odm.ostendis.com/ojp/data/{vNN}/jobs/{token}/{LANG}
+ *      → { jobs: [{ title, city, zip, type, detail, action, … }], … }
+ *
+ * We call the feed directly (no Playwright needed) and enrich each listing
+ * from its detail page on jobs.apgsga.ch, which server-renders a JSON-LD
+ * `JobPosting` block (description, datePosted, employmentType, address).
+ *
+ * The token is re-discovered from the career page on every run so a token
+ * rotation self-heals; the last known token is kept as a fallback in case the
+ * page markup changes.
+ *
+ * Exports the required functions for the crawler template:
  *   - fetchAllApgSgaJobs()  — Fetch and parse all jobs
  *   - isApgSgaJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - isTrustedDomain()     — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -24,16 +39,15 @@ export const APG_SGA_KEY = 'apg-sga';
 export const APG_SGA_COMPANY_NAME = 'APG|SGA';
 export const APG_SGA_COMPANY_DOMAIN = 'apgsga.ch';
 
-const CAREER_URL = 'https://www.apgsga.ch/de/karriere/offene-stellen/';
-const BASE_URL = 'https://www.apgsga.ch';
+const CAREER_URL = 'https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/jobs/';
+const OSTENDIS_BASE = 'https://odm.ostendis.com';
+// Publication-place token observed on the career page (2026-07). Used only as
+// a fallback when live discovery from the career page fails.
+const OJP_FALLBACK_TOKEN = 'ai4f0o0e7r5cjud6rmdsrljzq3jhjl4r';
+// The company publishes each opening once, in its source language; the DE
+// feed carries the full board (FR/IT/EN return the same publications).
+const OJP_LANG = 'DE';
 const HQ = getCompanyDefaults('apg-sga');
-
-/**
- * APG|SGA uses Ostendis platform for job listings. The careers page
- * typically embeds an Ostendis iframe or loads job data from their API.
- * We scrape the HTML and also try the Ostendis JSON feed.
- */
-const OSTENDIS_API_URL = 'https://www.ostendis.com/api/public/v2/apgsga/jobs';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -70,6 +84,7 @@ export function isApgSgaJob(job) {
 
 /**
  * Validate that a URL belongs to APG|SGA's domain.
+ * Job publications live on jobs.apgsga.ch (Ostendis-hosted custom domain).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -86,8 +101,10 @@ function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  // "key account" is a sales role — match it before the accounting branch so
+  // `account` (accounting) does not swallow it.
+  if (/\b(vendita|sales|verkauf|commerce|key.?account)/.test(t)) return 'Commerciale';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
@@ -114,189 +131,183 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/* ── OJP Feed Discovery ────────────────────────────────────── */
 
 /**
- * Try the Ostendis API for APG|SGA job listings.
- * Ostendis is a Swiss ATS that exposes a public API.
+ * Extract the Ostendis Job Publisher publication-place token from career page
+ * HTML. The page ships it twice: as the loader's `data-token` attribute and
+ * as the first argument of `OSTENDISJOBS.embed("{token}", …)`.
+ *
+ * @returns {string|null} the token, or null when no embed is present.
  */
-async function tryOstendisApi() {
-  try {
-    console.log(`   Trying Ostendis API: ${OSTENDIS_API_URL}`);    let html = '';
-  try {
-    html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-    // Ostendis may return HTML or JSON depending on the endpoint
-    if (html.trim().startsWith('[') || html.trim().startsWith('{')) {
-      const data = JSON.parse(html);
-      const items = assertJsonListShapeMultiKey(data, {
-        keys: ['jobs', 'results'],
-        allowBareArray: true,
-        source: APG_SGA_KEY,
-      });
-      if (items.length > 0) {
-        console.log(`   Ostendis API returned ${items.length} jobs`);
-        return items;
-      }
-    }
-  } catch (err) {
-    console.log(`   Ostendis API attempt failed: ${err.message}`);
-  }
+export function extractOstendisToken(html = '') {
+  const embedMatch = String(html).match(/OSTENDISJOBS\.embed\(\s*["']([a-z0-9]{16,})["']/i);
+  if (embedMatch) return embedMatch[1];
+  const attrMatch = String(html).match(/data-token=["']([a-z0-9]{16,})["']/i);
+  if (attrMatch) return attrMatch[1];
   return null;
 }
 
 /**
- * Parse the APG|SGA career page HTML for job listings.
- * Ostendis-based pages typically embed job cards or an iframe to Ostendis.
+ * Resolve the current OJP script/data version for a token
+ * (e.g. "v46"). The data endpoint is versioned with the widget bundle, so we
+ * must ask the version endpoint instead of hardcoding it.
  */
-function parseCareerPageHtml(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
-
-  // Look for Ostendis iframe
-  const iframes = document.querySelectorAll('iframe[src]');
-  for (const iframe of iframes) {
-    const src = iframe.getAttribute('src') || '';
-    if (/ostendis/i.test(src)) {
-      console.log(`   Found Ostendis iframe: ${src}`);
-      return [{ __iframeUrl: src }];
-    }
+async function resolveOjpVersion(token) {
+  const data = await fetchJson(`${OSTENDIS_BASE}/ojp/assets/version/${token}`, { timeoutMs: 20000 });
+  const version = normalizeSpace(String(data?.version || ''));
+  if (!/^v\d+$/.test(version)) {
+    throw new Error(`Unexpected OJP version payload: ${JSON.stringify(data).slice(0, 200)}`);
   }
-
-  // Look for embedded JSON
-  const scripts = document.querySelectorAll('script');
-  for (const script of scripts) {
-    const text = script.textContent || '';
-    const jsonMatch = text.match(/(?:jobs|stellen|vacancies)\s*[:=]\s*(\[[\s\S]*?\])/i);
-    if (jsonMatch) {
-      try {
-        const parsed = JSON.parse(jsonMatch[1]);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { /* not valid JSON */ }
-    }
-  }
-
-  // Scrape job links from HTML
-  const JOB_SELECTORS = [
-    'a[href*="stelle"], a[href*="job"], a[href*="vacancy"], a[href*="ostendis"]',
-    '.job-listing a, .career-listing a, .stelle a',
-    '.offene-stellen a, .stellenangebote a',
-    'article a, .card a',
-    'h2 a, h3 a, h4 a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
-    try {
-      const links = document.querySelectorAll(selector);
-      for (const link of links) {
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
-
-        if (!title || title.length < 5) continue;
-        if (seen.has(title.toLowerCase())) continue;
-        if (/login|privacy|cookie|impressum|datenschutz|kontakt|about/i.test(href)) continue;
-
-        seen.add(title.toLowerCase());
-        const fullUrl = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-
-        // Extract location from context — match against the full BFS
-        // municipality dataset so every Swiss city resolves, not just the
-        // major hubs.
-        const parent = link.closest('li, tr, div, article') || link.parentElement;
-        const parentText = parent?.textContent || '';
-        // Canonical BFS display name (preserves hyphens/casing for composite
-        // municipalities) — findSwissCityInText returns a space-normalized,
-        // lower-cased token unfit for a structured-data addressLocality.
-        const location = canonicalSwissCityName(findSwissCityInText(parentText));
-
-        jobs.push({ title, url: fullUrl, location, description: '' });
-      }
-    } catch { /* selector not found */ }
-    if (jobs.length > 0) break;
-  }
-
-  return jobs;
+  return version;
 }
+
+/* ── Detail Page (JSON-LD) ─────────────────────────────────── */
 
 /**
- * Fetch HTML from an Ostendis iframe and parse it.
+ * Parse a jobs.apgsga.ch publication page for its JSON-LD `JobPosting` block.
+ *
+ * @returns {{
+ *   title: string,
+ *   descriptionHtml: string,
+ *   datePosted: string|null,
+ *   employmentTypes: string[],
+ *   addressLocality: string,
+ *   postalCode: string,
+ * }|null} null when the page ships no JobPosting JSON-LD.
  */
-async function tryOstendisIframe(iframeUrl) {
-  try {
-    console.log(`   Fetching Ostendis iframe: ${iframeUrl}`);
-    const html = await fetchHtml(iframeUrl, { timeoutMs: 20000 });
-    return parseCareerPageHtml(html);
-  } catch (err) {
-    console.log(`   Ostendis iframe fetch failed: ${err.message}`);
-    return [];
+export function parseJobPostingJsonLd(html = '') {
+  if (!html) return null;
+  const { document } = new JSDOM(html).window;
+  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+  for (const script of scripts) {
+    try {
+      const parsed = JSON.parse(script.textContent || '');
+      const nodes = Array.isArray(parsed) ? parsed : [parsed];
+      for (const node of nodes) {
+        if (!node || typeof node !== 'object') continue;
+        const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        if (!types.includes('JobPosting')) continue;
+
+        const jobLocation = Array.isArray(node.jobLocation) ? node.jobLocation[0] : node.jobLocation;
+        const address = jobLocation?.address || {};
+        const employmentTypes = (Array.isArray(node.employmentType) ? node.employmentType : [node.employmentType])
+          .filter(Boolean)
+          .map((v) => String(v).toUpperCase());
+
+        return {
+          title: normalizeSpace(String(node.title || '')),
+          descriptionHtml: String(node.description || ''),
+          datePosted: node.datePosted || null,
+          employmentTypes,
+          addressLocality: normalizeSpace(String(address.addressLocality || '')),
+          postalCode: normalizeSpace(String(address.postalCode || '')),
+        };
+      }
+    } catch {
+      /* malformed JSON-LD — ignore */
+    }
   }
+  return null;
 }
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
  * Fetch all APG|SGA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * Strategy:
- *  1. Try Ostendis API
- *  2. Fall back to HTML scraping of the career page
- *  3. Follow any Ostendis iframe if found
+ *  1. Discover the OJP token from the live career page (fallback: last known)
+ *  2. Resolve the current OJP data version
+ *  3. Fetch the JSON job feed and enrich each listing from its detail page
  */
 export async function fetchAllApgSgaJobs() {
-  console.log(`🔍 Fetching APG|SGA jobs`);
+  console.log(`🔍 Fetching APG|SGA jobs (Ostendis Job Publisher)`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  // Strategy 1: Try Ostendis API
-  let listings = await tryOstendisApi();
-
-  // Strategy 2: Fall back to HTML scraping
-  if (!listings || listings.length === 0) {
-    console.log('   Ostendis API did not return jobs, trying HTML scraping...');
-    try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
-      listings = parseCareerPageHtml(html);
-
-      // Follow Ostendis iframe if found
-      if (listings?.length === 1 && listings[0].__iframeUrl) {
-        const iframeUrl = listings[0].__iframeUrl;
-        listings = await tryOstendisIframe(iframeUrl);
+  // Step 1: token discovery (self-heals a token rotation)
+  let token = OJP_FALLBACK_TOKEN;
+  try {
+    const careerHtml = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+    const discovered = extractOstendisToken(careerHtml);
+    if (discovered) {
+      if (discovered !== OJP_FALLBACK_TOKEN) {
+        console.log(`   Career page publishes a rotated OJP token — using it.`);
       }
-
-      console.log(`   HTML scraping found ${listings?.length || 0} job links`);
-    } catch (err) {
-      console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
+      token = discovered;
+    } else {
+      console.warn(`⚠️ No OSTENDISJOBS embed found on ${CAREER_URL} — falling back to last known token.`);
     }
+  } catch (err) {
+    console.warn(`⚠️ Career page fetch failed (${err?.message || err}) — falling back to last known token.`);
   }
 
-  if (!listings || listings.length === 0) {
+  // Step 2 + 3: versioned JSON feed
+  const version = await resolveOjpVersion(token);
+  const feedUrl = `${OSTENDIS_BASE}/ojp/data/${version}/jobs/${token}/${OJP_LANG}`;
+  console.log(`   OJP feed: ${feedUrl}`);
+  const data = await fetchJson(feedUrl, { timeoutMs: 20000 });
+  const listings = assertJsonListShapeMultiKey(data, {
+    keys: ['jobs'],
+    source: APG_SGA_KEY,
+    lang: OJP_LANG,
+  });
+
+  console.log(`  📋 Listings found: ${listings.length}`);
+  if (listings.length === 0) {
+    // Valid empty board — the feed still exposes `jobs: []` plus a localized
+    // "keine offenen Stellen" message when nothing is published.
     console.warn('⚠️ No APG|SGA job listings found.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
   const jobs = [];
   for (const listing of listings) {
-    const title = normalizeSpace(listing.title || listing.name || listing.bezeichnung || '');
+    const publicUrl = normalizeSpace(listing.detail || listing.action || '') || CAREER_URL;
+
+    // Enrich from the publication page's JSON-LD JobPosting (best-effort).
+    let detail = null;
+    if (publicUrl !== CAREER_URL && isTrustedDomain(publicUrl)) {
+      try {
+        const detailHtml = await fetchHtml(publicUrl, { timeoutMs: 20000 });
+        detail = parseJobPostingJsonLd(detailHtml);
+      } catch (err) {
+        console.warn(`   Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      }
+      await new Promise((r) => setTimeout(r, 300));
+    }
+
+    const title = normalizeSpace(listing.title || detail?.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || listing.ort || listing.city || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Lugano';
+    const location = normalizeSpace(listing.city || detail?.addressLocality || '') || HQ?.city || 'Lugano';
     const canton = inferAnyCanton(location) || HQ?.canton || '';
-    const descriptionHtml = listing.description || listing.beschreibung || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || listing.link || CAREER_URL;
+    const postalCode = normalizeSpace(listing.zip || detail?.postalCode || '') || HQ?.postalCode || '6900';
+
+    const descriptionText = stripHtml(detail?.descriptionHtml || listing.text || '');
+    const desc = descriptionText
+      || `${title} — Stelle bei APG|SGA in ${location}, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.`;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} apg-sga ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc = descriptionText || `${title} — Stelle bei APG|SGA in ${location}, Schweiz. APG|SGA ist der führende Schweizer Aussenwerbevermarkter mit Standorten in der ganzen Schweiz.`;
+    // Prefer the structured employmentType from JSON-LD (e.g. a "80-100%"
+    // role ships ["PART_TIME","FULL_TIME"]); fall back to title heuristics.
+    const ldTypes = detail?.employmentTypes || [];
+    const employmentType = ldTypes.includes('FULL_TIME')
+      ? 'FULL_TIME'
+      : ldTypes.includes('PART_TIME')
+        ? 'PART_TIME'
+        : detectEmploymentType(`${title} ${listing.type || ''}`);
+
+    const postedDate = (() => {
+      const raw = detail?.datePosted || listing.published || '';
+      const d = new Date(raw);
+      if (!raw || Number.isNaN(d.getTime())) return new Date().toISOString().split('T')[0];
+      return d.toISOString().split('T')[0];
+    })();
 
     const job = {
       id: `apg-sga-${urlHash}`,
@@ -316,25 +327,24 @@ export async function fetchAllApgSgaJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressRegion: canton || HQ?.addressRegion || 'TI',
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6900',
+      postalCode,
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || listing.pensum || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || listing.pensum || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Pubblicità / Media esterni',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || listing.datum || new Date().toISOString().split('T')[0],
+      postedDate,
       applyUrl: listing.applyUrl || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300));
   }
 
   console.log(`\n📋 Total APG|SGA jobs discovered: ${jobs.length}`);
