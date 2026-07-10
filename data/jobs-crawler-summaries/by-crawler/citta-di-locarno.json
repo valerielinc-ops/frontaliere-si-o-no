@@ -1,18 +1,19 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-07-09T22:41:49.483Z",
+  "generatedAt": "2026-07-10T10:57:01.592Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6135,
-  "avgDurationMs": 6135,
+  "durationMs": 4008,
+  "avgDurationMs": 4008,
   "durationHistory": [
-    6135
+    4008
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-locarno-concorso-per-incaricare-docenti-di-musica-per-ogni-delle-specializzazioni-musicali-locarno",
       "slug": "concorso-per-incaricare-docenti-di-musica-per-ogni-delle-specializzazioni-musicali-locarno",
@@ -38,17 +39,17 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=2e0d7681-1dfa-4885-83e3-147c68e43bf7,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:41:46.298Z",
-      "_qualityScore": 73,
+      "crawledAt": "2026-07-10T10:56:59.908Z",
+      "firstSeenAt": "2026-07-09T22:41:46.298Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -76,17 +77,15 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=2e0d7681-1dfa-4885-83e3-147c68e43bf7,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:41:46.298Z",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "crawledAt": "2026-07-10T10:56:59.908Z",
+      "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 25
+        "translation": 25,
+        "completeness": 20
       }
     }
   ]
