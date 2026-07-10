@@ -29,10 +29,12 @@
  * — note `companyEid` vs the `company=1-FIRMA-ID` of real openings). It is
  * filtered out.
  *
- * PI-ASP detail pages are JS-only — we cannot extract per-job descriptions
- * via curl. We synthesise a short, structured fallback from
- * "{TITLE} chez {ENTITY} (Gesundheitswelt Zollikerberg), Zollikerberg (ZH).
- * Kategorie: {CATEGORY}." and let the shared AI-translate step enrich it.
+ * PI-ASP detail pages are JS-only (GWT SPA) — plain curl cannot extract
+ * per-job descriptions. The real job ad is rendered with the shared
+ * Playwright runtime via `pi-asp-bewerber-web-detail.mjs` (rate-limited,
+ * capped per run). When a detail render fails we fall back to the legacy
+ * short synthetic description ("{TITLE} bei {ENTITY} …") so the job is
+ * never dropped — only its description stays thin (#3836).
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -45,6 +47,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { renderPiAspDetailDescriptions } from './pi-asp-bewerber-web-detail.mjs';
 
 export const DIAKONIEWERK_KEY = 'diakoniewerk-neumuenster';
 export const DIAKONIEWERK_COMPANY_NAME = 'Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)';
@@ -175,6 +178,23 @@ export function parseListing(html) {
   return out;
 }
 
+/**
+ * Build the job description for one listing row.
+ *
+ * With `detailText` (the structured job ad rendered from the pi-asp detail
+ * page — headings + `• ` bullet lines) the description is the real ad,
+ * prefixed with a one-line entity/locality header. Without it (detail render
+ * failed) it falls back to the legacy synthetic stub so the job is still
+ * published. Exported for tests.
+ */
+export function buildDiakoniewerkDescription(r, loc, detailText = '') {
+  const entity = r.entity || 'Gesundheitswelt Zollikerberg';
+  const categoryNote = r.category ? ` Kategorie: ${r.category}.` : '';
+  const header = `${r.title} bei ${entity} (${DIAKONIEWERK_COMPANY_NAME}), ${loc.city} (${loc.postalCode}, ZH).${categoryNote}`;
+  if (detailText) return `${header}\n\n${detailText}`;
+  return `${header} Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.`;
+}
+
 export async function fetchAllDiakoniewerkJobs() {
   console.log(`🏥 Fetching ${DIAKONIEWERK_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
@@ -190,13 +210,20 @@ export async function fetchAllDiakoniewerkJobs() {
   console.log(`  ✓ listing: ${rows.length} jobs`);
   if (!rows.length) return [];
 
+  // Render the real job ads from the pi-asp GWT detail pages (SPA-only —
+  // see pi-asp-bewerber-web-detail.mjs). Failures degrade per-job to the
+  // synthetic listing description; they never drop jobs.
+  const detailByUrl = await renderPiAspDetailDescriptions(
+    rows.map((r) => r.url),
+    { label: DIAKONIEWERK_KEY },
+  );
+
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const r of rows) {
     const entity = r.entity || 'Gesundheitswelt Zollikerberg';
     const loc = inferLocality(entity);
-    const categoryNote = r.category ? ` Kategorie: ${r.category}.` : '';
-    const description = `${r.title} bei ${entity} (${DIAKONIEWERK_COMPANY_NAME}), ${loc.city} (${loc.postalCode}, ZH).${categoryNote} Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.`;
+    const description = buildDiakoniewerkDescription(r, loc, detailByUrl.get(r.url) || '');
 
     const sourceLang = detectLang(`${r.title} ${description}`, 'de');
     const jobSlug = slugify(`${r.title} ${DIAKONIEWERK_KEY} ${loc.city}`);
@@ -223,7 +250,7 @@ export async function fetchAllDiakoniewerkJobs() {
       location: loc.city,
       canton: 'ZH',
       url: r.url,
-      source: `${DIAKONIEWERK_COMPANY_NAME} Dedicated Parser (Custom HTML — PI-ASP)`,
+      source: `${DIAKONIEWERK_COMPANY_NAME} Dedicated Parser (Custom HTML listing + PI-ASP Playwright detail)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
