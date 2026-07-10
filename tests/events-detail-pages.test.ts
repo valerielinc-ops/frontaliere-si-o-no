@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { mkdtempSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   pathForEventDetail,
@@ -353,14 +353,13 @@ describe('renderEventDetailPage', () => {
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
 
-  it('clamps the truncation budget to a positive floor so a comune suffix long enough to overflow the cap alone cannot make the headline collapse to an empty/blank <title> (#3589 item 2)', () => {
-    // Synthetic long comune name pushes `suffix.length` well past
-    // TITLE_MAX_CHARS on its own — no headline truncation can bring the
-    // *total* back under 66 (the comune suffix is intentionally always
-    // preserved as the local-SEO signal), but the headline truncation must
-    // still degrade gracefully to a bounded "…" rather than an unguarded
-    // negative budget silently skipping truncation and leaving the full,
-    // untruncated headline in front of an already-oversized suffix.
+  it('clamps the truncation budget to a positive floor so a comune suffix long enough to overflow the cap alone cannot make the headline collapse to an empty/blank <title> (#3589 item 2, contract updated by #3799)', () => {
+    // Synthetic long comune name pushes the FULL suffix well past
+    // TITLE_MAX_CHARS on its own. Pre-#3799 the oversized suffix was kept
+    // verbatim (title clamped to a bounded "…" but the total silently blew
+    // the cap); now the suffix cascade drops the region/brand boilerplate,
+    // keeps the comune (the never-dropped local-SEO token) and the cap
+    // ALWAYS holds.
     const longComune = 'Castel San Pietro Sopra La Montagna Bellissima Ticinese';
     const longComunePage = renderEventDetailPage({
       locale: 'it',
@@ -374,9 +373,63 @@ describe('renderEventDetailPage', () => {
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(longComunePage.html)?.[1] ?? '';
     expect(titleTag.length).toBeGreaterThan(0);
+    expect(titleTag.length).toBeLessThanOrEqual(66);
     expect(titleTag).toContain('…');
     expect(titleTag).not.toContain(EVENT.title);
-    expect(titleTag).toContain(`${longComune} (Ticino) | Eventi`);
+    // Comune preserved; region/brand boilerplate sacrificed under pressure.
+    expect(titleTag).toContain(`— ${longComune}`);
+    expect(titleTag).not.toContain('(Ticino)');
+  });
+
+  it('keeps <title> within the 66-char cap on the degenerate comune-less "other events" bucket, where the comune IS the canton display label (#3799: fr/AI+AR suffix alone was 75 chars, 9 past the cap)', () => {
+    // `renderEventDetailPage` maps `comune === OTHER_EVENTS_COMUNE_KEY` to
+    // `displayComune = cantonDisplayLabel(canton, locale)`, so the suffix
+    // doubles the canton name: ` — Appenzell Rhodes-Extérieures (Appenzell
+    // Rhodes-Extérieures) | Événements`. Pre-#3799 the budget clamped to 1
+    // and the emitted <title> was `'…' + suffix` — up to 76 chars. The
+    // suffix cascade must degrade (drop the region parenthetical) instead.
+    for (const [locale, canton] of [['fr', 'AI'], ['fr', 'AR'], ['de', 'AR'], ['de', 'AI']] as const) {
+      const bucketEvent = { ...EVENT, id: `guidle:${canton}-${locale}`, canton, comune: undefined };
+      const page = renderEventDetailPage({
+        locale,
+        event: bucketEvent as never,
+        comune: OTHER_EVENTS_COMUNE_KEY,
+        eventSlug: slugifyEvent(bucketEvent),
+        sameComuneEvents: [bucketEvent] as never,
+        dateStamp: '2026-06-30',
+        distDir,
+        detailHref: (() => null) as never,
+      });
+      const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
+      expect(titleTag.length).toBeGreaterThan(0);
+      expect(titleTag.length).toBeLessThanOrEqual(66);
+      // The place label (canton display name) is the local-SEO token and
+      // must survive the degradation.
+      expect(titleTag).toContain('Appenzell');
+    }
+  });
+
+  it('degrades the suffix instead of the event title when the full suffix leaves a near-zero budget, so the title never collapses to a bare "…" stub (#3799 minimum-budget guard)', () => {
+    // fr/AI + "Schlatt-Haslen" leaves only 5 chars for the event title under
+    // the full suffix (worst real-gazetteer case) — pre-#3799 the <title>
+    // opened with a meaningless 5-char stub. With the min-budget guard the
+    // region parenthetical is dropped and a meaningful fragment (≥ 12 chars)
+    // of the event title survives.
+    const aiEvent = { ...EVENT, id: 'guidle:ai-schlatt', canton: 'AI', comune: 'Schlatt-Haslen' };
+    const page = renderEventDetailPage({
+      locale: 'fr',
+      event: aiEvent as never,
+      comune: 'Schlatt-Haslen',
+      eventSlug: slugifyEvent(aiEvent),
+      sameComuneEvents: [aiEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
+    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag).toContain(EVENT.title); // 25 chars — fits once the region is dropped
+    expect(titleTag).toContain('— Schlatt-Haslen');
   });
 
   it('keeps <title> within the 66-char cap for a non-TI canton with a long display name (regression: issue #3772 recurrence — validate-dist still failing on `eventi` after PR #3786)', () => {
