@@ -135,9 +135,15 @@ function cardHtml({
 }
 
 describe('parseGeneveAgendaHtml', () => {
+  // Fixture dates are July 2026: pin `now` inside the range so the
+  // year-inference is deterministic forever (no calendar time-bomb — the
+  // suite went red on 2026-07-10 when the un-pinned `now` crossed the
+  // start date + grace window of these very fixtures).
+  const FIXED_NOW = new Date('2026-07-08T12:00:00Z');
+
   it('parses a real card into the canonical event shape (region-fallback comune)', () => {
     const html = `<div>${cardHtml()}</div>`;
-    const events = parseGeneveAgendaHtml(html, 0);
+    const events = parseGeneveAgendaHtml(html, 0, FIXED_NOW);
     expect(events).toHaveLength(1);
     expect(events[0]).toMatchObject({
       id: 'ge-agenda:atelier-initiation-ecriture-braille-7-grand-juillet-gratuit-0',
@@ -157,7 +163,7 @@ describe('parseGeneveAgendaHtml', () => {
 
   it('sets endDate only when it differs from startDate (a "Du X au Y" range)', () => {
     const html = `<div>${cardHtml({ date: 'Du 6 au 10 juillet' })}</div>`;
-    const events = parseGeneveAgendaHtml(html, 0);
+    const events = parseGeneveAgendaHtml(html, 0, FIXED_NOW);
     expect(events[0].startDate).toBe('2026-07-06');
     expect(events[0].endDate).toBe('2026-07-10');
   });

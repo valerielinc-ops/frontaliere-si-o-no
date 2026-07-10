@@ -156,11 +156,22 @@ export function parseGeneveDateFr(rawText, now = new Date()) {
   // Per-token year: bump +1 each time month decreases vs. the previous
   // token, so a year-boundary range ("31 décembre et 1 janvier") doesn't
   // silently produce an (wrong) 11-month span.
-  const baseYear = explicitYear || inferYear(tokens[0].day, tokens[0].month, now);
+  const offsets = [];
   let yearOffset = 0;
   for (let i = 0; i < tokens.length; i += 1) {
     if (i > 0 && tokens[i].month < tokens[i - 1].month) yearOffset += 1;
-    tokens[i].year = baseYear + yearOffset;
+    offsets[i] = yearOffset;
+  }
+  // Year inference anchors on the LAST token (the range's end): an ongoing
+  // range ("Du 6 au 10 juillet" crawled on the 10th) has its start in the
+  // past by design, and anchoring on the start rolled the whole event to
+  // next year while it was still running. The end date is the only token
+  // that tells whether the event is truly over.
+  const lastIdx = tokens.length - 1;
+  const baseYear = explicitYear
+    || (inferYear(tokens[lastIdx].day, tokens[lastIdx].month, now) - offsets[lastIdx]);
+  for (let i = 0; i < tokens.length; i += 1) {
+    tokens[i].year = baseYear + offsets[i];
   }
 
   // Reject a non-existent calendar date (e.g. a mis-scanned "31 avril")
@@ -198,7 +209,7 @@ function absoluteUrl(href) {
  * Parse one `?page=N` listing page into event objects. Exported so tests
  * cover the real card markup (fixture HTML) without a live fetch.
  */
-export function parseGeneveAgendaHtml(html, page) {
+export function parseGeneveAgendaHtml(html, page, now = new Date()) {
   const doc = new JSDOM(html).window.document;
   const comuni = loadCantonComuni(SOURCE.canton);
   const events = [];
@@ -215,7 +226,7 @@ export function parseGeneveAgendaHtml(html, page) {
     if (!title) continue;
 
     const dateText = text(card.querySelector('.date small') || card.querySelector('.date'));
-    const parsedDate = parseGeneveDateFr(dateText);
+    const parsedDate = parseGeneveDateFr(dateText, now);
     if (!parsedDate) {
       skippedNoDate += 1;
       continue;

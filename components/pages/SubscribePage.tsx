@@ -361,9 +361,15 @@ const SubscribePage: React.FC = () => {
     if (emailLoginBusy || !emailValue || !passwordValue) return;
     setEmailLoginBusy(true);
     setEmailLoginError(null);
-    const loggedInUser = await signInEmail(emailValue, passwordValue);
-    setEmailLoginBusy(false);
-    if (!loggedInUser) setEmailLoginError(copy.emailLoginError);
+    try {
+      const loggedInUser = await signInEmail(emailValue, passwordValue);
+      if (!loggedInUser) setEmailLoginError(copy.emailLoginError);
+    } catch (error) {
+      reportCaughtError(error, 'subscribePage.emailLogin');
+      setEmailLoginError(copy.emailLoginError);
+    } finally {
+      setEmailLoginBusy(false);
+    }
   };
 
   const scrollToCheckout = () => {

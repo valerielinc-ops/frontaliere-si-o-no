@@ -285,7 +285,12 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: "Webcam Lago di Lugano – Lanzo d'Intelvi",
  sourceUrl: 'https://www.ilmeteo.it/webcam/Lanzo+d%27Intelvi',
  refreshIntervalMs: 300000,
- minBytes: 4000,
+ // Night/dusk frames from this camera compress below 4KB (watchdog read
+ // 3763 bytes at 21:56 local on 2026-07-09 and flagged it broken — issue
+ // #3877 — while daytime frames are ~6KB and the feed was alive the whole
+ // time). Same low-light JPEG class as the Arzo thumbnail (issue #3438):
+ // floor low enough for a dark-but-real frame, still above stub/error size.
+ minBytes: 1500,
  },
  ],
  },
@@ -596,9 +601,12 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: 'Webcam Maccagno – Lago Maggiore',
  sourceUrl: 'https://www.ilmeteo.it/webcam/Maccagno',
  refreshIntervalMs: 300000,
- // Vendor serves a real ~6.6-8.9KB JPEG (verified 2026-07-05, issue #3438)
- // — below the ~10KB Ticino-GIF default floor.
- minBytes: 4000,
+ // Vendor serves a real ~6.6-8.9KB JPEG by day (verified 2026-07-05, issue
+ // #3438) — below the ~10KB Ticino-GIF default floor. Same visioray camera
+ // class as Lanzo d'Intelvi (snap/5540), whose night frames compressed to
+ // ~3.7KB and tripped the 4KB floor (issue #3877 false-positive): use the
+ // same dark-frame-safe floor for the whole class.
+ minBytes: 1500,
  },
  ],
  },

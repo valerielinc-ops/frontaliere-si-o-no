@@ -846,19 +846,6 @@
       "_lastObservedAssembledAt": "2026-07-09T22:25:12.477Z",
       "_lastObservedGeneratedAt": "2026-07-09T22:25:12.480Z"
     },
-    "boggi-milano": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 0,
-      "lastFailureReason": "crawler not run in 54 days (freshnessAt=2026-05-17T21:12:00.675Z, source=summary)",
-      "status": "stale",
-      "_lastObservedAt": "2026-07-10T10:06:27.785Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-17T21:12:00.675Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T21:12:00.675Z"
-    },
     "bosch-thermotechnik-ag": {
       "lastSuccessfulRunAt": "2026-07-09T22:27:40.781Z",
       "lastNonZeroJobs": 8,
@@ -1924,19 +1911,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-07-09T22:30:12.730Z",
       "_lastObservedGeneratedAt": "2026-07-09T22:30:12.818Z"
-    },
-    "dot-life": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 3,
-      "lastFailureReason": "crawler not run in 54 days (freshnessAt=2026-05-17T21:31:57.355Z, source=summary)",
-      "status": "stale",
-      "_lastObservedAt": "2026-07-10T10:06:27.785Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-17T21:31:57.355Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T21:31:57.355Z"
     },
     "duferco": {
       "lastSuccessfulRunAt": "2026-07-09T22:32:19.053Z",
@@ -5695,19 +5669,6 @@
       "_lastObservedAssembledAt": "2026-07-09T22:38:38.296Z",
       "_lastObservedGeneratedAt": "2026-07-09T22:38:38.297Z"
     },
-    "rivopharm": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 0,
-      "lastFailureReason": "crawler not run in 53 days (freshnessAt=2026-05-17T22:22:35.783Z, source=summary)",
-      "status": "stale",
-      "_lastObservedAt": "2026-07-10T10:06:27.785Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-17T22:22:35.783Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T22:22:35.783Z"
-    },
     "roche": {
       "lastSuccessfulRunAt": "2026-07-09T22:45:41.478Z",
       "lastNonZeroJobs": 1310,
@@ -7644,19 +7605,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-07-09T12:11:10.092Z",
       "_lastObservedGeneratedAt": "2026-07-09T12:11:10.099Z"
-    },
-    "zucchetti-switzerland": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 0,
-      "lastFailureReason": "crawler not run in 53 days (freshnessAt=2026-05-17T22:48:03.274Z, source=summary)",
-      "status": "stale",
-      "_lastObservedAt": "2026-07-10T10:06:27.785Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-17T22:48:03.274Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T22:48:03.274Z"
     },
     "zuger-kantonsspital": {
       "lastSuccessfulRunAt": "2026-07-08T22:15:31.998Z",

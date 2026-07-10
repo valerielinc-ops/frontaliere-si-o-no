@@ -2019,14 +2019,28 @@ interface DetailCopy {
 }
 
 /**
+ * Minimum escaped-char budget the chosen suffix candidate must leave for the
+ * event title before {@link eventDetailMetaTitle} degrades to a shorter
+ * suffix. 12 mirrors `composeSerpJobTitle`'s "meaningful role fragment"
+ * floor (`roleBudget >= 12`, build-plugins/shared/titleSuffix.ts) — below
+ * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
+ * region boilerplate squat in the SERP. 12 also exactly preserves the
+ * pre-#3799 output for every previously-healthy combo: the worst full-suffix
+ * case that shipped correctly (fr/AR + "Herisau", 54-char suffix) leaves
+ * precisely 12.
+ */
+const MIN_DETAIL_TITLE_BUDGET = 12;
+
+/**
  * Event-detail <title>: "{event title} {suffix}" where suffix carries
  * comune + region + brand (` — Lugano (Ticino) | Eventi`). Event titles are
  * crawled third-party text (tio.ch agenda) of uncontrolled length — fixing
  * "at source" isn't actionable the way it is for owned-copy headlines, so
  * (like {@link composeSerpJobTitle}'s role/city cascade) the title itself is
  * the truncatable token: word-aware {@link truncateHeadline}, never a naive
- * mid-string cut. Suffix (comune/region/brand) is always preserved — it's
- * the local-SEO signal, analogous to city in job titles.
+ * mid-string cut. The comune is always preserved — it's the local-SEO
+ * signal, analogous to city in job titles; region/brand are droppable
+ * boilerplate under budget pressure (#3799, cascade below).
  *
  * Budget and overflow check are computed on the ESCAPED length, not the raw
  * length: `audit-title-length.mjs` measures the raw HTML source of `<title>`,
@@ -2043,35 +2057,75 @@ interface DetailCopy {
  * `Math.max(1, …)` guards a comune suffix long enough to push the budget
  * negative, which would otherwise make `truncateHeadline` emit an empty/
  * broken title.
+ *
+ * #3799 (deferred from PR #3796): the suffix is now a CASCADE of candidates,
+ * longest/most-descriptive first (full comune+region+brand → comune+brand →
+ * comune only, see {@link DETAIL_TITLE_SUFFIXES}) — same "never drop the
+ * place, shrink the boilerplate around it" policy as
+ * {@link composePlaceTitle} / {@link composeSerpJobTitle}. A degenerate
+ * comune+canton combo (worst dataset case: the comune-less "other events"
+ * bucket, where the comune IS the canton display label — fr/AR ` — Appenzell
+ * Rhodes-Extérieures (Appenzell Rhodes-Extérieures) | Événements` is 75
+ * chars, 9 past the cap on its own) previously clamped the budget to 1 and
+ * emitted `'…' + suffix`, silently past TITLE_MAX_CHARS. Now the first
+ * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
+ * for the event title wins: region and brand are boilerplate (brand is
+ * droppable per the `buildTitleWithBrand` policy, region is recoverable from
+ * breadcrumb/H1/JSON-LD), the comune is the local-SEO signal and is always
+ * kept. The final whole-string shrink loop is a last-resort cap guarantee
+ * (mirrors `composePlaceTitle`'s `truncateHeadline` fallback) for a
+ * pathological place name that overflows the cap even bare — the emitted
+ * <title> can never exceed TITLE_MAX_CHARS.
  */
-function eventDetailMetaTitle(rawTitle: string, suffix: string): string {
+function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[]): string {
+  // First suffix candidate that leaves a meaningful title budget wins; when
+  // even the bare-comune candidate is squeezed, still use it (the shortest).
+  const suffix = suffixes.find((s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET)
+    ?? suffixes[suffixes.length - 1] ?? '';
   const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
   let title = rawTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
     title = truncateHeadline(rawTitle, max);
   }
-  return `${title}${suffix}`;
+  const composed = `${title}${suffix}`;
+  if (esc(composed).length <= TITLE_MAX_CHARS) return composed;
+  // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
+  // candidate always leaves budget); guards pathological place names so the
+  // deploy-blocking audit:title-length gate can never trip on this page type.
+  let out = composed;
+  for (let max = TITLE_MAX_CHARS; esc(out).length > TITLE_MAX_CHARS && max > 0; max -= 1) {
+    out = truncateHeadline(composed, max);
+  }
+  return out;
 }
 
-/** Per-locale event-detail `<title>` suffix template (comune + region +
+/** Per-locale event-detail `<title>` suffix templates (comune + region +
  * brand), extracted out of `DETAIL_COPY[locale].metaTitle` so
  * `detailCopyFor` can canton-substitute the suffix itself and re-run it
- * through {@link eventDetailMetaTitle} for non-TI cantons. The old code
- * substituted the canton name into the ALREADY-budgeted/truncated string
- * `eventDetailMetaTitle` returned (assuming TI's short "Ticino"/"Tessin"),
- * with no re-check — a long canton display name (e.g. "Appenzell
- * Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) silently pushed the final
- * `<title>` past TITLE_MAX_CHARS for every affected event-detail page. */
-const DETAIL_TITLE_SUFFIX: Record<Locale, (comune: string) => string> = {
-  it: (c) => ` — ${c} (Ticino) | Eventi`,
-  en: (c) => ` — ${c} (Ticino) | Events`,
-  de: (c) => ` — ${c} (Tessin) | Veranstaltungen`,
-  fr: (c) => ` — ${c} (Tessin) | Événements`,
+ * through {@link eventDetailMetaTitle} for non-TI cantons. The pre-#3796
+ * code substituted the canton name into the ALREADY-budgeted/truncated
+ * string `eventDetailMetaTitle` returned (assuming TI's short
+ * "Ticino"/"Tessin"), with no re-check — a long canton display name (e.g.
+ * "Appenzell Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) silently pushed
+ * the final `<title>` past TITLE_MAX_CHARS for every affected event-detail
+ * page.
+ *
+ * #3799: each locale now returns a candidate CASCADE, longest first —
+ * full (comune + region + brand) → drop the region parenthetical → bare
+ * comune — consumed by {@link eventDetailMetaTitle}, which picks the first
+ * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} chars for the
+ * event title. Every candidate embeds the comune (the never-dropped
+ * local-SEO token), mirroring the `composePlaceTitle` candidate contract. */
+const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
+  it: (c) => [` — ${c} (Ticino) | Eventi`, ` — ${c} | Eventi`, ` — ${c}`],
+  en: (c) => [` — ${c} (Ticino) | Events`, ` — ${c} | Events`, ` — ${c}`],
+  de: (c) => [` — ${c} (Tessin) | Veranstaltungen`, ` — ${c} | Veranstaltungen`, ` — ${c}`],
+  fr: (c) => [` — ${c} (Tessin) | Événements`, ` — ${c} | Événements`, ` — ${c}`],
 };
 
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.it(c)),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c)),
     metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
@@ -2099,7 +2153,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Descrizione',
   },
   en: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.en(c)),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c)),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
     whenLabel: 'When',
     whereLabel: 'Where',
@@ -2127,7 +2181,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Description',
   },
   de: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.de(c)),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c)),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Datum, Uhrzeit, Ort und Link zur offiziellen Website der Veranstaltung.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -2155,7 +2209,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     descriptionTitle: 'Beschreibung',
   },
   fr: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIX.fr(c)),
+    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c)),
     metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
@@ -2202,8 +2256,10 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     // Root-cause fix (recurrence of #3772): re-run the escape/budget-aware
     // truncation against the REAL (canton-substituted) suffix, instead of
     // substituting into `base.metaTitle`'s already-truncated output — see
-    // `DETAIL_TITLE_SUFFIX` doc comment above.
-    metaTitle: (t: string, c: string) => eventDetailMetaTitle(t, sub(DETAIL_TITLE_SUFFIX[locale](c))),
+    // `DETAIL_TITLE_SUFFIXES` doc comment above. #3799: every candidate in
+    // the cascade is substituted, so the min-budget check runs against the
+    // real canton name at each degradation step too.
+    metaTitle: (t: string, c: string) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES[locale](c).map(sub)),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
     about: (t: string, c: string, w: string, cat: string, venue?: string) => sub(base.about(t, c, w, cat, venue)),
