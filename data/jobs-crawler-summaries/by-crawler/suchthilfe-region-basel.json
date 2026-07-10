@@ -1,16 +1,16 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-07-10T12:01:45.836Z",
-  "total": 8,
+  "generatedAt": "2026-07-10T22:05:14.101Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 6857,
-  "avgDurationMs": 6857,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 6659,
+  "avgDurationMs": 6659,
   "durationHistory": [
-    6857
+    6659
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Teamleitung_Coaches_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:40.660Z",
+      "crawledAt": "2026-07-10T22:05:09.311Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Coach_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:43.213Z",
+      "crawledAt": "2026-07-10T22:05:11.839Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/06/Stelleninserat_MA-Betreuung-260320.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:41.544Z",
+      "crawledAt": "2026-07-10T22:05:10.168Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:42.115Z",
+      "crawledAt": "2026-07-10T22:05:10.716Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:42.643Z",
+      "crawledAt": "2026-07-10T22:05:11.251Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "suchthilfe-region-basel-3d2b9f3534e6",
       "slug": "psicologico-in-psychotherapeut-in-60-100-nella-clinica-esta-suchthilfe-region-basel-reinach",
@@ -320,5 +319,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
