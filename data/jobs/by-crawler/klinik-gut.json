@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-07-10T10:28:18.706Z",
+  "assembledAt": "2026-07-10T12:32:02.334Z",
   "jobs": [
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.773Z",
+      "crawledAt": "2026-07-10T12:32:00.032Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -51,15 +51,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "previousSlugs": [
+        "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
+        "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
+          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
+          "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
         ]
       },
-      "previousSlugs": [
-        "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -105,7 +107,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2607",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.772Z",
+      "crawledAt": "2026-07-10T12:32:00.030Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -122,23 +124,25 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2607",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
-        "op-lagerungspfleger-in-60-100-klinik-gut-flasch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
-          "op-lagerungspfleger-in-60-100-klinik-gut-flasch"
-        ],
-        "en": [
-          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
-        ],
         "de": [
           "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
+        ],
+        "it": [
+          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
+          "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
+          "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch"
+        ],
+        "en": [
+          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ]
       },
+      "previousSlugs": [
+        "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
+        "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
+        "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch"
+      ],
       "firstSeenAt": "2026-06-29T22:54:47.988Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -185,7 +189,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3890",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.770Z",
+      "crawledAt": "2026-07-10T12:32:00.028Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -218,6 +222,7 @@
           "teamleitung-operationspflege-leadership-80-100-klinik-gut-flasch"
         ]
       },
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -229,8 +234,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.989Z"
+      }
     },
     {
       "id": "klinik-gut-3888-299dfde7d875",
@@ -264,7 +268,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.768Z",
+      "crawledAt": "2026-07-10T12:32:00.026Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -297,6 +301,7 @@
           "teamleitung-operationspflege-organisation-80-100-klinik-gut-flasch"
         ]
       },
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -308,8 +313,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.989Z"
+      }
     },
     {
       "id": "klinik-gut-3117-dd3c1056af2f",
@@ -343,7 +347,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.767Z",
+      "crawledAt": "2026-07-10T12:32:00.024Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -360,15 +364,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.986Z",
+      "previousSlugs": [
+        "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
+        "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch"
+          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
+          "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch"
         ]
       },
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.986Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -414,7 +420,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.766Z",
+      "crawledAt": "2026-07-10T12:32:00.023Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -431,15 +437,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.985Z",
+      "previousSlugs": [
+        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
+        "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch"
+          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
+          "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch"
         ]
       },
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.985Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -485,7 +493,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.764Z",
+      "crawledAt": "2026-07-10T12:32:00.021Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -502,15 +510,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.983Z",
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
+        "assistente-medico-a-100-klinik-gut-ag-flasch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-100-klinik-gut-flasch"
+          "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
+          "assistente-medico-a-100-klinik-gut-ag-flasch"
         ]
       },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-100-klinik-gut-flasch"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.983Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -556,7 +566,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3886",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.763Z",
+      "crawledAt": "2026-07-10T12:32:00.019Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -575,12 +585,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
+        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz",
+        "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
+          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz",
+          "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -629,7 +641,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.761Z",
+      "crawledAt": "2026-07-10T12:32:00.018Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -646,15 +658,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "previousSlugs": [
+        "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
+        "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
+          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
+          "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -700,7 +714,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.760Z",
+      "crawledAt": "2026-07-10T12:32:00.016Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -717,15 +731,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.981Z",
+      "previousSlugs": [
+        "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
+        "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
+          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
+          "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.981Z",
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -771,7 +787,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.756Z",
+      "crawledAt": "2026-07-10T12:32:00.012Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -788,15 +804,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.979Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
+        "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.979Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -829,11 +847,11 @@
         "de": "Dipl. Pflegefachfrau/mann HF oder FH 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers HF ou FH 60-100 %"
       },
-      "description": "Neuer Job im Oberengadin? Halte mit uns die Pflege auf Top-Niveau!\n Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n Für unser Pflegeteam am Klinikstandort St. Moritz suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als:\n Dipl. Pflegefachfrau / -mann HF oder FH (60–100%)\n Teilzeit-Anstellung absolut möglich!\n Dein Wirkungsfeld bei uns\n\n• Individuelle Pflege: Du steuerst den Pflegeprozess zielgerichtet und begleitest unsere Patienten mit Herz und Verstand.\n\n• Qualität leben: Die Einhaltung unserer Pflegerichtlinien und Standards ist für dich kein Müssen, sondern die Basis deiner Arbeit.\n\n• Zukunft fördern: Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung unserer Lernenden und Studierenden.\n Damit überzeugst du uns\n\n• Dein Fundament: Du bist Dipl. Pflegefachfrau/-mann HF/FH und bringst im Idealfall schon etwas Berufserfahrung mit.\n\n• Deine Mentalität: Ein ausgeprägter Servicegedanke und eine exakte, zuverlässige und eigenverantwortliche Arbeitsweise sind für dich selbstverständlich.\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile.\n Das wartet auf dich\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst.\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt.\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen.\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten.\n Lust auf eine neue Herausforderung?\n Für Fragen steht dir Tanja Kropf (Stationsleitung Pflege) unter +41 81 836 35 22 gerne zur Verfügung.\n Deine vollständige Bewerbung schickst du einfach per E-Mail an: t.kropf@klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+      "description": "Neuer Job im Oberengadin? Halte mit uns die Pflege auf Top-Niveau!\n Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n Für unser Pflegeteam am Klinikstandort St. Moritz suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als:\n Dipl. Pflegefachfrau / -mann HF oder FH (60–100%)\n Teilzeit-Anstellung absolut möglich!\n Dein Wirkungsfeld bei uns:\n\n• Individuelle Pflege: Du steuerst den Pflegeprozess zielgerichtet und begleitest unsere Patienten mit Herz und Verstand.\n\n• Qualität leben: Die Einhaltung unserer Pflegerichtlinien und Standards ist für dich kein Müssen, sondern die Basis deiner Arbeit.\n\n• Zukunft fördern: Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung unserer Lernenden und Studierenden.\n Damit überzeugst du uns:\n\n• Dein Fundament: Du bist Dipl. Pflegefachfrau/-mann HF/FH und bringst im Idealfall schon etwas Berufserfahrung mit.\n\n• Deine Mentalität: Ein ausgeprägter Servicegedanke und eine exakte, zuverlässige und eigenverantwortliche Arbeitsweise sind für dich selbstverständlich.\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile.\n Das wartet auf dich:\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst.\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt.\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen.\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten.\n Lust auf eine neue Herausforderung?\n Für Fragen steht dir Tanja Kropf (Stationsleitung Pflege) unter +41 81 836 35 22 gerne zur Verfügung.\n Deine vollständige Bewerbung schickst du einfach per E-Mail an: t.kropf@klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
       "descriptionByLocale": {
         "it": "Nuovo lavoro a Oberengadin? Tenere la cura al livello superiore con noi! Klinik Gut è una clinica privata stabilita per ortopedia e chirurgia incidente. Serviamo i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch, nonché nelle sedi di pratica a Chur, Buchs, Zurigo e Ascona. Per il nostro team di assistenza presso la clinica St. Moritz, stiamo cercando una personalità motivata come: Dipl. Infermieristica professionale HF o FH (60-100%) L'occupazione a tempo parziale è assolutamente possibile! Il tuo campo di attività con noi\n• Cura individuale: Si controlla il processo di cura in modo mirato e accompagnare i nostri pazienti con cuore e mente.\n• Qualità: La conformità con le nostre linee guida e gli standard di cura non è un must per voi, ma la base del vostro lavoro.\n• Promuovi il futuro: sei felice di trasmettere le tue conoscenze e sostenere l'educazione dei nostri studenti e studenti. Questo ci convincerà\n• La vostra fondazione: Tu sei Dipl. Specialista infermieristico HF/FH e portare idealmente un'esperienza professionale.\n• La vostra mentalità: un concetto di servizio pronunciato e un metodo di lavoro esatto, affidabile e auto-responsabile sono una questione di certo per voi.\n• La vostra forza: siete orientati al team, flessibili e resilienti. Se diventa frenetico, si mantiene la panoramica e andare il miglio in più per la squadra. Questo ti aspetta\n• Emozionante vita di tutti i giorni: una variegata area di responsabilità in cui è possibile lavorare indipendentemente nella vostra area di competenza.\n• Vero spirito di squadra: una squadra dedicata a famiglia che vi accoglie con braccia aperte e si sostiene a vicenda.\n• Apprezzamento che arriva: Ci si può aspettare un pacchetto complessivo attraente con condizioni di lavoro contemporaneo e un ambiente in cui ci sosteniamo a vicenda.\n• Lo sfondo perfetto: L'Oberengadin vi offre un paesaggio da sogno con innumerevoli attività sportive e di svago. Alla ricerca di una nuova sfida? Per domande, Tanja Kropf (stazione di manutenzione) è a vostra disposizione su +41 81 836 35 22. Invia la tua domanda completa via email a: t.kropf@klinik-gut.ch PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
         "en": "New job in Oberengadin? Keep the care at the top level with us! Klinik Gut is an established private clinic for orthopaedics and accident surgery. We serve our national and international customers at the clinic locations in St. Moritz and Fläsch, as well as in the practice locations in Chur, Buchs, Zurich and Ascona. For our care team at the clinic location St. Moritz, we are looking for a motivated personality as: Dipl. Nursing professional HF or FH (60–100%) Part-time employment is absolutely possible! Your field of activity with us\n• Individual care: You control the care process purposefully and accompany our patients with heart and mind.\n• Quality living: Compliance with our care guidelines and standards is not a must for you, but the basis of your work.\n• Promote the future: You are happy to pass on your knowledge and support the education of our learners and students. This will convince us\n• Your foundation: You are Dipl. Nursing specialist HF/FH and ideally bring some professional experience.\n• Your mentality: A pronounced service concept and an exact, reliable and self-responsible working method are a matter of course for you.\n• Your strength: You are team-oriented, flexible and resilient. If it gets hectic, you keep the overview and go the extra mile for the team. This is waiting for you\n• Exciting everyday life: A varied area of responsibility in which you can work independently in your area of competence.\n• True team spirit: A family-like, dedicated team that welcomes you with open arms and supports each other.\n• Appreciation that arrives: You can expect an attractive overall package with contemporary employment conditions and an environment in which we support each other.\n• The perfect backdrop: The Oberengadin offers you a dream landscape with countless leisure and sports activities right on your doorstep. Looking for a new challenge? For questions, Tanja Kropf (maintenance station) is at your disposal on +41 81 836 35 22. Simply send your full application by email to: t.kropf@klinik-gut.ch PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Neuer Job im Oberengadin? Halte mit uns die Pflege auf Top-Niveau!\nDie Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\nFür unser Pflegeteam am Klinikstandort St. Moritz suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als:\nDipl. Pflegefachfrau / -mann HF oder FH (60–100%)\nTeilzeit-Anstellung absolut möglich!\nDein Wirkungsfeld bei uns\n\n• Individuelle Pflege: Du steuerst den Pflegeprozess zielgerichtet und begleitest unsere Patienten mit Herz und Verstand.\n\n• Qualität leben: Die Einhaltung unserer Pflegerichtlinien und Standards ist für dich kein Müssen, sondern die Basis deiner Arbeit.\n\n• Zukunft fördern: Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung unserer Lernenden und Studierenden.\nDamit überzeugst du uns\n\n• Dein Fundament: Du bist Dipl. Pflegefachfrau/-mann HF/FH und bringst im Idealfall schon etwas Berufserfahrung mit.\n\n• Deine Mentalität: Ein ausgeprägter Servicegedanke und eine exakte, zuverlässige und eigenverantwortliche Arbeitsweise sind für dich selbstverständlich.\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile.\nDas wartet auf dich\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst.\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt.\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen.\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten.\nLust auf eine neue Herausforderung?\nFür Fragen steht dir Tanja Kropf (Stationsleitung Pflege) unter +41 81 836 35 22 gerne zur Verfügung.\nDeine vollständige Bewerbung schickst du einfach per E-Mail an: t.kropf@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+        "de": "Neuer Job im Oberengadin? Halte mit uns die Pflege auf Top-Niveau!\nDie Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\nFür unser Pflegeteam am Klinikstandort St. Moritz suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als:\nDipl. Pflegefachfrau / -mann HF oder FH (60–100%)\nTeilzeit-Anstellung absolut möglich!\nDein Wirkungsfeld bei uns:\n\n• Individuelle Pflege: Du steuerst den Pflegeprozess zielgerichtet und begleitest unsere Patienten mit Herz und Verstand.\n\n• Qualität leben: Die Einhaltung unserer Pflegerichtlinien und Standards ist für dich kein Müssen, sondern die Basis deiner Arbeit.\n\n• Zukunft fördern: Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung unserer Lernenden und Studierenden.\nDamit überzeugst du uns:\n\n• Dein Fundament: Du bist Dipl. Pflegefachfrau/-mann HF/FH und bringst im Idealfall schon etwas Berufserfahrung mit.\n\n• Deine Mentalität: Ein ausgeprägter Servicegedanke und eine exakte, zuverlässige und eigenverantwortliche Arbeitsweise sind für dich selbstverständlich.\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile.\nDas wartet auf dich:\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst.\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt.\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen.\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten.\nLust auf eine neue Herausforderung?\nFür Fragen steht dir Tanja Kropf (Stationsleitung Pflege) unter +41 81 836 35 22 gerne zur Verfügung.\nDeine vollständige Bewerbung schickst du einfach per E-Mail an: t.kropf@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Un nouveau travail à Oberengadin ? Gardez les soins au plus haut niveau avec nous ! Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch, ainsi que dans les cabinets de Chur, Buchs, Zurich et Ascona. Pour notre équipe de soins à l'emplacement de la clinique St. Moritz, nous recherchons une personnalité motivée comme: Dipl. Professionnels des soins infirmiers HF ou FH (60 à 100%) L'emploi à temps partiel est absolument possible! Votre domaine d'activité avec nous\n• Soins individuels : Vous contrôlez le processus de soins avec soin et accompagnez nos patients avec cœur et esprit.\n• Une vie de qualité : le respect de nos lignes directrices et normes de soins n'est pas un impératif pour vous, mais la base de votre travail.\n• Promouvoir l'avenir : Vous êtes heureux de transmettre vos connaissances et de soutenir l'éducation de nos apprenants et étudiants. Cela nous convaincra\n• Votre fondation : Vous êtes Dipl. Spécialiste des soins infirmiers HF/FH et apporter idéalement une certaine expérience professionnelle.\n• Votre mentalité: Un concept de service prononcé et une méthode de travail exacte, fiable et auto-responsable sont une question bien sûr pour vous.\n• Votre force : Vous êtes tourné vers l'équipe, flexible et résilient. Si ça devient agité, vous gardez la vue d'ensemble et faites le mile supplémentaire pour l'équipe. Ça vous attend.\n• Vie quotidienne passionnante : Un domaine de responsabilité varié dans lequel vous pouvez travailler de manière indépendante dans votre domaine de compétence.\n• Vrai esprit d'équipe : Une équipe familiale et dévouée qui vous accueille à bras ouverts et se soutient mutuellement.\n• Appréciation qui arrive : Vous pouvez vous attendre à un ensemble global attrayant avec des conditions d'emploi contemporaines et un environnement dans lequel nous nous soutenons mutuellement.\n• Le décor parfait : l'Oberengadin vous offre un paysage de rêve avec d'innombrables loisirs et activités sportives sur votre porte. Vous cherchez un nouveau défi ? Pour toute question, Tanja Kropf (station d'entretien) est à votre disposition au +41 81 836 35 22. Envoyez simplement votre demande complète par courriel à: t.kropf@klinik-gut.ch PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
       "needsRetranslation": false,
@@ -842,7 +860,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.741Z",
+      "crawledAt": "2026-07-10T12:31:59.999Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -859,15 +877,17 @@
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T22:54:47.967Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
+        "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz"
-      ],
+      "firstSeenAt": "2026-06-29T22:54:47.967Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
