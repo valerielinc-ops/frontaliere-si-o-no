@@ -304,7 +304,7 @@ export async function fetchAllCssVersicherungJobs() {
 
     // Thin-content guard (Non-Negotiable #4): never index < 50 words —
     // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // allianz-job-parser.mjs) rather than dropping the job outright.
+    // afry-job-parser.mjs) rather than dropping the job outright.
     const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
     if (wordCount < 50) {
       descriptionText = [

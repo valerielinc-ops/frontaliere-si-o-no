@@ -183,19 +183,6 @@
       "_lastObservedAssembledAt": "2026-07-08T22:18:46.849Z",
       "_lastObservedGeneratedAt": "2026-07-08T22:18:44.929Z"
     },
-    "allianz-suisse": {
-      "lastSuccessfulRunAt": "2026-07-08T22:20:22.035Z",
-      "lastNonZeroJobs": 83,
-      "consecutiveEmptyRuns": 0,
-      "lastFailureReason": null,
-      "status": "healthy",
-      "_lastObservedAt": "2026-07-09T10:11:03.831Z",
-      "_lastObservedJobs": 83,
-      "_lastObservedFreshnessAt": "2026-07-08T22:20:22.035Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-07-08T22:20:22.029Z",
-      "_lastObservedGeneratedAt": "2026-07-08T22:20:22.035Z"
-    },
     "alpiq": {
       "lastSuccessfulRunAt": "2026-07-07T22:14:54.917Z",
       "lastNonZeroJobs": 10,
