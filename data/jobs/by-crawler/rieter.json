@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-07-10T11:28:48.800Z",
+  "assembledAt": "2026-07-10T12:07:57.130Z",
   "jobs": [
     {
       "id": "rieter-5cbc6f09de36",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:45.806Z",
+      "crawledAt": "2026-07-10T12:07:54.093Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -63,8 +63,8 @@
           "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:31:14.154Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:31:14.154Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -109,7 +109,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:45.220Z",
+      "crawledAt": "2026-07-10T12:07:52.728Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -183,7 +183,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4024475",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:44.268Z",
+      "crawledAt": "2026-07-10T12:07:51.986Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -297,7 +297,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

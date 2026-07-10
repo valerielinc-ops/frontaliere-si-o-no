@@ -1,16 +1,16 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-07-10T11:28:48.801Z",
+  "generatedAt": "2026-07-10T12:07:57.131Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6123,
-  "avgDurationMs": 6123,
+  "durationMs": 7049,
+  "avgDurationMs": 7049,
   "durationHistory": [
-    6123
+    7049
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4024475",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:44.268Z",
+      "crawledAt": "2026-07-10T12:07:51.986Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:45.220Z",
+      "crawledAt": "2026-07-10T12:07:52.728Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:45.806Z",
+      "crawledAt": "2026-07-10T12:07:54.093Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -119,6 +119,7 @@
       "applyUrl": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "jobReqId": "2601080745cg",
       "employerBrand": "Bräcker AG",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:31:14.154Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -163,7 +164,7 @@
       "firstSeenAt": "2026-07-04T12:31:14.900Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
