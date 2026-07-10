@@ -1,18 +1,19 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-07-10T10:45:42.298Z",
+  "generatedAt": "2026-07-10T11:30:23.109Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21201,
-  "avgDurationMs": 21201,
+  "durationMs": 20918,
+  "avgDurationMs": 20918,
   "durationHistory": [
-    21201
+    20918
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -27,15 +28,24 @@
       "category": "engineering",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
       "percentage": "70-100%",
-      "_qualityScore": 62,
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T10:45:42.296Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 17
+        "translation": 4,
+        "completeness": 22
       }
     },
     {
@@ -52,19 +62,26 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "kurzfristplaner-in-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
-      "_qualityScore": 62,
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T10:45:42.296Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 17
+        "translation": 4,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Executive Assistant & Führungsunterstützung des Direktors (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -79,7 +96,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "executive-assistant-fuhrungsunterstutzung-des-direktors-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -91,11 +108,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -113,7 +130,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "transportmanager-in-50-100-ferrovia-retica-rhb-bernina",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -125,11 +142,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -147,7 +164,7 @@
       "category": "engineering",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
       "crawledAt": "",
@@ -158,11 +175,12 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:25:07.447Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -180,7 +198,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "leiter-in-trassen-und-netzressourcenplanung-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -192,11 +210,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T13:42:38.528Z",
       "id": "ferrovia-retica-78c7ade0a5b2",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -214,7 +233,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "spezialist-in-change-management-60-80-ferrovia-retica-rhb-chur",
       "percentage": "60-80%",
       "crawledAt": "",
@@ -226,11 +245,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-03T11:37:28.004Z",
       "id": "ferrovia-retica-d3c3601e1a3d",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -248,7 +268,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "leiter-in-planung-entwicklung-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
       "crawledAt": "",
@@ -260,11 +280,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-47e1c4bb36a4",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -282,7 +303,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-disentis",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -294,11 +315,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T11:48:58.562Z",
       "id": "ferrovia-retica-89929c110e5b",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -316,7 +338,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "it-supporter-in-50-80-ferrovia-retica-rhb-chur",
       "percentage": "50-80%",
       "crawledAt": "",
@@ -328,85 +350,17 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-2c6753dbeeac",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Ereignismanager/in Betriebszentrale (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/ereignismanager-in-betriebszentrale-50-100_2026-2201/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "postedDate": "2026-07-09",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "event-manager-in-sede-operativa-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-30T11:30:52.751Z",
-      "id": "ferrovia-retica-1c9c5e7562b5",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Spezialist/in Vorschriften/Prüfungsexperte (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/spezialist-in-vorschriften-prufungsexperte-50-100_2026-2200/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "postedDate": "2026-07-09",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "specialista-a-regolamento-esperto-d-esame-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-26T21:55:45.514Z",
-      "id": "ferrovia-retica-9f3f1e8dfbfd",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
@@ -422,7 +376,7 @@
       "category": "engineering",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
       "percentage": "70-100%",
       "crawledAt": "",
@@ -430,12 +384,16 @@
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 62,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T10:45:42.296Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 17
+        "translation": 6,
+        "completeness": 22
       }
     },
     {
@@ -452,7 +410,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "kurzfristplaner-in-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -460,12 +418,16 @@
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 64,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T10:45:42.296Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 4,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -482,7 +444,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "executive-assistant-executive-support-del-direttore-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -494,11 +456,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -516,7 +478,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "transport-manager-50-100-ferrovia-retica-rhb-bernina",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -528,11 +490,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -550,7 +512,7 @@
       "category": "engineering",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "team-leader-in-officina-elettrica-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
       "crawledAt": "",
@@ -561,6 +523,7 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:25:07.447Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -583,7 +546,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "responsabile-pianificazione-delle-risorse-del-percorso-e-della-rete-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
       "crawledAt": "",
@@ -595,11 +558,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T13:42:38.528Z",
       "id": "ferrovia-retica-78c7ade0a5b2",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -617,7 +581,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "specialista-in-gestione-del-cambiamento-60-80-ferrovia-retica-rhb-chur",
       "percentage": "60-80%",
       "crawledAt": "",
@@ -629,11 +593,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-03T11:37:28.004Z",
       "id": "ferrovia-retica-d3c3601e1a3d",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -651,7 +616,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "responsabile-pianificazione-e-sviluppo-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
       "crawledAt": "",
@@ -663,11 +628,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-47e1c4bb36a4",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -685,8 +651,8 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
-      "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-disentis",
+      "sourceLang": "it",
+      "slug": "ranger-50-100-ferrovia-retica-rhb-disentis",
       "percentage": "50-100%",
       "crawledAt": "",
       "addressLocality": "Disentis",
@@ -697,11 +663,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T11:48:58.562Z",
       "id": "ferrovia-retica-89929c110e5b",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -719,7 +686,7 @@
       "category": "technology",
       "postedDate": "2026-07-10",
       "source": "company-website",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "slug": "supporto-it-50-80-ferrovia-retica-rhb-chur",
       "percentage": "50-80%",
       "crawledAt": "",
@@ -731,11 +698,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-2c6753dbeeac",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
