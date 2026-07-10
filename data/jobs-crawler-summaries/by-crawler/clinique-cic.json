@@ -1,16 +1,16 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-07-10T12:17:21.382Z",
+  "generatedAt": "2026-07-10T22:18:04.319Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3586,
-  "avgDurationMs": 3586,
+  "durationMs": 5168,
+  "avgDurationMs": 5168,
   "durationHistory": [
-    3586
+    5168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/892fa79e-2cec-4004-8349-99a4215f03e9/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:17:18.567Z",
+      "crawledAt": "2026-07-10T22:18:01.064Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -43,11 +43,11 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/892fa79e-2cec-4004-8349-99a4215f03e9/",
       "firstSeenAt": "2026-07-10T10:50:11.262Z",
-      "_qualityScore": 78,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/267c2797-6632-4576-b6d9-76fa865166c1/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:17:18.910Z",
+      "crawledAt": "2026-07-10T22:18:01.472Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,11 +80,11 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/267c2797-6632-4576-b6d9-76fa865166c1/",
       "firstSeenAt": "2026-07-10T10:50:11.827Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +101,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1d0e2f1b-a45f-4c33-8ad0-060c82928447/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:17:19.181Z",
+      "crawledAt": "2026-07-10T22:18:01.740Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
