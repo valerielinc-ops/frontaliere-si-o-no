@@ -13,7 +13,22 @@
  * piggy-back on the inselspital parser's regex helpers (rowRegex, element
  * extractors) since they are tenant-agnostic.
  *
- * Detail page: /Vacancies/{ID}/Description/1?lang=ger
+ * Rich descriptions — Prospective careercenter join (July 2026):
+ *   The Umantis detail page (/Vacancies/{ID}/Description/1) is DEAD for this
+ *   tenant: it 302-redirects cross-host to https://www.ksa.ch/offene-stellen
+ *   (itself a 404), and the surviving CheckLogin/Application pages carry no
+ *   job body. KSA publishes the actual job content on its Prospective.ch
+ *   careercenter (medium 1003009, iframed at jobs.ksa.ch):
+ *
+ *     https://ohws.prospective.ch/public/v1/medium/1003009/jobs?lang=de
+ *
+ *   Each Prospective listing carries `szas.sza_apply_link` = the Umantis
+ *   vacancy ID (verified live: "5564" ↔ /Vacancies/5564/...), plus the full
+ *   Aufgaben/Anforderungen/company-profile sections. We keep the Umantis
+ *   listing as the source of truth (stable IDs/URLs) and join the Prospective
+ *   feed on that key to enrich descriptions. Listings without a Prospective
+ *   match (mostly one-day "Berufswahlpraktikum" taster events) fall back to
+ *   the listing snippet, as before.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllKsaJobs()  — Fetch and parse all jobs across pages
@@ -22,7 +37,12 @@
  *   - KSA_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import {
+  slugify,
+  stripHtml,
+  normalizeSpace,
+  normalizeDescriptionBullets,
+} from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -37,6 +57,15 @@ const PUBLIC_CAREER_URL = 'https://www.ksa.ch/de/kantonsspital-aarau/karriere-bi
 
 // Hard cap on pagination walk (10 rows/page → 200 vacancies max).
 const MAX_PAGES = 20;
+
+// Prospective.ch careercenter tenant carrying the rich job bodies (the
+// Umantis detail page is dead — see file header). Same public API shape as
+// prospective-ch-job-parser-common.mjs consumers.
+const PROSPECTIVE_MEDIUM_ID = '1003009';
+const PROSPECTIVE_API_BASE = `https://ohws.prospective.ch/public/v1/medium/${PROSPECTIVE_MEDIUM_ID}/jobs`;
+const PROSPECTIVE_PAGE_SIZE = 100;
+// Safety cap: 10 pages × 100 = 1000 vacancies, far above the ~110 real ones.
+const PROSPECTIVE_MAX_PAGES = 10;
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -224,6 +253,93 @@ export function parseKsaListingPage(html = '') {
   return results;
 }
 
+/* ── Prospective careercenter enrichment ──────────────────── */
+
+/**
+ * Build the section-headed plain-text description from one Prospective
+ * listing's `szas` bag. Mirrors the shared prospective-ch factory's
+ * buildDescription(): intro → Aufgaben → Anforderungen → Wir bieten →
+ * company profile. `<ul><li>` markup becomes `• ` bullets via stripHtml, so
+ * the result satisfies the parser-quality structured-content check.
+ *
+ * @param {object} szas  `job.szas` from the Prospective API
+ * @returns {string} plain-text description ('' when the bag is empty)
+ */
+export function buildKsaDetailDescription(szas = {}) {
+  const parts = [];
+  const intro = normalizeSpace(stripHtml(szas.sza_introduction || ''));
+  if (intro) parts.push(intro);
+  const tasks = stripHtml(szas.sza_tasks || '');
+  if (tasks) parts.push(`Aufgaben:\n${tasks}`);
+  const reqs = stripHtml(szas.sza_requirements || '');
+  if (reqs) parts.push(`Anforderungen:\n${reqs}`);
+  const benefits = stripHtml(szas.sza_benefits || '');
+  if (benefits) parts.push(`Wir bieten:\n${benefits}`);
+  const profile = stripHtml(szas.sza_company_profil || '');
+  if (profile) parts.push(profile);
+  return normalizeDescriptionBullets(parts.join('\n\n'));
+}
+
+/**
+ * Index Prospective listings by their Umantis vacancy ID (`sza_apply_link`,
+ * a bare numeric reference on this tenant — verified live July 2026).
+ * Entries without a usable numeric key or without any body text are skipped.
+ *
+ * @param {Array<object>} prospectiveJobs  `jobs` array from the API
+ * @returns {Map<string, string>} vacancyId → rich description
+ */
+export function buildProspectiveDescriptionMap(prospectiveJobs = []) {
+  const map = new Map();
+  for (const job of Array.isArray(prospectiveJobs) ? prospectiveJobs : []) {
+    const applyLink = String(job?.szas?.sza_apply_link || '').trim();
+    if (!/^\d+$/.test(applyLink)) continue;
+    const description = buildKsaDetailDescription(job?.szas || {});
+    if (!description || description.length < 100) continue;
+    map.set(applyLink, description);
+  }
+  return map;
+}
+
+/**
+ * Fetch every KSA job from the Prospective careercenter API (paginated).
+ * Graceful degradation: any HTTP/network/JSON error returns whatever was
+ * collected so far (possibly []) — the crawler then falls back to the
+ * listing snippet exactly as before the enrichment existed.
+ *
+ * @returns {Promise<Array<object>>}
+ */
+async function fetchProspectiveJobs() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
+  const all = [];
+  let total = Infinity;
+  for (let page = 0; page < PROSPECTIVE_MAX_PAGES && all.length < total; page++) {
+    const offset = page * PROSPECTIVE_PAGE_SIZE;
+    const url = `${PROSPECTIVE_API_BASE}?lang=de&offset=${offset}&limit=${PROSPECTIVE_PAGE_SIZE}`;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
+      const data = await res.json();
+      const items = Array.isArray(data?.jobs) ? data.jobs : [];
+      if (Number.isFinite(Number(data?.total))) total = Number(data.total);
+      if (items.length === 0) break;
+      all.push(...items);
+      if (items.length < PROSPECTIVE_PAGE_SIZE) break;
+    } catch (err) {
+      console.warn(`  ⚠️ Prospective enrichment fetch failed at offset=${offset}: ${err?.message || err}`);
+      break;
+    } finally {
+      clearTimeout(timer);
+    }
+    await new Promise((r) => setTimeout(r, 300));
+  }
+  return all;
+}
+
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
 async function fetchPage(url, cookieJar) {
@@ -308,14 +424,24 @@ export async function fetchAllKsaJobs() {
 
   console.log(`  📋 Listings found: ${allListings.length}\n`);
 
+  // Rich-description join: Umantis vacancy ID → Prospective body (see file
+  // header). Failure here is non-fatal — jobs fall back to the snippet.
+  console.log(`  📖 Fetching rich bodies from Prospective medium ${PROSPECTIVE_MEDIUM_ID}…`);
+  const prospectiveJobs = await fetchProspectiveJobs();
+  const descriptionByVacancyId = buildProspectiveDescriptionMap(prospectiveJobs);
+  console.log(`  📖 Prospective bodies indexed: ${descriptionByVacancyId.size} (from ${prospectiveJobs.length} listings)\n`);
+
   const jobs = [];
+  let enriched = 0;
   for (const listing of allListings) {
     const title = listing.title;
     const location = 'Aarau';
     const canton = 'AG';
 
     const fallbackDesc = `${title} — ${KSA_COMPANY_NAME}, Aarau`;
-    const descriptionText = listing.snippet || fallbackDesc;
+    const richDesc = descriptionByVacancyId.get(listing.vacancyId) || '';
+    if (richDesc) enriched += 1;
+    const descriptionText = richDesc || listing.snippet || fallbackDesc;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ksa ch`);
@@ -369,6 +495,7 @@ export async function fetchAllKsaJobs() {
     jobs.push(job);
   }
 
+  console.log(`  ✓ Rich descriptions joined: ${enriched}/${jobs.length}`);
   console.log(`\n📋 Total ${KSA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

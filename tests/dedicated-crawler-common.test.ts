@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
@@ -1118,6 +1118,82 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
     captureLostSlugs(merged, {}, 'old-active-slug-about-to-be-lost', DEFAULT_PREV_SLUG_CAP);
     expect(merged.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
     expect(merged.previousSlugs).toContain('old-active-slug-about-to-be-lost');
+  });
+});
+
+describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted instead of fabricating today (#3843 item 3)', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath;
+  let prevOverride;
+
+  beforeEach(() => {
+    prevOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-slug-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (prevOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
+  });
+
+  const baseJob = (over = {}) => ({
+    id: 'job-dateposted-1',
+    title: 'Infermiere diplomato',
+    company: 'Clinica Test',
+    location: 'Lugano, Ticino',
+    url: 'https://example.com/jobs/dateposted-1',
+    description: 'D'.repeat(60),
+    slug: 'infermiere-diplomato-clinica-test',
+    ...over,
+  });
+
+  it('uses next.datePosted when neither side carries postedDate (legacy crawler emits only datePosted)', () => {
+    const prev = baseJob({ datePosted: '2026-06-15', crawledAt: '2026-06-20T00:00:00.000Z' });
+    const next = baseJob({ datePosted: '2026-06-15' });
+    const { merged } = mergeAndDeduplicate([prev], [next], cfg);
+    expect(merged).toHaveLength(1);
+    // Before the fix this fabricated today's nowIsoDate.
+    expect(merged[0].postedDate).toBe('2026-06-15');
+  });
+
+  it('keeps the older real source date when prev.postedDate was fabricated by an earlier merge run', () => {
+    // prev.postedDate = nowIsoDate stamped by a pre-fix merge; the incoming
+    // legacy job still carries the true (older) source posting date.
+    const prev = baseJob({ postedDate: '2026-07-01', crawledAt: '2026-07-01T00:00:00.000Z' });
+    const next = baseJob({ datePosted: '2026-06-10' });
+    const { merged } = mergeAndDeduplicate([prev], [next], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].postedDate).toBe('2026-06-10');
+  });
+
+  it('does not let a crawler that stamps datePosted=today churn an established older postedDate forward (preserveOlder semantics)', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const prev = baseJob({ postedDate: '2026-06-01', crawledAt: '2026-06-01T00:00:00.000Z' });
+    const next = baseJob({ datePosted: today });
+    const { merged } = mergeAndDeduplicate([prev], [next], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].postedDate).toBe('2026-06-01');
+  });
+
+  it('existing-vs-existing collapse (mergeDuplicateJobPreservingSlugHistory path) keeps the older datePosted-only date instead of the winner\'s fabricated one', () => {
+    const winner = baseJob({ postedDate: '2026-07-05', crawledAt: '2026-07-05T00:00:00.000Z', featured: true });
+    const loser = baseJob({ datePosted: '2026-05-20', crawledAt: '2026-07-05T00:00:00.000Z', featured: false });
+    const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].postedDate).toBe('2026-05-20');
+  });
+
+  it('pickMergedPostedDate: lets next win when it is actually older, prefers real dates over unparseable ones, and returns empty when both sides are blank', () => {
+    expect(pickMergedPostedDate(
+      { postedDate: '2026-07-01' },
+      { postedDate: '2026-06-01' },
+    )).toBe('2026-06-01');
+    expect(pickMergedPostedDate(
+      { postedDate: 'not-a-date' },
+      { datePosted: '2026-06-01' },
+    )).toBe('2026-06-01');
+    expect(pickMergedPostedDate({}, {})).toBe('');
   });
 });
 

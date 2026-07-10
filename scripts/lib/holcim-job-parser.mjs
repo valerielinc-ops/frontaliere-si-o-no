@@ -34,9 +34,13 @@
  *
  * Detail pages carry schema.org microdata (`itemprop="streetAddress"
  * content="{City}, CH, {Postal}"`, `itemprop="datePosted"`) plus a
- * `<span class="jobdescription">...</span>` description block ending before
- * a `<p id="job-location" ...>` marker — same description-extraction pattern
- * as Benteler/Constellium, just a differently-attributed closing `<p>` tag.
+ * `<span class="jobdescription">...</span>` description block. The block is
+ * extracted by scanning to its own balanced closing `</span>` — the earlier
+ * "slice up to `<p id="job-location">`" pattern (borrowed from Benteler/
+ * Constellium) broke silently when this tenant reordered its detail template
+ * so that the `job-location` marker now renders BEFORE the description span:
+ * `descEnd > descStart` failed on every job and the crawler shipped 28/31
+ * thin stub descriptions (issue #3836).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllHolcimJobs()  — Fetch and parse all jobs
@@ -287,9 +291,45 @@ async function listSwissJobs() {
 }
 
 /**
+ * Extract the `<span class="jobdescription">...</span>` block by scanning
+ * for its own balanced closing `</span>`.
+ *
+ * ISSUE #3836: the previous implementation sliced from the span's start up
+ * to the `<p id="job-location"` marker, assuming the marker always FOLLOWS
+ * the description (the Benteler/Constellium layout). This tenant's detail
+ * template now renders the job-location paragraph BEFORE the description
+ * span, so `descEnd > descStart` was false on every job and the extraction
+ * silently returned '' — every description fell back to the thin
+ * "{title} — Holcim Group a {city}." stub. Scanning to the span's own
+ * balanced close is order-independent and survives either layout.
+ *
+ * Exported for tests.
+ */
+export function extractJobDescriptionHtml(html = '') {
+  const startMarker = '<span class="jobdescription">';
+  const start = html.indexOf(startMarker);
+  if (start === -1) return '';
+  const from = start + startMarker.length;
+
+  // Balanced scan: the description body may itself contain nested <span>s
+  // (inline styling), so count opens/closes until this span's own close.
+  const tokenRx = /<span\b[^>]*>|<\/span\s*>/gi;
+  tokenRx.lastIndex = from;
+  let depth = 1;
+  let tok;
+  while ((tok = tokenRx.exec(html)) !== null) {
+    depth += tok[0][1] === '/' ? -1 : 1;
+    if (depth === 0) return html.slice(from, tok.index);
+  }
+
+  // Unbalanced markup — fall back to the legacy end marker when it appears
+  // AFTER the span (old layout), else take a bounded slice.
+  const legacyEnd = html.indexOf('<p id="job-location"', from);
+  return html.slice(from, legacyEnd !== -1 ? legacyEnd : from + 20000);
+}
+
+/**
  * Fetch and parse a job detail page for its description + posted date.
- * Description sits in a `<span class="jobdescription">...</span>` block
- * that ends right before the `<p id="job-location" ...>` marker.
  */
 async function fetchJobDetail(detailUrl) {
   let html;
@@ -300,11 +340,10 @@ async function fetchJobDetail(detailUrl) {
     return null;
   }
 
-  const descStart = html.indexOf('<span class="jobdescription">');
-  const descEnd = html.indexOf('<p id="job-location"');
-  const descriptionHtml = descStart >= 0 && descEnd > descStart
-    ? html.slice(descStart, descEnd)
-    : '';
+  const descriptionHtml = extractJobDescriptionHtml(html);
+  if (!descriptionHtml) {
+    console.warn(`⚠️ No jobdescription block found on ${detailUrl} — detail markup may have drifted.`);
+  }
 
   const dateM = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
   let postedDate = '';

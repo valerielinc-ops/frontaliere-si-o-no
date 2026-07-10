@@ -1,0 +1,44 @@
+<!--
+ Synthetic PI-ASP `bewerber-web` detail-container innerHTML, modeled on the
+ GWT `BW-WebPositionPage` job-ad markup of stiftdia.pi-asp.de (class names
+ extracted from the deployed bundle 2026-07-10; the ad body is the customer's
+ own rich-text HTML — paragraphs + <ul><li> blocks — rendered verbatim by the
+ detail screen). Used by tests/pi-asp-bewerber-web-detail.test.ts to pin the
+ HTML→structured-text conversion. Noise nodes (.BW-WebPositionActionButtons,
+ .BW-WebPositionSocialMediaSection) are removed in-page before this HTML ever
+ reaches Node — the copies below verify the converter tolerates leftovers.
+-->
+<div class="BW-webPositionDeteilScreen">
+  <div class="BW-WebPositionPage">
+    <h1>Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80-100%</h1>
+    <p><strong>Spital Zollikerberg</strong> &mdash; Pflegeberufe &middot; per sofort oder nach Vereinbarung</p>
+    <p>Das Spital Zollikerberg ist ein Akutspital mit rund 1&#8217;100 Mitarbeitenden.
+       F&uuml;r unsere Abteilung Innere Medizin suchen wir eine engagierte Pers&ouml;nlichkeit.</p>
+    <h2>Ihre Aufgaben</h2>
+    <ul>
+      <li>Individuelle, ganzheitliche Pflege unserer Patientinnen und Patienten</li>
+      <li>Steuerung des Pflegeprozesses inklusive Dokumentation</li>
+      <li>Interprofessionelle Zusammenarbeit mit &Auml;rzteschaft und Therapien</li>
+    </ul>
+    <h2>Ihr Profil</h2>
+    <ul>
+      <li>Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH</li>
+      <li>Berufserfahrung im Akutbereich von Vorteil</li>
+      <li>Deutschkenntnisse Niveau C1</li>
+    </ul>
+    <h2>Wir bieten</h2>
+    <ul>
+      <li>Fortschrittliche Anstellungsbedingungen und mindestens 5 Wochen Ferien</li>
+      <li>Vielf&auml;ltige Fort- und Weiterbildungsm&ouml;glichkeiten</li>
+    </ul>
+    <p>Wir freuen uns auf Ihre Online-Bewerbung.</p>
+  </div>
+  <div class="BW-WebPositionActionButtons">
+    <button type="button">Jetzt bewerben</button>
+    <button type="button">Zur&uuml;ck zur &Uuml;bersicht</button>
+  </div>
+  <div class="BW-WebPositionSocialMediaSection">
+    <span>Teilen:</span> <a href="#">Facebook</a> <a href="#">LinkedIn</a>
+  </div>
+  <script>var leaked = window.location;</script>
+</div>

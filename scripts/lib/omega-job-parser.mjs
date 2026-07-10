@@ -1,41 +1,55 @@
 #!/usr/bin/env node
 /**
- * OMEGA SA job parser — Custom Magento career portal (Lumesse TalentLink ATS).
+ * OMEGA SA job parser — Swatch Group job-finder (Drupal, Lumesse TalentLink ATS).
  *
  * OMEGA SA is a Swatch Group subsidiary (luxury watches).
- * Career portal: https://www.omegawatches.com/careers/list
  *
- * The career site is a custom Magento-based portal with server-rendered HTML.
- * No public JSON API — we scrape the list page and detail pages.
+ * WHY the Swatch Group portal and not omegawatches.com (#3843 item 1):
+ * the brand's own career portal (https://www.omegawatches.com/careers/list)
+ * sits behind an Akamai WAF that hard-blocks EVERY datacenter egress we can
+ * use — GitHub Actions runners get HTTP 403 on the list page (verified in the
+ * crawler-group-21 run logs), and the Jina Reader clean-IP pool gets Akamai
+ * "Access Denied" (edgesuite reference) on every attempt. The SAME jobs are
+ * published on the group-wide job finder at https://www.swatchgroup.com — a
+ * server-rendered Drupal site (NOT a JS SPA) that serves full HTML and is
+ * reachable through the sanctioned Jina egress proxy. Both portals front the
+ * same Lumesse TalentLink ATS (identical apply URLs on
+ * apply5.lumessetalentlink.com and the same country taxonomy id 40 for
+ * Switzerland).
  *
- * List page: https://www.omegawatches.com/careers/list?country_id=40
- *   - country_id=40 = Switzerland
- *   - Returns server-rendered HTML with job listings
- *   - Each listing links to: /careers/view/{jobId}/{lang}
+ * List page: https://www.swatchgroup.com/en/job-finder?jf_country=40&page={N}
+ *   - jf_country=40 = Switzerland (same taxonomy id the brand portal used)
+ *   - Server-rendered cards, 10 per page; pager query param `page` (0-based)
+ *   - Each card carries the brand logo (/sites/default/files/brands-logos/
+ *     omega.png) — that logo is the ONLY brand discriminator, so we keep just
+ *     the omega cards
+ *   - Card link: /{lang}/job/{id} (the path locale IS the posting's language)
  *
- * Detail page structure (CSS classes):
- *   - .ow-jobs-details__heading-country — full address + region
- *   - .ow-jobs-details__heading-title   — job title (h1)
- *   - .ow-jobs-details__tags-item       — tags (working time, domain, level, contract, language)
- *   - section.company-description       — company intro
- *   - section.description               — job description (tasks)
- *   - section.profile                   — candidate profile
- *   - section.requirements              — requirements
- *   - section.language-requirements     — language requirements
- *   - a.apply href                      — Lumesse TalentLink apply URL
+ * Detail page structure (language-independent CSS hooks):
+ *   - h1 .f-n-title                     — job title
+ *   - .f-n-field-job-company-intro      — company intro
+ *   - .f-n-body                         — job description
+ *   - .f-n-field-job-profile            — candidate profile
+ *   - .f-n-field-job-prof-requ          — professional requirements
+ *   - .f-n-field-job-languages          — language requirements
+ *   - .f-n-field-job-contact            — contact person
+ *   - div#jl                            — job location (street / zip city (region) / country)
+ *   - a[href*=lumessetalentlink.com]    — TalentLink apply URL
  *
- * All Swiss-located jobs are included (country_id=40 restricts to Switzerland).
+ * Fetch strategy: direct fetch first (works if the runner IP is clean), then
+ * the shared Jina Reader proxy fallback (scripts/lib/jina-proxy.mjs) — the
+ * same sanctioned direct-then-Jina pattern as clinique-cic-job-parser.mjs.
  *
- * Exports the 4 required functions for the crawler template:
- *   - fetchAllOmegaJobs()     — Fetch and parse all Swiss jobs
+ * Exports the functions required by the crawler template:
+ *   - fetchAllOmegaJobs()     — Fetch and parse all Swiss OMEGA jobs
  *   - isOmegaJob()            — Match jobs belonging to this company
  *   - isTrustedDomain()       — Validate URLs belong to this company
- *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
+ * plus parseListPage()/parseDetailPage() for fixture tests.
  */
-import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { encodeJinaTargetUrl, fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -43,8 +57,18 @@ export const OMEGA_KEY = 'omega';
 export const OMEGA_COMPANY_NAME = 'OMEGA SA';
 export const OMEGA_COMPANY_DOMAIN = 'omegawatches.com';
 
-const BASE_URL = 'https://www.omegawatches.com';
-const LIST_URL = `${BASE_URL}/careers/list?country_id=40`;
+const BASE_URL = 'https://www.swatchgroup.com';
+// jf_country=40 = Switzerland in the shared Swatch Group / brand taxonomy.
+const SWITZERLAND_COUNTRY_ID = '40';
+const listUrl = (page) =>
+  `${BASE_URL}/en/job-finder?jf_country=${SWITZERLAND_COUNTRY_ID}&page=${page}`;
+// 92 Swiss jobs group-wide ≈ 10 pages today; hard cap so a pager regression
+// can never turn into an unbounded crawl.
+const MAX_LIST_PAGES = 30;
+const DETAIL_DELAY_MS = 500;
+// The brand logo on each card/detail is the only OMEGA discriminator on the
+// group-wide portal.
+const OMEGA_LOGO_MARKER = 'brands-logos/omega.png';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -65,7 +89,6 @@ function htmlToText(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/div>/gi, '\n')
     .replace(/<[^>]+>/g, '')
@@ -74,40 +97,49 @@ function htmlToText(html = '') {
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
+    .replace(/&nbsp;|&#160;/g, ' ')
     .replace(/&#x20;/g, ' ')
+    // Per-line trim of HORIZONTAL whitespace only — `\s` would also consume
+    // the newlines themselves and glue adjacent lines together ("…96" +
+    // "2502 Biel/Bienne" → "…962502 Biel/Bienne"), breaking the line-based
+    // location parser and requirements splitting.
+    .replace(/[ \t]+$/gm, '')
+    .replace(/^[ \t]+/gm, '')
     .replace(/\n{3,}/g, '\n\n')
-    .replace(/^\s+|\s+$/gm, '')
     .trim();
 }
 
 /**
- * Parse address from Omega's location format:
- * "Bahnhofstrasse 30a, 3920 Zermatt, Schweiz - Schweiz (Valais)"
+ * Parse the #jl job-location block text into address parts.
+ * Shape (all languages):
+ *   Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96
+ *   2502 Biel/Bienne (Bern)
+ *   Switzerland | Suisse | Schweiz | Svizzera
  */
-function parseAddress(locationStr = '') {
-  const parts = locationStr.split(' - ');
-  const addressPart = (parts[0] || '').trim();
-  const regionPart = (parts[1] || '').trim();
+export function parseJobLocation(locationText = '') {
+  const lines = String(locationText || '')
+    .split('\n')
+    .map((l) => normalizeSpace(l))
+    .filter(Boolean);
 
-  // Extract region from parentheses: "Schweiz (Valais)" -> "Valais"
-  const regionMatch = regionPart.match(/\(([^)]+)\)/);
-  const region = regionMatch ? regionMatch[1].trim() : '';
-
-  // Parse address components: "Bahnhofstrasse 30a, 3920 Zermatt, Schweiz"
-  const addressParts = addressPart.split(',').map((s) => s.trim());
-  const street = addressParts[0] || '';
-
-  // Find postal code + city: "3920 Zermatt"
+  let street = '';
   let postalCode = '';
   let city = '';
-  for (const part of addressParts) {
-    const zipCityMatch = part.trim().match(/^(\d{4})\s+(.+)$/);
-    if (zipCityMatch) {
-      postalCode = zipCityMatch[1];
-      city = zipCityMatch[2];
-      break;
+  let region = '';
+
+  for (let i = 0; i < lines.length; i++) {
+    const zipCityMatch = lines[i].match(/^(\d{4})\s+(.+)$/);
+    if (!zipCityMatch) continue;
+    postalCode = zipCityMatch[1];
+    let rest = zipCityMatch[2];
+    const regionMatch = rest.match(/\(([^)]+)\)\s*$/);
+    if (regionMatch) {
+      region = regionMatch[1].trim();
+      rest = rest.slice(0, regionMatch.index).trim();
     }
+    city = rest;
+    if (i > 0) street = lines[i - 1];
+    break;
   }
 
   return { street, postalCode, city, region };
@@ -118,6 +150,9 @@ function parseAddress(locationStr = '') {
 /**
  * Check if a job belongs to OMEGA SA.
  * Used by the template to filter this company's jobs from the global dataset.
+ * NOTE: a generic swatchgroup.com URL is deliberately NOT a match — the group
+ * portal hosts every Swatch Group brand, so only jobs this parser tagged with
+ * the omega companyKey/company (or brand-portal URLs) belong here.
  */
 export function isOmegaJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
@@ -145,6 +180,8 @@ export function isTrustedDomain(rawUrl = '') {
     return (
       host === 'omegawatches.com' ||
       host.endsWith('.omegawatches.com') ||
+      host === 'swatchgroup.com' ||
+      host.endsWith('.swatchgroup.com') ||
       host.includes('lumessetalentlink.com')
     );
   } catch {
@@ -154,15 +191,15 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── Category Detection ────────────────────────────────────── */
 
-function detectCategory(title = '', domain = '') {
+export function detectCategory(title = '', domain = '') {
   const t = normalize(`${title} ${domain}`);
   if (/\b(verkauf|vente|vendita|sales|retail|boutique|representative)/.test(t)) return 'Commerciale';
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install|horlog|watchmak|uhrmach)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(logist|magazz|lager|warehouse|supply)/.test(t)) return 'Logistica';
+  if (/\b(logist|magazz|lager|warehouse|supply|stock|spare parts)/.test(t)) return 'Logistica';
   if (/\b(customer.?service|service.?client|kundendienst|care.?advisor)/.test(t)) return 'Servizio Clienti';
-  if (/\b(it\b|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(it\b|software|develop|programm|crm)/.test(t)) return 'IT';
   if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
   if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
@@ -171,26 +208,27 @@ function detectCategory(title = '', domain = '') {
   return 'Altro';
 }
 
-function detectExperienceLevel(title = '', position = '') {
-  const t = normalize(`${title} ${position}`);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+export function detectExperienceLevel(title = '', text = '') {
+  const t = normalize(`${title} ${text}`);
+  // `intern` must be word-bounded on BOTH sides: a bare `\bintern` prefix
+  // would also match "INTERNATIONAL …" titles.
+  if (/\b(praktik|stage\b|stagiair|intern(ship)?s?\b|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|deputy|manager|management|cadre)/.test(t)) return 'senior';
   return 'mid';
 }
 
-function detectEmploymentType(workingTime = '', title = '') {
-  const t = normalize(`${workingTime} ${title}`);
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel|\d+\s*%)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein|plein temps)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
+function detectEmploymentType(title = '', text = '') {
+  const t = normalize(`${title} ${text}`);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel|\d{2}\s*%)/.test(t)) return 'PART_TIME';
+  return 'FULL_TIME';
 }
 
-function detectContractType(contractStr = '') {
-  const t = normalize(contractStr);
-  if (/\b(unbefristet|indetermin|permanent|cdi)/.test(t)) return 'permanent';
-  if (/\b(befristet|determin|temporary|cdd)/.test(t)) return 'fixed-term';
-  return 'full-time';
+export function detectContractType(title = '', text = '') {
+  const t = normalize(`${title} ${text}`);
+  // `tempora` prefix covers temporary (en), temporaire (fr), temporaneo (it).
+  if (/\b(befristet|determin|tempora|temporär|cdd|fixed.?term|interim)/.test(t)) return 'fixed-term';
+  return 'permanent';
 }
 
 /* ── HTTP Client ───────────────────────────────────────────── */
@@ -199,203 +237,189 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
 
 /**
- * Fetch a page with timeout, browser-like headers, and retry on 403.
+ * Percent-encode the query-string delimiters of a target URL for Jina Reader.
  *
- * The omegawatches.com site uses WAF-based bot protection. The crawler
- * may receive 403 responses locally but succeed in CI (different IP).
- * We retry once with a delay to handle transient blocks.
+ * Jina parses the OUTER request's query string as its own API parameters, so
+ * an unencoded `...job-finder?jf_country=40&page=0` collides with Jina's own
+ * `page` param (a 1-indexed PDF-page selector with a `>= 1` validator → our
+ * 0-based pager gets an HTTP 400 ParamValidationError). Encoding `?`, `&`
+ * and `=` makes the whole query part of the target URL path, which Jina
+ * decodes and forwards verbatim (verified live: encoded and unencoded
+ * `jf_country=40` return the identical filtered result set).
  */
-async function fetchPage(url, retries = 1) {
+// Deprecated local alias: the encoding now lives in the shared proxy module
+// (jinaProxiedRequest applies it to every consumer by construction, and it is
+// idempotent, so the explicit call below is belt-and-suspenders). Kept as an
+// export so existing tests/callers keep working.
+export const jinaSafeUrl = encodeJinaTargetUrl;
+
+/**
+ * Fetch a page: direct first, then through the shared Jina Reader proxy.
+ *
+ * swatchgroup.com sits behind the same Akamai WAF family as the brand portal
+ * and may 403 / reset the connection on datacenter egress IPs (GitHub Actions
+ * runners). The direct attempt is kept so nothing changes if the runner IP is
+ * clean; on ANY direct failure (non-2xx, network/TLS error, or a
+ * 200-with-challenge body) we re-fetch through Jina's clean-IP pool
+ * (retried across its rotating egress IPs by fetchHtmlViaJinaWithRetry).
+ */
+async function fetchPage(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  let directErr;
 
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-    try {
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'Accept-Language': 'en-US,en;q=0.9,de;q=0.8,fr;q=0.7',
-          'Accept-Encoding': 'gzip, deflate, br',
-          'Cache-Control': 'no-cache',
-          Referer: 'https://www.omegawatches.com/careers',
-          'Sec-Fetch-Dest': 'document',
-          'Sec-Fetch-Mode': 'navigate',
-          'Sec-Fetch-Site': 'same-origin',
-          'User-Agent': USER_AGENT,
-        },
-        signal: controller.signal,
-        redirect: 'follow',
-      });
-      clearTimeout(timer);
-
-      if (res.status === 403 && attempt < retries) {
-        console.warn(`  ⚠️ HTTP 403 from ${url} — retrying in 3s (attempt ${attempt + 1}/${retries + 1})...`);
-        await new Promise((r) => setTimeout(r, 3000));
-        continue;
-      }
-
-      if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-      return await res.text();
-    } catch (err) {
-      clearTimeout(timer);
-      if (attempt < retries && !err.message?.includes('abort')) {
-        console.warn(`  ⚠️ Fetch error: ${err.message} — retrying...`);
-        await new Promise((r) => setTimeout(r, 2000));
-        continue;
-      }
-      throw err;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9,de;q=0.8,fr;q=0.7',
+        'User-Agent': USER_AGENT,
+      },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (res.ok) {
+      const body = await res.text();
+      if (!looksLikeAntiBotChallenge(body)) return body;
+      directErr = new Error(`WAF challenge page from ${url}`);
+    } else {
+      directErr = new Error(`HTTP ${res.status} from ${url}`);
     }
+  } catch (err) {
+    clearTimeout(timer);
+    directErr = err;
   }
-  throw new Error(`Failed to fetch ${url} after ${retries + 1} attempts`);
+
+  const viaJina = await fetchHtmlViaJinaWithRetry(jinaSafeUrl(url), { timeoutMs: Math.max(timeoutMs, 30000) });
+  if (viaJina != null && !looksLikeAntiBotChallenge(viaJina)) return viaJina;
+  throw directErr;
 }
 
 /* ── List Page Parser ─────────────────────────────────────── */
 
 /**
- * Parse the list page HTML to extract job listing URLs and basic info.
- * Returns an array of { url, title, locationStr, tags[] }.
+ * Parse a job-finder list page.
+ * Returns { listings, cardCount }:
+ *   - cardCount: ALL brand cards on the page (pagination signal — a page with
+ *     0 cards is past the end of the result set)
+ *   - listings: only the OMEGA-brand cards, as { url, lang, jobId, title, teaser, domain }
  */
-function parseListPage(html = '') {
+export function parseListPage(html = '') {
   const listings = [];
 
-  // Match each listing item block
-  const itemPattern = /class="ow-jobs-listing__item\s+followlink\s+item-\d+"[\s\S]*?(?=class="ow-jobs-listing__item\s+followlink|<\/section|<\/ul>)/g;
-  const items = html.match(itemPattern) || [];
-
-  for (const item of items) {
-    // Extract detail URL: /careers/view/{id}/{lang}
-    const urlMatch = item.match(/href="([^"]*\/careers\/view\/\d+\/\w+)"/);
+  const cardChunks = String(html || '').split('<div class="card h-100">').slice(1);
+  for (const chunk of cardChunks) {
+    // Card link: /{lang}/job/{id}
+    const urlMatch = chunk.match(/href="\/(\w{2})\/job\/(\d+)"/);
     if (!urlMatch) continue;
 
-    const detailUrl = urlMatch[1].startsWith('http')
-      ? urlMatch[1]
-      : `${BASE_URL}${urlMatch[1]}`;
+    if (!chunk.includes(OMEGA_LOGO_MARKER)) continue; // other Swatch Group brand
 
-    // Extract title
-    const titleMatch = item.match(/class="ow-jobs-listing__title[^"]*"[^>]*>([\s\S]*?)<\/p>/);
+    const lang = urlMatch[1];
+    const jobId = urlMatch[2];
+    const detailUrl = `${BASE_URL}/${lang}/job/${jobId}`;
+
+    const titleMatch = chunk.match(/<h4 class="card-title">\s*<a[^>]*>([\s\S]*?)<\/a>/);
     const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
 
-    // Extract location
-    const locMatch = item.match(/class="ow-jobs-listing__heading-country[^"]*"[^>]*>[\s\S]*?<span[^>]*>([\s\S]*?)<\/span>/);
-    const locationStr = locMatch ? normalizeSpace(htmlToText(locMatch[1])) : '';
+    const teaserMatch = chunk.match(/<p class="card__text">([\s\S]*?)<\/p>/);
+    const teaser = teaserMatch ? htmlToText(teaserMatch[1]) : '';
 
-    // Extract tags (working time, domain, level, contract, language)
-    const tags = [];
-    const tagPattern = /<span class="label">([\s\S]*?)<\/span>/g;
-    let tagMatch;
-    while ((tagMatch = tagPattern.exec(item)) !== null) {
-      tags.push(normalizeSpace(tagMatch[1]));
-    }
+    // The domain image alt ("Sales", "Engineering", …) is the only structured
+    // category hint on the portal.
+    const domainMatch = chunk.match(/<img[^>]*alt="([^"]*)"/);
+    const domain = domainMatch ? normalizeSpace(domainMatch[1]) : '';
 
-    listings.push({ url: detailUrl, title, locationStr, tags });
+    listings.push({ url: detailUrl, lang, jobId, title, teaser, domain });
   }
 
-  return listings;
+  const cardCount = cardChunks.length;
+  return { listings, cardCount };
 }
 
 /* ── Detail Page Parser ───────────────────────────────────── */
 
 /**
- * Parse a detail page to extract full job information.
+ * Parse a job detail page (language-independent CSS hooks).
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
+  const src = String(html || '');
   const sections = {};
 
-  // Extract each named section
-  const sectionPattern = /class="ow-jobs-details__section\s+([\w-]+)"[\s\S]*?<h2>([\s\S]*?)<\/h2>([\s\S]*?)(?=<\/section>)/g;
+  // Named field sections: <div class="field f-n-<name> ..."><h2>Heading</h2>content</div>
+  // (field bodies are flat h2/p/ul markup — no nested divs on this portal).
+  const sectionPattern = /<div class="field f-n-((?:field-job-)?[\w-]+?) f-t-[\w-]+">([\s\S]*?)<\/div>/g;
   let secMatch;
-  while ((secMatch = sectionPattern.exec(html)) !== null) {
-    const sectionName = secMatch[1].trim();
-    const content = htmlToText(secMatch[3]);
-    if (content) {
-      sections[sectionName] = content;
-    }
+  while ((secMatch = sectionPattern.exec(src)) !== null) {
+    const rawName = secMatch[1].replace(/^field-job-/, '');
+    let content = secMatch[2];
+    const headingMatch = content.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
+    const heading = headingMatch ? normalizeSpace(htmlToText(headingMatch[1])) : '';
+    if (headingMatch) content = content.replace(headingMatch[0], '');
+    const text = htmlToText(content);
+    if (text) sections[rawName] = { heading, text };
   }
 
-  // Extract apply URL
-  const applyMatch = html.match(/href="([^"]*lumessetalentlink\.com[^"]*)"/);
-  const applyUrl = applyMatch
-    ? applyMatch[1].replace(/&amp;/g, '&')
-    : '';
+  // Title
+  const h1Match = src.match(/<h1[^>]*>\s*<span class="field f-n-title[^"]*">([\s\S]*?)<\/span>/);
+  const title = h1Match ? normalizeSpace(htmlToText(h1Match[1])) : '';
 
-  // Extract title from h1
-  const h1Match = html.match(/class="ow-jobs-details__heading-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
-  const detailTitle = h1Match ? normalizeSpace(htmlToText(h1Match[1])) : '';
-
-  // Extract full location from detail page
-  const locMatch = html.match(/class="ow-jobs-details__heading-country[^"]*"[\s\S]*?<span[^>]*>([\s\S]*?)<\/span>/);
-  const detailLocation = locMatch ? normalizeSpace(htmlToText(locMatch[1])) : '';
-
-  // Extract tags
-  const tags = [];
-  const tagPattern = /class="ow-jobs-details__tags-item"[\s\S]*?<span>([\s\S]*?)<\/span>/g;
-  let tagMatch;
-  while ((tagMatch = tagPattern.exec(html)) !== null) {
-    tags.push(normalizeSpace(tagMatch[1]));
+  // Job location block
+  const jlMatch = src.match(/<div id="jl"[^>]*>([\s\S]*?)<\/div>/);
+  let locationText = '';
+  if (jlMatch) {
+    locationText = htmlToText(jlMatch[1].replace(/<p[^>]*>[\s\S]*?<\/p>/, ''));
   }
 
-  return { sections, applyUrl, detailTitle, detailLocation, tags };
+  // TalentLink apply URL
+  const applyMatch = src.match(/href="(https?:\/\/[^"]*lumessetalentlink\.com[^"]*)"/);
+  const applyUrl = applyMatch ? applyMatch[1].replace(/&amp;/g, '&') : '';
+
+  const isOmegaBrand = src.includes(OMEGA_LOGO_MARKER);
+
+  return { title, sections, locationText, applyUrl, isOmegaBrand };
 }
 
 /**
- * Build a structured description from detail page sections.
+ * Build a structured description from detail page sections, keeping the
+ * page's own (localized) headings.
  */
 function buildDescription(sections = {}, title = '', city = '') {
   const parts = [];
-
-  if (sections['company-description']) {
-    parts.push(sections['company-description']);
+  for (const key of ['company-intro', 'body', 'profile', 'prof-requ', 'languages']) {
+    const sec = sections[key];
+    if (!sec?.text) continue;
+    parts.push(sec.heading ? `## ${sec.heading}\n${sec.text}` : sec.text);
   }
-
-  if (sections['description']) {
-    parts.push('## Stellenbeschreibung\n' + sections['description']);
-  }
-
-  if (sections['profile']) {
-    parts.push('## Profil\n' + sections['profile']);
-  }
-
-  if (sections['requirements']) {
-    parts.push('## Anforderungen\n' + sections['requirements']);
-  }
-
-  if (sections['language-requirements']) {
-    parts.push('## Sprachen\n' + sections['language-requirements']);
-  }
-
   if (parts.length === 0) {
     return `${title} - OMEGA SA, ${city ? `${city}, ` : ''}Switzerland`;
   }
-
   return parts.join('\n\n');
 }
 
 /**
- * Extract requirements from detail page sections.
+ * Extract requirement lines from profile / requirements / languages sections.
  */
 function extractRequirements(sections = {}) {
   const reqs = [];
-
-  for (const key of ['requirements', 'profile', 'language-requirements']) {
-    const text = sections[key] || '';
+  for (const key of ['profile', 'prof-requ', 'languages']) {
+    const text = sections[key]?.text || '';
     if (!text) continue;
-
     const lines = text.split('\n')
-      .map((line) => line.replace(/^-\s*/, '').trim())
+      .map((line) => line.replace(/^[•-]\s*/, '').trim())
       .filter((line) => line.length > 3);
     reqs.push(...lines);
   }
-
   return reqs;
 }
 
 /* ── Main Fetcher ─────────────────────────────────────────── */
 
 /**
- * Fetch all OMEGA SA jobs in Switzerland.
+ * Fetch all OMEGA SA jobs in Switzerland from the Swatch Group job finder.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -403,85 +427,86 @@ function extractRequirements(sections = {}) {
  */
 export async function fetchAllOmegaJobs() {
   console.log(`🔍 Fetching OMEGA SA jobs`);
-  console.log(`   Platform: Custom Magento career portal (Lumesse TalentLink ATS)`);
-  console.log(`   List URL: ${LIST_URL}`);
-  console.log(`   Filter: Switzerland (country_id=40) — nationwide\n`);
+  console.log(`   Platform: Swatch Group job finder (Drupal, Lumesse TalentLink ATS)`);
+  console.log(`   List URL: ${listUrl(0)}`);
+  console.log(`   Filter: Switzerland (jf_country=${SWITZERLAND_COUNTRY_ID}) + OMEGA brand cards\n`);
 
-  // Step 1: Fetch the list page
-  console.log(`  📄 Fetching Switzerland job listings...`);
-  let listHtml;
-  try {
-    listHtml = await fetchPage(LIST_URL);
-  } catch (err) {
-    console.error(`  ❌ Failed to fetch list page: ${err.message}`);
-    if (err.message?.includes('403')) {
-      console.warn('   The site may be blocking automated requests. Will retry next cycle.');
+  // Step 1: walk the paginated list, keeping only OMEGA-brand cards.
+  const seen = new Set();
+  const omegaListings = [];
+  for (let page = 0; page < MAX_LIST_PAGES; page++) {
+    let html;
+    try {
+      html = await fetchPage(listUrl(page));
+    } catch (err) {
+      if (page === 0) {
+        // Nothing collected yet — graceful early exit (prior data preserved).
+        console.error(`  ❌ Failed to fetch list page: ${err?.message || err}`);
+        console.warn('   The site may be blocking automated requests. Will retry next cycle.');
+        return [];
+      }
+      // Mid-crawl failure: publishing a PARTIAL list would expire the jobs on
+      // the unfetched pages, so bail out to the safe 0-job early exit instead.
+      console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
+      console.warn('   Aborting with no jobs (prior data preserved) — will retry next cycle.');
+      return [];
     }
+
+    const { listings, cardCount } = parseListPage(html);
+    console.log(`  📄 List page ${page + 1}: ${cardCount} cards, ${listings.length} OMEGA`);
+    if (cardCount === 0) break; // past the last page
+    if (page === MAX_LIST_PAGES - 1) {
+      // Loud cap (same contract as swiss-re/pi-asp): never truncate silently.
+      console.warn(`  ⚠️ Reached MAX_LIST_PAGES=${MAX_LIST_PAGES} with cards still present — group job-finder may have more pages than we crawl; raise the cap if this persists.`);
+    }
+    for (const listing of listings) {
+      if (seen.has(listing.jobId)) continue;
+      seen.add(listing.jobId);
+      omegaListings.push(listing);
+    }
+    await new Promise((r) => setTimeout(r, 300));
+  }
+
+  console.log(`  📦 Found ${omegaListings.length} OMEGA Switzerland jobs`);
+  if (omegaListings.length === 0) {
+    console.warn('⚠️ No OMEGA job listings found.');
     return [];
   }
 
-  const listings = parseListPage(listHtml);
-  console.log(`  📦 Found ${listings.length} Switzerland jobs total`);
-
-  // Step 2: Keep all Swiss listings (nationwide crawl; country_id=40 already
-  // restricts the listing to Switzerland)
-  const swissListings = listings;
-
-  if (swissListings.length === 0) {
-    console.warn('⚠️ No job listings found.');
-    return [];
-  }
-
-  // Step 3: Fetch each detail page for full information
+  // Step 2: fetch each detail page for full information
   const jobs = [];
-  for (const listing of swissListings) {
+  for (const listing of omegaListings) {
     console.log(`  📄 Fetching detail: ${listing.title}`);
 
-    let detailData = { sections: {}, applyUrl: '', detailTitle: '', detailLocation: '', tags: [] };
+    let detail = { title: '', sections: {}, locationText: '', applyUrl: '', isOmegaBrand: true };
     try {
       const detailHtml = await fetchPage(listing.url);
-      detailData = parseDetailPage(detailHtml);
-      await new Promise((r) => setTimeout(r, 500)); // Rate limiting
+      detail = parseDetailPage(detailHtml);
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS)); // Rate limiting
     } catch (err) {
-      console.warn(`  ⚠️ Failed to fetch detail page for "${listing.title}": ${err.message}`);
+      console.warn(`  ⚠️ Failed to fetch detail page for "${listing.title}": ${err?.message || err}`);
     }
 
-    // Use detail page data when available, fall back to list data
-    const title = normalizeSpace(detailData.detailTitle || listing.title);
+    const title = normalizeSpace(detail.title || listing.title);
     if (!title || title.length < 3) continue;
 
-    const locationStr = detailData.detailLocation || listing.locationStr;
-    const address = parseAddress(locationStr);
+    const address = parseJobLocation(detail.locationText);
     const city = address.city || '';
     const canton = normalizeCantonCode(address.region) || inferAnyCanton(city) || '';
 
-    // Tags from detail or list
-    const tags = detailData.tags.length > 0 ? detailData.tags : listing.tags;
-    const workingTime = tags[0] || '';
-    const domain = tags[1] || '';
-    const positionLevel = tags[2] || '';
-    const contractStr = tags[3] || '';
-    const language = tags[4] || '';
+    // Description from detail sections, falling back to the list teaser.
+    const descriptionText = Object.keys(detail.sections).length > 0
+      ? buildDescription(detail.sections, title, city)
+      : (listing.teaser || buildDescription({}, title, city));
+    const requirements = extractRequirements(detail.sections);
 
-    // Description
-    const descriptionText = buildDescription(detailData.sections, title, city);
-    const requirements = extractRequirements(detailData.sections);
+    // Source language: the card link's path locale, verified against content.
+    const sourceLang = detectLang(descriptionText || title, listing.lang || 'en');
 
-    // Determine source language from detail page lang code or content
-    const urlLangMatch = listing.url.match(/\/(\w{2})$/);
-    const urlLang = urlLangMatch ? urlLangMatch[1] : '';
-    const sourceLang = detectLang(descriptionText || title, urlLang || 'en');
-
-    // Extract job ID from URL: /careers/view/{jobId}/{lang}
-    const jobIdMatch = listing.url.match(/\/careers\/view\/(\d+)\//);
-    const jobId = jobIdMatch ? jobIdMatch[1] : '';
-    const stableId = jobId
-      ? `omega-${jobId}`
-      : `omega-${createHash('sha1').update(listing.url).digest('hex').slice(0, 12)}`;
-
+    const stableId = `omega-${listing.jobId}`;
     const jobSlug = slugify(`${title} omega ${city}`);
-
-    const applyUrl = detailData.applyUrl || listing.url;
+    const applyUrl = detail.applyUrl || listing.url;
+    const detectionText = `${descriptionText}`.slice(0, 4000);
 
     const job = {
       // ── Required fields ──
@@ -511,10 +536,10 @@ export async function fetchAllOmegaJobs() {
       ...(address.street ? { streetAddress: address.street } : {}),
 
       // ── Job metadata ──
-      category: detectCategory(title, domain),
-      contract: detectContractType(contractStr),
-      employmentType: detectEmploymentType(workingTime, title),
-      experienceLevel: detectExperienceLevel(title, positionLevel),
+      category: detectCategory(title, listing.domain),
+      contract: detectContractType(title, detectionText),
+      employmentType: detectEmploymentType(title, detectionText),
+      experienceLevel: detectExperienceLevel(title, ''),
       sector: 'Orologeria di lusso',
       currency: 'CHF',
       featured: false,
@@ -539,10 +564,15 @@ export async function fetchAllOmegaJobs() {
  */
 function normalizeCantonCode(regionName = '') {
   const lower = normalize(regionName);
+  if (!lower) return '';
   if (['wallis', 'valais', 'vallese'].some((n) => lower.includes(n))) return 'VS';
   if (['tessin', 'ticino'].some((n) => lower.includes(n))) return 'TI';
   if (['graubünden', 'graubunden', 'grigioni', 'grisons'].some((n) => lower.includes(n))) return 'GR';
   if (['bern', 'berne', 'berna'].some((n) => lower.includes(n))) return 'BE';
   if (['zürich', 'zurich', 'zurigo'].some((n) => lower.includes(n))) return 'ZH';
+  if (['solothurn', 'soletta', 'soleure'].some((n) => lower.includes(n))) return 'SO';
+  if (['genève', 'geneve', 'geneva', 'ginevra', 'genf'].some((n) => lower.includes(n))) return 'GE';
   return inferAnyCanton(regionName) || '';
 }
+
+export { stripHtml };

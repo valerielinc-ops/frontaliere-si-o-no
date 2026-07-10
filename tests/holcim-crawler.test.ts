@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   HOLCIM_KEY,
@@ -5,8 +8,11 @@ import {
   isHolcimJob,
   isTrustedDomain,
   parseSearchPage,
+  extractJobDescriptionHtml,
 } from '../scripts/lib/holcim-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
+
+const FIXTURES = join(dirname(fileURLToPath(import.meta.url)), 'fixtures');
 
 describe('Holcim Group crawler parser', () => {
   // ── Constants ──
@@ -169,6 +175,49 @@ describe('Holcim Group crawler parser', () => {
     it('returns empty rows and zero total on empty/unrecognised HTML', () => {
       expect(parseSearchPage('')).toEqual({ rows: [], total: 0 });
       expect(parseSearchPage('<html><body>maintenance</body></html>')).toEqual({ rows: [], total: 0 });
+    });
+  });
+
+  // ── extractJobDescriptionHtml: detail-page description block ──
+  describe('extractJobDescriptionHtml', () => {
+    it('extracts the full description from a REAL detail page where <p id="job-location"> precedes the span (issue #3836 regression)', () => {
+      // Live-captured 2026-07-10: careers.holcimgroup.com renders the
+      // job-location marker BEFORE the jobdescription span, which made the
+      // old "slice up to the marker" logic return '' on every job and ship
+      // 28/31 thin stub descriptions.
+      const html = readFileSync(join(FIXTURES, 'holcim-detail-baumaschinenfuehrer.html'), 'utf8');
+      expect(html.indexOf('<p id="job-location"')).toBeGreaterThan(-1);
+      expect(html.indexOf('<p id="job-location"')).toBeLessThan(html.indexOf('<span class="jobdescription">'));
+
+      const desc = extractJobDescriptionHtml(html);
+      expect(desc.length).toBeGreaterThan(1000);
+      expect(desc).toContain('Bedienung von Baumaschinen');
+      expect(desc).toContain('<li>');
+      // Must stop at the span's own close — no trailing page chrome.
+      expect(desc).not.toContain('buttontext06ed94238f4892f7');
+
+      // The audit's structured-content check must see bullets after stripHtml.
+      const text = stripHtml(desc);
+      expect(text.length).toBeGreaterThan(1000);
+      expect(/^\s*[-•*]\s/m.test(text)).toBe(true);
+    });
+
+    it('handles nested <span> elements inside the description', () => {
+      const html = '<div><span class="jobdescription"><p>Intro <span class="hl">highlight</span> tail</p><ul><li>Task</li></ul></span><p>after</p></div>';
+      const desc = extractJobDescriptionHtml(html);
+      expect(desc).toBe('<p>Intro <span class="hl">highlight</span> tail</p><ul><li>Task</li></ul>');
+    });
+
+    it('still supports the legacy layout (marker AFTER the span, unbalanced markup)', () => {
+      const html = '<span class="jobdescription"><p>Role body</p><p id="job-location">Zug</p>';
+      const desc = extractJobDescriptionHtml(html);
+      expect(desc).toContain('Role body');
+      expect(desc).not.toContain('Zug');
+    });
+
+    it('returns empty string when the description block is missing', () => {
+      expect(extractJobDescriptionHtml('<html><body>maintenance</body></html>')).toBe('');
+      expect(extractJobDescriptionHtml('')).toBe('');
     });
   });
 
