@@ -3,15 +3,20 @@
  * Privatklinik Siloah (Gümligen, BE) — SMN clinic PKS.
  *
  * Acute private hospital + birth centre of Swiss Medical Network in
- * Gümligen near Bern. Listing endpoint:
+ * Gümligen near Bern.
  *
- *   https://www.swissmedical.net/de/karriere/stellenangebote?clinic=PKS
+ * Jobs come from the public SmartRecruiters postings API
+ * (SwissMedicalNetwork1 tenant), filtered by ATS department
+ * "Privatklinik Siloah". The BE sister units (Ärztezentrum Siloah
+ * Liebefeld, Ärztezentrum Siloah Murten) are distinct departments and
+ * remain out of scope — this parser is Siloah-Gümligen only.
  *
- * Jobs route through SmartRecruiters (SwissMedicalNetwork1 tenant).
- * The umbrella ATS also exposes BE sister units (Ärztezentrum Siloah
- * Liebefeld = ASL, Ärztezentrum Siloah Murten = ASM) under distinct
- * clinic codes — those remain out of scope here, this parser is
- * Siloah-Gümligen only.
+ * NOTE (July 2026, issue #3859): the legacy listing filter `?clinic=PKS`
+ * drifted (clinic codes now match ATS Brands and the listing renders
+ * client-side state server-side inconsistently), so the factory switched
+ * to the postings API. `clinicCode` below is kept for the public career
+ * URL and the `source` label only. Zero jobs is a legitimate result when
+ * the clinic has no open positions in the ATS.
  */
 import { createSmnClinicParser } from './smn-clinic-job-parser.mjs';
 
@@ -34,5 +39,6 @@ const parser = createSmnClinicParser({
 
 export const fetchAllKlinikSiloahJobs = parser.fetchAllJobs;
 export const isKlinikSiloahJob = parser.isCompanyJob;
+export const matchesKlinikSiloahPosting = parser.matchesClinicPosting;
 export const isTrustedDomain = parser.isTrustedDomain;
 export const KLINIK_SILOAH_LISTING_URL = parser.LISTING_URL;

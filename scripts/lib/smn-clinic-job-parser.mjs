@@ -2,119 +2,101 @@
 /**
  * Swiss Medical Network (SMN) — per-clinic job parser factory.
  *
- * The master `swiss-medical-network` crawler only fetches Ticino postings
- * (region filter `?region=<TICINO_UUID>`). SMN runs ~30 clinics across
- * Switzerland and exposes the listing page with a per-clinic `?clinic=XXX`
- * filter that returns only that clinic's openings.
+ * SMN runs ~30 clinics across Switzerland on a single SmartRecruiters
+ * tenant (`SwissMedicalNetwork1`). This factory builds one dedicated
+ * parser per non-Ticino clinic (the master `swiss-medical-network`
+ * crawler owns the Ticino postings).
  *
- *   https://www.swissmedical.net/de/karriere/stellenangebote?clinic=PKV
+ * SOURCE (July 2026): the public SmartRecruiters postings API —
  *
- * Each filtered page yields a small set of SmartRecruiters detail links
- * (`https://jobs.smartrecruiters.com/SwissMedicalNetwork1/...`). This
- * module wraps that flow for a single clinic so we can ship one
- * dedicated crawler per non-Ticino clinic without re-implementing the
- * HTML scrape each time.
+ *   https://api.smartrecruiters.com/v1/companies/SwissMedicalNetwork1/postings
  *
- * Known clinic codes (May 2026):
- *   PKV → Privatklinik Villa im Park, Rothrist (AG)
- *   PKS → Privatklinik Siloah, Gümligen (BE)
- *   PKB → Privatklinik Bethanien, Zürich (ZH)
- *   PKL → Privatklinik Lindberg, Winterthur (ZH)
- *   PKO → Privatklinik Obach, Solothurn (SO)
- *   KBS → Privatklinik Belair, Schaffhausen (SH)
+ * Each posting carries a `department` whose label is the clinic name
+ * (e.g. "Privatklinik Siloah", "Hôpital de Moutier"), which is what we
+ * filter on. The same label is mirrored in the "Department" custom field.
  *
- * SmartRecruiters detail HTML is parsed via the shared
- * `parseSmartRecruiterDetail` helper from the master SMN parser.
+ * HISTORY: this factory used to scrape the swissmedical.net listing page
+ * with a per-clinic `?clinic=XXX` query (e.g. `?clinic=PKS`) and extract
+ * `jobs.smartrecruiters.com/SwissMedicalNetwork1/...` detail links from
+ * the server-rendered HTML. In July 2026 SMN re-mapped those clinic codes
+ * to ATS "Brands" (e.g. `MZB` no longer means Hôpital de Moutier — it now
+ * selects "Medizinisches Zentrum Biel", whose postings are branded
+ * "Réseau de l'Arc" and therefore render zero tiles). Several clinics
+ * silently returned 0 jobs (issues #3857, #3859). The postings API is the
+ * source of truth feeding that page, so we consume it directly — same
+ * approach as the master SMN crawler and via the shared
+ * `ats-clients/smartrecruiters-client.mjs`.
+ *
+ * The legacy `clinicCode` is kept in the config for the public listing
+ * URL (`?clinic=XXX`) and the `source` string only — it is NOT used for
+ * filtering anymore.
+ *
+ * Clinic attribution:
+ *   - a posting matches when its department label equals one of
+ *     `departmentLabels` (default: `[companyName]`), compared
+ *     case/diacritic/punctuation-insensitively;
+ *   - additionally, network-wide departments listed in
+ *     `cityScopedDepartmentLabels` (e.g. "Réseau de l'Arc" for Hôpital
+ *     de Moutier) match only when the posting's city is the clinic's
+ *     own `defaultCity`, so shared-brand postings at the clinic's site
+ *     are attributed to it without swallowing the whole network.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
-  parseSmartRecruiterDetail,
-  htmlToText,
+  SMN_SR_COMPANY_ID,
+  extractSmnApiDescription,
   normalizeSpace,
   slugify,
 } from './swiss-medical-network-job-parser.mjs';
+import { fetchSmartRecruitersJobs } from './ats-clients/smartrecruiters-client.mjs';
 
 const SMN_HOST = 'https://www.swissmedical.net';
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-const DETAIL_DELAY_MS = 500;
+const SR_PUBLIC_JOBS_BASE = 'https://jobs.smartrecruiters.com';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'de,en;q=0.8,it;q=0.7,fr;q=0.6',
-        'User-Agent': USER_AGENT,
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return null;
-  }
+/**
+ * Normalise a clinic/department label for comparison: lowercase, strip
+ * diacritics, collapse punctuation/whitespace runs to single spaces.
+ * "Clinique Générale-Beaulieu" → "clinique generale beaulieu".
+ */
+export function normalizeClinicLabel(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
 }
 
 /**
- * Extract SmartRecruiters detail URLs + titles from the clinic-filtered
- * listing HTML. Each detail link looks like:
+ * Collect the department labels a posting is tagged with: the structured
+ * `department.label` plus the "Department" custom-field value (SMN
+ * mirrors the same label there). Returned normalised via
+ * `normalizeClinicLabel`.
  *
- *   <a target="_blank" href="https://jobs.smartrecruiters.com/SwissMedicalNetwork1/{ID}-{slug}">Mehr erfahren</a>
- *
- * Title is the text-rich element immediately above the link (`<h*>` or
- * surrounding `<a>` text). When the title can't be parsed from the
- * listing we fall back to humanising the slug.
+ * @param {Object} posting  Raw SmartRecruiters posting (list or detail).
+ * @returns {string[]}
  */
-export function parseSmnClinicListing(html = '') {
-  if (!html || typeof html !== 'string') return [];
-  const out = [];
-  const seen = new Set();
-  const linkRx = /<a[^>]+href="(https?:\/\/jobs\.smartrecruiters\.com\/SwissMedicalNetwork[^"]*?)"[^>]*>/gi;
-  let m;
-  while ((m = linkRx.exec(html))) {
-    const url = m[1].trim();
-    if (seen.has(url)) continue;
-    seen.add(url);
-    // Look backwards within a 2k window for a heading-style title.
-    const window = html.slice(Math.max(0, m.index - 2000), m.index);
-    let title = '';
-    const headingMatches = [...window.matchAll(/<h[2-5][^>]*>([\s\S]*?)<\/h[2-5]>/gi)];
-    if (headingMatches.length > 0) {
-      title = normalizeSpace(htmlToText(headingMatches[headingMatches.length - 1][1]));
+export function extractPostingDepartmentLabels(posting = {}) {
+  const labels = [];
+  const structured = posting?.department?.label;
+  if (structured) labels.push(structured);
+  const customFields = Array.isArray(posting?.customField) ? posting.customField : [];
+  for (const field of customFields) {
+    if (normalizeClinicLabel(field?.fieldLabel) === 'department' && field?.valueLabel) {
+      labels.push(field.valueLabel);
     }
-    if (!title) {
-      // Slug-derived fallback (e.g. ".../744000127191779-dipl-pflegefachperson-…")
-      const slugFromUrl = url.split('/').pop() || '';
-      const human = slugFromUrl
-        .replace(/^\d+-/, '')
-        .replace(/-+/g, ' ')
-        .replace(/\b\w/g, (c) => c.toUpperCase())
-        .trim();
-      if (human) title = human;
-    }
-    if (!title || title.length < 3) continue;
-    out.push({ url, title });
   }
-  return out;
+  return [...new Set(labels.map(normalizeClinicLabel).filter(Boolean))];
 }
 
 /**
  * Synthesise a structured fallback description (in source locale) so
- * postings without a usable SmartRecruiters detail page still pass the
+ * postings without a usable SmartRecruiters detail payload still pass the
  * thin-content gate.
  */
 function buildFallbackDescription({ title, clinicName, city, canton, sourceLang }) {
@@ -165,12 +147,25 @@ function detectEmploymentType(title = '') {
 }
 
 /**
+ * Employment type from the structured API field, falling back to the
+ * title heuristic when the field is absent or unrecognised.
+ */
+function detectEmploymentTypeFromPosting(posting, title = '') {
+  const label = `${posting?.typeOfEmployment?.id || ''} ${posting?.typeOfEmployment?.label || ''}`.toLowerCase();
+  if (/part[\s-]?time|teilzeit|temps\s*partiel|tempo\s*parziale/.test(label)) return 'PART_TIME';
+  if (/full[\s-]?time|vollzeit|plein\s*temps|tempo\s*pieno/.test(label)) return 'FULL_TIME';
+  return detectEmploymentType(title);
+}
+
+/**
  * Build a parser bundle for one SMN clinic.
  *
  * @param {Object} config
  * @param {string} config.companyKey
  * @param {string} config.companyName              Public-facing clinic name
- * @param {string} config.clinicCode               SMN listing filter (e.g. 'PKV')
+ * @param {string} config.clinicCode               Legacy SMN listing filter (e.g. 'PKV');
+ *                                                 used for the public `?clinic=` URL and
+ *                                                 the `source` label only
  * @param {string} config.companyDomain            usually 'swissmedical.net'
  * @param {string} config.defaultCanton            ISO canton code
  * @param {string} config.defaultCity
@@ -179,6 +174,13 @@ function detectEmploymentType(title = '') {
  * @param {string} [config.publicCareerUrl]
  * @param {string} [config.defaultSourceLang='de']
  * @param {string} [config.lang='de']              SMN listing locale segment
+ * @param {string[]} [config.departmentLabels]     ATS department labels owned by this
+ *                                                 clinic (default: `[companyName]`)
+ * @param {string[]} [config.cityScopedDepartmentLabels]
+ *                                                 Network-wide department labels (e.g.
+ *                                                 "Réseau de l'Arc") attributed to this
+ *                                                 clinic ONLY when the posting's city is
+ *                                                 `defaultCity`
  */
 export function createSmnClinicParser(config) {
   const {
@@ -193,6 +195,8 @@ export function createSmnClinicParser(config) {
     publicCareerUrl = '',
     defaultSourceLang = 'de',
     lang = 'de',
+    departmentLabels = [],
+    cityScopedDepartmentLabels = [],
   } = config;
 
   if (!companyKey || !companyName || !clinicCode || !defaultCanton) {
@@ -206,9 +210,34 @@ export function createSmnClinicParser(config) {
   const LISTING_URL = `${SMN_HOST}/${localePath}?clinic=${encodeURIComponent(clinicCode)}`;
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
 
+  const departmentTargets = new Set(
+    (departmentLabels.length > 0 ? departmentLabels : [companyName])
+      .map(normalizeClinicLabel)
+      .filter(Boolean),
+  );
+  const cityScopedTargets = new Set(
+    cityScopedDepartmentLabels.map(normalizeClinicLabel).filter(Boolean),
+  );
+  const homeCity = normalizeClinicLabel(defaultCity);
+
+  /**
+   * True when an API posting belongs to this clinic (see module header
+   * for the attribution rules).
+   */
+  function matchesClinicPosting(posting) {
+    const labels = extractPostingDepartmentLabels(posting);
+    if (labels.some((label) => departmentTargets.has(label))) return true;
+    if (cityScopedTargets.size > 0 && homeCity) {
+      const postingCity = normalizeClinicLabel(posting?.location?.city);
+      if (postingCity === homeCity && labels.some((label) => cityScopedTargets.has(label))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function isCompanyJob(job) {
     const key = normalize(job?.companyKey || '');
-    const url = normalize(job?.url || '');
     if (key === companyKey) return true;
     const company = normalize(job?.company || '');
     if (company.includes(normalize(companyName))) return true;
@@ -227,46 +256,53 @@ export function createSmnClinicParser(config) {
   }
 
   async function fetchAllJobs() {
-    console.log(`🏥 Fetching ${companyName} jobs (clinic=${clinicCode})`);
-    console.log(`   Source: ${LISTING_URL}`);
+    console.log(`🏥 Fetching ${companyName} jobs (SmartRecruiters department filter)`);
+    console.log(`   Source: SR postings API tenant=${SMN_SR_COMPANY_ID} departments=[${[...departmentTargets].join(', ')}]`);
+    if (cityScopedTargets.size > 0) {
+      console.log(`   City-scoped departments (${defaultCity} only): [${[...cityScopedTargets].join(', ')}]`);
+    }
     if (publicCareerUrl) console.log(`   Public: ${publicCareerUrl}`);
     console.log();
-
-    const listingHtml = await fetchPage(LISTING_URL);
-    if (!listingHtml) return [];
-
-    const tiles = parseSmnClinicListing(listingHtml);
-    console.log(`  ✓ ${tiles.length} SmartRecruiters tiles parsed`);
-    if (tiles.length === 0) return [];
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
 
-    for (const tile of tiles) {
-      let descriptionFromDetail = '';
-      let titleFromDetail = '';
-      let detailLocation = '';
-      const detailHtml = await fetchPage(tile.url);
-      if (detailHtml) {
-        const detail = parseSmartRecruiterDetail(detailHtml);
-        if (detail.description && detail.description.split(/\s+/).length >= 30) {
-          descriptionFromDetail = detail.description;
-          detailHits += 1;
-        }
-        if (detail.title && detail.title.length >= 3) titleFromDetail = detail.title;
-        if (detail.location) detailLocation = detail.location;
-      }
-      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    const postings = fetchSmartRecruitersJobs(SMN_SR_COMPANY_ID, {
+      company: companyName,
+      locationCountryCodes: ['ch'],
+      filter: matchesClinicPosting,
+      fetchDetail: true,
+    });
 
-      const title = titleFromDetail || tile.title;
-      const city = detailLocation || defaultCity;
+    for await (const normalized of postings) {
+      const posting = normalized.rawPosting || {};
+      const title = normalizeSpace(posting.name || normalized.title || '');
+      if (!title || title.length < 3) continue;
+
+      const loc = posting.location || {};
+      const city = normalizeSpace(loc.city || '') || defaultCity;
+      const postalCode = normalizeSpace(loc.postalCode || '') || defaultPostalCode;
+
+      let descriptionFromDetail = extractSmnApiDescription(posting);
+      if (descriptionFromDetail && descriptionFromDetail.split(/\s+/).length >= 30) {
+        detailHits += 1;
+      } else {
+        descriptionFromDetail = '';
+      }
+
       const sourceLang = detectLang(descriptionFromDetail || title, defaultSourceLang);
       const description = descriptionFromDetail
         || buildFallbackDescription({ title, clinicName: companyName, city, canton: defaultCanton, sourceLang });
 
+      // Same URL format the old listing tiles exposed ({id}-{title-slug}),
+      // so job ids (sha1 of URL) stay stable across the source migration.
+      const url = normalizeSpace(posting.postingUrl || '')
+        || `${SR_PUBLIC_JOBS_BASE}/${SMN_SR_COMPANY_ID}/${posting.id}-${slugify(title)}`;
+
+      const postedIso = (normalized.postedAt || '').slice(0, 10) || todayIso;
       const jobSlug = slugify(`${title}-${companyKey}`);
-      const urlHash = createHash('sha1').update(tile.url).digest('hex').slice(0, 12);
+      const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
       jobs.push({
         id: `${companyKey}-${urlHash}`,
@@ -283,8 +319,8 @@ export function createSmnClinicParser(config) {
         needsRetranslation: true,
         location: city,
         canton: defaultCanton,
-        url: tile.url,
-        applyUrl: tile.url,
+        url,
+        applyUrl: url,
         source: `${companyName} Dedicated Parser (SMN clinic=${clinicCode})`,
         sourceLang,
         crawledAt: new Date().toISOString(),
@@ -293,24 +329,24 @@ export function createSmnClinicParser(config) {
         addressRegion: defaultCanton,
         addressCountry: 'CH',
         country: 'CH',
-        postalCode: defaultPostalCode,
+        postalCode,
         streetAddress,
         category: detectCategory(title),
-        employmentType: detectEmploymentType(title),
+        employmentType: detectEmploymentTypeFromPosting(posting, title),
         experienceLevel: detectExperienceLevel(title),
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
-        datePosted: todayIso,
+        postedDate: postedIso,
+        datePosted: postedIso,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       });
     }
 
-    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${tiles.length} with rich detail content)`);
+    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
     return jobs;
   }
 
-  return { fetchAllJobs, isCompanyJob, isTrustedDomain, LISTING_URL };
+  return { fetchAllJobs, isCompanyJob, isTrustedDomain, LISTING_URL, matchesClinicPosting };
 }
