@@ -37,7 +37,7 @@ describe('registerJobSlug source-copy filtering', () => {
         fr: 'stage-professionnel-au-choix-assistant-dentaire-23-07-2026-ksa',
       },
     }, registry);
-    const entry = registry['id|umantis.com|4698'];
+    const entry = registry['id|recruitingapp-122706.umantis.com|4698'];
     expect(entry).toBeTruthy();
     expect(entry.canonicalSlug).toBe('berufswahlpraktikum-dentalassistent-dentalassistentin-23-07-2026-ksa-ch');
     // Source locale is kept; untranslated copies are NOT frozen; the real
@@ -60,7 +60,7 @@ describe('registerJobSlug source-copy filtering', () => {
         fr: 'vrai-slug-traduit-fr',
       },
     }, registry);
-    const entry = registry['id|umantis.com|4698'];
+    const entry = registry['id|recruitingapp-122706.umantis.com|4698'];
     expect(entry.slugByLocale).toEqual({ fr: 'vrai-slug-traduit-fr' });
   });
 
@@ -78,12 +78,12 @@ describe('registerJobSlug source-copy filtering', () => {
       canton: 'BE',
       slugByLocale,
     }, registry);
-    expect(registry['id|umantis.com|4698'].slugByLocale).toEqual(slugByLocale);
+    expect(registry['id|recruitingapp-122706.umantis.com|4698'].slugByLocale).toEqual(slugByLocale);
   });
 
   it('still never overwrites an existing entry (immutability unchanged)', () => {
-    registry['id|umantis.com|4698'] = { canonicalSlug: 'frozen', slugByLocale: { it: 'frozen' } };
+    registry['id|recruitingapp-122706.umantis.com|4698'] = { canonicalSlug: 'frozen', slugByLocale: { it: 'frozen' } };
     registerJobSlug({ url: URL, slug: 'new-slug', slugByLocale: { it: 'new-slug' } }, registry);
-    expect(registry['id|umantis.com|4698'].canonicalSlug).toBe('frozen');
+    expect(registry['id|recruitingapp-122706.umantis.com|4698'].canonicalSlug).toBe('frozen');
   });
 });
