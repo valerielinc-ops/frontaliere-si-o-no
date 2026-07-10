@@ -587,10 +587,10 @@
     },
     {
       "id": "swiss-re-48f3366418b5",
-      "slug": "head-rds-insurance-sales-uk-i-swiss-re-ch",
+      "slug": "capo-rds-assicurazione-vendite-uk-i-swiss-re-london-gb",
       "slugByLocale": {
         "fr": "head-rds-insurance-sales-uk-i-swiss-re-ch",
-        "it": "head-rds-insurance-sales-uk-i-swiss-re-ch",
+        "it": "capo-rds-assicurazione-vendite-uk-i-swiss-re-london-gb",
         "en": "head-rds-insurance-sales-uk-i-swiss-re-ch",
         "de": "head-rds-insurance-sales-uk-i-swiss-re-ch"
       },
@@ -644,7 +644,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-09T22:27:58.602Z"
+      "firstSeenAt": "2026-07-09T22:27:58.602Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-rds-insurance-sales-uk-i-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-rds-insurance-sales-uk-i-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-6762a4f8d3d9",
@@ -5508,12 +5516,12 @@
     },
     {
       "id": "swiss-re-7822457b5575",
-      "slug": "customer-and-distribution-manager-swiss-re-ch",
+      "slug": "gestione-clienti-e-distribuzione-swiss-re-singapore-sg",
       "slugByLocale": {
         "en": "customer-and-distribution-manager-swiss-re-ch",
-        "it": "customer-and-distribution-manager-swiss-re-ch",
-        "de": "customer-and-distribution-manager-swiss-re-ch",
-        "fr": "customer-and-distribution-manager-swiss-re-ch"
+        "it": "gestione-clienti-e-distribuzione-swiss-re-singapore-sg",
+        "de": "kunden-und-vertriebsleiter-swiss-re-singapore-sg",
+        "fr": "gestionnaire-de-clientele-et-de-distribution-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5565,7 +5573,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-07-09T22:27:21.943Z"
+      "firstSeenAt": "2026-07-09T22:27:21.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-and-distribution-manager-swiss-re-ch"
+        ],
+        "de": [
+          "customer-and-distribution-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "customer-and-distribution-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-and-distribution-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-2235010d8b49",
@@ -7217,9 +7239,9 @@
     },
     {
       "id": "swiss-re-eb65caf2387e",
-      "slug": "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
+      "slug": "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es",
       "slugByLocale": {
-        "it": "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
+        "it": "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es",
         "en": "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
         "de": "operational-resilience-manager-hybrid-eingerichtet-swiss-re-madrid-es",
         "fr": "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
@@ -7260,11 +7282,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es"
+          "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es"
+        "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:23:25.772Z",
@@ -9876,9 +9898,9 @@
     },
     {
       "id": "swiss-re-56bbf8241625",
-      "slug": "senior-auditor-professional-practices-swiss-re-ch",
+      "slug": "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "senior-auditor-professional-practices-swiss-re-ch",
+        "it": "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk",
         "en": "senior-auditor-professional-practices-swiss-re-ch",
         "de": "senior-auditor-professional-practices-swiss-re-ch",
         "fr": "senior-auditor-professional-practices-swiss-re-ch"
@@ -9919,11 +9941,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk"
+          "senior-auditor-professional-practices-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk"
+        "senior-auditor-professional-practices-swiss-re-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:23:06.329Z",
@@ -10016,9 +10038,9 @@
     },
     {
       "id": "swiss-re-fa27f36203db",
-      "slug": "service-assistant-in-m-f-x-d-50-swiss-re-ch",
+      "slug": "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch",
       "slugByLocale": {
-        "it": "service-assistant-in-m-f-x-d-50-swiss-re-ch",
+        "it": "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch",
         "en": "service-assistant-in-m-f-x-d-50-swiss-re-ch",
         "de": "service-assistent-in-m-f-x-d-50-swiss-re-zurich-ch",
         "fr": "service-assistant-in-m-f-x-d-50-swiss-re-zurich-ch"
@@ -10059,11 +10081,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch"
+          "service-assistant-in-m-f-x-d-50-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch"
+        "service-assistant-in-m-f-x-d-50-swiss-re-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:23:09.677Z",
@@ -11854,9 +11876,9 @@
     },
     {
       "id": "swiss-re-bcb93ad7aab2",
-      "slug": "underwriter-engineering-construction-swiss-re-ch",
+      "slug": "ingegneria-e-costruzioni-swiss-re-paris-fr",
       "slugByLocale": {
-        "it": "underwriter-engineering-construction-swiss-re-ch",
+        "it": "ingegneria-e-costruzioni-swiss-re-paris-fr",
         "en": "underwriter-engineering-construction-swiss-re-ch",
         "de": "underwriter-engineering-construction-swiss-re-ch",
         "fr": "underwriter-engineering-construction-swiss-re-ch"
@@ -11897,11 +11919,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "ingegneria-e-costruzioni-swiss-re-paris-fr"
+          "underwriter-engineering-construction-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "ingegneria-e-costruzioni-swiss-re-paris-fr"
+        "underwriter-engineering-construction-swiss-re-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:22:52.993Z",
@@ -13047,8 +13069,8 @@
       "slugByLocale": {
         "en": "it-service-manager-with-project-management-swiss-re-ch",
         "it": "it-service-manager-with-project-management-swiss-re-ch",
-        "de": "it-service-manager-with-project-management-swiss-re-ch",
-        "fr": "it-service-manager-with-project-management-swiss-re-ch"
+        "de": "it-service-manager-mit-projektmanagement-swiss-re-bratislava-sk",
+        "fr": "gestionnaire-de-services-informatiques-avec-gestion-de-projet-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",

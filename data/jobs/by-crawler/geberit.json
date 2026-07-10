@@ -1079,12 +1079,12 @@
     },
     {
       "id": "geberit-2051",
-      "slug": "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-rapperswil-jona",
+      "slug": "project-manager-sistemi-di-tubatura-di-sviluppo-del-prodotto-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch",
-        "it": "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-rapperswil-jona",
-        "en": "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch",
-        "fr": "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch"
+        "it": "project-manager-sistemi-di-tubatura-di-sviluppo-del-prodotto-a-80-100-geberit-rapperswil-jona",
+        "en": "project-manager-product-development-pipeline-systems-a-80-100-geberit-rapperswil-jona",
+        "fr": "gestionnaire-de-projet-developpement-de-produits-systemes-pipeliniers-a-80-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1128,24 +1128,18 @@
         "de": []
       },
       "previousSlugs": [
-        "project-manager-sistemi-di-tubatura-di-sviluppo-del-prodotto-a-80-100-geberit-rapperswil-jona",
-        "project-manager-product-development-pipeline-systems-a-80-100-geberit-rapperswil-jona",
-        "gestionnaire-de-projet-developpement-de-produits-systemes-pipeliniers-a-80-100-geberit-rapperswil-jona",
         "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch",
         "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-sistemi-di-tubatura-di-sviluppo-del-prodotto-a-80-100-geberit-rapperswil-jona",
           "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch",
           "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-rapperswil-jona"
         ],
         "en": [
-          "project-manager-product-development-pipeline-systems-a-80-100-geberit-rapperswil-jona",
           "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch"
         ],
         "fr": [
-          "gestionnaire-de-projet-developpement-de-produits-systemes-pipeliniers-a-80-100-geberit-rapperswil-jona",
           "projektleiter-produktentwicklung-rohrleitungssysteme-a-80-100-geberit-ch"
         ]
       },
@@ -1227,12 +1221,12 @@
     },
     {
       "id": "geberit-2036",
-      "slug": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
+      "slug": "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "it": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "en": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "fr": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        "it": "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
+        "en": "specialist-injection-molding-technology-a-100-geberit-rapperswil-jona",
+        "fr": "technologie-de-moulage-par-injection-specialisee-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1287,14 +1281,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:20.979Z"
+      "firstSeenAt": "2026-07-09T22:26:20.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ],
+        "en": [
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2061",
-      "slug": "operateur-de-production-3x8-h-f-geberit-ch",
+      "slug": "operatore-di-produzione-3x8-h-f-geberit-givisiez",
       "slugByLocale": {
-        "de": "operateur-de-production-3x8-h-f-geberit-ch",
-        "it": "operateur-de-production-3x8-h-f-geberit-ch",
+        "de": "produktionsbetreiber-3x8-h-f-geberit-givisiez",
+        "it": "operatore-di-produzione-3x8-h-f-geberit-givisiez",
         "en": "operateur-de-production-3x8-h-f-geberit-ch",
         "fr": "operateur-de-production-3x8-h-f-geberit-ch"
       },
@@ -1351,7 +1359,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:20.978Z"
+      "firstSeenAt": "2026-07-09T22:26:20.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-de-production-3x8-h-f-geberit-ch"
+        ],
+        "de": [
+          "operateur-de-production-3x8-h-f-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-de-production-3x8-h-f-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2040",
@@ -1407,15 +1426,13 @@
         "manager-global-talent-management-a-80-100-geberit-ch",
         "gestione-globale-dei-talenti-a-80-100-geberit-rapperswil-jona",
         "gestionnaire-gestion-globale-des-talents-a-80-100-geberit-rapperswil-jona",
-        "manager-global-talent-development-a-80-100-geberit-ch",
-        "gestione-global-talent-development-a-80-100-geberit-rapperswil-jona"
+        "manager-global-talent-development-a-80-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-global-talent-management-a-80-100-geberit-ch",
           "gestione-globale-dei-talenti-a-80-100-geberit-rapperswil-jona",
-          "manager-global-talent-development-a-80-100-geberit-ch",
-          "gestione-global-talent-development-a-80-100-geberit-rapperswil-jona"
+          "manager-global-talent-development-a-80-100-geberit-ch"
         ],
         "en": [
           "manager-global-talent-management-a-80-100-geberit-ch"

@@ -16545,12 +16545,12 @@
     },
     {
       "id": "luks-17ac1dd73496",
-      "slug": "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern",
+      "slug": "specialista-salute-ambulatori-ginecologici-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern",
-        "it": "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern",
-        "en": "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern",
-        "fr": "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern"
+        "it": "specialista-salute-ambulatori-ginecologici-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "specialist-health-gynecological-ambulatories-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-sante-ambulatoires-gynecologiques-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16606,16 +16606,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:25:54.851Z"
+      "firstSeenAt": "2026-07-09T22:25:54.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-gynakologische-ambulatorien-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-e197f0cf1ee1",
-      "slug": "klinisch-pharmazeutische-assistenz-100-luks-luzern",
+      "slug": "assistenza-clinica-farmaceutica-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "klinisch-pharmazeutische-assistenz-100-luks-luzern",
-        "it": "klinisch-pharmazeutische-assistenz-100-luks-luzern",
-        "en": "klinisch-pharmazeutische-assistenz-100-luks-luzern",
-        "fr": "klinisch-pharmazeutische-assistenz-100-luks-luzern"
+        "it": "assistenza-clinica-farmaceutica-100-luzerner-kantonsspital-luks-luzern",
+        "en": "clinical-pharmaceutical-assistance-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistance-clinique-pharmaceutique-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16671,7 +16685,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:25:54.850Z"
+      "firstSeenAt": "2026-07-09T22:25:54.850Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinisch-pharmazeutische-assistenz-100-luks-luzern"
+        ],
+        "en": [
+          "klinisch-pharmazeutische-assistenz-100-luks-luzern"
+        ],
+        "fr": [
+          "klinisch-pharmazeutische-assistenz-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "klinisch-pharmazeutische-assistenz-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-6ffc45e933b4",
@@ -16758,8 +16786,8 @@
       "slugByLocale": {
         "de": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
         "it": "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
-        "en": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
-        "fr": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+        "en": "head-of-physiotherapy-also-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "fr": "responsable-de-la-physiotherapie-egalement-partage-d-emploi-possible-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16806,6 +16834,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+        ],
+        "en": [
+          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+        ],
+        "fr": [
+          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
         ]
       },
       "previousSlugs": [
@@ -16827,12 +16861,12 @@
     },
     {
       "id": "luks-8d44b1a6cc20",
-      "slug": "stv-leiterin-leiter-ergotherapie-fh-80-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "stv-capo-responsabile-terapia-occupazionale-fh-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern",
-        "it": "stv-leiterin-leiter-ergotherapie-fh-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern",
-        "fr": "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern"
+        "it": "stv-capo-responsabile-terapia-occupazionale-fh-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "stv-head-head-of-occupational-therapy-fh-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "stv-head-responsable-de-l-ergotherapie-fh-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16878,11 +16912,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern",
+          "stv-leiterin-leiter-ergotherapie-fh-80-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern"
+        ],
+        "fr": [
           "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern"
+        "stv-leiterin-leiter-ergotherapie-fh-80-100-luks-luzern",
+        "stv-leiterin-leiter-ergotherapie-fh-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -16980,12 +17022,12 @@
     },
     {
       "id": "luks-125b405db119",
-      "slug": "stv-leiterin-leiter-therapien-60-90-luzerner-kantonsspital-luks-wolhusen",
+      "slug": "testa-di-terapie-60-90-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "stv-leiterin-leiter-therapien-60-90-luks-wolhusen",
-        "it": "stv-leiterin-leiter-therapien-60-90-luzerner-kantonsspital-luks-wolhusen",
-        "en": "stv-leiterin-leiter-therapien-60-90-luks-wolhusen",
-        "fr": "stv-leiterin-leiter-therapien-60-90-luks-wolhusen"
+        "it": "testa-di-terapie-60-90-luzerner-kantonsspital-luks-wolhusen",
+        "en": "stv-head-of-therapies-60-90-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "tete-des-therapies-60-90-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17031,11 +17073,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiterin-leiter-therapien-60-90-luks-wolhusen",
+          "stv-leiterin-leiter-therapien-60-90-luzerner-kantonsspital-luks-wolhusen"
+        ],
+        "en": [
+          "stv-leiterin-leiter-therapien-60-90-luks-wolhusen"
+        ],
+        "fr": [
           "stv-leiterin-leiter-therapien-60-90-luks-wolhusen"
         ]
       },
       "previousSlugs": [
-        "stv-leiterin-leiter-therapien-60-90-luks-wolhusen"
+        "stv-leiterin-leiter-therapien-60-90-luks-wolhusen",
+        "stv-leiterin-leiter-therapien-60-90-luzerner-kantonsspital-luks-wolhusen"
       ],
       "salaryMin": 86400,
       "salaryMax": 131400,
@@ -17057,8 +17107,8 @@
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern",
         "it": "fachspezialistin-fachspezialist-sicherheit-e-gefahrgut-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern",
-        "fr": "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern"
+        "en": "specialist-specialist-safety-and-dangerous-goods-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-specialiste-securite-et-marchandises-dangereuses-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17105,6 +17155,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-sicherheit-und-gefahrgut-80-100-luks-luzern"
         ]
       },
       "previousSlugs": [
@@ -17130,7 +17186,7 @@
       "slugByLocale": {
         "de": "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
         "it": "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
-        "en": "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
+        "en": "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern",
         "fr": "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",

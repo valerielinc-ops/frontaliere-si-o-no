@@ -25547,9 +25547,9 @@
     },
     {
       "id": "stadt-zuerich-97bb69e2a866",
-      "slug": "hr-spezialist-in-stadt-zurich-zurich",
+      "slug": "specialista-hr-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "hr-spezialist-in-stadt-zurich-zurich",
+        "it": "specialista-hr-stadt-zurich-zurich",
         "en": "hr-specialist-stadt-zurich-zurich",
         "de": "hr-spezialist-in-stadt-zuerich-zurigo-50834",
         "fr": "ressources-humaines-spezialist-in-stadt-zurich-zurich"
@@ -25599,12 +25599,12 @@
       "referenceNumber": "50834",
       "previousSlugs": [
         "hr-spezialist-in-stadt-zuerich-zurigo-50834",
-        "specialista-hr-stadt-zurich-zurich"
+        "hr-spezialist-in-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-spezialist-in-stadt-zuerich-zurigo-50834",
-          "specialista-hr-stadt-zurich-zurich"
+          "hr-spezialist-in-stadt-zurich-zurich"
         ],
         "en": [
           "hr-spezialist-in-stadt-zuerich-zurigo-50834"
@@ -26525,12 +26525,12 @@
     },
     {
       "id": "stadt-zuerich-b1122fe82036",
-      "slug": "physiotherapeut-in-stadt-zurich-zurich",
+      "slug": "fisioterapista-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-stadt-zuerich-zurigo-50876",
-        "it": "physiotherapeut-in-stadt-zurich-zurich",
-        "en": "physiotherapeut-in-stadt-zurich-zurich",
-        "fr": "physiotherapeut-in-stadt-zurich-zurich"
+        "it": "fisioterapista-stadt-zurich-zurich",
+        "en": "physiotherapist-stadt-zurich-zurich",
+        "fr": "physiotherapeute-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26579,11 +26579,19 @@
       "referenceNumber": "50876",
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-stadt-zuerich-zurigo-50876"
+          "physiotherapeut-in-stadt-zuerich-zurigo-50876",
+          "physiotherapeut-in-stadt-zurich-zurich"
+        ],
+        "en": [
+          "physiotherapeut-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "physiotherapeut-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-stadt-zuerich-zurigo-50876"
+        "physiotherapeut-in-stadt-zuerich-zurigo-50876",
+        "physiotherapeut-in-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -26605,8 +26613,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-besucherdienste-stadt-zuerich-zurigo-50892",
         "it": "collaboratore-trice-in-besucherdienste-stadt-zurich",
-        "en": "mitarbeiter-in-besucherdienste-stadt-zurich-zurich",
-        "fr": "mitarbeiter-in-besucherdienste-stadt-zurich-zurich"
+        "en": "staff-visitor-services-stadt-zurich-zurich",
+        "fr": "services-aux-visiteurs-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26656,10 +26664,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-besucherdienste-stadt-zuerich-zurigo-50892"
+        ],
+        "en": [
+          "mitarbeiter-in-besucherdienste-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-besucherdienste-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-besucherdienste-stadt-zuerich-zurigo-50892"
+        "mitarbeiter-in-besucherdienste-stadt-zuerich-zurigo-50892",
+        "mitarbeiter-in-besucherdienste-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -28593,12 +28608,12 @@
     },
     {
       "id": "stadt-zuerich-77040adf6d31",
-      "slug": "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884",
+      "slug": "terapista-occupazionale-vitikon-posizione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884",
-        "it": "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884",
-        "en": "ergotherapeut-in-standort-witikon-stadt-zurich-zurich",
-        "fr": "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884"
+        "it": "terapista-occupazionale-vitikon-posizione-stadt-zurich-zurich",
+        "en": "occupational-therapist-vitikon-location-stadt-zurich-zurich",
+        "fr": "ergotherapeute-emplacement-vitikon-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28657,16 +28672,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:38:12.849Z"
+      "firstSeenAt": "2026-07-09T22:38:12.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884"
+        ],
+        "en": [
+          "ergotherapeut-in-standort-witikon-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-standort-witikon-stadt-zuerich-zurigo-50884",
+        "ergotherapeut-in-standort-witikon-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-cfe89b32fa99",
-      "slug": "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866",
+      "slug": "francese-professionale-3-wl-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866",
-        "it": "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866",
-        "en": "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866",
-        "fr": "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866"
+        "it": "francese-professionale-3-wl-stadt-zurich-zurich",
+        "en": "professional-french-3-wl-stadt-zurich-zurich",
+        "fr": "francais-professionnel-3-wl-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28725,16 +28755,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:38:12.849Z"
+      "firstSeenAt": "2026-07-09T22:38:12.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866"
+        ],
+        "en": [
+          "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866"
+        ],
+        "fr": [
+          "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-franzosisch-3-wl-stadt-zuerich-zurigo-50866"
+      ]
     },
     {
       "id": "stadt-zuerich-4b0e13d3f1ea",
-      "slug": "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich",
+      "slug": "universita-interno-strategic-business-support-energy-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikum-strategischer-business-support-energie-stadt-zuerich-zurigo-50893",
-        "it": "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich",
-        "en": "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich",
-        "fr": "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich"
+        "it": "universita-interno-strategic-business-support-energy-stadt-zurich-zurich",
+        "en": "university-internship-strategic-business-support-energy-stadt-zurich-zurich",
+        "fr": "stage-universitaire-soutien-strategique-aux-entreprises-energie-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28783,11 +28827,19 @@
       "referenceNumber": "50893",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikum-strategischer-business-support-energie-stadt-zuerich-zurigo-50893"
+          "hochschulpraktikum-strategischer-business-support-energie-stadt-zuerich-zurigo-50893",
+          "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich"
+        ],
+        "en": [
+          "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikum-strategischer-business-support-energie-stadt-zuerich-zurigo-50893"
+        "hochschulpraktikum-strategischer-business-support-energie-stadt-zuerich-zurigo-50893",
+        "hochschulpraktikum-strategischer-business-support-energie-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -28805,12 +28857,12 @@
     },
     {
       "id": "stadt-zuerich-8f38019fb671",
-      "slug": "projektleiter-in-standort-zurich-oerlikon-stadt-zurich",
+      "slug": "project-manager-in-posizione-zurigo-oerlikon-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
-        "it": "projektleiter-in-standort-zurich-oerlikon-stadt-zurich",
-        "en": "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
-        "fr": "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
+        "it": "project-manager-in-posizione-zurigo-oerlikon-stadt-zurich-zurich",
+        "en": "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich",
+        "fr": "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28859,11 +28911,19 @@
       "referenceNumber": "50864",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zurich"
+        ],
+        "en": [
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
+        ],
+        "fr": [
           "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
+        "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
+        "projektleiter-in-standort-zurich-oerlikon-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

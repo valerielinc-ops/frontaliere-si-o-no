@@ -384,7 +384,7 @@
         "it": "stagiaire-pre-hes-tecnologia-alimentare-gioventu-nestle-la-tour-de-peilz-ch",
         "en": "stagiaire-pre-hes-food-technology-youth-nestle-ch",
         "de": "stagiaire-pre-hes-lebensmitteltechnologie-jugend-nestle-la-tour-de-peilz-ch",
-        "fr": "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch"
+        "fr": "stagiaire-pre-hes-technologie-alimentaire-jeunesse-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -425,7 +425,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-pre-hes-food-technology-youth-nestle-ch",
-        "stagiaire-pre-hes-technologie-alimentaire-jeunesse-nestle-la-tour-de-peilz-ch"
+        "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -436,7 +436,7 @@
         ],
         "fr": [
           "stagiaire-pre-hes-food-technology-youth-nestle-ch",
-          "stagiaire-pre-hes-technologie-alimentaire-jeunesse-nestle-la-tour-de-peilz-ch"
+          "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1020,16 +1020,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mentor-nestle-ch",
-        "mentor-nestle-basel-ch"
+        "mentor-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mentor-nestle-ch"
         ],
         "de": [
-          "mentor-nestle-ch",
-          "mentor-nestle-basel-ch"
+          "mentor-nestle-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1392,8 +1390,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-de-production-4-8-h-f-d-nestle-ch",
-        "operateur-de-production-4-8-h-f-d-nestle-avenches-ch"
+        "operateur-de-production-4-8-h-f-d-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1406,8 +1403,7 @@
           "operateur-de-production-4-8-h-f-d-nestle-ch"
         ],
         "fr": [
-          "operateur-de-production-4-8-h-f-d-nestle-ch",
-          "operateur-de-production-4-8-h-f-d-nestle-avenches-ch"
+          "operateur-de-production-4-8-h-f-d-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-05-25T13:34:03.874Z",
@@ -1659,7 +1655,7 @@
       "slugByLocale": {
         "it": "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch",
         "en": "anlagenfuhrer-in-special-products-nestle-ch",
-        "de": "anlagenfuhrer-in-special-products-nestle-konolfingen-ch",
+        "de": "anlagenfuhrer-in-spezialprodukte-nestle-konolfingen-ch",
         "fr": "anlagenfuhrer-dans-produits-speciaux-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
@@ -1701,7 +1697,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-in-special-products-nestle-ch",
-        "anlagenfuhrer-in-spezialprodukte-nestle-konolfingen-ch"
+        "anlagenfuhrer-in-special-products-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1709,7 +1705,7 @@
         ],
         "de": [
           "anlagenfuhrer-in-special-products-nestle-ch",
-          "anlagenfuhrer-in-spezialprodukte-nestle-konolfingen-ch"
+          "anlagenfuhrer-in-special-products-nestle-konolfingen-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-special-products-nestle-ch"
@@ -3159,12 +3155,12 @@
     },
     {
       "id": "nestle-1410303133",
-      "slug": "event-manager-nestle-ch",
+      "slug": "gestione-eventi-nestle-la-tour-de-peilz-ch",
       "slugByLocale": {
         "en": "event-manager-nestle-la-tour-de-peilz-ch",
-        "it": "event-manager-nestle-ch",
-        "de": "event-manager-nestle-ch",
-        "fr": "event-manager-nestle-ch"
+        "it": "gestione-eventi-nestle-la-tour-de-peilz-ch",
+        "de": "veranstaltungsleiter-nestle-la-tour-de-peilz-ch",
+        "fr": "gestionnaire-d-evenements-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -3218,7 +3214,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-09T22:30:34.894Z"
+      "firstSeenAt": "2026-07-09T22:30:34.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-manager-nestle-ch"
+        ],
+        "de": [
+          "event-manager-nestle-ch"
+        ],
+        "fr": [
+          "event-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "event-manager-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1408486933",
@@ -4439,7 +4449,7 @@
         "it": "senior-nutrition-health-administrative-assistant-nestle-ch",
         "en": "senior-nutrition-health-administrative-assistant-nestle-ch",
         "de": "senior-nutrition-health-administrative-assistent-nestle-konolfingen-ch",
-        "fr": "senior-nutrition-health-administrative-assistant-nestle-konolfingen-ch"
+        "fr": "assistant-administratif-principal-en-nutrition-et-en-sante-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4481,11 +4491,11 @@
       "firstSeenAt": "2026-07-06T14:41:32.363Z",
       "previousSlugsByLocale": {
         "fr": [
-          "assistant-administratif-principal-en-nutrition-et-en-sante-nestle-konolfingen-ch"
+          "senior-nutrition-health-administrative-assistant-nestle-konolfingen-ch"
         ]
       },
       "previousSlugs": [
-        "assistant-administratif-principal-en-nutrition-et-en-sante-nestle-konolfingen-ch"
+        "senior-nutrition-health-administrative-assistant-nestle-konolfingen-ch"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

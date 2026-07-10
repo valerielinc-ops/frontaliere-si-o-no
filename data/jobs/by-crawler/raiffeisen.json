@@ -14591,8 +14591,8 @@
       "slugByLocale": {
         "de": "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti",
         "it": "privatkundenberater-e-stv-leiter-geschaftsstelle-ruti-m-w-d-raiffeisen-ruti",
-        "en": "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti",
-        "fr": "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti"
+        "en": "private-client-advisor-and-stv-head-of-ruti-office-f-m-d-raiffeisen-ruti",
+        "fr": "conseiller-client-prive-et-directeur-du-bureau-de-ruti-f-m-d-raiffeisen-ruti"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14639,6 +14639,12 @@
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti"
+        ],
+        "en": [
+          "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti"
+        ],
+        "fr": [
+          "privatkundenberater-und-stv-leiter-geschaftsstelle-ruti-w-m-d-raiffeisen-ruti"
         ]
       },
       "previousSlugs": [
@@ -14664,8 +14670,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
         "it": "apprendistato-come-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
-        "en": "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
+        "en": "apprenticeship-as-a-merchant-merchant-bank-apprenticeship-start-august-2027-raiffeisen-adligenswil",
+        "fr": "apprentissage-en-tant-que-banque-marchande-banque-marchande-debut-de-l-apprentissage-aout-2027-raiffeisen-adligenswil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14712,6 +14718,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
         ]
       },
       "previousSlugs": [
@@ -14733,12 +14745,12 @@
     },
     {
       "id": "raiffeisen-8524c35a5188",
-      "slug": "fachspezialist-in-firmenkunden-raiffeisen-nottwil",
+      "slug": "specialista-nei-clienti-aziendali-raiffeisen-nottwil",
       "slugByLocale": {
         "de": "fachspezialist-in-firmenkunden-raiffeisen-nottwil",
-        "it": "fachspezialist-in-firmenkunden-raiffeisen-nottwil",
-        "en": "fachspezialist-in-firmenkunden-raiffeisen-nottwil",
-        "fr": "fachspezialist-in-firmenkunden-raiffeisen-nottwil"
+        "it": "specialista-nei-clienti-aziendali-raiffeisen-nottwil",
+        "en": "specialist-in-corporate-clients-raiffeisen-nottwil",
+        "fr": "specialiste-dans-les-entreprises-clientes-raiffeisen-nottwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14794,16 +14806,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:46.766Z"
+      "firstSeenAt": "2026-07-09T22:26:46.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-firmenkunden-raiffeisen-nottwil"
+        ],
+        "en": [
+          "fachspezialist-in-firmenkunden-raiffeisen-nottwil"
+        ],
+        "fr": [
+          "fachspezialist-in-firmenkunden-raiffeisen-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-firmenkunden-raiffeisen-nottwil"
+      ]
     },
     {
       "id": "raiffeisen-a5debd42e148",
-      "slug": "privatkundenberater-a-raiffeisen-chur",
+      "slug": "consulente-clienti-privato-a-raiffeisen-chur",
       "slugByLocale": {
         "de": "privatkundenberater-a-raiffeisen-chur",
-        "it": "privatkundenberater-a-raiffeisen-chur",
-        "en": "privatkundenberater-a-raiffeisen-chur",
-        "fr": "privatkundenberater-a-raiffeisen-chur"
+        "it": "consulente-clienti-privato-a-raiffeisen-chur",
+        "en": "private-client-advisor-a-raiffeisen-chur",
+        "fr": "conseiller-client-prive-a-raiffeisen-chur"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14859,7 +14885,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:46.760Z"
+      "firstSeenAt": "2026-07-09T22:26:46.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-a-raiffeisen-chur"
+        ],
+        "en": [
+          "privatkundenberater-a-raiffeisen-chur"
+        ],
+        "fr": [
+          "privatkundenberater-a-raiffeisen-chur"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-a-raiffeisen-chur"
+      ]
     },
     {
       "id": "raiffeisen-fa9aadab1a84",
@@ -15019,12 +15059,12 @@
     },
     {
       "id": "raiffeisen-1891931e40a3",
-      "slug": "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal",
+      "slug": "capo-della-gestione-patrimoniale-m-f-d-membro-della-gestione-bancaria-raiffeisen-turbenthal",
       "slugByLocale": {
         "de": "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal",
-        "it": "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal",
-        "en": "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal",
-        "fr": "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal"
+        "it": "capo-della-gestione-patrimoniale-m-f-d-membro-della-gestione-bancaria-raiffeisen-turbenthal",
+        "en": "head-of-asset-management-m-f-d-member-of-the-bank-management-raiffeisen-turbenthal",
+        "fr": "responsable-de-la-gestion-des-actifs-m-f-d-membre-de-la-direction-de-la-banque-raiffeisen-turbenthal"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -15080,7 +15120,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:46.740Z"
+      "firstSeenAt": "2026-07-09T22:26:46.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal"
+        ],
+        "en": [
+          "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal"
+        ],
+        "fr": [
+          "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-vermogensberatung-m-w-d-mitglied-der-bankleitung-raiffeisen-turbenthal"
+      ]
     },
     {
       "id": "raiffeisen-8ccd0dd27077",
@@ -15088,8 +15142,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden",
         "it": "collaboratore-trice-marketing-e-talentmanagement-m-w-d-raiffeisen-weinfelden",
-        "en": "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden",
-        "fr": "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden"
+        "en": "employee-marketing-and-talent-management-f-m-d-raiffeisen-weinfelden",
+        "fr": "marketing-des-employes-et-gestion-des-talents-f-m-d-raiffeisen-weinfelden"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -15136,6 +15190,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden"
+        ],
+        "en": [
+          "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden"
+        ],
+        "fr": [
+          "mitarbeiter-marketing-und-talentmanagement-w-m-d-raiffeisen-weinfelden"
         ]
       },
       "previousSlugs": [
@@ -15157,12 +15217,12 @@
     },
     {
       "id": "raiffeisen-28d5406b58c9",
-      "slug": "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen",
+      "slug": "team-leader-credit-administration-f-m-d-raiffeisen-villmergen",
       "slugByLocale": {
         "de": "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen",
-        "it": "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen",
+        "it": "team-leader-credit-administration-f-m-d-raiffeisen-villmergen",
         "en": "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen",
-        "fr": "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen"
+        "fr": "chef-d-equipe-administration-du-credit-f-m-d-raiffeisen-villmergen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -15218,7 +15278,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:26:46.689Z"
+      "firstSeenAt": "2026-07-09T22:26:46.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen"
+        ],
+        "fr": [
+          "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kreditadministration-w-m-d-raiffeisen-villmergen"
+      ]
     },
     {
       "id": "raiffeisen-55927e85edda",
