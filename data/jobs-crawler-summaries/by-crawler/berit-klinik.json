@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-08T22:27:00.232Z",
+  "generatedAt": "2026-07-10T10:52:53.121Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2946,
-  "avgDurationMs": 2946,
+  "unchangedCount": 1,
+  "durationMs": 4357,
+  "avgDurationMs": 4357,
   "durationHistory": [
-    2946
+    4357
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,43 +43,6 @@
       },
       "id": "berit-klinik-30d607aea7c2",
       "firstSeenAt": "2026-07-03T10:37:16.203Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Mitarbeiter Technischer Dienst, 100%",
-      "slug": "mitarbeiter-technischer-dienst-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-11",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf"
-      },
-      "id": "berit-klinik-cd28276f4528",
-      "firstSeenAt": "2026-06-11T22:14:43.332Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -312,5 +275,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Mitarbeiter Technischer Dienst, 100%",
+      "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-11",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf"
+      },
+      "id": "berit-klinik-cd28276f4528",
+      "firstSeenAt": "2026-06-11T22:14:43.332Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
