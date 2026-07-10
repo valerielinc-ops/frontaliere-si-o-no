@@ -44,7 +44,40 @@ describe('extractJobIdentityFromUrl — Workday requisition fingerprint (F1)', (
   });
 
   it('leaves non-Workday identity untouched', () => {
+    expect(extractJobIdentityFromUrl('https://example.com/jobs/view/123456'))
+      .toBe('example.com|123456');
+  });
+});
+
+describe('extractJobIdentityFromUrl — Umantis per-tenant vacancy fingerprint', () => {
+  // Same invariant pair as Workday F1 above, for umantis. Before this fix the
+  // identity was `umantis.com|<vid>` (registrableDomain dropped the tenant
+  // subdomain), while vacancy ids are PER-TENANT sequences — so distinct
+  // employers collided on one slug-registry entry and cross-pinned each
+  // other's slugs (2026-07-10 audit: GKB "Immobilienbewerter" vacancy 1910 at
+  // tenant 2607 vs KSA "Pflegefachfrau Zusatzmodul B/C" vacancy 1910 at
+  // tenant 122706 — 50 active cross-tenant collisions, the "poisoned family").
+  // Existing id|umantis.com|* entries are migrated by
+  // scripts/migrate-umantis-registry-fingerprints.mjs.
+  it('keys on the FULL tenant host', () => {
     expect(extractJobIdentityFromUrl('https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1'))
-      .toBe('umantis.com|3164');
+      .toBe('recruitingapp-2908.umantis.com|3164');
+    expect(fingerprintJob({ url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1' }))
+      .toBe('id|recruitingapp-2908.umantis.com|3164');
+  });
+
+  it('keeps distinct tenants with the same vacancy id apart (GKB vs KSA incident shape)', () => {
+    const gkb = 'https://recruitingapp-2607.umantis.com/Vacancies/1910/Description/1';
+    const ksa = 'https://recruitingapp-122706.umantis.com/Vacancies/1910/Application/CheckLogin/1';
+    expect(extractJobIdentityFromUrl(gkb)).toBe('recruitingapp-2607.umantis.com|1910');
+    expect(extractJobIdentityFromUrl(ksa)).toBe('recruitingapp-122706.umantis.com|1910');
+    expect(extractJobIdentityFromUrl(gkb)).not.toBe(extractJobIdentityFromUrl(ksa));
+  });
+
+  it('is stable across the Description → CheckLogin URL shape migration', () => {
+    const description = 'https://recruitingapp-122706.umantis.com/Vacancies/5105/Description/1?lang=ger';
+    const checkLogin = 'https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1';
+    expect(extractJobIdentityFromUrl(description)).toBe(extractJobIdentityFromUrl(checkLogin));
+    expect(extractJobIdentityFromUrl(description)).toBe('recruitingapp-122706.umantis.com|5105');
   });
 });

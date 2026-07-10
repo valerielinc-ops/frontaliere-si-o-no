@@ -28,13 +28,16 @@ afterEach(() => {
 function pickUmantisEntry() {
   const reg = loadSlugRegistry();
   for (const key of Object.keys(reg)) {
-    const m = key.match(/^id\|umantis\.com\|(\d+)$/);
+    // Post umantis-fingerprint fix: keys are per-tenant
+    // (`id|recruitingapp-<tenant>.umantis.com|<vid>`); the old
+    // `id|umantis.com|<vid>` form only survives as inert orphans.
+    const m = key.match(/^id\|recruitingapp-(\d+)\.umantis\.com\|(\d+)$/);
     if (!m) continue;
     const sbl = reg[key]?.slugByLocale || {};
     // Need a real EN translation distinct from IT (source) and DE so the
     // source-copy guard does not skip it.
     if (sbl.en && sbl.it && sbl.de && sbl.en !== sbl.it && sbl.en !== sbl.de) {
-      return { id: m[1], registry: reg[key] };
+      return { tenant: m[1], id: m[2], registry: reg[key] };
     }
   }
   return null;
@@ -44,14 +47,14 @@ describe('hardenJobLocaleFields registry pin', () => {
   it('restores a drifted EN slug to the immutable registry value and demotes the drift', () => {
     const entry = pickUmantisEntry();
     expect(entry, 'expected at least one umantis entry with a real EN translation').toBeTruthy();
-    const { id, registry } = entry!;
+    const { tenant, id, registry } = entry!;
     const lockedEn = registry.slugByLocale.en as string;
     const driftEn = 'totally-different-ai-retranslation-slug-upd';
 
     const job = {
       id: `umantis-${id}`,
-      // url drives fingerprintJob → `id|umantis.com|<id>` → matches the registry key
-      url: `https://recruitingapp-2908.umantis.com/Vacancies/${id}/Description/1`,
+      // url drives fingerprintJob → `id|recruitingapp-<tenant>.umantis.com|<id>` → matches the registry key
+      url: `https://recruitingapp-${tenant}.umantis.com/Vacancies/${id}/Description/1`,
       title: 'Informatico/a', // Italian source title → titleSourceLang detects 'it'
       company: 'EOC',
       location: 'Bellinzona',

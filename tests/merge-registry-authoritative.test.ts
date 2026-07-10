@@ -28,7 +28,7 @@ afterEach(() => {
 describe('mergeAndDeduplicate registry authority (post source-copy dedup)', () => {
   it('restores a registered locale slug when the fresh crawl brings a drifted one', async () => {
     const registry = {
-      'id|umantis.com|3164': {
+      'id|recruitingapp-2908.umantis.com|3164': {
         canonicalSlug: 'psicologo-a-assistente-upd-bern',
         slugByLocale: {
           it: 'psicologo-a-assistente-upd-bern',

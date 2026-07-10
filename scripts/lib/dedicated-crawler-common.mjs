@@ -21,7 +21,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
-import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
+import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
@@ -4988,6 +4988,23 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     const wdLeaf = u.pathname.split('/').filter(Boolean).pop() || '';
     const req = workdayReqFromLeaf(wdLeaf);
     if (req) return `${host}|${req}`;
+  }
+
+  // Umantis (`recruitingapp-<tenantId>.umantis.com`): key on the FULL host, not
+  // registrableDomain(host). registrableDomain collapses every tenant onto
+  // `umantis.com`, so vacancy ids — PER-TENANT sequences — collided across
+  // distinct employers (`id|umantis.com|1910` was simultaneously GKB's
+  // "Immobilienbewerter" at tenant 2607 and KSA's "Pflegefachfrau Zusatzmodul
+  // B/C" at tenant 122706). The shared slug-registry entry then cross-pinned
+  // one company's slugs onto the other's job on every relocalize/crawl cycle
+  // (50 active cross-tenant collisions censused 2026-07-10; the "poisoned
+  // family" root). Mirrors both the Workday full-host rule above and
+  // mergeUrlKey Rule U (job-url-key.mjs) — same shared regexes, same id.
+  // Existing `id|umantis.com|<vid>` registry entries are migrated to the
+  // per-tenant key by scripts/migrate-umantis-registry-fingerprints.mjs.
+  if (UMANTIS_HOST_RE.test(host)) {
+    const vac = u.pathname.toLowerCase().match(UMANTIS_VACANCY_PATH_RE);
+    if (vac) return `${host}|${vac[1]}`;
   }
 
   // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it

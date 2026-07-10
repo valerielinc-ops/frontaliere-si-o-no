@@ -158,8 +158,10 @@ function deriveLocalizedSlug(job, locale) {
  *
  * The disambiguator is `stableSlugHash(job)`, which derives a 6-char hash from
  * `fingerprintJob(job)`. EOC URLs include `/Vacancies/{id}/Description/4`, so
- * `extractJobIdentityFromUrl` returns `umantis.com|{vacancyId}` and each
- * vacancy gets a unique deterministic suffix that survives across crawl runs.
+ * `extractJobIdentityFromUrl` returns the tenant-scoped full-host identity
+ * `<tenant-host>.umantis.com|{vacancyId}` (per-tenant since the cross-tenant
+ * collision fix) and each vacancy gets a unique deterministic suffix that
+ * survives across crawl runs.
  *
  * The function is exported for tests (pure: no I/O, no module-level state).
  *

@@ -60,7 +60,7 @@ describe('hardenJobLocaleFields registry pin — quality-repair loop', () => {
     // Controlled registry: only the REGISTERED job is locked, to the boilerplate
     // EN slug (distinct from IT and DE so the source-copy guard does not skip it).
     const registry = {
-      [`id|umantis.com|${REGISTERED_ID}`]: {
+      [`id|recruitingapp-2908.umantis.com|${REGISTERED_ID}`]: {
         canonicalSlug: 'informatico-a-eoc-bellinzona',
         slugByLocale: {
           it: 'informatico-a-eoc-bellinzona',
