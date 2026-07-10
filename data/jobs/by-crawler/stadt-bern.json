@@ -1,7 +1,155 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-07-10T11:57:34.354Z",
+  "assembledAt": "2026-07-10T12:49:47.485Z",
   "jobs": [
+    {
+      "id": "stadt-bern-7c63b72c5c77",
+      "slug": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
+        "en": "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
+        "de": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Motorgerätemechaniker*in EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come Motorgerätemechaniker*in CFC",
+        "en": "Teaching as a motorized mechanic* EFZ",
+        "de": "Lehre als Motorgerätemechaniker*in EFZ",
+        "fr": "Enseignement en tant que mécanicien motorisé* EFZ"
+      },
+      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n• Eseguire il lavoro di servizio con un team competente\n• Macchine di prova per funzionalità\n• Fare pezzi di ricambio Requisiti\n• Completo della scuola elementare\n• Artigianato e interesse per macchinari e tecnologie\n• La gioia di affrontare le persone",
+        "en": "Tasks:\n• Maintain and repair machines and equipment\n• Carry out service work with a competent team\n• Testing machines for functionality\n• Make spare parts Requirements\n• Completed elementary school degree\n• Craftsmanship and interest in machinery and technology\n• The joy of dealing with people",
+        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
+        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n• Effectuer un travail de service avec une équipe compétente\n• Machines d'essai pour la fonctionnalité\n• Fabrication de pièces de rechange Exigences\n• Diplôme d ' études primaires\n• Artisanat et intérêt pour les machines et la technologie\n• La joie de traiter avec les gens"
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-motorgeraetemechaniker-in-efz/1761fdd9-b7fa-432a-8820-388e629a50fc",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:49:45.313Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Junkerngasse 47",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-17",
+      "applyUrl": "https://career74.sapsf.eu/career?company=stadtbern&career_ns=job_application&career_job_req_id=893",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
+        "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
+          "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:31:55.741Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-3b169ae7b01a",
+      "slug": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "adult-protection-professional-assistant-stadt-bern-bern",
+        "de": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+        "fr": "assistant-professionnel-de-protection-des-adultes-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Berufsbeistandsperson Erwachsenenschutz",
+      "titleByLocale": {
+        "it": "Assistente professionale per la protezione degli adulti",
+        "en": "Adult protection professional assistant",
+        "de": "Berufsbeistandsperson Erwachsenenschutz",
+        "fr": "Assistant professionnel de protection des adultes"
+      },
+      "description": "<strong>Verantwortungsvoll begleiten, unterstützen und Lösungen schaffen</strong><br/><br/><br/>Im Amt für Erwachsenen- und Kindesschutz arbeitest du in einem engagierten und kollegialen Team, das Verantwortung teilt und sich gegenseitig unterstützt. <br/><br/>Nach einer umfassenden Einarbeitung begleitest und vertrittst du Menschen, die auf Unterstützung angewiesen sind. <br/><br/><br/>Du möchtest Menschen begleiten und mit deiner Arbeit etwas bewirken? Dann suchen wir dich als Sozialarbeiter*in im Erwachsenenschutz! <br/><br/><br/>\n\nAufgaben:\n• Selbständige Führung von Beistandschaften im Erwachsenenschutz\n\n• Beratung und Begleitung von betreuten Personen in unterschiedlichen Lebenssituationen\n\n• Verwaltung von Einkommen und Vermögen sowie Geltendmachung von Sozialversicherungsansprüchen\n\n• Klient*innorientierte Zusammenarbeit mit Sachbearbeitenden\n\n• Zusammenarbeit mit Behörden, Fachstellen und dem sozialen Umfeld\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Erfahrung im Sozialbereich, vorzugsweise im Bereich Erwachsenschutz\n\n• Kenntnisse im Sozialversicherungswesen\n\n• Vernetzte Arbeitsweise, Belastbarkeit, grosses Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "<strong>Risponsabile accompagnare, sostenere e creare soluzioni Nell'Ufficio per la protezione degli adulti e dei bambini, lavori in un team impegnato e collegiale che condivide responsabilità e si sostiene a vicenda. < > > > ι Dopo una formazione completa, accompagni e rappresenti persone che dipendono dal supporto. < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > Vuoi accompagnare le persone e fare la differenza con il tuo lavoro? Allora ti cerchiamo come assistente sociale nella protezione degli adulti! Compiti:\n• Gestione indipendente dell'assistenza nella protezione degli adulti\n• Consulenza e supporto per le persone in diverse situazioni di vita\n• Gestione del reddito e del patrimonio e recupero dei diritti di sicurezza sociale\n• Collaborazione orientata al cliente con i gestori dei casi\n• Cooperazione con le autorità, gli organismi specializzati e l'ambiente sociale Requisiti\n• Studi sul lavoro sociale o equivalente\n• Esperienza sociale, preferibilmente protezione per adulti\n• Conoscenza della sicurezza sociale\n• Metodo di lavoro in rete, resilienza, grandi capacità organizzative e ottime capacità di comunicazione Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "<strong>Responsibly accompany, support and create solutions</strong><br/><br/><br/><br/>>In the Office for Adult and Child Protection, you work in a committed and collegial team that shares responsibility and supports each other. <br/><br/ After a comprehensive training, you accompany and represent people who are dependent on support. <br/><br/<br >You want to accompany people and make a difference with your work? Then we look for you as a social worker in adult protection! <br/><br/><br/> Tasks:\n• Independent management of assistance in the protection of adults\n• Advice and support of cared for persons in different life situations\n• Management of income and assets and recovery of social security rights\n• Client*in-oriented cooperation with case handlers\n• Cooperation with authorities, specialist bodies and the social environment Requirements\n• Studies in social work or equivalent degree\n• Social experience, preferably adult protection\n• Knowledge of social security\n• Networked working method, resilience, great organisational skills and very good communication skills We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "<strong>Verantwortungsvoll begleiten, unterstützen und Lösungen schaffen</strong><br/><br/><br/>Im Amt für Erwachsenen- und Kindesschutz arbeitest du in einem engagierten und kollegialen Team, das Verantwortung teilt und sich gegenseitig unterstützt. <br/><br/>Nach einer umfassenden Einarbeitung begleitest und vertrittst du Menschen, die auf Unterstützung angewiesen sind. <br/><br/><br/>Du möchtest Menschen begleiten und mit deiner Arbeit etwas bewirken? Dann suchen wir dich als Sozialarbeiter*in im Erwachsenenschutz! <br/><br/><br/>\n\nAufgaben:\n• Selbständige Führung von Beistandschaften im Erwachsenenschutz\n\n• Beratung und Begleitung von betreuten Personen in unterschiedlichen Lebenssituationen\n\n• Verwaltung von Einkommen und Vermögen sowie Geltendmachung von Sozialversicherungsansprüchen\n\n• Klient*innorientierte Zusammenarbeit mit Sachbearbeitenden\n\n• Zusammenarbeit mit Behörden, Fachstellen und dem sozialen Umfeld\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Erfahrung im Sozialbereich, vorzugsweise im Bereich Erwachsenschutz\n\n• Kenntnisse im Sozialversicherungswesen\n\n• Vernetzte Arbeitsweise, Belastbarkeit, grosses Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "<strong> Accompagner, soutenir et créer des solutions de façon responsable</strong><br/><br/><br/><br/><br/> Au Bureau de la protection des adultes et des enfants, vous travaillez dans une équipe engagée et collégiale qui partage ses responsabilités et se soutient mutuellement. <br/><br/ Après une formation complète, vous accompagnez et représentez des personnes dépendantes du soutien. <br/><br/<br >Vous voulez accompagner les gens et faire une différence avec votre travail? Puis nous vous recherchons comme travailleur social dans la protection des adultes! <br/><br/><br/> Tâches :\n• Gestion indépendante de l'aide à la protection des adultes\n• Conseils et soutien aux personnes prises en charge dans des situations de vie différentes\n• Gestion des revenus et des avoirs et recouvrement des droits à la sécurité sociale\n• Coopération entre le client et les gestionnaires de cas\n• Coopération avec les autorités, les organismes spécialisés et l'environnement social Exigences\n• Études de travail social ou diplôme équivalent\n• Expérience sociale, de préférence protection des adultes\n• Connaissance de la sécurité sociale\n• Méthode de travail en réseau, résilience, grandes compétences organisationnelles et très bonnes compétences en communication Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/berufsbeistandsperson-erwachsenenschutz/97ec9846-9fe1-428b-8a88-5a38c1230469",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:49:45.312Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Predigergasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsbeistandsperson-erwachsenenschutz/97ec9846-9fe1-428b-8a88-5a38c1230469",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+        "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+          "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:31:55.739Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "stadt-bern-37dd788cb791",
       "slug": "springer-in-nella-protezione-degli-adulti-stadt-bern-bern",
@@ -34,7 +182,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/springer-in-im-erwachsenenschutz/852564b9-01cf-4566-b0ef-31a7a5eaabdf",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.190Z",
+      "crawledAt": "2026-07-10T12:49:45.312Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +262,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in/db44761b-852b-4bf3-a16c-862cbfb8c84f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.190Z",
+      "crawledAt": "2026-07-10T12:49:45.312Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -157,44 +305,44 @@
       }
     },
     {
-      "id": "stadt-bern-7c63b72c5c77",
-      "slug": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
+      "id": "stadt-bern-d9ece9ee8baa",
+      "slug": "specialista-nel-servizio-domestico-stadt-bern-bern",
       "slugByLocale": {
-        "it": "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
-        "en": "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
-        "de": "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "fr": "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+        "it": "specialista-nel-servizio-domestico-stadt-bern-bern",
+        "en": "specialist-in-domestic-service-stadt-bern-bern",
+        "de": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
+        "fr": "specialiste-en-service-domestique-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
       "companyDomain": "bern.ch",
-      "title": "Lehre als Motorgerätemechaniker*in EFZ",
+      "title": "Fachmitarbeiter*in Hausdienst",
       "titleByLocale": {
-        "it": "Apprendistato come Motorgerätemechaniker*in CFC",
-        "en": "Teaching as a motorized mechanic* EFZ",
-        "de": "Lehre als Motorgerätemechaniker*in EFZ",
-        "fr": "Enseignement en tant que mécanicien motorisé* EFZ"
+        "it": "Specialista* nel servizio domestico",
+        "en": "Specialist* in domestic service",
+        "de": "Fachmitarbeiter*in Hausdienst",
+        "fr": "Spécialiste* en service domestique"
       },
-      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
+      "description": "Wir suchen dich per 1. Oktober 2026 oder nach Vereinbarung als Fachmitarbeiter*in Hausdienst für die Volksschule Wankdorf\n\nAufgaben:\n• Betrieb und Unterhalt der Gebäude und der technischen Anlagen\n\n• Ausführen von Instandhaltungstätigkeiten\n\n• Erbringung von Dienstleistungen für die Nutzenden\n\n• Reinigung der Innen- und Aussenbereiche\n\n• Unterhalt und Pflege des Aussenareal\n\nAnforderungen:\n• Abgeschlossene Ausbildung zum*zur Fachmann*frau Betriebsunterhalt EFZ\n\n• Erfahrungen in vergleichbarer Funktion\n\n• Teamfähig und Dienstleistungsorientiert\n\n• Zuverlässige und selbstständige Arbeitsweise\n\n• Freude im Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n• Eseguire il lavoro di servizio con un team competente\n• Macchine di prova per funzionalità\n• Fare pezzi di ricambio Requisiti\n• Completo della scuola elementare\n• Artigianato e interesse per macchinari e tecnologie\n• La gioia di affrontare le persone",
-        "en": "Tasks:\n• Maintain and repair machines and equipment\n• Carry out service work with a competent team\n• Testing machines for functionality\n• Make spare parts Requirements\n• Completed elementary school degree\n• Craftsmanship and interest in machinery and technology\n• The joy of dealing with people",
-        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen",
-        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n• Effectuer un travail de service avec une équipe compétente\n• Machines d'essai pour la fonctionnalité\n• Fabrication de pièces de rechange Exigences\n• Diplôme d ' études primaires\n• Artisanat et intérêt pour les machines et la technologie\n• La joie de traiter avec les gens"
+        "it": "Ti stiamo cercando a 1. Ottobre 2026 o su appuntamento come specialista nel servizio a domicilio per la scuola elementare Wankdorf Compiti:\n• Funzionamento e manutenzione di edifici e impianti tecnici\n• Performance delle attività di manutenzione\n• Fornitura di servizi agli utenti\n• Servizi di pulizia interni ed esterni\n• Manutenzione e manutenzione della zona esterna Requisiti\n• Apprendistato completato per diventare un'esperta* della manutenzione aziendale EFZ\n• Esperienza in una capacità paragonabile\n• Team pronto e orientato al servizio\n• Lavoro affidabile e indipendente\n• La gioia nel trattare le persone Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "We are looking for you at 1. October 2026 or by appointment as a specialist in home service for the elementary school Wankdorf Tasks:\n• Operation and maintenance of buildings and technical installations\n• Performance of maintenance activities\n• Provision of services to users\n• Interior and exterior cleaning services\n• Maintenance and maintenance of the outside area Requirements\n• Completed apprenticeship to become an expert*woman of the company maintenance EFZ\n• Experience in a comparable capacity\n• Team-ready and service-oriented\n• Reliable and independent work\n• Joy in dealing with people We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Wir suchen dich per 1. Oktober 2026 oder nach Vereinbarung als Fachmitarbeiter*in Hausdienst für die Volksschule Wankdorf\n\nAufgaben:\n• Betrieb und Unterhalt der Gebäude und der technischen Anlagen\n\n• Ausführen von Instandhaltungstätigkeiten\n\n• Erbringung von Dienstleistungen für die Nutzenden\n\n• Reinigung der Innen- und Aussenbereiche\n\n• Unterhalt und Pflege des Aussenareal\n\nAnforderungen:\n• Abgeschlossene Ausbildung zum*zur Fachmann*frau Betriebsunterhalt EFZ\n\n• Erfahrungen in vergleichbarer Funktion\n\n• Teamfähig und Dienstleistungsorientiert\n\n• Zuverlässige und selbstständige Arbeitsweise\n\n• Freude im Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous vous cherchons à 1. Octobre 2026 ou sur rendez-vous comme un spécialiste du service à domicile pour l'école primaire Wankdorf Tâches :\n• Exploitation et entretien des bâtiments et des installations techniques\n• Exécution des activités d ' entretien\n• Prestation de services aux utilisateurs\n• Services de nettoyage intérieur et extérieur\n• Entretien et entretien de la zone extérieure Exigences\n• Achevé l'apprentissage pour devenir une experte* femme de l'entreprise entretien EFZ\n• Expérience dans une capacité comparable\n• Prêt pour les équipes et axé sur les services\n• Travail fiable et indépendant\n• La joie de traiter avec les gens Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-motorgeraetemechaniker-in-efz/1761fdd9-b7fa-432a-8820-388e629a50fc",
+      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/1ac29594-2643-4d84-9265-ea5643b488a6",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.190Z",
+      "crawledAt": "2026-07-10T12:49:45.311Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Junkerngasse 47",
+      "postalCode": "3014",
+      "streetAddress": "Morgartenstrasse 2C",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -202,30 +350,30 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-12-17",
-      "applyUrl": "https://career74.sapsf.eu/career?company=stadtbern&career_ns=job_application&career_job_req_id=893",
+      "postedDate": "2026-06-21",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/1ac29594-2643-4d84-9265-ea5643b488a6",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern"
+        "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
+        "specialista-nel-servizio-domestico-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-          "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern"
+          "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
+          "specialista-nel-servizio-domestico-stadt-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:31:55.741Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-07-04T12:31:55.737Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -262,7 +410,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitglied-der-aerztlichen-leitung-verantwortungsbereich-notrufzentrale/d7f3e852-9e60-43fa-84be-d574754e3d0d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.189Z",
+      "crawledAt": "2026-07-10T12:49:45.311Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -336,7 +484,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/9d74caf0-f603-4e04-a946-c355ae0aef41",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.189Z",
+      "crawledAt": "2026-07-10T12:49:45.311Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,154 +513,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:55.738Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-3b169ae7b01a",
-      "slug": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
-        "en": "adult-protection-professional-assistant-stadt-bern-bern",
-        "de": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "fr": "assistant-professionnel-de-protection-des-adultes-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Berufsbeistandsperson Erwachsenenschutz",
-      "titleByLocale": {
-        "it": "Assistente professionale per la protezione degli adulti",
-        "en": "Adult protection professional assistant",
-        "de": "Berufsbeistandsperson Erwachsenenschutz",
-        "fr": "Assistant professionnel de protection des adultes"
-      },
-      "description": "<strong>Verantwortungsvoll begleiten, unterstützen und Lösungen schaffen</strong><br/><br/><br/>Im Amt für Erwachsenen- und Kindesschutz arbeitest du in einem engagierten und kollegialen Team, das Verantwortung teilt und sich gegenseitig unterstützt. <br/><br/>Nach einer umfassenden Einarbeitung begleitest und vertrittst du Menschen, die auf Unterstützung angewiesen sind. <br/><br/><br/>Du möchtest Menschen begleiten und mit deiner Arbeit etwas bewirken? Dann suchen wir dich als Sozialarbeiter*in im Erwachsenenschutz! <br/><br/><br/>\n\nAufgaben:\n• Selbständige Führung von Beistandschaften im Erwachsenenschutz\n\n• Beratung und Begleitung von betreuten Personen in unterschiedlichen Lebenssituationen\n\n• Verwaltung von Einkommen und Vermögen sowie Geltendmachung von Sozialversicherungsansprüchen\n\n• Klient*innorientierte Zusammenarbeit mit Sachbearbeitenden\n\n• Zusammenarbeit mit Behörden, Fachstellen und dem sozialen Umfeld\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Erfahrung im Sozialbereich, vorzugsweise im Bereich Erwachsenschutz\n\n• Kenntnisse im Sozialversicherungswesen\n\n• Vernetzte Arbeitsweise, Belastbarkeit, grosses Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "<strong>Risponsabile accompagnare, sostenere e creare soluzioni Nell'Ufficio per la protezione degli adulti e dei bambini, lavori in un team impegnato e collegiale che condivide responsabilità e si sostiene a vicenda. < > > > ι Dopo una formazione completa, accompagni e rappresenti persone che dipendono dal supporto. < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > Vuoi accompagnare le persone e fare la differenza con il tuo lavoro? Allora ti cerchiamo come assistente sociale nella protezione degli adulti! Compiti:\n• Gestione indipendente dell'assistenza nella protezione degli adulti\n• Consulenza e supporto per le persone in diverse situazioni di vita\n• Gestione del reddito e del patrimonio e recupero dei diritti di sicurezza sociale\n• Collaborazione orientata al cliente con i gestori dei casi\n• Cooperazione con le autorità, gli organismi specializzati e l'ambiente sociale Requisiti\n• Studi sul lavoro sociale o equivalente\n• Esperienza sociale, preferibilmente protezione per adulti\n• Conoscenza della sicurezza sociale\n• Metodo di lavoro in rete, resilienza, grandi capacità organizzative e ottime capacità di comunicazione Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "<strong>Responsibly accompany, support and create solutions</strong><br/><br/><br/><br/>>In the Office for Adult and Child Protection, you work in a committed and collegial team that shares responsibility and supports each other. <br/><br/ After a comprehensive training, you accompany and represent people who are dependent on support. <br/><br/<br >You want to accompany people and make a difference with your work? Then we look for you as a social worker in adult protection! <br/><br/><br/> Tasks:\n• Independent management of assistance in the protection of adults\n• Advice and support of cared for persons in different life situations\n• Management of income and assets and recovery of social security rights\n• Client*in-oriented cooperation with case handlers\n• Cooperation with authorities, specialist bodies and the social environment Requirements\n• Studies in social work or equivalent degree\n• Social experience, preferably adult protection\n• Knowledge of social security\n• Networked working method, resilience, great organisational skills and very good communication skills We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "<strong>Verantwortungsvoll begleiten, unterstützen und Lösungen schaffen</strong><br/><br/><br/>Im Amt für Erwachsenen- und Kindesschutz arbeitest du in einem engagierten und kollegialen Team, das Verantwortung teilt und sich gegenseitig unterstützt. <br/><br/>Nach einer umfassenden Einarbeitung begleitest und vertrittst du Menschen, die auf Unterstützung angewiesen sind. <br/><br/><br/>Du möchtest Menschen begleiten und mit deiner Arbeit etwas bewirken? Dann suchen wir dich als Sozialarbeiter*in im Erwachsenenschutz! <br/><br/><br/>\n\nAufgaben:\n• Selbständige Führung von Beistandschaften im Erwachsenenschutz\n\n• Beratung und Begleitung von betreuten Personen in unterschiedlichen Lebenssituationen\n\n• Verwaltung von Einkommen und Vermögen sowie Geltendmachung von Sozialversicherungsansprüchen\n\n• Klient*innorientierte Zusammenarbeit mit Sachbearbeitenden\n\n• Zusammenarbeit mit Behörden, Fachstellen und dem sozialen Umfeld\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Erfahrung im Sozialbereich, vorzugsweise im Bereich Erwachsenschutz\n\n• Kenntnisse im Sozialversicherungswesen\n\n• Vernetzte Arbeitsweise, Belastbarkeit, grosses Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "<strong> Accompagner, soutenir et créer des solutions de façon responsable</strong><br/><br/><br/><br/><br/> Au Bureau de la protection des adultes et des enfants, vous travaillez dans une équipe engagée et collégiale qui partage ses responsabilités et se soutient mutuellement. <br/><br/ Après une formation complète, vous accompagnez et représentez des personnes dépendantes du soutien. <br/><br/<br >Vous voulez accompagner les gens et faire une différence avec votre travail? Puis nous vous recherchons comme travailleur social dans la protection des adultes! <br/><br/><br/> Tâches :\n• Gestion indépendante de l'aide à la protection des adultes\n• Conseils et soutien aux personnes prises en charge dans des situations de vie différentes\n• Gestion des revenus et des avoirs et recouvrement des droits à la sécurité sociale\n• Coopération entre le client et les gestionnaires de cas\n• Coopération avec les autorités, les organismes spécialisés et l'environnement social Exigences\n• Études de travail social ou diplôme équivalent\n• Expérience sociale, de préférence protection des adultes\n• Connaissance de la sécurité sociale\n• Méthode de travail en réseau, résilience, grandes compétences organisationnelles et très bonnes compétences en communication Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/berufsbeistandsperson-erwachsenenschutz/97ec9846-9fe1-428b-8a88-5a38c1230469",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.189Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Predigergasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsbeistandsperson-erwachsenenschutz/97ec9846-9fe1-428b-8a88-5a38c1230469",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-          "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:31:55.739Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-d9ece9ee8baa",
-      "slug": "specialista-nel-servizio-domestico-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "specialista-nel-servizio-domestico-stadt-bern-bern",
-        "en": "specialist-in-domestic-service-stadt-bern-bern",
-        "de": "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-        "fr": "specialiste-en-service-domestique-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Fachmitarbeiter*in Hausdienst",
-      "titleByLocale": {
-        "it": "Specialista* nel servizio domestico",
-        "en": "Specialist* in domestic service",
-        "de": "Fachmitarbeiter*in Hausdienst",
-        "fr": "Spécialiste* en service domestique"
-      },
-      "description": "Wir suchen dich per 1. Oktober 2026 oder nach Vereinbarung als Fachmitarbeiter*in Hausdienst für die Volksschule Wankdorf\n\nAufgaben:\n• Betrieb und Unterhalt der Gebäude und der technischen Anlagen\n\n• Ausführen von Instandhaltungstätigkeiten\n\n• Erbringung von Dienstleistungen für die Nutzenden\n\n• Reinigung der Innen- und Aussenbereiche\n\n• Unterhalt und Pflege des Aussenareal\n\nAnforderungen:\n• Abgeschlossene Ausbildung zum*zur Fachmann*frau Betriebsunterhalt EFZ\n\n• Erfahrungen in vergleichbarer Funktion\n\n• Teamfähig und Dienstleistungsorientiert\n\n• Zuverlässige und selbstständige Arbeitsweise\n\n• Freude im Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti stiamo cercando a 1. Ottobre 2026 o su appuntamento come specialista nel servizio a domicilio per la scuola elementare Wankdorf Compiti:\n• Funzionamento e manutenzione di edifici e impianti tecnici\n• Performance delle attività di manutenzione\n• Fornitura di servizi agli utenti\n• Servizi di pulizia interni ed esterni\n• Manutenzione e manutenzione della zona esterna Requisiti\n• Apprendistato completato per diventare un'esperta* della manutenzione aziendale EFZ\n• Esperienza in una capacità paragonabile\n• Team pronto e orientato al servizio\n• Lavoro affidabile e indipendente\n• La gioia nel trattare le persone Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "We are looking for you at 1. October 2026 or by appointment as a specialist in home service for the elementary school Wankdorf Tasks:\n• Operation and maintenance of buildings and technical installations\n• Performance of maintenance activities\n• Provision of services to users\n• Interior and exterior cleaning services\n• Maintenance and maintenance of the outside area Requirements\n• Completed apprenticeship to become an expert*woman of the company maintenance EFZ\n• Experience in a comparable capacity\n• Team-ready and service-oriented\n• Reliable and independent work\n• Joy in dealing with people We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Wir suchen dich per 1. Oktober 2026 oder nach Vereinbarung als Fachmitarbeiter*in Hausdienst für die Volksschule Wankdorf\n\nAufgaben:\n• Betrieb und Unterhalt der Gebäude und der technischen Anlagen\n\n• Ausführen von Instandhaltungstätigkeiten\n\n• Erbringung von Dienstleistungen für die Nutzenden\n\n• Reinigung der Innen- und Aussenbereiche\n\n• Unterhalt und Pflege des Aussenareal\n\nAnforderungen:\n• Abgeschlossene Ausbildung zum*zur Fachmann*frau Betriebsunterhalt EFZ\n\n• Erfahrungen in vergleichbarer Funktion\n\n• Teamfähig und Dienstleistungsorientiert\n\n• Zuverlässige und selbstständige Arbeitsweise\n\n• Freude im Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Nous vous cherchons à 1. Octobre 2026 ou sur rendez-vous comme un spécialiste du service à domicile pour l'école primaire Wankdorf Tâches :\n• Exploitation et entretien des bâtiments et des installations techniques\n• Exécution des activités d ' entretien\n• Prestation de services aux utilisateurs\n• Services de nettoyage intérieur et extérieur\n• Entretien et entretien de la zone extérieure Exigences\n• Achevé l'apprentissage pour devenir une experte* femme de l'entreprise entretien EFZ\n• Expérience dans une capacité comparable\n• Prêt pour les équipes et axé sur les services\n• Travail fiable et indépendant\n• La joie de traiter avec les gens Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/1ac29594-2643-4d84-9265-ea5643b488a6",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.188Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3014",
-      "streetAddress": "Morgartenstrasse 2C",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-21",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/1ac29594-2643-4d84-9265-ea5643b488a6",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-        "specialista-nel-servizio-domestico-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmitarbeiter-in-hausdienst-stadt-bern-bern",
-          "specialista-nel-servizio-domestico-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:31:55.737Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -558,7 +558,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/bereichsleiter-in-entwicklung/0d89fc1d-eddf-4484-bc4a-6af32778018d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.188Z",
+      "crawledAt": "2026-07-10T12:49:45.310Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -609,6 +609,86 @@
       }
     },
     {
+      "id": "stadt-bern-1cdd2ca4743e",
+      "slug": "cura-professionale-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "cura-professionale-stadt-bern-bern",
+        "en": "care-professional-stadt-bern-bern",
+        "de": "betreuungsfachperson-stadt-bern-bern",
+        "fr": "professionnel-de-soins-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Betreuungsfachperson",
+      "titleByLocale": {
+        "it": "Cura professionale",
+        "en": "Betreuungsfachperson",
+        "de": "Betreuungsfachperson",
+        "fr": "Professionnel de soins"
+      },
+      "description": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit und Mitverantwortung in einer Betreuungsgruppe mit Kindern und Jugendlichen im Alter von 10 bis 15 Jahren in enger Zusammenarbeit mit dem Betreuungsteam\n\n• Förderung der Kompetenzen von Kindern und Jugendlichen im nonformalen Bildungsbereich\n\n• Partizipative Gestaltung und Umsetzung eines bedürfnisorientierten Freizeitangebots\n\n• Pflege einer professionellen und wertschätzenden Kommunikation mit Familiensystemen sowie schulischen Akteurinnen und Akteuren\n\n• Zielorientierte Planung und Umsetzung der pädagogischen Arbeit sowie konstruktive Zusammenarbeit im Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachperson Betreuung Kinder mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Lösungsorientierte, engagierte und empathische Persönlichkeit mit hoher Sozialkompetenz\n\n• Ausgeprägte Konfliktfähigkeit sowie Freude an der Zusammenarbeit im Team\n\n• Klare, wertschätzende und adressatengerechte Kommunikationsweise\n\n• Offene, flexible und belastbare Grundhaltung in einem dynamischen Betreuungsalltag\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Per questa posizione rinunciamo deliberatamente a una lettera di motivazione. Si prega di inviare il CV corrente e certificati e diplomi completi. Compiti:\n• Cooperazione e corresponsabilità in un gruppo di assistenza con bambini e adolescenti dai 10 ai 15 anni in stretta collaborazione con il team di assistenza\n• Promuovere le competenze dei bambini e degli adolescenti nell'educazione non formale\n• Progettazione partecipativa e realizzazione di un'offerta turistica orientata alle esigenze\n• Mantenere la comunicazione professionale e apprezzativa con i sistemi familiari e gli attori scolastici\n• Pianificazione mirata e realizzazione del lavoro pedagogico e cooperazione costruttiva nel team Requisiti\n• Formazione completa come operatore specializzato per bambini con un certificato federale di competenza (EFZ)\n• Personalità orientata alla soluzione, impegnata ed empatica con elevata competenza sociale\n• Forte capacità di conflitto e godere di lavorare insieme in un team\n• Comunicazione chiara, apprezzativa e facile da usare\n• Attuazione di base aperta, flessibile e resiliente in una vita quotidiana dinamica Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "For this position we deliberately waive a letter of motivation. Please submit your current CV and complete certificates and diplomas. Tasks:\n• Cooperation and co-responsibility in a care group with children and adolescents aged 10 to 15 years in close cooperation with the care team\n• Promoting the skills of children and adolescents in non-formal education\n• Participatory design and implementation of a needs-oriented leisure offer\n• Maintaining professional and appreciative communication with family systems and school actors\n• Target-oriented planning and implementation of pedagogical work as well as constructive cooperation in the team Requirements\n• Completed training as a specialist carer for children with a federal certificate of competence (EFZ)\n• Solution-oriented, committed and empathetic personality with high social competence\n• Strong ability to conflict and enjoy working together in a team\n• Clear, appreciative and user-friendly communication\n• Open, flexible and resilient basic attitude in a dynamic everyday care life We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit und Mitverantwortung in einer Betreuungsgruppe mit Kindern und Jugendlichen im Alter von 10 bis 15 Jahren in enger Zusammenarbeit mit dem Betreuungsteam\n\n• Förderung der Kompetenzen von Kindern und Jugendlichen im nonformalen Bildungsbereich\n\n• Partizipative Gestaltung und Umsetzung eines bedürfnisorientierten Freizeitangebots\n\n• Pflege einer professionellen und wertschätzenden Kommunikation mit Familiensystemen sowie schulischen Akteurinnen und Akteuren\n\n• Zielorientierte Planung und Umsetzung der pädagogischen Arbeit sowie konstruktive Zusammenarbeit im Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachperson Betreuung Kinder mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Lösungsorientierte, engagierte und empathische Persönlichkeit mit hoher Sozialkompetenz\n\n• Ausgeprägte Konfliktfähigkeit sowie Freude an der Zusammenarbeit im Team\n\n• Klare, wertschätzende und adressatengerechte Kommunikationsweise\n\n• Offene, flexible und belastbare Grundhaltung in einem dynamischen Betreuungsalltag\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets. Tâches :\n• Coopération et coresponsabilité dans un groupe de soins avec des enfants et des adolescents âgés de 10 à 15 ans, en étroite collaboration avec l'équipe de soins\n• Promotion des compétences des enfants et des adolescents dans l'éducation non formelle\n• Conception participative et mise en œuvre d'une offre de loisirs axée sur les besoins\n• Maintenir une communication professionnelle et appréciée avec les systèmes familiaux et les acteurs scolaires\n• Planification et mise en œuvre ciblées du travail pédagogique et coopération constructive au sein de l'équipe Exigences\n• Formation complète en tant que spécialiste de la prise en charge des enfants ayant un certificat fédéral de compétence (EFZ)\n• Personnalité orientée vers la solution, engagée et empathique avec une haute compétence sociale\n• Forte capacité de conflit et de collaboration dans une équipe\n• Communication claire, appréciée et conviviale\n• Une attitude de base ouverte, flexible et résistante dans une vie quotidienne dynamique Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/6e5506eb-5e3b-48fa-af80-8b779f074140",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:49:45.309Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Kastellweg 7",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/6e5506eb-5e3b-48fa-af80-8b779f074140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "betreuungsfachperson-stadt-bern-bern",
+        "cura-professionale-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungsfachperson-stadt-bern-bern",
+          "cura-professionale-stadt-bern-bern"
+        ],
+        "en": [
+          "betreuungsfachperson-stadt-bern-bern"
+        ],
+        "fr": [
+          "betreuungsfachperson-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:31:55.734Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-a9f3646cb452",
       "slug": "project-manager-in-sistemi-di-segnale-luminoso-stadt-bern-bern",
       "slugByLocale": {
@@ -640,7 +720,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-lichtsignalanlagen/28b40d9d-1247-4cf3-9c15-cf343a4ad365",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.187Z",
+      "crawledAt": "2026-07-10T12:49:45.309Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -716,7 +796,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/hilfskoch-hilfskoechin/528cd732-672a-4c50-83a5-1e4b3d1d50b4",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.186Z",
+      "crawledAt": "2026-07-10T12:49:45.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -759,72 +839,56 @@
       }
     },
     {
-      "id": "stadt-bern-1cdd2ca4743e",
-      "slug": "cura-professionale-stadt-bern-bern",
+      "id": "stadt-bern-4eb7ce6407ee",
+      "slug": "ict-supporter-in-service-desk-stadt-bern-bern",
       "slugByLocale": {
-        "it": "cura-professionale-stadt-bern-bern",
-        "en": "care-professional-stadt-bern-bern",
-        "de": "betreuungsfachperson-stadt-bern-bern",
-        "fr": "professionnel-de-soins-stadt-bern-bern"
+        "it": "ict-supporter-in-service-desk-stadt-bern-bern",
+        "en": "ict-supporter-in-service-desk-stadt-bern-bern",
+        "de": "ict-supporter-in-service-desk-stadt-bern-bern",
+        "fr": "supporteur-tic-service-desk-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
       "companyDomain": "bern.ch",
-      "title": "Betreuungsfachperson",
+      "title": "ICT Supporter*in - Service Desk",
       "titleByLocale": {
-        "it": "Cura professionale",
-        "en": "Betreuungsfachperson",
-        "de": "Betreuungsfachperson",
-        "fr": "Professionnel de soins"
+        "it": "Supporto ICT - Service Desk",
+        "en": "ICT Supporter - Service Desk",
+        "de": "ICT Supporter*in - Service Desk",
+        "fr": "ICT Supporter*in - Service Desk"
       },
-      "description": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit und Mitverantwortung in einer Betreuungsgruppe mit Kindern und Jugendlichen im Alter von 10 bis 15 Jahren in enger Zusammenarbeit mit dem Betreuungsteam\n\n• Förderung der Kompetenzen von Kindern und Jugendlichen im nonformalen Bildungsbereich\n\n• Partizipative Gestaltung und Umsetzung eines bedürfnisorientierten Freizeitangebots\n\n• Pflege einer professionellen und wertschätzenden Kommunikation mit Familiensystemen sowie schulischen Akteurinnen und Akteuren\n\n• Zielorientierte Planung und Umsetzung der pädagogischen Arbeit sowie konstruktive Zusammenarbeit im Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachperson Betreuung Kinder mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Lösungsorientierte, engagierte und empathische Persönlichkeit mit hoher Sozialkompetenz\n\n• Ausgeprägte Konfliktfähigkeit sowie Freude an der Zusammenarbeit im Team\n\n• Klare, wertschätzende und adressatengerechte Kommunikationsweise\n\n• Offene, flexible und belastbare Grundhaltung in einem dynamischen Betreuungsalltag\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "description": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "it": "Per questa posizione rinunciamo deliberatamente a una lettera di motivazione. Si prega di inviare il CV corrente e certificati e diplomi completi. Compiti:\n• Cooperazione e corresponsabilità in un gruppo di assistenza con bambini e adolescenti dai 10 ai 15 anni in stretta collaborazione con il team di assistenza\n• Promuovere le competenze dei bambini e degli adolescenti nell'educazione non formale\n• Progettazione partecipativa e realizzazione di un'offerta turistica orientata alle esigenze\n• Mantenere la comunicazione professionale e apprezzativa con i sistemi familiari e gli attori scolastici\n• Pianificazione mirata e realizzazione del lavoro pedagogico e cooperazione costruttiva nel team Requisiti\n• Formazione completa come operatore specializzato per bambini con un certificato federale di competenza (EFZ)\n• Personalità orientata alla soluzione, impegnata ed empatica con elevata competenza sociale\n• Forte capacità di conflitto e godere di lavorare insieme in un team\n• Comunicazione chiara, apprezzativa e facile da usare\n• Attuazione di base aperta, flessibile e resiliente in una vita quotidiana dinamica Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "For this position we deliberately waive a letter of motivation. Please submit your current CV and complete certificates and diplomas. Tasks:\n• Cooperation and co-responsibility in a care group with children and adolescents aged 10 to 15 years in close cooperation with the care team\n• Promoting the skills of children and adolescents in non-formal education\n• Participatory design and implementation of a needs-oriented leisure offer\n• Maintaining professional and appreciative communication with family systems and school actors\n• Target-oriented planning and implementation of pedagogical work as well as constructive cooperation in the team Requirements\n• Completed training as a specialist carer for children with a federal certificate of competence (EFZ)\n• Solution-oriented, committed and empathetic personality with high social competence\n• Strong ability to conflict and enjoy working together in a team\n• Clear, appreciative and user-friendly communication\n• Open, flexible and resilient basic attitude in a dynamic everyday care life We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit und Mitverantwortung in einer Betreuungsgruppe mit Kindern und Jugendlichen im Alter von 10 bis 15 Jahren in enger Zusammenarbeit mit dem Betreuungsteam\n\n• Förderung der Kompetenzen von Kindern und Jugendlichen im nonformalen Bildungsbereich\n\n• Partizipative Gestaltung und Umsetzung eines bedürfnisorientierten Freizeitangebots\n\n• Pflege einer professionellen und wertschätzenden Kommunikation mit Familiensystemen sowie schulischen Akteurinnen und Akteuren\n\n• Zielorientierte Planung und Umsetzung der pädagogischen Arbeit sowie konstruktive Zusammenarbeit im Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachperson Betreuung Kinder mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Lösungsorientierte, engagierte und empathische Persönlichkeit mit hoher Sozialkompetenz\n\n• Ausgeprägte Konfliktfähigkeit sowie Freude an der Zusammenarbeit im Team\n\n• Klare, wertschätzende und adressatengerechte Kommunikationsweise\n\n• Offene, flexible und belastbare Grundhaltung in einem dynamischen Betreuungsalltag\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets. Tâches :\n• Coopération et coresponsabilité dans un groupe de soins avec des enfants et des adolescents âgés de 10 à 15 ans, en étroite collaboration avec l'équipe de soins\n• Promotion des compétences des enfants et des adolescents dans l'éducation non formelle\n• Conception participative et mise en œuvre d'une offre de loisirs axée sur les besoins\n• Maintenir une communication professionnelle et appréciée avec les systèmes familiaux et les acteurs scolaires\n• Planification et mise en œuvre ciblées du travail pédagogique et coopération constructive au sein de l'équipe Exigences\n• Formation complète en tant que spécialiste de la prise en charge des enfants ayant un certificat fédéral de compétence (EFZ)\n• Personnalité orientée vers la solution, engagée et empathique avec une haute compétence sociale\n• Forte capacité de conflit et de collaboration dans une équipe\n• Communication claire, appréciée et conviviale\n• Une attitude de base ouverte, flexible et résistante dans une vie quotidienne dynamique Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Per rafforzare il nostro team, stiamo cercando una personalità impegnata e orientata al servizio immediatamente o di accordo. Se ti piace il supporto clienti e vuoi lavorare in un ambiente IT dinamico, non vediamo l'ora di ricevere la tua applicazione. Compiti:\n• Rispondere alle richieste scritte e orali dei nostri clienti e fornire soluzioni competenti\n• Gestione di domande, ordini e incidenti relativi a hardware, applicazioni, accessi o connessioni di rete\n• Analizzare, documentare e risolvere i casi per garantire che tutte le richieste siano gestite in modo efficiente e completo\n• Proattivamente informare i nostri clienti sullo stato delle loro richieste e risolvere, escalare o incidenti in avanti secondo necessità\n• Si garantisce il contatto tra la reception e le squadre con cui lavoriamo da vicino Requisiti\n• Formazione completa come specialista delle TIC / specialista delle TIC EFZ o una qualifica paragonabile\n• Esperienza nel supporto telefonico e una rapida comprensione per familiarizzare rapidamente con nuovi argomenti\n• Un pronunciato orientamento del cliente e piacere nel trattare con le persone\n• Alto impegno e flessibilità, anche in situazioni difficili\n• Forza e determinazione della comunicazione per implementare soluzioni in modo efficiente e mirato\n• mentalità del giocatore di squadra con un modo positivo e cooperativo di lavorare Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "To strengthen our team, we are looking for a committed and service-oriented personality immediately or by agreement. If you enjoy customer support and want to work in a dynamic IT environment, we look forward to receiving your application. Tasks:\n• Answering written and oral inquiries from our customers and providing competent solutions\n• Handling questions, orders and incidents related to hardware, applications, accesses or network connections\n• Analyze, document and resolve cases to ensure that all requests are handled efficiently and fully\n• Proactively inform our customers about the status of their requests and resolve, escalate or forward incidents as needed\n• You ensure contact between the service desk and the relevant teams with whom we work closely Requirements\n• Completed training as an ICT specialist / ICT specialist EFZ or a comparable qualification\n• Experience in telephone support as well as a quick understanding in order to quickly familiarize yourself with new topics\n• A pronounced customer orientation and pleasure in dealing with people\n• High commitment and flexibility, even in challenging situations\n• Communication strength and determination to implement solutions efficiently and purposefully\n• Team player mentality with a positive and cooperative way of working We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Pour renforcer notre équipe, nous recherchons une personnalité engagée et orientée vers le service immédiatement ou d'un commun accord. Si vous aimez le support client et que vous souhaitez travailler dans un environnement informatique dynamique, nous nous réjouissons de recevoir votre application. Tâches :\n• Répondre aux demandes écrites et orales de nos clients et fournir des solutions compétentes\n• Traitement des questions, commandes et incidents liés au matériel, aux applications, aux accès ou aux connexions réseau\n• Analyser, documenter et régler les cas pour s'assurer que toutes les demandes sont traitées de façon efficace et complète\n• Informer proactivement nos clients de l'état de leurs demandes et résoudre, intensifier ou faire avancer les incidents au besoin\n• Vous assurez le contact entre le bureau de service et les équipes concernées avec lesquelles nous travaillons étroitement Exigences\n• Formation complète en tant que spécialiste des TIC / spécialiste des TIC EFZ ou une qualification comparable\n• Expérience dans le soutien téléphonique ainsi qu'une compréhension rapide afin de se familiariser rapidement avec de nouveaux sujets\n• Une orientation et un plaisir prononcés du client dans le traitement des personnes\n• Un engagement et une flexibilité élevés, même dans des situations difficiles\n• La force de la communication et la détermination à mettre en œuvre des solutions de manière efficace et ciblée\n• La mentalité des joueurs d'équipe avec un mode de travail positif et coopératif Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/6e5506eb-5e3b-48fa-af80-8b779f074140",
+      "url": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-service-desk/f4963914-f26d-4e73-af64-5a6d05675ecb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.186Z",
+      "crawledAt": "2026-07-10T12:49:45.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Kastellweg 7",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/6e5506eb-5e3b-48fa-af80-8b779f074140",
+      "postedDate": "2026-06-24",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-service-desk/f4963914-f26d-4e73-af64-5a6d05675ecb",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betreuungsfachperson-stadt-bern-bern",
-        "cura-professionale-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betreuungsfachperson-stadt-bern-bern",
-          "cura-professionale-stadt-bern-bern"
-        ],
-        "en": [
-          "betreuungsfachperson-stadt-bern-bern"
-        ],
-        "fr": [
-          "betreuungsfachperson-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:31:55.734Z",
+      "firstSeenAt": "2026-07-04T12:31:55.735Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -870,7 +934,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachangestellte-r-verkehrspolizeiliche-bewilligungen-orts-und-gewerbepolizei/10a2b6e8-316e-4609-b28b-3a12670980d1",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.185Z",
+      "crawledAt": "2026-07-10T12:49:45.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -917,6 +981,80 @@
       }
     },
     {
+      "id": "stadt-bern-e274a7269bd1",
+      "slug": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
+        "en": "social-worker-in-child-protection-stadt-bern-bern",
+        "de": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
+        "fr": "travailleur-social-en-protection-de-l-enfance-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Sozialarbeiter*in Kindesschutz",
+      "titleByLocale": {
+        "it": "Lavoratore sociale* nella protezione dei bambini",
+        "en": "Social Worker* in Child Protection",
+        "de": "Sozialarbeiter*in Kindesschutz",
+        "fr": "Travailleur social* en protection de l ' enfance"
+      },
+      "description": "Aufgaben:\n• Minderjährige sowie deren Eltern und Angehörige im einvernehmlichen und gesetzlichen Kindesschutz beraten und begleiten\n\n• Gefährdungsmeldungen abklären\n\n• Beistandschaften führen\n\n• Hilfen im System koordinieren\n\n• Kindzentrierte Beratungen durchführen in konflikthaften Trennungs- und Scheidungssituationen\n\n• Delegierte Sozialhilfe klären und ausrichten\n\nAnforderungen:\n• Diplom einer Fachhochschule für Soziale Arbeit\n\n• Berufserfahrung im Bereich des Kindesschutzes – Weiterbildung von Vorteil\n\n• Hohe Sozialkompetenz und Belastbarkeit\n\n• Planungs- und Organisationsfähigkeit\n\n• Freude und Effizienz an administrativen Tätigkeiten (inkl. Berichte erfassen)\n\nBewerbungsfrist ist der 13. Juli 2026.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Consigliare e accompagnare i minori e i loro genitori e parenti nella tutela dei minori consensuale e legale\n• Clarificare i messaggi di pericolo\n• Assistenza:\n• Aiuto coordinato nel sistema\n• Effettuare una consulenza orientata al bambino in situazioni di separazione e divorzio conflittuali\n• Chiarificare e allineare l'assistenza sociale delegato Requisiti\n• Diploma di un'Università di Scienze Applicate per il lavoro sociale\n• Esperienza professionale nel campo della protezione dei bambini – ulteriore istruzione benefica\n• Alta capacità sociale e resilienza\n• Pianificazione e capacità organizzativa\n• Divertimento ed efficienza nelle attività amministrative (compresi i rapporti di registrazione) Termine per la richiesta: 13. Luglio 2026. Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Tasks:\n• Advise and accompany minors and their parents and relatives in the consensual and legal child protection\n• Clarify hazard messages\n• Assistance:\n• Coordinate help in the system\n• Carrying out child-centered counseling in conflictual separation and divorce situations\n• Clarify and align delegated social assistance Requirements\n• Diploma of a University of Applied Sciences for Social Work\n• Professional experience in the field of child protection – further education beneficial\n• High social skills and resilience\n• Planning and organisational capacity\n• Enjoyment and efficiency in administrative activities (including recording reports) Application deadline is 13. July 2026. We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Aufgaben:\n• Minderjährige sowie deren Eltern und Angehörige im einvernehmlichen und gesetzlichen Kindesschutz beraten und begleiten\n\n• Gefährdungsmeldungen abklären\n\n• Beistandschaften führen\n\n• Hilfen im System koordinieren\n\n• Kindzentrierte Beratungen durchführen in konflikthaften Trennungs- und Scheidungssituationen\n\n• Delegierte Sozialhilfe klären und ausrichten\n\nAnforderungen:\n• Diplom einer Fachhochschule für Soziale Arbeit\n\n• Berufserfahrung im Bereich des Kindesschutzes – Weiterbildung von Vorteil\n\n• Hohe Sozialkompetenz und Belastbarkeit\n\n• Planungs- und Organisationsfähigkeit\n\n• Freude und Effizienz an administrativen Tätigkeiten (inkl. Berichte erfassen)\n\nBewerbungsfrist ist der 13. Juli 2026.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Tâches :\n• Conseiller et accompagner les mineurs, leurs parents et leurs proches dans la protection consensuelle et légale de l ' enfant\n• Clarifier les messages de danger\n• Concours:\n• Coordonner l'aide dans le système\n• Conseils axés sur l ' enfant dans les situations de séparation et de divorce conflictuels\n• Clarifier et aligner l'aide sociale déléguée Exigences\n• Diplôme d ' une université des sciences appliquées pour le travail social\n• Expérience professionnelle dans le domaine de la protection de l'enfance – enseignement complémentaire bénéfique\n• Hautes compétences sociales et résilience\n• Capacité de planification et d'organisation\n• Bénéfice et efficacité des activités administratives (y compris l ' enregistrement des rapports) La date limite est 13. Juillet 2026. Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/a0362ece-36de-44bd-b0f3-1f182ebf3dd4",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:49:45.307Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Predigergasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/a0362ece-36de-44bd-b0f3-1f182ebf3dd4",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
+        "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
+          "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:31:55.732Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-95559103cdbe",
       "slug": "lavoratore-sociale-nella-protezione-dei-minori-rappresentazione-della-maternita-stadt-bern-bern",
       "slugByLocale": {
@@ -948,7 +1086,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz-mutterschaftsvertretung/18fd3a92-a92f-4233-a60b-cea6431e058b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.185Z",
+      "crawledAt": "2026-07-10T12:49:45.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -977,70 +1115,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:55.733Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-4eb7ce6407ee",
-      "slug": "ict-supporter-in-service-desk-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "ict-supporter-in-service-desk-stadt-bern-bern",
-        "en": "ict-supporter-in-service-desk-stadt-bern-bern",
-        "de": "ict-supporter-in-service-desk-stadt-bern-bern",
-        "fr": "supporteur-tic-service-desk-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "ICT Supporter*in - Service Desk",
-      "titleByLocale": {
-        "it": "Supporto ICT - Service Desk",
-        "en": "ICT Supporter - Service Desk",
-        "de": "ICT Supporter*in - Service Desk",
-        "fr": "ICT Supporter*in - Service Desk"
-      },
-      "description": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team, stiamo cercando una personalità impegnata e orientata al servizio immediatamente o di accordo. Se ti piace il supporto clienti e vuoi lavorare in un ambiente IT dinamico, non vediamo l'ora di ricevere la tua applicazione. Compiti:\n• Rispondere alle richieste scritte e orali dei nostri clienti e fornire soluzioni competenti\n• Gestione di domande, ordini e incidenti relativi a hardware, applicazioni, accessi o connessioni di rete\n• Analizzare, documentare e risolvere i casi per garantire che tutte le richieste siano gestite in modo efficiente e completo\n• Proattivamente informare i nostri clienti sullo stato delle loro richieste e risolvere, escalare o incidenti in avanti secondo necessità\n• Si garantisce il contatto tra la reception e le squadre con cui lavoriamo da vicino Requisiti\n• Formazione completa come specialista delle TIC / specialista delle TIC EFZ o una qualifica paragonabile\n• Esperienza nel supporto telefonico e una rapida comprensione per familiarizzare rapidamente con nuovi argomenti\n• Un pronunciato orientamento del cliente e piacere nel trattare con le persone\n• Alto impegno e flessibilità, anche in situazioni difficili\n• Forza e determinazione della comunicazione per implementare soluzioni in modo efficiente e mirato\n• mentalità del giocatore di squadra con un modo positivo e cooperativo di lavorare Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "To strengthen our team, we are looking for a committed and service-oriented personality immediately or by agreement. If you enjoy customer support and want to work in a dynamic IT environment, we look forward to receiving your application. Tasks:\n• Answering written and oral inquiries from our customers and providing competent solutions\n• Handling questions, orders and incidents related to hardware, applications, accesses or network connections\n• Analyze, document and resolve cases to ensure that all requests are handled efficiently and fully\n• Proactively inform our customers about the status of their requests and resolve, escalate or forward incidents as needed\n• You ensure contact between the service desk and the relevant teams with whom we work closely Requirements\n• Completed training as an ICT specialist / ICT specialist EFZ or a comparable qualification\n• Experience in telephone support as well as a quick understanding in order to quickly familiarize yourself with new topics\n• A pronounced customer orientation and pleasure in dealing with people\n• High commitment and flexibility, even in challenging situations\n• Communication strength and determination to implement solutions efficiently and purposefully\n• Team player mentality with a positive and cooperative way of working We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Pour renforcer notre équipe, nous recherchons une personnalité engagée et orientée vers le service immédiatement ou d'un commun accord. Si vous aimez le support client et que vous souhaitez travailler dans un environnement informatique dynamique, nous nous réjouissons de recevoir votre application. Tâches :\n• Répondre aux demandes écrites et orales de nos clients et fournir des solutions compétentes\n• Traitement des questions, commandes et incidents liés au matériel, aux applications, aux accès ou aux connexions réseau\n• Analyser, documenter et régler les cas pour s'assurer que toutes les demandes sont traitées de façon efficace et complète\n• Informer proactivement nos clients de l'état de leurs demandes et résoudre, intensifier ou faire avancer les incidents au besoin\n• Vous assurez le contact entre le bureau de service et les équipes concernées avec lesquelles nous travaillons étroitement Exigences\n• Formation complète en tant que spécialiste des TIC / spécialiste des TIC EFZ ou une qualification comparable\n• Expérience dans le soutien téléphonique ainsi qu'une compréhension rapide afin de se familiariser rapidement avec de nouveaux sujets\n• Une orientation et un plaisir prononcés du client dans le traitement des personnes\n• Un engagement et une flexibilité élevés, même dans des situations difficiles\n• La force de la communication et la détermination à mettre en œuvre des solutions de manière efficace et ciblée\n• La mentalité des joueurs d'équipe avec un mode de travail positif et coopératif Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-service-desk/f4963914-f26d-4e73-af64-5a6d05675ecb",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.185Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-service-desk/f4963914-f26d-4e73-af64-5a6d05675ecb",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:31:55.735Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1086,7 +1160,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/jurist-in/7d41f95e-ecb6-49e9-a83c-68eb0fb9831c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.182Z",
+      "crawledAt": "2026-07-10T12:49:45.306Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1115,80 +1189,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:55.731Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-e274a7269bd1",
-      "slug": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern",
-        "en": "social-worker-in-child-protection-stadt-bern-bern",
-        "de": "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-        "fr": "travailleur-social-en-protection-de-l-enfance-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Sozialarbeiter*in Kindesschutz",
-      "titleByLocale": {
-        "it": "Lavoratore sociale* nella protezione dei bambini",
-        "en": "Social Worker* in Child Protection",
-        "de": "Sozialarbeiter*in Kindesschutz",
-        "fr": "Travailleur social* en protection de l ' enfance"
-      },
-      "description": "Aufgaben:\n• Minderjährige sowie deren Eltern und Angehörige im einvernehmlichen und gesetzlichen Kindesschutz beraten und begleiten\n\n• Gefährdungsmeldungen abklären\n\n• Beistandschaften führen\n\n• Hilfen im System koordinieren\n\n• Kindzentrierte Beratungen durchführen in konflikthaften Trennungs- und Scheidungssituationen\n\n• Delegierte Sozialhilfe klären und ausrichten\n\nAnforderungen:\n• Diplom einer Fachhochschule für Soziale Arbeit\n\n• Berufserfahrung im Bereich des Kindesschutzes – Weiterbildung von Vorteil\n\n• Hohe Sozialkompetenz und Belastbarkeit\n\n• Planungs- und Organisationsfähigkeit\n\n• Freude und Effizienz an administrativen Tätigkeiten (inkl. Berichte erfassen)\n\nBewerbungsfrist ist der 13. Juli 2026.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Consigliare e accompagnare i minori e i loro genitori e parenti nella tutela dei minori consensuale e legale\n• Clarificare i messaggi di pericolo\n• Assistenza:\n• Aiuto coordinato nel sistema\n• Effettuare una consulenza orientata al bambino in situazioni di separazione e divorzio conflittuali\n• Chiarificare e allineare l'assistenza sociale delegato Requisiti\n• Diploma di un'Università di Scienze Applicate per il lavoro sociale\n• Esperienza professionale nel campo della protezione dei bambini – ulteriore istruzione benefica\n• Alta capacità sociale e resilienza\n• Pianificazione e capacità organizzativa\n• Divertimento ed efficienza nelle attività amministrative (compresi i rapporti di registrazione) Termine per la richiesta: 13. Luglio 2026. Offriamo: Per il senso e la vita della città Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile. Nella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Tasks:\n• Advise and accompany minors and their parents and relatives in the consensual and legal child protection\n• Clarify hazard messages\n• Assistance:\n• Coordinate help in the system\n• Carrying out child-centered counseling in conflictual separation and divorce situations\n• Clarify and align delegated social assistance Requirements\n• Diploma of a University of Applied Sciences for Social Work\n• Professional experience in the field of child protection – further education beneficial\n• High social skills and resilience\n• Planning and organisational capacity\n• Enjoyment and efficiency in administrative activities (including recording reports) Application deadline is 13. July 2026. We offer: For sense and city life With us you change something. You help shape city life, carry responsibility and make Bern more liveable. In the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Aufgaben:\n• Minderjährige sowie deren Eltern und Angehörige im einvernehmlichen und gesetzlichen Kindesschutz beraten und begleiten\n\n• Gefährdungsmeldungen abklären\n\n• Beistandschaften führen\n\n• Hilfen im System koordinieren\n\n• Kindzentrierte Beratungen durchführen in konflikthaften Trennungs- und Scheidungssituationen\n\n• Delegierte Sozialhilfe klären und ausrichten\n\nAnforderungen:\n• Diplom einer Fachhochschule für Soziale Arbeit\n\n• Berufserfahrung im Bereich des Kindesschutzes – Weiterbildung von Vorteil\n\n• Hohe Sozialkompetenz und Belastbarkeit\n\n• Planungs- und Organisationsfähigkeit\n\n• Freude und Effizienz an administrativen Tätigkeiten (inkl. Berichte erfassen)\n\nBewerbungsfrist ist der 13. Juli 2026.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Tâches :\n• Conseiller et accompagner les mineurs, leurs parents et leurs proches dans la protection consensuelle et légale de l ' enfant\n• Clarifier les messages de danger\n• Concours:\n• Coordonner l'aide dans le système\n• Conseils axés sur l ' enfant dans les situations de séparation et de divorce conflictuels\n• Clarifier et aligner l'aide sociale déléguée Exigences\n• Diplôme d ' une université des sciences appliquées pour le travail social\n• Expérience professionnelle dans le domaine de la protection de l'enfance – enseignement complémentaire bénéfique\n• Hautes compétences sociales et résilience\n• Capacité de planification et d'organisation\n• Bénéfice et efficacité des activités administratives (y compris l ' enregistrement des rapports) La date limite est 13. Juillet 2026. Nous offrons: Pour le sens et la vie urbaine Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante. Dans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/a0362ece-36de-44bd-b0f3-1f182ebf3dd4",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.182Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Predigergasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-kindesschutz/a0362ece-36de-44bd-b0f3-1f182ebf3dd4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-        "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiter-in-kindesschutz-stadt-bern-bern",
-          "lavoratore-sociale-nella-protezione-dei-bambini-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:31:55.732Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1234,7 +1234,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur/a6bc6852-18b1-4879-8a58-0c7d32b23aa6",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.181Z",
+      "crawledAt": "2026-07-10T12:49:45.304Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1315,7 +1315,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leiter-in-digitale-unternehmensarchitektur/c2787d9d-1586-429c-ac67-60a700ad3031",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.181Z",
+      "crawledAt": "2026-07-10T12:49:45.303Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1397,7 +1397,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/immobilienbewirtschafter-in-geschaeftsliegenschaften/d6a0f178-b380-46c7-b74c-799d57d4327c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.180Z",
+      "crawledAt": "2026-07-10T12:49:45.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1471,7 +1471,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/abklaerungsperson-erwachsenenschutz/3170315e-eb36-4e06-9b16-a7f2bfef5dd5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.179Z",
+      "crawledAt": "2026-07-10T12:49:45.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1545,7 +1545,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-finanzen-und-gebuehren/630fcc6e-3400-49dc-b291-ef35ea8f15c2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.177Z",
+      "crawledAt": "2026-07-10T12:49:45.300Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1623,7 +1623,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-inkasso/28f84fd0-a9ac-464a-9e22-836930000fea",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.176Z",
+      "crawledAt": "2026-07-10T12:49:45.299Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1703,7 +1703,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in-wg-alpenegg/d7d77fd4-289f-4e60-81d6-37b67fae3328",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.175Z",
+      "crawledAt": "2026-07-10T12:49:45.298Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1783,7 +1783,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/verantwortliche-r-m365-kollaboration-und-kommunikation-schwerpunkt-schulen-und-power-platform/2466b9bd-3520-4e67-8872-62dd12b73070",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.174Z",
+      "crawledAt": "2026-07-10T12:49:45.297Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1861,7 +1861,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in/4ca8d9f5-83f5-47e9-8527-07d1d0f78b30",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.173Z",
+      "crawledAt": "2026-07-10T12:49:45.296Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1943,7 +1943,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/75eb1e1b-7df9-461c-af76-125491d6a04a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:57:32.171Z",
+      "crawledAt": "2026-07-10T12:49:45.295Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1986,6 +1986,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "stadt-bern-0017ccfd8eba",
+      "slug": "fachangestellte-r-administration-support-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "fachangestellte-r-administration-support-stadt-bern-bern",
+        "it": "fachangestellte-r-administration-support-stadt-bern-bern",
+        "en": "fachangestellte-r-administration-support-stadt-bern-bern",
+        "fr": "fachangestellte-r-administration-support-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Fachangestellte*r Administration Support",
+      "titleByLocale": {
+        "de": "Fachangestellte*r Administration Support",
+        "en": "Fachangestellte*r Administration Support",
+        "it": "Fachangestellte*r Administration Support",
+        "fr": "Fachangestellte*r Administration Support"
+      },
+      "description": "Aufgaben:\n• Mitarbeit im Sachbearbeitungsgebiet Stipendien\n\n• Mitarbeit im Sachbearbeitungsgebiet Verkehrsauslagen\n\n• Mitarbeit im Sachbearbeitungsgebiet Poolaufgaben und Mutationen\n\n• Bearbeiten von Aufträgen der Sozialarbeitenden sowie allgemeine administrative Aufgaben (Datenbewirtschaftung, Schalter, Telefondienst, Postverarbeitung)\n\nAnforderungen:\n• Kaufmännische oder vergleichbare Ausbildung\n\n• Idealerweise Berufserfahrung im Asyl- und Flüchtlingsbereich oder in der öffentlichen Sozialhilfe\n\n• Freude am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Planerische und organisatorische Fähigkeiten\n\n• Sorgfältige Arbeitsweise und Beharrlichkeit für Routinearbeiten und knifflige Geschäftsfälle\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Mitarbeit im Sachbearbeitungsgebiet Stipendien\n\n• Mitarbeit im Sachbearbeitungsgebiet Verkehrsauslagen\n\n• Mitarbeit im Sachbearbeitungsgebiet Poolaufgaben und Mutationen\n\n• Bearbeiten von Aufträgen der Sozialarbeitenden sowie allgemeine administrative Aufgaben (Datenbewirtschaftung, Schalter, Telefondienst, Postverarbeitung)\n\nAnforderungen:\n• Kaufmännische oder vergleichbare Ausbildung\n\n• Idealerweise Berufserfahrung im Asyl- und Flüchtlingsbereich oder in der öffentlichen Sozialhilfe\n\n• Freude am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Planerische und organisatorische Fähigkeiten\n\n• Sorgfältige Arbeitsweise und Beharrlichkeit für Routinearbeiten und knifflige Geschäftsfälle\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Aufgaben:\n• Mitarbeit im Sachbearbeitungsgebiet Stipendien\n\n• Mitarbeit im Sachbearbeitungsgebiet Verkehrsauslagen\n\n• Mitarbeit im Sachbearbeitungsgebiet Poolaufgaben und Mutationen\n\n• Bearbeiten von Aufträgen der Sozialarbeitenden sowie allgemeine administrative Aufgaben (Datenbewirtschaftung, Schalter, Telefondienst, Postverarbeitung)\n\nAnforderungen:\n• Kaufmännische oder vergleichbare Ausbildung\n\n• Idealerweise Berufserfahrung im Asyl- und Flüchtlingsbereich oder in der öffentlichen Sozialhilfe\n\n• Freude am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Planerische und organisatorische Fähigkeiten\n\n• Sorgfältige Arbeitsweise und Beharrlichkeit für Routinearbeiten und knifflige Geschäftsfälle\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Aufgaben:\n• Mitarbeit im Sachbearbeitungsgebiet Stipendien\n\n• Mitarbeit im Sachbearbeitungsgebiet Verkehrsauslagen\n\n• Mitarbeit im Sachbearbeitungsgebiet Poolaufgaben und Mutationen\n\n• Bearbeiten von Aufträgen der Sozialarbeitenden sowie allgemeine administrative Aufgaben (Datenbewirtschaftung, Schalter, Telefondienst, Postverarbeitung)\n\nAnforderungen:\n• Kaufmännische oder vergleichbare Ausbildung\n\n• Idealerweise Berufserfahrung im Asyl- und Flüchtlingsbereich oder in der öffentlichen Sozialhilfe\n\n• Freude am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Planerische und organisatorische Fähigkeiten\n\n• Sorgfältige Arbeitsweise und Beharrlichkeit für Routinearbeiten und knifflige Geschäftsfälle\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Aufgaben:\n• Mitarbeit im Sachbearbeitungsgebiet Stipendien\n\n• Mitarbeit im Sachbearbeitungsgebiet Verkehrsauslagen\n\n• Mitarbeit im Sachbearbeitungsgebiet Poolaufgaben und Mutationen\n\n• Bearbeiten von Aufträgen der Sozialarbeitenden sowie allgemeine administrative Aufgaben (Datenbewirtschaftung, Schalter, Telefondienst, Postverarbeitung)\n\nAnforderungen:\n• Kaufmännische oder vergleichbare Ausbildung\n\n• Idealerweise Berufserfahrung im Asyl- und Flüchtlingsbereich oder in der öffentlichen Sozialhilfe\n\n• Freude am Umgang mit Menschen aus verschiedenen Kulturen\n\n• Planerische und organisatorische Fähigkeiten\n\n• Sorgfältige Arbeitsweise und Beharrlichkeit für Routinearbeiten und knifflige Geschäftsfälle\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/fachangestellte-r-administration-support/7f0db4a1-4761-485d-8d3b-de135e43c96b",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:49:45.293Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Effingerstrasse 33",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachangestellte-r-administration-support/7f0db4a1-4761-485d-8d3b-de135e43c96b",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T12:49:45.293Z"
     }
   ]
 }
