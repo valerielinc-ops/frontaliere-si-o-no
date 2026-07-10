@@ -90,6 +90,22 @@ export function __resetJinaBreaker() {
  * 'markdown' for callers written against Jina's own default Markdown
  * rendering instead (e.g. google-switzerland-job-parser.mjs).
  */
+/**
+ * Percent-encode the query-string delimiters of the TARGET url so Jina's own
+ * API-parameter parser cannot consume them. Without this, a target like
+ * `...job-finder?page=0` reaches r.jina.ai as literal `?page=0` and Jina's
+ * validator treats `page` as ITS OWN parameter (min 1 → HTTP 400) instead of
+ * forwarding it (found live on swatchgroup.com, omega crawler). Idempotent:
+ * a URL already encoded this way has no raw `?` left and passes through.
+ */
+export function encodeJinaTargetUrl(targetUrl = '') {
+  const str = String(targetUrl);
+  const i = str.indexOf('?');
+  if (i === -1) return str;
+  const query = str.slice(i + 1).replace(/&/g, '%26').replace(/=/g, '%3D').replace(/#/g, '%23');
+  return `${str.slice(0, i)}%3F${query}`;
+}
+
 export function jinaProxiedRequest(targetUrl, { format = 'html' } = {}) {
   const headers = {
     // Return the page's raw HTML (not Jina's default markdown) so downstream
@@ -98,7 +114,7 @@ export function jinaProxiedRequest(targetUrl, { format = 'html' } = {}) {
   };
   const key = (process.env.JINA_API_KEY || '').trim();
   if (key) headers.Authorization = `Bearer ${key}`;
-  return { url: `${JINA_READER_BASE}${targetUrl}`, headers };
+  return { url: `${JINA_READER_BASE}${encodeJinaTargetUrl(targetUrl)}`, headers };
 }
 
 /**

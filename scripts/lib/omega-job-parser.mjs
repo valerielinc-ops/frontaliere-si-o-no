@@ -49,7 +49,7 @@
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
-import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { encodeJinaTargetUrl, fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -247,12 +247,11 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
  * decodes and forwards verbatim (verified live: encoded and unencoded
  * `jf_country=40` return the identical filtered result set).
  */
-export function jinaSafeUrl(url = '') {
-  const i = String(url).indexOf('?');
-  if (i === -1) return url;
-  const query = String(url).slice(i + 1).replace(/&/g, '%26').replace(/=/g, '%3D');
-  return `${String(url).slice(0, i)}%3F${query}`;
-}
+// Deprecated local alias: the encoding now lives in the shared proxy module
+// (jinaProxiedRequest applies it to every consumer by construction, and it is
+// idempotent, so the explicit call below is belt-and-suspenders). Kept as an
+// export so existing tests/callers keep working.
+export const jinaSafeUrl = encodeJinaTargetUrl;
 
 /**
  * Fetch a page: direct first, then through the shared Jina Reader proxy.
