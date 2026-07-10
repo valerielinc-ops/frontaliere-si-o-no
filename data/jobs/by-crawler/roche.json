@@ -65702,7 +65702,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -65746,7 +65746,7 @@
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
         "marketing-intern-roche-ch",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65754,7 +65754,7 @@
           "marketing-intern-roche-ch"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -91129,12 +91129,12 @@
     },
     {
       "id": "roche-7a4c269f4f07",
-      "slug": "ptd-operational-excellence-partner-roche-ch",
+      "slug": "partner-di-eccellenza-operativa-ptd-roche-basel",
       "slugByLocale": {
         "en": "ptd-operational-excellence-partner-roche-ch",
-        "it": "ptd-operational-excellence-partner-roche-ch",
+        "it": "partner-di-eccellenza-operativa-ptd-roche-basel",
         "de": "ptd-operational-excellence-partner-roche-ch",
-        "fr": "ptd-operational-excellence-partner-roche-ch"
+        "fr": "partenaire-d-excellence-operationnelle-ptd-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91188,7 +91188,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-09T22:25:15.836Z"
+      "firstSeenAt": "2026-07-09T22:25:15.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ptd-operational-excellence-partner-roche-ch"
+        ],
+        "fr": [
+          "ptd-operational-excellence-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ptd-operational-excellence-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-cd68dd481179",
@@ -91196,8 +91207,8 @@
       "slugByLocale": {
         "en": "sub-chapter-lead-software-development-sant-cugat-roche-ch",
         "it": "sub-chapter-lead-software-development-sant-cugat-roche-ch",
-        "de": "sub-chapter-lead-software-development-sant-cugat-roche-ch",
-        "fr": "sub-chapter-lead-software-development-sant-cugat-roche-ch"
+        "de": "unterkapitel-leitung-softwareentwicklung-sant-cugat-roche-sant-cugat-del-valles",
+        "fr": "sous-chapitre-developpement-logiciel-principal-sant-cugat-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91322,8 +91333,8 @@
       "slugByLocale": {
         "de": "facility-expert-technische-gebaudeausrustung-hlks-heizung-luftung-klima-sanitar-m-w-d",
         "it": "facility-expert-technische-gebaudeausrustung-hlks-heizung-luftung-klima-sanitar-m-w-d",
-        "en": "facility-expert-technische-gebaudeausrustung-hlks-heizung-luftung-klima-sanitar-m-w-d",
-        "fr": "facility-expert-technische-gebaudeausrustung-hlks-heizung-luftung-klima-sanitar-m-w-d"
+        "en": "facility-expert-technical-building-equipment-hvac-heating-ventilation-climate-sanitary-m-f-d-temporary-for-2-years-roche",
+        "fr": "equipement-de-construction-technique-expert-en-installations-cvc-chauffage-ventilation-climat-sanitaires-m-f-j"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91457,7 +91468,7 @@
         "en": "p-og-consulting-lead-diagnostics-roche-ch",
         "it": "p-og-consulting-lead-diagnostics-roche-ch",
         "de": "p-og-consulting-lead-diagnostics-roche-ch",
-        "fr": "p-og-consulting-lead-diagnostics-roche-ch"
+        "fr": "p-og-conseiller-principal-diagnostics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91520,7 +91531,7 @@
         "en": "finance-excellence-partner-d-f-m-roche-ch",
         "it": "finance-excellence-partner-d-f-m-roche-ch",
         "de": "finance-excellence-partner-d-f-m-roche-ch",
-        "fr": "finance-excellence-partner-d-f-m-roche-ch"
+        "fr": "partenaire-d-excellence-en-finances-d-f-m-roche-meylan"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91704,12 +91715,12 @@
     },
     {
       "id": "roche-dc2419f0c303",
-      "slug": "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch",
+      "slug": "stage-in-microbiologia-qc-basel-da-novembre-2026-9-12-mesi-roche-basel",
       "slugByLocale": {
         "de": "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch",
-        "it": "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch",
-        "en": "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch",
-        "fr": "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch"
+        "it": "stage-in-microbiologia-qc-basel-da-novembre-2026-9-12-mesi-roche-basel",
+        "en": "internship-in-qc-microbiology-basel-from-november-2026-9-12-months-roche-basel",
+        "fr": "stage-en-microbiologie-au-quebec-bale-de-novembre-2026-9-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91763,7 +91774,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-09T22:25:07.446Z"
+      "firstSeenAt": "2026-07-09T22:25:07.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch"
+        ],
+        "en": [
+          "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch"
+        ],
+        "fr": [
+          "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-qc-mikrobiologie-basel-ab-november-2026-9-12-monate-roche-ch"
+      ]
     },
     {
       "id": "roche-106e0d5804ff",
@@ -91834,8 +91859,8 @@
       "slugByLocale": {
         "en": "ecosystem-medical-manager-tucuman-o-salta-roche-ch",
         "it": "ecosystem-medical-manager-tucuman-o-salta-roche-ch",
-        "de": "ecosystem-medical-manager-tucuman-o-salta-roche-ch",
-        "fr": "ecosystem-medical-manager-tucuman-o-salta-roche-ch"
+        "de": "medizinischer-leiter-des-okosystems-tucuman-o-salta-roche-argentina",
+        "fr": "responsable-medical-des-ecosystemes-tucuman-o-salta-roche-argentina"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91956,10 +91981,10 @@
     },
     {
       "id": "roche-d0427e59bdf5",
-      "slug": "business-development-commercial-operations-lead-roche-ch",
+      "slug": "sviluppo-commerciale-e-operazioni-commerciali-piombo-roche-lima",
       "slugByLocale": {
         "fr": "business-development-commercial-operations-lead-roche-ch",
-        "it": "business-development-commercial-operations-lead-roche-ch",
+        "it": "sviluppo-commerciale-e-operazioni-commerciali-piombo-roche-lima",
         "en": "business-development-commercial-operations-lead-roche-ch",
         "de": "business-development-commercial-operations-lead-roche-ch"
       },
@@ -92015,7 +92040,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-09T22:25:04.284Z"
+      "firstSeenAt": "2026-07-09T22:25:04.284Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-commercial-operations-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-commercial-operations-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-5b57a99b11ce",
@@ -92154,12 +92187,12 @@
     },
     {
       "id": "roche-0d879a138df1",
-      "slug": "patient-journey-partner-roche-ch-5",
+      "slug": "partner-del-viaggio-paziente-roche-delhi-haryana",
       "slugByLocale": {
         "en": "patient-journey-partner-roche-ch",
-        "it": "patient-journey-partner-roche-ch-5",
+        "it": "partner-del-viaggio-paziente-roche-delhi-haryana",
         "de": "patient-journey-partner-roche-ch-5",
-        "fr": "patient-journey-partner-roche-ch-5"
+        "fr": "partenaire-voyage-patient-roche-delhi-haryana"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92216,11 +92249,16 @@
       "firstSeenAt": "2026-07-09T22:25:01.880Z",
       "previousSlugsByLocale": {
         "it": [
-          "patient-journey-partner-roche-ch"
+          "patient-journey-partner-roche-ch",
+          "patient-journey-partner-roche-ch-5"
+        ],
+        "fr": [
+          "patient-journey-partner-roche-ch-5"
         ]
       },
       "previousSlugs": [
-        "patient-journey-partner-roche-ch"
+        "patient-journey-partner-roche-ch",
+        "patient-journey-partner-roche-ch-5"
       ]
     },
     {
@@ -92230,7 +92268,7 @@
         "en": "business-development-manager-sadc-roche-ch",
         "it": "business-development-manager-sadc-roche-ch",
         "de": "business-development-manager-sadc-roche-ch",
-        "fr": "business-development-manager-sadc-roche-ch"
+        "fr": "directeur-du-developpement-des-entreprises-sadc-roche-johannesburg"
       },
       "company": "Roche",
       "companyKey": "roche",

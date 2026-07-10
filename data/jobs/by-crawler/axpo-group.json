@@ -40,19 +40,26 @@
       },
       "slugByLocale": {
         "it": "stv-responsabile-geschaftsstelle-elektro-grosswangen-m-w-d-ckw-grosswangen",
-        "en": "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen",
+        "en": "stv-manager-in-office-elektro-grosswangen-f-m-d-ckw-grosswangen",
         "de": "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen",
-        "fr": "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen"
+        "fr": "directeur-bureau-de-stv-elektro-grosswangen-f-m-d-ckw-grosswangen"
       },
       "crawledAt": "2026-07-09T22:38:17.778Z",
       "id": "axpo-group-d381528b7d6a",
       "previousSlugsByLocale": {
         "it": [
           "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-429397a4-2809-4cd0-b84a-21055bf1ef53"
+        ],
+        "en": [
+          "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen"
+        ],
+        "fr": [
+          "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-429397a4-2809-4cd0-b84a-21055bf1ef53"
+        "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-429397a4-2809-4cd0-b84a-21055bf1ef53",
+        "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -695,7 +702,7 @@
       },
       "slugByLocale": {
         "it": "werkstudent-in-drohnen-e-automatisierte-inspektion-m-w-d-axpo-group-baden",
-        "en": "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-axpo-group-baden",
+        "en": "working-student-drones-and-automated-inspection-f-m-d-axpo-group-baden",
         "de": "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-db9467c4-0ef9-416d-a9ad-3ca1e0fb2c0f",
         "fr": "drones-etudiants-et-inspection-automatisee-f-m-d-axpo-group-baden"
       },
@@ -703,7 +710,7 @@
       "id": "axpo-group-e56a6e683021",
       "previousSlugsByLocale": {
         "en": [
-          "working-student-drones-and-automated-inspection-f-m-d-axpo-group-baden"
+          "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-axpo-group-baden"
         ],
         "it": [
           "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-db9467c4-0ef9-416d-a9ad-3ca1e0fb2c0f"
@@ -714,7 +721,7 @@
       },
       "previousSlugs": [
         "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-db9467c4-0ef9-416d-a9ad-3ca1e0fb2c0f",
-        "working-student-drones-and-automated-inspection-f-m-d-axpo-group-baden"
+        "werkstudent-in-drohnen-und-automatisierte-inspektion-w-m-d-axpo-group-baden"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -770,7 +777,7 @@
       },
       "slugByLocale": {
         "it": "misurazione-dell-energia-f-m-d-ckw-emmen",
-        "en": "case-manager-energiemessung-w-m-d-ckw-emmen",
+        "en": "case-manager-energy-measurement-f-m-d-ckw-emmen",
         "de": "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
         "fr": "gestionnaire-de-cas-mesure-de-l-energie-f-m-d-ckw-emmen"
       },
@@ -794,7 +801,7 @@
       "previousSlugsByLocale": {
         "en": [
           "case-manager-energy-measurement-w-m-d-ckw-emmen",
-          "case-manager-energy-measurement-f-m-d-ckw-emmen"
+          "case-manager-energiemessung-w-m-d-ckw-emmen"
         ],
         "it": [
           "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091"
@@ -806,7 +813,7 @@
       "previousSlugs": [
         "case-manager-energy-measurement-w-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
-        "case-manager-energy-measurement-f-m-d-ckw-emmen"
+        "case-manager-energiemessung-w-m-d-ckw-emmen"
       ]
     },
     {
@@ -2128,7 +2135,7 @@
     },
     {
       "title": "Lead Ingenieur Sicherheitsleittechnik (m/w/d)",
-      "slug": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
+      "slug": "tecnologia-di-controllo-della-sicurezza-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
       "url": "https://kernkraftwerkleibstadtag.teamtailor.com/jobs/7883604-lead-ingenieur-sicherheitsleittechnik-m-w-d",
       "applyUrl": "https://kernkraftwerkleibstadtag.teamtailor.com/jobs/7883604-lead-ingenieur-sicherheitsleittechnik-m-w-d",
       "company": "Kernkraftwerk Leibstadt AG",
@@ -2163,20 +2170,28 @@
         "fr": "## Vos tâches:\n\nResponsable de la planification et de la mise en œuvre des changements dans le domaine des technologies de contrôle de la sécuritéCréation, mise à l'essai et évaluation de concepts et de spécifications techniques Mise en œuvre des offres, évaluations des offres et soutien à la mise en œuvre des procédures d'approbation et d'approbation auprès de l'autorité de contrôle Responsable de la mise en œuvre de l'intégration et de la mise en service des modifications d'installationsCoordination des organismes internes participants (opération, maintenance, ingénierie, cybersécurité) ainsi que des fournisseurs externes\n\n## Votre profil:\n\n- Études d'ingénierie terminées (ETH/Université) dans le domaine du génie électrique\n- Plusieurs années d'expérience professionnelle dans le domaine de la technologie de contrôle, idéalement des systèmes de production d'électricité présentant un intérêt pour la sûreté et hautement disponibles (p. ex. centrales électriques, industrie des procédés, technologie nucléaire)\n- Expérience dans la conception, la mise en service et le fonctionnement des équipements de contrôle\n- la volonté de diriger les employés dans de petites équipes interdisciplinaires de travail et de projet; Renforcement des capacités de communication et de conflit\n- Connaissance de la gestion de projet\n- Méthode de travail orientée vers la solution et structurée"
       },
       "slugByLocale": {
-        "it": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
-        "en": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
+        "it": "tecnologia-di-controllo-della-sicurezza-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
+        "en": "lead-engineer-safety-control-technology-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "de": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
-        "fr": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
+        "fr": "ingenieur-principal-technologie-de-controle-de-la-securite-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
       "crawledAt": "2026-07-09T22:38:18.246Z",
       "id": "axpo-group-9d3c16a71d35",
       "previousSlugsByLocale": {
         "it": [
-          "lead-ingenieur-sicherheitsleittechnik-m-w-d-de03e869-e971-4ff5-9fc8-4f3d8bc1ad4f"
+          "lead-ingenieur-sicherheitsleittechnik-m-w-d-de03e869-e971-4ff5-9fc8-4f3d8bc1ad4f",
+          "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
+        ],
+        "en": [
+          "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
+        ],
+        "fr": [
+          "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
         ]
       },
       "previousSlugs": [
-        "lead-ingenieur-sicherheitsleittechnik-m-w-d-de03e869-e971-4ff5-9fc8-4f3d8bc1ad4f"
+        "lead-ingenieur-sicherheitsleittechnik-m-w-d-de03e869-e971-4ff5-9fc8-4f3d8bc1ad4f",
+        "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       ],
       "salaryMin": 99500,
       "salaryMax": 151000,

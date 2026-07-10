@@ -213,9 +213,9 @@
       },
       "slugByLocale": {
         "it": "piastrellista-qualificato-pemsa-lausanne",
-        "en": "piastrellista-qualificato-pemsa-lausanne",
-        "de": "piastrellista-qualificato-pemsa-lausanne",
-        "fr": "piastrellista-qualificato-pemsa-lausanne"
+        "en": "qualified-tile-pemsa-lausanne",
+        "de": "qualifiziertes-tile-pemsa-lausanne",
+        "fr": "tuiles-qualifiees-pemsa-lausanne"
       },
       "id": "pemsa-220622d1f254",
       "needsRetranslation": true,
@@ -271,9 +271,9 @@
       },
       "slugByLocale": {
         "it": "progettista-elettricista-afc-pemsa-lausanne",
-        "en": "progettista-elettricista-afc-pemsa-lausanne",
-        "de": "progettista-elettricista-afc-pemsa-lausanne",
-        "fr": "progettista-elettricista-afc-pemsa-lausanne"
+        "en": "electrical-designer-afc-pemsa-lausanne",
+        "de": "elektrischer-designer-afc-pemsa-lausanne",
+        "fr": "constructeur-electrique-afc-pemsa-lausanne"
       },
       "id": "pemsa-d2b94fd5a4f0",
       "needsRetranslation": true,
@@ -329,9 +329,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-sanitari-afc-pemsa-lausanne",
-        "en": "installatore-di-impianti-sanitari-afc-pemsa-lausanne",
-        "de": "installatore-di-impianti-sanitari-afc-pemsa-lausanne",
-        "fr": "installatore-di-impianti-sanitari-afc-pemsa-lausanne"
+        "en": "afc-sanitary-installations-installer-pemsa-lausanne",
+        "de": "installateur-von-afc-sanitaranlagen-pemsa-lausanne",
+        "fr": "installation-d-installations-sanitaires-afc-pemsa-lausanne"
       },
       "id": "pemsa-9a93be2b9a20",
       "needsRetranslation": true,
@@ -445,9 +445,9 @@
       },
       "slugByLocale": {
         "it": "caposquadra-montatore-di-ponteggi-pemsa-lausanne",
-        "en": "caposquadra-montatore-di-ponteggi-pemsa-lausanne",
-        "de": "caposquadra-montatore-di-ponteggi-pemsa-lausanne",
-        "fr": "caposquadra-montatore-di-ponteggi-pemsa-lausanne"
+        "en": "deck-mounting-head-pemsa-lausanne",
+        "de": "deckmontagekopf-pemsa-lausanne",
+        "fr": "tete-de-montage-du-pont-pemsa-lausanne"
       },
       "id": "pemsa-753203cc4782",
       "needsRetranslation": true,
@@ -560,9 +560,9 @@
       },
       "slugByLocale": {
         "it": "installatore-elettricista-afc-m-f-pemsa-biel-bienne",
-        "en": "installatore-elettricista-afc-m-f-pemsa-biel-bienne",
-        "de": "installatore-elettricista-afc-m-f-pemsa-biel-bienne",
-        "fr": "installatore-elettricista-afc-m-f-pemsa-biel-bienne"
+        "en": "afc-electrical-installer-m-f-pemsa-biel-bienne",
+        "de": "afc-elektroinstallateur-m-f-pemsa-biel-bienne",
+        "fr": "afc-installateur-electrique-m-f-pemsa-biel-bienne"
       },
       "id": "pemsa-f4f0ed62928f",
       "needsRetranslation": true,
@@ -1363,7 +1363,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -1381,14 +1381,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -5166,10 +5158,7 @@
       },
       "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0,
-      "previousSlugs": [
-        "stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",

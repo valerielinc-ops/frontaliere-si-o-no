@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "hofweissbad-d673c3a1fd24",
-      "slug": "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad",
+      "slug": "medico-efa-60-80-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "en": "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad",
-        "it": "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad",
+        "it": "medico-efa-60-80-m-f-d-hof-weissbad-ag-weissbad",
         "de": "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad",
         "fr": "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad"
       },
@@ -64,7 +64,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:41:17.582Z"
+      "firstSeenAt": "2026-07-09T22:41:17.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad"
+        ]
+      },
+      "previousSlugs": [
+        "medical-masseur-efa-60-80-m-f-d-hof-weissbad-weissbad"
+      ]
     },
     {
       "id": "hofweissbad-7875200d07ea",

@@ -392,7 +392,7 @@
         "it": "rappresentante-del-servizio-pubblico-sulzer-bridgeport",
         "en": "field-service-representative-sulzer-ch",
         "de": "au-endienstmitarbeiter-sulzer-bridgeport",
-        "fr": "field-service-representative-sulzer-bridgeport"
+        "fr": "representant-du-service-mobile-sulzer-bridgeport"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -434,7 +434,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "field-service-representative-sulzer-ch",
-        "representant-du-service-mobile-sulzer-bridgeport"
+        "field-service-representative-sulzer-bridgeport"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -445,7 +445,7 @@
         ],
         "fr": [
           "field-service-representative-sulzer-ch",
-          "representant-du-service-mobile-sulzer-bridgeport"
+          "field-service-representative-sulzer-bridgeport"
         ]
       },
       "firstSeenAt": "2026-06-04T01:29:38.957Z",
@@ -696,7 +696,7 @@
       "slug": "consulente-senior-m-w-d-sulzer-neuss",
       "slugByLocale": {
         "it": "consulente-senior-m-w-d-sulzer-neuss",
-        "en": "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-neuss",
+        "en": "maintenance-mechanic-rotating-equipment-m-f-d-sulzer-neuss",
         "de": "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-ch",
         "fr": "materiel-de-rotation-mecanique-d-entretien-m-f-d-sulzer-neuss"
       },
@@ -740,7 +740,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-ch",
-        "maintenance-mechanic-rotating-equipment-m-f-d-sulzer-neuss"
+        "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-neuss"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -748,7 +748,7 @@
         ],
         "en": [
           "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-ch",
-          "maintenance-mechanic-rotating-equipment-m-f-d-sulzer-neuss"
+          "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-neuss"
         ],
         "fr": [
           "instandhaltungsmechaniker-rotating-equipment-m-w-d-sulzer-ch"
@@ -1470,7 +1470,7 @@
       "slugByLocale": {
         "it": "saldatore-fitter-sulzer-portland",
         "en": "welder-fitter-sulzer-ch",
-        "de": "welder-fitter-sulzer-portland",
+        "de": "schwei-er-fitter-sulzer-portland",
         "fr": "soudeur-avertisseur-sulzer-portland"
       },
       "company": "Sulzer",
@@ -1513,14 +1513,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "welder-fitter-sulzer-ch",
-        "schwei-er-fitter-sulzer-portland"
+        "welder-fitter-sulzer-portland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "welder-fitter-sulzer-ch"
         ],
         "de": [
-          "schwei-er-fitter-sulzer-portland"
+          "welder-fitter-sulzer-portland"
         ],
         "fr": [
           "welder-fitter-sulzer-ch"
@@ -1838,7 +1838,7 @@
       "slugByLocale": {
         "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
-        "de": "electrical-fitter-sulzer-winterthur",
+        "de": "elektrischer-fitter-sulzer-winterthur",
         "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -1880,14 +1880,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "electrical-fitter-sulzer-ch",
-        "elektrischer-fitter-sulzer-winterthur"
+        "electrical-fitter-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "electrical-fitter-sulzer-ch"
         ],
         "de": [
-          "elektrischer-fitter-sulzer-winterthur"
+          "electrical-fitter-sulzer-winterthur"
         ],
         "fr": [
           "electrical-fitter-sulzer-ch"
@@ -1910,9 +1910,9 @@
     },
     {
       "id": "sulzer-098305e5b6b1",
-      "slug": "technical-buyer-ppr-sulzer-burgos",
+      "slug": "acquirente-tecnico-ppr-sulzer-burgos",
       "slugByLocale": {
-        "it": "technical-buyer-ppr-sulzer-burgos",
+        "it": "acquirente-tecnico-ppr-sulzer-burgos",
         "en": "technical-buyer-ppr-sulzer-ch",
         "de": "technischer-kaufer-ppr-sulzer-burgos",
         "fr": "acheteur-technique-ppr-sulzer-burgos"
@@ -1957,12 +1957,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-buyer-ppr-sulzer-ch",
-        "acquirente-tecnico-ppr-sulzer-burgos"
+        "technical-buyer-ppr-sulzer-burgos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-buyer-ppr-sulzer-ch",
-          "acquirente-tecnico-ppr-sulzer-burgos"
+          "technical-buyer-ppr-sulzer-burgos"
         ],
         "de": [
           "technical-buyer-ppr-sulzer-ch"
@@ -3542,9 +3542,9 @@
     },
     {
       "id": "sulzer-0b004bfa577f",
-      "slug": "chef-de-projets-sulzer-buchelay",
+      "slug": "leader-del-progetto-sulzer-buchelay",
       "slugByLocale": {
-        "it": "chef-de-projets-sulzer-buchelay",
+        "it": "leader-del-progetto-sulzer-buchelay",
         "en": "project-leader-sulzer-buchelay",
         "de": "projektleiter-sulzer-buchelay",
         "fr": "chef-de-projets-sulzer-ch"
@@ -3591,14 +3591,14 @@
         "chef-de-projets-sulzer-ch",
         "responsabile-del-progetto-sulzer-buchelay",
         "project-manager-sulzer-buchelay",
-        "leader-del-progetto-sulzer-buchelay"
+        "chef-de-projets-sulzer-buchelay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-sulzer-ch",
           "responsabile-del-progetto-sulzer-buchelay",
           "project-manager-sulzer-buchelay",
-          "leader-del-progetto-sulzer-buchelay"
+          "chef-de-projets-sulzer-buchelay"
         ],
         "en": [
           "chef-de-projets-sulzer-ch"
@@ -3771,7 +3771,7 @@
       "slugByLocale": {
         "it": "venditore-externo-sulzer-curitiba",
         "en": "vendor-externo-sulzer-curitiba",
-        "de": "vendedor-externo-sulzer-curitiba",
+        "de": "verkaufer-externo-sulzer-curitiba",
         "fr": "vendedor-externo-sulzer-ch"
       },
       "company": "Sulzer",
@@ -3814,7 +3814,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vendedor-externo-sulzer-ch",
-        "verkaufer-externo-sulzer-curitiba"
+        "vendedor-externo-sulzer-curitiba"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3824,7 +3824,7 @@
           "vendedor-externo-sulzer-ch"
         ],
         "de": [
-          "verkaufer-externo-sulzer-curitiba"
+          "vendedor-externo-sulzer-curitiba"
         ]
       },
       "firstSeenAt": "2026-06-04T01:28:32.209Z",
@@ -3989,7 +3989,7 @@
         "it": "controllore-fp-a-d365-sulzer-madrid",
         "en": "fp-a-controller-d365-sulzer-ch",
         "de": "fp-a-controller-d365-sulzer-ch",
-        "fr": "fp-a-controller-d365-sulzer-madrid"
+        "fr": "controleur-fp-a-d365-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -4031,14 +4031,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fp-a-controller-d365-sulzer-ch",
-        "controleur-fp-a-d365-sulzer-madrid"
+        "fp-a-controller-d365-sulzer-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fp-a-controller-d365-sulzer-ch"
         ],
         "fr": [
-          "controleur-fp-a-d365-sulzer-madrid"
+          "fp-a-controller-d365-sulzer-madrid"
         ]
       },
       "firstSeenAt": "2026-06-04T01:28:26.740Z",
@@ -5110,7 +5110,7 @@
       "slugByLocale": {
         "it": "ispettore-delle-turbine-a-gas-sulzer-abu-dhabi",
         "en": "gas-turbine-inspector-sulzer-ch",
-        "de": "gas-turbine-inspector-sulzer-abu-dhabi",
+        "de": "gasturbineninspektor-sulzer-abu-dhabi",
         "fr": "inspecteur-des-turbines-a-gaz-sulzer-abu-dhabi"
       },
       "company": "Sulzer",
@@ -5153,7 +5153,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gas-turbine-inspector-sulzer-ch",
-        "gasturbineninspektor-sulzer-abu-dhabi"
+        "gas-turbine-inspector-sulzer-abu-dhabi"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5161,7 +5161,7 @@
         ],
         "de": [
           "gas-turbine-inspector-sulzer-ch",
-          "gasturbineninspektor-sulzer-abu-dhabi"
+          "gas-turbine-inspector-sulzer-abu-dhabi"
         ],
         "fr": [
           "gas-turbine-inspector-sulzer-ch"
@@ -5188,7 +5188,7 @@
       "slugByLocale": {
         "it": "tubi-a-gas-sulzer-abu-dhabi",
         "en": "gas-turbine-fitter-sulzer-ch",
-        "de": "gas-turbine-fitter-sulzer-abu-dhabi",
+        "de": "gasturbinenfilter-sulzer-abu-dhabi",
         "fr": "avertisseur-de-turbine-a-gaz-sulzer-abu-dhabi"
       },
       "company": "Sulzer",
@@ -5231,7 +5231,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gas-turbine-fitter-sulzer-ch",
-        "gasturbinenfilter-sulzer-abu-dhabi"
+        "gas-turbine-fitter-sulzer-abu-dhabi"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5239,7 +5239,7 @@
         ],
         "de": [
           "gas-turbine-fitter-sulzer-ch",
-          "gasturbinenfilter-sulzer-abu-dhabi"
+          "gas-turbine-fitter-sulzer-abu-dhabi"
         ],
         "fr": [
           "gas-turbine-fitter-sulzer-ch"
@@ -5262,9 +5262,9 @@
     },
     {
       "id": "sulzer-a776332e8ae8",
-      "slug": "gas-turbine-cleanline-operator-sulzer-abu-dhabi",
+      "slug": "operatore-detergente-per-turbine-a-gas-sulzer-abu-dhabi",
       "slugByLocale": {
-        "it": "gas-turbine-cleanline-operator-sulzer-abu-dhabi",
+        "it": "operatore-detergente-per-turbine-a-gas-sulzer-abu-dhabi",
         "en": "gas-turbine-cleanline-operator-sulzer-ch",
         "de": "betreiber-von-gasturbinenreinigungsanlagen-sulzer-abu-dhabi",
         "fr": "gas-turbine-cleanline-operateur-sulzer-abu-dhabi"
@@ -5309,12 +5309,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gas-turbine-cleanline-operator-sulzer-ch",
-        "operatore-detergente-per-turbine-a-gas-sulzer-abu-dhabi"
+        "gas-turbine-cleanline-operator-sulzer-abu-dhabi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gas-turbine-cleanline-operator-sulzer-ch",
-          "operatore-detergente-per-turbine-a-gas-sulzer-abu-dhabi"
+          "gas-turbine-cleanline-operator-sulzer-abu-dhabi"
         ],
         "de": [
           "gas-turbine-cleanline-operator-sulzer-ch"
@@ -5641,7 +5641,7 @@
       "slugByLocale": {
         "it": "apparecchi-elettrici-sulzer-brendale",
         "en": "electrical-fitter-sulzer-ch",
-        "de": "electrical-fitter-sulzer-brendale",
+        "de": "elektrischer-fitter-sulzer-brendale",
         "fr": "avertisseur-electrique-sulzer-brendale"
       },
       "company": "Sulzer",
@@ -5685,7 +5685,7 @@
       "previousSlugs": [
         "electrical-fitter-sulzer-ch-2",
         "electrical-fitter-sulzer-ch",
-        "elektrischer-fitter-sulzer-brendale"
+        "electrical-fitter-sulzer-brendale"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5693,7 +5693,7 @@
           "electrical-fitter-sulzer-ch"
         ],
         "de": [
-          "elektrischer-fitter-sulzer-brendale"
+          "electrical-fitter-sulzer-brendale"
         ],
         "fr": [
           "electrical-fitter-sulzer-ch-2"
@@ -6250,7 +6250,7 @@
       "slugByLocale": {
         "it": "fissatore-del-motore-della-ruota-sulzer-brendale",
         "en": "wheel-motor-fitter-sulzer-ch",
-        "de": "wheel-motor-fitter-sulzer-brendale",
+        "de": "radmotor-fitter-sulzer-brendale",
         "fr": "moteur-de-roue-sulzer-brendale"
       },
       "company": "Sulzer",
@@ -6293,7 +6293,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wheel-motor-fitter-sulzer-ch",
-        "radmotor-fitter-sulzer-brendale"
+        "wheel-motor-fitter-sulzer-brendale"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6301,7 +6301,7 @@
         ],
         "de": [
           "wheel-motor-fitter-sulzer-ch",
-          "radmotor-fitter-sulzer-brendale"
+          "wheel-motor-fitter-sulzer-brendale"
         ],
         "fr": [
           "wheel-motor-fitter-sulzer-ch"
@@ -6329,7 +6329,7 @@
         "it": "assistente-commerciale-sulzer-brendale",
         "en": "trades-assistant-sulzer-ch",
         "de": "trades-assistent-sulzer-brendale",
-        "fr": "trades-assistant-sulzer-brendale"
+        "fr": "assistant-aux-metiers-sulzer-brendale"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6371,14 +6371,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trades-assistant-sulzer-ch",
-        "assistant-aux-metiers-sulzer-brendale"
+        "trades-assistant-sulzer-brendale"
       ],
       "previousSlugsByLocale": {
         "it": [
           "trades-assistant-sulzer-ch"
         ],
         "fr": [
-          "assistant-aux-metiers-sulzer-brendale"
+          "trades-assistant-sulzer-brendale"
         ]
       },
       "firstSeenAt": "2026-06-04T01:27:38.749Z",
@@ -6402,7 +6402,7 @@
       "slugByLocale": {
         "it": "apparecchi-elettrici-sulzer-newcastle",
         "en": "electrical-fitter-sulzer-ch",
-        "de": "electrical-fitter-sulzer-newcastle",
+        "de": "elektrischer-fitter-sulzer-newcastle",
         "fr": "avertisseur-electrique-sulzer-newcastle"
       },
       "company": "Sulzer",
@@ -6446,7 +6446,7 @@
       "previousSlugs": [
         "electrical-fitter-sulzer-ch-3",
         "electrical-fitter-sulzer-ch",
-        "elektrischer-fitter-sulzer-newcastle"
+        "electrical-fitter-sulzer-newcastle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6454,7 +6454,7 @@
           "electrical-fitter-sulzer-ch"
         ],
         "de": [
-          "elektrischer-fitter-sulzer-newcastle"
+          "electrical-fitter-sulzer-newcastle"
         ],
         "fr": [
           "electrical-fitter-sulzer-ch-3"
@@ -6719,7 +6719,7 @@
       "slugByLocale": {
         "it": "steam-turbine-technical-field-autorita-sulzer-leeds",
         "en": "steam-turbine-technical-field-authority-sulzer-ch",
-        "de": "steam-turbine-technical-field-authority-sulzer-leeds",
+        "de": "dampfturbinen-technische-feldbehorde-sulzer-leeds",
         "fr": "autorite-de-terrain-technique-de-turbine-a-vapeur-sulzer-leeds"
       },
       "company": "Sulzer",
@@ -6762,7 +6762,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "steam-turbine-technical-field-authority-sulzer-ch",
-        "dampfturbinen-technische-feldbehorde-sulzer-leeds"
+        "steam-turbine-technical-field-authority-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6770,7 +6770,7 @@
         ],
         "de": [
           "steam-turbine-technical-field-authority-sulzer-ch",
-          "dampfturbinen-technische-feldbehorde-sulzer-leeds"
+          "steam-turbine-technical-field-authority-sulzer-leeds"
         ],
         "fr": [
           "steam-turbine-technical-field-authority-sulzer-ch"
@@ -6953,9 +6953,9 @@
     },
     {
       "id": "sulzer-0ae87d8b31cf",
-      "slug": "manual-machinist-sulzer-gillette",
+      "slug": "macchinista-manuale-sulzer-gillette",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-gillette",
+        "it": "macchinista-manuale-sulzer-gillette",
         "en": "manual-machinist-sulzer-ch",
         "de": "manueller-maschinist-sulzer-gillette",
         "fr": "machiniste-manuel-sulzer-gillette"
@@ -7001,13 +7001,13 @@
       "previousSlugs": [
         "manual-machinist-sulzer-ch",
         "meccanico-manuale-sulzer-gillette",
-        "macchinista-manuale-sulzer-gillette"
+        "manual-machinist-sulzer-gillette"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch",
           "meccanico-manuale-sulzer-gillette",
-          "macchinista-manuale-sulzer-gillette"
+          "manual-machinist-sulzer-gillette"
         ],
         "de": [
           "manual-machinist-sulzer-ch"
@@ -7577,7 +7577,7 @@
         "it": "supervisore-tecnico-sulzer-jundiai",
         "en": "supervisor-tecnico-sulzer-ch",
         "de": "vorgesetzter-tecnico-sulzer-jundiai",
-        "fr": "supervisor-tecnico-sulzer-jundiai"
+        "fr": "superviseur-tecnico-sulzer-jundiai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7619,7 +7619,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "supervisor-tecnico-sulzer-ch",
-        "superviseur-tecnico-sulzer-jundiai"
+        "supervisor-tecnico-sulzer-jundiai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7629,7 +7629,7 @@
           "supervisor-tecnico-sulzer-ch"
         ],
         "fr": [
-          "superviseur-tecnico-sulzer-jundiai"
+          "supervisor-tecnico-sulzer-jundiai"
         ]
       },
       "firstSeenAt": "2026-06-04T01:27:10.583Z",
@@ -7654,7 +7654,7 @@
         "it": "supervisore-tecnico-sulzer-jundiai-6859bc",
         "en": "supervisor-tecnico-sulzer-ch",
         "de": "vorgesetzter-tecnico-sulzer-jundiai-6859bc",
-        "fr": "supervisor-tecnico-sulzer-jundiai"
+        "fr": "superviseur-tecnico-sulzer-jundiai-6859bc"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7697,7 +7697,7 @@
       "previousSlugs": [
         "supervisor-tecnico-sulzer-ch-2",
         "supervisor-tecnico-sulzer-ch",
-        "superviseur-tecnico-sulzer-jundiai-6859bc"
+        "supervisor-tecnico-sulzer-jundiai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7708,7 +7708,7 @@
           "supervisor-tecnico-sulzer-ch-2"
         ],
         "fr": [
-          "superviseur-tecnico-sulzer-jundiai-6859bc"
+          "supervisor-tecnico-sulzer-jundiai"
         ]
       },
       "firstSeenAt": "2026-06-04T01:27:08.664Z",
@@ -9658,7 +9658,7 @@
       "slugByLocale": {
         "it": "installatore-di-turbine-a-gas-sulzer-aberdeen-netherley",
         "en": "gas-turbine-fitter-sulzer-ch",
-        "de": "gas-turbine-fitter-sulzer-aberdeen-netherley",
+        "de": "gasturbinenfilter-sulzer-aberdeen-netherley",
         "fr": "avertisseur-de-turbine-a-gaz-sulzer-aberdeen-netherley"
       },
       "company": "Sulzer",
@@ -9702,7 +9702,7 @@
       "previousSlugs": [
         "gas-turbine-fitter-sulzer-ch",
         "gas-turbine-fitter-sulzer-ch-2",
-        "gasturbinenfilter-sulzer-aberdeen-netherley"
+        "gas-turbine-fitter-sulzer-aberdeen-netherley"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9711,7 +9711,7 @@
         ],
         "de": [
           "gas-turbine-fitter-sulzer-ch",
-          "gasturbinenfilter-sulzer-aberdeen-netherley"
+          "gas-turbine-fitter-sulzer-aberdeen-netherley"
         ],
         "fr": [
           "gas-turbine-fitter-sulzer-ch"
@@ -9890,7 +9890,7 @@
       "slugByLocale": {
         "it": "maestro-pianificatore-sulzer-shanghai",
         "en": "master-planner-sulzer-ch",
-        "de": "master-planner-sulzer-shanghai",
+        "de": "masterplaner-sulzer-shanghai",
         "fr": "planificateur-principal-sulzer-shanghai"
       },
       "company": "Sulzer",
@@ -9933,14 +9933,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "master-planner-sulzer-ch",
-        "masterplaner-sulzer-shanghai"
+        "master-planner-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "master-planner-sulzer-ch"
         ],
         "de": [
-          "masterplaner-sulzer-shanghai"
+          "master-planner-sulzer-shanghai"
         ],
         "fr": [
           "master-planner-sulzer-ch"
@@ -10116,7 +10116,7 @@
         "it": "controller-fp-a-sulzer-pune",
         "en": "fp-a-controller-sulzer-ch",
         "de": "fp-a-controller-sulzer-ch",
-        "fr": "fp-a-controller-sulzer-pune"
+        "fr": "controleur-fp-a-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -10157,14 +10157,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fp-a-controller-sulzer-ch",
-        "controleur-fp-a-sulzer-pune"
+        "fp-a-controller-sulzer-pune"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fp-a-controller-sulzer-ch"
         ],
         "fr": [
-          "controleur-fp-a-sulzer-pune"
+          "fp-a-controller-sulzer-pune"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:01.296Z",
@@ -11428,7 +11428,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "hr-business-partner-sulzer-shanghai"
+        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -11471,7 +11471,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "partenaire-d-affaires-rh-sulzer-shanghai",
-        "partenaire-operationnel-rh-sulzer-shanghai"
+        "hr-business-partner-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11482,7 +11482,7 @@
         ],
         "fr": [
           "partenaire-d-affaires-rh-sulzer-shanghai",
-          "partenaire-operationnel-rh-sulzer-shanghai"
+          "hr-business-partner-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -12544,7 +12544,7 @@
         "it": "risorse-umane-representative-sulzer-houston",
         "en": "hr-representative-sulzer-ch",
         "de": "hr-representative-sulzer-ch",
-        "fr": "hr-representative-sulzer-houston"
+        "fr": "representant-des-droits-de-l-homme-sulzer-houston"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -12586,14 +12586,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-representative-sulzer-ch",
-        "representant-des-droits-de-l-homme-sulzer-houston"
+        "hr-representative-sulzer-houston"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-representative-sulzer-ch"
         ],
         "fr": [
-          "representant-des-droits-de-l-homme-sulzer-houston"
+          "hr-representative-sulzer-houston"
         ]
       },
       "firstSeenAt": "2026-06-03T01:17:20.089Z",
@@ -13862,7 +13862,7 @@
         "it": "controllore-di-affari-sulzer-madrid",
         "en": "business-controller-sulzer-ch",
         "de": "business-controller-sulzer-ch",
-        "fr": "business-controller-sulzer-madrid"
+        "fr": "controleur-d-entreprise-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13904,14 +13904,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-controller-sulzer-ch",
-        "controleur-d-entreprise-sulzer-madrid"
+        "business-controller-sulzer-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-controller-sulzer-ch"
         ],
         "fr": [
-          "controleur-d-entreprise-sulzer-madrid"
+          "business-controller-sulzer-madrid"
         ]
       },
       "firstSeenAt": "2026-06-09T23:16:55.806Z",
@@ -13936,7 +13936,7 @@
         "it": "record-to-report-contabile-sulzer-pune",
         "en": "record-to-report-accountant-sulzer-ch",
         "de": "record-to-report-buchhalter-sulzer-pune",
-        "fr": "record-to-report-accountant-sulzer-pune"
+        "fr": "comptable-comptable-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13978,7 +13978,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "record-to-report-accountant-sulzer-ch",
-        "comptable-comptable-sulzer-pune"
+        "record-to-report-accountant-sulzer-pune"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13989,7 +13989,7 @@
         ],
         "fr": [
           "record-to-report-accountant-sulzer-ch",
-          "comptable-comptable-sulzer-pune"
+          "record-to-report-accountant-sulzer-pune"
         ]
       },
       "firstSeenAt": "2026-06-11T13:51:19.249Z",
@@ -14014,7 +14014,7 @@
         "it": "controllore-di-affari-sulzer-leeds",
         "en": "business-controller-sulzer-ch",
         "de": "business-controller-sulzer-ch-2",
-        "fr": "business-controller-sulzer-leeds"
+        "fr": "controleur-d-entreprise-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14057,7 +14057,7 @@
       "previousSlugs": [
         "business-controller-sulzer-ch-2",
         "business-controller-sulzer-ch",
-        "controleur-d-entreprise-sulzer-leeds"
+        "business-controller-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14065,7 +14065,7 @@
           "business-controller-sulzer-ch"
         ],
         "fr": [
-          "controleur-d-entreprise-sulzer-leeds"
+          "business-controller-sulzer-leeds"
         ]
       },
       "firstSeenAt": "2026-06-11T13:51:18.449Z",
@@ -15313,7 +15313,7 @@
         "it": "senior-contabile-rtr-sulzer-madrid",
         "en": "senior-accountant-rtr-sulzer-ch",
         "de": "senior-buchhalter-rtr-sulzer-madrid",
-        "fr": "senior-accountant-rtr-sulzer-madrid"
+        "fr": "comptable-principal-rtr-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -15355,7 +15355,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-accountant-rtr-sulzer-ch",
-        "comptable-principal-rtr-sulzer-madrid"
+        "senior-accountant-rtr-sulzer-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15366,7 +15366,7 @@
         ],
         "fr": [
           "senior-accountant-rtr-sulzer-ch",
-          "comptable-principal-rtr-sulzer-madrid"
+          "senior-accountant-rtr-sulzer-madrid"
         ]
       },
       "firstSeenAt": "2026-06-17T14:09:48.759Z",
@@ -15391,7 +15391,7 @@
         "it": "jr-agente-degli-appalti-sulzer-pasadena",
         "en": "jr-procurement-officer-sulzer-ch",
         "de": "jr-beschaffungsbeauftragter-sulzer-pasadena",
-        "fr": "jr-procurement-officer-sulzer-pasadena"
+        "fr": "jr-specialiste-des-achats-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -15433,7 +15433,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jr-procurement-officer-sulzer-ch",
-        "jr-specialiste-des-achats-sulzer-pasadena"
+        "jr-procurement-officer-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15443,7 +15443,7 @@
           "jr-procurement-officer-sulzer-ch"
         ],
         "fr": [
-          "jr-specialiste-des-achats-sulzer-pasadena"
+          "jr-procurement-officer-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-06-17T23:34:34.102Z",
@@ -15467,7 +15467,7 @@
       "slugByLocale": {
         "it": "programmatore-master-sulzer-leeds",
         "en": "master-scheduler-sulzer-ch",
-        "de": "master-scheduler-sulzer-leeds",
+        "de": "masterplaner-sulzer-leeds",
         "fr": "planificateur-principal-sulzer-leeds"
       },
       "company": "Sulzer",
@@ -15510,14 +15510,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "master-scheduler-sulzer-ch",
-        "masterplaner-sulzer-leeds"
+        "master-scheduler-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "master-scheduler-sulzer-ch"
         ],
         "de": [
-          "masterplaner-sulzer-leeds"
+          "master-scheduler-sulzer-leeds"
         ],
         "fr": [
           "master-scheduler-sulzer-ch"
@@ -16934,9 +16934,9 @@
     },
     {
       "id": "sulzer-d41bf05d100f",
-      "slug": "manual-machinist-sulzer-salt-lake-city",
+      "slug": "macchinista-manuale-sulzer-salt-lake-city",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-salt-lake-city",
+        "it": "macchinista-manuale-sulzer-salt-lake-city",
         "en": "manual-machinist-sulzer-ch",
         "de": "manueller-maschinist-sulzer-salt-lake-city",
         "fr": "machiniste-manuel-sulzer-salt-lake-city"
@@ -16985,7 +16985,7 @@
         "manual-machinist-sulzer-ch-4",
         "meccanico-manuale-sulzer-salt-lake-city",
         "manual-machinist-sulzer-ch-3",
-        "macchinista-manuale-sulzer-salt-lake-city"
+        "manual-machinist-sulzer-salt-lake-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16994,7 +16994,7 @@
           "manual-machinist-sulzer-ch-4",
           "meccanico-manuale-sulzer-salt-lake-city",
           "manual-machinist-sulzer-ch-3",
-          "macchinista-manuale-sulzer-salt-lake-city"
+          "manual-machinist-sulzer-salt-lake-city"
         ],
         "de": [
           "manual-machinist-sulzer-ch"
@@ -17934,7 +17934,7 @@
       "slug": "meccanico-di-manutenzione-per-attrezzature-rotanti-f-m-d-sulzer-schkopau",
       "slugByLocale": {
         "it": "meccanico-di-manutenzione-per-attrezzature-rotanti-f-m-d-sulzer-schkopau",
-        "en": "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-schkopau",
+        "en": "maintenance-mechanic-rotating-equipment-w-m-d-sulzer-schkopau",
         "de": "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-ch",
         "fr": "materiel-de-rotation-mecanique-d-entretien-m-j-sulzer-schkopau"
       },
@@ -17977,7 +17977,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-ch",
-        "maintenance-mechanic-rotating-equipment-w-m-d-sulzer-schkopau"
+        "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-schkopau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17985,7 +17985,7 @@
         ],
         "en": [
           "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-ch",
-          "maintenance-mechanic-rotating-equipment-w-m-d-sulzer-schkopau"
+          "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-schkopau"
         ],
         "fr": [
           "instandhaltungsmechaniker-rotating-equipment-w-m-d-sulzer-ch"
@@ -18008,9 +18008,9 @@
     },
     {
       "id": "sulzer-ca0d42bff5a9",
-      "slug": "office-administrator-sulzer-leeds",
+      "slug": "amministratore-ufficio-sulzer-leeds",
       "slugByLocale": {
-        "it": "office-administrator-sulzer-leeds",
+        "it": "amministratore-ufficio-sulzer-leeds",
         "en": "office-administrator-sulzer-ch",
         "de": "buroverwaltung-sulzer-leeds",
         "fr": "administrateur-de-bureau-sulzer-leeds"
@@ -18054,12 +18054,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "office-administrator-sulzer-ch",
-        "amministratore-d-ufficio-sulzer-leeds"
+        "amministratore-d-ufficio-sulzer-leeds",
+        "office-administrator-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "office-administrator-sulzer-ch",
-          "amministratore-d-ufficio-sulzer-leeds"
+          "amministratore-d-ufficio-sulzer-leeds",
+          "office-administrator-sulzer-leeds"
         ],
         "de": [
           "office-administrator-sulzer-ch"
@@ -18317,7 +18319,7 @@
         "it": "controller-senior-fp-a-sulzer-pune",
         "en": "senior-fp-a-controller-sulzer-ch",
         "de": "senior-fp-a-controller-sulzer-ch",
-        "fr": "senior-fp-a-controller-sulzer-pune"
+        "fr": "controleur-principal-de-la-f-a-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -18358,11 +18360,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-fp-a-controller-sulzer-ch",
-        "controleur-principal-de-la-f-a-sulzer-pune"
+        "senior-fp-a-controller-sulzer-pune"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-principal-de-la-f-a-sulzer-pune"
+          "senior-fp-a-controller-sulzer-pune"
         ],
         "it": [
           "senior-fp-a-controller-sulzer-ch"
@@ -20043,9 +20045,9 @@
     },
     {
       "id": "sulzer-66c759991c94",
-      "slug": "manual-machinist-sulzer-mobile",
+      "slug": "macchinista-manuale-sulzer-mobile",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-mobile",
+        "it": "macchinista-manuale-sulzer-mobile",
         "en": "manual-machinist-sulzer-ch",
         "de": "manueller-maschinist-sulzer-mobile",
         "fr": "machiniste-manuel-sulzer-mobile"
@@ -20091,14 +20093,14 @@
         "manual-machinist-sulzer-ch-4",
         "manual-machinist-sulzer-ch-3",
         "manual-machinist-sulzer-ch",
-        "macchinista-manuale-sulzer-mobile"
+        "manual-machinist-sulzer-mobile"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-4",
           "manual-machinist-sulzer-ch-3",
           "manual-machinist-sulzer-ch",
-          "macchinista-manuale-sulzer-mobile"
+          "manual-machinist-sulzer-mobile"
         ],
         "de": [
           "manual-machinist-sulzer-ch-4"
@@ -20574,7 +20576,7 @@
         "it": "credit-collections-contabile-sulzer-pune",
         "en": "credit-collections-accountant-sulzer-ch",
         "de": "credit-collections-buchhalter-sulzer-pune",
-        "fr": "credit-collections-accountant-sulzer-pune"
+        "fr": "credit-et-recouvrement-comptable-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -20622,12 +20624,12 @@
           "credit-collections-accountant-sulzer-ch"
         ],
         "fr": [
-          "credit-et-recouvrement-comptable-sulzer-pune"
+          "credit-collections-accountant-sulzer-pune"
         ]
       },
       "previousSlugs": [
         "credit-collections-accountant-sulzer-ch",
-        "credit-et-recouvrement-comptable-sulzer-pune"
+        "credit-collections-accountant-sulzer-pune"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -20645,9 +20647,9 @@
     },
     {
       "id": "sulzer-22f67597bff0",
-      "slug": "it-systemadministrator-w-m-d-sulzer-essen",
+      "slug": "amministratore-di-sistema-it-f-m-d-sulzer-essen",
       "slugByLocale": {
-        "it": "it-systemadministrator-w-m-d-sulzer-essen",
+        "it": "amministratore-di-sistema-it-f-m-d-sulzer-essen",
         "en": "it-system-administrator-f-m-d-sulzer-essen",
         "de": "it-systemadministrator-w-m-d-sulzer-ch",
         "fr": "administrateur-du-systeme-informatique-f-m-d-sulzer-essen"
@@ -20691,12 +20693,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-systemadministrator-w-m-d-sulzer-ch",
-        "amministratore-di-sistema-it-m-d-sulzer-essen"
+        "amministratore-di-sistema-it-m-d-sulzer-essen",
+        "it-systemadministrator-w-m-d-sulzer-essen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-w-m-d-sulzer-ch",
-          "amministratore-di-sistema-it-m-d-sulzer-essen"
+          "amministratore-di-sistema-it-m-d-sulzer-essen",
+          "it-systemadministrator-w-m-d-sulzer-essen"
         ]
       },
       "firstSeenAt": "2026-06-04T01:29:36.387Z",
@@ -20953,7 +20957,7 @@
       "slugByLocale": {
         "it": "meccanico-shift-notturno-sulzer-pasadena",
         "en": "mechanic-night-shift-sulzer-ch",
-        "de": "mechanic-night-shift-sulzer-pasadena",
+        "de": "mechaniker-nachtschaltung-sulzer-pasadena",
         "fr": "mecanicien-sulzer-pasadena-55ad69"
       },
       "company": "Sulzer",
@@ -20995,7 +20999,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mechanic-night-shift-sulzer-ch",
-        "mechaniker-nachtschaltung-sulzer-pasadena"
+        "mechanic-night-shift-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21003,7 +21007,7 @@
         ],
         "de": [
           "mechanic-night-shift-sulzer-ch",
-          "mechaniker-nachtschaltung-sulzer-pasadena"
+          "mechanic-night-shift-sulzer-pasadena"
         ],
         "fr": [
           "mechanic-night-shift-sulzer-ch"
@@ -21030,7 +21034,7 @@
       "slugByLocale": {
         "it": "meccanica-delle-macchine-sulzer-joliet",
         "en": "pump-mechanic-sulzer-ch",
-        "de": "pump-mechanic-sulzer-joliet",
+        "de": "pumpenmechanik-sulzer-joliet",
         "fr": "mecanicien-des-machines-sulzer-joliet"
       },
       "company": "Sulzer",
@@ -21075,7 +21079,7 @@
         "machinery-mechanic-sulzer-joliet",
         "pump-mechanic-sulzer-ch",
         "maschinenmechanik-sulzer-joliet",
-        "pumpenmechanik-sulzer-joliet"
+        "pump-mechanic-sulzer-joliet"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21088,7 +21092,7 @@
         "de": [
           "machinery-mechanic-sulzer-joliet",
           "maschinenmechanik-sulzer-joliet",
-          "pumpenmechanik-sulzer-joliet"
+          "pump-mechanic-sulzer-joliet"
         ],
         "fr": [
           "machinery-mechanic-sulzer-ch"
@@ -21574,7 +21578,7 @@
         "it": "business-development-direttore-sulzer-easley",
         "en": "business-development-director-sulzer-ch",
         "de": "business-development-direktor-sulzer-easley",
-        "fr": "business-development-director-sulzer-easley"
+        "fr": "directeur-du-developpement-des-entreprises-sulzer-easley"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -21622,12 +21626,12 @@
           "business-development-director-sulzer-ch"
         ],
         "fr": [
-          "directeur-du-developpement-des-entreprises-sulzer-easley"
+          "business-development-director-sulzer-easley"
         ]
       },
       "previousSlugs": [
         "business-development-director-sulzer-ch",
-        "directeur-du-developpement-des-entreprises-sulzer-easley"
+        "business-development-director-sulzer-easley"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -22939,12 +22943,12 @@
     },
     {
       "id": "sulzer-a5852115c1f3",
-      "slug": "machinist-cnc-sulzer-barboursville",
+      "slug": "macchinista-cnc-sulzer-barboursville",
       "slugByLocale": {
         "en": "machinist-cnc-sulzer-ch",
-        "it": "machinist-cnc-sulzer-barboursville",
-        "de": "machinist-cnc-sulzer-ch",
-        "fr": "machinist-cnc-sulzer-ch"
+        "it": "macchinista-cnc-sulzer-barboursville",
+        "de": "maschinist-cnc-sulzer-barboursville",
+        "fr": "machiniste-cnc-sulzer-barboursville"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22987,11 +22991,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "machinist-cnc-sulzer-ch",
+          "machinist-cnc-sulzer-barboursville"
+        ],
+        "de": [
+          "machinist-cnc-sulzer-ch"
+        ],
+        "fr": [
           "machinist-cnc-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "machinist-cnc-sulzer-ch"
+        "machinist-cnc-sulzer-ch",
+        "machinist-cnc-sulzer-barboursville"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -23073,12 +23085,12 @@
     },
     {
       "id": "sulzer-8ec67353bbc8",
-      "slug": "junior-pump-mechanic-sulzer-ch",
+      "slug": "junior-pompa-meccanica-sulzer-salt-lake-city",
       "slugByLocale": {
         "en": "junior-pump-mechanic-sulzer-ch",
-        "it": "junior-pump-mechanic-sulzer-ch",
+        "it": "junior-pompa-meccanica-sulzer-salt-lake-city",
         "de": "junior-pump-mechanic-sulzer-ch",
-        "fr": "junior-pump-mechanic-sulzer-ch"
+        "fr": "mecanique-de-pompe-junior-sulzer-salt-lake-city"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23132,7 +23144,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-09T22:42:15.077Z"
+      "firstSeenAt": "2026-07-09T22:42:15.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-pump-mechanic-sulzer-ch"
+        ],
+        "fr": [
+          "junior-pump-mechanic-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-pump-mechanic-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2b94b9624e91",
@@ -23455,7 +23478,7 @@
       "slugByLocale": {
         "it": "fitter-a-vento-sulzer-nottingham",
         "en": "winder-fitter-sulzer-ch",
-        "de": "winder-fitter-sulzer-nottingham",
+        "de": "winderfitter-sulzer-nottingham",
         "fr": "winder-fitter-sulzer-ch"
       },
       "company": "Sulzer",
@@ -23498,14 +23521,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "winder-fitter-sulzer-ch",
-        "winderfitter-sulzer-nottingham"
+        "winder-fitter-sulzer-nottingham"
       ],
       "previousSlugsByLocale": {
         "it": [
           "winder-fitter-sulzer-ch"
         ],
         "de": [
-          "winderfitter-sulzer-nottingham"
+          "winder-fitter-sulzer-nottingham"
         ]
       },
       "firstSeenAt": "2026-06-04T01:26:56.608Z",
