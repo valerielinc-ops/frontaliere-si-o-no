@@ -964,8 +964,12 @@ commit_isolated_from_worktree() {
     fi
 
     if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
-      echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts"
-      return 1
+      echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
+      # 42 = PUSH_CONTENTION_EXHAUSTED: distinct from generic failure (1) so the
+      # grouped failure-report can skip the per-crawler issue for this systemic
+      # class (the cycle self-heals at the next scheduled run; persistent loss
+      # surfaces via the crawler-health staleness monitor).
+      return 42
     fi
 
     delay=$(( push_attempt * 5 + RANDOM % 20 ))
@@ -1170,8 +1174,9 @@ if git push origin main; then
 fi
 
 if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
-  echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts"
-  exit 1
+  echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
+  # 42 = PUSH_CONTENTION_EXHAUSTED (see the grouped path above for rationale).
+  exit 42
 fi
 
 # Backoff: 5s, 10s, 15s, ... + random jitter (0-5s)
