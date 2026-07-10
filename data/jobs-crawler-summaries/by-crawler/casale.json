@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-07-10T12:21:11.383Z",
+  "generatedAt": "2026-07-10T22:22:33.571Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2061,
-  "avgDurationMs": 2061,
+  "durationMs": 1522,
+  "avgDurationMs": 1522,
   "durationHistory": [
-    2061
+    1522
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,6 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T21:57:33.193Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -77,7 +76,6 @@
         "location": "Lugano"
       },
       "id": "casale-7e2513dafd4a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -188,8 +186,8 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T21:57:33.193Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,8 +223,8 @@
         "location": "Lugano"
       },
       "id": "casale-7e2513dafd4a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
