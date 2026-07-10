@@ -3240,6 +3240,10 @@
           "run": "npm ci"
         },
         {
+          "name": "Install Playwright browsers",
+          "run": "npx playwright install --with-deps chromium"
+        },
+        {
           "name": "Prepare Firebase credentials (optional)",
           "env": {
             "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
