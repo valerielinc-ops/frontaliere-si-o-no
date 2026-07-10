@@ -43,7 +43,8 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
-mergeLocaleTextMap,
+  mergeLocaleTextMap,
+  repairRelabeledSourceLocale,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
@@ -153,6 +154,59 @@ function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
+/**
+ * Merge one freshly-discovered job with its previous slice entry.
+ * Exported for tests.
+ *
+ * Fresh source fields win; existing translations are preserved. For
+ * `sourceLang`, the freshly DERIVED value (from the crawled locale URL, see
+ * sourceLangFromUrl in the parser) wins over the stored one: historical
+ * slices carry the pre-#3802 hardcoded 'de' even for jobs crawled from
+ * /it/job/ pages, so a prev-wins merge would keep the mislabel forever.
+ * When the relabel actually changes sourceLang, the title/description locale
+ * maps are repaired (mislabeled source copies under the old key are dropped,
+ * genuine translations kept, the source text re-keyed under the new locale)
+ * and the job is flagged needsRetranslation so the AI pipeline regenerates
+ * the non-source locales from the correctly-labeled source.
+ */
+export function mergeDiscoveredJobWithPrev(job, prev) {
+  // Derived sourceLang wins over the stored one (see doc comment above).
+  const sourceLang = job.sourceLang || prev.sourceLang;
+  const sourceLangChanged = Boolean(job.sourceLang && prev.sourceLang && job.sourceLang !== prev.sourceLang);
+  // Preserve existing translations and slugs from prior runs
+  const merged = {
+    ...prev,
+    ...job,
+    // Keep existing postedDate if discovered one is missing
+    postedDate: job.postedDate || prev.postedDate,
+    titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, sourceLang),
+    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, sourceLang),
+    slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+    // Preserve salary data etc. from previous runs
+    salaryMin: prev.salaryMin || job.salaryMin,
+    salaryMax: prev.salaryMax || job.salaryMax,
+    currency: prev.currency || job.currency,
+    sourceLang,
+    // Only set needsRetranslation if prev had it, not on every merge
+    needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
+  };
+  if (sourceLangChanged) {
+    const relabel = { prevLang: prev.sourceLang, nextLang: job.sourceLang };
+    merged.titleByLocale = repairRelabeledSourceLocale(merged.titleByLocale, {
+      ...relabel,
+      sourceTexts: [job.title, prev.title],
+    }).map;
+    merged.descriptionByLocale = repairRelabeledSourceLocale(merged.descriptionByLocale, {
+      ...relabel,
+      sourceTexts: [job.description, prev.description],
+    }).map;
+    // The non-source locales were AI-generated from a mislabeled source —
+    // let the pipeline regenerate them from the correctly-labeled one.
+    merged.needsRetranslation = true;
+  }
+  return merged;
+}
+
 function mergeJobs(discoveredJobs) {
   // Read existing jobs from the per-crawler slice (committed to git),
   // NOT from data/jobs.json which is gitignored and absent in CI.
@@ -171,23 +225,7 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
-    // Preserve existing translations and slugs from prior runs
-    const merged = {
-      ...prev,
-      ...job,
-      // Keep existing postedDate if discovered one is missing
-      postedDate: job.postedDate || prev.postedDate,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-      // Preserve salary data, sourceLang, etc. from previous runs
-      salaryMin: prev.salaryMin || job.salaryMin,
-      salaryMax: prev.salaryMax || job.salaryMax,
-      currency: prev.currency || job.currency,
-      sourceLang: prev.sourceLang || job.sourceLang,
-      // Only set needsRetranslation if prev had it, not on every merge
-      needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
-    };
+    const merged = mergeDiscoveredJobWithPrev(job, prev);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

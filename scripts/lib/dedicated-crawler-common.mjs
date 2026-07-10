@@ -5709,6 +5709,50 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
   return out;
 }
 
+/**
+ * Repair a locale text map after a job's sourceLang was re-derived to a
+ * DIFFERENT locale than previously stored. Example: the ferrovia-retica
+ * crawler used to hardcode sourceLang 'de' while actually crawling /it/job/
+ * pages (issue #3802), so existing slices carry the Italian source text
+ * mislabeled as `de: <italian text>` — and a prev-wins merge would keep that
+ * mislabel forever.
+ *
+ * - Drops the OLD source-locale entry only when it is a verbatim copy of the
+ *   source text (whitespace/case-insensitive match against any candidate) —
+ *   i.e. the mislabeled source copy. A differing value is assumed to be a
+ *   genuine translation and is preserved.
+ * - Force-stores the freshest source text under the NEW source-locale key:
+ *   the source slot must hold the actual crawled source text, not an earlier
+ *   AI round-trip produced from the mislabeled source.
+ *
+ * @param {object}   map        Merged locale→text map (not mutated).
+ * @param {object}   opts
+ * @param {string}   opts.prevLang     Previously stored sourceLang.
+ * @param {string}   opts.nextLang     Newly derived sourceLang.
+ * @param {string[]} opts.sourceTexts  Source-text candidates, freshest first
+ *                                     (fresh crawl text, then stored text).
+ * @returns {{ map: object, removedMislabeledCopy: boolean }}
+ */
+export function repairRelabeledSourceLocale(map = {}, { prevLang, nextLang, sourceTexts = [] } = {}) {
+  const out = { ...(map || {}) };
+  if (!prevLang || !nextLang || prevLang === nextLang) {
+    return { map: out, removedMislabeledCopy: false };
+  }
+  // Normalize only for comparison — the stored value keeps its original
+  // whitespace (descriptions carry meaningful paragraph breaks).
+  const candidates = sourceTexts
+    .map((raw) => ({ raw: String(raw || ''), norm: normalizeSpace(String(raw || '')).toLowerCase() }))
+    .filter((c) => c.norm.length > 0);
+  const prevVal = normalizeSpace(String(out[prevLang] || '')).toLowerCase();
+  let removedMislabeledCopy = false;
+  if (prevVal && candidates.some((c) => c.norm === prevVal)) {
+    delete out[prevLang];
+    removedMislabeledCopy = true;
+  }
+  if (candidates[0]) out[nextLang] = candidates[0].raw;
+  return { map: out, removedMislabeledCopy };
+}
+
 export function mergeLocaleRequirementsMap(a = {}, b = {}) {
   const out = {};
   for (const locale of LOCALES) {
