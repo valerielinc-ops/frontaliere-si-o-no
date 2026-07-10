@@ -1,6 +1,6 @@
 {
   "crawlerKey": "equans",
-  "assembledAt": "2026-07-10T12:14:00.754Z",
+  "assembledAt": "2026-07-10T22:32:32.858Z",
   "jobs": [
     {
       "id": "equans-bb657ce1ae74",
@@ -16,7 +16,7 @@
       "companyDomain": "equans.ch",
       "title": "Collaborateur/trice de nettoyage (Catégorie E3)",
       "titleByLocale": {
-        "it": "Pulitore (Categoria E3)",
+        "it": "Collaborateur/trice de nettoyage (Catégorie E3)",
         "en": "Cleaner (Category E3)",
         "de": "Reiniger (Kategorie E3)",
         "fr": "Collaborateur/trice de nettoyage (Catégorie E3)"
@@ -33,7 +33,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/72885322-0c25-40a5-9e49-fdd00ab36e5a/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:56.960Z",
+      "crawledAt": "2026-07-10T22:32:30.371Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -55,13 +55,15 @@
       "previousSlugs": [
         "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-bb657c",
         "collaborateur-trice-de-nettoyage-categorie-e3-equans-switzerland-prilly",
-        "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly"
+        "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly",
+        "pulitore-categoria-e3-equans-switzerland-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-bb657c",
           "collaborateur-trice-de-nettoyage-categorie-e3-equans-switzerland-prilly",
-          "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly"
+          "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly",
+          "pulitore-categoria-e3-equans-switzerland-prilly"
         ],
         "en": [
           "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-bb657c"
@@ -71,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:21.460Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -98,7 +101,7 @@
       "companyDomain": "equans.ch",
       "title": "Collaborateur/trice de nettoyage (Catégorie E3)",
       "titleByLocale": {
-        "it": "Pulitore (Categoria E3)",
+        "it": "Collaborateur/trice de nettoyage (Catégorie E3)",
         "en": "Cleaner (Category E3)",
         "de": "Reiniger (Kategorie E3)",
         "fr": "Collaborateur/trice de nettoyage (Catégorie E3)"
@@ -115,7 +118,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/8bee53a7-b9bf-4513-a45b-5d317a0bcb23/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:56.836Z",
+      "crawledAt": "2026-07-10T22:32:29.885Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -137,13 +140,15 @@
       "previousSlugs": [
         "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly",
         "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly-0411f0",
-        "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-2"
+        "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-2",
+        "pulitore-categoria-e3-equans-switzerland-prilly-0411f0"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly",
           "dipendente-delle-pulizie-categoria-e3-equans-switzerland-prilly-0411f0",
-          "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-2"
+          "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-2",
+          "pulitore-categoria-e3-equans-switzerland-prilly-0411f0"
         ],
         "en": [
           "collaborateur-trice-de-nettoyage-categorie-e3-equans-prilly-2"
@@ -153,6 +158,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:20.932Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -197,7 +203,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/aa8c016e-da6d-49df-bbed-0b7d674c80a7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.715Z",
+      "crawledAt": "2026-07-10T22:32:29.384Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -217,6 +223,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:42:20.542Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -261,7 +268,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a91f0edc-1a01-43b9-afc9-fcd43b3e02a7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.593Z",
+      "crawledAt": "2026-07-10T22:32:29.272Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Thurgauerstrasse 36",
@@ -281,11 +288,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-facility-management-equans-zurich"
+        "techniker-in-facility-management-equans-zurich",
+        "tecnico-di-gestione-delle-strutture-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-facility-management-equans-zurich"
+          "techniker-in-facility-management-equans-zurich",
+          "tecnico-di-gestione-delle-strutture-equans-switzerland-zurich"
         ],
         "en": [
           "techniker-in-facility-management-equans-zurich"
@@ -339,7 +348,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1e8a7084-ac09-4b73-921f-e7825f2b3771/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.471Z",
+      "crawledAt": "2026-07-10T22:32:28.706Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Brandstrasse 24",
@@ -360,12 +369,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "immobilienbewirtschafter-in-equans-schlieren",
-        "immobilienbewirtschafter-in-equans-switzerland-schlieren"
+        "immobilienbewirtschafter-in-equans-switzerland-schlieren",
+        "gestore-immobiliare-equans-switzerland-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-in-equans-schlieren",
-          "immobilienbewirtschafter-in-equans-switzerland-schlieren"
+          "immobilienbewirtschafter-in-equans-switzerland-schlieren",
+          "gestore-immobiliare-equans-switzerland-schlieren"
         ],
         "en": [
           "immobilienbewirtschafter-in-equans-switzerland-schlieren"
@@ -419,7 +430,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/528cdb05-0875-4781-9791-299e2a78f5f6/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.352Z",
+      "crawledAt": "2026-07-10T22:32:28.284Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Brandstrasse 24",
@@ -439,11 +450,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sicherheitsmitarbeiter-in-revierdienst-im-stundenlohn-zh-equans-schlieren"
+        "sicherheitsmitarbeiter-in-revierdienst-im-stundenlohn-zh-equans-schlieren",
+        "dipendente-di-sicurezza-in-servizio-nel-salario-orario-zh-equans-switzerland-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsmitarbeiter-in-revierdienst-im-stundenlohn-zh-equans-schlieren"
+          "sicherheitsmitarbeiter-in-revierdienst-im-stundenlohn-zh-equans-schlieren",
+          "dipendente-di-sicurezza-in-servizio-nel-salario-orario-zh-equans-switzerland-schlieren"
         ],
         "en": [
           "sicherheitsmitarbeiter-in-revierdienst-im-stundenlohn-zh-equans-schlieren"
@@ -497,7 +510,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/7ec43f0f-761c-4718-a651-cc5519de3538/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.237Z",
+      "crawledAt": "2026-07-10T22:32:28.176Z",
       "addressLocality": "Sisseln",
       "addressRegion": "AG",
       "streetAddress": "Hauptstrasse",
@@ -517,11 +530,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "heizwerkfuhrer-in-equans-sisseln"
+        "heizwerkfuhrer-in-equans-sisseln",
+        "operatore-di-centrale-di-riscaldamento-equans-switzerland-sisseln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "heizwerkfuhrer-in-equans-sisseln"
+          "heizwerkfuhrer-in-equans-sisseln",
+          "operatore-di-centrale-di-riscaldamento-equans-switzerland-sisseln"
         ],
         "en": [
           "heizwerkfuhrer-in-equans-sisseln"
@@ -575,7 +590,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/9af1c83c-e535-4f97-a053-c425eece5004/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:56.097Z",
+      "crawledAt": "2026-07-10T22:32:27.723Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Sulzerallee 70",
@@ -595,11 +610,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-gebaudeautomation-equans-winterthur"
+        "teamleiter-in-gebaudeautomation-equans-winterthur",
+        "capo-squadra-automazione-edilizia-equans-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-gebaudeautomation-equans-winterthur"
+          "teamleiter-in-gebaudeautomation-equans-winterthur",
+          "capo-squadra-automazione-edilizia-equans-switzerland-winterthur"
         ],
         "en": [
           "teamleiter-in-gebaudeautomation-equans-winterthur"
@@ -653,7 +670,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/228b4efa-b3c5-4ef3-a187-bc01da448f7b/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.982Z",
+      "crawledAt": "2026-07-10T22:32:27.609Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -674,12 +691,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-heizung-equans-bern",
-        "projektleiter-heizung-equans-switzerland-bern"
+        "projektleiter-heizung-equans-switzerland-bern",
+        "riscaldamento-responsabile-di-progetto-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-heizung-equans-bern",
-          "projektleiter-heizung-equans-switzerland-bern"
+          "projektleiter-heizung-equans-switzerland-bern",
+          "riscaldamento-responsabile-di-progetto-equans-switzerland-bern"
         ],
         "en": [
           "projektleiter-heizung-equans-bern"
@@ -733,7 +752,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4d68a14a-06ce-4b57-b8d8-d4449d8fa0a8/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.844Z",
+      "crawledAt": "2026-07-10T22:32:27.186Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -753,11 +772,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-sanitar-equans-bern"
+        "servicetechniker-in-sanitar-equans-bern",
+        "tecnico-a-di-servizio-sanitar-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-sanitar-equans-bern"
+          "servicetechniker-in-sanitar-equans-bern",
+          "tecnico-a-di-servizio-sanitar-equans-switzerland-bern"
         ],
         "en": [
           "servicetechniker-in-sanitar-equans-bern"
@@ -811,7 +832,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/77a070bd-cf4b-4416-ba59-77c0c7f355fe/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.730Z",
+      "crawledAt": "2026-07-10T22:32:26.669Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -832,12 +853,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "heizungsmonteur-in-equans-bern",
-        "heizungsmonteur-in-equans-switzerland-bern"
+        "heizungsmonteur-in-equans-switzerland-bern",
+        "installatore-di-riscaldamento-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "heizungsmonteur-in-equans-bern",
-          "heizungsmonteur-in-equans-switzerland-bern"
+          "heizungsmonteur-in-equans-switzerland-bern",
+          "installatore-di-riscaldamento-equans-switzerland-bern"
         ],
         "en": [
           "heizungsmonteur-in-equans-switzerland-bern"
@@ -891,7 +914,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3954f33c-d783-4c0e-8d93-524d47374a84/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.612Z",
+      "crawledAt": "2026-07-10T22:32:26.201Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -912,12 +935,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-kalte-equans-bern",
-        "servicetechniker-in-kalte-equans-switzerland-bern"
+        "servicetechniker-in-kalte-equans-switzerland-bern",
+        "tecnico-del-servizio-refrigerazione-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-kalte-equans-bern",
-          "servicetechniker-in-kalte-equans-switzerland-bern"
+          "servicetechniker-in-kalte-equans-switzerland-bern",
+          "tecnico-del-servizio-refrigerazione-equans-switzerland-bern"
         ],
         "en": [
           "servicetechniker-in-kalte-equans-bern"
@@ -971,7 +996,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/530db62a-0b97-4525-a03a-b887a030b453/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.490Z",
+      "crawledAt": "2026-07-10T22:32:25.215Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -993,11 +1018,13 @@
       "previousSlugs": [
         "hilfsmonteur-in-gewerbliche-kaltetechnik-equans-bern",
         "auxiliary-refrigeration-equipment-equans-switzerland-bern",
-        "materiel-de-refrigeration-auxiliaire-equans-switzerland-bern"
+        "materiel-de-refrigeration-auxiliaire-equans-switzerland-bern",
+        "assistente-adattatore-di-tecnologia-di-refrigerazione-commerciale-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfsmonteur-in-gewerbliche-kaltetechnik-equans-bern"
+          "hilfsmonteur-in-gewerbliche-kaltetechnik-equans-bern",
+          "assistente-adattatore-di-tecnologia-di-refrigerazione-commerciale-equans-switzerland-bern"
         ],
         "en": [
           "hilfsmonteur-in-gewerbliche-kaltetechnik-equans-bern",
@@ -1053,7 +1080,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/ee554c03-94ef-47b4-b2d2-ef26c29e5e6e/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.374Z",
+      "crawledAt": "2026-07-10T22:32:24.837Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -1074,11 +1101,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "security-diensthundefuhrer-im-schichtdienst-40-100-equans-schlieren",
-        "guide-chien-de-service-de-securite-en-service-de-quart-40-100-equans-switzerland-schlieren"
+        "guide-chien-de-service-de-securite-en-service-de-quart-40-100-equans-switzerland-schlieren",
+        "conduttori-di-cani-di-servizio-di-sicurezza-a-turni-40-100-equans-switzerland-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-diensthundefuhrer-im-schichtdienst-40-100-equans-schlieren"
+          "security-diensthundefuhrer-im-schichtdienst-40-100-equans-schlieren",
+          "conduttori-di-cani-di-servizio-di-sicurezza-a-turni-40-100-equans-switzerland-schlieren"
         ],
         "en": [
           "security-diensthundefuhrer-im-schichtdienst-40-100-equans-schlieren"
@@ -1089,6 +1118,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:15.496Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1133,7 +1163,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4d3b4796-0eed-41c8-bc6c-9127862d6233/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.239Z",
+      "crawledAt": "2026-07-10T22:32:23.934Z",
       "addressLocality": "Zuchwil",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1153,11 +1183,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-facility-management-equans-zuchwil"
+        "techniker-in-facility-management-equans-zuchwil",
+        "tecnico-di-gestione-delle-strutture-equans-switzerland-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-facility-management-equans-zuchwil"
+          "techniker-in-facility-management-equans-zuchwil",
+          "tecnico-di-gestione-delle-strutture-equans-switzerland-zuchwil"
         ],
         "en": [
           "techniker-in-facility-management-equans-zuchwil"
@@ -1211,7 +1243,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1441304f-0e29-47bd-a1df-3a106653721c/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:55.100Z",
+      "crawledAt": "2026-07-10T22:32:23.587Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Buckhauserstrasse 22",
@@ -1231,17 +1263,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-system-engineer-equans-zurich"
+        "senior-system-engineer-equans-zurich",
+        "senior-system-ingegnere-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-system-engineer-equans-zurich"
+          "senior-system-engineer-equans-zurich",
+          "senior-system-ingegnere-equans-switzerland-zurich"
         ],
         "fr": [
           "senior-system-engineer-equans-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:14.447Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1286,7 +1321,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/aafece18-255d-4250-a62e-514173d7e035/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.973Z",
+      "crawledAt": "2026-07-10T22:32:23.093Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Buckhauserstrasse 22",
@@ -1306,17 +1341,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-system-engineer-in-consulting-equans-zurich"
+        "senior-system-engineer-in-consulting-equans-zurich",
+        "senior-system-ingegnere-in-consulting-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-system-engineer-in-consulting-equans-zurich"
+          "senior-system-engineer-in-consulting-equans-zurich",
+          "senior-system-ingegnere-in-consulting-equans-switzerland-zurich"
         ],
         "fr": [
           "senior-system-engineer-in-consulting-equans-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:14.758Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1361,7 +1399,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/03fc6d70-6f51-492f-9ca1-bb021867a5e3/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.830Z",
+      "crawledAt": "2026-07-10T22:32:22.980Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Landis + Gyr-Strasse 1",
@@ -1382,11 +1420,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hauswart-in-equans-zug",
-        "menageuse-equans-switzerland-zug"
+        "menageuse-equans-switzerland-zug",
+        "custode-equans-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hauswart-in-equans-zug"
+          "hauswart-in-equans-zug",
+          "custode-equans-switzerland-zug"
         ],
         "en": [
           "hauswart-in-equans-zug"
@@ -1441,7 +1481,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2fc62b23-ab6c-4fb9-893b-8cd2300c1e63/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.714Z",
+      "crawledAt": "2026-07-10T22:32:22.411Z",
       "addressLocality": "Sisseln",
       "addressRegion": "AG",
       "streetAddress": "Hauptstrasse 4",
@@ -1461,11 +1501,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmechaniker-in-instandhaltung-100-equans-sisseln"
+        "betriebsmechaniker-in-instandhaltung-100-equans-sisseln",
+        "manutenzione-meccanica-di-impianti-al-100-equans-switzerland-sisseln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-instandhaltung-100-equans-sisseln"
+          "betriebsmechaniker-in-instandhaltung-100-equans-sisseln",
+          "manutenzione-meccanica-di-impianti-al-100-equans-switzerland-sisseln"
         ],
         "en": [
           "betriebsmechaniker-in-instandhaltung-100-equans-sisseln"
@@ -1519,7 +1561,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/71e9a343-2dc1-4ab9-8cf4-fa8cc628c323/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.593Z",
+      "crawledAt": "2026-07-10T22:32:21.753Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Buckhauserstrasse 22",
@@ -1539,11 +1581,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-service-gebaudeautomation-saia-equans-zurich"
+        "projektleiter-in-service-gebaudeautomation-saia-equans-zurich",
+        "responsabile-di-progetto-service-gebaudeautomation-saia-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-service-gebaudeautomation-saia-equans-zurich"
+          "projektleiter-in-service-gebaudeautomation-saia-equans-zurich",
+          "responsabile-di-progetto-service-gebaudeautomation-saia-equans-switzerland-zurich"
         ],
         "en": [
           "projektleiter-in-service-gebaudeautomation-saia-equans-zurich"
@@ -1597,7 +1641,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/9a3e4574-5098-4bac-a37b-f5c2984678c5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.476Z",
+      "crawledAt": "2026-07-10T22:32:21.152Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Freilagerstrasse",
@@ -1618,11 +1662,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technische-r-hauswart-in-equans-zurich",
-        "techniciens-equans-switzerland-zurich"
+        "techniciens-equans-switzerland-zurich",
+        "custode-tecnico-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-hauswart-in-equans-zurich"
+          "technische-r-hauswart-in-equans-zurich",
+          "custode-tecnico-equans-switzerland-zurich"
         ],
         "en": [
           "technische-r-hauswart-in-equans-zurich"
@@ -1677,7 +1723,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/92ea098c-5816-428c-816c-1b117b42280d/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.362Z",
+      "crawledAt": "2026-07-10T22:32:20.781Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -1697,11 +1743,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-projektleiter-in-sanitar-80-100-equans-luzern"
+        "senior-projektleiter-in-sanitar-80-100-equans-luzern",
+        "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-sanitar-80-100-equans-luzern"
+          "senior-projektleiter-in-sanitar-80-100-equans-luzern",
+          "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern"
         ],
         "en": [
           "senior-projektleiter-in-sanitar-80-100-equans-luzern"
@@ -1711,6 +1759,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:12.687Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1755,7 +1804,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/84cd8f57-e7c1-4f36-907c-2984434e637c/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.244Z",
+      "crawledAt": "2026-07-10T22:32:20.424Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -1776,11 +1825,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technischer-sachbearbeiter-kaltetechnik-equans-bern",
-        "technologie-de-refrigeration-pour-commis-technique-equans-switzerland-bern"
+        "technologie-de-refrigeration-pour-commis-technique-equans-switzerland-bern",
+        "tecnologia-di-refrigerazione-per-commessi-tecnici-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-kaltetechnik-equans-bern"
+          "technischer-sachbearbeiter-kaltetechnik-equans-bern",
+          "tecnologia-di-refrigerazione-per-commessi-tecnici-equans-switzerland-bern"
         ],
         "en": [
           "technischer-sachbearbeiter-kaltetechnik-equans-bern"
@@ -1835,7 +1886,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4e78c640-2f60-4003-9ef4-6355760d0207/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.122Z",
+      "crawledAt": "2026-07-10T22:32:20.042Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1855,11 +1906,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-ferienablosung-equans-zug"
+        "mitarbeiter-in-unterhaltsreinigung-ferienablosung-equans-zug",
+        "collaboratore-trice-unterhaltsreinigung-ferienablosung-equans-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-unterhaltsreinigung-ferienablosung-equans-zug"
+          "mitarbeiter-in-unterhaltsreinigung-ferienablosung-equans-zug",
+          "collaboratore-trice-unterhaltsreinigung-ferienablosung-equans-switzerland-zug"
         ],
         "en": [
           "mitarbeiter-in-unterhaltsreinigung-ferienablosung-equans-zug"
@@ -1913,7 +1966,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a99aabea-8359-4e75-8faf-5d77855e2e13/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:54.003Z",
+      "crawledAt": "2026-07-10T22:32:19.670Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Industriestrasse 163",
@@ -1933,11 +1986,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-schaltanlagenbau-equans-spreitenbach"
+        "leiter-in-schaltanlagenbau-equans-spreitenbach",
+        "responsabile-schaltanlagenbau-equans-switzerland-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-schaltanlagenbau-equans-spreitenbach"
+          "leiter-in-schaltanlagenbau-equans-spreitenbach",
+          "responsabile-schaltanlagenbau-equans-switzerland-spreitenbach"
         ],
         "en": [
           "leiter-in-schaltanlagenbau-equans-spreitenbach"
@@ -1991,7 +2046,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/73d34bda-d71a-415c-b4fb-af111f8e36ea/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.889Z",
+      "crawledAt": "2026-07-10T22:32:19.280Z",
       "addressLocality": "Aarau / Region Mittelland",
       "addressRegion": "AR",
       "streetAddress": "Hinterdorfstrasse 21",
@@ -2012,11 +2067,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicemonteur-in-elektro-industrie-mittelland-equans-aarau-region-mittelland",
-        "installation-de-service-en-elektro-industrie-mittelland-equans-switzerland-aarau-region-mittelland"
+        "installation-de-service-en-elektro-industrie-mittelland-equans-switzerland-aarau-region-mittelland",
+        "tecnico-di-servizio-industria-elettrica-mittelland-equans-switzerland-aarau-region-mittelland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemonteur-in-elektro-industrie-mittelland-equans-aarau-region-mittelland"
+          "servicemonteur-in-elektro-industrie-mittelland-equans-aarau-region-mittelland",
+          "tecnico-di-servizio-industria-elettrica-mittelland-equans-switzerland-aarau-region-mittelland"
         ],
         "en": [
           "servicemonteur-in-elektro-industrie-mittelland-equans-aarau-region-mittelland"
@@ -2071,7 +2128,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b68360f6-1214-4537-b09a-7e2d3405d967/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.773Z",
+      "crawledAt": "2026-07-10T22:32:18.711Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2091,11 +2148,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarinstallateur-in-kleinanlagenbau-equans-olten"
+        "sanitarinstallateur-in-kleinanlagenbau-equans-olten",
+        "installatore-idraulico-nella-costruzione-di-piccoli-impianti-equans-switzerland-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-kleinanlagenbau-equans-olten"
+          "sanitarinstallateur-in-kleinanlagenbau-equans-olten",
+          "installatore-idraulico-nella-costruzione-di-piccoli-impianti-equans-switzerland-olten"
         ],
         "en": [
           "sanitarinstallateur-in-kleinanlagenbau-equans-olten"
@@ -2149,7 +2208,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/ad29bf97-8701-4973-a1b3-26c968fff40c/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:53.649Z",
+      "crawledAt": "2026-07-10T22:32:18.335Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Quai Max-Petitpierre 34-36",
@@ -2169,11 +2228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+        "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
+        "tecnico-di-manutenzione-gas-olio-equans-switzerland-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+          "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
+          "tecnico-di-manutenzione-gas-olio-equans-switzerland-neuchatel"
         ],
         "en": [
           "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
@@ -2227,7 +2288,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/76a64b2e-903b-46a5-b502-6deedbba0911/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.531Z",
+      "crawledAt": "2026-07-10T22:32:17.906Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -2247,11 +2308,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-projektleiter-in-luftung-klima-equans-luzern"
+        "junior-projektleiter-in-luftung-klima-equans-luzern",
+        "junior-responsabile-di-progetto-luftung-klima-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-projektleiter-in-luftung-klima-equans-luzern"
+          "junior-projektleiter-in-luftung-klima-equans-luzern",
+          "junior-responsabile-di-progetto-luftung-klima-equans-switzerland-luzern"
         ],
         "en": [
           "junior-projektleiter-in-luftung-klima-equans-luzern"
@@ -2305,7 +2368,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/bf159a9a-aca7-4eea-83b9-8f450d9f9524/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.416Z",
+      "crawledAt": "2026-07-10T22:32:17.455Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -2325,11 +2388,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-luftung-klima-equans-luzern"
+        "teamleiter-in-luftung-klima-equans-luzern",
+        "capo-squadra-ventilazione-aria-condizionata-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-luftung-klima-equans-luzern"
+          "teamleiter-in-luftung-klima-equans-luzern",
+          "capo-squadra-ventilazione-aria-condizionata-equans-switzerland-luzern"
         ],
         "en": [
           "teamleiter-in-luftung-klima-equans-luzern"
@@ -2383,7 +2448,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/5381debe-dcac-4638-889c-b57d913f03c9/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.298Z",
+      "crawledAt": "2026-07-10T22:32:16.703Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Sulzerallee 70",
@@ -2403,11 +2468,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-winterthur"
+        "projektleiter-in-gebaudeautomation-equans-winterthur",
+        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-winterthur"
+          "projektleiter-in-gebaudeautomation-equans-winterthur",
+          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-winterthur"
@@ -2461,7 +2528,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/884f8176-094c-46b2-8c6c-5c9a41af026e/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.178Z",
+      "crawledAt": "2026-07-10T22:32:16.358Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Brandstrasse 24",
@@ -2539,7 +2606,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/20ca20b1-e83a-4d0b-994b-b3748d6838c1/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:53.063Z",
+      "crawledAt": "2026-07-10T22:32:16.244Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Buckhauserstrasse 22",
@@ -2559,11 +2626,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-service-gebaudeautomation-equans-zurich"
+        "projektleiter-in-service-gebaudeautomation-equans-zurich",
+        "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-service-gebaudeautomation-equans-zurich"
+          "projektleiter-in-service-gebaudeautomation-equans-zurich",
+          "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
         ],
         "en": [
           "projektleiter-in-service-gebaudeautomation-equans-zurich"
@@ -2617,7 +2686,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/82fa3d1d-497f-4fb0-b42e-b872914ed457/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:52.943Z",
+      "crawledAt": "2026-07-10T22:32:16.131Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Hinterdorfstrasse 21",
@@ -2637,11 +2706,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-service-elektro-equans-aarau"
+        "projektleiter-in-service-elektro-equans-aarau",
+        "responsabile-di-progetto-service-elektro-equans-switzerland-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-service-elektro-equans-aarau"
+          "projektleiter-in-service-elektro-equans-aarau",
+          "responsabile-di-progetto-service-elektro-equans-switzerland-aarau"
         ],
         "en": [
           "projektleiter-in-service-elektro-equans-aarau"
@@ -2695,7 +2766,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b40df907-6cd0-4a54-a2b1-9918892540b0/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:52.827Z",
+      "crawledAt": "2026-07-10T22:32:15.714Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2715,11 +2786,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-anlagenbau-equans-basel"
+        "projektleiter-in-anlagenbau-equans-basel",
+        "responsabile-di-progetto-anlagenbau-equans-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-anlagenbau-equans-basel"
+          "projektleiter-in-anlagenbau-equans-basel",
+          "responsabile-di-progetto-anlagenbau-equans-switzerland-basel"
         ],
         "en": [
           "projektleiter-in-anlagenbau-equans-basel"
@@ -2773,7 +2846,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/fe81afce-ac98-442d-974e-7ba478580b03/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:52.704Z",
+      "crawledAt": "2026-07-10T22:32:15.378Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Hinterdorfstrasse 21",
@@ -2793,11 +2866,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kalkulator-in-elektro-mittelland-equans-aarau"
+        "kalkulator-in-elektro-mittelland-equans-aarau",
+        "calcolatrice-elektro-mittelland-equans-switzerland-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kalkulator-in-elektro-mittelland-equans-aarau"
+          "kalkulator-in-elektro-mittelland-equans-aarau",
+          "calcolatrice-elektro-mittelland-equans-switzerland-aarau"
         ],
         "en": [
           "kalkulator-in-elektro-mittelland-equans-aarau"
@@ -2807,6 +2882,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:07.758Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2851,7 +2927,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/33385ae8-a868-4686-9483-a80f4228e9a7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:52.590Z",
+      "crawledAt": "2026-07-10T22:32:15.268Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Rötzmattweg 115",
@@ -2872,12 +2948,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-sicherheit-zutrittskontrolle-equans-olten",
-        "projektleiter-in-sicherheit-zutrittskontrolle-equans-switzerland-olten"
+        "projektleiter-in-sicherheit-zutrittskontrolle-equans-switzerland-olten",
+        "project-manager-sicurezza-e-controllo-degli-accessi-equans-switzerland-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-sicherheit-zutrittskontrolle-equans-olten",
-          "projektleiter-in-sicherheit-zutrittskontrolle-equans-switzerland-olten"
+          "projektleiter-in-sicherheit-zutrittskontrolle-equans-switzerland-olten",
+          "project-manager-sicurezza-e-controllo-degli-accessi-equans-switzerland-olten"
         ],
         "en": [
           "projektleiter-in-sicherheit-zutrittskontrolle-equans-olten"
@@ -2915,7 +2993,7 @@
       "title": "Facility Manager VD / VS à 80-100% 1",
       "titleByLocale": {
         "it": "Responsabile della struttura VD/VS all'80-100% 1",
-        "en": "Facility Manager VD / VS at 80-100% 1",
+        "en": "Facility Manager VD / VS à 80-100% 1",
         "de": "Facility Manager VD / VS bei 80-100% 1",
         "fr": "Facility Manager VD / VS à 80-100% 1"
       },
@@ -2931,7 +3009,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a3085735-7b5b-4d0c-bebb-4d213f48f582/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:52.475Z",
+      "crawledAt": "2026-07-10T22:32:14.748Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2951,14 +3029,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facility-manager-vd-vs-a-80-100-1-equans-prilly"
+        "facility-manager-vd-vs-a-80-100-1-equans-prilly",
+        "responsabile-della-struttura-vd-vs-all-80-100-1-equans-switzerland-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facility-manager-vd-vs-a-80-100-1-equans-prilly"
+          "facility-manager-vd-vs-a-80-100-1-equans-prilly",
+          "responsabile-della-struttura-vd-vs-all-80-100-1-equans-switzerland-prilly"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:06.755Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3003,7 +3084,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/7160423d-2064-42e2-9a65-f67a00709657/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:52.349Z",
+      "crawledAt": "2026-07-10T22:32:14.294Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3023,11 +3104,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-d-equipe-reception-a-100-morges-vd-equans-morges"
+        "chef-d-equipe-reception-a-100-morges-vd-equans-morges",
+        "team-leader-100-ricezione-morges-vd-equans-switzerland-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-d-equipe-reception-a-100-morges-vd-equans-morges"
+          "chef-d-equipe-reception-a-100-morges-vd-equans-morges",
+          "team-leader-100-ricezione-morges-vd-equans-switzerland-morges"
         ],
         "en": [
           "chef-d-equipe-reception-a-100-morges-vd-equans-morges"
@@ -3081,7 +3164,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/bf9b177f-da00-4402-b879-68f1dcc047e9/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:52.235Z",
+      "crawledAt": "2026-07-10T22:32:13.684Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -3101,11 +3184,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-heizung-equans-bern"
+        "servicetechniker-in-heizung-equans-bern",
+        "tecnico-a-di-servizio-heizung-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-heizung-equans-bern"
+          "servicetechniker-in-heizung-equans-bern",
+          "tecnico-a-di-servizio-heizung-equans-switzerland-bern"
         ],
         "en": [
           "servicetechniker-in-heizung-equans-bern"
@@ -3159,7 +3244,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b859af7a-8b34-4cfa-adb1-9775d3718d40/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:51.803Z",
+      "crawledAt": "2026-07-10T22:32:12.757Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3179,11 +3264,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-administratif-front-office-a-100-h-f-equans-lausanne"
+        "assistant-administratif-front-office-a-100-h-f-equans-lausanne",
+        "assistente-amministrativo-100-ufficio-anteriore-h-f-equans-switzerland-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-administratif-front-office-a-100-h-f-equans-lausanne"
+          "assistant-administratif-front-office-a-100-h-f-equans-lausanne",
+          "assistente-amministrativo-100-ufficio-anteriore-h-f-equans-switzerland-lausanne"
         ],
         "en": [
           "assistant-administratif-front-office-a-100-h-f-equans-lausanne"
@@ -3237,7 +3324,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/20160984-27cf-416e-8b23-f0b1a36a2256/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:51.686Z",
+      "crawledAt": "2026-07-10T22:32:12.378Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Route de la Galaise 15B",
@@ -3259,12 +3346,14 @@
       "previousSlugs": [
         "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-cdaaf9",
         "intern-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates",
-        "intern-assistant-project-leader-electricity-6-months-equans-switzerland-plan-les-ouates"
+        "intern-assistant-project-leader-electricity-6-months-equans-switzerland-plan-les-ouates",
+        "trainee-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-cdaaf9",
-          "intern-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates"
+          "intern-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates",
+          "trainee-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates"
         ],
         "en": [
           "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-cdaaf9",
@@ -3283,7 +3372,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "equans-fc3b3b90ce1c",
@@ -3316,7 +3406,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/90597f4a-5f28-452c-9d6b-b60dc582cd50/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:51.571Z",
+      "crawledAt": "2026-07-10T22:32:11.906Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Route de la Galaise 15B",
@@ -3339,13 +3429,15 @@
         "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates",
         "intern-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates-8f96c4",
         "intern-assistant-project-leader-electricity-6-months-equans-switzerland-plan-les-ouates-8f96c4",
-        "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-2"
+        "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-2",
+        "trainee-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates-8f96c4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates",
           "intern-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates-8f96c4",
-          "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-2"
+          "stagiaire-assistant-e-chef-de-projet-electricite-6-mois-equans-plan-les-ouates-2",
+          "trainee-assistant-project-leader-elettricita-6-mesi-equans-switzerland-plan-les-ouates-8f96c4"
         ],
         "en": [
           "intern-assistant-project-leader-electricity-6-months-equans-switzerland-plan-les-ouates-8f96c4",
@@ -3364,7 +3456,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "equans-d73f1b9481b6",
@@ -3381,7 +3474,7 @@
       "title": "CAD/CAE-Tools Specialist",
       "titleByLocale": {
         "it": "CAD/CAE-Tools Specialista",
-        "en": "CAD/CAE Tools Specialist",
+        "en": "CAD/CAE-Tools Specialist",
         "de": "CAD/CAE-Tools Spezialist",
         "fr": "CAD/CAE-Tools Spécialiste"
       },
@@ -3397,7 +3490,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/7082eccb-8b6c-4541-a21f-d8d1b073feb2/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:51.454Z",
+      "crawledAt": "2026-07-10T22:32:11.299Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -3417,17 +3510,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cad-cae-tools-specialist-equans-basel"
+        "cad-cae-tools-specialist-equans-basel",
+        "cad-cae-tools-specialista-equans-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-cae-tools-specialist-equans-basel"
+          "cad-cae-tools-specialist-equans-basel",
+          "cad-cae-tools-specialista-equans-switzerland-basel"
         ],
         "fr": [
           "cad-cae-tools-specialist-equans-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:03.111Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "baseSalary": {
@@ -3472,7 +3568,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/474b260b-ede9-4bb9-8ea8-4a7b5201b955/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:51.336Z",
+      "crawledAt": "2026-07-10T22:32:10.884Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -3493,11 +3589,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroinstallateur-in-equans-chur",
-        "elektroinstallateur-in-equans-switzerland-chur"
+        "elektroinstallateur-in-equans-switzerland-chur",
+        "installatore-trice-elettrico-a-in-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-equans-chur"
+          "elektroinstallateur-in-equans-chur",
+          "installatore-trice-elettrico-a-in-equans-switzerland-chur"
         ],
         "en": [
           "elektroinstallateur-in-equans-switzerland-chur"
@@ -3535,7 +3633,7 @@
       "title": "Tax Expert (m/w/d)",
       "titleByLocale": {
         "it": "Esperto fiscale (m/f/d)",
-        "en": "Tax Expert (m/f/d)",
+        "en": "Tax Expert (m/w/d)",
         "de": "Tax Expert (m/w/d)",
         "fr": "Expert fiscal (m/f/d)"
       },
@@ -3551,7 +3649,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/910fa99b-6bb0-4b28-8395-4d99b4fd51f5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:51.209Z",
+      "crawledAt": "2026-07-10T22:32:10.112Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -3571,17 +3669,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tax-expert-m-w-d-equans-zurich"
+        "tax-expert-m-w-d-equans-zurich",
+        "esperto-fiscale-m-f-d-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tax-expert-m-w-d-equans-zurich"
+          "tax-expert-m-w-d-equans-zurich",
+          "esperto-fiscale-m-f-d-equans-switzerland-zurich"
         ],
         "fr": [
           "tax-expert-m-w-d-equans-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:58.206Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3626,7 +3727,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1ba68b5d-f4b6-40e6-b018-c982bc59ddfa/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:51.092Z",
+      "crawledAt": "2026-07-10T22:32:09.994Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -3646,11 +3747,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        "heizungsinstallateur-in-heizung-kalte-equans-chur",
+        "installatore-di-riscaldamento-riscaldamento-raffreddamento-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+          "heizungsinstallateur-in-heizung-kalte-equans-chur",
+          "installatore-di-riscaldamento-riscaldamento-raffreddamento-equans-switzerland-chur"
         ],
         "en": [
           "heizungsinstallateur-in-heizung-kalte-equans-chur"
@@ -3704,7 +3807,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c1e4adcd-27fa-4d78-8cd1-b6488fac1750/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.975Z",
+      "crawledAt": "2026-07-10T22:32:09.621Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -3725,11 +3828,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarmonteur-in-equans-chur",
-        "installation-sanitaire-dans-equans-switzerland-chur"
+        "installation-sanitaire-dans-equans-switzerland-chur",
+        "installatore-sanitario-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-equans-chur"
+          "sanitarmonteur-in-equans-chur",
+          "installatore-sanitario-equans-switzerland-chur"
         ],
         "en": [
           "sanitarmonteur-in-equans-chur"
@@ -3784,7 +3889,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/10b19fdc-673a-44b6-9027-688e55f34478/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.860Z",
+      "crawledAt": "2026-07-10T22:32:09.184Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Kornstrasse 7",
@@ -3805,11 +3910,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicemonteur-in-elektro-equans-buchs",
-        "installation-de-service-en-electrique-equans-switzerland-buchs"
+        "installation-de-service-en-electrique-equans-switzerland-buchs",
+        "tecnico-di-servizi-elettrici-equans-switzerland-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemonteur-in-elektro-equans-buchs"
+          "servicemonteur-in-elektro-equans-buchs",
+          "tecnico-di-servizi-elettrici-equans-switzerland-buchs"
         ],
         "en": [
           "servicemonteur-in-elektro-equans-buchs"
@@ -3820,86 +3927,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:57.697Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "equans-8bc9787f08d2",
-      "slug": "custode-equans-switzerland-rapperswil-jona",
-      "slugByLocale": {
-        "it": "custode-equans-switzerland-rapperswil-jona",
-        "en": "housekeeper-in-equans-switzerland-rapperswil-jona",
-        "de": "hauswart-in-equans-rapperswil-jona",
-        "fr": "femme-de-menage-equans-switzerland-rapperswil-jona"
-      },
-      "company": "Equans Switzerland",
-      "companyKey": "equans",
-      "companyDomain": "equans.ch",
-      "title": "Hauswart:in",
-      "titleByLocale": {
-        "it": "Custode",
-        "en": "Housekeeper:in",
-        "de": "Hauswart:in",
-        "fr": "Femme de ménage:"
-      },
-      "description": "Wir suchen in der Region Rapperswil-Jona per sofort oder nach Vereinbarung eine dienstleistungsorientierte, engagierte und motivierte Persönlichkeit. Hauswart:in\n Das kannst du bei uns bewegen.\n In dieser vielseitigen Funktion betreust du mehrere Objekte vor Ort und bist die erste Ansprechperson für unsere Kunden. Deine Aufgaben umfassen:\n\n• Betreuung und Überwachung sämtlicher technischer Anlagen im Gebäude\n\n• Planung und Organisation von Reparatur-, Service- und Unterhaltsarbeiten\n\n• Überwachung, Begleitung und Kontrolle der ausgeführten Arbeiten von externen Dienstleistern\n\n• Unterstützung bei Projekten und Optimierungen in Zusammenarbeit mit internen und externen Stellen\n\n• Umsetzen von Kundenaufträgen\n\n• Durchführen von kleineren Reparatur- und Wartungsarbeiten an Anlagen und Infrastruktur\n\n• Ausführen von Grün- und Umgebungsarbeiten\n\n• Erledigung von administrativen Aufgaben im Rahmen deiner Tätigkeit\n Das macht dich aus.\n Du bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen Leistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst zudem folgendes mit:\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder eine handwerkliche Grundausbildung\n\n• Mehrjährige Berufserfahrung im Gebäudeunterhalt von Vorteil\n\n• Wohnort in der Region\n\n• Selbstständige, strukturierte Arbeitsweise und hohes Verantwortungsbewusstsein\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B\n\n• Bereitschaft für Pikettdienst\n\n• Einwandfreier Leumund\n Das bieten wir dir.\n\n• Eine spannende, verantwortungsvolle Aufgabe mit viel Gestaltungsspielraum\n\n• Ein eingespieltes Team mit offener Unternehmenskultur\n\n• Zeitgemässe Anstellungsbedingungen und gute Sozialleistungen\n Equans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\n Wir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\n Arbeitsort\n Equans Switzerland Facility Management AG\nSt. Gallerstrasse 161\n8645 Jona\n Deine Kontaktperson\n Claudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di una personalità orientata al servizio, impegnata e motivata nella regione Rapperswil-Jona immediatamente o con accordo. Housekeeper:in Puoi spostarlo con noi. In questa funzione versatile, gestisci diversi oggetti in loco e sei la prima persona di contatto per i nostri clienti. I vostri compiti includono:\n• Supporto e supervisione di tutte le installazioni tecniche nell'edificio\n• Pianificazione e organizzazione dei lavori di riparazione, manutenzione e manutenzione\n• Monitoraggio, monitoraggio e controllo dei lavori effettuati da fornitori di servizi esterni\n• Sostegno ai progetti e alle ottimizzazioni in collaborazione con gli organismi interni ed esterni\n• Attuazione degli ordini dei clienti\n• Eseguire lavori di riparazione e manutenzione minori su attrezzature e infrastrutture\n• Esecuzione del lavoro verde e ambientale\n• Completi compiti amministrativi nell'ambito della tua attività E' questo che ti rende. Ti descrivi come fornitore di servizi: nella convinzione più interna. Il feedback positivo sulle tue prestazioni ti motiva e ti stimola ad ulteriori prestazioni. Si riporta anche il seguente:\n• Formazione completa come specialista EFZ o formazione artigianale di base\n• Diversi anni di esperienza professionale nella manutenzione degli edifici sono vantaggiosi\n• Luogo di residenza nella regione\n• Metodi di lavoro indipendenti e strutturati e un elevato senso di responsabilità\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Titolo di guida della categoria B\n• Prontezza per Picetting\n• Gomma affidabile E' quello che ti offriamo.\n• Un compito emozionante e responsabile con un sacco di libertà creativa\n• Un team esperto con una cultura aziendale aperta\n• Condizioni di lavoro contemporanee e buone prestazioni sociali Equans Svizzera Facility Management AG. Dipingere il futuro insieme. Siamo specializzati in servizi di gestione di strutture olistiche per ogni fase del business real estate e area ciclo di vita. Gli edifici e le infrastrutture sono sistemi complessi. Sia il funzionamento tecnico, la pianificazione strategica o i servizi infrastrutturali – garantiamo la massima disponibilità, aumentiamo la sicurezza operativa e miglioriamo il comfort degli edifici. In questo modo, minimizziamo i costi e creiamo condizioni ottimali in modo che i nostri clienti possano concentrarsi sul loro core business. In qualità di azienda di Equans Svizzera, il principale fornitore di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo anche guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica. Luogo di lavoro Equans Svizzera Facility Management AG St. Gallerstrasse 161 8645 Giona La persona di contatto Claudia BABOURI HR Business Partner +41 79 512 68 30",
-        "en": "We are looking for a service-oriented, committed and motivated personality in the Rapperswil-Jona region immediately or by agreement. Housekeeper:in You can move that with us. In this versatile function, you manage several objects on site and are the first contact person for our customers. Your tasks include:\n• Support and supervision of all technical installations in the building\n• Planning and organisation of repair, service and maintenance work\n• Monitoring, monitoring and control of the work carried out by external service providers\n• Support for projects and optimizations in cooperation with internal and external bodies\n• Implementation of client orders\n• Performing minor repair and maintenance work on equipment and infrastructure\n• Performing green and ambient work\n• Complete administrative tasks as part of your activity That's what makes you. You describe yourself as a service provider: in the innermost conviction. Positive feedback on your performance motivates you and spurs you on to further top performances. You also bring the following:\n• Completed training as a specialist EFZ or basic craft training\n• Several years of professional experience in building maintenance are advantageous\n• Place of residence in the region\n• Independent, structured working methods and a high sense of responsibility\n• Good knowledge of German in words and writing\n• Category B driving licence\n• Readiness for Picetting\n• Reliable gum That's what we offer you.\n• An exciting, responsible task with a lot of creative freedom\n• An experienced team with an open corporate culture\n• Contemporary employment conditions and good social benefits Equans Switzerland Facility Management AG. Shaping the future together. We specialize in holistic facilities management services for every phase of the business real estate and area lifecycle. Buildings and infrastructures are complex systems. Whether technical operation, strategic planning or infrastructural services – we ensure maximum availability, increase operational safety and improve comfort in buildings. In this way, we minimize costs and create optimal conditions so that our customers can concentrate on their core business. As a company of Equans Switzerland, the leading full-service provider for holistic building and energy solutions in Switzerland, we are also driving the transformation and digitalization of our customers and working together on the energy transition. Place of work Equans Switzerland Facility Management AG St. Gallerstrasse 161 8645 Jonah Your contact person Claudia BABOURI HR Business Partner +41 79 512 68 30",
-        "de": "Wir suchen in der Region Rapperswil-Jona per sofort oder nach Vereinbarung eine dienstleistungsorientierte, engagierte und motivierte Persönlichkeit. Hauswart:in\nDas kannst du bei uns bewegen.\nIn dieser vielseitigen Funktion betreust du mehrere Objekte vor Ort und bist die erste Ansprechperson für unsere Kunden. Deine Aufgaben umfassen:\n\n• Betreuung und Überwachung sämtlicher technischer Anlagen im Gebäude\n\n• Planung und Organisation von Reparatur-, Service- und Unterhaltsarbeiten\n\n• Überwachung, Begleitung und Kontrolle der ausgeführten Arbeiten von externen Dienstleistern\n\n• Unterstützung bei Projekten und Optimierungen in Zusammenarbeit mit internen und externen Stellen\n\n• Umsetzen von Kundenaufträgen\n\n• Durchführen von kleineren Reparatur- und Wartungsarbeiten an Anlagen und Infrastruktur\n\n• Ausführen von Grün- und Umgebungsarbeiten\n\n• Erledigung von administrativen Aufgaben im Rahmen deiner Tätigkeit\nDas macht dich aus.\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen Leistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst zudem folgendes mit:\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder eine handwerkliche Grundausbildung\n\n• Mehrjährige Berufserfahrung im Gebäudeunterhalt von Vorteil\n\n• Wohnort in der Region\n\n• Selbstständige, strukturierte Arbeitsweise und hohes Verantwortungsbewusstsein\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B\n\n• Bereitschaft für Pikettdienst\n\n• Einwandfreier Leumund\nDas bieten wir dir.\n\n• Eine spannende, verantwortungsvolle Aufgabe mit viel Gestaltungsspielraum\n\n• Ein eingespieltes Team mit offener Unternehmenskultur\n\n• Zeitgemässe Anstellungsbedingungen und gute Sozialleistungen\nEquans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\nArbeitsort\nEquans Switzerland Facility Management AG\nSt. Gallerstrasse 161\n8645 Jona\nDeine Kontaktperson\nClaudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
-        "fr": "Nous recherchons une personnalité axée sur le service, engagée et motivée dans la région de Rapperswil-Jona immédiatement ou d'un commun accord. Femme de ménage: Tu peux bouger ça avec nous. Dans cette fonction polyvalente, vous gérez plusieurs objets sur place et êtes la première personne de contact pour nos clients. Vos tâches comprennent:\n• Soutien et supervision de toutes les installations techniques du bâtiment\n• Planification et organisation des travaux de réparation, de service et d'entretien\n• Suivi, suivi et contrôle des travaux effectués par des prestataires de services extérieurs\n• Appui aux projets et optimisations en coopération avec des organismes internes et externes\n• Mise en œuvre des ordres des clients\n• Travaux mineurs de réparation et d ' entretien du matériel et des infrastructures\n• Réalisation de travaux verts et ambiants\n• Achèvement des tâches administratives dans le cadre de votre activité C'est ce qui te rend. Vous vous décrivez comme un prestataire de services : dans la conviction la plus intime. La rétroaction positive sur votre performance vous motive et vous pousse à d'autres performances supérieures. Vous apportez également ce qui suit:\n• Formation complétée en tant que spécialiste EFZ ou formation artisanale de base\n• Plusieurs années d'expérience professionnelle dans l'entretien des bâtiments sont avantageuses\n• Lieu de résidence dans la région\n• Méthodes de travail indépendantes et structurées et sens élevé des responsabilités\n• Bonne connaissance de l'allemand en mots et en écriture\n• Permis de conduire de catégorie B\n• Préparation au picetting\n• Gomme fiable C'est ce qu'on vous offre.\n• Une tâche passionnante et responsable avec beaucoup de liberté créative\n• Une équipe expérimentée avec une culture d'entreprise ouverte\n• Conditions d'emploi contemporaines et avantages sociaux Equans Suisse Facility Management AG. Façonner l'avenir ensemble. Nous nous spécialisons dans les services de gestion d'installations holistiques pour chaque phase de l'immobilier d'affaires et le cycle de vie de la région. Les bâtiments et les infrastructures sont des systèmes complexes. Qu'il s'agisse d'opérations techniques, de planification stratégique ou de services d'infrastructure, nous garantissons une disponibilité maximale, accroissons la sécurité opérationnelle et améliorons le confort des bâtiments. De cette façon, nous minimisons les coûts et créons des conditions optimales pour que nos clients puissent se concentrer sur leur activité principale. En tant qu'entreprise d'Equans Suisse, premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous sommes également à l'origine de la transformation et de la numérisation de nos clients et travaillons ensemble sur la transition énergétique. Lieu de travail Equans Suisse Facility Management AG St. Gallerstrasse 161 8645 Jonas Votre personne à contacter Claudia BABOURI Partenaire opérationnel RH +41 79 512 68 30"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
-      "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.743Z",
-      "addressLocality": "Rapperswil-Jona",
-      "addressRegion": "SG",
-      "streetAddress": "St. Gallerstrasse 161",
-      "postalCode": "8645",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Facility Management / Impiantistica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
-      "hiringOrganizationName": "Equans Switzerland AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hauswart-in-equans-rapperswil-jona",
-        "menageuse-equans-switzerland-rapperswil-jona"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hauswart-in-equans-rapperswil-jona"
-        ],
-        "en": [
-          "hauswart-in-equans-rapperswil-jona"
-        ],
-        "fr": [
-          "hauswart-in-equans-rapperswil-jona",
-          "menageuse-equans-switzerland-rapperswil-jona"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:41:57.257Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3944,7 +3971,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0b561440-2274-47ba-b119-ef6ba0b84ec7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.629Z",
+      "crawledAt": "2026-07-10T22:32:08.687Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -3964,11 +3991,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleitende-r-installateur-in-sanitar-equans-chur"
+        "bauleitende-r-installateur-in-sanitar-equans-chur",
+        "responsabile-dei-lavori-idraulici-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitende-r-installateur-in-sanitar-equans-chur"
+          "bauleitende-r-installateur-in-sanitar-equans-chur",
+          "responsabile-dei-lavori-idraulici-equans-switzerland-chur"
         ],
         "en": [
           "bauleitende-r-installateur-in-sanitar-equans-chur"
@@ -3987,6 +4016,88 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "equans-8bc9787f08d2",
+      "slug": "custode-equans-switzerland-rapperswil-jona",
+      "slugByLocale": {
+        "it": "custode-equans-switzerland-rapperswil-jona",
+        "en": "housekeeper-in-equans-switzerland-rapperswil-jona",
+        "de": "hauswart-in-equans-rapperswil-jona",
+        "fr": "femme-de-menage-equans-switzerland-rapperswil-jona"
+      },
+      "company": "Equans Switzerland",
+      "companyKey": "equans",
+      "companyDomain": "equans.ch",
+      "title": "Hauswart:in",
+      "titleByLocale": {
+        "it": "Custode",
+        "en": "Housekeeper:in",
+        "de": "Hauswart:in",
+        "fr": "Femme de ménage:"
+      },
+      "description": "Wir suchen in der Region Rapperswil-Jona per sofort oder nach Vereinbarung eine dienstleistungsorientierte, engagierte und motivierte Persönlichkeit. Hauswart:in\n Das kannst du bei uns bewegen.\n In dieser vielseitigen Funktion betreust du mehrere Objekte vor Ort und bist die erste Ansprechperson für unsere Kunden. Deine Aufgaben umfassen:\n\n• Betreuung und Überwachung sämtlicher technischer Anlagen im Gebäude\n\n• Planung und Organisation von Reparatur-, Service- und Unterhaltsarbeiten\n\n• Überwachung, Begleitung und Kontrolle der ausgeführten Arbeiten von externen Dienstleistern\n\n• Unterstützung bei Projekten und Optimierungen in Zusammenarbeit mit internen und externen Stellen\n\n• Umsetzen von Kundenaufträgen\n\n• Durchführen von kleineren Reparatur- und Wartungsarbeiten an Anlagen und Infrastruktur\n\n• Ausführen von Grün- und Umgebungsarbeiten\n\n• Erledigung von administrativen Aufgaben im Rahmen deiner Tätigkeit\n Das macht dich aus.\n Du bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen Leistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst zudem folgendes mit:\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder eine handwerkliche Grundausbildung\n\n• Mehrjährige Berufserfahrung im Gebäudeunterhalt von Vorteil\n\n• Wohnort in der Region\n\n• Selbstständige, strukturierte Arbeitsweise und hohes Verantwortungsbewusstsein\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B\n\n• Bereitschaft für Pikettdienst\n\n• Einwandfreier Leumund\n Das bieten wir dir.\n\n• Eine spannende, verantwortungsvolle Aufgabe mit viel Gestaltungsspielraum\n\n• Ein eingespieltes Team mit offener Unternehmenskultur\n\n• Zeitgemässe Anstellungsbedingungen und gute Sozialleistungen\n Equans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\n Wir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\n Arbeitsort\n Equans Switzerland Facility Management AG\nSt. Gallerstrasse 161\n8645 Jona\n Deine Kontaktperson\n Claudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di una personalità orientata al servizio, impegnata e motivata nella regione Rapperswil-Jona immediatamente o con accordo. Housekeeper:in Puoi spostarlo con noi. In questa funzione versatile, gestisci diversi oggetti in loco e sei la prima persona di contatto per i nostri clienti. I vostri compiti includono:\n• Supporto e supervisione di tutte le installazioni tecniche nell'edificio\n• Pianificazione e organizzazione dei lavori di riparazione, manutenzione e manutenzione\n• Monitoraggio, monitoraggio e controllo dei lavori effettuati da fornitori di servizi esterni\n• Sostegno ai progetti e alle ottimizzazioni in collaborazione con gli organismi interni ed esterni\n• Attuazione degli ordini dei clienti\n• Eseguire lavori di riparazione e manutenzione minori su attrezzature e infrastrutture\n• Esecuzione del lavoro verde e ambientale\n• Completi compiti amministrativi nell'ambito della tua attività E' questo che ti rende. Ti descrivi come fornitore di servizi: nella convinzione più interna. Il feedback positivo sulle tue prestazioni ti motiva e ti stimola ad ulteriori prestazioni. Si riporta anche il seguente:\n• Formazione completa come specialista EFZ o formazione artigianale di base\n• Diversi anni di esperienza professionale nella manutenzione degli edifici sono vantaggiosi\n• Luogo di residenza nella regione\n• Metodi di lavoro indipendenti e strutturati e un elevato senso di responsabilità\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Titolo di guida della categoria B\n• Prontezza per Picetting\n• Gomma affidabile E' quello che ti offriamo.\n• Un compito emozionante e responsabile con un sacco di libertà creativa\n• Un team esperto con una cultura aziendale aperta\n• Condizioni di lavoro contemporanee e buone prestazioni sociali Equans Svizzera Facility Management AG. Dipingere il futuro insieme. Siamo specializzati in servizi di gestione di strutture olistiche per ogni fase del business real estate e area ciclo di vita. Gli edifici e le infrastrutture sono sistemi complessi. Sia il funzionamento tecnico, la pianificazione strategica o i servizi infrastrutturali – garantiamo la massima disponibilità, aumentiamo la sicurezza operativa e miglioriamo il comfort degli edifici. In questo modo, minimizziamo i costi e creiamo condizioni ottimali in modo che i nostri clienti possano concentrarsi sul loro core business. In qualità di azienda di Equans Svizzera, il principale fornitore di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo anche guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica. Luogo di lavoro Equans Svizzera Facility Management AG St. Gallerstrasse 161 8645 Giona La persona di contatto Claudia BABOURI HR Business Partner +41 79 512 68 30",
+        "en": "We are looking for a service-oriented, committed and motivated personality in the Rapperswil-Jona region immediately or by agreement. Housekeeper:in You can move that with us. In this versatile function, you manage several objects on site and are the first contact person for our customers. Your tasks include:\n• Support and supervision of all technical installations in the building\n• Planning and organisation of repair, service and maintenance work\n• Monitoring, monitoring and control of the work carried out by external service providers\n• Support for projects and optimizations in cooperation with internal and external bodies\n• Implementation of client orders\n• Performing minor repair and maintenance work on equipment and infrastructure\n• Performing green and ambient work\n• Complete administrative tasks as part of your activity That's what makes you. You describe yourself as a service provider: in the innermost conviction. Positive feedback on your performance motivates you and spurs you on to further top performances. You also bring the following:\n• Completed training as a specialist EFZ or basic craft training\n• Several years of professional experience in building maintenance are advantageous\n• Place of residence in the region\n• Independent, structured working methods and a high sense of responsibility\n• Good knowledge of German in words and writing\n• Category B driving licence\n• Readiness for Picetting\n• Reliable gum That's what we offer you.\n• An exciting, responsible task with a lot of creative freedom\n• An experienced team with an open corporate culture\n• Contemporary employment conditions and good social benefits Equans Switzerland Facility Management AG. Shaping the future together. We specialize in holistic facilities management services for every phase of the business real estate and area lifecycle. Buildings and infrastructures are complex systems. Whether technical operation, strategic planning or infrastructural services – we ensure maximum availability, increase operational safety and improve comfort in buildings. In this way, we minimize costs and create optimal conditions so that our customers can concentrate on their core business. As a company of Equans Switzerland, the leading full-service provider for holistic building and energy solutions in Switzerland, we are also driving the transformation and digitalization of our customers and working together on the energy transition. Place of work Equans Switzerland Facility Management AG St. Gallerstrasse 161 8645 Jonah Your contact person Claudia BABOURI HR Business Partner +41 79 512 68 30",
+        "de": "Wir suchen in der Region Rapperswil-Jona per sofort oder nach Vereinbarung eine dienstleistungsorientierte, engagierte und motivierte Persönlichkeit. Hauswart:in\nDas kannst du bei uns bewegen.\nIn dieser vielseitigen Funktion betreust du mehrere Objekte vor Ort und bist die erste Ansprechperson für unsere Kunden. Deine Aufgaben umfassen:\n\n• Betreuung und Überwachung sämtlicher technischer Anlagen im Gebäude\n\n• Planung und Organisation von Reparatur-, Service- und Unterhaltsarbeiten\n\n• Überwachung, Begleitung und Kontrolle der ausgeführten Arbeiten von externen Dienstleistern\n\n• Unterstützung bei Projekten und Optimierungen in Zusammenarbeit mit internen und externen Stellen\n\n• Umsetzen von Kundenaufträgen\n\n• Durchführen von kleineren Reparatur- und Wartungsarbeiten an Anlagen und Infrastruktur\n\n• Ausführen von Grün- und Umgebungsarbeiten\n\n• Erledigung von administrativen Aufgaben im Rahmen deiner Tätigkeit\nDas macht dich aus.\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen Leistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst zudem folgendes mit:\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder eine handwerkliche Grundausbildung\n\n• Mehrjährige Berufserfahrung im Gebäudeunterhalt von Vorteil\n\n• Wohnort in der Region\n\n• Selbstständige, strukturierte Arbeitsweise und hohes Verantwortungsbewusstsein\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B\n\n• Bereitschaft für Pikettdienst\n\n• Einwandfreier Leumund\nDas bieten wir dir.\n\n• Eine spannende, verantwortungsvolle Aufgabe mit viel Gestaltungsspielraum\n\n• Ein eingespieltes Team mit offener Unternehmenskultur\n\n• Zeitgemässe Anstellungsbedingungen und gute Sozialleistungen\nEquans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\nArbeitsort\nEquans Switzerland Facility Management AG\nSt. Gallerstrasse 161\n8645 Jona\nDeine Kontaktperson\nClaudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
+        "fr": "Nous recherchons une personnalité axée sur le service, engagée et motivée dans la région de Rapperswil-Jona immédiatement ou d'un commun accord. Femme de ménage: Tu peux bouger ça avec nous. Dans cette fonction polyvalente, vous gérez plusieurs objets sur place et êtes la première personne de contact pour nos clients. Vos tâches comprennent:\n• Soutien et supervision de toutes les installations techniques du bâtiment\n• Planification et organisation des travaux de réparation, de service et d'entretien\n• Suivi, suivi et contrôle des travaux effectués par des prestataires de services extérieurs\n• Appui aux projets et optimisations en coopération avec des organismes internes et externes\n• Mise en œuvre des ordres des clients\n• Travaux mineurs de réparation et d ' entretien du matériel et des infrastructures\n• Réalisation de travaux verts et ambiants\n• Achèvement des tâches administratives dans le cadre de votre activité C'est ce qui te rend. Vous vous décrivez comme un prestataire de services : dans la conviction la plus intime. La rétroaction positive sur votre performance vous motive et vous pousse à d'autres performances supérieures. Vous apportez également ce qui suit:\n• Formation complétée en tant que spécialiste EFZ ou formation artisanale de base\n• Plusieurs années d'expérience professionnelle dans l'entretien des bâtiments sont avantageuses\n• Lieu de résidence dans la région\n• Méthodes de travail indépendantes et structurées et sens élevé des responsabilités\n• Bonne connaissance de l'allemand en mots et en écriture\n• Permis de conduire de catégorie B\n• Préparation au picetting\n• Gomme fiable C'est ce qu'on vous offre.\n• Une tâche passionnante et responsable avec beaucoup de liberté créative\n• Une équipe expérimentée avec une culture d'entreprise ouverte\n• Conditions d'emploi contemporaines et avantages sociaux Equans Suisse Facility Management AG. Façonner l'avenir ensemble. Nous nous spécialisons dans les services de gestion d'installations holistiques pour chaque phase de l'immobilier d'affaires et le cycle de vie de la région. Les bâtiments et les infrastructures sont des systèmes complexes. Qu'il s'agisse d'opérations techniques, de planification stratégique ou de services d'infrastructure, nous garantissons une disponibilité maximale, accroissons la sécurité opérationnelle et améliorons le confort des bâtiments. De cette façon, nous minimisons les coûts et créons des conditions optimales pour que nos clients puissent se concentrer sur leur activité principale. En tant qu'entreprise d'Equans Suisse, premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous sommes également à l'origine de la transformation et de la numérisation de nos clients et travaillons ensemble sur la transition énergétique. Lieu de travail Equans Suisse Facility Management AG St. Gallerstrasse 161 8645 Jonas Votre personne à contacter Claudia BABOURI Partenaire opérationnel RH +41 79 512 68 30"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
+      "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T22:32:08.332Z",
+      "addressLocality": "Rapperswil-Jona",
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallerstrasse 161",
+      "postalCode": "8645",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Facility Management / Impiantistica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/05a526c7-790c-405c-bdbb-25f614c9cd2a/",
+      "hiringOrganizationName": "Equans Switzerland AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "hauswart-in-equans-rapperswil-jona",
+        "menageuse-equans-switzerland-rapperswil-jona",
+        "custode-equans-switzerland-rapperswil-jona"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-equans-rapperswil-jona",
+          "custode-equans-switzerland-rapperswil-jona"
+        ],
+        "en": [
+          "hauswart-in-equans-rapperswil-jona"
+        ],
+        "fr": [
+          "hauswart-in-equans-rapperswil-jona",
+          "menageuse-equans-switzerland-rapperswil-jona"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:41:57.257Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -4022,7 +4133,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0f6eb8e6-db63-469f-bb9d-2cfa5626b440/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.513Z",
+      "crawledAt": "2026-07-10T22:32:07.836Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -4042,11 +4153,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleitende-r-installateur-in-elektro-equans-chur"
+        "bauleitende-r-installateur-in-elektro-equans-chur",
+        "responsabile-costruzioni-installatore-elettrico-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitende-r-installateur-in-elektro-equans-chur"
+          "bauleitende-r-installateur-in-elektro-equans-chur",
+          "responsabile-costruzioni-installatore-elettrico-equans-switzerland-chur"
         ],
         "en": [
           "bauleitende-r-installateur-in-elektro-equans-chur"
@@ -4100,7 +4213,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/8b379713-890c-4ad8-a138-e0b8a36009dd/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.399Z",
+      "crawledAt": "2026-07-10T22:32:06.580Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Industriestrasse 163",
@@ -4121,11 +4234,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicemonteur-in-schaltanlagenbau-equans-spreitenbach",
-        "monteur-de-service-dans-la-construction-d-interrupteurs-equans-switzerland-spreitenbach"
+        "monteur-de-service-dans-la-construction-d-interrupteurs-equans-switzerland-spreitenbach",
+        "tecnico-di-assistenza-per-la-costruzione-di-apparecchiature-elettriche-equans-switzerland-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemonteur-in-schaltanlagenbau-equans-spreitenbach"
+          "servicemonteur-in-schaltanlagenbau-equans-spreitenbach",
+          "tecnico-di-assistenza-per-la-costruzione-di-apparecchiature-elettriche-equans-switzerland-spreitenbach"
         ],
         "en": [
           "servicemonteur-in-schaltanlagenbau-equans-spreitenbach"
@@ -4180,7 +4295,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a6d4a846-df49-4d8a-a9c6-3a618971afdc/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.281Z",
+      "crawledAt": "2026-07-10T22:32:06.175Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Industriestrasse 163",
@@ -4201,11 +4316,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
-        "automatic-fitter-in-switchgear-construction-equans-switzerland-spreitenbach"
+        "automatic-fitter-in-switchgear-construction-equans-switzerland-spreitenbach",
+        "tecnico-di-centrali-automatiche-equans-switzerland-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+          "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
+          "tecnico-di-centrali-automatiche-equans-switzerland-spreitenbach"
         ],
         "en": [
           "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
@@ -4260,7 +4377,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6a31d360-f6f3-43fd-b6ba-f871f5b10503/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.167Z",
+      "crawledAt": "2026-07-10T22:32:05.686Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Rötzmattweg 115",
@@ -4280,11 +4397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleitende-r-monteur-in-elektro-equans-olten"
+        "bauleitende-r-monteur-in-elektro-equans-olten",
+        "responsabile-dei-lavori-elettricista-equans-switzerland-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitende-r-monteur-in-elektro-equans-olten"
+          "bauleitende-r-monteur-in-elektro-equans-olten",
+          "responsabile-dei-lavori-elettricista-equans-switzerland-olten"
         ],
         "en": [
           "bauleitende-r-monteur-in-elektro-equans-olten"
@@ -4338,7 +4457,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/680b5784-e86f-42f0-950a-10aee5436504/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:50.051Z",
+      "crawledAt": "2026-07-10T22:32:04.850Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -4360,12 +4479,14 @@
       "previousSlugs": [
         "servicetechniker-in-heizung-equans-luzern",
         "servicetechniker-in-heizung-equans-switzerland-luzern",
-        "technicien-de-service-dans-le-chauffage-equans-switzerland-luzern"
+        "technicien-de-service-dans-le-chauffage-equans-switzerland-luzern",
+        "tecnico-del-servizio-riscaldamento-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-heizung-equans-luzern",
-          "servicetechniker-in-heizung-equans-switzerland-luzern"
+          "servicetechniker-in-heizung-equans-switzerland-luzern",
+          "tecnico-del-servizio-riscaldamento-equans-switzerland-luzern"
         ],
         "en": [
           "servicetechniker-in-heizung-equans-luzern"
@@ -4420,7 +4541,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/d5eebd73-2e05-4978-b3aa-71f34c87e23d/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.931Z",
+      "crawledAt": "2026-07-10T22:32:04.499Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Ebisquare-Strasse 1",
@@ -4441,12 +4562,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitsmitarbeiter-in-equans-ebikon",
-        "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
+        "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
+        "dipendente-della-sicurezza-equans-switzerland-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsmitarbeiter-in-equans-ebikon",
-          "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
+          "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
+          "dipendente-della-sicurezza-equans-switzerland-ebikon"
         ],
         "en": [
           "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
@@ -4500,7 +4623,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/69447e0c-b3a6-435f-92a1-c5e043f609f5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.813Z",
+      "crawledAt": "2026-07-10T22:32:04.384Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -4521,11 +4644,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "serviceleiter-in-luftung-klima-equans-luzern",
-        "responsable-de-service-dans-le-climat-de-ventilation-equans-switzerland-luzern"
+        "responsable-de-service-dans-le-climat-de-ventilation-equans-switzerland-luzern",
+        "responsabile-del-servizio-ventilazione-aria-condizionata-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serviceleiter-in-luftung-klima-equans-luzern"
+          "serviceleiter-in-luftung-klima-equans-luzern",
+          "responsabile-del-servizio-ventilazione-aria-condizionata-equans-switzerland-luzern"
         ],
         "en": [
           "serviceleiter-in-luftung-klima-equans-luzern"
@@ -4580,7 +4705,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/37dcaa53-3692-4e15-8351-e00b0c6f1c35/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.670Z",
+      "crawledAt": "2026-07-10T22:32:03.657Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -4601,11 +4726,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "serviceleiter-in-sanitar-equans-luzern",
-        "gestionnaire-de-service-en-sanitaire-equans-switzerland-luzern"
+        "gestionnaire-de-service-en-sanitaire-equans-switzerland-luzern",
+        "responsabile-del-servizio-sanitario-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serviceleiter-in-sanitar-equans-luzern"
+          "serviceleiter-in-sanitar-equans-luzern",
+          "responsabile-del-servizio-sanitario-equans-switzerland-luzern"
         ],
         "en": [
           "serviceleiter-in-sanitar-equans-luzern"
@@ -4660,7 +4787,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/ddde6dd9-7bc3-479f-b0b7-12383afcbd9a/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:13:49.555Z",
+      "crawledAt": "2026-07-10T22:32:03.213Z",
       "addressLocality": "Rivera",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -4724,7 +4851,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/60f922da-4da2-4f66-a0b9-44be0d1c17be/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.417Z",
+      "crawledAt": "2026-07-10T22:32:02.064Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -4744,11 +4871,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-st-gallen"
+        "projektleiter-in-gebaudeautomation-equans-st-gallen",
+        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-st-gallen"
+          "projektleiter-in-gebaudeautomation-equans-st-gallen",
+          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-st-gallen"
@@ -4802,7 +4931,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/eefdca3d-ed7b-4f7f-afcb-3bab4a30b895/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.299Z",
+      "crawledAt": "2026-07-10T22:32:01.953Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Holeestrasse 87",
@@ -4823,11 +4952,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bereichsleiter-in-service-hlkks-equans-basel",
-        "directeur-de-division-en-service-hlkks-equans-switzerland-basel"
+        "directeur-de-division-en-service-hlkks-equans-switzerland-basel",
+        "capo-del-servizio-hvacr-equans-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-service-hlkks-equans-basel"
+          "bereichsleiter-in-service-hlkks-equans-basel",
+          "capo-del-servizio-hvacr-equans-switzerland-basel"
         ],
         "en": [
           "bereichsleiter-in-service-hlkks-equans-basel"
@@ -4882,7 +5013,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6cbc7268-4d81-41ee-bfae-a0cabc7e7261/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.182Z",
+      "crawledAt": "2026-07-10T22:32:01.261Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "streetAddress": "Brandstrasse 24",
@@ -4902,11 +5033,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-energiemanager-equans-schlieren"
+        "senior-energiemanager-equans-schlieren",
+        "senior-energy-manager-equans-switzerland-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-energiemanager-equans-schlieren"
+          "senior-energiemanager-equans-schlieren",
+          "senior-energy-manager-equans-switzerland-schlieren"
         ],
         "en": [
           "senior-energiemanager-equans-schlieren"
@@ -4960,7 +5093,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/535231ff-282d-446f-b6a7-e7451c160e94/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:49.067Z",
+      "crawledAt": "2026-07-10T22:32:00.658Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Zollhausstrasse 2",
@@ -4981,12 +5114,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
-        "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern"
+        "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern",
+        "tecnico-del-servizio-refrigerazione-tecnico-dei-sistemi-di-refrigerazione-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
-          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern"
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern",
+          "tecnico-del-servizio-refrigerazione-tecnico-dei-sistemi-di-refrigerazione-equans-switzerland-luzern"
         ],
         "en": [
           "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
@@ -5040,7 +5175,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b24e9a7d-828f-4bca-85be-72299b43fcb0/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.952Z",
+      "crawledAt": "2026-07-10T22:31:59.673Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -5062,11 +5197,13 @@
       "previousSlugs": [
         "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
         "construction-manager-r-ventilation-installer-in-equans-switzerland-st-gallen",
-        "gestionnaire-de-construction-r-installateur-de-ventilation-in-equans-switzerland-st-gallen"
+        "gestionnaire-de-construction-r-installateur-de-ventilation-in-equans-switzerland-st-gallen",
+        "responsabile-costruzioni-tecnico-della-ventilazione-equans-switzerland-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+          "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
+          "responsabile-costruzioni-tecnico-della-ventilazione-equans-switzerland-st-gallen"
         ],
         "en": [
           "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
@@ -5122,7 +5259,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/34e7d249-b2de-4b88-acb9-bb3b693f0ef8/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.837Z",
+      "crawledAt": "2026-07-10T22:31:59.240Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -5143,12 +5280,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-luftung-klima-equans-st-gallen",
-        "servicetechniker-in-luftung-klima-equans-switzerland-st-gallen"
+        "servicetechniker-in-luftung-klima-equans-switzerland-st-gallen",
+        "tecnico-del-servizio-ventilazione-e-condizionamento-aria-equans-switzerland-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-luftung-klima-equans-st-gallen",
-          "servicetechniker-in-luftung-klima-equans-switzerland-st-gallen"
+          "servicetechniker-in-luftung-klima-equans-switzerland-st-gallen",
+          "tecnico-del-servizio-ventilazione-e-condizionamento-aria-equans-switzerland-st-gallen"
         ],
         "en": [
           "servicetechniker-in-luftung-klima-equans-st-gallen"
@@ -5202,7 +5341,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/e4d2e3aa-663b-4f98-bc01-210c2079253b/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.722Z",
+      "crawledAt": "2026-07-10T22:31:58.863Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lindentalstrasse 10",
@@ -5222,11 +5361,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montageleiter-in-heizung-kalte-equans-st-gallen"
+        "montageleiter-in-heizung-kalte-equans-st-gallen",
+        "responsabile-installazione-riscaldamento-refrigerazione-equans-switzerland-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montageleiter-in-heizung-kalte-equans-st-gallen"
+          "montageleiter-in-heizung-kalte-equans-st-gallen",
+          "responsabile-installazione-riscaldamento-refrigerazione-equans-switzerland-st-gallen"
         ],
         "en": [
           "montageleiter-in-heizung-kalte-equans-st-gallen"
@@ -5266,7 +5407,7 @@
         "it": "Tecnico/a di servizio Elektro",
         "en": "Service Technician Elektro",
         "de": "Servicetechniker/in Elektro",
-        "fr": "Technicien de service/électrique"
+        "fr": "Servicetechniker/in Elektro"
       },
       "description": "Zur Verstärkung unseres Teams am Standort Bern suchen wir per sofort oder nach Vereinbarung eine/n Servicetechniker/in Elektro Servicetechniker/in Elektro\n Das kannst du bei uns bewegen.\n\n• Instandhaltungs- und Servicearbeiten\n\n• Pflege des Kundenstamms\n\n• Entgegennahme und Behebungen von Störungen\n\n• Koordination und Kommunikation mit Teammitgliedern\n\n• Optimierungsvorschläge für Elektro-Anlagen ermitteln und weiterleiten\n\n• Pikettdienst in vordefinierten Intervallen\n Das macht dich aus.\n\n• Grundausbildung im Bereich Elektro (Elektroinstallateur EFZ)\n\n• Mehrjährige Berufserfahrung als Servicetechniker Elektro\n\n• Sehr hohe Sozialkompetenzen\n\n• Zuverlässige und verantwortungsvolle Persönlichkeit mit einem gepflegten Erscheinungsbild\n\n• MS-Office Anwenderkenntnisse\n Das bieten wir dir.\n\n• Vielseitige Tätigkeit\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Lebhaftes und herausforderndes Umfeld\n\n• Attraktive Sozialleistungen und Anstellungsbedingungen\n\n• Die Arbeitsatmosphäre wie in einem Familienunternehmen, modernste Arbeitsmittel und die Sicherheit eines Grosskonzerns\n Equans Switzerland. Gemeinsam Zukunft gestalten.\n Als führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\n Arbeitsort\n Equans Switzerland AG\nWeltpostrasse 5\n3015 Bern\n Deine Kontaktperson\n Basil BRÄNDLE\nHR Business Partner",
       "descriptionByLocale": {
@@ -5280,7 +5421,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/9b890159-bdf6-4d3b-95b0-1015eddf3d03/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.606Z",
+      "crawledAt": "2026-07-10T22:31:58.476Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -5300,11 +5441,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-elektro-equans-bern"
+        "servicetechniker-in-elektro-equans-bern",
+        "tecnico-a-di-servizio-elektro-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-elektro-equans-bern"
+          "servicetechniker-in-elektro-equans-bern",
+          "tecnico-a-di-servizio-elektro-equans-switzerland-bern"
         ],
         "en": [
           "servicetechniker-in-elektro-equans-bern"
@@ -5314,6 +5457,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:48.232Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5358,7 +5502,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0562e815-4614-47d9-ac9f-95a9ac8b6596/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.467Z",
+      "crawledAt": "2026-07-10T22:31:58.044Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse 5",
@@ -5378,11 +5522,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-luftung-equans-bern"
+        "servicetechniker-in-luftung-equans-bern",
+        "tecnico-a-di-servizio-luftung-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-luftung-equans-bern"
+          "servicetechniker-in-luftung-equans-bern",
+          "tecnico-a-di-servizio-luftung-equans-switzerland-bern"
         ],
         "en": [
           "servicetechniker-in-luftung-equans-bern"
@@ -5436,7 +5582,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6430f86c-0194-4815-a735-2a23436c5d62/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:13:48.353Z",
+      "crawledAt": "2026-07-10T22:31:57.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -5457,15 +5603,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-sachbearbeiter-in-fr-de-equans-zurich",
-        "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich"
+        "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich",
+        "risorse-umane-sachbearbeiter-in-fr-de-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-sachbearbeiter-in-fr-de-equans-zurich",
-          "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich"
+          "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich",
+          "risorse-umane-sachbearbeiter-in-fr-de-equans-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:47.418Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5510,7 +5659,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3bb94161-97fb-437e-8bfe-b0259e0cd50d/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.234Z",
+      "crawledAt": "2026-07-10T22:31:57.410Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -5530,11 +5679,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-r-allrounder-in-equans-zurich"
+        "technische-r-allrounder-in-equans-zurich",
+        "tecnicamente-tuttofare-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-allrounder-in-equans-zurich"
+          "technische-r-allrounder-in-equans-zurich",
+          "tecnicamente-tuttofare-equans-switzerland-zurich"
         ],
         "en": [
           "technische-r-allrounder-in-equans-zurich"
@@ -5588,7 +5739,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/edf25f4e-3781-4e10-a5a1-8b2c8c4d31a4/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:48.117Z",
+      "crawledAt": "2026-07-10T22:31:57.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -5608,17 +5759,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contract-manager-in-cm-equans-zurich"
+        "contract-manager-in-cm-equans-zurich",
+        "responsabile-dei-contratti-cm-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "contract-manager-in-cm-equans-zurich"
+          "contract-manager-in-cm-equans-zurich",
+          "responsabile-dei-contratti-cm-equans-switzerland-zurich"
         ],
         "fr": [
           "contract-manager-in-cm-equans-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:47.226Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5663,7 +5817,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/31902142-d2c8-4c52-9391-32d7969d1aa5/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.996Z",
+      "crawledAt": "2026-07-10T22:31:56.610Z",
       "addressLocality": "Sisseln",
       "addressRegion": "AG",
       "streetAddress": "Hauptstrasse 4",
@@ -5683,11 +5837,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "instandhalter-in-kraftwerkstechnik-equans-sisseln"
+        "instandhalter-in-kraftwerkstechnik-equans-sisseln",
+        "tecnico-di-manutenzione-tecnologia-delle-centrali-elettriche-equans-switzerland-sisseln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhalter-in-kraftwerkstechnik-equans-sisseln"
+          "instandhalter-in-kraftwerkstechnik-equans-sisseln",
+          "tecnico-di-manutenzione-tecnologia-delle-centrali-elettriche-equans-switzerland-sisseln"
         ],
         "en": [
           "instandhalter-in-kraftwerkstechnik-equans-sisseln"
@@ -5741,7 +5897,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/39910467-9616-4e52-a8f7-5913509b8307/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:13:47.876Z",
+      "crawledAt": "2026-07-10T22:31:56.171Z",
       "addressLocality": "Monteceneri",
       "addressRegion": "TI",
       "streetAddress": "Via Cantonale 43",
@@ -5805,7 +5961,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1dc65496-7a4f-458a-94ea-a9c9e7b8ac8b/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.759Z",
+      "crawledAt": "2026-07-10T22:31:56.064Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -5825,11 +5981,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleitende-r-monteur-in-heizung-kalte-equans-chur"
+        "bauleitende-r-monteur-in-heizung-kalte-equans-chur",
+        "direttore-della-costruzione-r-installer-in-riscaldamento-freddo-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitende-r-monteur-in-heizung-kalte-equans-chur"
+          "bauleitende-r-monteur-in-heizung-kalte-equans-chur",
+          "direttore-della-costruzione-r-installer-in-riscaldamento-freddo-equans-switzerland-chur"
         ],
         "en": [
           "bauleitende-r-monteur-in-heizung-kalte-equans-chur"
@@ -5883,7 +6041,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/9b30bdd2-c3df-408d-8fe2-b5f1290190e7/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.641Z",
+      "crawledAt": "2026-07-10T22:31:55.305Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Triststrasse 3",
@@ -5904,12 +6062,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-luftung-klima-equans-chur",
-        "servicetechniker-in-luftung-klima-equans-switzerland-chur"
+        "servicetechniker-in-luftung-klima-equans-switzerland-chur",
+        "tecnico-di-servizio-in-ventilazione-clima-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-luftung-klima-equans-chur",
-          "servicetechniker-in-luftung-klima-equans-switzerland-chur"
+          "servicetechniker-in-luftung-klima-equans-switzerland-chur",
+          "tecnico-di-servizio-in-ventilazione-clima-equans-switzerland-chur"
         ],
         "en": [
           "servicetechniker-in-luftung-klima-equans-chur"
@@ -5951,11 +6111,11 @@
         "de": "Mitarbeiter:in Infopoint (Springer:in)",
         "fr": "Collaborateur/trice Infopoint (Springer:in)"
       },
-      "description": "Zur Verstärkung unseres Teams im Mandat Mall of Switzerland suchen wir per August 2026 eine sehr flexible, dienstleistungsorientierte und engagierte Persönlichkeit. Mitarbeiter:in Infopoint (Springer:in)\n Das kannst du bei uns bewegen.\n Als Mitarbeiter:in Infopoint bist du die erste Ansprechperson für unsere Kunden. Neben repräsentativen Aufgaben sind Dienstleistungen im Bereich Parking und Integration im Sicherheitsdispositiv inbegriffen:\n\n• Freundlicher und kompetenter Empfang von Besuchern, sowie deren Zuweisung und Anmeldung\n\n• Auskünfte erteilen\n\n• Störungsmeldungen, Reklamationen und Auftragsmeldungen an die zuständigen Stellen weiterleiten\n\n• Gegensprechanlage des Parkhauses bedienen\n\n• Administrative Arbeiten\n\n• Parkbereich überwachen und Schranken steuern\n\n• Aktive Mithilfe in der Sicherheitsorganisation\n\n• Der Verleih und Verkauf diverser Artikel\n Die Einsätze finden jeweils am Mittwoch von 8:45 - 14:15 Uhr und am Freitag von 15:00 - 21:15 Uhr statt. Ausserdem bist du bereit und flexibel, bei kurzfristigen Absenzen wie Krankheit oder während den Ferien deiner Kolleg:innen mehr Schichten zu übernehmen. Das macht dich aus.\n Du bezeichnest dich als Dienstleister:in aus innerster Überzeugung mit einer offenen und herzlichen Art. Flexibilität, Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit gehören ebenfalls zu deinen Charaktereigenschaften.\n\n• Kaufmännische Lehre, Hotelfachschule oder gleichwertige Ausbildung\n\n• Berufserfahrung an einer Reception oder im Büro mit Kundenkontakt von Vorteil\n\n• Zwingend sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch und Italienisch von Vorteil\n\n• Kommunikative und schnell denkende Persönlichkeit\n\n• Versierter Umgang mit Kommunikationsmitteln und elektronischen Hilfsmitteln\n\n• Gepflegtes Erscheinungsbild\n Das bieten wir dir.\n Wir bieten dir eine verantwortungsvolle und interessante Aufgabe mit viel Platz für Eigeninitiative in einem spannenden Berufsumfeld.\n\nWir freuen uns auf deine komplette Bewerbung.\n Equans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\n Wir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\n Arbeitsort\n Equans Switzerland Facility Management AG\nEbisquare-Strasse 1\n6030 Ebikon\n Deine Kontaktperson\n Claudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
+      "description": "Zur Verstärkung unseres Teams im Mandat Mall of Switzerland suchen wir per August 2026 eine sehr flexible , dienstleistungsorientierte und engagierte Persönlichkeit. Mitarbeiter:in Infopoint (Springer:in)\n Das kannst du bei uns bewegen.\n Als Mitarbeiter:in Infopoint bist du die erste Ansprechperson für unsere Kunden. Neben repräsentativen Aufgaben sind Dienstleistungen im Bereich Parking und Integration im Sicherheitsdispositiv inbegriffen:\n\n• Freundlicher und kompetenter Empfang von Besuchern, sowie deren Zuweisung und Anmeldung\n\n• Auskünfte erteilen\n\n• Störungsmeldungen, Reklamationen und Auftragsmeldungen an die zuständigen Stellen weiterleiten\n\n• Gegensprechanlage des Parkhauses bedienen\n\n• Administrative Arbeiten\n\n• Parkbereich überwachen und Schranken steuern\n\n• Aktive Mithilfe in der Sicherheitsorganisation\n\n• Der Verleih und Verkauf diverser Artikel\n Die Einsätze finden jeweils am Freitag von 15:00 - 21:15 Uhr statt. Ausserdem bist du bereit und flexibel, bei kurzfristigen Absenzen wie Krankheit oder während den Ferien deiner Kolleg:innen mehr Schichten zu übernehmen. Das macht dich aus.\n Du bezeichnest dich als Dienstleister:in aus innerster Überzeugung mit einer offenen und herzlichen Art. Flexibilität, Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit gehören ebenfalls zu deinen Charaktereigenschaften.\n\n• Kaufmännische Lehre, Hotelfachschule oder gleichwertige Ausbildung\n\n• Berufserfahrung an einer Reception oder im Büro mit Kundenkontakt von Vorteil\n\n• Zwingend sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch und Italienisch von Vorteil\n\n• Kommunikative und schnell denkende Persönlichkeit\n\n• Versierter Umgang mit Kommunikationsmitteln und elektronischen Hilfsmitteln\n\n• Gepflegtes Erscheinungsbild\n Das bieten wir dir.\n Wir bieten dir eine verantwortungsvolle und interessante Aufgabe mit viel Platz für Eigeninitiative in einem spannenden Berufsumfeld.\n\nWir freuen uns auf deine komplette Bewerbung.\n Equans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\n Wir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\n Arbeitsort\n Equans Switzerland Facility Management AG\nEbisquare-Strasse 1\n6030 Ebikon\n Deine Kontaktperson\n Claudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
       "descriptionByLocale": {
         "it": "Al fine di rafforzare il nostro team nel centro commerciale Mandate di Svizzera, stiamo cercando una personalità molto flessibile, orientata al servizio e impegnata a partire dall'agosto 2026. Dipendenti:in Infopoint (Springer:in) Puoi spostarlo con noi. Come dipendente: in Infopoint sei la prima persona di contatto per i nostri clienti. Oltre ai compiti rappresentativi, i servizi nel settore del parcheggio e dell'integrazione sono inclusi nell'attrezzatura di sicurezza:\n• Accoglienza amichevole e competente dei visitatori, nonché la loro allocazione e registrazione\n• Informazioni da fornire\n• Resoconti di malfunzionamento, reclami e segnalazioni di ordini agli organi competenti\n• Sistema interfono operativo del parcheggio\n• Lavoro amministrativo\n• Monitorare aree di parcheggio e barriere di controllo\n• Assistenza attiva nell'organizzazione della sicurezza\n• Il noleggio e la vendita di vari articoli Le missioni si svolgono mercoledì dalle 8:45 alle 14:15 e venerdì dalle 15:00 alle 21:15. Inoltre, sei pronto e flessibile per assumere più turni durante le assenze a breve termine come la malattia o durante le vacanze dei tuoi colleghi. E' questo che ti rende. Ti descrivi come fornitore di servizi: dalla convinzione più intima con un modo aperto e cordiale. Flessibilità, affidabilità, indipendenza e lavoro di squadra sono anche tra i tuoi tratti di carattere.\n• Apprendistato commerciale, scuola alberghiera o istruzione equivalente\n• Esperienza professionale presso una reception o in ufficio con contatto cliente è vantaggioso\n• Compellingly molto buona conoscenza di tedesco e inglese in parola e scrittura, francese e italiano è vantaggioso\n• Personalità comunicativa e decisa\n• Uso adeguato dei mezzi di comunicazione e degli aiuti elettronici\n• Aspetto principale E' quello che ti offriamo. Vi offriamo un compito responsabile e interessante con un sacco di spazio per l'iniziativa in un ambiente professionale emozionante. Attendiamo con ansia la vostra applicazione completa. Equans Svizzera Facility Management AG. Dipingere il futuro insieme. Siamo specializzati in servizi di gestione di strutture olistiche per ogni fase del business real estate e area ciclo di vita. Gli edifici e le infrastrutture sono sistemi complessi. Sia il funzionamento tecnico, la pianificazione strategica o i servizi infrastrutturali – garantiamo la massima disponibilità, aumentiamo la sicurezza operativa e miglioriamo il comfort degli edifici. In questo modo, minimizziamo i costi e creiamo condizioni ottimali in modo che i nostri clienti possano concentrarsi sul loro core business. In qualità di azienda di Equans Svizzera, il principale fornitore di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo anche guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica. Luogo di lavoro Equans Svizzera Facility Management AG Ebisquare Road 1 6030 Ebikon La persona di contatto Claudia BABOURI HR Business Partner +41 79 512 68 30",
         "en": "In order to strengthen our team in the Mandate Mall of Switzerland, we are looking for a very flexible, service-oriented and committed personality as of August 2026. Employee:in Infopoint (Springer:in) You can move that with us. As an employee: in Infopoint you are the first contact person for our customers. In addition to representative tasks, services in the field of parking and integration are included in the security equipment:\n• Friendly and competent reception of visitors, as well as their allocation and registration\n• Information to be provided\n• Forward malfunction reports, complaints and order reports to the competent bodies\n• Operating intercom system of the car park\n• Administrative work\n• Monitor parking areas and control barriers\n• Active assistance in the security organisation\n• The rental and sale of various articles The missions take place on Wednesday from 8:45 - 14:15 and on Friday from 15:00 - 21:15. In addition, you are ready and flexible to take on more shifts during short-term absences such as illness or during the holidays of your colleagues. That's what makes you. You describe yourself as a service provider: from the innermost conviction with an open and cordial manner. Flexibility, reliability, independence and teamwork are also among your character traits.\n• Commercial apprenticeship, hotel school or equivalent education\n• Professional experience at a reception or in the office with customer contact is advantageous\n• Compellingly very good knowledge of German and English in word and writing, French and Italian is advantageous\n• Communicative and fast-thinking personality\n• Adept use of means of communication and electronic aids\n• Maintained appearance That's what we offer you. We offer you a responsible and interesting task with plenty of space for initiative in an exciting professional environment. We look forward to your complete application. Equans Switzerland Facility Management AG. Shaping the future together. We specialize in holistic facilities management services for every phase of the business real estate and area lifecycle. Buildings and infrastructures are complex systems. Whether technical operation, strategic planning or infrastructural services – we ensure maximum availability, increase operational safety and improve comfort in buildings. In this way, we minimize costs and create optimal conditions so that our customers can concentrate on their core business. As a company of Equans Switzerland, the leading full-service provider for holistic building and energy solutions in Switzerland, we are also driving the transformation and digitalization of our customers and working together on the energy transition. Place of work Equans Switzerland Facility Management AG Ebisquare Road 1 6030 Ebikon Your contact person Claudia BABOURI HR Business Partner +41 79 512 68 30",
-        "de": "Zur Verstärkung unseres Teams im Mandat Mall of Switzerland suchen wir per August 2026 eine sehr flexible, dienstleistungsorientierte und engagierte Persönlichkeit. Mitarbeiter:in Infopoint (Springer:in)\nDas kannst du bei uns bewegen.\nAls Mitarbeiter:in Infopoint bist du die erste Ansprechperson für unsere Kunden. Neben repräsentativen Aufgaben sind Dienstleistungen im Bereich Parking und Integration im Sicherheitsdispositiv inbegriffen:\n\n• Freundlicher und kompetenter Empfang von Besuchern, sowie deren Zuweisung und Anmeldung\n\n• Auskünfte erteilen\n\n• Störungsmeldungen, Reklamationen und Auftragsmeldungen an die zuständigen Stellen weiterleiten\n\n• Gegensprechanlage des Parkhauses bedienen\n\n• Administrative Arbeiten\n\n• Parkbereich überwachen und Schranken steuern\n\n• Aktive Mithilfe in der Sicherheitsorganisation\n\n• Der Verleih und Verkauf diverser Artikel\nDie Einsätze finden jeweils am Mittwoch von 8:45 - 14:15 Uhr und am Freitag von 15:00 - 21:15 Uhr statt. Ausserdem bist du bereit und flexibel, bei kurzfristigen Absenzen wie Krankheit oder während den Ferien deiner Kolleg:innen mehr Schichten zu übernehmen. Das macht dich aus.\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung mit einer offenen und herzlichen Art. Flexibilität, Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit gehören ebenfalls zu deinen Charaktereigenschaften.\n\n• Kaufmännische Lehre, Hotelfachschule oder gleichwertige Ausbildung\n\n• Berufserfahrung an einer Reception oder im Büro mit Kundenkontakt von Vorteil\n\n• Zwingend sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch und Italienisch von Vorteil\n\n• Kommunikative und schnell denkende Persönlichkeit\n\n• Versierter Umgang mit Kommunikationsmitteln und elektronischen Hilfsmitteln\n\n• Gepflegtes Erscheinungsbild\nDas bieten wir dir.\nWir bieten dir eine verantwortungsvolle und interessante Aufgabe mit viel Platz für Eigeninitiative in einem spannenden Berufsumfeld.\n\nWir freuen uns auf deine komplette Bewerbung.\nEquans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\nArbeitsort\nEquans Switzerland Facility Management AG\nEbisquare-Strasse 1\n6030 Ebikon\nDeine Kontaktperson\nClaudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
+        "de": "Zur Verstärkung unseres Teams im Mandat Mall of Switzerland suchen wir per August 2026 eine sehr flexible , dienstleistungsorientierte und engagierte Persönlichkeit. Mitarbeiter:in Infopoint (Springer:in)\nDas kannst du bei uns bewegen.\nAls Mitarbeiter:in Infopoint bist du die erste Ansprechperson für unsere Kunden. Neben repräsentativen Aufgaben sind Dienstleistungen im Bereich Parking und Integration im Sicherheitsdispositiv inbegriffen:\n\n• Freundlicher und kompetenter Empfang von Besuchern, sowie deren Zuweisung und Anmeldung\n\n• Auskünfte erteilen\n\n• Störungsmeldungen, Reklamationen und Auftragsmeldungen an die zuständigen Stellen weiterleiten\n\n• Gegensprechanlage des Parkhauses bedienen\n\n• Administrative Arbeiten\n\n• Parkbereich überwachen und Schranken steuern\n\n• Aktive Mithilfe in der Sicherheitsorganisation\n\n• Der Verleih und Verkauf diverser Artikel\nDie Einsätze finden jeweils am Freitag von 15:00 - 21:15 Uhr statt. Ausserdem bist du bereit und flexibel, bei kurzfristigen Absenzen wie Krankheit oder während den Ferien deiner Kolleg:innen mehr Schichten zu übernehmen. Das macht dich aus.\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung mit einer offenen und herzlichen Art. Flexibilität, Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit gehören ebenfalls zu deinen Charaktereigenschaften.\n\n• Kaufmännische Lehre, Hotelfachschule oder gleichwertige Ausbildung\n\n• Berufserfahrung an einer Reception oder im Büro mit Kundenkontakt von Vorteil\n\n• Zwingend sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch und Italienisch von Vorteil\n\n• Kommunikative und schnell denkende Persönlichkeit\n\n• Versierter Umgang mit Kommunikationsmitteln und elektronischen Hilfsmitteln\n\n• Gepflegtes Erscheinungsbild\nDas bieten wir dir.\nWir bieten dir eine verantwortungsvolle und interessante Aufgabe mit viel Platz für Eigeninitiative in einem spannenden Berufsumfeld.\n\nWir freuen uns auf deine komplette Bewerbung.\nEquans Switzerland Facility Management AG. Gemeinsam Zukunft gestalten.\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.\nArbeitsort\nEquans Switzerland Facility Management AG\nEbisquare-Strasse 1\n6030 Ebikon\nDeine Kontaktperson\nClaudia BABOURI\nHR Business Partner\n+41 79 512 68 30",
         "fr": "Afin de renforcer notre équipe dans le centre commercial Mandat de Suisse, nous recherchons une personnalité très flexible, orientée vers le service et engagée à partir d'août 2026. Employé : dans Infopoint (printemps : dans) Tu peux bouger ça avec nous. En tant qu'employé : dans Infopoint, vous êtes la première personne-ressource pour nos clients. Outre les tâches représentatives, les services de stationnement et d'intégration sont inclus dans le matériel de sécurité :\n• Réception amicale et compétente des visiteurs, ainsi que leur affectation et leur inscription\n• Informations à fournir\n• Transmission des rapports de dysfonctionnement, des plaintes et des ordres aux organismes compétents\n• Système d'interphone opérationnel du parking\n• Travaux administratifs\n• Surveiller les aires de stationnement et les barrières de contrôle\n• Assistance active dans l'organisation de sécurité\n• Location et vente de divers articles Les missions ont lieu le mercredi de 8 h 45 à 14 h 15 et le vendredi de 15 heures à 21 h 15. De plus, vous êtes prêt et flexible à prendre plus de postes pendant les absences de courte durée comme la maladie ou les vacances de vos collègues. C'est ce qui te rend. Vous vous décrivez comme un prestataire de services: de la conviction la plus intime avec une manière ouverte et cordiale. La flexibilité, la fiabilité, l'indépendance et le travail d'équipe font également partie de vos traits de caractère.\n• Apprentissage commercial, école hôtelière ou enseignement équivalent\n• Une expérience professionnelle à la réception ou au bureau avec contact client est avantageuse\n• Complètement très bonne connaissance de l'allemand et de l'anglais dans la parole et l'écriture, le français et l'italien est avantageux\n• Personnalité communicative et pensée rapide\n• Utilisation appropriée des moyens de communication et des aides électroniques\n• Aspect maintenu C'est ce qu'on vous offre. Nous vous offrons une tâche responsable et intéressante avec beaucoup d'espace pour l'initiative dans un environnement professionnel passionnant. Nous attendons avec impatience votre candidature complète. Equans Suisse Facility Management AG. Façonner l'avenir ensemble. Nous nous spécialisons dans les services de gestion d'installations holistiques pour chaque phase de l'immobilier d'affaires et le cycle de vie de la région. Les bâtiments et les infrastructures sont des systèmes complexes. Qu'il s'agisse d'opérations techniques, de planification stratégique ou de services d'infrastructure, nous garantissons une disponibilité maximale, accroissons la sécurité opérationnelle et améliorons le confort des bâtiments. De cette façon, nous minimisons les coûts et créons des conditions optimales pour que nos clients puissent se concentrer sur leur activité principale. En tant qu'entreprise d'Equans Suisse, premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous sommes également à l'origine de la transformation et de la numérisation de nos clients et travaillons ensemble sur la transition énergétique. Lieu de travail Equans Suisse Facility Management AG Route Ebisquare 1 6030 Ebikon Votre personne à contacter Claudia BABOURI Partenaire opérationnel RH +41 79 512 68 30"
       },
       "location": "Ebikon",
@@ -5963,7 +6123,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f6c0dc49-920c-45f5-a829-8b0cb53642db/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.528Z",
+      "crawledAt": "2026-07-10T22:31:54.432Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Ebisquare strasse 1",
@@ -5983,11 +6143,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-infopoint-springer-in-equans-ebikon"
+        "mitarbeiter-in-infopoint-springer-in-equans-ebikon",
+        "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-infopoint-springer-in-equans-ebikon"
+          "mitarbeiter-in-infopoint-springer-in-equans-ebikon",
+          "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon"
         ],
         "en": [
           "mitarbeiter-in-infopoint-springer-in-equans-ebikon"
@@ -6041,7 +6203,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/22180974-8126-447f-be5f-6f685c60d03e/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.412Z",
+      "crawledAt": "2026-07-10T22:31:54.323Z",
       "addressLocality": "Brig-Glis",
       "addressRegion": "VS",
       "streetAddress": "Grabenweg 5",
@@ -6061,11 +6223,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicemonteur-in-luftung-klima-equans-brig-glis"
+        "servicemonteur-in-luftung-klima-equans-brig-glis",
+        "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemonteur-in-luftung-klima-equans-brig-glis"
+          "servicemonteur-in-luftung-klima-equans-brig-glis",
+          "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis"
         ],
         "en": [
           "servicemonteur-in-luftung-klima-equans-brig-glis"
@@ -6119,7 +6283,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/aadafca7-76dc-4345-becd-7ef079cc58b2/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.292Z",
+      "crawledAt": "2026-07-10T22:31:53.797Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Mattenstrasse 165",
@@ -6140,12 +6304,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-elektro-w-m-d-equans-biel",
-        "projektleiter-elektro-m-w-d-equans-switzerland-biel"
+        "projektleiter-elektro-m-w-d-equans-switzerland-biel",
+        "project-manager-electric-f-m-d-equans-switzerland-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-elektro-w-m-d-equans-biel",
-          "projektleiter-elektro-m-w-d-equans-switzerland-biel"
+          "projektleiter-elektro-m-w-d-equans-switzerland-biel",
+          "project-manager-electric-f-m-d-equans-switzerland-biel"
         ],
         "en": [
           "projektleiter-elektro-w-m-d-equans-biel"
@@ -6185,7 +6351,7 @@
         "it": "Fiocco automatico",
         "en": "Automatic fitter",
         "de": "Automatikmonteur/in",
-        "fr": "Monteur automatique"
+        "fr": "Automatikmonteur/in"
       },
       "description": "Zur Verstärkung unseres Teams am Standort Brig suchen wir nach Vereinbarung eine/n Automatikmonteur/in. Automatikmonteur/in\n Das kannst du bei uns bewegen.\n\n• Montage und Verdrahtung von Schaltanlagen und Steuerungen\n\n• Durchführung von Änderungen sowie Ergänzungen an bestehenden Anlagen\n\n• Servicearbeiten an bestehenden Anlagen bei den Kunden\n\n• Arbeitsvorbereitung und Materialdisposition in Zusammenarbeit mit dem Teamleiter\n Das macht dich aus.\n\n• Grundausbildung als Automatiker/in, Elektroinstallateur/in oder Automatikmonteur/in\n\n• Mehrjährige Berufserfahrung im Schaltanlagenbau\n\n• Sehr gute Kenntnisse im Lesen von Schemas\n\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n\n• Ausgeprägte Team- und Kundenorientierung\n\n• Deutsch in Wort und Schrift\n Das bieten wir dir.\n\n• Vielseitige Tätigkeit\n\n• Aufgestelltes Team\n\n• Lebhaftes und herausforderndes Umfeld\n\n• Attraktive Sozialleistungen\n\n• Ausgezeichnet mit dem Friendly Work Space Label\n\n• Interne sowie Externe Weiterbildungsmöglichkeiten\n\n• Mithilfe Entwicklung der Abteilung Elektro\n Equans Switzerland. Gemeinsam Zukunft gestalten.\n Als führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\n Arbeitsort\n Equans Switzerland AG\nGrosser Grabenweg 5\n3902 Valais\n Deine Kontaktperson\n Andrea FEUZ\nHR Business Partner",
       "descriptionByLocale": {
@@ -6199,7 +6365,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b9ba3d93-53c6-4315-a95c-14b14692469f/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.177Z",
+      "crawledAt": "2026-07-10T22:31:53.213Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -6220,12 +6386,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatikmonteur-in-equans-brig",
-        "automatikmonteur-in-equans-switzerland-brig"
+        "automatikmonteur-in-equans-switzerland-brig",
+        "fiocco-automatico-equans-switzerland-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-equans-brig",
-          "automatikmonteur-in-equans-switzerland-brig"
+          "automatikmonteur-in-equans-switzerland-brig",
+          "fiocco-automatico-equans-switzerland-brig"
         ],
         "en": [
           "automatikmonteur-in-equans-switzerland-brig"
@@ -6235,6 +6403,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:05:28.599Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -6265,7 +6434,7 @@
         "it": "Partner finanziari",
         "en": "Financial Business Partners",
         "de": "Financial Business Partner",
-        "fr": "Partenaires financiers"
+        "fr": "Financial Business Partner"
       },
       "description": "Zur Verstärkung unseres Controlling-Teams am Standort Bern suchen wir nach Vereinbarung eine/n erfahrene/n Financial Business Partner. Financial Business Partner\n Das kannst du bei uns bewegen.\n\n• Du erstellst und aktualisierst, zusammen mit den operativen Verantwortlichen, die Prognosen der Projekte und das Budget der zugeteilten Abteilungen\n\n• Du arbeitest als Sparringspartner eng mit den Projektleitern der Region zusammen\n\n• Du stellst die Monatsabschlüsse der Abteilungen sicher inkl. Analysen und Aktionspläne\n\n• Du hilfst mit «Bestehendes» zu hinterfragen und zu optimieren (finanziellen Abläufe, Prozesse etc.)\n\n• Du erstellst ad-hoc Analysen/ Reports für die operative oder finanzielle Führung\n\n• Du bringst dich in Entwicklungs- und Organisationsprojekten mit ein\n Das macht dich aus.\n\n• Ausgewiesene Erfahrung in einer ähnlichen Funktion, von Vorteil in der Baubranche\n\n• Du hast eine Ausbildung in Betriebswirtschaft oder Controlling mit Erfahrung und Interesse an technischen Gewerken\n\n• Hohes Interesse und Verständnis am Projektgeschäft / Projektcontrolling\n\n• Kommunikative, proaktive und lösungsorientierte Persönlichkeit mit sehr guten Consultingfähigkeiten und einer Hands-on-Mentalität\n\n• Du hast eine rasche Auffassungsgabe und ausgeprägte analytische Fähigkeiten\n\n• Du beherrschst die Programme von MS-Office insbesondere Excel, SAP-Kenntnisse sind ein Plus für das Projekttool SAP Fiori / GUI\n Das bieten wir dir.\n\n• Ein lebendiges Arbeitsumfeld mit einem aufgestellten sowie eingespielten Team\n\n• Interne und externe Weiterbildungsmöglichkeiten, um deine Karriere voranzutreiben\n\n• Eine vielseitige Tätigkeit in einem herausfordernden und spannenden Umfeld\n\n• Attraktive Sozialleistungen und eine fortschrittliche Arbeitgeberin, ausgezeichnet mit dem Friendly Work Space Label\n Equans Switzerland. Gemeinsam Zukunft gestalten.\n Als führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\n Arbeitsort\n Equans Switzerland AG\nWeltpostrasse 5\n3015 Bern\n Deine Kontaktperson\n Andrea FEUZ\nHR Business Partner",
       "descriptionByLocale": {
@@ -6279,7 +6448,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/10354845-3048-475f-b6f2-28cecb3f93eb/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:47.048Z",
+      "crawledAt": "2026-07-10T22:31:52.839Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -6299,17 +6468,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-business-partner-equans-bern"
+        "financial-business-partner-equans-bern",
+        "partner-finanziari-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-business-partner-equans-bern"
+          "financial-business-partner-equans-bern",
+          "partner-finanziari-equans-switzerland-bern"
         ],
         "fr": [
           "financial-business-partner-equans-bern"
         ]
       },
       "firstSeenAt": "2026-07-07T12:05:29.490Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6354,7 +6526,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0f0a9642-98eb-4306-8995-3ddee20ffcba/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:46.924Z",
+      "crawledAt": "2026-07-10T22:31:52.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 150",
@@ -6374,17 +6546,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polygraf-in-mediamatiker-in-80-100-equans-zurich"
+        "polygraf-in-mediamatiker-in-80-100-equans-zurich",
+        "poligraf-in-mediamatiker-in-80-100-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polygraf-in-mediamatiker-in-80-100-equans-zurich"
+          "polygraf-in-mediamatiker-in-80-100-equans-zurich",
+          "poligraf-in-mediamatiker-in-80-100-equans-switzerland-zurich"
         ],
         "fr": [
           "polygraf-in-mediamatiker-in-80-100-equans-zurich"
         ]
       },
       "firstSeenAt": "2026-07-07T12:05:28.160Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6429,7 +6604,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6b3eb0ae-7061-4283-82b6-9befc9c57247/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:46.898Z",
+      "crawledAt": "2026-07-10T22:31:52.333Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Bruderholzstrasse 31",
@@ -6450,12 +6625,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "inbetriebnahmeleiter-in-equans-basel",
-        "inbetriebnahmeleiter-in-equans-switzerland-basel"
+        "inbetriebnahmeleiter-in-equans-switzerland-basel",
+        "responsabile-della-messa-in-servizio-in-equans-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "inbetriebnahmeleiter-in-equans-basel",
-          "inbetriebnahmeleiter-in-equans-switzerland-basel"
+          "inbetriebnahmeleiter-in-equans-switzerland-basel",
+          "responsabile-della-messa-in-servizio-in-equans-switzerland-basel"
         ],
         "en": [
           "inbetriebnahmeleiter-in-equans-switzerland-basel"
@@ -6509,7 +6686,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/179134ff-cee9-45ba-a2d6-dee3a9502cfe/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:46.775Z",
+      "crawledAt": "2026-07-10T22:31:52.315Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Sulzerallee 70",
@@ -6530,12 +6707,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "luftungsanlagenbauer-in-equans-winterthur",
-        "luftungsanlagenbauer-in-equans-switzerland-winterthur"
+        "luftungsanlagenbauer-in-equans-switzerland-winterthur",
+        "produttore-del-sistema-di-ventilazione-in-equans-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "luftungsanlagenbauer-in-equans-winterthur",
-          "luftungsanlagenbauer-in-equans-switzerland-winterthur"
+          "luftungsanlagenbauer-in-equans-switzerland-winterthur",
+          "produttore-del-sistema-di-ventilazione-in-equans-switzerland-winterthur"
         ],
         "en": [
           "luftungsanlagenbauer-in-equans-switzerland-winterthur"
@@ -6589,7 +6768,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/8eb8d3e8-f383-4464-8232-c87cfd6ae3e3/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:46.656Z",
+      "crawledAt": "2026-07-10T22:31:51.822Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Weltpoststrasse",
@@ -6609,11 +6788,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
+        "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
+        "clerk-tecnico-ventilazione-f-m-d-equans-switzerland-bern-726f55"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
+          "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
+          "clerk-tecnico-ventilazione-f-m-d-equans-switzerland-bern-726f55"
         ],
         "en": [
           "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
@@ -6640,9 +6821,9 @@
       "id": "equans-0443ee694a7d",
       "slug": "installatore-trice-elettrico-a-in-equans-switzerland-winterthur",
       "slugByLocale": {
-        "de": "elektroinstallateur-in-equans-winterthur",
         "it": "installatore-trice-elettrico-a-in-equans-switzerland-winterthur",
         "en": "electrical-installer-in-equans-switzerland-winterthur",
+        "de": "elektroinstallateur-in-equans-winterthur",
         "fr": "installateur-electrique-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
@@ -6650,24 +6831,24 @@
       "companyDomain": "equans.ch",
       "title": "Elektroinstallateur:in",
       "titleByLocale": {
-        "de": "Elektroinstallateur:in",
         "it": "Installatore/trice elettrico/a:in",
         "en": "Electrical installer:in",
+        "de": "Elektroinstallateur:in",
         "fr": "Installateur électrique:"
       },
       "description": "Zur Verstärkung unseres Teams am Standort Winterthur suchen wir per sofort oder nach Vereinbarung eine:n Elektroinstallateur:in. Elektroinstallateur:in\n Das kannst du bei uns bewegen.\n\n• Ändern und dokumentieren von komplexen Steuerungen nach Schema\n\n• Installieren von Stark- und Schwachstromanlagen\n\n• Unterstützen von andere Organisationseinheiten bei Instandhaltungsarbeiten\n\n• Mithilfe bei der Kundenbetreuung vor Ort\n\n• Mitwirken im Störungs- und Pikettdienst\n\n• Korrektes Ausfüllen der Wochen und Arbeitsrapporte\n\n• Arbeitsvorbereitung\n\n• Einhalten der Vorgaben Arbeitssicherheit der Equans\n Das macht dich aus.\n\n• Grundausbildung als Elektroinstallateur:in oder Montageelektriker:in EFZ\n\n• Mehrjährige Berufserfahrung als Elektromonteur:in\n\n• Sehr gute Kenntnisse im Lesen von Schemas\n\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n\n• Ausgeprägte Team- und Kundenorientierung\n\n• Deutsch in Wort und Schrift und Fahrausweis Kat. B sind zwingend\n Das bieten wir dir.\n\n• Vielseitige Tätigkeit\n\n• Aufgestelltes Team\n\n• Lebhaftes und herausforderndes Umfeld\n\n• Attraktive Sozialleistungen\n\n• Ausgezeichnet mit dem Friendly Work Space Label\n\n• Interne sowie Externe Weiterbildungsmöglichkeiten\n\n• Mithilfe Entwicklung der Abteilung Elektro\n Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Bewerbung. Equans Switzerland. Gemeinsam Zukunft gestalten.\n Als führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\n Arbeitsort\n Equans Switzerland Facility Management AG\nSulzerallee 70\n8400 Winterthur\n Deine Kontaktperson\n Albert HAZIRI\n+41 76 343 90 61",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Teams am Standort Winterthur suchen wir per sofort oder nach Vereinbarung eine:n Elektroinstallateur:in. Elektroinstallateur:in\n Das kannst du bei uns bewegen.\n\n• Ändern und dokumentieren von komplexen Steuerungen nach Schema\n\n• Installieren von Stark- und Schwachstromanlagen\n\n• Unterstützen von andere Organisationseinheiten bei Instandhaltungsarbeiten\n\n• Mithilfe bei der Kundenbetreuung vor Ort\n\n• Mitwirken im Störungs- und Pikettdienst\n\n• Korrektes Ausfüllen der Wochen und Arbeitsrapporte\n\n• Arbeitsvorbereitung\n\n• Einhalten der Vorgaben Arbeitssicherheit der Equans\n Das macht dich aus.\n\n• Grundausbildung als Elektroinstallateur:in oder Montageelektriker:in EFZ\n\n• Mehrjährige Berufserfahrung als Elektromonteur:in\n\n• Sehr gute Kenntnisse im Lesen von Schemas\n\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n\n• Ausgeprägte Team- und Kundenorientierung\n\n• Deutsch in Wort und Schrift und Fahrausweis Kat. B sind zwingend\n Das bieten wir dir.\n\n• Vielseitige Tätigkeit\n\n• Aufgestelltes Team\n\n• Lebhaftes und herausforderndes Umfeld\n\n• Attraktive Sozialleistungen\n\n• Ausgezeichnet mit dem Friendly Work Space Label\n\n• Interne sowie Externe Weiterbildungsmöglichkeiten\n\n• Mithilfe Entwicklung der Abteilung Elektro\n Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Bewerbung. Equans Switzerland. Gemeinsam Zukunft gestalten.\n Als führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\n Arbeitsort\n Equans Switzerland Facility Management AG\nSulzerallee 70\n8400 Winterthur\n Deine Kontaktperson\n Albert HAZIRI\n+41 76 343 90 61",
-        "it": "Per rafforzare il nostro team nel sito di Winterthur, stiamo cercando un installatore elettrico immediatamente o di accordo. Installatore elettrico:in\n Puoi spostarlo con noi.\n\n• Modifica e documenta controlli complessi secondo lo schema\n\n• Servizi di installazione di impianti ad alta e bassa potenza\n\n• Sostegno ad altre unità organizzative nei lavori di manutenzione\n\n• Assistenza con assistenza clienti in loco\n\n• Partecipazione a interruzioni e piketting\n\n• Completamento corretto delle settimane e dei rapporti di lavoro\n\n• Preparazione del lavoro\n\n• Conformità ai requisiti di sicurezza sul lavoro degli Equans\n E' questo che ti rende.\n\n• Formazione di base come installatore elettrico:in o elettricista di montaggio:in EFZ\n\n• Diversi anni di esperienza professionale come installatore elettrico:in\n\n• Ottima conoscenza dei sistemi di lettura\n\n• Metodi di lavoro indipendenti, affidabili e attenti\n\n• Forte team e orientamento clienti\n\n• Tedesco in Word e scrittura e biglietto Kat. B è obbligatorio\n E' quello che ti offriamo.\n\n• Attività varie\n\n• Squadra fondata\n\n• Ambiente vivace e stimolante\n\n• Prestazioni sociali interessanti\n\n• Premiato l'Etichetta di spazio di lavoro amichevole\n\n• Opportunità di formazione interna ed esterna\n\n• Con lo sviluppo del Dipartimento elettrico\n Abbiamo avuto il tuo interesse? Attendiamo con ansia la vostra applicazione. Equans Svizzera. Dipingere il futuro insieme.\n Come fornitore leader di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica. Oltre alla tecnologia costruttiva, all'automazione degli edifici e alla gestione delle strutture, la nostra offerta comprende anche discipline speciali come l'approvvigionamento energetico, la tecnologia dei trasporti, le telecomunicazioni e l'ottimizzazione dell'energia. Con circa 6.000 dipendenti, siamo presenti in più di 100 sedi in tutta la Svizzera. Questo ci permette di realizzare progetti regionali in modo efficace come soluzioni a livello nazionale. Ogni giorno applichiamo la nostra promessa: “vera mossa qualcosa”.\n Luogo di lavoro\n Equans Svizzera Facility Management AG\nSulzeralle 70\n8400 Winterthur\n La persona di contatto\n Albert Haziri\n+41 76 343 90 61",
-        "en": "To strengthen our team at the Winterthur site, we are looking for an electrical installer immediately or by agreement. Electrical installer:in\n You can move that with us.\n\n• Change and document complex controls according to the scheme\n\n• Installation services of high and low power installations\n\n• Supporting other organisational units in maintenance work\n\n• Assistance with on-site customer support\n\n• Participation in disruption and piketting\n\n• Correct completion of weeks and work reports\n\n• Work preparation\n\n• Compliance with Equans occupational safety requirements\n That's what makes you.\n\n• Basic training as an electrical installer:in or assembly electrician:in EFZ\n\n• Several years of professional experience as an electric installer:in\n\n• Very good knowledge of reading schemes\n\n• Independent, reliable and careful working methods\n\n• Strong team and customer orientation\n\n• German in Word and Writing and Ticket Kat. B is mandatory\n That's what we offer you.\n\n• Varied activities\n\n• Established team\n\n• Lively and challenging environment\n\n• Attractive social benefits\n\n• Awarded the Friendly Work Space Label\n\n• Internal and external training opportunities\n\n• With the development of the Electrical Department\n Did we get your interest? We look forward to your application. Equans Switzerland. Shaping the future together.\n As a leading full-service provider for holistic building and energy solutions in Switzerland, we are driving the transformation and digitalization of our customers and working together on the energy transition. In addition to building technology, building automation and facility management, our offer also includes special disciplines such as energy supply, transport technology, telecommunications and energy optimization. With around 6,000 employees, we are present at more than 100 locations throughout Switzerland. This allows us to realize regional projects as effectively as nationwide solutions. Every day we implement our promise: “real something move”.\n Place of work\n Equans Switzerland Facility Management AG\nSulzerallee 70\n8400 Winterthur\n Your contact person\n Albert Haziri\n+41 76 343 90 61",
-        "fr": "Pour renforcer notre équipe sur le site de Winterthur, nous cherchons un installateur électrique immédiatement ou par accord. Installateur électrique:\n Tu peux bouger ça avec nous.\n\n• Changement et documentation des contrôles complexes selon le système\n\n• Services d'installation d'installations de haute et de basse puissance\n\n• Soutien à d'autres unités organisationnelles dans les travaux de maintenance\n\n• Assistance à la clientèle sur place\n\n• Participation à la perturbation et à la randonnée\n\n• Achèvement correct des semaines et des rapports de travail\n\n• Préparation des travaux\n\n• Respect des exigences de sécurité professionnelle d'Equans\n C'est ce qui te rend.\n\n• Formation de base en tant qu'installateur électrique: électricien en ou en montage:en EFZ\n\n• Plusieurs années d'expérience professionnelle en tant qu'installateur électrique:\n\n• Très bonne connaissance des programmes de lecture\n\n• Méthodes de travail indépendantes, fiables et prudentes\n\n• Une forte orientation de l'équipe et du client\n\n• Allemand en Word et écriture et billet Kat. B est obligatoire\n C'est ce qu'on vous offre.\n\n• Activités variées\n\n• Équipe établie\n\n• Environnement vivant et stimulant\n\n• Avantages sociaux attrayants\n\n• Label Friendly Work Space décerné\n\n• Possibilités de formation internes et externes\n\n• Avec le développement du département électrique\n On a eu votre intérêt ? Nous attendons avec impatience votre candidature. Equans Suisse. Façonner l'avenir ensemble.\n En tant que premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous menons la transformation et la numérisation de nos clients et travaillons ensemble sur la transition énergétique. En plus de la technologie du bâtiment, de l'automatisation du bâtiment et de la gestion des installations, notre offre comprend également des disciplines spéciales telles que l'approvisionnement en énergie, les technologies de transport, les télécommunications et l'optimisation énergétique. Avec environ 6 000 employés, nous sommes présents dans plus de 100 endroits en Suisse. Cela nous permet de réaliser des projets régionaux aussi efficacement que des solutions nationales. Chaque jour, nous mettons en œuvre notre promesse : « Réel quelque chose bouge ».\n Lieu de travail\n Equans Suisse Facility Management AG\nSulzerallee 70\n8400 Winterthur\n Votre personne à contacter\n Albert Haziri\n+41 76 343 90 61"
+        "it": "Per rafforzare il nostro team nel sito di Winterthur, stiamo cercando un installatore elettrico immediatamente o di accordo. Installatore elettrico:in\nPuoi spostarlo con noi.\n\n• Modifica e documenta controlli complessi secondo lo schema\n\n• Servizi di installazione di impianti ad alta e bassa potenza\n\n• Sostegno ad altre unità organizzative nei lavori di manutenzione\n\n• Assistenza con assistenza clienti in loco\n\n• Partecipazione a interruzioni e piketting\n\n• Completamento corretto delle settimane e dei rapporti di lavoro\n\n• Preparazione del lavoro\n\n• Conformità ai requisiti di sicurezza sul lavoro degli Equans\nE' questo che ti rende.\n\n• Formazione di base come installatore elettrico:in o elettricista di montaggio:in EFZ\n\n• Diversi anni di esperienza professionale come installatore elettrico:in\n\n• Ottima conoscenza dei sistemi di lettura\n\n• Metodi di lavoro indipendenti, affidabili e attenti\n\n• Forte team e orientamento clienti\n\n• Tedesco in Word e scrittura e biglietto Kat. B è obbligatorio\nE' quello che ti offriamo.\n\n• Attività varie\n\n• Squadra fondata\n\n• Ambiente vivace e stimolante\n\n• Prestazioni sociali interessanti\n\n• Premiato l'Etichetta di spazio di lavoro amichevole\n\n• Opportunità di formazione interna ed esterna\n\n• Con lo sviluppo del Dipartimento elettrico\nAbbiamo avuto il tuo interesse? Attendiamo con ansia la vostra applicazione. Equans Svizzera. Dipingere il futuro insieme.\nCome fornitore leader di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica. Oltre alla tecnologia costruttiva, all'automazione degli edifici e alla gestione delle strutture, la nostra offerta comprende anche discipline speciali come l'approvvigionamento energetico, la tecnologia dei trasporti, le telecomunicazioni e l'ottimizzazione dell'energia. Con circa 6.000 dipendenti, siamo presenti in più di 100 sedi in tutta la Svizzera. Questo ci permette di realizzare progetti regionali in modo efficace come soluzioni a livello nazionale. Ogni giorno applichiamo la nostra promessa: “vera mossa qualcosa”.\nLuogo di lavoro\nEquans Svizzera Facility Management AG\nSulzeralle 70\n8400 Winterthur\nLa persona di contatto\nAlbert Haziri\n+41 76 343 90 61",
+        "en": "To strengthen our team at the Winterthur site, we are looking for an electrical installer immediately or by agreement. Electrical installer:in\nYou can move that with us.\n\n• Change and document complex controls according to the scheme\n\n• Installation services of high and low power installations\n\n• Supporting other organisational units in maintenance work\n\n• Assistance with on-site customer support\n\n• Participation in disruption and piketting\n\n• Correct completion of weeks and work reports\n\n• Work preparation\n\n• Compliance with Equans occupational safety requirements\nThat's what makes you.\n\n• Basic training as an electrical installer:in or assembly electrician:in EFZ\n\n• Several years of professional experience as an electric installer:in\n\n• Very good knowledge of reading schemes\n\n• Independent, reliable and careful working methods\n\n• Strong team and customer orientation\n\n• German in Word and Writing and Ticket Kat. B is mandatory\nThat's what we offer you.\n\n• Varied activities\n\n• Established team\n\n• Lively and challenging environment\n\n• Attractive social benefits\n\n• Awarded the Friendly Work Space Label\n\n• Internal and external training opportunities\n\n• With the development of the Electrical Department\nDid we get your interest? We look forward to your application. Equans Switzerland. Shaping the future together.\nAs a leading full-service provider for holistic building and energy solutions in Switzerland, we are driving the transformation and digitalization of our customers and working together on the energy transition. In addition to building technology, building automation and facility management, our offer also includes special disciplines such as energy supply, transport technology, telecommunications and energy optimization. With around 6,000 employees, we are present at more than 100 locations throughout Switzerland. This allows us to realize regional projects as effectively as nationwide solutions. Every day we implement our promise: “real something move”.\nPlace of work\nEquans Switzerland Facility Management AG\nSulzerallee 70\n8400 Winterthur\nYour contact person\nAlbert Haziri\n+41 76 343 90 61",
+        "de": "Zur Verstärkung unseres Teams am Standort Winterthur suchen wir per sofort oder nach Vereinbarung eine:n Elektroinstallateur:in. Elektroinstallateur:in\nDas kannst du bei uns bewegen.\n\n• Ändern und dokumentieren von komplexen Steuerungen nach Schema\n\n• Installieren von Stark- und Schwachstromanlagen\n\n• Unterstützen von andere Organisationseinheiten bei Instandhaltungsarbeiten\n\n• Mithilfe bei der Kundenbetreuung vor Ort\n\n• Mitwirken im Störungs- und Pikettdienst\n\n• Korrektes Ausfüllen der Wochen und Arbeitsrapporte\n\n• Arbeitsvorbereitung\n\n• Einhalten der Vorgaben Arbeitssicherheit der Equans\nDas macht dich aus.\n\n• Grundausbildung als Elektroinstallateur:in oder Montageelektriker:in EFZ\n\n• Mehrjährige Berufserfahrung als Elektromonteur:in\n\n• Sehr gute Kenntnisse im Lesen von Schemas\n\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n\n• Ausgeprägte Team- und Kundenorientierung\n\n• Deutsch in Wort und Schrift und Fahrausweis Kat. B sind zwingend\nDas bieten wir dir.\n\n• Vielseitige Tätigkeit\n\n• Aufgestelltes Team\n\n• Lebhaftes und herausforderndes Umfeld\n\n• Attraktive Sozialleistungen\n\n• Ausgezeichnet mit dem Friendly Work Space Label\n\n• Interne sowie Externe Weiterbildungsmöglichkeiten\n\n• Mithilfe Entwicklung der Abteilung Elektro\nHaben wir dein Interesse geweckt? Dann freuen wir uns auf deine Bewerbung. Equans Switzerland. Gemeinsam Zukunft gestalten.\nAls führende Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz treiben wir die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende. Unser Angebot umfasst neben Gebäudetechnik, Gebäudeautomation und Facility Management auch Spezialdisziplinen wie die Energieversorgung, Verkehrstechnik, Telekom sowie Energieoptimierung. Mit rund 6000 Mitarbeitenden sind wir an mehr als 100 Standorten schweizweit präsent. Dies ermöglicht es uns, regionale Projekte ebenso effektiv zu realisieren wie landesweite Lösungen. Tagtäglich setzen wir so unser Versprechen um: «echt was bewegen».\nArbeitsort\nEquans Switzerland Facility Management AG\nSulzerallee 70\n8400 Winterthur\nDeine Kontaktperson\nAlbert HAZIRI\n+41 76 343 90 61",
+        "fr": "Pour renforcer notre équipe sur le site de Winterthur, nous cherchons un installateur électrique immédiatement ou par accord. Installateur électrique:\nTu peux bouger ça avec nous.\n\n• Changement et documentation des contrôles complexes selon le système\n\n• Services d'installation d'installations de haute et de basse puissance\n\n• Soutien à d'autres unités organisationnelles dans les travaux de maintenance\n\n• Assistance à la clientèle sur place\n\n• Participation à la perturbation et à la randonnée\n\n• Achèvement correct des semaines et des rapports de travail\n\n• Préparation des travaux\n\n• Respect des exigences de sécurité professionnelle d'Equans\nC'est ce qui te rend.\n\n• Formation de base en tant qu'installateur électrique: électricien en ou en montage:en EFZ\n\n• Plusieurs années d'expérience professionnelle en tant qu'installateur électrique:\n\n• Très bonne connaissance des programmes de lecture\n\n• Méthodes de travail indépendantes, fiables et prudentes\n\n• Une forte orientation de l'équipe et du client\n\n• Allemand en Word et écriture et billet Kat. B est obligatoire\nC'est ce qu'on vous offre.\n\n• Activités variées\n\n• Équipe établie\n\n• Environnement vivant et stimulant\n\n• Avantages sociaux attrayants\n\n• Label Friendly Work Space décerné\n\n• Possibilités de formation internes et externes\n\n• Avec le développement du département électrique\nOn a eu votre intérêt ? Nous attendons avec impatience votre candidature. Equans Suisse. Façonner l'avenir ensemble.\nEn tant que premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous menons la transformation et la numérisation de nos clients et travaillons ensemble sur la transition énergétique. En plus de la technologie du bâtiment, de l'automatisation du bâtiment et de la gestion des installations, notre offre comprend également des disciplines spéciales telles que l'approvisionnement en énergie, les technologies de transport, les télécommunications et l'optimisation énergétique. Avec environ 6 000 employés, nous sommes présents dans plus de 100 endroits en Suisse. Cela nous permet de réaliser des projets régionaux aussi efficacement que des solutions nationales. Chaque jour, nous mettons en œuvre notre promesse : « Réel quelque chose bouge ».\nLieu de travail\nEquans Suisse Facility Management AG\nSulzerallee 70\n8400 Winterthur\nVotre personne à contacter\nAlbert Haziri\n+41 76 343 90 61"
       },
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.jobs.ch/en/vacancies/detail/5429e23a-bb88-443f-999d-81ed44e05ccb/",
       "source": "Equans Switzerland Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:13:46.540Z",
+      "crawledAt": "2026-07-10T22:31:51.411Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Sulzerallee 70",
@@ -6685,12 +6866,16 @@
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/5429e23a-bb88-443f-999d-81ed44e05ccb/",
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektroinstallateur-in-equans-winterthur",
+        "elektroinstallateur-in-equans-switzerland-winterthur",
+        "installatore-trice-elettrico-a-in-equans-switzerland-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-equans-winterthur"
+          "elektroinstallateur-in-equans-winterthur",
+          "installatore-trice-elettrico-a-in-equans-switzerland-winterthur"
         ],
         "en": [
           "elektroinstallateur-in-equans-switzerland-winterthur"
@@ -6699,10 +6884,7 @@
           "elektroinstallateur-in-equans-switzerland-winterthur"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-in-equans-winterthur",
-        "elektroinstallateur-in-equans-switzerland-winterthur"
-      ],
+      "firstSeenAt": "2026-07-10T12:13:46.540Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6714,8 +6896,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T12:13:46.540Z"
+      }
     }
   ]
 }
