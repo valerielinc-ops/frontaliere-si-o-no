@@ -11,9 +11,9 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73806-de_DE",
     "https://job.post.ch/default/job/Immobilienbewirtschafterin/73614-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74173-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73806-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Pakete/74107-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
@@ -73,7 +73,6 @@
     "https://job.post.ch/default/job/Zustellerin-Pakete/74179-de_DE",
     "https://job.post.ch/default/job/Immobilienbewirtschafterin/73567-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74180-de_DE",
-    "https://job.post.ch/default/job/Stv_-Leiterin-Distributionsgebiet-%28Entwicklungsprogramm-Avanti%29/74135-de_DE",
     "https://job.post.ch/default/job/Teilbetriebsleiterin-Pakete/74113-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73799-de_DE",
     "https://job.post.ch/default/job/Sachbearbeiterin-Schadenmanagement/74127-de_DE",
@@ -91,11 +90,13 @@
     "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74080-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74074-de_DE",
+    "https://job.post.ch/default/job/Assistante-Assistant-g%C3%A9rance-immobili%C3%A8re/74288-fr_FR",
+    "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-CDD-6-mois%2C-Aubonne%2CGimel/74056-fr_FR",
     "https://job.post.ch/default/job/ConductriceConducteur-CarPostal/74115-fr_FR",
     "https://job.post.ch/default/job/R%C3%A9gulatriceR%C3%A9gulateur-de-trafic/74237-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Berne-%28francophone%29/73558-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-07-09T22:34:27.830Z"
+  "updatedAt": "2026-07-10T10:39:04.817Z"
 }
