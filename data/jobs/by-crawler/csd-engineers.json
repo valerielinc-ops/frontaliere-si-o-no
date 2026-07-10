@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csd-engineers",
-  "assembledAt": "2026-07-10T12:57:54.883Z",
+  "assembledAt": "2026-07-10T22:05:50.033Z",
   "jobs": [
     {
       "id": "csd-engineers-01683e54e340",
@@ -33,7 +33,7 @@
       "url": "https://jobs.csd.ch/jobs/5761536-ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:52.607Z",
+      "crawledAt": "2026-07-10T22:05:48.169Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -96,7 +96,7 @@
       "url": "https://jobs.csd.ch/jobs/5761617-projektleiter-in-bauingenieur-in-hochbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:52.149Z",
+      "crawledAt": "2026-07-10T22:05:47.779Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -175,7 +175,7 @@
       "url": "https://jobs.csd.ch/jobs/5761889-bauingenieur-in-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:51.736Z",
+      "crawledAt": "2026-07-10T22:05:47.416Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -252,7 +252,7 @@
       "url": "https://jobs.csd.ch/jobs/5761929-teamleiter-in-bauingenieur-in-hochbau-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:51.323Z",
+      "crawledAt": "2026-07-10T22:05:47.050Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -329,7 +329,7 @@
       "url": "https://jobs.csd.ch/jobs/5761953-zeichner-in-fachrichtung-ingenieurbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:50.864Z",
+      "crawledAt": "2026-07-10T22:05:46.652Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -406,7 +406,7 @@
       "url": "https://jobs.csd.ch/jobs/5762077-praktikant-in-bauingenieurwesen-oder-holzbau",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:50.444Z",
+      "crawledAt": "2026-07-10T22:05:46.288Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -459,7 +459,7 @@
       "slugByLocale": {
         "it": "senior-responsabile-progetto-100-csd-engineers-zurich",
         "en": "senior-project-leader-100-csd-engineers-zurich",
-        "de": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
+        "de": "senior-projektleiter-100-w-m-d-csd-engineers-ch",
         "fr": "chef-de-projet-senior-100-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
@@ -484,7 +484,7 @@
       "url": "https://jobs.csd.ch/jobs/5762150-senior-projektleiter-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:50.025Z",
+      "crawledAt": "2026-07-10T22:05:45.919Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -501,12 +501,11 @@
       "applyUrl": "https://jobs.csd.ch/jobs/5762150-senior-projektleiter-100-w-m-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
-        "senior-projektleiter-100-w-m-d-csd-engineers-ch",
-        "senior-responsabile-progetto-100-csd-engineers-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
+          "senior-projektleiter-100-w-m-d-csd-engineers-ch"
+        ],
         "it": [
           "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
           "senior-projektleiter-100-w-m-d-csd-engineers-ch",
@@ -517,14 +516,15 @@
         ],
         "fr": [
           "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch"
-        ],
-        "de": [
-          "senior-projektleiter-100-w-m-d-csd-engineers-ch",
-          "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-24T11:23:52.556Z",
+      "previousSlugs": [
+        "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
+        "senior-projektleiter-100-w-m-d-csd-engineers-ch",
+        "senior-responsabile-progetto-100-csd-engineers-zurich"
+      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T11:23:52.556Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -570,7 +570,7 @@
       "url": "https://jobs.csd.ch/jobs/5762909-chef-de-projet-environnement-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:49.564Z",
+      "crawledAt": "2026-07-10T22:05:45.528Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -603,8 +603,8 @@
           "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:18.208Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:18.208Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -650,7 +650,7 @@
       "url": "https://jobs.csd.ch/jobs/6136143-bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:49.094Z",
+      "crawledAt": "2026-07-10T22:05:45.139Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -725,7 +725,7 @@
       "url": "https://jobs.csd.ch/jobs/6354078-zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:48.677Z",
+      "crawledAt": "2026-07-10T22:05:44.775Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -799,7 +799,7 @@
       "url": "https://jobs.csd.ch/jobs/6563044-chef-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:48.218Z",
+      "crawledAt": "2026-07-10T22:05:44.409Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -860,7 +860,7 @@
       "url": "https://jobs.csd.ch/jobs/6632866-praktikant-bauingenieurwesen-4-6-monate-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:47.758Z",
+      "crawledAt": "2026-07-10T22:05:44.021Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -937,7 +937,7 @@
       "url": "https://jobs.csd.ch/jobs/6632871-projektingenieur-planung-oder-projektleiter-tiefbau-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:47.298Z",
+      "crawledAt": "2026-07-10T22:05:43.654Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1020,7 +1020,7 @@
       "url": "https://jobs.csd.ch/jobs/6732528-dessinateur-en-genie-civil-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:46.703Z",
+      "crawledAt": "2026-07-10T22:05:43.264Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1100,7 +1100,7 @@
       "url": "https://jobs.csd.ch/jobs/6761296-projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:46.244Z",
+      "crawledAt": "2026-07-10T22:05:42.872Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1175,7 +1175,7 @@
       "url": "https://jobs.csd.ch/jobs/6771563-erfahrener-geologe-teamleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:45.832Z",
+      "crawledAt": "2026-07-10T22:05:42.506Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1255,7 +1255,7 @@
       "url": "https://jobs.csd.ch/jobs/6794096-ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:45.418Z",
+      "crawledAt": "2026-07-10T22:05:42.143Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1334,7 +1334,7 @@
       "url": "https://jobs.csd.ch/jobs/6900060-experte-hydrogeologie-60-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:44.957Z",
+      "crawledAt": "2026-07-10T22:05:41.748Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1364,8 +1364,8 @@
           "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:12.541Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:12.541Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1411,7 +1411,7 @@
       "url": "https://jobs.csd.ch/jobs/6910104-chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:44.544Z",
+      "crawledAt": "2026-07-10T22:05:41.381Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -1445,8 +1445,8 @@
           "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:11.859Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:11.859Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1492,7 +1492,7 @@
       "url": "https://jobs.csd.ch/jobs/7022753-diagnostiker-bauschadstoffe-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:44.064Z",
+      "crawledAt": "2026-07-10T22:05:40.983Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Flurhofstrasse 150",
@@ -1525,8 +1525,8 @@
           "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:10.920Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:10.920Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1572,7 +1572,7 @@
       "url": "https://jobs.csd.ch/jobs/7038517-chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:43.602Z",
+      "crawledAt": "2026-07-10T22:05:40.595Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -1605,8 +1605,8 @@
           "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:10.458Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:10.458Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1652,7 +1652,7 @@
       "url": "https://jobs.csd.ch/jobs/7221757-projektleiter-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:43.138Z",
+      "crawledAt": "2026-07-10T22:05:40.202Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -1683,8 +1683,8 @@
           "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:09.195Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:09.195Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1730,7 +1730,7 @@
       "url": "https://jobs.csd.ch/jobs/7237464-chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:42.723Z",
+      "crawledAt": "2026-07-10T22:05:39.838Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -1764,8 +1764,8 @@
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:08.736Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:08.736Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1811,7 +1811,7 @@
       "url": "https://jobs.csd.ch/jobs/7361647-projektingenieur-siedlungsentwaesserung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:42.255Z",
+      "crawledAt": "2026-07-10T22:05:39.447Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1890,7 +1890,7 @@
       "url": "https://jobs.csd.ch/jobs/7678428-chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:41.833Z",
+      "crawledAt": "2026-07-10T22:05:39.083Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -1924,8 +1924,8 @@
           "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:06.774Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:06.774Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1971,7 +1971,7 @@
       "url": "https://jobs.csd.ch/jobs/7678706-stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:41.370Z",
+      "crawledAt": "2026-07-10T22:05:38.690Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2004,8 +2004,8 @@
           "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:06.304Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:06.304Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2051,7 +2051,7 @@
       "url": "https://jobs.csd.ch/jobs/7705442-zeichner-fachrichtung-ingenieurbau-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:40.902Z",
+      "crawledAt": "2026-07-10T22:05:38.303Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -2081,8 +2081,8 @@
           "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:05.840Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:05.840Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2128,7 +2128,7 @@
       "url": "https://jobs.csd.ch/jobs/7745880-geologue-chef-de-projets-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:40.443Z",
+      "crawledAt": "2026-07-10T22:05:37.913Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -2161,8 +2161,8 @@
           "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-05-18T12:11:52.666Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:11:52.666Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2208,7 +2208,7 @@
       "url": "https://jobs.csd.ch/jobs/7762493-chef-de-projet-traitement-des-eaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:39.983Z",
+      "crawledAt": "2026-07-10T22:05:37.522Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2241,8 +2241,8 @@
           "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:05.159Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:05.159Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2288,7 +2288,7 @@
       "url": "https://jobs.csd.ch/jobs/7774786-projektleiter-geologie-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:39.519Z",
+      "crawledAt": "2026-07-10T22:05:37.135Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2321,8 +2321,8 @@
           "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:14:04.700Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:14:04.700Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2368,7 +2368,7 @@
       "url": "https://jobs.csd.ch/jobs/7839292-collaborateur-comptabilite-ap-ar-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:39.107Z",
+      "crawledAt": "2026-07-10T22:05:36.770Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -2395,8 +2395,8 @@
           "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez"
         ]
       },
-      "firstSeenAt": "2026-06-24T21:52:47.939Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T21:52:47.939Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2442,7 +2442,7 @@
       "url": "https://jobs.csd.ch/jobs/7856150-chef-de-projet-en-electricite-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:38.645Z",
+      "crawledAt": "2026-07-10T22:05:36.378Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -2521,7 +2521,7 @@
       "url": "https://jobs.csd.ch/jobs/7856647-baumanager-w-m-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:38.183Z",
+      "crawledAt": "2026-07-10T22:05:35.990Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -2538,12 +2538,11 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7856647-baumanager-w-m-d-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "baumanager-w-m-d-100-csd-engineers-ch",
-        "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln",
-        "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "baumanager-w-m-d-100-csd-engineers-ch",
+          "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch"
+        ],
         "it": [
           "baumanager-w-m-d-100-csd-engineers-ch",
           "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln"
@@ -2551,16 +2550,17 @@
         "en": [
           "baumanager-w-m-d-100-csd-engineers-ch"
         ],
-        "de": [
-          "baumanager-w-m-d-100-csd-engineers-ch",
-          "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch"
-        ],
         "fr": [
           "baumanager-w-m-d-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-16T13:11:07.085Z",
+      "previousSlugs": [
+        "baumanager-w-m-d-100-csd-engineers-ch",
+        "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch",
+        "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln"
+      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T13:11:07.085Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2606,7 +2606,7 @@
       "url": "https://jobs.csd.ch/jobs/7857380-bauleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:37.719Z",
+      "crawledAt": "2026-07-10T22:05:35.597Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -2641,8 +2641,8 @@
           "bauleiter-80-100-w-m-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-05T11:42:35.643Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-05T11:42:35.643Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2688,7 +2688,7 @@
       "url": "https://jobs.csd.ch/jobs/7867787-teilprojektleiter-architektur-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:37.259Z",
+      "crawledAt": "2026-07-10T22:05:35.206Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -2721,8 +2721,8 @@
           "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-08T12:45:29.856Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T12:45:29.856Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2768,7 +2768,7 @@
       "url": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-durant-4-annees-de-2027-a-2031-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:36.793Z",
+      "crawledAt": "2026-07-10T22:05:34.817Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -2803,8 +2803,8 @@
           "apprenti-dessinateur-f-h-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-08T22:17:28.345Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T22:17:28.345Z",
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -2850,7 +2850,7 @@
       "url": "https://jobs.csd.ch/jobs/7873966-ingenieur-en-genie-civil-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:36.308Z",
+      "crawledAt": "2026-07-10T22:05:34.429Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -2883,8 +2883,8 @@
           "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-06-09T11:17:14.783Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-09T11:17:14.783Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2930,7 +2930,7 @@
       "url": "https://jobs.csd.ch/jobs/7879468-projektleiter-umwelt-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:35.834Z",
+      "crawledAt": "2026-07-10T22:05:34.038Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -3007,7 +3007,7 @@
       "url": "https://jobs.csd.ch/jobs/7881026-mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:35.415Z",
+      "crawledAt": "2026-07-10T22:05:33.669Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -3040,8 +3040,8 @@
           "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
         ]
       },
-      "firstSeenAt": "2026-06-09T22:15:26.576Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-09T22:15:26.576Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3087,7 +3087,7 @@
       "url": "https://jobs.csd.ch/jobs/7915869-chef-de-projet-senior-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:34.998Z",
+      "crawledAt": "2026-07-10T22:05:33.306Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -3116,8 +3116,8 @@
           "senior-project-manager-80-100-f-h-d-csd-engineers-lancy"
         ]
       },
-      "firstSeenAt": "2026-06-16T13:11:03.730Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T13:11:03.730Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3163,7 +3163,7 @@
       "url": "https://jobs.csd.ch/jobs/7926546-stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:57:34.535Z",
+      "crawledAt": "2026-07-10T22:05:32.917Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -3190,8 +3190,8 @@
           "tirocinio-in-scienze-e-ingegneria-ambientale-luglio-dicembre-2026-f-m-d-80-100-csd-engineers-lausanne"
         ]
       },
-      "firstSeenAt": "2026-06-17T12:52:37.296Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T12:52:37.296Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3237,7 +3237,7 @@
       "url": "https://jobs.csd.ch/jobs/7975153-senior-projektleiter-und-teamkoordinator-geotechnik-und-spezialtiefbau-m-w-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:34.070Z",
+      "crawledAt": "2026-07-10T22:05:32.521Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -3268,8 +3268,8 @@
           "senior-projektleiter-und-teamkoordinator-geotechnik-und-spezialtiefbau-m-w-d-60-100-csd"
         ]
       },
-      "firstSeenAt": "2026-06-26T11:11:23.348Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-26T11:11:23.348Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3315,7 +3315,7 @@
       "url": "https://jobs.csd.ch/jobs/8021517-projektleiter-siedlungsentwaesserung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:33.611Z",
+      "crawledAt": "2026-07-10T22:05:32.129Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -3349,8 +3349,8 @@
           "projektleiter-siedlungsentwasserung-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-07-06T13:37:11.285Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T13:37:11.285Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3396,7 +3396,7 @@
       "url": "https://jobs.csd.ch/jobs/8022281-praktikant-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:33.151Z",
+      "crawledAt": "2026-07-10T22:05:31.741Z",
       "addressLocality": "Kriens",
       "postalCode": "6010",
       "streetAddress": "Langsägestrasse 2",
@@ -3429,8 +3429,8 @@
           "praktikant-umwelt-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "firstSeenAt": "2026-07-06T13:37:10.742Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T13:37:10.742Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -3476,7 +3476,7 @@
       "url": "https://jobs.csd.ch/jobs/8046261-landschaftsbauzeichner-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:57:32.687Z",
+      "crawledAt": "2026-07-10T22:05:31.349Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "streetAddress": "Schachenallee 29a",
