@@ -3,7 +3,7 @@
 #
 # Group 08: 26 crawlers, estimated wall-clock ~64min
 # (bounded by the slowest member; estimate from historical averages — actual
-# runs can vary). Members: salina-reha (~64min), postch (~50min), thurklinik (~46min), smg-swiss-marketplace-group (~43min), rieter (~41min), molecular-partners (~38min), sro (~36min), victorinox (~34min), soh-solothurner-spitaeler (~32min), patek-philippe (~30min), skyguide (~28min), klinik-schoenberg (~27min), volg (~25min), kanton-basel-landschaft (~24min), hermes (~22min), ergolz-klinik (~19min), emil-frey (~16min), ferrovia-retica (~14min), klinik-im-hasel (~12min), gkb (~10min), bms-building (~8min), citta-di-bellinzona (~7min), berner-klinik-montana (~6min), agroscope (~5min), amstein-walthert (~4min), caseificio-gottardo (~3min)
+# runs can vary). Members: salina-reha (~64min), postch (~50min), thurklinik (~46min), smg-swiss-marketplace-group (~43min), rieter (~41min), molecular-partners (~38min), sro (~36min), victorinox (~34min), soh-solothurner-spitaeler (~32min), patek-philippe (~30min), skyguide (~28min), klinik-schoenberg (~27min), volg (~25min), kanton-basel-landschaft (~24min), hermes (~22min), ergolz-klinik (~19min), emil-frey (~16min), ferrovia-retica (~14min), klinik-im-hasel (~12min), gkb (~10min), cereneo (~8min), equans (~7min), clariant (~6min), ameos-ch (~5min), anybotics (~4min), aarreha-schinznach (~3min)
 
 name: Crawler Group 08 (26 crawlers)
 on:
@@ -37,7 +37,7 @@ jobs:
           node-version: "22"
           cache: npm
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        run: npm ci
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Prepare Firebase credentials (optional)
@@ -1059,296 +1059,299 @@ jobs:
             exit 1
           fi
           exit 0
-      - name: Run bms-building
-        id: crawler-bms-building
+      - name: Run cereneo
+        id: crawler-cereneo
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bms-building.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cereneo.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BMS_BUILDING_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_CERENEO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: bms-building
-          JOBS_SLICE_FILE: data/jobs/by-crawler/bms-building.json
+          JOBS_HOUSEKEEPING_SCOPE: cereneo
+          JOBS_SLICE_FILE: data/jobs/by-crawler/cereneo.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- bms-building: run crawler (verbatim from original workflow) ----
-          node scripts/update-bms-building-jobs.mjs
+          # ---- cereneo: run crawler (verbatim from original workflow) ----
+          node scripts/update-cereneo-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- bms-building: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- cereneo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- bms-building: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- cereneo: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update BMS Building Materials jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CERENEO jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- bms-building: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- cereneo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run bms-building" \
+              --title "Crawler Failure: Run cereneo" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run bms-building"
+              --workflow "Run cereneo"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run citta-di-bellinzona
-        id: crawler-citta-di-bellinzona
+      - name: Run equans
+        id: crawler-equans
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-citta-di-bellinzona.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-equans.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BELLINZONA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '1' }}
-          JOBS_HOUSEKEEPING_SCOPE: citta-di-bellinzona
-          JOBS_SLICE_FILE: data/jobs/by-crawler/citta-di-bellinzona.json
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: equans
+          JOBS_SLICE_FILE: data/jobs/by-crawler/equans.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- citta-di-bellinzona: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:citta-di-bellinzona
+          # ---- equans: run crawler (verbatim from original workflow) ----
+          node scripts/update-equans-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- citta-di-bellinzona: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- equans: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- citta-di-bellinzona: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- equans: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Città di Bellinzona jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Equans Switzerland jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- citta-di-bellinzona: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- equans: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run citta-di-bellinzona" \
+              --title "Crawler Failure: Run equans" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run citta-di-bellinzona"
+              --workflow "Run equans"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run berner-klinik-montana
-        id: crawler-berner-klinik-montana
+      - name: Run clariant
+        id: crawler-clariant
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-berner-klinik-montana.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clariant.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_BERNER_KLINIK_MONTANA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_CLARIANT_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: berner-klinik-montana
-          JOBS_SLICE_FILE: data/jobs/by-crawler/berner-klinik-montana.json
+          JOBS_HOUSEKEEPING_SCOPE: clariant
+          JOBS_SLICE_FILE: data/jobs/by-crawler/clariant.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- berner-klinik-montana: run crawler (verbatim from original workflow) ----
-          node scripts/update-berner-klinik-montana-jobs.mjs
+          # ---- clariant: run crawler (verbatim from original workflow) ----
+          node scripts/update-clariant-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- berner-klinik-montana: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- clariant: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- berner-klinik-montana: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- clariant: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update BERNER_KLINIK_MONTANA jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clariant jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- berner-klinik-montana: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- clariant: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run berner-klinik-montana" \
+              --title "Crawler Failure: Run clariant" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run berner-klinik-montana"
+              --workflow "Run clariant"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run agroscope
-        id: crawler-agroscope
+      - name: Run ameos-ch
+        id: crawler-ameos-ch
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-agroscope.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ameos-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_AMEOS_CH_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: agroscope
-          JOBS_SLICE_FILE: data/jobs/by-crawler/agroscope.json
+          JOBS_HOUSEKEEPING_SCOPE: ameos-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/ameos-ch.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- agroscope: run crawler (verbatim from original workflow) ----
-          node scripts/update-agroscope-jobs.mjs
+          # ---- ameos-ch: run crawler (verbatim from original workflow) ----
+          node scripts/update-ameos-ch-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- agroscope: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- ameos-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- agroscope: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- ameos-ch: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "Auto-update Agroscope jobs (dedicated crawler)"'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AMEOS Schweiz jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- agroscope: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- ameos-ch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run agroscope" \
+              --title "Crawler Failure: Run ameos-ch" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run agroscope"
+              --workflow "Run ameos-ch"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run amstein-walthert
-        id: crawler-amstein-walthert
+      - name: Run anybotics
+        id: crawler-anybotics
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-amstein-walthert.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-anybotics.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_AMSTEIN_WALTHERT_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ANYBOTICS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: amstein-walthert
-          JOBS_SLICE_FILE: data/jobs/by-crawler/amstein-walthert.json
+          JOBS_HOUSEKEEPING_SCOPE: anybotics
+          JOBS_SLICE_FILE: data/jobs/by-crawler/anybotics.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- amstein-walthert: run crawler (verbatim from original workflow) ----
-          node scripts/update-amstein-walthert-jobs.mjs
+          # ---- anybotics: run crawler (verbatim from original workflow) ----
+          node scripts/update-anybotics-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- amstein-walthert: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- anybotics: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- amstein-walthert: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- anybotics: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Amstein + Walthert AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ANYbotics jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- amstein-walthert: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- anybotics: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run amstein-walthert" \
+              --title "Crawler Failure: Run anybotics" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run amstein-walthert"
+              --workflow "Run anybotics"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run caseificio-gottardo
-        id: crawler-caseificio-gottardo
+      - name: Run aarreha-schinznach
+        id: crawler-aarreha-schinznach
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-caseificio-gottardo.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-aarreha-schinznach.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CASEIFICIO_GOTTARDO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_AARREHA_SCHINZNACH_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: caseificio-gottardo
-          JOBS_SLICE_FILE: data/jobs/by-crawler/caseificio-gottardo.json
+          JOBS_HOUSEKEEPING_SCOPE: aarreha-schinznach
+          JOBS_SLICE_FILE: data/jobs/by-crawler/aarreha-schinznach.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- caseificio-gottardo: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:caseificio-gottardo
+          # ---- aarreha-schinznach: run crawler (verbatim from original workflow) ----
+          node scripts/update-aarreha-schinznach-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- caseificio-gottardo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- aarreha-schinznach: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- caseificio-gottardo: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- aarreha-schinznach: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🧀 Auto-update Caseificio del Gottardo jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update aarReha Schinznach jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- caseificio-gottardo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- aarreha-schinznach: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run caseificio-gottardo" \
+              --title "Crawler Failure: Run aarreha-schinznach" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run caseificio-gottardo"
+              --workflow "Run aarreha-schinznach"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then

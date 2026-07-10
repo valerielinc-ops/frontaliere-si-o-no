@@ -81,7 +81,6 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'air-zermatt': '/images/brands/air-zermatt.png',
  'alcon': cLogo('alcon.com'),
  'aldi-suisse': '/images/brands/aldi-suisse.png',
- 'allianz-suisse': cLogo('allianz.ch'),
  'alpiq': cLogo('alpiq.com'),
  'alten-switzerland': gFavicon('alten.ch'),
  'amag-group': '/images/brands/amag-group.png',

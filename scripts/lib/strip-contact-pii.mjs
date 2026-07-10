@@ -6,16 +6,17 @@
  * direct phone number, e.g.:
  *
  *   "Per qualsiasi chiarimento puoi contattare Luca Bianchi (tel. 058 123 45 67)
- *    quando vuoi. Allianz Suisse Agenzia generale Mario Rossi …"
+ *    quando vuoi. Agenzia generale Mario Rossi …"
  *
  * Re-publishing a named person's direct line is personal data we have no basis
  * to mirror (it triggered an erasure request, 2026-06-05). This strips the
  * recruiter name + direct phone while keeping the rest of the description intact,
  * so the listing still funnels candidates to the official application form.
  *
- * Scope: currently wired into the Allianz crawler only
- * (`buildAllianzLocalizedContent` in `allianz-job-parser.mjs`), which is where
- * the 2026-06-05 erasure request originated. The helper is employer-agnostic on
+ * Scope: originally built for the insurer crawler where the 2026-06-05 erasure
+ * request originated (that crawler has since been removed entirely); now wired
+ * into the josef-mueller, holmes-place, swisslog and hirslanden parsers. The
+ * helper is employer-agnostic on
  * purpose, so it can later be lifted to the assemble-time chokepoint
  * (`scripts/assemble-jobs-dataset.mjs`) to sanitize every crawler's slices and
  * locale translations by construction, should a corpus-wide policy be adopted.
