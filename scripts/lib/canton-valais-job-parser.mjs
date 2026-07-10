@@ -5,6 +5,11 @@
  * Source: https://www.vs.ch/web/srh/stellenborse (État du Valais civil-service
  *         job board; see OTB_PORTLET_URL below for the actual data fragment)
  *
+ * Descriptions: the portlet listing only carries a one-line department blurb
+ * (and the iApply ATS's own JSON detail endpoint returns that SAME blurb),
+ * so the rich ad body is fetched from each offer's PDF and rebuilt with its
+ * section/bullet structure — see ./canton-valais-otb-pdf.mjs (issue #3836).
+ *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCantonValaisJobs()  — Fetch and parse all jobs
  *   - isCantonValaisJob()         — Match jobs belonging to this company
@@ -16,6 +21,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { fetchOtbJobPdfDescription } from './canton-valais-otb-pdf.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -172,8 +178,9 @@ function extractOtbCity(text = '') {
 /**
  * Parse the "vsotbportlet" fragment's `.ivs-job-offer` blocks into raw
  * listing objects shaped for the job-building loop below.
+ * Exported for tests.
  */
-function parseOtbListings(html = '') {
+export function parseOtbListings(html = '') {
   if (!html) return [];
   const jobs = [];
   const blockRx = /<div class="ivs-job-offer[^"]*">([\s\S]*?)<\/div>\s*<\/div>/g;
@@ -203,6 +210,7 @@ function parseOtbListings(html = '') {
       location,
       url: applyUrl || pdfUrl || OTB_LANDING_URL,
       description: deptText,
+      pdfUrl,
     });
   }
   return jobs;
@@ -237,8 +245,18 @@ export async function fetchAllCantonValaisJobs() {
     const rawLocation = listing.location || listing.city || listing.work_location || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Sion';
     const canton = inferAnyCanton(location) || HQ?.canton || 'VS';
+    // The portlet listing only carries a one-line department blurb — the
+    // real ad body (tasks, profile, entry date, contacts) lives in the
+    // per-job PDF only (issue #3836: 13/19 thin stubs). Prefer the PDF's
+    // structured text; fall back to the department blurb when the PDF is
+    // missing, unreachable, or image-only.
+    let pdfDescription = '';
+    if (listing.pdfUrl) {
+      console.log(`  📄 Fetching job-ad PDF: ${title}`);
+      pdfDescription = await fetchOtbJobPdfDescription(listing.pdfUrl);
+    }
     const descriptionHtml = listing.description || listing.job_description || listing.content || '';
-    const descriptionText = stripHtml(descriptionHtml);
+    const descriptionText = pdfDescription || stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.link || listing.apply_url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
