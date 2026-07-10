@@ -1,18 +1,19 @@
 {
   "key": "gesundheitszentrum-fricktal",
   "label": "Gesundheitszentrum Fricktal",
-  "generatedAt": "2026-07-10T10:52:19.618Z",
-  "total": 12,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 13308,
-  "avgDurationMs": 13308,
+  "generatedAt": "2026-07-10T11:33:35.041Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 13062,
+  "avgDurationMs": 13062,
   "durationHistory": [
-    13308
+    13062
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "gesundheitszentrum-fricktal-7086d0eb9b65",
       "slug": "facharztin-facharzt-allgemeine-innere-medizin-gesundheitszentrum-fricktal-rheinfelden",
@@ -20,13 +21,13 @@
       "companyKey": "gesundheitszentrum-fricktal",
       "companyDomain": "gzf.ch",
       "title": "Fachärztin / Facharzt Allgemeine Innere Medizin",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2130/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:09.390Z",
+      "crawledAt": "2026-07-10T11:33:24.274Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2130/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-10T10:52:09.390Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "gesundheitszentrum-fricktal-e93b8f0ebff8",
       "slug": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2266/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:10.334Z",
+      "crawledAt": "2026-07-10T11:33:25.310Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2262/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:11.144Z",
+      "crawledAt": "2026-07-10T11:33:26.200Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:13.731Z",
+      "crawledAt": "2026-07-10T11:33:29.003Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2269/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:14.696Z",
+      "crawledAt": "2026-07-10T11:33:30.033Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2238/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:15.630Z",
+      "crawledAt": "2026-07-10T11:33:30.809Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1790/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:16.574Z",
+      "crawledAt": "2026-07-10T11:33:31.691Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1452/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:17.364Z",
+      "crawledAt": "2026-07-10T11:33:32.580Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2275/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:11.977Z",
+      "crawledAt": "2026-07-10T11:33:27.085Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2291/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:52:12.794Z",
+      "crawledAt": "2026-07-10T11:33:27.981Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gesundheitszentrum-fricktal-7a541441e41a",
       "slug": "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -426,7 +425,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "gesundheitszentrum-fricktal-6b2870814bf5",
       "slug": "personale-in-paziente-amministrazione-interna-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -458,7 +459,7 @@
       "firstSeenAt": "2026-06-23T11:39:24.124Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
