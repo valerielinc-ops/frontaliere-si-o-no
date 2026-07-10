@@ -73,8 +73,14 @@ export function workdayReqFromLeaf(leaf) {
 export { WORKDAY_HOST_RE };
 
 // Umantis job urls: recruitingapp-<tenantId>.umantis.com/Vacancies/<id>/Description/<lang>
+// (or /Vacancies/<id>/Application/CheckLogin/<n> since the vendor dropped the
+// standalone Description page on some tenants — see ksa-job-parser.mjs).
 // Tenant lives in the subdomain; host-gated so no other crawler's key changes.
 const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]|$)/;
+// Per-job vacancy id lives in the ANCESTOR segment right after /vacancies/
+// (the URL is lowercased before matching). 1+ digits: observed ids are 3-4
+// digits today (1910, 5105, …) — far below NUM_ID_RE's ≥6-digit floor.
+const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 
 // Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
 // Cler's own requisition id is only 3-4 digits — below the generic
@@ -310,19 +316,33 @@ export function mergeUrlKey(url) {
     if (lh) return `hex:${lh[0]}`;
   }
 
-  // Rule U — Umantis host-gated guard (dormant today, prevents future
-  // collision). Umantis job urls (`recruitingapp-<tenantId>.umantis.com/
-  // Vacancies/<id>/Description/<lang>`) carry the id in an ANCESTOR segment —
-  // the leaf is the 2-letter locale code — so a future id that grows to
-  // ≥6 digits would hit the legacy num:/hex: rule bare (no tenant scoping)
-  // and could collide across tenants (ids are per-tenant sequences).
-  // Prefixing the host only when the legacy key is already a bare num:/hex:
-  // token keeps TODAY's output identical (ids are 3-4 digits, legacy already
-  // falls to url:) — only changes behavior once a tenant crosses the
-  // collision-risk threshold.
-  if (UMANTIS_HOST_RE.test(u) && (legacy.startsWith('num:') || legacy.startsWith('hex:'))) {
+  // Rule U — Umantis per-vacancy id (host-gated). Umantis job urls
+  // (`recruitingapp-<tenantId>.umantis.com/Vacancies/<id>/Description/<lang>`
+  // or `…/Vacancies/<id>/Application/CheckLogin/<n>`) carry the per-job id in
+  // an ANCESTOR segment — the leaf is a locale code / form step number, so
+  // Rule B never fires. The vacancy id (3-4 digits) is below NUM_ID_RE's
+  // ≥6-digit floor, but the TENANT id in the hostname
+  // (`recruitingapp-122706`) is 6 digits, so the legacy whole-URL scan
+  // returns `num:<tenantId>` — the SAME key for every job at the tenant.
+  // The previous version of this rule only host-prefixed that legacy token
+  // (believing it "dormant"), which still collapsed all of a tenant's jobs
+  // onto ONE key: mergePreserveLocaleData's non-injective-key guard then
+  // refused EVERY existing↔fresh match and the whole slice re-keyed on each
+  // crawl, dropping previousSlugs/firstSeenAt (KSA incident, run 29086057860,
+  // commit c74a569d — 31 previousSlugs entries lost across 19 jobs).
+  // Extract the real per-vacancy id instead; tenant host prefixed because
+  // vacancy ids are per-tenant sequences. Free re-key: the old key never
+  // produced a successful match (always ambiguous), so no correct match can
+  // regress; the merge key is recomputed live every crawl, never persisted.
+  if (UMANTIS_HOST_RE.test(u)) {
     const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
-    return `req:${host}:${legacy}`;
+    const vac = u.split(/[?#]/)[0].match(UMANTIS_VACANCY_PATH_RE);
+    if (vac) return `req:${host}:vac:${vac[1]}`;
+    // No /vacancies/<id>/ segment (listing/root pages): keep the previous
+    // host-prefixed fallback for bare num:/hex: legacy tokens.
+    if (legacy.startsWith('num:') || legacy.startsWith('hex:')) {
+      return `req:${host}:${legacy}`;
+    }
   }
 
   // Rule K — Bank Cler requisition id (host-gated). The leaf's trailing digit
