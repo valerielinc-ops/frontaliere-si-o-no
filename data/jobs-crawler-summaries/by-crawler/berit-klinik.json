@@ -1,18 +1,54 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-10T11:37:30.244Z",
+  "generatedAt": "2026-07-10T12:37:22.120Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1918,
-  "avgDurationMs": 1918,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3347,
+  "avgDurationMs": 3347,
   "durationHistory": [
-    1918
+    3347
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Medizinische/r Praxisassistent/in, 100%",
+      "slug": "medizinische-r-praxisassistent-in-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa__100__0d88ee7287.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-10",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_mpa__100__0d88ee7287.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Dipl. Fachperson Op Technik 80–100%",
@@ -274,8 +310,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Mitarbeiter Technischer Dienst, 100%",
       "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
@@ -308,7 +343,6 @@
       "salaryMax": 113000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -317,5 +351,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
