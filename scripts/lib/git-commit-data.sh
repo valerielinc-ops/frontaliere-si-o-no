@@ -71,6 +71,10 @@ fi
 
 # ── Parse --slice-only flag ──────────────────────────────────────────────────
 SLICE_ONLY=false
+# Set to true (below) only for grouped crawler-group invocations, which share
+# one working copy across ~25 concurrent sibling crawlers and therefore must
+# never mutate the shared worktree/index while committing.
+GROUPED_ISOLATED=false
 if [ "${1:-}" = "--slice-only" ]; then
   SLICE_ONLY=true
   shift
@@ -132,6 +136,25 @@ if [ "$SLICE_ONLY" = true ]; then
       "data/translation-cache/${SLICE_BASENAME}"
       data/jobs-ai-cache.json
     )
+    # SLICE_ONLY + JOBS_SLICE_FILE set ⇔ this invocation comes from a grouped
+    # crawler-group-*.yml background step sharing ONE checkout with ~25
+    # concurrently-running sibling crawlers (the generator exports
+    # JOBS_SLICE_FILE at step level; standalone/sequential callers like
+    # translate-pending.yml don't). In that shared workspace the legacy
+    # stash→rebase→pop sync below is DESTRUCTIVE: `git stash
+    # --include-untracked` sweeps up every sibling's not-yet-committed dirty
+    # file, and when the pop conflicts (routine here — siblings keep writing
+    # while we hold the flock), restore_stashed_changes_with_safe_merge()
+    # restores only THIS crawler's RESOLVED_FILES from its snapshot and then
+    # `git stash drop`s everything else — silently reverting sibling slices
+    # to HEAD. Their later commit step then sees "no changes" and their data
+    # is lost until the next scheduled run (confirmed live post-#3701:
+    # commit d2a7e49e "Auto-update EMS-Chemie" pushed only a sibling's
+    # adapter file while EMS's own freshly-crawled slice had been wiped from
+    # the worktree by an earlier sibling's stash cycle). Use the
+    # worktree-immutable plumbing commit path instead (see
+    # commit_isolated_from_worktree below).
+    GROUPED_ISOLATED=true
   else
     STANDARD_FILES=(
       data/jobs/by-crawler/
@@ -686,25 +709,34 @@ fi
 # Check tracked modifications AND untracked new files in tracked directories.
 # `git diff --quiet` only sees tracked files. If a previously-tracked file was
 # deleted and then recreated by the crawler, it's untracked until `git add`.
-HAS_UNTRACKED=false
-for path_item in "${ALL_FILES[@]}"; do
-  if [[ -d "${path_item%/}" ]]; then
-    if [ -n "$(git ls-files --others --exclude-standard "${path_item%/}" 2>/dev/null)" ]; then
-      HAS_UNTRACKED=true
-      break
+#
+# Skipped on the grouped-isolated path: in a shared workspace this whole-tree
+# check mostly observes SIBLINGS' dirty files (meaningless for this crawler),
+# and it misses a brand-new untracked slice FILE (the untracked scan below
+# only inspects directory entries). The isolated path decides "no effective
+# changes" exactly, by comparing its built tree against origin/main's tree,
+# and emits has_changes itself.
+if [ "$GROUPED_ISOLATED" != true ]; then
+  HAS_UNTRACKED=false
+  for path_item in "${ALL_FILES[@]}"; do
+    if [[ -d "${path_item%/}" ]]; then
+      if [ -n "$(git ls-files --others --exclude-standard "${path_item%/}" 2>/dev/null)" ]; then
+        HAS_UNTRACKED=true
+        break
+      fi
     fi
+  done
+
+  if git diff --quiet && git diff --cached --quiet && [ "$HAS_UNTRACKED" = false ]; then
+    echo "ℹ️ No changes detected"
+    [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+    exit 0
   fi
-done
 
-if git diff --quiet && git diff --cached --quiet && [ "$HAS_UNTRACKED" = false ]; then
-  echo "ℹ️ No changes detected"
-  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
-  exit 0
+  echo "📝 Changes detected:"
+  git status --short
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
 fi
-
-echo "📝 Changes detected:"
-git status --short
-[ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
 # ── Reusable guard: refuse to commit files with merge conflict markers ──────
 # Called right before every `git commit` invocation below. Added 2026-05-21
@@ -788,6 +820,154 @@ git_fetch_retry() {
 # ── 3+4 loop: Sync, align, commit, push (with retry on race conditions) ────
 MAX_PUSH_ATTEMPTS=8
 push_attempt=0
+
+# ── GROUPED-ISOLATED path: commit from the worktree WITHOUT touching it ─────
+# Used only for crawler-group shared-workspace invocations (SLICE_ONLY=true
+# and JOBS_SLICE_FILE set — see the flag assignment above). Builds the commit
+# with plumbing against a PRIVATE temporary index:
+#
+#   read-tree origin/main → update-index (own files only) → write-tree →
+#   commit-tree -p origin/main → push <sha>:refs/heads/main
+#
+# Invariants this guarantees, by construction:
+#   • The shared worktree is NEVER written (no stash/rebase/checkout/reset),
+#     so a concurrently-running sibling crawler's not-yet-committed files can
+#     never be reverted, stashed away, or dropped by THIS crawler's commit —
+#     the post-#3701 mass-loss mechanism (frozen summaries, commits pushed
+#     without the crawler's own files) is structurally impossible.
+#   • The shared .git/index is never locked or mutated, so a crash here can't
+#     leave an index.lock (or an orphaned stash entry holding sibling data).
+#   • Remote races are resolved by rebuilding the tree on the freshly fetched
+#     origin/main and retrying the push — no local rebase needed. Files that
+#     changed on the remote since checkout (e.g. the shared
+#     data/jobs-ai-cache.json touched by another group, or a slice updated by
+#     translate-pending) are 3-way merged content-wise (base = checkout HEAD,
+#     remote = origin/main, local = worktree) via the same merge_json_3way
+#     used by the legacy path, so concurrent remote additions survive.
+commit_isolated_from_worktree() {
+  local base_sha remote_sha remote_tree new_tree new_commit
+  local tmp_index merge_dir
+  local f local_blob remote_blob base_blob blob_to_stage key_hint
+  local delay
+
+  base_sha="$(git rev-parse HEAD)"
+  tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
+  merge_dir="$(mktemp -d /tmp/crawler-commit-merge.XXXXXX)"
+  # shellcheck disable=SC2064
+  trap "rm -f '$tmp_index'; rm -rf '$merge_dir'" RETURN
+
+  # Conflict-marker guard on the exact worktree files we are about to stage
+  # (the staged-diff variant can't be used: nothing is ever staged in the
+  # shared index on this path).
+  for f in "${RESOLVED_FILES[@]}"; do
+    [ -f "$f" ] || continue
+    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$f" 2>/dev/null; then
+      echo "❌ grouped-isolated: refusing to commit — unresolved merge conflict markers in $f"
+      echo "   For job slice files specifically: node scripts/recover-conflict-marker-slices.mjs"
+      return 1
+    fi
+  done
+
+  while true; do
+    push_attempt=$((push_attempt + 1))
+    ensure_git_auth
+    git_fetch_retry || return 1
+    remote_sha="$(git rev-parse origin/main)"
+    remote_tree="$(git rev-parse "${remote_sha}^{tree}")"
+
+    # Private index seeded from the CURRENT remote head — never the shared
+    # .git/index (GIT_INDEX_FILE scopes every index operation below).
+    GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
+
+    for f in "${RESOLVED_FILES[@]}"; do
+      [ -f "$f" ] || continue
+      if git check-ignore -q "$f" 2>/dev/null; then
+        continue
+      fi
+      local_blob="$(git hash-object -w -- "$f")"
+      remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
+      base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      blob_to_stage="$local_blob"
+
+      # Remote moved for this file since our checkout AND disagrees with our
+      # local content → merge instead of clobbering (keeps e.g. translation
+      # updates or another group's ai-cache entries pushed mid-run).
+      if [[ "$f" == *.json ]] \
+        && [ -n "$remote_blob" ] \
+        && [ "$remote_blob" != "$base_blob" ] \
+        && [ "$remote_blob" != "$local_blob" ]; then
+        key_hint=""
+        case "$f" in
+          data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json) key_hint="url" ;;
+        esac
+        mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"
+        if [ -n "$base_blob" ]; then
+          git cat-file blob "$base_blob" > "$merge_dir/base/$f"
+        else
+          rm -f "$merge_dir/base/$f"
+        fi
+        git cat-file blob "$remote_blob" > "$merge_dir/remote/$f"
+        if merge_json_3way \
+          "$merge_dir/base/$f" \
+          "$merge_dir/remote/$f" \
+          "$f" \
+          "$merge_dir/out/$f" \
+          "$key_hint" \
+          "$f"; then
+          blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
+        else
+          # Merge policy elsewhere in this script is "keep local" on
+          # unresolvable conflicts; do the same rather than aborting the
+          # whole commit (which would lose this crawler's entire run).
+          echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
+        fi
+      fi
+
+      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${blob_to_stage},${f}"
+    done
+
+    new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    if [ "$new_tree" = "$remote_tree" ]; then
+      echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
+      [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      return 0
+    fi
+
+    new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")"
+
+    ensure_git_auth
+    if git push origin "${new_commit}:refs/heads/main"; then
+      echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
+      [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+      # Keep the local branch ref in step for later siblings/log readability.
+      # Fast-forward only; never touches index or worktree.
+      if git merge-base --is-ancestor "$(git rev-parse refs/heads/main 2>/dev/null || echo "$base_sha")" "$new_commit" 2>/dev/null; then
+        git update-ref refs/heads/main "$new_commit" 2>/dev/null || true
+      fi
+
+      if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
+        echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
+      else
+        EXPECTED_SHA="$new_commit" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
+      fi
+      return 0
+    fi
+
+    if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
+      echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts"
+      return 1
+    fi
+
+    delay=$(( push_attempt * 5 + RANDOM % 6 ))
+    echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — refetching origin/main and rebuilding commit in ${delay}s..."
+    sleep "$delay"
+  done
+}
+
+if [ "$GROUPED_ISOLATED" = true ]; then
+  commit_isolated_from_worktree
+  exit $?
+fi
 
 while true; do
 
