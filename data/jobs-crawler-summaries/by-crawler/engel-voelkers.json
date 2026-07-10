@@ -1,49 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-07-10T12:59:03.751Z",
+  "generatedAt": "2026-07-10T22:29:36.655Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21146,
-  "avgDurationMs": 21146,
+  "durationMs": 20561,
+  "avgDurationMs": 20561,
   "durationHistory": [
-    21146
+    20561
   ],
-  "newJobs": [
-    {
-      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
-      "slug": "immobilienberater-m-w-d-zurich-nord-100-engel-voelkers-bulach",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "company": "Immobilien Zürich Nord AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Bülach",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Büroleiter/in (100%)",
@@ -298,6 +267,42 @@
       }
     },
     {
+      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
+      "slug": "immobilienberater-m-w-d-zurich-nord-100-engel-voelkers-bulach",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "company": "Immobilien Zürich Nord AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Bülach",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-7e00857d2998",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T12:59:03.749Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
+    {
       "title": "Immobilienberater/in 100 % | Ascona",
       "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
@@ -371,42 +376,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Immobilienmakler/in 50-100%",
-      "slug": "agente-immobiliare-senior-in-50-100-buutiq-immobilien-ag-st-gallen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-d232f9faf3b7",
-      "salaryMin": 96000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T11:37:50.963Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
