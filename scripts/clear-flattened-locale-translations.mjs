@@ -66,7 +66,17 @@ for (const key of TARGET_KEYS) {
     const dl = job.descriptionByLocale;
     if (!dl || typeof dl !== 'object') continue;
 
-    const maxBullets = Math.max(0, ...LOCALES.map((l) => countBullets(dl[l])));
+    // Structure evidence must include the top-level `description` (#3836): the
+    // historical mergeLocaleTextMap normalizeSpace defect flattened EVERY
+    // byLocale slot — including the source-language one — on every crawl, so
+    // for the worst-hit crawlers no locale slot has bullets left and only the
+    // authoritative `description` still proves the job had a real list. The
+    // original byLocale-only scan skipped exactly those jobs.
+    const maxBullets = Math.max(
+      0,
+      countBullets(job.description),
+      ...LOCALES.map((l) => countBullets(dl[l])),
+    );
     if (maxBullets < MIN_BULLETS_TO_PROVE_STRUCTURE) continue;
 
     for (const locale of LOCALES) {
