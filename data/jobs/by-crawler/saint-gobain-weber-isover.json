@@ -1,6 +1,6 @@
 {
   "crawlerKey": "saint-gobain-weber-isover",
-  "assembledAt": "2026-07-10T12:05:31.729Z",
+  "assembledAt": "2026-07-10T12:31:53.836Z",
   "jobs": [
     {
       "id": "saint-gobain-weber-isover-b74ab647f23a",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/0a518e8f-594a-49dd-b2cd-4e90f5d3bbc6/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:28.195Z",
+      "crawledAt": "2026-07-10T12:31:50.040Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/befb0d31-c26f-417c-8888-8059d462ef72/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:27.488Z",
+      "crawledAt": "2026-07-10T12:31:49.913Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2db38b9b-3610-4903-930b-3d6e1dc5d1c5/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:27.137Z",
+      "crawledAt": "2026-07-10T12:31:49.734Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,10 +214,12 @@
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/2db38b9b-3610-4903-930b-3d6e1dc5d1c5/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover",
+        "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-ag-volketswil",
+        "facciata-ventilata-vhf-100-saint-gobain-weber-ag-volketswil"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-ag-volketswil"
-        ],
         "it": [
           "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover",
           "facciata-ventilata-vhf-100-saint-gobain-weber-ag-volketswil"
@@ -225,15 +227,13 @@
         "en": [
           "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover"
         ],
+        "de": [
+          "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-ag-volketswil"
+        ],
         "fr": [
           "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover"
         ]
       },
-      "previousSlugs": [
-        "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover",
-        "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-ag-volketswil",
-        "facciata-ventilata-vhf-100-saint-gobain-weber-ag-volketswil"
-      ],
       "firstSeenAt": "2026-07-09T12:35:24.888Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
