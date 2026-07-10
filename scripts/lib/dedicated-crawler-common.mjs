@@ -21,7 +21,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
-import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
+import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
@@ -4990,6 +4990,23 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (req) return `${host}|${req}`;
   }
 
+  // Umantis (`recruitingapp-<tenantId>.umantis.com`): key on the FULL host, not
+  // registrableDomain(host). registrableDomain collapses every tenant onto
+  // `umantis.com`, so vacancy ids — PER-TENANT sequences — collided across
+  // distinct employers (`id|umantis.com|1910` was simultaneously GKB's
+  // "Immobilienbewerter" at tenant 2607 and KSA's "Pflegefachfrau Zusatzmodul
+  // B/C" at tenant 122706). The shared slug-registry entry then cross-pinned
+  // one company's slugs onto the other's job on every relocalize/crawl cycle
+  // (50 active cross-tenant collisions censused 2026-07-10; the "poisoned
+  // family" root). Mirrors both the Workday full-host rule above and
+  // mergeUrlKey Rule U (job-url-key.mjs) — same shared regexes, same id.
+  // Existing `id|umantis.com|<vid>` registry entries are migrated to the
+  // per-tenant key by scripts/migrate-umantis-registry-fingerprints.mjs.
+  if (UMANTIS_HOST_RE.test(host)) {
+    const vac = u.pathname.toLowerCase().match(UMANTIS_VACANCY_PATH_RE);
+    if (vac) return `${host}|${vac[1]}`;
+  }
+
   // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it
   // BEFORE the numeric/path heuristics below. The `\/jobs\/(\d+)` etc. rules
   // would otherwise latch onto the LEADING DIGITS of a UUID slug
@@ -6585,6 +6602,12 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   else delete chosen.previousSlugs;
   if (mergedPreviousSlugsByLocale) chosen.previousSlugsByLocale = mergedPreviousSlugsByLocale;
   else delete chosen.previousSlugsByLocale;
+  // Posting date is immutable (#3843 item 3): the two colliding records are
+  // the SAME posting, so whichever side loses preferJob() must not take the
+  // older/sourced date down with it — and legacy records may carry it only on
+  // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
+  const mergedPostedDate = pickMergedPostedDate(a, b);
+  if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
 
   // Whichever side didn't win, its currently-active slug/slugByLocale must
   // not vanish untracked — journal it via the shared capture helper.
@@ -6621,6 +6644,31 @@ export function getMergeExclusionReasons(job, qualityCfg) {
     reasons.push(...quality.reasons);
   }
   return reasons;
+}
+
+// Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
+// ~30 legacy crawlers emit ONLY `datePosted` (never `postedDate`), so a
+// postedDate-only fallback chain never sees the true source posting date and
+// fabricates "today" instead. Each side falls back postedDate → datePosted,
+// then the two sides are combined with the same "posting date is immutable —
+// keep the OLDER" rule as mergePreserveLocaleData's preserveOlder(): a crawler
+// that stamps `new Date()` on every run must not churn the date forward, and
+// `next` only wins when it is actually older (it probably learned to read the
+// real posting timestamp from the page).
+export function pickMergedPostedDate(prev = {}, next = {}) {
+  const prevVal = prev.postedDate || prev.datePosted || '';
+  const nextVal = next.postedDate || next.datePosted || '';
+  if (!prevVal) return nextVal;
+  if (!nextVal) return prevVal;
+  const prevD = new Date(prevVal);
+  const nextD = new Date(nextVal);
+  if (
+    !Number.isNaN(prevD.getTime())
+    && (Number.isNaN(nextD.getTime()) || prevD.getTime() < nextD.getTime())
+  ) {
+    return prevVal;
+  }
+  return nextVal;
 }
 
 export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
@@ -6704,7 +6752,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      postedDate: next.postedDate || prev.postedDate || nowIsoDate,
+      postedDate: pickMergedPostedDate(prev, next) || nowIsoDate,
       crawledAt: prev.crawledAt || next.crawledAt || nowIsoTs,
       firstSeenAt: prev.firstSeenAt || next.firstSeenAt || nowIsoTs,
       description: (next.description?.length || 0) >= (prev.description?.length || 0) ? next.description : prev.description,
@@ -6783,6 +6831,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     chosen.previousSlugs = mergedPreviousSlugsCapped;
     if (best.previousSlugsByLocale) chosen.previousSlugsByLocale = best.previousSlugsByLocale;
     else delete chosen.previousSlugsByLocale;
+    // Same bare-preferJob() discard pattern for the posting date (#3843
+    // item 3): `best.postedDate` already holds the sourced, older-wins date
+    // (including the legacy `datePosted` fallback ~30 crawlers emit). If
+    // preferJob returned `prev` wholesale, prev's missing/fabricated
+    // postedDate would silently win — force the merged date onto whichever
+    // side was picked.
+    chosen.postedDate = best.postedDate;
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');

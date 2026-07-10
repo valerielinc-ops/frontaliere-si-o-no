@@ -1,21 +1,19 @@
 {
   "key": "rehaklinik-hasliberg",
   "label": "Rehaklinik Hasliberg",
-  "generatedAt": "2026-07-10T10:23:27.057Z",
+  "generatedAt": "2026-07-10T12:27:30.638Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 7198,
-  "avgDurationMs": 7198,
+  "unchangedCount": 0,
+  "durationMs": 5898,
+  "avgDurationMs": 5898,
   "durationHistory": [
-    7198
+    5898
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "rehaklinik-hasliberg-0ef5c1738f42",
       "slug": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
@@ -29,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/eb1089e2aa343fc47a56c189e4a0064a/zentrale-r-berufsbildner-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:21.243Z",
+      "crawledAt": "2026-07-10T12:27:25.863Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,7 +67,7 @@
       "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich-rehabilitation",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:22.942Z",
+      "crawledAt": "2026-07-10T12:27:27.235Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -108,7 +106,7 @@
       "url": "https://my.jobalino.ch/job/94c876ec822c2a7b70de4943e26ad1c0/fachaerztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:21.866Z",
+      "crawledAt": "2026-07-10T12:27:26.354Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -148,7 +146,7 @@
       "url": "https://my.jobalino.ch/job/0798fc0f23c3efe03549d0b768bf7c59/fachaerztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-zentr",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:22.478Z",
+      "crawledAt": "2026-07-10T12:27:26.841Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -188,7 +186,7 @@
       "url": "https://my.jobalino.ch/job/04fe70518c3a1575d3ff9ce80cb2b95a/pflegefachpersonal-fuer-pflegepool",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:24.165Z",
+      "crawledAt": "2026-07-10T12:27:28.202Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -228,7 +226,7 @@
       "url": "https://my.jobalino.ch/job/53ff50726a1e24bc7c44745ab07a30a4/assistenzaerztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation-oder-innere-medizin",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:23:23.553Z",
+      "crawledAt": "2026-07-10T12:27:27.718Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,5 +253,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

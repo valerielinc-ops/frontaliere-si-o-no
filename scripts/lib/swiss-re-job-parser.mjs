@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   detectSuccessFactorsKind,
@@ -31,6 +31,21 @@ export const SWISS_RE_COMPANY_DOMAIN = 'swissre.com';
 // Note: careers.swissre.com (the old seed) is a dead redirect target — the
 // real listing lives on www.swissre.com, not the careers. subdomain.
 const CAREER_URL = 'https://www.swissre.com/careers/jobSearch.html';
+
+// ── Detail-page fetch budget (#3836) ──
+// The JobTeaserList listing cards carry NO description — the real, structured
+// job body (About the Role / Key Responsibilities bullets) only exists on the
+// detail pages at /careers/job/{slug}/{id}. We therefore fetch one detail page
+// per listing. Live count is ~320 listings, so a full run costs
+// ~320 × (fetch + DETAIL_FETCH_DELAY_MS) ≈ 6-9 min — acceptable for a
+// scheduled crawler. The cap below is a safety valve against a listing-count
+// explosion, NOT a routine limiter: when it trips, every skipped job is
+// counted and reported loudly in the run log (no silent thinning).
+export const DETAIL_FETCH_DELAY_MS = 500;
+export const MAX_DETAIL_FETCHES = (() => {
+  const raw = Number(process.env.SWISS_RE_MAX_DETAIL_FETCHES);
+  return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 500;
+})();
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -117,6 +132,76 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/* ── Detail-page parser ───────────────────────────────────────
+ * www.swissre.com/careers/job/{slug}/{id} is a Magnolia CMS page (SSR):
+ *   <div class="PageHeaderCareer"> … <div class="SectionTitle--content">
+ *     Regular Employment</div> …
+ *   <section class="ArticleSection"><div class="richtext">
+ *     <p><strong>Location:</strong> Hyderabad, TG, IN</p></div></section>
+ *   <section class="ArticleSection"><div class="richtext">
+ *     …full job body with <ul type="disc"><li> bullets…</div></section>
+ * There is NO JobPosting JSON-LD on these pages (only WebSite +
+ * BreadcrumbList), so the richtext sections are the description source.
+ */
+
+/**
+ * Parse a Swiss Re careers detail page.
+ *
+ * @param {string} html Raw detail-page HTML.
+ * @returns {{descriptionHtml: string, location: string, employmentText: string} | null}
+ *   `null` when the page has no ArticleSection content (challenge page,
+ *   redirect stub, expired posting).
+ */
+export function parseSwissReDetailPage(html = '') {
+  if (!html) return null;
+  const sections = [
+    ...String(html).matchAll(
+      /<section[^>]*class="[^"]*ArticleSection[^"]*"[^>]*>([\s\S]*?)<\/section>/gi
+    ),
+  ].map((m) => m[1]);
+
+  let location = '';
+  const bodyParts = [];
+  for (const section of sections) {
+    const plain = stripHtml(section);
+    if (!plain) continue;
+    // The first richtext section is a short "Location: City, Region, CC" line;
+    // require it to be short so a real body mentioning "Location:" never gets
+    // swallowed as metadata.
+    const locMatch = section.match(/<strong>\s*Location\s*:?\s*<\/strong>\s*([^<]+)/i);
+    if (locMatch && plain.length < 120) {
+      location = normalizeSpace(locMatch[1]);
+      continue;
+    }
+    bodyParts.push(section);
+  }
+
+  // "Regular Employment" / "Temporary Employment" chip under the H1.
+  const empMatch = html.match(
+    /<div[^>]*class="[^"]*SectionTitle--content[^"]*"[^>]*>([\s\S]*?)<\/div>/i
+  );
+  const employmentText = empMatch ? normalizeSpace(stripHtml(empMatch[1])) : '';
+
+  const descriptionHtml = bodyParts.join('\n').trim();
+  if (!descriptionHtml && !location) return null;
+  return { descriptionHtml, location, employmentText };
+}
+
+/**
+ * Fetch and parse one detail page. Uses the shared fetchHtml (retry +
+ * WAF/Jina rescue — www.swissre.com 403s plain curl but serves normal
+ * browser-shaped requests).
+ *
+ * @param {string} url Detail-page URL.
+ * @returns {Promise<ReturnType<typeof parseSwissReDetailPage>>}
+ */
+export async function fetchSwissReJobDetail(url) {
+  const html = await fetchHtml(url, {
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+  });
+  return parseSwissReDetailPage(html);
+}
+
 /* ── SuccessFactors fetcher ───────────────────────────────────
  * Three flavors auto-detected from CAREER_URL:
  *   - 'odata-api'    → api{N}.successfactors.com/odata/v2/...
@@ -177,17 +262,39 @@ export async function fetchAllSwissReJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let detailOk = 0;
+  let detailFailed = 0;
+  let detailSkipped = 0;
   for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Zürich'; // HQ: Mythenquai, Zürich
-    const canton = inferSwissTargetCanton(location) || 'ZH';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Listing cards carry no description — fetch the detail page (#3836).
+    let detail = null;
+    if (detailOk + detailFailed < MAX_DETAIL_FETCHES) {
+      try {
+        detail = await fetchSwissReJobDetail(publicUrl);
+        if (detail?.descriptionHtml) {
+          detailOk += 1;
+        } else {
+          detailFailed += 1;
+          console.warn(`  ⚠️ No description sections on detail page: ${publicUrl}`);
+        }
+      } catch (err) {
+        detailFailed += 1;
+        console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      }
+      await new Promise((r) => setTimeout(r, DETAIL_FETCH_DELAY_MS)); // Rate limiting
+    } else {
+      detailSkipped += 1;
+    }
+
+    const location = listing.location || detail?.location || 'Zürich'; // HQ: Mythenquai, Zürich
+    const canton = inferSwissTargetCanton(location) || 'ZH';
+    const descriptionHtml = detail?.descriptionHtml || '';
+    const descriptionText = stripHtml(descriptionHtml);
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} swiss-re ch`);
@@ -218,7 +325,9 @@ export async function fetchAllSwissReJobs() {
       country: 'CH',
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: detectEmploymentType(
+        [detail?.employmentText, listing.timeType, title].filter(Boolean).join(' ')
+      ),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Assicurazioni', // Reinsurance / financial services
       currency: 'CHF',
@@ -230,7 +339,18 @@ export async function fetchAllSwissReJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+  }
+
+  console.log(
+    `\n  📄 Detail pages: ${detailOk} with description, ${detailFailed} failed/empty, ${detailSkipped} skipped`
+  );
+  if (detailSkipped > 0) {
+    // NOT a silent cap: every skipped job is visible here and falls back to
+    // the "<title> — Swiss Re" stub, which the parser-quality audit flags.
+    console.warn(
+      `  ⚠️ Detail-fetch cap hit: ${detailSkipped}/${listings.length} listings NOT enriched ` +
+        `(cap ${MAX_DETAIL_FETCHES}; raise SWISS_RE_MAX_DETAIL_FETCHES to cover all).`
+    );
   }
 
   console.log(`\n📋 Total Swiss Re jobs discovered: ${jobs.length}`);

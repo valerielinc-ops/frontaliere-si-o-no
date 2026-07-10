@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-09T22:26:41.883Z",
+  "updatedAt": "2026-07-10T12:42:09.075Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -86,12 +86,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-06-29"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036552/store-manager-mels-80-100": {
-      "location": "Mels",
-      "canton": "SG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-06-29"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036749/sales-agent-zug-60-100": {
       "location": "Zug",
       "canton": "ZG",
@@ -134,12 +128,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-03"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036730/finance-business-partner-cto-50": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-03"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
       "location": "Zurich",
       "canton": "ZH",
@@ -175,6 +163,18 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-05-12"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30034310/store-manager-region-zurich-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-10"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036730/finance-business-partner-cto-50": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-10"
     }
   }
 }

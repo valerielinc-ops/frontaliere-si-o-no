@@ -1,18 +1,20 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-07-10T10:33:22.638Z",
+  "generatedAt": "2026-07-10T13:16:04.264Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4266,
-  "avgDurationMs": 4266,
+  "durationMs": 4032,
+  "avgDurationMs": 4032,
   "durationHistory": [
-    4266
+    4342,
+    4032
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "apg-sga-90b3b6b0fcec",
       "slug": "key-account-manager-in-direktkunden-80-100-zurich-apg-sga-ch",
@@ -25,7 +27,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-direktkunden-zuerich/eupki7cjsnxtt5mjbuvy48rrftetxlnla1p32ttj7cb14mhzhkhfnlir6jsa2wuc",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:33:20.889Z",
+      "crawledAt": "2026-07-10T13:16:03.052Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,16 +42,17 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.apgsga.ch/publication/key-account-manager-in-direktkunden-zuerich/eupki7cjsnxtt5mjbuvy48rrftetxlnla1p32ttj7cb14mhzhkhfnlir6jsa2wuc",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T10:33:20.889Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +85,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "firstSeenAt": "2026-07-06T13:01:28.983Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,

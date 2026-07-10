@@ -127,6 +127,48 @@ describe('mergeUrlKey ETA SA requisition rule (Rule L — slug-drift class)', ()
   });
 });
 
+describe('mergeUrlKey Umantis vacancy rule (Rule U — tenant-id collision class)', () => {
+  // The per-vacancy id (3-4 digits) lives in an ANCESTOR segment
+  // (`/Vacancies/<id>/…`) and is below Rule B's ≥6-digit threshold, while the
+  // TENANT id in the hostname (`recruitingapp-122706`) is 6 digits — so the
+  // legacy whole-URL scan returned `num:122706` for EVERY job at the tenant.
+  // The old Rule U merely host-prefixed that token, collapsing all of a
+  // tenant's jobs onto ONE key; mergePreserveLocaleData's non-injective-key
+  // guard then refused every existing↔fresh match and the whole slice
+  // re-keyed on each crawl, wiping previousSlugs/firstSeenAt (KSA incident,
+  // run 29086057860 / commit c74a569d: 31 previousSlugs entries lost across
+  // 19 jobs).
+  it('extracts the per-vacancy id from the CheckLogin URL shape', () => {
+    expect(mergeUrlKey('https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1'))
+      .toBe('req:recruitingapp-122706.umantis.com:vac:5105');
+  });
+  it('gives distinct vacancies at the same tenant DISTINCT keys', () => {
+    const a = mergeUrlKey('https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1');
+    const b = mergeUrlKey('https://recruitingapp-122706.umantis.com/Vacancies/5506/Application/CheckLogin/1');
+    expect(a).not.toBe(b);
+  });
+  it('keys the same vacancy identically across the Description → CheckLogin URL migration', () => {
+    const description = 'https://recruitingapp-122706.umantis.com/Vacancies/5105/Description/1?lang=ger';
+    const checkLogin = 'https://recruitingapp-122706.umantis.com/Vacancies/5105/Application/CheckLogin/1';
+    expect(mergeUrlKey(description)).toBe(mergeUrlKey(checkLogin));
+  });
+  it('scopes the key per tenant (vacancy ids are per-tenant sequences)', () => {
+    const a = mergeUrlKey('https://recruitingapp-122706.umantis.com/Vacancies/1910/Application/CheckLogin/1');
+    const b = mergeUrlKey('https://recruitingapp-999888.umantis.com/Vacancies/1910/Application/CheckLogin/1');
+    expect(a).toBe('req:recruitingapp-122706.umantis.com:vac:1910');
+    expect(b).toBe('req:recruitingapp-999888.umantis.com:vac:1910');
+    expect(a).not.toBe(b);
+  });
+  it('keeps the host-prefixed legacy fallback for umantis URLs without a /Vacancies/<id>/ segment', () => {
+    expect(mergeUrlKey('https://recruitingapp-122706.umantis.com/Jobs/All'))
+      .toBe('req:recruitingapp-122706.umantis.com:num:122706');
+  });
+  it('does NOT change keys for non-umantis hosts (host-gated, no re-key)', () => {
+    expect(mergeUrlKey('https://www.eta.ch/en/jobs-careers/vacancies/detail/3719')).toBe('req:eta.ch:3719');
+    expect(mergeUrlKey('https://example.com/vacancies/1910/apply')).toBe('url:https://example.com/vacancies/1910/apply');
+  });
+});
+
 describe('workdayReqFromLeaf', () => {
   it('returns the after-first-underscore token when it carries a digit', () => {
     expect(workdayReqFromLeaf('Cloud-Architect_31138417')).toBe('31138417');

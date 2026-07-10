@@ -473,12 +473,12 @@
     },
     {
       "id": "upd-a67318c29a3f",
-      "slug": "dipendenti-dell-applicazione-al-100-kanton-aargau-aarau-d35b52",
+      "slug": "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "dipendenti-dell-applicazione-al-100-kanton-aargau-aarau-d35b52",
-        "en": "prisoners-100-kanton-aargau-aarau-d35b52",
-        "de": "dipl-pflegefachperson-station-marbach-upd-bern",
-        "fr": "prisonniers-100-kanton-aargau-aarau-d35b52"
+        "it": "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-pflegefachperson-station-marbach-upd-bern",
+        "de": "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -519,24 +519,6 @@
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3034/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-station-marbach-upd-bern",
-        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-station-marbach-upd-bern",
-          "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-station-marbach-upd-bern",
-          "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
-        ],
-        "en": [
-          "dipl-pflegefachperson-station-marbach-upd-bern"
-        ]
-      },
       "firstSeenAt": "2026-05-27T00:39:06.289Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -550,7 +532,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "upd-e7c1119f4613",

@@ -7644,20 +7644,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-07-09T12:12:27.684Z",
       "_lastObservedGeneratedAt": "2026-07-09T12:12:27.690Z"
-    },
-    "bancastato": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 1,
-      "lastFailureReason": "crawler not run in 52 days (freshnessAt=2026-05-17T21:07:56.707Z, source=summary)",
-      "status": "unknown",
-      "_lastObservedAt": "2026-07-08T09:13:17.679Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-17T21:07:56.707Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-05-17T21:07:56.707Z",
-      "_missingAt": "2026-07-10T10:06:27.785Z"
     }
   }
 }

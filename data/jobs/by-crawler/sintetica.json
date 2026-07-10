@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sintetica",
-  "assembledAt": "2026-07-09T22:22:33.048Z",
+  "assembledAt": "2026-07-10T12:46:16.866Z",
   "jobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
@@ -49,13 +49,16 @@
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
       "previousSlugs": [
-        "pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-sintetica"
+        "pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-sintetica",
+        "pv-project-manager-e-vice-qppv-sito-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-sintetica"
+          "pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-sintetica",
+          "pv-project-manager-e-vice-qppv-sito-mendrisio-ticino-sintetica-sa-mendrisio"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 68000,
@@ -122,12 +125,14 @@
         "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
         "specialiste-des-affaires-reglementaires-site-mendrisio-ticino-sintetica-sa-mendrisio",
         "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica-mendrisio-ticino-switzerland",
-        "specialista-per-gli-affari-regolatori-sito-mendrisio-ticino-sintetica-sa-mendrisio"
+        "specialista-per-gli-affari-regolatori-sito-mendrisio-ticino-sintetica-sa-mendrisio",
+        "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
-          "specialista-per-gli-affari-regolatori-sito-mendrisio-ticino-sintetica-sa-mendrisio"
+          "specialista-per-gli-affari-regolatori-sito-mendrisio-ticino-sintetica-sa-mendrisio",
+          "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio"
         ],
         "de": [
           "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica"
@@ -137,6 +142,7 @@
           "specialiste-des-affaires-reglementaires-site-mendrisio-ticino-sintetica-sa-mendrisio"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 66500,
@@ -205,13 +211,14 @@
         "local-regulatory-affairs-manager-area-us-sito-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-sintetica-sa-mendrisio-rm75c4"
-        ],
         "it": [
           "local-regulatory-affairs-manager-area-us-sito-mendrisio-ticino-sintetica-sa-mendrisio"
+        ],
+        "fr": [
+          "local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-sintetica-sa-mendrisio-rm75c4"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 101500,
@@ -351,12 +358,14 @@
       "id": "sintetica-8218af8800e4",
       "previousSlugs": [
         "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
-        "controllo-qualita-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio"
+        "controllo-qualita-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio",
+        "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
-          "controllo-qualita-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio"
+          "controllo-qualita-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio",
+          "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio"
         ],
         "en": [
           "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica"
@@ -426,15 +435,18 @@
       "id": "sintetica-2161482f648c",
       "previousSlugsByLocale": {
         "it": [
-          "spontaneous-application-mendrisio-site-ticino-sintetica"
+          "spontaneous-application-mendrisio-site-ticino-sintetica",
+          "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio"
         ],
         "en": [
           "spontaneous-application-mendrisio-site-ticino-sintetica"
         ]
       },
       "previousSlugs": [
-        "spontaneous-application-mendrisio-site-ticino-sintetica"
+        "spontaneous-application-mendrisio-site-ticino-sintetica",
+        "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -465,7 +477,7 @@
       "addressCountry": "CH",
       "postalCode": "2108",
       "streetAddress": "Rue de l'Ecluse 28",
-      "description": "Spontaneous application - Couvet Site (Neuchâtel) — Sintetica SA, Couvet (NE).\n\n×\n                    Terms and Conditions\n\nThank you for choosing to use nCore HR as a tool to apply to our business positions.\n\nThe nCore HR system allows the registration of Candidate data (personal data required for the candidacy and video asynchronous interviews) that are subsequently made available to the human resources department of this company.\n\nUsing nCore HR to propose an application, the user accepts the following terms:\n\nOur Services must not be used improperly. For example, it is forbidden to interfere with our Services or attempt to access it using a method other than the interface and instructions provided by us. Our Services may only be used in the manner permitted by law, including laws and regulations governing export and re-export controls. We may suspend or discontinue the provision of our Services to you if you fail to comply with our terms or our policies or if we are investigating a case of alleged wrongdoing.\n\nBy using our Services, you do not become the owner of any intellectual property rights on our Services or the content accessed. It is forbidden to use the contents coming from our Services without having obtained the authorization from the owner or where it is not permitted by law. These terms do not grant you the right to use any trademark or logo used in our Services. It is forbidden to remove, obscure or alter any legal notices displayed in our Services or together with them.\n\nSome of our Services are available on mobile devices. Such Services must not be used if they can distract and cause violations of the highway code or safety laws.\n\nThe privacy rules illustrate how we process personal data and protect your privacy when you use our Services. By using our Services, you agree that you may use such data in accordance with our privacy policies.\n\nSome of our Services allow you to upload, transmit, store, send or receive content. The user retains any intellectual property rights held on such content. In short, what belongs to the user remains his property.\n\nWhen the user uploads, transmits, stores, sends or receives content from or through our Services, grants a global license to use, host, store, reproduce the aforementioned content. The rights you grant with this license are for the limited purpose of using, promoting and improving our Services and developing new ones. This license remains even if the user stops using our Services. Some Services may offer ways to access and remove the content provided to this Service. In addition, some of our Services contain terms or settings that restrict the scope of our use of the content sent to such Services. You must ensure that you have the necessary rights to grant us this license with respect to any content sent to our Services.\n\nOur automated systems analyze user content in order to offer additional functionality to human resources. This analysis occurs when the contents are transmitted, received and stored.\n\nFor more information on how to use and store the contents adopted, you can consult the privacy rules or additional terms of the specific Services. Should you send feedback or suggestions on our Services, we may use such feedback or suggestions without any obligation to you.\n\nWe constantly work to modify and improve our services. We may add or remove features or features and we may suspend or terminate the provision of a Service altogether. You may stop using our Services at any time, even if we will be sorry to see it go away. Our company may also terminate the provision of Services to you or establish new access limits to the Services at any time.\n\nWe may modify these terms or any additional terms applicable to a Service, for example to reflect changes to the laws or our Services. The terms must be consulted on a regular basis. We will publish communications regarding changes to the terms on this page. Notifications regarding any changes made to the additional terms will be published in the relevant Service. The changes will not be retroactive and will come into force no sooner than fourteen days after the date of publication. However, any changes related to the new functions of a Service or any changes made for legal reasons will immediately enter into force. If the user does not accept the modified terms of a Service, he is asked to stop using it.\n\nIn the event of a conflict between these terms and additional terms, additional terms will prevail. These terms govern the relationship between our company and the user, and do not give rise to any right of third-party beneficiaries.\n\nIf the user does not comply with these terms, the failure to adopt appropriate measures on our part can not be understood as a waiver of our rights (for example the right to take action in the future).\n\nIf a specific provision proves to be inapplicable, such inapplicability will not be extended to the other provisions.\n\nFor any controversy the defined forum is that of Milan.\n\nFermer",
+      "description": "Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA al sito di Couvet (NE), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.",
       "titleByLocale": {
         "it": "Applicazione spontanea - Sito Couvet (Neuchâtel)",
         "en": "Spontaneous application - Couvet Site (Neuchâtel)",
@@ -474,7 +486,7 @@
       },
       "descriptionByLocale": {
         "it": "Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA al sito di Couvet (NE), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.",
-        "en": "Spontaneous application - Couvet Site (Neuchâtel) — Sintetica SA, Couvet (NE).\n\n×\n                    Terms and Conditions\n\nThank you for choosing to use nCore HR as a tool to apply to our business positions.\n\nThe nCore HR system allows the registration of Candidate data (personal data required for the candidacy and video asynchronous interviews) that are subsequently made available to the human resources department of this company.\n\nUsing nCore HR to propose an application, the user accepts the following terms:\n\nOur Services must not be used improperly. For example, it is forbidden to interfere with our Services or attempt to access it using a method other than the interface and instructions provided by us. Our Services may only be used in the manner permitted by law, including laws and regulations governing export and re-export controls. We may suspend or discontinue the provision of our Services to you if you fail to comply with our terms or our policies or if we are investigating a case of alleged wrongdoing.\n\nBy using our Services, you do not become the owner of any intellectual property rights on our Services or the content accessed. It is forbidden to use the contents coming from our Services without having obtained the authorization from the owner or where it is not permitted by law. These terms do not grant you the right to use any trademark or logo used in our Services. It is forbidden to remove, obscure or alter any legal notices displayed in our Services or together with them.\n\nSome of our Services are available on mobile devices. Such Services must not be used if they can distract and cause violations of the highway code or safety laws.\n\nThe privacy rules illustrate how we process personal data and protect your privacy when you use our Services. By using our Services, you agree that you may use such data in accordance with our privacy policies.\n\nSome of our Services allow you to upload, transmit, store, send or receive content. The user retains any intellectual property rights held on such content. In short, what belongs to the user remains his property.\n\nWhen the user uploads, transmits, stores, sends or receives content from or through our Services, grants a global license to use, host, store, reproduce the aforementioned content. The rights you grant with this license are for the limited purpose of using, promoting and improving our Services and developing new ones. This license remains even if the user stops using our Services. Some Services may offer ways to access and remove the content provided to this Service. In addition, some of our Services contain terms or settings that restrict the scope of our use of the content sent to such Services. You must ensure that you have the necessary rights to grant us this license with respect to any content sent to our Services.\n\nOur automated systems analyze user content in order to offer additional functionality to human resources. This analysis occurs when the contents are transmitted, received and stored.\n\nFor more information on how to use and store the contents adopted, you can consult the privacy rules or additional terms of the specific Services. Should you send feedback or suggestions on our Services, we may use such feedback or suggestions without any obligation to you.\n\nWe constantly work to modify and improve our services. We may add or remove features or features and we may suspend or terminate the provision of a Service altogether. You may stop using our Services at any time, even if we will be sorry to see it go away. Our company may also terminate the provision of Services to you or establish new access limits to the Services at any time.\n\nWe may modify these terms or any additional terms applicable to a Service, for example to reflect changes to the laws or our Services. The terms must be consulted on a regular basis. We will publish communications regarding changes to the terms on this page. Notifications regarding any changes made to the additional terms will be published in the relevant Service. The changes will not be retroactive and will come into force no sooner than fourteen days after the date of publication. However, any changes related to the new functions of a Service or any changes made for legal reasons will immediately enter into force. If the user does not accept the modified terms of a Service, he is asked to stop using it.\n\nIn the event of a conflict between these terms and additional terms, additional terms will prevail. These terms govern the relationship between our company and the user, and do not give rise to any right of third-party beneficiaries.\n\nIf the user does not comply with these terms, the failure to adopt appropriate measures on our part can not be understood as a waiver of our rights (for example the right to take action in the future).\n\nIf a specific provision proves to be inapplicable, such inapplicability will not be extended to the other provisions.\n\nFor any controversy the defined forum is that of Milan.\n\nFermer",
+        "en": "Spontaneous application - Couvet Site (Neuchâtel) — Sintetica SA, Couvet (NE).\n\n×\nTerms and Conditions\n\nThank you for choosing to use nCore HR as a tool to apply to our business positions.\n\nThe nCore HR system allows the registration of Candidate data (personal data required for the candidacy and video asynchronous interviews) that are subsequently made available to the human resources department of this company.\n\nUsing nCore HR to propose an application, the user accepts the following terms:\n\nOur Services must not be used improperly. For example, it is forbidden to interfere with our Services or attempt to access it using a method other than the interface and instructions provided by us. Our Services may only be used in the manner permitted by law, including laws and regulations governing export and re-export controls. We may suspend or discontinue the provision of our Services to you if you fail to comply with our terms or our policies or if we are investigating a case of alleged wrongdoing.\n\nBy using our Services, you do not become the owner of any intellectual property rights on our Services or the content accessed. It is forbidden to use the contents coming from our Services without having obtained the authorization from the owner or where it is not permitted by law. These terms do not grant you the right to use any trademark or logo used in our Services. It is forbidden to remove, obscure or alter any legal notices displayed in our Services or together with them.\n\nSome of our Services are available on mobile devices. Such Services must not be used if they can distract and cause violations of the highway code or safety laws.\n\nThe privacy rules illustrate how we process personal data and protect your privacy when you use our Services. By using our Services, you agree that you may use such data in accordance with our privacy policies.\n\nSome of our Services allow you to upload, transmit, store, send or receive content. The user retains any intellectual property rights held on such content. In short, what belongs to the user remains his property.\n\nWhen the user uploads, transmits, stores, sends or receives content from or through our Services, grants a global license to use, host, store, reproduce the aforementioned content. The rights you grant with this license are for the limited purpose of using, promoting and improving our Services and developing new ones. This license remains even if the user stops using our Services. Some Services may offer ways to access and remove the content provided to this Service. In addition, some of our Services contain terms or settings that restrict the scope of our use of the content sent to such Services. You must ensure that you have the necessary rights to grant us this license with respect to any content sent to our Services.\n\nOur automated systems analyze user content in order to offer additional functionality to human resources. This analysis occurs when the contents are transmitted, received and stored.\n\nFor more information on how to use and store the contents adopted, you can consult the privacy rules or additional terms of the specific Services. Should you send feedback or suggestions on our Services, we may use such feedback or suggestions without any obligation to you.\n\nWe constantly work to modify and improve our services. We may add or remove features or features and we may suspend or terminate the provision of a Service altogether. You may stop using our Services at any time, even if we will be sorry to see it go away. Our company may also terminate the provision of Services to you or establish new access limits to the Services at any time.\n\nWe may modify these terms or any additional terms applicable to a Service, for example to reflect changes to the laws or our Services. The terms must be consulted on a regular basis. We will publish communications regarding changes to the terms on this page. Notifications regarding any changes made to the additional terms will be published in the relevant Service. The changes will not be retroactive and will come into force no sooner than fourteen days after the date of publication. However, any changes related to the new functions of a Service or any changes made for legal reasons will immediately enter into force. If the user does not accept the modified terms of a Service, he is asked to stop using it.\n\nIn the event of a conflict between these terms and additional terms, additional terms will prevail. These terms govern the relationship between our company and the user, and do not give rise to any right of third-party beneficiaries.\n\nIf the user does not comply with these terms, the failure to adopt appropriate measures on our part can not be understood as a waiver of our rights (for example the right to take action in the future).\n\nIf a specific provision proves to be inapplicable, such inapplicability will not be extended to the other provisions.\n\nFor any controversy the defined forum is that of Milan.\n\nFermer",
         "de": "Spontanantrag - Couvet Site (Neuchâtel) - offene Stelle bei Sintetica SA am Standort Couvet (NE), Schweiz. Sintetica SA ist ein Schweizer Pharmaunternehmen, das sich auf die Herstellung von injizierbaren sterilen Medikamenten spezialisiert hat.",
         "fr": "Demande spontanée - Site de Couvet (Neuchâtel) — position ouverte à Sintetica SA sur le site de Couvet (NE), Suisse. Sintetica SA est une société pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables."
       },
@@ -482,8 +494,8 @@
       "slugByLocale": {
         "it": "spontaneous-application-couvet-site-neuchatel-sintetica",
         "en": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
-        "de": "spontane-anwendung-couvet-site-neuchatel-sintetica-sa-couvet",
-        "fr": "demande-spontanee-site-de-couvet-neuchatel-sintetica-sa-couvet"
+        "de": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
+        "fr": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
       },
       "category": "general",
       "datePosted": "2026-07-07",
@@ -495,11 +507,26 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-4302b766b847",
+      "previousSlugs": [
+        "spontane-anwendung-couvet-site-neuchatel-sintetica-sa-couvet",
+        "demande-spontanee-site-de-couvet-neuchatel-sintetica-sa-couvet",
+        "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "spontane-anwendung-couvet-site-neuchatel-sintetica-sa-couvet",
+          "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
+        ],
+        "fr": [
+          "demande-spontanee-site-de-couvet-neuchatel-sintetica-sa-couvet",
+          "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
+        ]
+      },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -512,101 +539,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
-        ],
-        "fr": [
-          "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
-      ]
-    },
-    {
-      "url": "https://app.ncoreplat.com/jobposition/789015/clinical-amp-medical-project-manager-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/789015/clinical-amp-medical-project-manager-ch/sintetica",
-      "title": "Clinical & Medical Project Manager - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "description": "Clinical & Medical Project Manager - Mendrisio site (Ticino) — Sintetica SA, Mendrisio (TI).\n\nClinical & Medical Project Manager - Mendrisio site (Ticino)\n\nFounded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica's mission is to continuously strive to improve therapies by enhancing its products' formulations and usability for the benefit of clinicians and patients.\n\nWe do so in close cooperation with clinical experts, who shape our understanding of their unmet needs and drive our efforts to address them. With this trust and insight, we push the limits of science and technology to make therapies safer for patients and easier to perform. Every year we reliably supply millions of doses of our products across a range of therapeutic classes, including anaesthesia and analgesia, while expanding to address further healthcare needs.\n\nTo strengthen our Scientific Affairs Department team at our headquarter in Mendrisio (Switzerland), we are currently looking for a Clinical & Medical Project Manager.\n\nPosition summary\n\nThe Clinical & Medical Project Manager, together with the other members from the Nonclinical and Clinical department and in collaboration with the pharmaceutical development and regulatory teams, plays a crucial role in ensuring the successful registration of new products and the effective maintenance of legacy products.\n\nThe role demands a deep, up-to-date understanding of the clinical and medical features of the Sintetica pipeline and portfolio products, and the ability to prepare a variety of technical documents for regulatory or scientific dissemination purposes, meeting project requirements and timelines. Very strong technical writing skills to ensure effectiveness and clarity are essential.\n\nKey responsibilities\n\n• Offer medical expertise and clinical interpretation of data for regulatory and scientific dissemination purposes.\n\n• Contribute to regulatory strategies assessment for the clinical aspects of each project.\n\n• Draft clinical documents for regulatory filings such as Scientific Advice and Pre-IND Meetings, NDA, ANDA and MAA, responses to IRs and DLs, PIPs, PSPs, etc.\n\n• Evaluate scientific literature, clinical trial data and other relevant information to assess the safety, efficacy of drugs of interest.\n\n• Contribute to the design of clinical studies to ensure that they are scientifically sound and aligned with the objectives of the research, compile information on the investigational product to inform clinical investigators of the drug’s properties, clinical data and safety profile.\n\n• Revise Clinical Study Reports of completed clinical trials.\n\n• Keep updated on the evolving global regulatory environment (FDA, EMA, ICH, etc.) in the clinical area of expertise and ensure that documents and submissions adhere to those standards; contribute to regulatory strategies accordingly.\n\n• Collaborate with Cross-Functional Teams: work closely with non-clinical and clinical operations, regulatory affairs and other departments to gather data and insights needed for regulatory documents.\n\nQualifications and skills\n\n• Master’s Degree in a health sciences discipline (e.g., Medicine, Pharmacy, Biotechnology, Biology or a related field), Master’s Degree in Medicine constitutes a plus.\n\n• Minimum of 10 years of experience in a similar role in the pharmaceutical industry.\n\n• Experience in small molecules and small peptides constitute a plus.\n\n• Proven experience in drafting and revising clinical sections of regulatory documents, clinical trials protocols and reports.\n\n• Expertise in literature searches and ability to select and synthetize the most pertaining information for the purpose\n\n• Understanding of the regulatory guidelines relevant for the role.\n\n• Excellent communication skills with a proactive approach and the ability to work autonomously.\n\n• Strong attention to detail and accuracy.\n\n• Ability to take ownership of assignments, proactively consulting with project team representatives as needed.\n\n• Strong organizational skills, including planning, prioritization and flexibility.\n\n• Strategic thinking capabilities.\n\n• Proficiency in written and spoken English, other languages constitute a plus.\n\nPreference will be given to candidates based in Switzerland.\n\nWe offer\n\nFulltime permanent employment in a young working environment and positive culture.\n\nSintetica promotes diversity and gender equality.",
-      "titleByLocale": {
-        "it": "Clinical & Medical Project Manager - Sito Mendrisio (Ticino)",
-        "en": "Clinical & Medical Project Manager - Mendrisio site (Ticino)",
-        "de": "Klinische und medizinische Projektleitung - Mendrisio Standort (Ticino)",
-        "fr": "Gestionnaire de projet clinique et médical - site Mendrisio (Ticino)"
-      },
-      "descriptionByLocale": {
-        "it": "Clinical & Medical Project Manager - Sito Mendrisio (Ticino) Descrizione Clinical & Medical Project Manager - Sito Mendrisio (Ticino) Fondata nel 1921 e con sede a Mendrisio (Svizzera), la missione di Sintetica è di cercare continuamente di migliorare le terapie migliorando le formulazioni e l'usabilità dei suoi prodotti a beneficio di medici e pazienti. Lo facciamo in stretta collaborazione con gli esperti clinici, che plasmano la nostra comprensione delle loro esigenze insoddisfacenti e spingono i nostri sforzi per affrontarle. Con questa fiducia e comprensione, spingiamo i limiti della scienza e della tecnologia per rendere le terapie più sicure per i pazienti e più facile da eseguire. Ogni anno forniamo in modo affidabile milioni di dosi dei nostri prodotti attraverso una gamma di classi terapeutiche, tra cui l'anestesia e l'analgesia, mentre si espande per affrontare ulteriori esigenze sanitarie. Per rafforzare il nostro team di Dipartimento Scientifico presso la nostra sede a Mendrisio (Svizzera), stiamo attualmente cercando un responsabile del progetto clinico e medico. Mansioni La Clinical & Medical Project Manager, insieme agli altri membri del reparto Nonclinico e Clinico e in collaborazione con i team di sviluppo e regolazione farmaceutici, svolge un ruolo cruciale nel garantire la registrazione di nuovi prodotti e la manutenzione efficace dei prodotti legacy. Il ruolo richiede una profonda e aggiornata comprensione delle caratteristiche cliniche e mediche dei prodotti Sintetica pipeline e portfolio, e la capacità di preparare una varietà di documenti tecnici per scopi normativi o scientifici, soddisfare i requisiti di progetto e le tempistiche. Competenze tecniche molto forti per garantire efficacia e chiarezza sono essenziali. Responsabilità chiave - Offrire competenze mediche e interpretazione clinica dei dati per scopi normativi e di divulgazione scientifica. - Contribuire alla valutazione delle strategie regolamentari per gli aspetti clinici di ogni progetto. - Progetti di documenti clinici per i documenti regolamentari quali Consigli Scientifici e Incontri Pre-IND, NDA, ANDA e MAA, risposte a IR e DL, PIP, PSP, ecc. - Valutare la letteratura scientifica, i dati di prova clinica e altre informazioni pertinenti per valutare la sicurezza, l'efficacia dei farmaci di interesse. - Contribuire alla progettazione di studi clinici per garantire che siano scientificamente sani e allineati con gli obiettivi della ricerca, compilare informazioni sul prodotto investigativo per informare gli investigatori clinici delle proprietà del farmaco, dei dati clinici e del profilo di sicurezza. - Resoconti di studi clinici di revisione degli studi clinici completati. - Tenere aggiornato sull'evoluzione dell'ambiente normativo globale (FDA, EMA, ICH, ecc.) nell'area clinica di competenza e garantire che i documenti e le presentazioni aderiscano a tali standard; contribuire a strategie di regolamentazione di conseguenza. - Collaborare con i team di Cross-Functional: lavorare a stretto contatto con le operazioni non cliniche e cliniche, gli affari normativi e altri dipartimenti per raccogliere dati e informazioni necessarie per i documenti normativi.\n• Requisiti - Master in una disciplina di scienze della salute (ad esempio, Medicina, Farmacia, Biotecnologia, Biologia o un campo correlato), Master in Medicina costituisce un plus. - Minimo di 10 anni di esperienza in un ruolo simile nell'industria farmaceutica. - L'esperienza in piccole molecole e piccoli peptidi costituiscono un plus. - Esperienza comprovata nella redazione e nella revisione di sezioni cliniche di documenti normativi, protocolli e report di studi clinici. - Competenza nelle ricerche di letteratura e capacità di selezionare e sintetizzare le informazioni più pertinenti allo scopo - Comprensione degli orientamenti normativi rilevanti per il ruolo. - Eccellente capacità di comunicazione con un approccio proattivo e la capacità di lavorare autonomamente. - Forte attenzione ai dettagli e alla precisione. - Capacità di prendere possesso di incarichi, consulenza proattiva con i rappresentanti del team di progetto secondo le necessità. - Forte capacità organizzative, compresa la pianificazione, la priorità e la flessibilità. - Capacità di pensiero strategiche. - La competenza in inglese scritto e parlato, altre lingue costituiscono un plus. Preferenze saranno date ai candidati con sede in Svizzera. Cosa? - Occupazione permanente a tempo pieno in un ambiente di lavoro giovane e cultura positiva. - Sintetica promuove la diversità e l'uguaglianza di genere.",
-        "en": "# Clinical & Medical Project Manager - Mendrisio site (Ticino) ## Descrizione Clinical & Medical Project Manager - Mendrisio site (Ticino) Founded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica's mission is to continuously strive to improve therapies by enhancing its products' formulations and usability for the benefit of clinicians and patients. We do so in close cooperation with clinical experts, who shape our understanding of their unmet needs and drive our efforts to address them. With this trust and insight, we push the limits of science and technology to make therapies safer for patients and easier to perform. Every year we reliably supply millions of doses of our products across a range of therapeutic classes, including anaesthesia and analgesia, while expanding to address further healthcare needs. To strengthen our Scientific Affairs Department team at our headquarter in Mendrisio (Switzerland), we are currently looking for a Clinical & Medical Project Manager. ## Mansioni The Clinical & Medical Project Manager, together with the other members from the Nonclinical and Clinical department and in collaboration with the pharmaceutical development and regulatory teams, plays a crucial role in ensuring the successful registration of new products and the effective maintenance of legacy products. The role demands a deep, up-to-date understanding of the clinical and medical features of the Sintetica pipeline and portfolio products, and the ability to prepare a variety of technical documents for regulatory or scientific dissemination purposes, meeting project requirements and timelines. Very strong technical writing skills to ensure effectiveness and clarity are essential. ## Responsabilità chiave - Offer medical expertise and clinical interpretation of data for regulatory and scientific dissemination purposes. - Contribute to regulatory strategies assessment for the clinical aspects of each project. - Draft clinical documents for regulatory filings such as Scientific Advice and Pre-IND Meetings, NDA, ANDA and MAA, responses to IRs and DLs, PIPs, PSPs, etc. - Evaluate scientific literature, clinical trial data and other relevant information to assess the safety, efficacy of drugs of interest. - Contribute to the design of clinical studies to ensure that they are scientifically sound and aligned with the objectives of the research, compile information on the investigational product to inform clinical investigators of the drug’s properties, clinical data and safety profile. - Revise Clinical Study Reports of completed clinical trials. - Keep updated on the evolving global regulatory environment (FDA, EMA, ICH, etc.) in the clinical area of expertise and ensure that documents and submissions adhere to those standards; contribute to regulatory strategies accordingly. - Collaborate with Cross-Functional Teams: work closely with non-clinical and clinical operations, regulatory affairs and other departments to gather data and insights needed for regulatory documents. ##\n• Requisiti - Master’s Degree in a health sciences discipline (e.g., Medicine, Pharmacy, Biotechnology, Biology or a related field), Master’s Degree in Medicine constitutes a plus. - Minimum of 10 years of experience in a similar role in the pharmaceutical industry. - Experience in small molecules and small peptides constitute a plus. - Proven experience in drafting and revising clinical sections of regulatory documents, clinical trials protocols and reports. - Expertise in literature searches and ability to select and synthetize the most pertaining information for the purpose - Understanding of the regulatory guidelines relevant for the role. - Excellent communication skills with a proactive approach and the ability to work autonomously. - Strong attention to detail and accuracy. - Ability to take ownership of assignments, proactively consulting with project team representatives as needed. - Strong organizational skills, including planning, prioritization and flexibility. - Strategic thinking capabilities. - Proficiency in written and spoken English, other languages constitute a plus. Preference will be given to candidates based in Switzerland. ##\n• Cosa offriamo - Fulltime permanent employment in a young working environment and positive culture. - Sintetica promotes diversity and gender equality.",
-        "de": "Klinische und medizinische Projektleitung - Mendrisio Standort (Ticino) Beschreibung Klinische und medizinische Projektleitung - Mendrisio Standort (Ticino) Die Mission von Sintetica wurde 1921 gegründet und mit Hauptsitz in Mendrisio (Schweiz) gegründet, um die Therapien kontinuierlich zu verbessern, indem sie die Formulierungen und die Verwendbarkeit ihrer Produkte zugunsten von Klinikern und Patienten verbessern. Wir tun dies in enger Zusammenarbeit mit klinischen Experten, die unser Verständnis für ihre Bedürfnisse prägen und unsere Anstrengungen unternehmen, um sie zu behandeln. Mit diesem Vertrauen und der Einsicht drängen wir die Grenzen von Wissenschaft und Technologie, um Therapien für Patienten sicherer und einfacher durchzuführen. Jedes Jahr liefern wir zuverlässig Millionen von Dosen unserer Produkte über eine Reihe von therapeutischen Klassen, einschließlich Anästhesie und Analgesie, und erweitern sich um weitere Gesundheitsbedürfnisse. Um unser Team an unserem Hauptsitz in Mendrisio (Schweiz) zu stärken, suchen wir derzeit einen Clinical & Medical Project Manager. Mansion Der Clinical & Medical Project Manager spielt zusammen mit den anderen Mitgliedern der Abteilung Nonclinical und Clinical und in Zusammenarbeit mit den Pharma-Entwicklungs- und Regulierungsteams eine entscheidende Rolle, um die erfolgreiche Registrierung neuer Produkte und die effektive Wartung von Altprodukten zu gewährleisten. Die Rolle erfordert ein tiefes, aktuelles Verständnis der klinischen und medizinischen Merkmale der Sintetica Pipeline- und Portfolioprodukte und die Fähigkeit, eine Vielzahl von technischen Dokumenten für regulatorische oder wissenschaftliche Verbreitungszwecke vorzubereiten, Projektanforderungen und Zeitpläne zu erfüllen. Sehr starke technische Schreibfähigkeiten, um Effizienz und Klarheit zu gewährleisten, sind unerlässlich. Responsabilità chiave - Bereitstellung medizinischer Expertise und klinischer Interpretation von Daten für regulatorische und wissenschaftliche Verbreitungszwecke. - Beitrag zur Bewertung der regulatorischen Strategien für die klinischen Aspekte jedes Projekts. - Entwurf von klinischen Dokumenten für regulatorische Einreichungen wie wissenschaftliche Beratung und vor-IND Treffen, NDA, ANDA und MAA, Reaktionen auf IRs und DLs, PIPs, PSPs, etc. - Bewertung der wissenschaftlichen Literatur, klinischen Studiendaten und anderer relevanter Informationen zur Beurteilung der Sicherheit, Wirksamkeit von Arzneimitteln von Interesse. - Mit der Konzeption von klinischen Studien, um sicherzustellen, dass sie wissenschaftlich fundiert sind und mit den Zielen der Forschung, kompilieren Informationen über das Untersuchungsprodukt, um klinische Ermittler über die Eigenschaften des Medikaments, klinische Daten und Sicherheitsprofil zu informieren. - Überarbeiten klinische Studienberichte abgeschlossener klinischer Studien. - Halten Sie auf dem sich entwickelnden globalen regulatorischen Umfeld (FDA, EMA, ICH, etc.) im klinischen Bereich der Expertise aktualisiert und stellen Sie sicher, dass Dokumente und Einreichungen diesen Standards entsprechen; tragen Sie dazu bei, regulatorische Strategien entsprechend. - Zusammenarbeit mit Cross-Functional Teams: eng mit nicht-klinischen und klinischen Operationen, regulatorischen Angelegenheiten und anderen Abteilungen zusammenarbeiten, um Daten und Erkenntnisse zu sammeln, die für regulatorische Dokumente benötigt werden. Voraussetzungen - Master-Abschluss in einer Gesundheitswissenschaften Disziplin (z.B. Medizin, Pharmazie, Biotechnologie, Biologie oder ein verwandten Bereich), Master-Abschluss in Medizin stellt ein Plus dar. - Mindestens 10 Jahre Erfahrung in einer ähnlichen Rolle in der Pharmaindustrie. - Erfahrungen in kleinen Molekülen und kleinen Peptiden stellen ein Plus dar. - Erfahrungen bei der Erstellung und Aktualisierung von klinischen Abschnitten von regulatorischen Dokumenten, klinischen Studienprotokollen und Berichten. - Expertise in der Literatursuche und Fähigkeit, die am meisten relevanten Informationen für den Zweck auszuwählen und zu synthetisieren - Verständnis der für die Rolle relevanten regulatorischen Leitlinien. - Ausgezeichnete Kommunikationsfähigkeiten mit einem proaktiven Ansatz und der Fähigkeit, autonom zu arbeiten. - Starke Aufmerksamkeit auf Detail und Genauigkeit. - Fähigkeit, Eigentum an Aufträgen zu nehmen, proaktiv mit Projektteam-Vertretern nach Bedarf. - Starke organisatorische Fähigkeiten, einschließlich Planung, Priorisierung und Flexibilität. - Strategisches Denken. - Kenntnisse in geschriebenem und gesprochenem Englisch, andere Sprachen stellen ein Plus dar. Bevorzugt werden Kandidaten mit Sitz in der Schweiz.\n• Cosa offriamo - Vollzeitbeschäftigte in einem jungen Arbeitsumfeld und einer positiven Kultur. - Sintetica fördert Vielfalt und Geschlechtergleichstellung.",
-        "fr": "Gestionnaire de projet clinique et médical - site Mendrisio (Ticino) Descrizione Gestionnaire de projet clinique et médical - site Mendrisio (Ticino) Fondée en 1921 et basée à Mendrisio (Suisse), la mission de Sintetica est de s'efforcer continuellement d'améliorer les thérapies en améliorant les formulations et la convivialité de ses produits au bénéfice des cliniciens et des patients. Nous le faisons en étroite collaboration avec des experts cliniques, qui façonnent notre compréhension de leurs besoins non satisfaits et stimulent nos efforts pour y répondre. Avec cette confiance et cette perspicacité, nous repoussons les limites de la science et de la technologie pour rendre les thérapies plus sécuritaires pour les patients et plus faciles à exécuter. Chaque année, nous fournissons des millions de doses de nos produits dans une gamme de classes thérapeutiques, y compris l'anesthésie et l'analgésie, tout en s'étendant pour répondre à d'autres besoins en soins de santé. Pour renforcer notre équipe du Département des affaires scientifiques à notre siège social à Mendrisio (Suisse), nous recherchons actuellement un responsable de projet clinique et médical. Mansioni Le gestionnaire de projet clinique et médical, de concert avec les autres membres du département non clinique et clinique et en collaboration avec les équipes de développement pharmaceutique et de réglementation, joue un rôle crucial pour assurer la réussite de l'enregistrement des nouveaux produits et l'entretien efficace des produits existants. Le rôle exige une compréhension approfondie et à jour des caractéristiques cliniques et médicales du pipeline et des produits du portefeuille de Sintetica, ainsi que la capacité de préparer divers documents techniques à des fins réglementaires ou scientifiques, en respectant les exigences du projet et les délais. Il est essentiel d'acquérir de très solides compétences en rédaction technique pour assurer l'efficacité et la clarté. Responsabilità chiave - Offrir une expertise médicale et une interprétation clinique des données à des fins réglementaires et scientifiques. - Contribuer à l'évaluation des stratégies réglementaires pour les aspects cliniques de chaque projet. - Ébauche de documents cliniques pour les dossiers réglementaires tels que les avis scientifiques et les réunions préalables à l'IND, l'ADN, l'ANA et l'AAM, les réponses aux IR et aux DL, les PIP, les PSP, etc. - Évaluer la documentation scientifique, les données des essais cliniques et d'autres renseignements pertinents pour évaluer l'innocuité et l'efficacité des médicaments d'intérêt. - Contribuer à la conception d'études cliniques pour s'assurer qu'elles sont scientifiquement saines et conformes aux objectifs de la recherche, compiler des informations sur le produit expérimental pour informer les chercheurs cliniques des propriétés du médicament, des données cliniques et du profil d'innocuité. - Réviser les rapports d'études cliniques des essais cliniques terminés. - Tenir à jour l'évolution de l'environnement réglementaire mondial (ADF, EMA, ICH, etc.) dans le domaine clinique de l'expertise et veiller à ce que les documents et les présentations respectent ces normes; contribuer aux stratégies réglementaires en conséquence. - Collaborer avec les équipes interfonctionnelles : travailler en étroite collaboration avec les opérations non cliniques et cliniques, les affaires réglementaires et d'autres ministères pour recueillir les données et les idées nécessaires aux documents réglementaires.\n• Requisiti - Maîtrise en sciences de la santé (p. ex. médecine, pharmacie, biotechnologie, biologie ou domaine connexe), maîtrise en médecine constitue un plus. - Au moins 10 ans d'expérience dans un rôle similaire dans l'industrie pharmaceutique. - Expérience dans les petites molécules et les petits peptides constituent un plus. - Expérience éprouvée dans la rédaction et la révision de sections cliniques de documents réglementaires, de protocoles d'essais cliniques et de rapports. - Expertise en recherche documentaire et capacité de sélectionner et de synthétiser l'information la plus pertinente à cette fin - La compréhension des lignes directrices réglementaires pertinentes pour le rôle. - Excellentes compétences en communication avec une approche proactive et la capacité de travailler de manière autonome. - Une grande attention aux détails et à la précision. - Capacité de s'approprier les missions, en consultant de façon proactive les représentants de l'équipe de projet au besoin. - De solides compétences organisationnelles, notamment en matière de planification, de hiérarchisation et de flexibilité. - Capacités de réflexion stratégique. - Compétence en anglais écrit et parlé, les autres langues constituent un plus. La préférence sera donnée aux candidats basés en Suisse.\n• Cosa offriamo - Emploi permanent à temps plein dans un environnement de travail jeune et une culture positive. - Sintetica promeut la diversité et l ' égalité entre les sexes."
-      },
-      "slug": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica",
-      "slugByLocale": {
-        "it": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica",
-        "en": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio",
-        "de": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84",
-        "fr": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84"
-      },
-      "category": "pharma",
-      "datePosted": "2026-07-06",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-e0160822e548",
-      "previousSlugs": [
-        "klinischer-und-medizinischer-projektleiter-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-        "klinische-und-medizinische-projektleitung-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-        "directeur-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
-        "gestionnaire-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
-        "clinical-medical-project-manager-sito-mendrisio-ticino-sintetica-sa-mendrisio"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "klinischer-und-medizinischer-projektleiter-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-          "klinische-und-medizinische-projektleitung-mendrisio-standort-ticino-sintetica-sa-mendrisio"
-        ],
-        "fr": [
-          "directeur-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
-          "gestionnaire-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio"
-        ],
-        "it": [
-          "clinical-medical-project-manager-sito-mendrisio-ticino-sintetica-sa-mendrisio"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "crawledAt": "",
-      "salaryMin": 101500,
-      "salaryMax": 169000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 169000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
+      }
     }
   ]
 }

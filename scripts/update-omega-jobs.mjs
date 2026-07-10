@@ -4,6 +4,9 @@
  *
  * Uses the standard crawler template with the OMEGA SA parser.
  * All fetch/parse logic lives in ./lib/omega-job-parser.mjs.
+ * Source: Swatch Group job finder (swatchgroup.com/en/job-finder, OMEGA brand
+ * cards) — the brand portal omegawatches.com is Akamai-blocked from every
+ * available egress (see the parser header for the #3843 evidence).
  */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

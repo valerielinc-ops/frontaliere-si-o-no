@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   CANTON_VALAIS_KEY,
@@ -5,8 +8,11 @@ import {
   isCantonValaisJob,
   isTrustedDomain,
   resolveServiceNowPageCap,
+  parseOtbListings,
 } from '../scripts/lib/canton-valais-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const FIXTURES = join(dirname(fileURLToPath(import.meta.url)), 'fixtures');
 
 describe('Canton du Valais crawler parser', () => {
   // ── Constants ──
@@ -125,6 +131,43 @@ describe('Canton du Valais crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseOtbListings (real portlet fixture, issue #3836) ──
+  describe('parseOtbListings', () => {
+    // Live-captured 2026-07-10 from the vs.ch "vsotbportlet" render_portlet
+    // fragment (25 job offers).
+    const html = readFileSync(join(FIXTURES, 'canton-valais-otb-portlet.html'), 'utf8');
+    const listings = parseOtbListings(html);
+
+    it('extracts every job-offer block', () => {
+      expect(listings.length).toBe(25);
+    });
+
+    it('captures title, department blurb, and Valais city', () => {
+      const first = listings[0];
+      expect(first.title).toBe('Un analyste criminel opérationnel ou une analyste criminelle opérationnelle (100%)');
+      expect(first.description).toContain('Police cantonale');
+      expect(first.location).toBe('Sion');
+    });
+
+    it('captures the per-job PDF URL for description enrichment (issue #3836)', () => {
+      expect(listings[0].pdfUrl).toBe('https://otb.apps.vs.ch/svc/api/joboffersdocument/20157?language=fr');
+      // Every offer on the board carries a PDF link
+      expect(listings.every((l: { pdfUrl?: string }) => /joboffersdocument\/\d+/.test(l.pdfUrl || ''))).toBe(true);
+    });
+
+    it('prefers the iapply apply link as the public URL, falling back to the PDF', () => {
+      expect(listings[0].url).toBe('https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102355&publication=2628');
+      // "psychologue" offer has no iapply link on the live board → PDF fallback
+      const pdfOnly = listings.find((l: { title: string }) => l.title.includes('psychologue'));
+      expect(pdfOnly?.url).toContain('joboffersdocument/20135');
+    });
+
+    it('returns empty array for empty/unrecognised HTML', () => {
+      expect(parseOtbListings('')).toEqual([]);
+      expect(parseOtbListings('<html><body>maintenance</body></html>')).toEqual([]);
     });
   });
 

@@ -20,10 +20,12 @@
  * Spital Zollikerberg is a 1'100-employee acute hospital + maternity in
  * Zollikerberg (ZH) — part of the Gesundheitswelt Zollikerberg group.
  *
- * Polite delay: 250 ms between detail-page fetches (pi-asp.de detail pages
- * are SPA-only, but the listing card already carries enough text for the
- * intro paragraph + category, so we use the listing text as description
- * source and skip the per-job fetch).
+ * Descriptions: pi-asp.de detail pages are a GWT SPA (no server-rendered
+ * content), so the real job ad is rendered with the shared Playwright
+ * runtime via `pi-asp-bewerber-web-detail.mjs` (rate-limited, capped per
+ * run). When a detail render fails, the job falls back to a short synthetic
+ * description built from the listing card (title + category + intro) so the
+ * job is never dropped — only its description is thinner (#3836).
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -37,6 +39,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { renderPiAspDetailDescriptions } from './pi-asp-bewerber-web-detail.mjs';
 
 export const SPITAL_ZOLLIKERBERG_KEY = 'spital-zollikerberg';
 export const SPITAL_ZOLLIKERBERG_COMPANY_NAME = 'Spital Zollikerberg';
@@ -114,6 +117,28 @@ export function parseListing(html) {
   return out;
 }
 
+/**
+ * Build the job description for one listing row.
+ *
+ * With `detailText` (the structured job ad rendered from the pi-asp detail
+ * page — headings + `• ` bullet lines) the description is the real ad,
+ * prefixed with a one-line locality/category header. Without it (detail
+ * render failed) it falls back to the legacy synthetic stub so the job is
+ * still published. Exported for tests.
+ */
+export function buildSpitalZollikerbergDescription(r, detailText = '') {
+  const header = [
+    `${r.title} — ${SPITAL_ZOLLIKERBERG_COMPANY_NAME}, Zollikerberg (ZH).`,
+    r.category ? `Bereich: ${r.category}.` : '',
+  ].filter(Boolean);
+  if (detailText) return [...header, detailText].join('\n\n');
+  return [
+    ...header,
+    'Das Spital Zollikerberg ist ein Akutspital mit ca. 1\'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.',
+    'Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.',
+  ].join('\n\n');
+}
+
 export async function fetchAllSpitalZollikerbergJobs() {
   console.log(`🏥 Fetching ${SPITAL_ZOLLIKERBERG_COMPANY_NAME} jobs`);
   console.log(`   Source: ${PUBLIC_CAREER_URL}\n`);
@@ -123,15 +148,18 @@ export async function fetchAllSpitalZollikerbergJobs() {
   console.log(`  ✓ ${rows.length} jobs from listing page`);
   if (!rows.length) return [];
 
+  // Render the real job ads from the pi-asp GWT detail pages (SPA-only —
+  // see pi-asp-bewerber-web-detail.mjs). Failures degrade per-job to the
+  // synthetic listing description; they never drop jobs.
+  const detailByUrl = await renderPiAspDetailDescriptions(
+    rows.map((r) => r.url),
+    { label: SPITAL_ZOLLIKERBERG_KEY },
+  );
+
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const r of rows) {
-    const description = [
-      `${r.title} — ${SPITAL_ZOLLIKERBERG_COMPANY_NAME}, Zollikerberg (ZH).`,
-      r.category ? `Bereich: ${r.category}.` : '',
-      'Das Spital Zollikerberg ist ein Akutspital mit ca. 1\'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.',
-      'Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.',
-    ].filter(Boolean).join('\n\n');
+    const description = buildSpitalZollikerbergDescription(r, detailByUrl.get(r.url) || '');
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${SPITAL_ZOLLIKERBERG_KEY} zollikerberg`);
     const urlHash = createHash('sha1').update(r.url).digest('hex').slice(0, 12);
@@ -156,7 +184,7 @@ export async function fetchAllSpitalZollikerbergJobs() {
       location: 'Zollikerberg',
       canton: 'ZH',
       url: r.url,
-      source: `${SPITAL_ZOLLIKERBERG_COMPANY_NAME} Dedicated Parser (Next.js SSR)`,
+      source: `${SPITAL_ZOLLIKERBERG_COMPANY_NAME} Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 

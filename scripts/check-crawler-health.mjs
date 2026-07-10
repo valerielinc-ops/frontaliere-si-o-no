@@ -320,6 +320,14 @@ const EMPTY_OK_CRAWLERS = new Set([
   'vir-biotechnology',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
+  // Privatklinik Siloah (Swiss Medical Network): the SmartRecruiters tenant
+  // API (companies/SwissMedicalNetwork1/postings) currently lists 80 CH
+  // postings with ZERO attributed to the Siloah department — verified
+  // 2026-07-10 while migrating the SMN clinic factory to the API (issues
+  // 3857/3859). Parser healthy; re-arms when Siloah publishes openings.
+  // The factory's drift-vs-empty telemetry distinguishes a department-label
+  // rename from this legitimate-zero state in the run logs.
+  'klinik-siloah',
   // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
   // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
   // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead

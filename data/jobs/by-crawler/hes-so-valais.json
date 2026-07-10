@@ -1,7 +1,74 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-07-09T12:27:01.950Z",
+  "assembledAt": "2026-07-10T12:03:34.341Z",
   "jobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
+      "title": "Maître d’enseignement HES pour la branche Histoire de l’art",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "description": "La filière Arts visuels de l’EDHEA met au concours le poste suivant : Maître d’enseignement HES pour la brancheHistoire de l’art contemporain Le poste\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+      "descriptionByLocale": {
+        "fr": "La filière Arts visuels de l’EDHEA met au concours le poste suivant : Maître d’enseignement HES pour la brancheHistoire de l’art contemporain Le poste\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Maître d’enseignement HES pour la branche Histoire de l’art.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Maître d’enseignement HES pour la branche Histoire de l’art.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
+        "it": "La filière Arts visuels de l’EDHEA met au concours le poste suivant : Maître d’enseignement HES pour la brancheHistoire de l’art contemporain Le poste\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+      },
+      "titleByLocale": {
+        "fr": "Maître d’enseignement HES pour la branche Histoire de l’art",
+        "it": "Maître d’enseignement HES pour la branche Histoire de l’art",
+        "en": "Maître d’enseignement HES pour la branche Histoire de l’art",
+        "de": "Maître d’enseignement HES pour la branche Histoire de l’art"
+      },
+      "slug": "maitre-d-enseignement-hes-pour-la-branche-histoire-de-l-art-hes-so-valais",
+      "slugByLocale": {
+        "fr": "maitre-d-enseignement-hes-pour-la-branche-histoire-de-l-art-hes-so-valais",
+        "it": "maitre-d-enseignement-hes-pour-la-branche-histoire-de-l-art-hes-so-valais",
+        "en": "maitre-d-enseignement-hes-pour-la-branche-histoire-de-l-art-hes-so-valais",
+        "de": "maitre-d-enseignement-hes-pour-la-branche-histoire-de-l-art-hes-so-valais"
+      },
+      "category": "education",
+      "datePosted": "2026-07-10",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
+        "de": "https://www.hevs.ch/de/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
+        "en": "https://www.hevs.ch/en/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "hes-so-valais-1f6c7b9e7404",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-07-10T12:03:34.340Z"
+    },
     {
       "url": "https://www.hevs.ch/fr/recruitee/postdoctoral-researcher-100-***-assistant-ou-assistante-postdoc-100-214843",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/postdoctoral-researcher-100-***-assistant-ou-assistante-postdoc-100-214843",
@@ -14,23 +81,23 @@
       "country": "CH",
       "description": "Postdoctoral Researcher (100%)The Food Innovation and Process Design group at HES-SO Valais led by Prof. Mishra and the Food Structure Engineering group at\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
       "descriptionByLocale": {
-        "fr": "Postdoctoral Researcher (100%)The Food Innovation and Process Design group at HES-SO Valais led by Prof. Mishra and the Food Structure Engineering group at\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Postdoctoral Researcher (100%) *** Assistant ou assistante.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "it": "Ricercatore post-dottorato (100%)Il gruppo Food Innovation and Process Design di HES-SO Valais guidato dal Prof. Mishra e il gruppo di ingegneria della struttura alimentare\n\nL'HES-SO Valais-Wallis è un bilingue specializzato (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti.",
         "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Postdoctoral Researcher (100%) *** Assistant ou assistante.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
-        "it": "Ricercatore post-dottorato (100%)Il gruppo Food Innovation and Process Design di HES-SO Valais guidato dal Prof. Mishra e il gruppo di ingegneria della struttura alimentare\n\nL'HES-SO Valais-Wallis è un bilingue specializzato (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti."
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Postdoctoral Researcher (100%) *** Assistant ou assistante.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "fr": "Postdoctoral Researcher (100%)The Food Innovation and Process Design group at HES-SO Valais led by Prof. Mishra and the Food Structure Engineering group at\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
       },
       "titleByLocale": {
-        "fr": "Postdoctoral Researcher (100%) *** Assistant ou assistante",
         "it": "Ricercatore post-dottorato (100%)",
         "en": "Postdoctoral Researcher (100%) * Assistant",
-        "de": "Postdoctoral Researcher (100%) *** Assistent ou assistante"
+        "de": "Postdoctoral Researcher (100%) *** Assistent ou assistante",
+        "fr": "Postdoctoral Researcher (100%) *** Assistant ou assistante"
       },
       "slug": "ricercatore-post-dottorato-100-hes-so-valais-wallis-sion",
       "slugByLocale": {
-        "fr": "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais",
         "it": "ricercatore-post-dottorato-100-hes-so-valais-wallis-sion",
-        "en": "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais",
-        "de": "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
+        "en": "postdoctoral-researcher-100-assistant-hes-so-valais-wallis-sion",
+        "de": "postdoctoral-researcher-100-assistent-ou-assistante-hes-so-valais-wallis-sion",
+        "fr": "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
       },
       "category": "research",
       "datePosted": "2026-07-09",
@@ -49,8 +116,25 @@
         "de": "https://www.hevs.ch/de/recruitee/postdoctoral-researcher-100-***-assistant-ou-assistante-postdoc-100-214843",
         "en": "https://www.hevs.ch/en/recruitee/postdoctoral-researcher-100-***-assistant-ou-assistante-postdoc-100-214843"
       },
-      "crawledAt": "",
       "id": "hes-so-valais-dfb5531b2178",
+      "previousSlugs": [
+        "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais",
+        "ricercatore-post-dottorato-100-hes-so-valais-wallis-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais",
+          "ricercatore-post-dottorato-100-hes-so-valais-wallis-sion"
+        ],
+        "en": [
+          "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
+        ],
+        "de": [
+          "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
+        ]
+      },
+      "firstSeenAt": "2026-07-09T12:27:01.949Z",
+      "crawledAt": "",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -66,16 +150,7 @@
       },
       "addressLocality": "Sion",
       "addressCountry": "CH",
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-07-09T12:27:01.949Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
-        ]
-      },
-      "previousSlugs": [
-        "postdoctoral-researcher-100-assistant-ou-assistante-hes-so-valais"
-      ]
+      "addressRegion": "VS"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaboratrice-ou-collaborateur-technique--cheffe-ou-chef-de-projet-electricien-80-100-***-technischer-mitarbeiter-oder-technische-mitarbeiterin--projektleiter-oder-projektleiterin-80-100--214825",
@@ -95,7 +170,7 @@
         "fr": "Afin de compléter son équipe, la HES-SO Valais-Wallis met au concours le poste suivant : Collaboratrice ou collaborateur techniqueCheffe ou chef de projet La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
       },
       "titleByLocale": {
-        "it": "Collaboratore o collaboratore tecnico - Capo o Capo",
+        "it": "Collaboratrice ou collaborateur technique - Cheffe ou chef de",
         "en": "Collaborator or technical collaborator - Chief or Chief",
         "de": "Mitarbeiter oder technischer Mitarbeiter - Chef oder Chef",
         "fr": "Collaboratrice ou collaborateur technique - Cheffe ou chef de"
@@ -126,12 +201,14 @@
       "id": "hes-so-valais-3651ff3a5708",
       "previousSlugs": [
         "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
-        "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion"
+        "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion",
+        "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
-          "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion"
+          "collaboratore-o-collaboratore-tecnico-capo-o-capo-hes-so-valais-wallis-sion",
+          "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion"
         ],
         "en": [
           "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais"
@@ -142,6 +219,7 @@
       },
       "firstSeenAt": "2026-07-02T11:07:22.328Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -174,7 +252,7 @@
         "it": "Al fine di completare il suo team di specialisti, l'Haute Ecole d'Ingénierie de la HES-SO Valais-Wallis sta contestando per il suo System Institute L'HES-SO Valais-Wallis è un bilingue specializzato al liceo (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti.",
         "en": "Open position at HES-SO Valais-Wallis in Sion. Position: Collaborateur ou collaboratrice Centre Pédagogique Prévention. HES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
         "de": "Offene Stelle an der HES-SO Wallis in Sion. Position: Collaborateur ou collaboratrice Centre Pédagogique Prévention. Die HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
-        "fr": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+        "fr": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
       },
       "titleByLocale": {
         "it": "Collaboratore o collaboratrice Centro Pedagogico Prevenzione",
@@ -208,12 +286,14 @@
       "id": "hes-so-valais-08d472860fc9",
       "previousSlugs": [
         "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
-        "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion"
+        "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion",
+        "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
-          "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion"
+          "collaboratore-prevenzione-centro-pedagogico-hes-so-valais-wallis-sion",
+          "collaboratore-o-collaboratrice-centro-pedagogico-prevenzione-hes-so-valais-wallis-sion"
         ],
         "en": [
           "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"

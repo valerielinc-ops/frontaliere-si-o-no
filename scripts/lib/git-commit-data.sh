@@ -818,7 +818,11 @@ git_fetch_retry() {
 }
 
 # ── 3+4 loop: Sync, align, commit, push (with retry on race conditions) ────
-MAX_PUSH_ATTEMPTS=8
+# 14 attempts with widened jitter: measured on 2026-07-10, a burst of 11
+# concurrently-dispatched groups (~290 crawlers pushing to main in the same
+# window) exhausted 8 linear-backoff attempts for the race losers
+# (richemont/denner, run 29086047473). Overridable per-invocation via env.
+MAX_PUSH_ATTEMPTS="${MAX_PUSH_ATTEMPTS:-14}"
 push_attempt=0
 
 # ── GROUPED-ISOLATED path: commit from the worktree WITHOUT touching it ─────
@@ -964,7 +968,7 @@ commit_isolated_from_worktree() {
       return 1
     fi
 
-    delay=$(( push_attempt * 5 + RANDOM % 6 ))
+    delay=$(( push_attempt * 5 + RANDOM % 20 ))
     echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — refetching origin/main and rebuilding commit in ${delay}s..."
     sleep "$delay"
   done
@@ -1171,7 +1175,7 @@ if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
 fi
 
 # Backoff: 5s, 10s, 15s, ... + random jitter (0-5s)
-DELAY=$(( push_attempt * 5 + RANDOM % 6 ))
+DELAY=$(( push_attempt * 5 + RANDOM % 20 ))
 echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — waiting ${DELAY}s before resync..."
 sleep "$DELAY"
 git reset --mixed HEAD~1

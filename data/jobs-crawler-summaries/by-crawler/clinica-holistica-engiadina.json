@@ -1,16 +1,16 @@
 {
   "key": "clinica-holistica-engiadina",
   "label": "Clinica Holistica Engiadina",
-  "generatedAt": "2026-07-09T12:15:22.412Z",
-  "total": 7,
+  "generatedAt": "2026-07-10T12:01:24.137Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 23444,
-  "avgDurationMs": 23444,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 22450,
+  "avgDurationMs": 22450,
   "durationHistory": [
-    23444
+    22450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/jungkoch-jungkoechin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:07.144Z",
+      "crawledAt": "2026-07-10T12:01:10.294Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:05.689Z",
       "_qualityScore": 85,
@@ -77,7 +77,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:09.796Z",
+      "crawledAt": "2026-07-10T12:01:12.589Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:08.070Z",
       "_qualityScore": 85,
@@ -114,7 +114,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:11.773Z",
+      "crawledAt": "2026-07-10T12:01:14.425Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:10.016Z",
       "_qualityScore": 85,
@@ -151,7 +151,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hr-assistentin-40-60",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:14.383Z",
+      "crawledAt": "2026-07-10T12:01:16.696Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:14.719Z",
       "_qualityScore": 85,
@@ -188,7 +188,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:17.475Z",
+      "crawledAt": "2026-07-10T12:01:19.076Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:17.104Z",
       "_qualityScore": 85,
@@ -225,7 +225,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:20.014Z",
+      "crawledAt": "2026-07-10T12:01:21.185Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T13:21:19.291Z",
       "_qualityScore": 85,
@@ -237,8 +237,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinica-holistica-engiadina-cbcb97b63c6b",
       "slug": "responsabile-hotellerie-clinica-holistica-engiadina-susch",
@@ -279,5 +278,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
