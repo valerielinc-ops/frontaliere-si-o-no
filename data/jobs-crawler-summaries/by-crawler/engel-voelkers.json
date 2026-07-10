@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-07-10T10:27:50.045Z",
+  "generatedAt": "2026-07-10T12:59:03.751Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19446,
-  "avgDurationMs": 19446,
+  "durationMs": 21146,
+  "avgDurationMs": 21146,
   "durationHistory": [
-    19446
+    21146
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
+      "slug": "immobilienberater-m-w-d-zurich-nord-100-engel-voelkers-bulach",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "company": "Immobilien Zürich Nord AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Bülach",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Büroleiter/in (100%)",
@@ -338,10 +369,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Senior Immobilienmakler/in 50-100%",
-      "slug": "senior-immobilienmakler-in-50-100-engel-voelkers-st-gallen",
+      "slug": "agente-immobiliare-senior-in-50-100-buutiq-immobilien-ag-st-gallen",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
       "company": "buutiq Immobilien AG",
@@ -357,7 +390,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -375,6 +408,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
