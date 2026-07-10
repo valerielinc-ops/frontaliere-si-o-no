@@ -1,16 +1,16 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-07-09T22:24:21.944Z",
-  "total": 5,
+  "generatedAt": "2026-07-10T12:10:36.239Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2478,
-  "avgDurationMs": 2478,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3302,
+  "avgDurationMs": 3302,
   "durationHistory": [
-    2478
+    3302
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.beehire.com/invite/PRsnUQk7L",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.841Z",
+      "crawledAt": "2026-07-10T12:10:33.282Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.beehire.com/invite/P3a0hTtBw",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.845Z",
+      "crawledAt": "2026-07-10T12:10:33.285Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.843Z",
+      "crawledAt": "2026-07-10T12:10:33.284Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.846Z",
+      "crawledAt": "2026-07-10T12:10:33.290Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-de-lavaux-5443ed0c2093",
       "slug": "infermiera-esperto-nel-diabete-40-50-hopital-de-lavaux-bourg-en-lavaux",
@@ -209,5 +208,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
