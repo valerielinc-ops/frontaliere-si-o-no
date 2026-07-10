@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-07-10T10:28:59.858Z",
+  "generatedAt": "2026-07-10T11:29:01.065Z",
   "total": 59,
   "newCount": 0,
   "updatedCount": 59,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9774,
-  "avgDurationMs": 9774,
+  "durationMs": 6365,
+  "avgDurationMs": 6365,
   "durationHistory": [
-    9774
+    6365
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -272,6 +272,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,6 +311,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -533,6 +535,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -570,6 +573,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -607,6 +611,7 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -644,6 +649,7 @@
       "currency": "CHF",
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -719,6 +725,7 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -756,6 +763,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -868,6 +876,7 @@
       "postalCode": "1950",
       "slugDisambiguator": "c23075ac",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -906,6 +915,7 @@
       "id": "tsmg-2d2283cb9788",
       "slugDisambiguator": "dfa1adf1",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -944,6 +954,7 @@
       "streetAddress": "",
       "postalCode": "9200",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -982,6 +993,7 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1020,6 +1032,7 @@
       "streetAddress": "",
       "postalCode": "8500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1058,6 +1071,7 @@
       "id": "tsmg-7a1622ef3f50",
       "slugDisambiguator": "061cc5b5",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1096,6 +1110,7 @@
       "id": "tsmg-e43d201b4b27",
       "slugDisambiguator": "661cb622",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1134,6 +1149,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
