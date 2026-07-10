@@ -3,7 +3,7 @@
 #
 # Group 13: 26 crawlers, estimated wall-clock ~60min
 # (bounded by the slowest member; estimate from historical averages — actual
-# runs can vary). Members: pwc (~60min), ubp (~51min), on-running (~47min), uroviva (~44min), staubli (~41min), spz (~39min), reboot-monkey (~36min), novartis (~34min), zfv-unternehmungen (~33min), sophia-genetics (~30min), idorsia (~29min), nsn-medical (~27min), prada (~25min), privatklinik-bethanien (~24min), palliativklinik (~22min), fincons (~19min), denner (~16min), hoval (~14min), croix-rouge-fribourgeoise (~12min), modellstation-somosa (~10min), groupe-mutuel (~9min), clinique-de-valere (~8min), citta-di-locarno (~6min), deloitte (~5min), clinica-varini (~4min), citta-di-lugano (~3min)
+# runs can vary). Members: pwc (~60min), ubp (~51min), on-running (~47min), uroviva (~44min), staubli (~41min), spz (~39min), reboot-monkey (~36min), novartis (~34min), zfv-unternehmungen (~33min), sophia-genetics (~30min), idorsia (~29min), nsn-medical (~27min), prada (~25min), privatklinik-bethanien (~24min), palliativklinik (~22min), fincons (~19min), denner (~16min), hoval (~14min), croix-rouge-fribourgeoise (~12min), modellstation-somosa (~10min), epi-stiftung (~8min), hopital-du-valais (~7min), arsante-clinique-de-carouge (~6min), grand-resort-bad-ragaz (~5min), abb (~4min), ehnv (~3min)
 
 name: Crawler Group 13 (26 crawlers)
 on:
@@ -38,6 +38,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -1048,301 +1050,300 @@ jobs:
             exit 1
           fi
           exit 0
-      - name: Run groupe-mutuel
-        id: crawler-groupe-mutuel
+      - name: Run epi-stiftung
+        id: crawler-epi-stiftung
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-groupe-mutuel.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-epi-stiftung.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_GROUPE_MUTUEL_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_EPI_STIFTUNG_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: groupe-mutuel
-          JOBS_SLICE_FILE: data/jobs/by-crawler/groupe-mutuel.json
+          JOBS_HOUSEKEEPING_SCOPE: epi-stiftung
+          JOBS_SLICE_FILE: data/jobs/by-crawler/epi-stiftung.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- groupe-mutuel: run crawler (verbatim from original workflow) ----
-          node scripts/update-groupe-mutuel-jobs.mjs
+          # ---- epi-stiftung: run crawler (verbatim from original workflow) ----
+          node scripts/update-epi-stiftung-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- groupe-mutuel: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- epi-stiftung: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- groupe-mutuel: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- epi-stiftung: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Groupe Mutuel jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update EPI STIFTUNG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- groupe-mutuel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- epi-stiftung: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run groupe-mutuel" \
+              --title "Crawler Failure: Run epi-stiftung" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run groupe-mutuel"
+              --workflow "Run epi-stiftung"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run clinique-de-valere
-        id: crawler-clinique-de-valere
+      - name: Run hopital-du-valais
+        id: crawler-hopital-du-valais
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-de-valere.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hopital-du-valais.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CLINIQUE_DE_VALERE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_HOPITAL_DU_VALAIS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: clinique-de-valere
-          JOBS_SLICE_FILE: data/jobs/by-crawler/clinique-de-valere.json
+          JOBS_HOUSEKEEPING_SCOPE: hopital-du-valais
+          JOBS_SLICE_FILE: data/jobs/by-crawler/hopital-du-valais.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- clinique-de-valere: run crawler (verbatim from original workflow) ----
-          node scripts/update-clinique-de-valere-jobs.mjs
+          # ---- hopital-du-valais: run crawler (verbatim from original workflow) ----
+          node scripts/update-hopital-du-valais-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- clinique-de-valere: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- hopital-du-valais: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- clinique-de-valere: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- hopital-du-valais: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Valère jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Hôpital du Valais jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- clinique-de-valere: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- hopital-du-valais: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run clinique-de-valere" \
+              --title "Crawler Failure: Run hopital-du-valais" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run clinique-de-valere"
+              --workflow "Run hopital-du-valais"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run citta-di-locarno
-        id: crawler-citta-di-locarno
+      - name: Run arsante-clinique-de-carouge
+        id: crawler-arsante-clinique-de-carouge
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-citta-di-locarno.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-arsante-clinique-de-carouge.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_LOCARNO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ARSANTE_CLINIQUE_DE_CAROUGE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '1' }}
-          JOBS_HOUSEKEEPING_SCOPE: citta-di-locarno
-          JOBS_SLICE_FILE: data/jobs/by-crawler/citta-di-locarno.json
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: arsante-clinique-de-carouge
+          JOBS_SLICE_FILE: data/jobs/by-crawler/arsante-clinique-de-carouge.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- citta-di-locarno: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:citta-di-locarno
+          # ---- arsante-clinique-de-carouge: run crawler (verbatim from original workflow) ----
+          node scripts/update-arsante-clinique-de-carouge-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- citta-di-locarno: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- arsante-clinique-de-carouge: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- citta-di-locarno: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- arsante-clinique-de-carouge: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Città di Locarno jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Arsanté jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- citta-di-locarno: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- arsante-clinique-de-carouge: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run citta-di-locarno" \
+              --title "Crawler Failure: Run arsante-clinique-de-carouge" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run citta-di-locarno"
+              --workflow "Run arsante-clinique-de-carouge"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run deloitte
-        id: crawler-deloitte
+      - name: Run grand-resort-bad-ragaz
+        id: crawler-grand-resort-bad-ragaz
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-deloitte.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-grand-resort-bad-ragaz.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_DELOITTE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_GRAND_RESORT_BAD_RAGAZ_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: deloitte
-          JOBS_SLICE_FILE: data/jobs/by-crawler/deloitte.json
+          JOBS_HOUSEKEEPING_SCOPE: grand-resort-bad-ragaz
+          JOBS_SLICE_FILE: data/jobs/by-crawler/grand-resort-bad-ragaz.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- deloitte: run crawler (verbatim from original workflow) ----
-          node scripts/update-deloitte-jobs.mjs
+          # ---- grand-resort-bad-ragaz: run crawler (verbatim from original workflow) ----
+          node scripts/update-grand-resort-bad-ragaz-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- deloitte: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- grand-resort-bad-ragaz: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- deloitte: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- grand-resort-bad-ragaz: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Deloitte jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update GRAND_RESORT_BAD_RAGAZ jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- deloitte: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- grand-resort-bad-ragaz: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run deloitte" \
+              --title "Crawler Failure: Run grand-resort-bad-ragaz" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run deloitte"
+              --workflow "Run grand-resort-bad-ragaz"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run clinica-varini
-        id: crawler-clinica-varini
+      - name: Run abb
+        id: crawler-abb
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinica-varini.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-abb.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CLINICA_VARINI_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_ABB_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          SKIP_BOILERPLATE_GUARD: "1"
-          JOBS_HOUSEKEEPING_SCOPE: clinica-varini
-          JOBS_SLICE_FILE: data/jobs/by-crawler/clinica-varini.json
+          JOBS_HOUSEKEEPING_SCOPE: abb
+          JOBS_SLICE_FILE: data/jobs/by-crawler/abb.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- clinica-varini: run crawler (verbatim from original workflow) ----
-          node scripts/update-clinica-varini-jobs.mjs
+          # ---- abb: run crawler (verbatim from original workflow) ----
+          npm run jobs:update:abb
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- clinica-varini: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- abb: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- clinica-varini: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- abb: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CLINICA_VARINI jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "⚡ Auto-update ABB jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- clinica-varini: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- abb: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run clinica-varini" \
+              --title "Crawler Failure: Run abb" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run clinica-varini"
+              --workflow "Run abb"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
-      - name: Run citta-di-lugano
-        id: crawler-citta-di-lugano
+      - name: Run ehnv
+        id: crawler-ehnv
         background: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-citta-di-lugano.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ehnv.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CITTA_DI_LUGANO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_EHNV_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: citta-di-lugano
-          JOBS_SLICE_FILE: data/jobs/by-crawler/citta-di-lugano.json
+          JOBS_HOUSEKEEPING_SCOPE: ehnv
+          JOBS_SLICE_FILE: data/jobs/by-crawler/ehnv.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
           set +e
 
-          # ---- citta-di-lugano: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:citta-di-lugano
+          # ---- ehnv: run crawler (verbatim from original workflow) ----
+          node scripts/update-ehnv-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- citta-di-lugano: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- ehnv: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- citta-di-lugano: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- ehnv: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Città di Lugano jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update EHNV jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
-          # ---- citta-di-lugano: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- ehnv: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run citta-di-lugano" \
+              --title "Crawler Failure: Run ehnv" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run citta-di-lugano"
+              --workflow "Run ehnv"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then

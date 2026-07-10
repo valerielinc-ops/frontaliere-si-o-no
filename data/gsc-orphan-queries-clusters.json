@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-06T08:01:51.711Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 892,
+  "totalClusters": 890,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -10474,33 +10474,6 @@
           "query": "lidl cadenazzo",
           "clicks": 0,
           "impressions": 14
-        }
-      ]
-    },
-    {
-      "clusterId": "de-allianz-jobs-schweiz",
-      "locale": "de",
-      "canonicalQuery": "allianz jobs schweiz",
-      "canonicalSlug": "allianz-jobs-schweiz",
-      "roleTokens": [
-        "allianz",
-        "job"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 14,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "allianz jobs schweiz",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "allianz suisse jobs",
-          "clicks": 0,
-          "impressions": 7
         }
       ]
     },
@@ -21028,31 +21001,6 @@
           "query": "offre d'emploi lugano",
           "clicks": 0,
           "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "de-stellen-allianz",
-      "locale": "de",
-      "canonicalQuery": "stellen allianz",
-      "canonicalSlug": "stellen-allianz",
-      "roleTokens": [
-        "allianz",
-        "stellen"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "stellen allianz",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "allianz stellen",
-          "clicks": 0,
-          "impressions": 2
         }
       ]
     },

@@ -1,7 +1,7 @@
 /**
  * Thin Description Guard — Tests for crawler description minimum word count.
  *
- * Verifies that all 9 crawlers that had thin description issues produce
+ * Verifies that all 8 crawlers that had thin description issues produce
  * descriptions with >= 50 words when detail pages return empty/thin content.
  *
  * Crawlers tested:
@@ -10,10 +10,9 @@
  *  3. volg-fenaco
  *  4. agie-charmilles (GF Machining Solutions)
  *  5. mks-pamp
- *  6. allianz-suisse
- *  7. centiel
- *  8. confederazione-ticino
- *  9. usi (via ensureMinimumDescriptionWordCount)
+ *  6. centiel
+ *  7. confederazione-ticino
+ *  8. usi (via ensureMinimumDescriptionWordCount)
  */
 
 import { describe, it, expect } from 'vitest';
@@ -32,10 +31,6 @@ import {
 import {
   buildMksPampLocalizedContent,
 } from '@/scripts/lib/mkspamp-job-parser.mjs';
-
-import {
-  buildAllianzLocalizedContent,
-} from '@/scripts/lib/allianz-job-parser.mjs';
 
 import {
   ensureMinimumDescriptionWordCount,
@@ -255,42 +250,7 @@ describe('MKS PAMP — fallback descriptions >= 50 words', () => {
   });
 });
 
-// ─── 6. Allianz Suisse ────────────────────────────────────────────────────
-
-describe('Allianz Suisse — fallback descriptions >= 50 words', () => {
-  it('enriches thin description with company boilerplate', () => {
-    const result = buildAllianzLocalizedContent({
-      title: 'Consulente Assicurativo',
-      description: 'Ruolo in ambito assicurativo.',
-      agency: 'Agenzia Generale Lugano',
-      location: 'Lugano',
-    });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('enriches iframe error text (the actual bug case)', () => {
-    const result = buildAllianzLocalizedContent({
-      title: 'Broker Assicurativo',
-      description: 'Your browser does not support iframes. Please visit the page directly.',
-      agency: 'Allianz Bewerbermanagement',
-      location: 'Bellinzona',
-    });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('keeps rich description when >= 50 words', () => {
-    const richDesc = Array(60).fill('assicurazione').join(' ');
-    const result = buildAllianzLocalizedContent({
-      title: 'Test Role',
-      description: richDesc,
-      agency: 'Test Agency',
-      location: 'Lugano',
-    });
-    expect(result.descriptionByLocale.it).toBe(richDesc);
-  });
-});
-
-// ─── 7. Centiel ────────────────────────────────────────────────────────────
+// ─── 6. Centiel ────────────────────────────────────────────────────────────
 // buildJob is not exported, so we replicate the enrichment logic.
 
 describe('Centiel — fallback descriptions >= 50 words', () => {
@@ -325,7 +285,7 @@ describe('Centiel — fallback descriptions >= 50 words', () => {
   });
 });
 
-// ─── 8. Confederazione Ticino ──────────────────────────────────────────────
+// ─── 7. Confederazione Ticino ──────────────────────────────────────────────
 // buildLocalizedContent is not exported, so we replicate the logic.
 
 describe('Confederazione Ticino — fallback descriptions >= 50 words', () => {
@@ -389,7 +349,7 @@ describe('Confederazione Ticino — fallback descriptions >= 50 words', () => {
   });
 });
 
-// ─── 9. USI (via ensureMinimumDescriptionWordCount) ────────────────────────
+// ─── 8. USI (via ensureMinimumDescriptionWordCount) ────────────────────────
 
 describe('ensureMinimumDescriptionWordCount — patches thin descriptions', () => {
   it('patches job with thin description using company boilerplate', () => {
