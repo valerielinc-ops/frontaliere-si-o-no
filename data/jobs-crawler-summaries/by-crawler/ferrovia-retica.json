@@ -1,16 +1,16 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-07-10T12:13:19.514Z",
+  "generatedAt": "2026-07-10T22:31:10.901Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 21010,
-  "avgDurationMs": 21010,
+  "durationMs": 21712,
+  "avgDurationMs": 21712,
   "durationHistory": [
-    21010
+    21712
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,11 +40,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -74,11 +74,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -107,7 +107,6 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:25:07.447Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -142,12 +141,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T13:42:38.528Z",
       "id": "ferrovia-retica-78c7ade0a5b2",
-      "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -177,12 +175,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-03T11:37:28.004Z",
       "id": "ferrovia-retica-d3c3601e1a3d",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -212,12 +209,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-47e1c4bb36a4",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -248,11 +244,11 @@
       "firstSeenAt": "2026-07-01T11:48:58.562Z",
       "id": "ferrovia-retica-89929c110e5b",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -282,12 +278,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-2c6753dbeeac",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
@@ -320,11 +315,11 @@
       "salaryMax": 140000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 71,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -354,11 +349,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 69,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -388,11 +383,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -422,11 +417,11 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -491,11 +486,11 @@
       "firstSeenAt": "2026-07-06T13:42:38.528Z",
       "id": "ferrovia-retica-78c7ade0a5b2",
       "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -526,11 +521,11 @@
       "firstSeenAt": "2026-07-03T11:37:28.004Z",
       "id": "ferrovia-retica-d3c3601e1a3d",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -561,11 +556,11 @@
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-47e1c4bb36a4",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -596,11 +591,11 @@
       "firstSeenAt": "2026-07-01T11:48:58.562Z",
       "id": "ferrovia-retica-89929c110e5b",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -631,11 +626,11 @@
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-2c6753dbeeac",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
