@@ -19,7 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 
 const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-latest.json';
 const MIN_COUNT = Number(process.env.APP_ERROR_MIN_COUNT || 5);
@@ -47,6 +47,12 @@ export function main() {
 
   const entries = (eh.appErrors || [])
     .filter((e) => (e.count || 0) >= MIN_COUNT)
+    // Shared issue-creation deny-list (self-healed version-skew transients,
+    // #3758/#3759/#3761 class): the same error reaches GA4 app_error and
+    // PostHog $exception through parallel pipelines, so the "tracked in
+    // dashboards but never a backlog ticket" decision must apply to BOTH
+    // feeders — see ISSUE_DENY_PATTERNS in ./lib/error-issue-sync.mjs.
+    .filter((e) => !isIssueDenied(e.errorMessage))
     .sort((a, b) => b.count - a.count);
 
   if (!entries.length) {
