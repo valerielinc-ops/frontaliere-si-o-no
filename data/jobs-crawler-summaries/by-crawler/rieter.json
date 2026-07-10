@@ -1,16 +1,16 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-07-06T22:16:07.744Z",
+  "generatedAt": "2026-07-10T11:28:48.801Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5932,
-  "avgDurationMs": 5932,
+  "unchangedCount": 1,
+  "durationMs": 6123,
+  "avgDurationMs": 6123,
   "durationHistory": [
-    5932
+    6123
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4024475",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:16:03.354Z",
+      "crawledAt": "2026-07-10T11:28:44.268Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:16:03.910Z",
+      "crawledAt": "2026-07-10T11:28:45.220Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:16:04.475Z",
+      "crawledAt": "2026-07-10T11:28:45.806Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -127,10 +127,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "rieter-d9ab8f2c6639",
-      "slug": "senior-system-engineer-rieter-winterthur",
+      "slug": "senior-system-ingegnere-rieter-winterthur",
       "company": "Rieter",
       "companyKey": "rieter",
       "companyDomain": "rieter.com",
@@ -158,15 +161,16 @@
       "jobReqId": "2601091448fb",
       "employerBrand": "Rieter AG",
       "firstSeenAt": "2026-07-04T12:31:14.900Z",
-      "_qualityScore": 90,
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
