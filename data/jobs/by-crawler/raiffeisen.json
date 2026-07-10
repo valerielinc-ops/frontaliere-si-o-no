@@ -1,6 +1,6 @@
 {
   "crawlerKey": "raiffeisen",
-  "assembledAt": "2026-07-09T22:28:38.687Z",
+  "assembledAt": "2026-07-10T12:10:53.881Z",
   "jobs": [
     {
       "id": "raiffeisen-7b1087e49b95",
@@ -5609,78 +5609,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "raiffeisen-e86d823656b7",
-      "slug": "consulente-cliente-pmi-corpora-raiffeisen-aesch",
-      "slugByLocale": {
-        "it": "consulente-cliente-pmi-corpora-raiffeisen-aesch",
-        "en": "sme-corporate-client-advisor-raiffeisen-aesch",
-        "de": "kmu-firmenkundenberater-in-raiffeisen-aesch",
-        "fr": "conseiller-pme-societe-cliente-raiffeisen-aesch"
-      },
-      "company": "Raiffeisen",
-      "companyKey": "raiffeisen",
-      "companyDomain": "raiffeisen.ch",
-      "title": "KMU-/Firmenkundenberater/in",
-      "titleByLocale": {
-        "it": "Consulente cliente PMI/corpora",
-        "en": "SME/corporate client advisor",
-        "de": "KMU-/Firmenkundenberater/in",
-        "fr": "Conseiller PME/société cliente"
-      },
-      "description": "Die <b>Raiffeisenbank Aesch-Pfeffingen</b> ist lokal verankert und nah bei den Menschen. Wir suchen eine engagierte Persönlichkeit im Teilzeitpensum, die Freude daran hat, KMU und deren Entscheidungsträger/innen zu begleiten.\n\nAufgaben:\n• Beratung unserer Firmenkunden (hauptsächlich KMU) und deren Exponent/innen - bedürfnisorientiert und praxisnah\n\n• Unterstützung bei Kreditanalysen und individuellen Lösungsvorschlägen\n\n• Begleitung der Geschäfte von der Offerte bis zur Abwicklung\n\n• Pflege bestehender Beziehungen sowie aktive Neukundenakquisition\n\n• Ausbau eines eigenen Kundenportfolios\n\n• Mitarbeit bei Marketing- und Vertriebsaktionen für die Zielgruppe KMU\n\n• Enge Zusammenarbeit mit der Leiterin Firmenkundenberatung - mit der Perspektive, Verantwortung zu übernehmen\n\nDas bieten wir dir\n• Ein kompaktes Team mit kurzen Entscheidungswegen und persönlichem Support\n\n• Unterstützung in deiner Weiterentwicklung - mit Coaching und Weiterbildung\n\n• Flexibilität und Nähe: Moderne Arbeitsbedingungen in einem familiären Umfeld\n\n• Spürbarer Einfluss: Bei uns bist du nicht eine Nummer, sondern Teil des Ganzen\n\nAnforderungen:\n• Abgeschlossene Bankausbildung - Weiterbildung im Bank- oder Finanzwesen von Vorteil\n\n• Erfahrung in der Firmenkundenberatung oder Motivation, dich im Firmenkundengeschäft weiterzuentwickeln\n\n• Freude am direkten Kontakt mit Unternehmer/innen und ein hohes Dienstleistungsverständnis\n\n• Selbständige, strukturierte Arbeitsweise und Lust, Verantwortung zu übernehmen\n\n• Lokal vernetzt? Super! Falls nicht: Wir helfen dir, dein Netzwerk aufzubauen\n\nWir bieten:\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-      "descriptionByLocale": {
-        "it": "Die <b>Raiffeisenbank Aesch-Pfeffingen</b> ist lokal verankert und nah bei den Menschen. Wir suchen eine engagierte Persönlichkeit im Teilzeitpensum, die Freude daran hat, KMU und deren Entscheidungsträger/innen zu begleiten. Aufgaben:\n• Beratung unserer Firmenkunden (hauptsächlich KMU) und deren Exponent/innen - bedürfnisorientiert und praxisnah\n• Unterstützung bei Kreditanalysen und individuellen Lösungsvorschlägen\n• Begleitung der Geschäfte von der Offerte bis zur Abwicklung\n• Pflege bestehender Beziehungen sowie aktive Neukundenakquisition\n• Ausbau eines eigenen Kundenportfolios\n• Mitarbeit bei Marketing- und Vertriebsaktionen für die Zielgruppe KMU\n• Enge Zusammenarbeit mit der Leiterin Firmenkundenberatung - mit der Perspektive, Verantwortung zu übernehmen Das bieten wir dir\n• Ein kompaktes Team mit kurzen Entscheidungswegen und persönlichem Support\n• Unterstützung in deiner Weiterentwicklung - mit Coaching und Weiterbildung\n• Flexibilität und Nähe: Moderne Arbeitsbedingungen in einem familiären Umfeld\n• Spürbarer Einfluss: Bei uns bist du nicht eine Nummer, sondern Teil des Ganzen Anforderungen:\n• Abgeschlossene Bankausbildung - Weiterbildung im Bank- oder Finanzwesen von Vorteil\n• Erfahrung in der Firmenkundenberatung oder Motivation, dich im Firmenkundengeschäft weiterzuentwickeln\n• Freude am direkten Kontakt mit Unternehmer/innen und ein hohes Dienstleistungsverständnis\n• Selbständige, strukturierte Arbeitsweise und Lust, Verantwortung zu übernehmen\n• Lokal vernetzt? Super! Falls nicht: Wir helfen dir, dein Netzwerk aufzubauen Wir bieten: Die genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-        "en": "Die <b>Raiffeisenbank Aesch-Pfeffingen</b> ist lokal verankert und nah bei den Menschen. Wir suchen eine engagierte Persönlichkeit im Teilzeitpensum, die Freude daran hat, KMU und deren Entscheidungsträger/innen zu begleiten. Aufgaben:\n• Beratung unserer Firmenkunden (hauptsächlich KMU) und deren Exponent/innen - bedürfnisorientiert und praxisnah\n• Unterstützung bei Kreditanalysen und individuellen Lösungsvorschlägen\n• Begleitung der Geschäfte von der Offerte bis zur Abwicklung\n• Pflege bestehender Beziehungen sowie aktive Neukundenakquisition\n• Ausbau eines eigenen Kundenportfolios\n• Mitarbeit bei Marketing- und Vertriebsaktionen für die Zielgruppe KMU\n• Enge Zusammenarbeit mit der Leiterin Firmenkundenberatung - mit der Perspektive, Verantwortung zu übernehmen Das bieten wir dir\n• Ein kompaktes Team mit kurzen Entscheidungswegen und persönlichem Support\n• Unterstützung in deiner Weiterentwicklung - mit Coaching und Weiterbildung\n• Flexibilität und Nähe: Moderne Arbeitsbedingungen in einem familiären Umfeld\n• Spürbarer Einfluss: Bei uns bist du nicht eine Nummer, sondern Teil des Ganzen Anforderungen:\n• Abgeschlossene Bankausbildung - Weiterbildung im Bank- oder Finanzwesen von Vorteil\n• Erfahrung in der Firmenkundenberatung oder Motivation, dich im Firmenkundengeschäft weiterzuentwickeln\n• Freude am direkten Kontakt mit Unternehmer/innen und ein hohes Dienstleistungsverständnis\n• Selbständige, strukturierte Arbeitsweise und Lust, Verantwortung zu übernehmen\n• Lokal vernetzt? Super! Falls nicht: Wir helfen dir, dein Netzwerk aufzubauen Wir bieten: Die genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-        "de": "Die <b>Raiffeisenbank Aesch-Pfeffingen</b> ist lokal verankert und nah bei den Menschen. Wir suchen eine engagierte Persönlichkeit im Teilzeitpensum, die Freude daran hat, KMU und deren Entscheidungsträger/innen zu begleiten. Aufgaben:\n• Beratung unserer Firmenkunden (hauptsächlich KMU) und deren Exponent/innen - bedürfnisorientiert und praxisnah\n• Unterstützung bei Kreditanalysen und individuellen Lösungsvorschlägen\n• Begleitung der Geschäfte von der Offerte bis zur Abwicklung\n• Pflege bestehender Beziehungen sowie aktive Neukundenakquisition\n• Ausbau eines eigenen Kundenportfolios\n• Mitarbeit bei Marketing- und Vertriebsaktionen für die Zielgruppe KMU\n• Enge Zusammenarbeit mit der Leiterin Firmenkundenberatung - mit der Perspektive, Verantwortung zu übernehmen Das bieten wir dir\n• Ein kompaktes Team mit kurzen Entscheidungswegen und persönlichem Support\n• Unterstützung in deiner Weiterentwicklung - mit Coaching und Weiterbildung\n• Flexibilität und Nähe: Moderne Arbeitsbedingungen in einem familiären Umfeld\n• Spürbarer Einfluss: Bei uns bist du nicht eine Nummer, sondern Teil des Ganzen Anforderungen:\n• Abgeschlossene Bankausbildung - Weiterbildung im Bank- oder Finanzwesen von Vorteil\n• Erfahrung in der Firmenkundenberatung oder Motivation, dich im Firmenkundengeschäft weiterzuentwickeln\n• Freude am direkten Kontakt mit Unternehmer/innen und ein hohes Dienstleistungsverständnis\n• Selbständige, strukturierte Arbeitsweise und Lust, Verantwortung zu übernehmen\n• Lokal vernetzt? Super! Falls nicht: Wir helfen dir, dein Netzwerk aufzubauen Wir bieten: Die genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-        "fr": "Die <b>Raiffeisenbank Aesch-Pfeffingen</b> ist lokal verankert und nah bei den Menschen. Wir suchen eine engagierte Persönlichkeit im Teilzeitpensum, die Freude daran hat, KMU und deren Entscheidungsträger/innen zu begleiten. Aufgaben:\n• Beratung unserer Firmenkunden (hauptsächlich KMU) und deren Exponent/innen - bedürfnisorientiert und praxisnah\n• Unterstützung bei Kreditanalysen und individuellen Lösungsvorschlägen\n• Begleitung der Geschäfte von der Offerte bis zur Abwicklung\n• Pflege bestehender Beziehungen sowie aktive Neukundenakquisition\n• Ausbau eines eigenen Kundenportfolios\n• Mitarbeit bei Marketing- und Vertriebsaktionen für die Zielgruppe KMU\n• Enge Zusammenarbeit mit der Leiterin Firmenkundenberatung - mit der Perspektive, Verantwortung zu übernehmen Das bieten wir dir\n• Ein kompaktes Team mit kurzen Entscheidungswegen und persönlichem Support\n• Unterstützung in deiner Weiterentwicklung - mit Coaching und Weiterbildung\n• Flexibilität und Nähe: Moderne Arbeitsbedingungen in einem familiären Umfeld\n• Spürbarer Einfluss: Bei uns bist du nicht eine Nummer, sondern Teil des Ganzen Anforderungen:\n• Abgeschlossene Bankausbildung - Weiterbildung im Bank- oder Finanzwesen von Vorteil\n• Erfahrung in der Firmenkundenberatung oder Motivation, dich im Firmenkundengeschäft weiterzuentwickeln\n• Freude am direkten Kontakt mit Unternehmer/innen und ein hohes Dienstleistungsverständnis\n• Selbständige, strukturierte Arbeitsweise und Lust, Verantwortung zu übernehmen\n• Lokal vernetzt? Super! Falls nicht: Wir helfen dir, dein Netzwerk aufzubauen Wir bieten: Die genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg."
-      },
-      "needsRetranslation": true,
-      "location": "Aesch",
-      "canton": "SG",
-      "url": "https://jobs.raiffeisen.ch/offene-stellen/kmu-firmenkundenberater-in/7cc5eb34-f2da-43ea-9e96-e089a55112b3",
-      "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:26:46.995Z",
-      "addressLocality": "Aesch",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4147",
-      "streetAddress": "Hauptstrasse 107",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://jobs.raiffeisen.ch/offene-stellen/kmu-firmenkundenberater-in/7cc5eb34-f2da-43ea-9e96-e089a55112b3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kmu-firmenkundenberater-in-raiffeisen-aesch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kmu-firmenkundenberater-in-raiffeisen-aesch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:06:05.335Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
