@@ -10,6 +10,13 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/stellvertreterin-marktleitung-supermarkt/6f95304c-3912-4369-bc97-948becf51211",
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/mitarbeiterin-ladenaufsicht/3c40f8e6-8c17-4fe2-8abf-e3984e2dac24",
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/fitness-instructor-wmd/06929f5d-b239-4681-8d4a-3479505d3d81",
+    "https://jobs.migros.ch/fr/nos-entreprises/job/activ-fitness/fitness-instructor-fhd/73b7fe76-9949-4c27-966b-162986873826",
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/micarna-gruppe/fachspezialistin-umwelt-und-chemikalien/e2f51358-8b8c-488f-bf72-1d3e005fe5a8",
+    "https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/specialiste-de-lenvironnement-et-des-produits-chimiques/9507c9a0-b120-4219-a639-fe4e62bcb0ff",
+    "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/01f26c7e-ae34-45af-8c91-ecfb6476bcca",
     "https://jobs.migros.ch/fr/nos-entreprises/job/ibaw/responsable-de-filiere-et-de-programme-de-formation-fhx/6711f992-98e1-4454-b959-c7ba2e423749",
     "https://jobs.migros.ch/it/le-nostre-imprese/job/societa-cooperativa-migros-ticino/gerente-di-filiale-food/d497cc5a-45ca-4102-970b-ab0c13a9dc5f",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/betriebsmechaniker-instandhaltung-produktionsanlagen-mwd/78528a06-5ddc-4e86-8925-22b19838a6a6",
@@ -415,7 +422,6 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin-food/340e61c1-3e49-4332-85e1-426d12abbdcb",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurantbuffetkasse/68e5c154-a889-4c25-8051-2fc4954d9dcd",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/verkauferin-frischland-und-stv-fachleitung-milchprodukte/ff0c400b-fb19-4d2c-8c60-47c194a2d8da",
-    "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-logistics/stv-leiterin-transport-kmlufr/8cbd05c9-61b6-4b98-a6ad-1b9d4ba83db2",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/elsa-group/betriebsmitarbeiter/6f32b385-e934-4763-8b3c-946a435d485e",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/fachspezialistin-filialsysteme/f381cacc-3e0b-4a09-b0a4-9d32a40d6edc",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/mitarbeiterin-filiallogistik/fe5a5adf-aab4-4462-9d4f-5c9687a91583",
@@ -958,7 +964,6 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/gastro-hilfskraft-hausbackerei-migros-bahnhof-sbb/77ca73f6-d0b1-4790-965b-0c7551439c49",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/gastro-hilfskraft-hausbackerei-migros-bahnhof-sbb/7d66c8f1-8246-4ae8-a99a-5c3aa2814535",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-hausbackerei-brugg/ca154e53-5979-4232-a8cb-c70a3185aeda",
-    "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/studentenaushilfe-restaurantbuffetkassekuche/4e4b0b3e-4d37-4055-87cc-0ad2623f5361",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/fachverkauferin-food-migros-ziegelei/8b66d143-52c7-4fac-bf7d-ee89a485e013",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/chauffeurin-ce/8d2f6d96-082d-4d24-96a4-183d26d3bb65",
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/fachleiterin-food-migros-birsfelden/094c76be-5406-41ca-8ed8-a2ea88341042",
@@ -1164,5 +1169,5 @@
     "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-im-stundenlohn/61c2d836-de48-4038-8678-1ac9faa2e2a2"
   ],
   "notes": "Nuxt.js SSR careers portal — detail URLs scraped from listing pages, each page has rich HTML content.",
-  "updatedAt": "2026-07-10T10:25:05.438Z"
+  "updatedAt": "2026-07-10T12:06:56.441Z"
 }
