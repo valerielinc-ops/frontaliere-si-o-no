@@ -67,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -406,7 +405,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -491,7 +489,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -658,7 +655,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -736,7 +732,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1353,7 +1348,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1412,7 +1407,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1440,7 +1434,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Diploma in Nursing (HF/FH)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Diplômé(e) en soins infirmiers (HF/FH)"
@@ -1494,7 +1488,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1659,7 +1652,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1758,7 +1750,6 @@
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1925,7 +1916,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2201,7 +2191,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2259,7 +2249,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2508,7 +2497,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2592,8 +2580,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-8caa36dbe71f",
@@ -2910,7 +2897,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2969,7 +2956,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3121,7 +3107,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4280,7 +4265,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4438,7 +4422,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4607,7 +4590,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4764,7 +4746,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5138,7 +5119,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5736,7 +5716,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5755,7 +5734,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -5824,7 +5803,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5905,7 +5883,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5988,7 +5965,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:18:08.636Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6069,7 +6045,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6304,7 +6279,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -6492,8 +6466,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-a8e39450cdfb",
@@ -6563,7 +6536,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.829Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "baseSalary": {
@@ -6582,7 +6554,7 @@
       "slug": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
-        "en": "senior-transplant-coordinator-universitatsspital-basel-basel",
+        "en": "senior-transplantationskoordinator-in-universitatsspital-basel-basel",
         "de": "senior-transplantationskoordinator-in-unispital-basel-ch",
         "fr": "senior-transplantationskoordinator-in-universitatsspital-basel-basel"
       },
@@ -6647,7 +6619,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:27:28.546Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6805,8 +6776,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-653957aa477e",
@@ -7323,7 +7293,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:46:13.904Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7540,7 +7509,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:45:57.172Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7620,7 +7588,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:09.619Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7928,7 +7895,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8319,7 +8285,6 @@
         "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-06-09T12:27:47.540Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8437,16 +8402,16 @@
       "title": "Facharzt /Fachärztin (Pathologie)",
       "titleByLocale": {
         "de": "Facharzt /Fachärztin (Pathologie)",
-        "it": "Facharzt /Fachärztin (Pathologie)",
-        "en": "Facharzt /Fachärztin (Pathologie)",
-        "fr": "Facharzt /Fachärztin (Pathologie)"
+        "it": "Medico specializzato (patologia)",
+        "en": "Specialist doctor (pathology)",
+        "fr": "Médecin spécialiste (pathologie)"
       },
       "description": "Aufgaben:\n• Selbstständige diagnostische Tätigkeit in der histopathologischen Beurteilung gynäkologischer Präparate und Mamma-Präparate aus einem grossen universitären Einsendegut\n\n• Beteiligung an intraoperativen Schnellschnittuntersuchungen\n\n• Aktive Teilnahme an interdisziplinären Tumorboards, insbesondere im Rahmen des Brustzentrums und gynäkologischer Tumorboards\n\n• Enge klinisch-pathologische Zusammenarbeit mit den klinischen Partnern des Universitätsspitals Basel\n\n• Mitwirkung an der Aus- und Weiterbildung von Assistenzärztinnen und Assistenzärzten sowie Möglichkeit zur Beteiligung an wissenschaftlichen Projekten mit Zugang zu moderner Infrastruktur in der Molekularpathologie, digitalen Pathologie und translationalen Forschung\n\nAnforderungen:\n• Facharzttitel Pathologie (FMH oder äquivalente Anerkennung)\n\n• Fundierte Erfahrung in der histopathologischen Diagnostik\n\n• Ausgewiesenes Interesse oder bestehende Expertise in der Gynäko- und Mammapathologie\n\n• Interesse an interdisziplinärer klinischer Zusammenarbeit und an Tumorboards\n\n• Motivation zur Mitwirkung in Lehre und Forschung im universitären Umfeld sowie Interesse an der Weiterentwicklung eines eigenen fachlichen und wissenschaftlichen Profils\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Selbstständige diagnostische Tätigkeit in der histopathologischen Beurteilung gynäkologischer Präparate und Mamma-Präparate aus einem grossen universitären Einsendegut\n\n• Beteiligung an intraoperativen Schnellschnittuntersuchungen\n\n• Aktive Teilnahme an interdisziplinären Tumorboards, insbesondere im Rahmen des Brustzentrums und gynäkologischer Tumorboards\n\n• Enge klinisch-pathologische Zusammenarbeit mit den klinischen Partnern des Universitätsspitals Basel\n\n• Mitwirkung an der Aus- und Weiterbildung von Assistenzärztinnen und Assistenzärzten sowie Möglichkeit zur Beteiligung an wissenschaftlichen Projekten mit Zugang zu moderner Infrastruktur in der Molekularpathologie, digitalen Pathologie und translationalen Forschung\n\nAnforderungen:\n• Facharzttitel Pathologie (FMH oder äquivalente Anerkennung)\n\n• Fundierte Erfahrung in der histopathologischen Diagnostik\n\n• Ausgewiesenes Interesse oder bestehende Expertise in der Gynäko- und Mammapathologie\n\n• Interesse an interdisziplinärer klinischer Zusammenarbeit und an Tumorboards\n\n• Motivation zur Mitwirkung in Lehre und Forschung im universitären Umfeld sowie Interesse an der Weiterentwicklung eines eigenen fachlichen und wissenschaftlichen Profils\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Selbstständige diagnostische Tätigkeit in der histopathologischen Beurteilung gynäkologischer Präparate und Mamma-Präparate aus einem grossen universitären Einsendegut\n\n• Beteiligung an intraoperativen Schnellschnittuntersuchungen\n\n• Aktive Teilnahme an interdisziplinären Tumorboards, insbesondere im Rahmen des Brustzentrums und gynäkologischer Tumorboards\n\n• Enge klinisch-pathologische Zusammenarbeit mit den klinischen Partnern des Universitätsspitals Basel\n\n• Mitwirkung an der Aus- und Weiterbildung von Assistenzärztinnen und Assistenzärzten sowie Möglichkeit zur Beteiligung an wissenschaftlichen Projekten mit Zugang zu moderner Infrastruktur in der Molekularpathologie, digitalen Pathologie und translationalen Forschung\n\nAnforderungen:\n• Facharzttitel Pathologie (FMH oder äquivalente Anerkennung)\n\n• Fundierte Erfahrung in der histopathologischen Diagnostik\n\n• Ausgewiesenes Interesse oder bestehende Expertise in der Gynäko- und Mammapathologie\n\n• Interesse an interdisziplinärer klinischer Zusammenarbeit und an Tumorboards\n\n• Motivation zur Mitwirkung in Lehre und Forschung im universitären Umfeld sowie Interesse an der Weiterentwicklung eines eigenen fachlichen und wissenschaftlichen Profils\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Selbstständige diagnostische Tätigkeit in der histopathologischen Beurteilung gynäkologischer Präparate und Mamma-Präparate aus einem grossen universitären Einsendegut\n\n• Beteiligung an intraoperativen Schnellschnittuntersuchungen\n\n• Aktive Teilnahme an interdisziplinären Tumorboards, insbesondere im Rahmen des Brustzentrums und gynäkologischer Tumorboards\n\n• Enge klinisch-pathologische Zusammenarbeit mit den klinischen Partnern des Universitätsspitals Basel\n\n• Mitwirkung an der Aus- und Weiterbildung von Assistenzärztinnen und Assistenzärzten sowie Möglichkeit zur Beteiligung an wissenschaftlichen Projekten mit Zugang zu moderner Infrastruktur in der Molekularpathologie, digitalen Pathologie und translationalen Forschung\n\nAnforderungen:\n• Facharzttitel Pathologie (FMH oder äquivalente Anerkennung)\n\n• Fundierte Erfahrung in der histopathologischen Diagnostik\n\n• Ausgewiesenes Interesse oder bestehende Expertise in der Gynäko- und Mammapathologie\n\n• Interesse an interdisziplinärer klinischer Zusammenarbeit und an Tumorboards\n\n• Motivation zur Mitwirkung in Lehre und Forschung im universitären Umfeld sowie Interesse an der Weiterentwicklung eines eigenen fachlichen und wissenschaftlichen Profils\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Selbstständige diagnostische Tätigkeit in der histopathologischen Beurteilung gynäkologischer Präparate und Mamma-Präparate aus einem grossen universitären Einsendegut\n\n• Beteiligung an intraoperativen Schnellschnittuntersuchungen\n\n• Aktive Teilnahme an interdisziplinären Tumorboards, insbesondere im Rahmen des Brustzentrums und gynäkologischer Tumorboards\n\n• Enge klinisch-pathologische Zusammenarbeit mit den klinischen Partnern des Universitätsspitals Basel\n\n• Mitwirkung an der Aus- und Weiterbildung von Assistenzärztinnen und Assistenzärzten sowie Möglichkeit zur Beteiligung an wissenschaftlichen Projekten mit Zugang zu moderner Infrastruktur in der Molekularpathologie, digitalen Pathologie und translationalen Forschung\n\nAnforderungen:\n• Facharzttitel Pathologie (FMH oder äquivalente Anerkennung)\n\n• Fundierte Erfahrung in der histopathologischen Diagnostik\n\n• Ausgewiesenes Interesse oder bestehende Expertise in der Gynäko- und Mammapathologie\n\n• Interesse an interdisziplinärer klinischer Zusammenarbeit und an Tumorboards\n\n• Motivation zur Mitwirkung in Lehre und Forschung im universitären Umfeld sowie Interesse an der Weiterentwicklung eines eigenen fachlichen und wissenschaftlichen Profils\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Attività diagnostica indipendente nella valutazione istopatologica di preparazioni ginecologiche e preparazioni mammarie da un grande materiale di presentazione universitaria\n\n• Partecipazione agli esami intraoperativi\n\n• Partecipazione attiva alle schede tumorali interdisciplinari, soprattutto nel contesto del centro mammario e delle tavole tumorali ginecologiche\n\n• Chiudere la cooperazione clinica-patologia con i partner clinici dell'Ospedale Universitario di Basilea\n\n• Partecipazione all'educazione e alla formazione dei medici assistenti e l'opportunità di partecipare a progetti scientifici con accesso alle moderne infrastrutture in patologia molecolare, patologia digitale e ricerca traduttiva\n\nRequisiti\n• Titolo specialistico Patologia (FMH o riconoscimento equivalente)\n\n• Esperienza sonora nella diagnosi istopatica\n\n• Approfondito interesse o competenza esistente in gineco- e patologia mammaria\n\n• Interessi in collaborazione clinica interdisciplinare e schede tumorali\n\n• Motivazione per la partecipazione all'insegnamento e alla ricerca nell'ambiente universitario e interesse per lo sviluppo di un proprio profilo professionale e scientifico\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Independent diagnostic activity in the histopathological assessment of gynecological preparations and mamma preparations from a large university submission material\n\n• Participation in intraoperative fast-cut examinations\n\n• Active participation in interdisciplinary tumor boards, especially in the context of the breast center and gynecological tumor boards\n\n• Close clinical-pathological cooperation with clinical partners of the University Hospital Basel\n\n• Participation in the education and training of assistant doctors and the opportunity to participate in scientific projects with access to modern infrastructure in molecular pathology, digital pathology and translational research\n\nRequirements\n• Specialist title Pathology (FMH or equivalent recognition)\n\n• Sound experience in histopathological diagnosis\n\n• Proven interest or existing expertise in gyneco- and mammary pathology\n\n• Interest in interdisciplinary clinical collaboration and tumor boards\n\n• Motivation for participation in teaching and research in the university environment as well as interest in the further development of an own professional and scientific profile\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Activité de diagnostic indépendante dans l'évaluation histopathologique des préparations gynécologiques et des préparations mammifères d'un grand matériel de soumission universitaire\n\n• Participation aux examens intraopératoires rapides\n\n• Participation active aux conseils de tumeurs interdisciplinaires, en particulier dans le contexte du centre mammaire et des conseils de tumeurs gynécologiques\n\n• Coopération clinique-pathologique étroite avec les partenaires cliniques de l'Hôpital universitaire de Bâle\n\n• Participation à l'éducation et à la formation des médecins auxiliaires et possibilité de participer à des projets scientifiques ayant accès à des infrastructures modernes en pathologie moléculaire, pathologie numérique et recherche translationnelle\n\nExigences\n• Titre du spécialiste Pathologie (FMH ou reconnaissance équivalente)\n\n• Bonne expérience dans le diagnostic histopathologique\n\n• Intérêt manifeste ou expertise existante en pathologie gynéco-mammaire\n\n• Intérêt pour la collaboration clinique interdisciplinaire et les conseils de tumeurs\n\n• Motivation de la participation à l'enseignement et à la recherche dans l'environnement universitaire et intérêt pour le développement d'un profil professionnel et scientifique propre\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8472,7 +8437,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8485,7 +8449,12 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:02:54.510Z"
+      "firstSeenAt": "2026-07-10T12:02:54.510Z",
+      "previousSlugs": [
+        "medico-specializzato-patologia-universitatsspital-basel-basel",
+        "specialist-doctor-pathology-universitatsspital-basel-basel",
+        "medecin-specialiste-pathologie-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-c5c7947e895c",
@@ -8502,16 +8471,16 @@
       "title": "Oberärztin / Oberarzt (Radioonkologie Claraspital)",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt (Radioonkologie Claraspital)",
-        "it": "Oberärztin / Oberarzt (Radioonkologie Claraspital)",
-        "en": "Oberärztin / Oberarzt (Radioonkologie Claraspital)",
-        "fr": "Oberärztin / Oberarzt (Radioonkologie Claraspital)"
+        "it": "Medico senior (Radiooncologia Claraspital)",
+        "en": "Senior physician (Radiooncology Claraspital)",
+        "fr": "Médecin principal (Radiooncologie Claraspital)"
       },
       "description": "Aufgaben:\n• Professionelle und effiziente Untersuchung und Behandlung aller ambulanten und stationären Patientinnen und Patienten im Fachbereich Radioonkologie mit Therapiebesprechung, Aufklärung, vollständiger Dokumentation, Bestrahlungsplanung, Therapiebegleitung mit Wochenkontrollen, Abschlussgespräch sowie Erstellung von Arztbriefen\n\n• Verantwortliche Durchführung von Bestrahlungen und Radio-(Chemo-)therapien\n\n• Zielführende und kollegiale Zusammenarbeit mit ärztlichen Kolleginnen und Kollegen, dem Case Management und dem Sekretariat sowie Mitwirkung an der Ausbildung der Assistenzärztinnen und -ärzte und der Medizinstudentinnen und -studenten\n\n• Teilnahme an internen und externen Tumorboards mit Patientenvorstellung\n\n• Gewissenhafte Vertretung der Interessen der Radioonkologie und des Tumorzentrums nach innen und aussen\n\n• Teilnahme am Hintergrund-/Pikettdienst der Radioonkologie sowie an radioonkologischen Konsiliar-, Schicht-, Wochenend- und Feiertagsdiensten, falls es der klinische Ablauf erfordert.\n\nAnforderungen:\n• Fachärztin / Facharzt für Radioonkologie\n\n• Grosses Interesse an der Onkologie\n\n• Interesse an einer interdisziplinären Zusammenarbeit\n\n• Kompetentes und einfühlsames Auftreten\n\n• Kenntnisse im Bereich moderner Bestrahlungstechniken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Professionelle und effiziente Untersuchung und Behandlung aller ambulanten und stationären Patientinnen und Patienten im Fachbereich Radioonkologie mit Therapiebesprechung, Aufklärung, vollständiger Dokumentation, Bestrahlungsplanung, Therapiebegleitung mit Wochenkontrollen, Abschlussgespräch sowie Erstellung von Arztbriefen\n\n• Verantwortliche Durchführung von Bestrahlungen und Radio-(Chemo-)therapien\n\n• Zielführende und kollegiale Zusammenarbeit mit ärztlichen Kolleginnen und Kollegen, dem Case Management und dem Sekretariat sowie Mitwirkung an der Ausbildung der Assistenzärztinnen und -ärzte und der Medizinstudentinnen und -studenten\n\n• Teilnahme an internen und externen Tumorboards mit Patientenvorstellung\n\n• Gewissenhafte Vertretung der Interessen der Radioonkologie und des Tumorzentrums nach innen und aussen\n\n• Teilnahme am Hintergrund-/Pikettdienst der Radioonkologie sowie an radioonkologischen Konsiliar-, Schicht-, Wochenend- und Feiertagsdiensten, falls es der klinische Ablauf erfordert.\n\nAnforderungen:\n• Fachärztin / Facharzt für Radioonkologie\n\n• Grosses Interesse an der Onkologie\n\n• Interesse an einer interdisziplinären Zusammenarbeit\n\n• Kompetentes und einfühlsames Auftreten\n\n• Kenntnisse im Bereich moderner Bestrahlungstechniken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Professionelle und effiziente Untersuchung und Behandlung aller ambulanten und stationären Patientinnen und Patienten im Fachbereich Radioonkologie mit Therapiebesprechung, Aufklärung, vollständiger Dokumentation, Bestrahlungsplanung, Therapiebegleitung mit Wochenkontrollen, Abschlussgespräch sowie Erstellung von Arztbriefen\n\n• Verantwortliche Durchführung von Bestrahlungen und Radio-(Chemo-)therapien\n\n• Zielführende und kollegiale Zusammenarbeit mit ärztlichen Kolleginnen und Kollegen, dem Case Management und dem Sekretariat sowie Mitwirkung an der Ausbildung der Assistenzärztinnen und -ärzte und der Medizinstudentinnen und -studenten\n\n• Teilnahme an internen und externen Tumorboards mit Patientenvorstellung\n\n• Gewissenhafte Vertretung der Interessen der Radioonkologie und des Tumorzentrums nach innen und aussen\n\n• Teilnahme am Hintergrund-/Pikettdienst der Radioonkologie sowie an radioonkologischen Konsiliar-, Schicht-, Wochenend- und Feiertagsdiensten, falls es der klinische Ablauf erfordert.\n\nAnforderungen:\n• Fachärztin / Facharzt für Radioonkologie\n\n• Grosses Interesse an der Onkologie\n\n• Interesse an einer interdisziplinären Zusammenarbeit\n\n• Kompetentes und einfühlsames Auftreten\n\n• Kenntnisse im Bereich moderner Bestrahlungstechniken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Professionelle und effiziente Untersuchung und Behandlung aller ambulanten und stationären Patientinnen und Patienten im Fachbereich Radioonkologie mit Therapiebesprechung, Aufklärung, vollständiger Dokumentation, Bestrahlungsplanung, Therapiebegleitung mit Wochenkontrollen, Abschlussgespräch sowie Erstellung von Arztbriefen\n\n• Verantwortliche Durchführung von Bestrahlungen und Radio-(Chemo-)therapien\n\n• Zielführende und kollegiale Zusammenarbeit mit ärztlichen Kolleginnen und Kollegen, dem Case Management und dem Sekretariat sowie Mitwirkung an der Ausbildung der Assistenzärztinnen und -ärzte und der Medizinstudentinnen und -studenten\n\n• Teilnahme an internen und externen Tumorboards mit Patientenvorstellung\n\n• Gewissenhafte Vertretung der Interessen der Radioonkologie und des Tumorzentrums nach innen und aussen\n\n• Teilnahme am Hintergrund-/Pikettdienst der Radioonkologie sowie an radioonkologischen Konsiliar-, Schicht-, Wochenend- und Feiertagsdiensten, falls es der klinische Ablauf erfordert.\n\nAnforderungen:\n• Fachärztin / Facharzt für Radioonkologie\n\n• Grosses Interesse an der Onkologie\n\n• Interesse an einer interdisziplinären Zusammenarbeit\n\n• Kompetentes und einfühlsames Auftreten\n\n• Kenntnisse im Bereich moderner Bestrahlungstechniken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Professionelle und effiziente Untersuchung und Behandlung aller ambulanten und stationären Patientinnen und Patienten im Fachbereich Radioonkologie mit Therapiebesprechung, Aufklärung, vollständiger Dokumentation, Bestrahlungsplanung, Therapiebegleitung mit Wochenkontrollen, Abschlussgespräch sowie Erstellung von Arztbriefen\n\n• Verantwortliche Durchführung von Bestrahlungen und Radio-(Chemo-)therapien\n\n• Zielführende und kollegiale Zusammenarbeit mit ärztlichen Kolleginnen und Kollegen, dem Case Management und dem Sekretariat sowie Mitwirkung an der Ausbildung der Assistenzärztinnen und -ärzte und der Medizinstudentinnen und -studenten\n\n• Teilnahme an internen und externen Tumorboards mit Patientenvorstellung\n\n• Gewissenhafte Vertretung der Interessen der Radioonkologie und des Tumorzentrums nach innen und aussen\n\n• Teilnahme am Hintergrund-/Pikettdienst der Radioonkologie sowie an radioonkologischen Konsiliar-, Schicht-, Wochenend- und Feiertagsdiensten, falls es der klinische Ablauf erfordert.\n\nAnforderungen:\n• Fachärztin / Facharzt für Radioonkologie\n\n• Grosses Interesse an der Onkologie\n\n• Interesse an einer interdisziplinären Zusammenarbeit\n\n• Kompetentes und einfühlsames Auftreten\n\n• Kenntnisse im Bereich moderner Bestrahlungstechniken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Esame professionale ed efficiente e trattamento di tutti i pazienti ambulatoriali e inpatici nel campo della radiooncologia con discussione terapeutica, educazione, documentazione completa, pianificazione delle radiazioni, supporto terapia con controlli settimanali, intervista finale e preparazione delle lettere del medico\n\n• Esecuzione responsabile delle terapie radio e radio (chemo)\n\n• Cooperazione mirata e collegiale con i colleghi medici, la gestione dei casi e la segreteria, nonché la partecipazione alla formazione di medici e studenti medici\n\n• Partecipazione a schede tumorali interne ed esterne con presentazione paziente\n\n• Rappresentazione coscienziosa degli interessi dell'oncologia delle radiazioni e del centro tumorale verso e verso l'esterno\n\n• Partecipazione al servizio di background/picquet di radiooncologia e consulenza radio-oncologica, turni, fine settimana e festivi, se il processo clinico lo richiede.\n\nRequisiti\n• Specialista / Specialista in Radiooncologia\n\n• Grande interesse per l'oncologia\n\n• Interessi di cooperazione interdisciplinare\n\n• Aspetto contenuto e sensibile\n\n• Conoscenza delle moderne tecniche di irradiazione\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Professional and efficient examination and treatment of all ambulatory and inpatient patients in the field of radio-oncology with therapy discussion, education, complete documentation, radiation planning, therapy support with weekly controls, final interview and preparation of doctor's letters\n\n• Responsible performance of radiation and radio (chemo) therapies\n\n• Targeted and collegial cooperation with medical colleagues, case management and the secretariat as well as participation in the training of assistant doctors and medical students\n\n• Participation in internal and external tumor boards with patient presentation\n\n• Conscientious representation of the interests of radiation oncology and the tumor center inward and outward\n\n• Participation in the radio-oncology background/picquet service, as well as radio-oncology consultancy, shift, weekend and public holiday services, if the clinical process so requires.\n\nRequirements\n• Specialist / Specialist in Radiooncology\n\n• Great interest in oncology\n\n• Interest in interdisciplinary cooperation\n\n• Competent and sensitive appearance\n\n• Knowledge of modern irradiation techniques\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Examen et traitement professionnels et efficaces de tous les patients ambulatoires et hospitalisés dans le domaine de la radio-oncologie avec discussion thérapeutique, éducation, documentation complète, planification radiologique, soutien thérapeutique avec contrôles hebdomadaires, entretien final et préparation des lettres du médecin\n\n• Performance responsable des radiothérapies (chimo)\n\n• Coopération ciblée et collégiale avec les collègues médicaux, la gestion des cas et le secrétariat, ainsi que participation à la formation des médecins adjoints et des étudiants en médecine\n\n• Participation aux conseils de tumeurs internes et externes avec présentation du patient\n\n• Représentation consciencieuse des intérêts de l'oncologie radiologique et du centre tumoral vers l'intérieur et vers l'extérieur\n\n• Participation au service de radio-oncologie/picquet, ainsi qu'aux services de consultation en radio-oncologie, de poste, de fin de semaine et de fête publique, si le processus clinique l'exige.\n\nExigences\n• Spécialiste en radiooncologie\n\n• Grand intérêt pour l'oncologie\n\n• Intérêt pour la coopération interdisciplinaire\n\n• Aspect compétent et sensible\n\n• Connaissance des techniques modernes d'irradiation\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8537,7 +8506,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {

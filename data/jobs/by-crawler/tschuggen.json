@@ -7,16 +7,16 @@
       "slug": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "it": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "en": "scientific-volunteer-in-80-tschuggen-collection-st-moritz",
-        "de": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "fr": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "en": "scientific-volunteer-in-80-kanton-aargau-aarau",
+        "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "fr": "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
+        "it": "Auditore notturno (m/f/d) Stagione invernale 2026/2027",
         "en": "Scientific volunteer/in 80 %",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Volontaire scientifique/en 80 %"
@@ -51,6 +51,26 @@
       "requirementsByLocale": {},
       "department": "Front Office",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
+        "scientific-volunteer-in-80-tschuggen-collection-st-moritz",
+        "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+        ],
+        "en": [
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
+          "scientific-volunteer-in-80-tschuggen-collection-st-moritz"
+        ],
+        "fr": [
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T14:24:19.463Z",
       "salaryMin": 46000,
@@ -65,21 +85,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
-          "scientific-volunteer-in-80-kanton-aargau-aarau"
-        ],
-        "fr": [
-          "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
-        ]
-      },
-      "previousSlugs": [
-        "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
-        "scientific-volunteer-in-80-kanton-aargau-aarau",
-        "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-8d19d792463c",
@@ -141,7 +147,6 @@
           "coiffeur-kosmetiker-in-oder-masseur-in-w-m-d-wintersaison-2026-27-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T14:24:18.552Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -221,7 +226,6 @@
           "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T23:49:23.372Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -301,7 +305,6 @@
           "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -382,7 +385,6 @@
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -450,7 +452,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:40:47.672Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
@@ -559,12 +560,12 @@
     },
     {
       "id": "tschuggen-1d5e09482f0b",
-      "slug": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+      "slug": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
       "slugByLocale": {
-        "it": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
-        "en": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
-        "de": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
-        "fr": "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch"
+        "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -606,7 +607,21 @@
       "requirementsByLocale": {},
       "department": "Küche",
       "hotelName": "Hotel Eden Roc",
-      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [
+          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
+      ],
       "firstSeenAt": "2026-07-06T15:40:45.660Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -620,27 +635,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "de": [
-          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
-        ],
-        "it": [
-          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
-        ],
-        "en": [
-          "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio"
-        ],
-        "fr": [
-          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
-        ]
-      },
-      "previousSlugs": [
-        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "tschuggen-451b0e78fc49",
@@ -707,7 +702,6 @@
           "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:13:55.244Z",
       "salaryMin": 79000,
       "salaryMax": 120000,

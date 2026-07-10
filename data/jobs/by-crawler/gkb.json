@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gkb-9e2b39176c23",
-      "slug": "it-controlling-und-governance-manager-100-gkb-ch",
+      "slug": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "it-controlling-und-governance-manager-100-gkb-ch",
-        "en": "it-controlling-und-governance-manager-100-graubundner-kantonalbank-chur",
-        "de": "it-controlling-und-governance-manager-100-gkb-ch",
-        "fr": "it-controlling-und-governance-manager-100-gkb-ch"
+        "it": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
+        "en": "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
+        "de": "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+        "fr": "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -17,7 +17,7 @@
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
         "it": "Responsabile Controllo e Governance IT (100%)",
-        "en": "IT-Controlling und Governance Manager (100%)",
+        "en": "IT Controlling and Governance Manager (100%)",
         "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "Gestionnaire du contrôle et de la gouvernance de la TI (100%)"
       },
@@ -53,7 +53,25 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [
+          "it-controlling-und-governance-manager-100-gkb-ch",
+          "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "it": [
+          "it-controlling-und-governance-manager-100-gkb-ch",
+          "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "it-controlling-und-governance-manager-100-graubundner-kantonalbank-chur"
+        ]
+      },
+      "previousSlugs": [
+        "it-controlling-und-governance-manager-100-gkb-ch",
+        "it-controlling-und-governance-manager-100-graubundner-kantonalbank-chur",
+        "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+        "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
+      ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -67,27 +85,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "de": [
-          "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf"
-        ],
-        "it": [
-          "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf"
-        ],
-        "en": [
-          "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf"
-        ],
-        "fr": [
-          "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf"
-        ]
-      },
-      "previousSlugs": [
-        "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
-        "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
-        "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
-        "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-116a50c42e7b",
@@ -607,12 +605,12 @@
     },
     {
       "id": "gkb-b97c3c483871",
-      "slug": "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
+      "slug": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-        "en": "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-        "de": "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-        "fr": "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch"
+        "it": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
+        "en": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
+        "de": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
+        "fr": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -656,7 +654,21 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [
+          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch"
+        ],
+        "it": [
+          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
+        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
+        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+      ],
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -670,19 +682,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "de": [
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch"
-        ],
-        "it": [
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-d9aa8d946fdc",
@@ -835,7 +835,6 @@
           "senior-specialist-client-lifecycle-management-80-100-gkb-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
       "salaryMin": 87500,
       "salaryMax": 154500,
