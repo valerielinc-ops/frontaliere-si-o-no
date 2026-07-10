@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-07-10T12:24:49.333Z",
+  "generatedAt": "2026-07-10T22:38:32.016Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4025,
-  "avgDurationMs": 4025,
+  "durationMs": 4145,
+  "avgDurationMs": 4145,
   "durationHistory": [
-    4025
+    4145
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,6 @@
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
       "id": "banca-sempione-f74739997e11",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -55,9 +54,9 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,9 +80,9 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -107,9 +106,9 @@
       "slug": "banca-del-sempione-private-banking-assistant",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
