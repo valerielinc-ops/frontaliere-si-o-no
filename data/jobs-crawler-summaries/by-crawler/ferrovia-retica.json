@@ -1,87 +1,19 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-07-10T11:30:23.109Z",
+  "generatedAt": "2026-07-10T12:13:19.514Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 20918,
-  "avgDurationMs": 20918,
+  "unchangedCount": 2,
+  "durationMs": 21010,
+  "avgDurationMs": 21010,
   "durationHistory": [
-    20918
+    21010
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "postedDate": "2026-07-10",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
-      "percentage": "70-100%",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 92000,
-      "salaryMax": 140000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 69,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Kurzfristplaner/in (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/kurzfristplaner-in-50-100_2026-2232/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-07-10",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "kurzfristplaner-in-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 69,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 22
-      }
-    },
     {
       "title": "Executive Assistant & Führungsunterstützung des Direktors (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -176,11 +108,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:25:07.447Z",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -211,11 +143,11 @@
       "firstSeenAt": "2026-07-06T13:42:38.528Z",
       "id": "ferrovia-retica-78c7ade0a5b2",
       "needsRetranslation": true,
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -281,11 +213,11 @@
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-47e1c4bb36a4",
       "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -316,11 +248,11 @@
       "firstSeenAt": "2026-07-01T11:48:58.562Z",
       "id": "ferrovia-retica-89929c110e5b",
       "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -351,11 +283,11 @@
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
       "id": "ferrovia-retica-2c6753dbeeac",
       "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 22
       }
     }
