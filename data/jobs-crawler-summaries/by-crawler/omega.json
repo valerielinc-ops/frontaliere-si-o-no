@@ -1,18 +1,19 @@
 {
   "key": "omega",
   "label": "OMEGA SA",
-  "generatedAt": "2026-07-10T13:32:10.084Z",
+  "generatedAt": "2026-07-10T23:11:16.084Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 323710,
-  "avgDurationMs": 323710,
+  "durationMs": 323201,
+  "avgDurationMs": 323201,
   "durationHistory": [
-    323710
+    323201
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "omega-32500",
       "slug": "international-crm-manager-m-w-omega-biel-bienne",
@@ -25,7 +26,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T13:31:04.444Z",
+      "crawledAt": "2026-07-10T23:10:10.520Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,11 +42,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268332&langCode=en_GB&source=swatchgroup.com",
-      "_qualityScore": 74,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -61,7 +64,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:31:25.778Z",
+      "crawledAt": "2026-07-10T23:10:31.808Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,17 +80,19 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268329&langCode=fr_FR&source=swatchgroup.com",
-      "_qualityScore": 74,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "omega-32494",
-      "slug": "cuisinier-h-f-temporaire-omega-biel-bienne",
+      "slug": "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
       "company": "OMEGA SA",
       "companyKey": "omega",
       "companyDomain": "omegawatches.com",
@@ -97,7 +102,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:31:47.089Z",
+      "crawledAt": "2026-07-10T23:10:53.218Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,11 +118,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268295&langCode=fr_FR&source=swatchgroup.com",
-      "_qualityScore": 74,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -133,7 +140,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32490",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:32:08.546Z",
+      "crawledAt": "2026-07-10T23:11:14.519Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -149,16 +156,17 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268290&langCode=fr_FR&source=swatchgroup.com",
-      "_qualityScore": 74,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T13:32:08.546Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
