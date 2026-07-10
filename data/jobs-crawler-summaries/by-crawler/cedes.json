@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-07-10T12:57:46.936Z",
+  "generatedAt": "2026-07-10T22:05:36.187Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4922,
-  "avgDurationMs": 4922,
+  "durationMs": 4645,
+  "avgDurationMs": 4645,
   "durationHistory": [
-    4922
+    4645
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:57:44.389Z",
+      "crawledAt": "2026-07-10T22:05:33.945Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:57:44.023Z",
+      "crawledAt": "2026-07-10T22:05:33.560Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:57:44.389Z",
+      "crawledAt": "2026-07-10T22:05:33.945Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -113,7 +113,7 @@
     },
     {
       "id": "cedes-3fa516c3ca31",
-      "slug": "unsolicited-applications-cedes-landquart",
+      "slug": "candidature-non-richiesta-cedes-ag-landquart",
       "company": "CEDES AG",
       "companyKey": "cedes",
       "companyDomain": "cedes.com",
@@ -131,7 +131,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:57:44.023Z",
+      "crawledAt": "2026-07-10T22:05:33.560Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
