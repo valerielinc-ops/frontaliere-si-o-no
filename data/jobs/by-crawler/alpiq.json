@@ -1,15 +1,15 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-07T22:14:54.912Z",
+  "assembledAt": "2026-07-10T12:53:01.610Z",
   "jobs": [
     {
       "id": "alpiq-e1fbe0ada2de",
       "slug": "archivist-in-all-100-alpiq-olten",
       "slugByLocale": {
         "it": "archivist-in-all-100-alpiq-olten",
-        "fr": "archiviste-dans-tous-100-alpiq-olten",
         "en": "archivist-in-all-100-alpiq-olten",
-        "de": "archivist-in-all-100-alpiq-olten"
+        "de": "archivist-in-all-100-alpiq-olten",
+        "fr": "archiviste-dans-tous-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:53.081Z",
+      "crawledAt": "2026-07-10T12:52:59.846Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -68,9 +68,9 @@
       "slug": "head-internal-audit-all-100-alpiq-olten",
       "slugByLocale": {
         "it": "head-internal-audit-all-100-alpiq-olten",
+        "en": "head-internal-audit-all-100-alpiq-olten",
         "de": "head-internal-audit-alle-100-alpiq-olten",
-        "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten",
-        "en": "head-internal-audit-all-100-alpiq-olten"
+        "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -108,8 +108,199 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:53.081Z",
+      "crawledAt": "2026-07-10T12:52:59.846Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
+      "country": "CH",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-1cf42e9f66b7",
+      "slug": "anlageningenieur-in-all-100-alpiq-niedergosgen",
+      "slugByLocale": {
+        "it": "ingegnere-di-impianti-all-100-alpiq-niedergosgen",
+        "en": "plant-engineer-all-100-alpiq-niedergosgen",
+        "de": "anlageningenieur-all-100-alpiq-niedergosgen",
+        "fr": "ingenieur-d-usine-tous-100-alpiq-niedergosgen"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Anlageningenieur/in (all) 100%",
+      "titleByLocale": {
+        "it": "Ingegnere di impianti (all) 100%",
+        "en": "Plant Engineer (all) 100%",
+        "de": "Anlageningenieur (all) 100%",
+        "fr": "Ingénieur d'installation (all) 100%"
+      },
+      "description": "Anlageningenieur/in (all) 100%\n\nAnstellungsart: Permanent &brvbar; Ort: Niederg&ouml;sgen &brvbar; Model: On-site (Betrieb) &brvbar; Reiset&auml;tigkeit: gering Unser Unternehmen Alpiq ist eine f&uuml;hrende Schweizer Stromproduzentin und Energiedienstleisterin mit europaweiter Pr&auml;senz. Mit einem starken Portfolio aus Wasserkraft, Kernenergie und erneuerbaren&hellip;\n\nNiedergösgen - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Descrizione Ingegnere impiantistico (tutti) 100% Occupazione Tipo: Permanente, Ubicazione: Niedergösgen, Modello: In loco (operazione), Attività di viaggio: bassa La nostra azienda, l'azienda è leader nella produzione di energia elettrica svizzera e fornitore di servizi energetici con una presenza europea.Con un forte portafoglio di energia idroelettrica, nucleare e rinnovabile. - Niedergösgen - 100% - Permanente",
+        "en": "Descrizione Plant Engineer (all) 100% Employment Type: Permanent, Location: Niedergösgen, Model: On-site (operation), Travel activity: low Our company, the company is a leading Swiss power producer and energy service provider with a European presence. With a strong portfolio of hydropower, nuclear energy and renewable energy... - Niedergösgen - 100% - Permanent",
+        "de": "Descrizione Anlageningenieur (all) 100% Anstellungsart: Permanent | Ort: Niedergösgen | Model: On-site (Betrieb) | Reisetätigkeit: gering Unser Unternehmen Alpiq ist eine führende Schweizer Stromproduzentin und Energiedienstleisterin mit europaweiter Präsenz. Mit einem starken Portfolio aus Wasserkraft, Kernenergie und erneuerbaren… - Niedergösgen - 100% - Permanent",
+        "fr": "Ingénieur de l'usine de Descrizione (tous) 100% Type d'emploi: Permanent, Emplacement: Niedergösgen, Modèle: Sur place (exploitation), Activité de voyage: faible Notre entreprise, la société est un leader suisse producteur d'énergie et fournisseur de services énergétiques avec une présence européenne."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Niedergösgen",
+      "canton": "",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressLocality": "Niedergösgen",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9547",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:52:59.845Z",
+      "previousSlugs": [
+        "anlageningenieur-all-100-alpiq-niedergosgen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlageningenieur-all-100-alpiq-niedergosgen"
+        ]
+      },
+      "firstSeenAt": "2026-06-29T21:34:24.959Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-5105e5dd186a",
+      "slug": "business-process-engineer-all-80-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "ingegnere-dei-processi-aziendali-tutti-80-100-alpiq-olten",
+        "en": "business-process-engineer-all-80-100-alpiq-olten",
+        "de": "business-process-engineer-alle-80-100-alpiq-olten",
+        "fr": "ingenieur-des-processus-operationnels-tous-80-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Business Process Engineer (all) 80-100%",
+      "titleByLocale": {
+        "it": "Ingegnere dei Processi Aziendali (tutti) 80-100%",
+        "en": "Business Process Engineer (all) 80-100%",
+        "de": "Business Process Engineer (alle) 80-100%",
+        "fr": "Ingénieur des processus métiers (tous) 80-100%"
+      },
+      "description": "Business Process Engineer (all) 80-100%\n\nTo strengthen our Business Process Transformation team, we are looking for a Business Process Engineer to ensure the stability, resilience and continuous improvement of Alpiq&rsquo;s business processes. Reporting to the Head Business Process Transformation, you will play a key role in increasing&hellip;\n\nOlten - 80-100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Business Process Engineer (tutti) 80-100% Per rafforzare il nostro team di Business Process Transformation, stiamo cercando un Business Process Engineer per garantire la stabilità, la resilienza e il miglioramento continuo dei processi aziendali Alpiq. A rapporto con la Head Business Process Transformation, svolgerai un ruolo chiave nell'aumento.",
+        "en": "Business Process Engineer (all) 80-100% To strengthen our Business Process Transformation team, we are looking for a Business Process Engineer to ensure the stability, resilience and continuous improvement of Alpiq’s business processes. Reporting to the Head Business Process Transformation, you will play a key role in increasing… Olten - 80-100% Permanent",
+        "de": "Business Process Engineer (alle) 80-100% Um unser Business Process Transformation Team zu stärken, suchen wir einen Business Process Engineer, der die Stabilität, Widerstandsfähigkeit und kontinuierliche Verbesserung der Geschäftsprozesse von Alpiq sicherstellt. Sie werden dem Head Business Process Transformation Bericht erstatten und eine Schlüsselrolle bei der...",
+        "fr": "Ingénieur de processus d'affaires (tous) 80-100% Pour renforcer notre équipe de transformation de processus d'affaires, nous cherchons un ingénieur de processus d'affaires pour assurer la stabilité, la résilience et l'amélioration continue des processus d'affaires d'Alpiq."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9545",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9545&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T12:52:59.845Z",
+      "firstSeenAt": "2026-06-29T21:34:24.957Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-dbe206690861",
+      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "project-manager-pianificazione-strategica-del-portfolio-alpiq-olten",
+        "en": "project-manager-in-strategic-project-portfolio-planning-all-100-alpiq-olten",
+        "de": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
+        "fr": "gestionnaire-de-projet-dans-la-planification-du-portefeuille-de-projets-strategiques-tous-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
+      "titleByLocale": {
+        "it": "Responsabile della pianificazione strategica del portafoglio progetti Asset Nucleari (all) 100%",
+        "en": "Project Manager Strategic Project Portfolio Planning Nuclear Assets (all) 100%",
+        "de": "Projektleiter:in strategische Projektportfolioplanung (all) 100%",
+        "fr": "Chef de projet planification stratégique du portefeuille de projets Actifs nucléaires (all) 100%"
+      },
+      "description": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%\n\nAnstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reiset&auml;tigkeit: ca. 10% Unser Unternehmen Alpiq ist ein f&uuml;hrendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Descrizione Responsabile di progetto:nella pianificazione strategica del portafoglio di progetti Asset nucleari (all) 100% Tipo di impiego: impiego fisso | Luogo di lavoro: Olten | Modello di lavoro: ibrido | Attività di viaggio: circa il 10% La nostra azienda Alpiq è un'azienda energetica leader in Svizzera e un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un forte portafoglio di... Olten - 100% permanente",
+        "en": "Description Project manager:in strategic project portfolio planning Nuclear Assets(all) 100% Employment type: Permanent, Place of work: Olten, Working model: Hybrid, Travel activity: approx. 10% Our company is a leading Swiss energy company and an important provider of energy services in Europe. Headquartered in Lausanne and a strong portfolio of... Olten - 100% Permanent",
+        "de": "Beschreibung Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100% Anstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reisetätigkeit: ca. 10% Unser Unternehmen Alpiq ist ein führendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus… Olten - 100% Permanent",
+        "fr": "Description Project manager:in strategic project portfolio planning Nuclear Actif(all) 100% Type d'emploi: Permanent, Lieu de travail: Olten, Modèle de travail: Hybrid, Activité de voyage: env. 10% Notre entreprise est une entreprise leader suisse de l'énergie et un important fournisseur de services énergétiques en Europe. Basé à Lausanne et un portefeuille... Olten - 100% Permanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:52:59.845Z",
+      "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -183,68 +374,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "alpiq-dbe206690861",
-      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "project-manager-pianificazione-strategica-del-portfolio-alpiq-olten",
-        "en": "project-manager-in-strategic-project-portfolio-planning-all-100-alpiq-olten",
-        "de": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-        "fr": "gestionnaire-de-projet-dans-la-planification-du-portefeuille-de-projets-strategiques-tous-100-alpiq-olten"
       },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
-      "titleByLocale": {
-        "it": "Responsabile della pianificazione strategica del portafoglio progetti Asset Nucleari (all) 100%",
-        "en": "Project Manager Strategic Project Portfolio Planning Nuclear Assets (all) 100%",
-        "de": "Projektleiter:in strategische Projektportfolioplanung (all) 100%",
-        "fr": "Chef de projet planification stratégique du portefeuille de projets Actifs nucléaires (all) 100%"
-      },
-      "description": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%\n\nAnstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reiset&auml;tigkeit: ca. 10% Unser Unternehmen Alpiq ist ein f&uuml;hrendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Descrizione Responsabile di progetto:nella pianificazione strategica del portafoglio di progetti Asset nucleari (all) 100% Tipo di impiego: impiego fisso | Luogo di lavoro: Olten | Modello di lavoro: ibrido | Attività di viaggio: circa il 10% La nostra azienda Alpiq è un'azienda energetica leader in Svizzera e un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un forte portafoglio di... Olten - 100% permanente",
-        "en": "Description Project manager:in strategic project portfolio planning Nuclear Assets(all) 100% Employment type: Permanent, Place of work: Olten, Working model: Hybrid, Travel activity: approx. 10% Our company is a leading Swiss energy company and an important provider of energy services in Europe. Headquartered in Lausanne and a strong portfolio of... Olten - 100% Permanent",
-        "de": "Beschreibung Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100% Anstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reisetätigkeit: ca. 10% Unser Unternehmen Alpiq ist ein führendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus… Olten - 100% Permanent",
-        "fr": "Description Project manager:in strategic project portfolio planning Nuclear Actif(all) 100% Type d'emploi: Permanent, Lieu de travail: Olten, Modèle de travail: Hybrid, Activité de voyage: env. 10% Notre entreprise est une entreprise leader suisse de l'énergie et un important fournisseur de services énergétiques en Europe. Basé à Lausanne et un portefeuille... Olten - 100% Permanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:53.079Z",
-      "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "country": "CH",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-db020f933edf",
@@ -305,199 +436,8 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "alpiq-1cf42e9f66b7",
-      "slug": "anlageningenieur-in-all-100-alpiq-niedergosgen",
-      "slugByLocale": {
-        "it": "ingegnere-di-impianti-all-100-alpiq-niedergosgen",
-        "en": "plant-engineer-all-100-alpiq-niedergosgen",
-        "de": "anlageningenieur-all-100-alpiq-niedergosgen",
-        "fr": "ingenieur-d-usine-tous-100-alpiq-niedergosgen"
       },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Anlageningenieur/in (all) 100%",
-      "titleByLocale": {
-        "it": "Ingegnere di impianti (all) 100%",
-        "en": "Plant Engineer (all) 100%",
-        "de": "Anlageningenieur (all) 100%",
-        "fr": "Ingénieur d'installation (all) 100%"
-      },
-      "description": "Anlageningenieur/in (all) 100%\n\nAnstellungsart: Permanent &brvbar; Ort: Niederg&ouml;sgen &brvbar; Model: On-site (Betrieb) &brvbar; Reiset&auml;tigkeit: gering Unser Unternehmen Alpiq ist eine f&uuml;hrende Schweizer Stromproduzentin und Energiedienstleisterin mit europaweiter Pr&auml;senz. Mit einem starken Portfolio aus Wasserkraft, Kernenergie und erneuerbaren&hellip;\n\nNiedergösgen - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Descrizione Ingegnere impiantistico (tutti) 100% Occupazione Tipo: Permanente, Ubicazione: Niedergösgen, Modello: In loco (operazione), Attività di viaggio: bassa La nostra azienda, l'azienda è leader nella produzione di energia elettrica svizzera e fornitore di servizi energetici con una presenza europea.Con un forte portafoglio di energia idroelettrica, nucleare e rinnovabile. - Niedergösgen - 100% - Permanente",
-        "en": "Descrizione Plant Engineer (all) 100% Employment Type: Permanent, Location: Niedergösgen, Model: On-site (operation), Travel activity: low Our company, the company is a leading Swiss power producer and energy service provider with a European presence. With a strong portfolio of hydropower, nuclear energy and renewable energy... - Niedergösgen - 100% - Permanent",
-        "de": "Descrizione Anlageningenieur (all) 100% Anstellungsart: Permanent | Ort: Niedergösgen | Model: On-site (Betrieb) | Reisetätigkeit: gering Unser Unternehmen Alpiq ist eine führende Schweizer Stromproduzentin und Energiedienstleisterin mit europaweiter Präsenz. Mit einem starken Portfolio aus Wasserkraft, Kernenergie und erneuerbaren… - Niedergösgen - 100% - Permanent",
-        "fr": "Ingénieur de l'usine de Descrizione (tous) 100% Type d'emploi: Permanent, Emplacement: Niedergösgen, Modèle: Sur place (exploitation), Activité de voyage: faible Notre entreprise, la société est un leader suisse producteur d'énergie et fournisseur de services énergétiques avec une présence européenne."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Niedergösgen",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Niedergösgen",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9547",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-07T22:14:53.079Z",
-      "previousSlugs": [
-        "anlageningenieur-all-100-alpiq-niedergosgen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlageningenieur-all-100-alpiq-niedergosgen"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T21:34:24.959Z",
-      "country": "CH",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "alpiq-5105e5dd186a",
-      "slug": "business-process-engineer-all-80-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "ingegnere-dei-processi-aziendali-tutti-80-100-alpiq-olten",
-        "en": "business-process-engineer-all-80-100-alpiq-olten",
-        "de": "business-process-engineer-alle-80-100-alpiq-olten",
-        "fr": "ingenieur-des-processus-operationnels-tous-80-100-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Business Process Engineer (all) 80-100%",
-      "titleByLocale": {
-        "it": "Ingegnere dei Processi Aziendali (tutti) 80-100%",
-        "en": "Business Process Engineer (all) 80-100%",
-        "de": "Business Process Engineer (alle) 80-100%",
-        "fr": "Ingénieur des processus métiers (tous) 80-100%"
-      },
-      "description": "Business Process Engineer (all) 80-100%\n\nTo strengthen our Business Process Transformation team, we are looking for a Business Process Engineer to ensure the stability, resilience and continuous improvement of Alpiq&rsquo;s business processes. Reporting to the Head Business Process Transformation, you will play a key role in increasing&hellip;\n\nOlten - 80-100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Business Process Engineer (tutti) 80-100% Per rafforzare il nostro team di Business Process Transformation, stiamo cercando un Business Process Engineer per garantire la stabilità, la resilienza e il miglioramento continuo dei processi aziendali Alpiq. A rapporto con la Head Business Process Transformation, svolgerai un ruolo chiave nell'aumento.",
-        "en": "Business Process Engineer (all) 80-100% To strengthen our Business Process Transformation team, we are looking for a Business Process Engineer to ensure the stability, resilience and continuous improvement of Alpiq’s business processes. Reporting to the Head Business Process Transformation, you will play a key role in increasing… Olten - 80-100% Permanent",
-        "de": "Business Process Engineer (alle) 80-100% Um unser Business Process Transformation Team zu stärken, suchen wir einen Business Process Engineer, der die Stabilität, Widerstandsfähigkeit und kontinuierliche Verbesserung der Geschäftsprozesse von Alpiq sicherstellt. Sie werden dem Head Business Process Transformation Bericht erstatten und eine Schlüsselrolle bei der...",
-        "fr": "Ingénieur de processus d'affaires (tous) 80-100% Pour renforcer notre équipe de transformation de processus d'affaires, nous cherchons un ingénieur de processus d'affaires pour assurer la stabilité, la résilience et l'amélioration continue des processus d'affaires d'Alpiq."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9545",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9545&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:53.080Z",
-      "firstSeenAt": "2026-06-29T21:34:24.957Z",
-      "country": "CH",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "alpiq-96b7f753c99a",
-      "slug": "category-manager-it-alpiq-olten",
-      "slugByLocale": {
-        "it": "gestione-delle-categorie-it-alpiq-olten",
-        "en": "category-manager-it-alpiq-olten",
-        "de": "kategorie-manager-it-alpiq-olten",
-        "fr": "gestionnaire-de-categorie-ti-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Category Manager IT",
-      "titleByLocale": {
-        "it": "Gestione delle categorie IT",
-        "en": "Category Manager IT",
-        "de": "Kategorie Manager IT",
-        "fr": "Gestionnaire de catégorie TI"
-      },
-      "description": "Category Manager IT\n\nAbout the roleProcurement is part of the Finance Division and is responsible for delivering sustainable value across the Alpiq Group. Through strategic sourcing, supplier management and close collaboration with business stakeholders, Procurement ensures the availability of goods and services while&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Descrizione Category Manager IT Mansioni - Procurement fa parte della Divisione Finanza - Offrire valore sostenibile in tutto il Gruppo Alpiq - Responsabile per la fornitura di valore sostenibile in tutto il Gruppo Alpiq - Attraverso approvvigionamento strategico, gestione dei fornitori e stretta collaborazione con gli stakeholder aziendali - Garantisce la disponibilità di beni e servizi mentre.",
-        "en": "Descrizione Category Manager IT Mansioni - Procurement is part of the Finance Division - Delivering sustainable value across the Alpiq Group - Responsible for delivering sustainable value across the Alpiq Group - Through strategic sourcing, supplier management and close collaboration with business stakeholders - Ensures the availability of goods and services while…\n• Requisiti - Olten - 100% - Permanent\n• Cosa offriamo - Alpiq Group - Finance Division - Procurement - Strategic sourcing - Supplier management - Collaboration with business stakeholders - Availability of goods and services",
-        "de": "Descrizione Category Manager IT Mansioni - Beschaffung ist Teil der Finanzabteilung - Nachhaltige Wertschöpfung in der Alpiq Gruppe - Verantwortung für nachhaltige Wertschöpfung in der Alpiq Gruppe - Durch strategische Beschaffung, Lieferantenmanagement und enge Zusammenarbeit mit den Geschäftsakteuren - Gewährleistung der Verfügbarkeit von Waren und Dienstleistungen, während...\n• Requisiti - Olten - 100% - Permanent\n• Cosa offriamo - Alpiq Group - Finanzabteilung - Beschaffung - Strategische Beschaffung - Lieferantenmanagement - Zusammenarbeit mit den Geschäftsakteuren - Verfügbarkeit von Waren und Dienstleistungen",
-        "fr": "Descrizione Category Manager TI Mansioni - Approvisionnement fait partie de la Division des finances - Prestation de valeur durable dans l'ensemble du groupe Alpiq - Responsable de la prestation de valeur durable dans l'ensemble du groupe Alpiq - Par l'approvisionnement stratégique, la gestion des fournisseurs et une collaboration étroite avec les parties prenantes - Assurer la disponibilité des biens et services pendant que...\n• Requisiti - Olten - 100% - Cosa permanent de Friamo - Alpiq Group - Division des finances - Approvisionnement - Approvisionnement stratégique - Gestion des fournisseurs - Collaboration avec les parties prenantes - Disponibilité des biens et services"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9595",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9595&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T12:57:17.443Z",
-      "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "country": "CH",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -541,7 +481,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-07T22:14:53.080Z",
+      "crawledAt": "2026-07-10T12:52:59.844Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",
@@ -617,7 +557,8 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
