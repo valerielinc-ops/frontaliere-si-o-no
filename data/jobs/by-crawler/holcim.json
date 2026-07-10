@@ -141,12 +141,12 @@
     },
     {
       "id": "holcim-f26ec4eb52d4",
-      "slug": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+      "slug": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "it": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "en": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "fr": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        "it": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
+        "en": "construction-machine-operator-in-the-quarry-80-100-holcim-group-wurenlingen",
+        "fr": "operateur-de-machines-de-construction-dans-la-carriere-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -154,9 +154,9 @@
       "title": "Baumaschinenführer:in im Steinbruch 80-100%",
       "titleByLocale": {
         "de": "Baumaschinenführer:in im Steinbruch 80-100%",
-        "it": "Baumaschinenführer:in im Steinbruch 80-100%",
-        "en": "Baumaschinenführer:in im Steinbruch 80-100%",
-        "fr": "Baumaschinenführer:in im Steinbruch 80-100%"
+        "it": "Operatore di macchine da costruzione: nella cava 80-100 %",
+        "en": "Construction machine operator: in the quarry 80-100 %",
+        "fr": "Opérateur de machines de construction: dans la carrière 80-100 %"
       },
       "description": "Baumaschinenführer:in im Steinbruch 80-100% — Holcim Group a Würenlingen.",
       "descriptionByLocale": {
@@ -198,16 +198,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T22:38:53.396Z"
+      "firstSeenAt": "2026-07-09T22:38:53.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+      ]
     },
     {
       "id": "holcim-097f9f53c70a",
-      "slug": "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
+      "slug": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
       "slugByLocale": {
         "de": "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "it": "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-        "en": "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-        "fr": "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
+        "it": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
+        "en": "construction-machine-operator-in-allrounder-in-holcim-group-kehrsiten",
+        "fr": "operateur-de-machines-de-construction-in-allrounder-in-holcim-group-kehrsiten"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -215,9 +229,9 @@
       "title": "Baumaschinenführer:in / Allrounder:in",
       "titleByLocale": {
         "de": "Baumaschinenführer:in / Allrounder:in",
-        "it": "Baumaschinenführer:in / Allrounder:in",
-        "en": "Baumaschinenführer:in / Allrounder:in",
-        "fr": "Baumaschinenführer:in / Allrounder:in"
+        "it": "Operatore di macchine da costruzione:in / Allrounder:in",
+        "en": "Construction machine operator:in / Allrounder:in",
+        "fr": "Opérateur de machines de construction:in / Allrounder:in"
       },
       "description": "Baumaschinenführer:in / Allrounder:in — Holcim Group a Kehrsiten.",
       "descriptionByLocale": {
@@ -249,11 +263,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-ch"
+          "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
         ]
       },
       "previousSlugs": [
-        "baumaschinenfuhrer-in-allrounder-in-holcim-ch"
+        "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
+        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -994,7 +1016,7 @@
         "it": "Installateur·trice électricien·ne 80-100%",
         "en": "Electrical equipment 80-100%",
         "de": "Elektrische Ausrüstung 80-100%",
-        "fr": "Installateur·trice électricien·ne 80-100%"
+        "fr": "Matériel électrique 80-100%"
       },
       "description": "Installateur·trice électricien·ne 80-100% — Holcim Group a Eclépens.",
       "descriptionByLocale": {
@@ -1043,7 +1065,7 @@
         "it": "chef-staff-ristorante-60-70-holcim-group-untervaz",
         "en": "chef-staff-restaurant-60-70-holcim-group-untervaz",
         "de": "koch-kochin-personalrestaurant-60-70-holcim-ch",
-        "fr": "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
+        "fr": "koch-kochin-personalrestaurant-60-70-holcim-ch"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1081,7 +1103,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        "koch-kochin-personalrestaurant-60-70-holcim-ch",
+        "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1091,7 +1114,7 @@
           "koch-kochin-personalrestaurant-60-70-holcim-ch"
         ],
         "fr": [
-          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+          "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
         ]
       },
       "needsRetranslation": true,
@@ -1625,7 +1648,7 @@
         "it": "Laboratorio: nella tecnologia del legante 80-100 %",
         "en": "Laboratory:in binder technology 80-100 %",
         "de": "Laborant:in Bindemitteltechnologie 80-100%",
-        "fr": "Laborant:in Bindemitteltechnologie 80-100%"
+        "fr": "Laboratoire: technologie de reliure 80-100 %"
       },
       "description": "Laborant:in Bindemitteltechnologie 80-100% — Holcim Group a Würenlingen.",
       "descriptionByLocale": {
@@ -1892,7 +1915,7 @@
         "it": "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug",
         "en": "head-of-logistics-central-eastern-europe-cee-holcim-ch",
         "de": "head-of-logistics-central-eastern-europe-cee-holcim-ch",
-        "fr": "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
+        "fr": "head-of-logistics-central-eastern-europe-cee-holcim-ch"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1900,7 +1923,7 @@
       "title": "Head of Logistics - Central Eastern Europe (CEE)",
       "titleByLocale": {
         "it": "Responsabile Logistica - Central Eastern Europe (CEE)",
-        "en": "Head of Logistics - Central Eastern Europe (CEE)",
+        "en": "Head of Logistics - Central Eastern Europe (EEC)",
         "de": "Leiter Logistik - Central Eastern Europe (CEE)",
         "fr": "Responsable Logistique - Central Eastern Europe (CEE)"
       },
@@ -1936,11 +1959,12 @@
           "head-of-logistics-central-eastern-europe-cee-holcim-ch"
         ],
         "fr": [
-          "head-of-logistics-central-eastern-europe-cee-holcim-ch"
+          "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
         ]
       },
       "previousSlugs": [
-        "head-of-logistics-central-eastern-europe-cee-holcim-ch"
+        "head-of-logistics-central-eastern-europe-cee-holcim-ch",
+        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -2112,7 +2136,7 @@
       "companyDomain": "holcim.com",
       "title": "H&S Koordinator:in Kies & Beton 80-100%",
       "titleByLocale": {
-        "it": "H&S Koordinator:in Kies & Beton 80-100%",
+        "it": "H&S Coordinatore: in Kies & Beton 80-100 %",
         "en": "H&S Coordinator: in Kies & Beton 80-100 %",
         "de": "H&S Koordinator:in Kies & Beton 80-100%",
         "fr": "Coordonnateur de la santé et de la sécurité : à Kies & Beton 80-100 %"
