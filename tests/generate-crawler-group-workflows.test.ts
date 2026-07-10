@@ -506,3 +506,21 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('REPORTED_FAILURE');
   });
 });
+
+describe('push-contention class (exit 42) in generated steps', () => {
+  it('skips the per-crawler issue and keeps the step green for contention losses, everything else unchanged', () => {
+    const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) {
+      const y = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
+      // the failure-report gate must exclude 42...
+      expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
+      // ...and the contention branch must log loudly instead of filing an issue
+      expect(y).toContain('push contention loss (exit 42)');
+      // real failures still fail the step (the plain exit 1 path survives)
+      expect(y).toContain('exit 1');
+    }
+  });
+});
+

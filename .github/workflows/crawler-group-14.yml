@@ -91,7 +91,7 @@ jobs:
           fi
 
           # ---- spruengli: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spruengli" \
               --description "## Crawler fallito
@@ -102,8 +102,12 @@ jobs:
               --label Bug \
               --workflow "Run spruengli"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::spruengli: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ spruengli: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -141,7 +145,7 @@ jobs:
           fi
 
           # ---- medacta: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run medacta" \
               --description "## Crawler fallito
@@ -152,8 +156,12 @@ jobs:
               --label Bug \
               --workflow "Run medacta"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::medacta: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ medacta: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -191,7 +199,7 @@ jobs:
           fi
 
           # ---- tschuggen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tschuggen" \
               --description "## Crawler fallito
@@ -202,8 +210,12 @@ jobs:
               --label Bug \
               --workflow "Run tschuggen"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::tschuggen: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ tschuggen: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -241,7 +253,7 @@ jobs:
           fi
 
           # ---- selecta: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run selecta" \
               --description "## Crawler fallito
@@ -252,8 +264,12 @@ jobs:
               --label Bug \
               --workflow "Run selecta"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::selecta: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ selecta: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -291,7 +307,7 @@ jobs:
           fi
 
           # ---- thermo-fisher-scientific: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run thermo-fisher-scientific" \
               --description "## Crawler fallito
@@ -302,8 +318,12 @@ jobs:
               --label Bug \
               --workflow "Run thermo-fisher-scientific"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::thermo-fisher-scientific: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ thermo-fisher-scientific: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -341,7 +361,7 @@ jobs:
           fi
 
           # ---- somedia: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run somedia" \
               --description "## Crawler fallito
@@ -352,8 +372,12 @@ jobs:
               --label Bug \
               --workflow "Run somedia"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::somedia: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ somedia: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -391,7 +415,7 @@ jobs:
           fi
 
           # ---- pallas-kliniken: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run pallas-kliniken" \
               --description "## Crawler fallito
@@ -402,8 +426,12 @@ jobs:
               --label Bug \
               --workflow "Run pallas-kliniken"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::pallas-kliniken: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ pallas-kliniken: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -441,7 +469,7 @@ jobs:
           fi
 
           # ---- leukerbad-clinic: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run leukerbad-clinic" \
               --description "## Crawler fallito
@@ -452,8 +480,12 @@ jobs:
               --label Bug \
               --workflow "Run leukerbad-clinic"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::leukerbad-clinic: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ leukerbad-clinic: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -490,7 +522,7 @@ jobs:
           fi
 
           # ---- wuerth-international: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run wuerth-international" \
               --description "## Crawler fallito
@@ -501,8 +533,12 @@ jobs:
               --label Bug \
               --workflow "Run wuerth-international"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::wuerth-international: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ wuerth-international: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -540,7 +576,7 @@ jobs:
           fi
 
           # ---- spital-schwyz: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spital-schwyz" \
               --description "## Crawler fallito
@@ -551,8 +587,12 @@ jobs:
               --label Bug \
               --workflow "Run spital-schwyz"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::spital-schwyz: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ spital-schwyz: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -590,7 +630,7 @@ jobs:
           fi
 
           # ---- rhne-reseau-hospitalier-neuchatelois: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run rhne-reseau-hospitalier-neuchatelois" \
               --description "## Crawler fallito
@@ -601,8 +641,12 @@ jobs:
               --label Bug \
               --workflow "Run rhne-reseau-hospitalier-neuchatelois"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::rhne-reseau-hospitalier-neuchatelois: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ rhne-reseau-hospitalier-neuchatelois: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -640,7 +684,7 @@ jobs:
           fi
 
           # ---- stadt-chur: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run stadt-chur" \
               --description "## Crawler fallito
@@ -651,8 +695,12 @@ jobs:
               --label Bug \
               --workflow "Run stadt-chur"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::stadt-chur: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ stadt-chur: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -690,7 +738,7 @@ jobs:
           fi
 
           # ---- lalive: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run lalive" \
               --description "## Crawler fallito
@@ -701,8 +749,12 @@ jobs:
               --label Bug \
               --workflow "Run lalive"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::lalive: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ lalive: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -740,7 +792,7 @@ jobs:
           fi
 
           # ---- hilti: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hilti" \
               --description "## Crawler fallito
@@ -751,8 +803,12 @@ jobs:
               --label Bug \
               --workflow "Run hilti"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::hilti: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ hilti: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -790,7 +846,7 @@ jobs:
           fi
 
           # ---- vz-vermoegenszentrum: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run vz-vermoegenszentrum" \
               --description "## Crawler fallito
@@ -801,8 +857,12 @@ jobs:
               --label Bug \
               --workflow "Run vz-vermoegenszentrum"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::vz-vermoegenszentrum: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ vz-vermoegenszentrum: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -840,7 +900,7 @@ jobs:
           fi
 
           # ---- kulm-hotel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run kulm-hotel" \
               --description "## Crawler fallito
@@ -851,8 +911,12 @@ jobs:
               --label Bug \
               --workflow "Run kulm-hotel"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::kulm-hotel: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ kulm-hotel: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -890,7 +954,7 @@ jobs:
           fi
 
           # ---- ipw: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ipw" \
               --description "## Crawler fallito
@@ -901,8 +965,12 @@ jobs:
               --label Bug \
               --workflow "Run ipw"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::ipw: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ ipw: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -940,7 +1008,7 @@ jobs:
           fi
 
           # ---- medbase: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run medbase" \
               --description "## Crawler fallito
@@ -951,8 +1019,12 @@ jobs:
               --label Bug \
               --workflow "Run medbase"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::medbase: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ medbase: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -990,7 +1062,7 @@ jobs:
           fi
 
           # ---- centiel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run centiel" \
               --description "## Crawler fallito
@@ -1001,8 +1073,12 @@ jobs:
               --label Bug \
               --workflow "Run centiel"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::centiel: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ centiel: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1040,7 +1116,7 @@ jobs:
           fi
 
           # ---- bucherer: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run bucherer" \
               --description "## Crawler fallito
@@ -1051,8 +1127,12 @@ jobs:
               --label Bug \
               --workflow "Run bucherer"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::bucherer: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ bucherer: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1090,7 +1170,7 @@ jobs:
           fi
 
           # ---- hamilton: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hamilton" \
               --description "## Crawler fallito
@@ -1101,8 +1181,12 @@ jobs:
               --label Bug \
               --workflow "Run hamilton"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::hamilton: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ hamilton: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1140,7 +1224,7 @@ jobs:
           fi
 
           # ---- emmi: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run emmi" \
               --description "## Crawler fallito
@@ -1151,8 +1235,12 @@ jobs:
               --label Bug \
               --workflow "Run emmi"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::emmi: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ emmi: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1190,7 +1278,7 @@ jobs:
           fi
 
           # ---- ksgl: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ksgl" \
               --description "## Crawler fallito
@@ -1201,8 +1289,12 @@ jobs:
               --label Bug \
               --workflow "Run ksgl"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::ksgl: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ ksgl: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1240,7 +1332,7 @@ jobs:
           fi
 
           # ---- endress-hauser: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run endress-hauser" \
               --description "## Crawler fallito
@@ -1251,8 +1343,12 @@ jobs:
               --label Bug \
               --workflow "Run endress-hauser"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::endress-hauser: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ endress-hauser: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1291,7 +1387,7 @@ jobs:
           fi
 
           # ---- berit-klinik: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run berit-klinik" \
               --description "## Crawler fallito
@@ -1302,8 +1398,12 @@ jobs:
               --label Bug \
               --workflow "Run berit-klinik"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::berit-klinik: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ berit-klinik: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1341,7 +1441,7 @@ jobs:
           fi
 
           # ---- fondation-domus: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run fondation-domus" \
               --description "## Crawler fallito
@@ -1352,8 +1452,12 @@ jobs:
               --label Bug \
               --workflow "Run fondation-domus"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::fondation-domus: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ fondation-domus: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0
@@ -1391,7 +1495,7 @@ jobs:
           fi
 
           # ---- alprose: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run alprose" \
               --description "## Crawler fallito
@@ -1402,8 +1506,12 @@ jobs:
               --label Bug \
               --workflow "Run alprose"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::alprose: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ alprose: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
             exit 1
           fi
           exit 0

@@ -418,14 +418,23 @@ function mergeJobs(discoveredJobs) {
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((j) => [jobMatchKey(j), j]));
 
+  // Intra-run dedup: since the 2026-07 site rename the careers API returns
+  // every posting under BOTH the old and the new path prefix (same trailing
+  // numeric id) — iterating the raw discovered list pushed each job twice
+  // (14/14 duplicate-description audit, run 29094286784). Key on jobMatchKey
+  // and prefer the LAST occurrence (the new-path variant, listed second).
   const discoveredByKey = new Map(discoveredJobs.map((j) => [jobMatchKey(j), j]));
+  const dedupedDiscovered = [...discoveredByKey.values()];
+  if (dedupedDiscovered.length !== discoveredJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple path prefixes)`);
+  }
 
   let added = 0;
   let updated = 0;
   let removed = 0;
   const merged = [];
 
-  for (const discovered of discoveredJobs) {
+  for (const discovered of dedupedDiscovered) {
     const key = jobMatchKey(discovered);
     const prev = existingByKey.get(key);
     if (!prev) {

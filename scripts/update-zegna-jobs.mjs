@@ -449,9 +449,20 @@ async function mergeZegnaJobs(discoveredJobs) {
   }
 
   const discoveredByJobId = new Map();
+  const keylessDiscovered = [];
   for (const job of discoveredJobs) {
     const jid = extractJobId(job.url);
     if (jid) discoveredByJobId.set(jid, job);
+    else keylessDiscovered.push(job);
+  }
+
+  // Intra-run dedup (same class as banca-cler, PR #4056): a source that
+  // publishes the same posting under two JobIDs/URLs must not write
+  // duplicates. Iterate the deduped Map values (last occurrence wins);
+  // jobs without a stable JobID cannot be keyed and pass through as-is.
+  const dedupedDiscovered = [...discoveredByJobId.values(), ...keylessDiscovered];
+  if (dedupedDiscovered.length !== discoveredJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -459,7 +470,7 @@ async function mergeZegnaJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
-  for (const discovered of discoveredJobs) {
+  for (const discovered of dedupedDiscovered) {
     const jid = extractJobId(discovered.url);
     const existing = jid ? existingByJobId.get(jid) : null;
 

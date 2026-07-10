@@ -558,12 +558,29 @@ async function mergePostJobs(discoveredJobs) {
     if (uuid) existingByUuid.set(uuid, job);
   }
 
+  // Intra-run dedup (same class as banca-cler, PR #4056): a source that
+  // publishes the same posting under two IDs/URLs must not write duplicates.
+  // Key on the stable job id and iterate the deduped Map values (last
+  // occurrence wins); jobs without a stable id cannot be keyed and pass
+  // through as-is.
+  const discoveredByUuid = new Map();
+  const keylessDiscovered = [];
+  for (const job of discoveredJobs) {
+    const uuid = extractUuid(job.url);
+    if (uuid) discoveredByUuid.set(uuid, job);
+    else keylessDiscovered.push(job);
+  }
+  const dedupedDiscovered = [...discoveredByUuid.values(), ...keylessDiscovered];
+  if (dedupedDiscovered.length !== discoveredJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  }
+
   let added = 0;
   let updated = 0;
   let removed = 0;
   const merged = [];
 
-  for (const discovered of discoveredJobs) {
+  for (const discovered of dedupedDiscovered) {
     const uuid = extractUuid(discovered.url);
     const existing = uuid ? existingByUuid.get(uuid) : null;
 
@@ -598,9 +615,8 @@ async function mergePostJobs(discoveredJobs) {
   }
 
   // Count removed (existing Post jobs not in discovery)
-  const discoveredUuids = new Set(discoveredJobs.map(j => extractUuid(j.url)).filter(Boolean));
   for (const [uuid] of existingByUuid) {
-    if (!discoveredUuids.has(uuid)) removed++;
+    if (!discoveredByUuid.has(uuid)) removed++;
   }
 
   const final = [...nonPostJobs, ...merged];
