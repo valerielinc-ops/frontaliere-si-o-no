@@ -332,7 +332,19 @@ export async function fetchAllNewYorkerJobs() {
   const seen = new Set();
 
   for (const row of rows) {
-    const publicUrl = new URL(row.href, CAREER_URL).toString();
+    // Strip the per-session `?sid=<32-hex>` token the rexx listing stamps
+    // into every href before persisting. It changes on every crawl session
+    // (observed: commit 491149eb9 → 66e895808 rotated it on all 40 jobs), so
+    // keeping it makes the job's URL byte-different across runs and every
+    // URL-keyed identity downstream churns — the same session-token class
+    // that duplicated the pictet slice (assembleUrlKey + the url-keyed 3-way
+    // slice merge in git-commit-data.sh union per-run variants). The detail
+    // page serves identically without it (verified live 2026-07-10, HTTP 200).
+    // The stable merge key is unaffected either way (job-url-key.mjs Rule X
+    // already keys rexx URLs on the `-j<digits>.html` leaf id).
+    const urlObj = new URL(row.href, CAREER_URL);
+    urlObj.searchParams.delete('sid');
+    const publicUrl = urlObj.toString();
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
