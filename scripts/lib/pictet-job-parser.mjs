@@ -28,6 +28,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
+  buildSuccessFactorsApiUrl,
   detectSuccessFactorsKind,
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
@@ -49,7 +50,9 @@ export const PICTET_COMPANY_DOMAIN = 'pictet.com';
 
 /** career5 tenant code seen on https://www.pictet.com/careers (2026-05-10). */
 const SF_TENANT = 'banquepict';
-const CAREER_URL = `https://career012.successfactors.eu/career?company=${SF_TENANT}`;
+const SF_HOST = 'career012.successfactors.eu';
+const SF_DETAIL_LANG = 'en_GB';
+const CAREER_URL = `https://${SF_HOST}/career?company=${SF_TENANT}`;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -59,6 +62,52 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Rebuild a career5 detail URL into its canonical, session-free form.
+ *
+ * Anchors harvested from the hydrated career5 SPA carry PER-REQUEST query
+ * state next to the stable `career_job_req_id`:
+ *   - `_s.crb=<base64>`              — per-session CSRF token, changes EVERY run
+ *   - `browserTimeZone=Europe/Zurich`— client environment echo
+ *   - `jobAlertController_jobAlertId` / `…Name` — empty job-alert form state
+ * plus randomly `%5f`-encoded param names (`career%5fns=`). Persisting that
+ * raw href makes the job's URL byte-different on every crawl, so every
+ * URL-keyed identity downstream fragments: `id` = sha1(url) churns, the
+ * assemble-time dedup key (assembleUrlKey = full raw URL) never matches, and
+ * the 3-way slice merge in git-commit-data.sh (job arrays keyed by `url`)
+ * unions the per-run variants into duplicates (observed: 10 → 26 dupes in
+ * data/jobs/by-crawler/pictet.json within one day, audit-parser-quality
+ * critical). The crawl-time merge key (mergeUrlKey → `num:<reqId>`) survives,
+ * which is why the dupes shared one preserved `id` while their URLs drifted.
+ *
+ * The detail page is served identically without the session params (verified
+ * live 2026-07-10: HTTP 200 + `joqReqDescription` body with only
+ * `career_ns=job_listing&company=banquepict&career_job_req_id=<id>`), so we
+ * rebuild via the shared `buildSuccessFactorsApiUrl` html-career formatter —
+ * the SAME canonical shape the other SuccessFactors crawlers persist —
+ * keeping only the identity params (tenant + reqId + stable locale).
+ *
+ * @param {string} rawUrl - href harvested from the listing SPA (or any
+ *   career5 URL). `&amp;`-decoded defensively; `%5f` key encoding is handled
+ *   by URLSearchParams' own percent-decoding.
+ * @returns {string|null} canonical detail URL, or null when the input has no
+ *   numeric `career_job_req_id` (listing/root pages).
+ */
+export function canonicalPictetDetailUrl(rawUrl = '') {
+  try {
+    const u = new URL(String(rawUrl || '').replace(/&amp;/g, '&'));
+    const reqId = u.searchParams.get('career_job_req_id');
+    if (!reqId || !/^\d+$/.test(reqId)) return null;
+    return buildSuccessFactorsApiUrl(SF_TENANT, 'html-career', {
+      host: u.hostname || SF_HOST,
+      jobReqId: reqId,
+      lang: SF_DETAIL_LANG,
+    });
+  } catch {
+    return null;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -160,7 +209,12 @@ function buildParsedJobFromSf(normalized) {
 
   const descriptionRaw = typeof normalized?.descriptionHtml === 'string' ? normalized.descriptionHtml : '';
   const descriptionText = stripHtml(descriptionRaw);
-  const publicUrl = normalized?.applyUrl || CAREER_URL;
+  // Belt-and-braces: canonicalize even here so `id` (sha1 of the URL) can
+  // never be derived from a session-tokenized URL, whatever upstream path
+  // produced applyUrl (discovery already canonicalizes; this pins the
+  // invariant at the single point where the id is minted).
+  const publicUrl =
+    canonicalPictetDetailUrl(normalized?.applyUrl) || normalized?.applyUrl || CAREER_URL;
 
   const sourceLang = detectLang(descriptionText || title, 'en');
   const jobSlug = slugify(`${title} pictet ${city || 'geneva'}`);
@@ -248,19 +302,19 @@ async function discoverPictetDetailUrls(listingUrl) {
     );
 
     // Deduplicate by reqId — career5 often renders the same row in multiple
-    // places (table + sidebar) and pagination links can repeat IDs.
+    // places (table + sidebar) and pagination links can repeat IDs — and
+    // CANONICALIZE each href before returning it. The hydrated SPA stamps a
+    // per-session `_s.crb` CSRF token (plus browserTimeZone/jobAlert form
+    // state) into every anchor, so the raw href is byte-different on every
+    // run; persisting it downstream duplicated the whole slice (see
+    // canonicalPictetDetailUrl above).
     const seen = new Set();
     const unique = [];
     for (const href of hrefs) {
-      try {
-        const u = new URL(href);
-        const reqId = u.searchParams.get('career_job_req_id');
-        if (!reqId || seen.has(reqId)) continue;
-        seen.add(reqId);
-        unique.push(href);
-      } catch {
-        /* malformed href — skip */
-      }
+      const canonical = canonicalPictetDetailUrl(href);
+      if (!canonical || seen.has(canonical)) continue;
+      seen.add(canonical);
+      unique.push(canonical);
     }
     return unique;
   } catch (err) {
