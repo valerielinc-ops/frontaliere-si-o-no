@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suedhang",
-  "assembledAt": "2026-07-09T22:23:14.045Z",
+  "assembledAt": "2026-07-10T11:59:52.643Z",
   "jobs": [
     {
       "id": "suedhang-0ef4fcae567e",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach",
         "en": "employees-in-furniture-assembly-and-warehouse-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-        "de": "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+        "de": "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
         "fr": "employes-dans-l-assemblage-et-l-entrepot-de-meubles-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
       },
       "company": "Klinik Südhang",
@@ -34,7 +34,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-moebelmontage-und-lager/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:11.425Z",
+      "crawledAt": "2026-07-10T11:59:50.833Z",
       "addressLocality": "Südhang Arbeitsintegration & Handels AG, Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -53,12 +53,11 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
-        "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-        "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+          "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
+        ],
         "it": [
           "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
           "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
@@ -68,11 +67,13 @@
         ],
         "fr": [
           "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
-        ],
-        "de": [
-          "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
+        "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+        "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
+      ],
       "firstSeenAt": "2026-07-09T12:12:03.525Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -94,7 +95,7 @@
       "slugByLocale": {
         "it": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf",
         "en": "clinical-psychologist-klinik-sudhang-ambulatorium-burgdorf",
-        "de": "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
+        "de": "klinische-n-psycholog-in-suedhang-ch",
         "fr": "psychologue-clinique-klinik-sudhang-ambulatorium-burgdorf"
       },
       "company": "Klinik Südhang",
@@ -120,7 +121,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r-psycholog-in_ambulatorium_burgdorf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:10.902Z",
+      "crawledAt": "2026-07-10T11:59:50.366Z",
       "addressLocality": "Ambulatorium Burgdorf",
       "postalCode": "3400",
       "addressCountry": "CH",
@@ -139,12 +140,11 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "previousSlugs": [
-        "klinische-n-psycholog-in-suedhang-ch",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
+          "klinische-n-psycholog-in-suedhang-ch"
+        ],
         "it": [
           "klinische-n-psycholog-in-suedhang-ch",
           "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
@@ -152,14 +152,15 @@
         "en": [
           "klinische-n-psycholog-in-suedhang-ch"
         ],
-        "de": [
-          "klinische-n-psycholog-in-suedhang-ch",
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf"
-        ],
         "fr": [
           "klinische-n-psycholog-in-suedhang-ch"
         ]
       },
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch",
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
+        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
+      ],
       "firstSeenAt": "2026-06-05T12:45:52.445Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -181,7 +182,7 @@
       "slugByLocale": {
         "it": "assistente-medico-klinik-sudhang-ambulatorium-burgdorf",
         "en": "assistant-doctor-klinik-sudhang-ambulatorium-burgdorf",
-        "de": "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
+        "de": "assistenzarztin-assistenzarzt-suedhang-ch",
         "fr": "medecin-assistant-klinik-sudhang-ambulatorium-burgdorf"
       },
       "company": "Klinik Südhang",
@@ -196,17 +197,18 @@
       },
       "description": "Zur Unterstützung unseres Teams im Ambulatorium Burgdorf suchen wir per 1. Juli 2026 oder nach Vereinbarung eine*n Assistenzärztin / Assistenzarzt Arbeitsort Klinik Südhang Ambulatorium Burgdorf Beschäftigungsgrad 60-100% Stellenantritt per 01.07.26 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Sie führen suchtpsychiatrische Abklärungen und ambulante, integrierte, psychiatrisch-psychotherapeutische Behandlungen durch. Im Rahmen der Abklärungen erstellen Sie mit den Patient*innen einen individuellen Behandlungsplan, sei es im Sinne eines stationären Entzuges, einer tagesklinischen oder ambulanten Behandlung. Im Rahmen der ambulanten Behandlung führen Sie psychotherapeutische Gespräche und verfassen patientenbezogene Berichte und Zeugnisse. Bei Interesse ist es möglich, Erfahrungen durch Mitarbeit in unserer Spezialsprechstunde «ADHS und Sucht», unserem ambulanten Gruppenangebot oder der Ketamin-gestützten Psychotherapie zu sammeln. Sie werden in Ihrem Wirken supervisorisch durch einen Facharzt eng begleitet. Was Sie auszeichnet Sie verfügen über ein abgeschlossenes Medizinstudium sowie über Praxiserfahrung in einer psychiatrischen Klinik. Der Kontakt mit Menschen, die von schweren Abhängigkeitserkrankungen betroffen sind, sowie interprofessionelles und vernetztes Arbeiten bereiten Ihnen Freude. Sie sind in der Lage, Behandlungen auf Deutsch und Französisch durchzuführen oder sind bereit, Ihre Fremdsprachkenntnisse im Laufe der Arbeit zu verbessern. Erfahrung in einem der anerkannten Psychotherapie-Verfahren ist wünschenswert. Worauf Sie sich freuen dürfen Es erwartet Sie eine herausfordernde und spannende Stelle mit Gestaltungsspielraum in einem erfahrenen Team. Mitarbeit in konzeptionellen Fragen ist erwünscht. Das Arbeitsklima ist partnerschaftlich geprägt und es bestehen attraktive fachliche Weiterbildungsmöglichkeiten. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Weitere Auskünfte erteilt Ihnen gerne Dr. med. Lan Novak (Leitender Arzt Ambulatorium Südhang Burgdorf) unter +41 31 828 80 40, lan.novak@suedhang.ch . Bitte senden Sie Ihre Bewerbungsunterlagen an jobs@suedhang.ch . Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
       "descriptionByLocale": {
-        "it": "Medico assistente (m/f/d) – Ambulatorio di Burgdorf Descrizione Per supportare il nostro team nell'ambulatorio di Burgdorf, cerchiamo Luglio 2026 o, su appuntamento, un/una medico assistente. Luogo di lavoro: Clinica Südhang Ambulatorium Burgdorf Grado di occupazione: 60–100% Assunzione: dal 01.07.26 o su appuntamento --- Mansioni - Effettuate accertamenti psichiatrici. - Eseguono trattamenti ambulatoriali, integrati, psicoterapeutici psichiatrici. - Nell'ambito dei chiarimenti, elabori con i pazienti un piano di trattamento individuale, che si tratti di un ritiro ospedaliero, di un trattamento diurno o ambulatoriale. - Nell'ambito del trattamento ambulatoriale effettua colloqui psicoterapeutici. - Scrivono rapporti e certificati relativi al paziente. - Se interessati, è possibile acquisire esperienza collaborando alla nostra consulenza speciale \"ADHD e dipendenze\", alla nostra offerta ambulatoriale di gruppo o alla psicoterapia con ketamina. - Sarai supervisionato da uno specialista durante il tuo lavoro. ---\n• Requisiti - Ha conseguito una laurea in medicina. - Ha esperienza pratica in una clinica psichiatrica. - Il contatto con persone affette da gravi disturbi da dipendenza, così come il lavoro interprofessionale e in rete, ti danno piacere. - Sono in grado di eseguire trattamenti su",
+        "it": "Medico assistente (m/f/d) – Ambulatorio di Burgdorf Descrizione Per supportare il nostro team nell'ambulatorio di Burgdorf, cerchiamo Luglio 2026 o, su appuntamento, un/una medico assistente. Luogo di lavoro: Clinica Südhang Ambulatorium Burgdorf Grado di occupazione: 60–100% Assunzione: dal 01.07.26 o su appuntamento --- Mansioni - Effettuate accertamenti psichiatrici. - Eseguono trattamenti ambulatoriali, integrati, psicoterapeutici psichiatrici. - Nell'ambito dei chiarimenti, elabori con i pazienti un piano di trattamento individuale, che si tratti di un ritiro ospedaliero, di un trattamento diurno o ambulatoriale. - Nell'ambito del trattamento ambulatoriale effettua colloqui psicoterapeutici. - Scrivono rapporti e certificati relativi al paziente. - Se interessati, è possibile acquisire esperienza collaborando alla nostra consulenza speciale \"ADHD e dipendenze\", alla nostra offerta ambulatoriale di gruppo o alla psicoterapia con ketamina. - Sarai supervisionato da uno specialista durante il tuo lavoro.\n• Requisiti - Ha conseguito una laurea in medicina. - Ha esperienza pratica in una clinica psichiatrica. - Il contatto con persone affette da gravi disturbi da dipendenza, così come il lavoro interprofessionale e in rete, ti danno piacere. - Sono in grado di eseguire trattamenti su",
         "en": "Resident (m/f/d) – Burgdorf Outpatient Clinic Descrizione To support our team at the Burgdorf Outpatient Clinic, we are looking for July 2026 or by appointment with a resident. Place of work: Klinik Südhang Ambulatorium Burgdorf Degree of employment: 60–100% Occupation: as of 01.07.26 or by appointment --- Mansioni - You will conduct psychiatric examinations. - You perform outpatient, integrated, psychiatric-psychotherapeutic treatments. - As part of the clarifications, you will draw up an individual treatment plan with the patients, whether in terms of inpatient withdrawal, day clinic or outpatient treatment. - As part of the outpatient treatment, you will conduct psychotherapeutic discussions. - You write patient-related reports and testimonials. - If you are interested, it is possible to gain experience by participating in our special consultation \"ADHD and addiction\", our outpatient group offer or ketamine-based psychotherapy. - You will be closely supervised by a specialist in your work. --- Props - You have a degree in medicine. - You have practical experience in a psychiatric clinic. - You enjoy contact with people who are affected by severe dependency disorders, as well as interprofessional and networked work. - You are able to apply treatments on",
         "de": "Zur Unterstützung unseres Teams im Ambulatorium Burgdorf suchen wir per 1. Juli 2026 oder nach Vereinbarung eine*n Assistenzärztin / Assistenzarzt Arbeitsort Klinik Südhang Ambulatorium Burgdorf Beschäftigungsgrad 60-100% Stellenantritt per 01.07.26 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Sie führen suchtpsychiatrische Abklärungen und ambulante, integrierte, psychiatrisch-psychotherapeutische Behandlungen durch. Im Rahmen der Abklärungen erstellen Sie mit den Patient*innen einen individuellen Behandlungsplan, sei es im Sinne eines stationären Entzuges, einer tagesklinischen oder ambulanten Behandlung. Im Rahmen der ambulanten Behandlung führen Sie psychotherapeutische Gespräche und verfassen patientenbezogene Berichte und Zeugnisse. Bei Interesse ist es möglich, Erfahrungen durch Mitarbeit in unserer Spezialsprechstunde «ADHS und Sucht», unserem ambulanten Gruppenangebot oder der Ketamin-gestützten Psychotherapie zu sammeln. Sie werden in Ihrem Wirken supervisorisch durch einen Facharzt eng begleitet. Was Sie auszeichnet Sie verfügen über ein abgeschlossenes Medizinstudium sowie über Praxiserfahrung in einer psychiatrischen Klinik. Der Kontakt mit Menschen, die von schweren Abhängigkeitserkrankungen betroffen sind, sowie interprofessionelles und vernetztes Arbeiten bereiten Ihnen Freude. Sie sind in der Lage, Behandlungen auf Deutsch und Französisch durchzuführen oder sind bereit, Ihre Fremdsprachkenntnisse im Laufe der Arbeit zu verbessern. Erfahrung in einem der anerkannten Psychotherapie-Verfahren ist wünschenswert. Worauf Sie sich freuen dürfen Es erwartet Sie eine herausfordernde und spannende Stelle mit Gestaltungsspielraum in einem erfahrenen Team. Mitarbeit in konzeptionellen Fragen ist erwünscht. Das Arbeitsklima ist partnerschaftlich geprägt und es bestehen attraktive fachliche Weiterbildungsmöglichkeiten. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Weitere Auskünfte erteilt Ihnen gerne Dr. med. Lan Novak (Leitender Arzt Ambulatorium Südhang Burgdorf) unter +41 31 828 80 40, lan.novak@suedhang.ch . Bitte senden Sie Ihre Bewerbungsunterlagen an jobs@suedhang.ch . Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
-        "fr": "Médecin assistant (e) (h/f/d) – Ambulatoire de Burgdorf Descrizione Pour soutenir notre équipe de l'ambulatoire de Burgdorf, nous recherchons par 1. Juillet 2026 ou, sur rendez-vous, un (e) médecin assistant (e). Lieu de travail : Klinik Südhang Ambulatorium Burgdorf Taux d'occupation : 60-100 % Entrée en fonction : au 01/07/26 ou sur rendez-vous --- Mansioni - Vous effectuez des examens psychiatriques de recherche. - Vous effectuez des traitements ambulatoires, intégrés, psychiatriques et psychothérapeutiques. - Dans le cadre des examens, vous établissez un plan de traitement individuel avec les patients, que ce soit dans le sens d'un sevrage hospitalier, d'un traitement en clinique de jour ou en ambulatoire. - Dans le cadre du traitement ambulatoire, vous menez des entretiens psychothérapeutiques. - Vous rédigez des rapports et des témoignages relatifs aux patients. - Si vous êtes intéressé, il est possible d'acquérir de l'expérience en participant à notre consultation spéciale « TDAH et toxicomanie », à notre offre de groupe ambulatoire ou à la psychothérapie à base de kétamine. - Vous serez accompagné de manière supervisée par un médecin spécialiste. ---\n• Requisiti - Vous avez terminé vos études de médecine. - Vous avez une expérience pratique dans un hôpital psychiatrique. - Le contact avec des personnes touchées par de graves dépendances ainsi que le travail interprofessionnel et en réseau vous procurent du plaisir. - Vous êtes en mesure d'effectuer des traitements sur"
+        "fr": "Médecin assistant (e) (h/f/d) – Ambulatoire de Burgdorf Descrizione Pour soutenir notre équipe de l'ambulatoire de Burgdorf, nous recherchons par 1. Juillet 2026 ou, sur rendez-vous, un (e) médecin assistant (e). Lieu de travail : Klinik Südhang Ambulatorium Burgdorf Taux d'occupation : 60-100 % Entrée en fonction : au 01/07/26 ou sur rendez-vous --- Mansioni - Vous effectuez des examens psychiatriques de recherche. - Vous effectuez des traitements ambulatoires, intégrés, psychiatriques et psychothérapeutiques. - Dans le cadre des examens, vous établissez un plan de traitement individuel avec les patients, que ce soit dans le sens d'un sevrage hospitalier, d'un traitement en clinique de jour ou en ambulatoire. - Dans le cadre du traitement ambulatoire, vous menez des entretiens psychothérapeutiques. - Vous rédigez des rapports et des témoignages relatifs aux patients. - Si vous êtes intéressé, il est possible d'acquérir de l'expérience en participant à notre consultation spéciale « TDAH et toxicomanie », à notre offre de groupe ambulatoire ou à la psychothérapie à base de kétamine. - Vous serez accompagné de manière supervisée par un médecin spécialiste.\n• Requisiti - Vous avez terminé vos études de médecine. - Vous avez une expérience pratique dans un hôpital psychiatrique. - Le contact avec des personnes touchées par de graves dépendances ainsi que le travail interprofessionnel et en réseau vous procurent du plaisir. - Vous êtes en mesure d'effectuer des traitements sur"
       },
+      "needsRetranslation": true,
       "location": "Ambulatorium Burgdorf",
       "canton": "BE",
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-burgdorf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:10.378Z",
+      "crawledAt": "2026-07-10T11:59:49.887Z",
       "addressLocality": "Ambulatorium Burgdorf",
       "postalCode": "3400",
       "addressCountry": "CH",
@@ -238,23 +240,23 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-suedhang-ch-3",
-        "assistenzarztin-assistenzarzt-suedhang-ch",
-        "assistente-medico-klinik-sudhang-ambulatorium-burgdorf",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
+          "assistenzarztin-assistenzarzt-suedhang-ch"
+        ],
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch-3",
           "assistenzarztin-assistenzarzt-suedhang-ch",
           "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
-        ],
-        "de": [
-          "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf"
         ]
       },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-suedhang-ch-3",
+        "assistenzarztin-assistenzarzt-suedhang-ch",
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
+        "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
+      ],
       "firstSeenAt": "2026-05-19T21:02:14.145Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -276,7 +278,7 @@
       "slugByLocale": {
         "it": "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne",
         "en": "medical-assistant-klinik-sudhang-ambulatorium-biel-bienne",
-        "de": "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
+        "de": "assistenzarztin-assistenzarzt-suedhang-ch",
         "fr": "medecin-assistant-klinik-sudhang-ambulatorium-biel-bienne"
       },
       "company": "Klinik Südhang",
@@ -296,12 +298,13 @@
         "de": "Zur Unterstützung unseres Teams im Ambulatorium Biel/Bienne suchen wir per 1. Juli 2026 oder nach Vereinbarung eine*n Assistenzärztin / Assistenzarzt Arbeitsort Klinik Südhang Ambulatorium Biel/Bienne Beschäftigungsgrad 80-100% Stellenantritt per 1. Juli 2026 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Sie führen suchtpsychiatrische Abklärungen und ambulante, integrierte, psychiatrisch-psychotherapeutische Behandlungen durch. Im Rahmen der Abklärungen erstellen Sie mit den Patient*innen einen individuellen Behandlungsplan, sei es im Sinne eines stationären Entzuges, einer tagesklinischen oder ambulanten Behandlung. Im Rahmen der ambulanten Behandlung führen Sie psychotherapeutische Gespräche und verfassen patientenbezogene Berichte und Zeugnisse. Bei Interesse ist es möglich, Erfahrungen durch Mitarbeit in unserer Spezialsprechstunde «ADHS und Sucht», unserem ambulanten Gruppenangebot oder der Ketamin-gestützten Psychotherapie zu sammeln. Sie werden in Ihrem Wirken supervisorisch durch einen Facharzt eng begleitet. Was Sie auszeichnet Sie verfügen über ein abgeschlossenes Medizinstudium sowie über Praxiserfahrung in einer psychiatrischen Klinik. Der Kontakt mit Menschen, die von schweren Abhängigkeitserkrankungen betroffen sind, sowie interprofessionelles und vernetztes Arbeiten bereiten Ihnen Freude. Sie sind in der Lage, Behandlungen auf Deutsch und Französisch durchzuführen oder sind bereit, Ihre Fremdsprachkenntnisse im Laufe der Arbeit zu verbessern. Erfahrung in einem der anerkannten Psychotherapie-Verfahren ist wünschenswert. Worauf Sie sich freuen dürfen Es erwartet Sie eine herausfordernde und spannende Stelle mit Gestaltungsspielraum in einem erfahrenen Team. Mitarbeit in konzeptionellen Fragen ist erwünscht. Das Arbeitsklima ist partnerschaftlich geprägt und es bestehen attraktive fachliche Weiterbildungsmöglichkeiten. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Weitere Auskünfte erteilt Ihnen gerne Dr. med. Lan Novak, Leitender Arzt Ambulatorium Südhang Biel/Bienne, lan.novak@suedhang.ch , Tel. +41 31 338 80 40. Bitte senden Sie Ihre Bewerbungsunterlagen an jobs@suedhang.ch Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
         "fr": "Mansioni - Supportare il Team all' Ambulatorio Biel/Bienne - Effettuare valutazioni psicopatologiche e trattamenti ambulatoriali, integrati e psichiatrico-psicoterapeutici - Con i pazienti elaborare un piano di trattamento individualizzato, in ambito di : - Detossicazione in regime ospedaliero - Trattamento diurno - Trattamento ambulatoriale - Partecipare alla gestione di una consultation specializzata in ADHS e dipendenze - Partecipare al Gruppo ambulatoriale - Partecipare alla Psicoterapia supportata da Ketamina - Svolgere colloqui psicoterapici e redigere rapporti e certificati relativi ai pazienti - Collaborare in un contesto supervisionato un da medico specialista Requis - Diploma la diurea in Medicina - Esperienza pratica in ambito psichiatrico - Motivazione per lavorare con pazienti affetti da disturbi da dipendenza - Capacità di lavorare in modo interprofessionale e collaborativo - Disponibilità a svolgere trattamenti in lingua tedesca e francese (o volontà di migliorare le competenze linguistiche) - Esperienza in metodi di psicoterapia riconosciuti (preferibile) - Disponibilità a lavorare con 80-100% di orario\n• Cosa offriamo - Una posizione stimolante e con spazio per la partecipazione attiva in un team esperto - Possibilità di contribuire a progetti connessi alla concezione del servizio - Un ambiente la divoro collaborativo e rispettoso - Opportunità di formazione continua in ambito professionale - Perspectiva di sviluppo sia professionale che personale -"
       },
+      "needsRetranslation": true,
       "location": "Ambulatorium Biel/Bienne",
       "canton": "BE",
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:09.852Z",
+      "crawledAt": "2026-07-10T11:59:49.418Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -348,23 +351,23 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-suedhang-ch",
-        "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
+          "assistenzarztin-assistenzarzt-suedhang-ch"
+        ],
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
           "assistenzarztin-assistenzarzt-suedhang-ch-2",
           "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
-        ],
-        "de": [
-          "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-suedhang-ch",
+        "assistenzarztin-assistenzarzt-suedhang-ch-2",
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
+        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+      ],
       "firstSeenAt": "2026-05-19T21:02:15.199Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -386,7 +389,7 @@
       "slugByLocale": {
         "it": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne",
         "en": "clinical-psychologist-klinik-sudhang-ambulatorium-biel-bienne",
-        "de": "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
+        "de": "klinische-n-psycholog-in-suedhang-ch",
         "fr": "psychologue-clinique-klinik-sudhang-ambulatorium-biel-bienne"
       },
       "company": "Klinik Südhang",
@@ -412,7 +415,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:09.326Z",
+      "crawledAt": "2026-07-10T11:59:48.944Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -431,13 +434,11 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "previousSlugs": [
-        "klinische-n-psycholog-in-suedhang-ch-2",
-        "klinische-n-psycholog-in-suedhang-ch",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
+          "klinische-n-psycholog-in-suedhang-ch"
+        ],
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
           "klinische-n-psycholog-in-suedhang-ch",
@@ -446,14 +447,16 @@
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
         ],
-        "de": [
-          "klinische-n-psycholog-in-suedhang-ch",
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
-        ],
         "fr": [
           "klinische-n-psycholog-in-suedhang-ch-2"
         ]
       },
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch-2",
+        "klinische-n-psycholog-in-suedhang-ch",
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
+        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+      ],
       "firstSeenAt": "2026-06-05T12:45:50.925Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -475,7 +478,7 @@
       "slugByLocale": {
         "it": "primario-klinik-sudhang-ambulatorium-bern",
         "en": "senior-physician-senior-physician-klinik-sudhang-ambulatorium-bern",
-        "de": "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
+        "de": "oberarztin-oberarzt-suedhang-ch",
         "fr": "medecin-superieur-medecin-superieur-klinik-sudhang-ambulatorium-bern"
       },
       "company": "Klinik Südhang",
@@ -501,7 +504,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/oberarzt-oberaerztin-ambulatorium-bern/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:08.801Z",
+      "crawledAt": "2026-07-10T11:59:48.476Z",
       "addressLocality": "Ambulatorium Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -520,12 +523,11 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "oberarztin-oberarzt-suedhang-ch",
-        "primario-klinik-sudhang-ambulatorium-bern",
-        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
+          "oberarztin-oberarzt-suedhang-ch"
+        ],
         "it": [
           "oberarztin-oberarzt-suedhang-ch",
           "primario-klinik-sudhang-ambulatorium-bern"
@@ -533,14 +535,15 @@
         "en": [
           "oberarztin-oberarzt-suedhang-ch"
         ],
-        "de": [
-          "oberarztin-oberarzt-suedhang-ch",
-          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern"
-        ],
         "fr": [
           "oberarztin-oberarzt-suedhang-ch"
         ]
       },
+      "previousSlugs": [
+        "oberarztin-oberarzt-suedhang-ch",
+        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
+        "primario-klinik-sudhang-ambulatorium-bern"
+      ],
       "firstSeenAt": "2026-06-05T12:45:50.418Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
