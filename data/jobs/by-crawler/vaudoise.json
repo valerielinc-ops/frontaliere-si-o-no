@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-07-10T13:10:58.841Z",
+  "assembledAt": "2026-07-10T22:19:54.563Z",
   "jobs": [
     {
       "id": "vaudoise-1d8037bd8277",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=275486456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:55.308Z",
+      "crawledAt": "2026-07-10T22:19:51.289Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,6 +50,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -95,7 +96,7 @@
       "url": "https://vaudoise.softgarden.io/job/65240161/Charg%C3%A9-Charg%C3%A9e-de-relation-client%C3%A8le-h-f-x-100-?jobDbPVId=275510721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:55.001Z",
+      "crawledAt": "2026-07-10T22:19:51.049Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,11 +113,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
-        "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+        "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+        "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+          "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-11T13:54:01.110Z",
@@ -165,7 +168,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=275648436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:54.686Z",
+      "crawledAt": "2026-07-10T22:19:50.807Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,11 +185,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
+        "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
+        "microsoft-365-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
+          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
+          "microsoft-365-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.577Z",
@@ -235,7 +240,7 @@
       "url": "https://vaudoise.softgarden.io/job/65279086/Product-Owner-Microsoft-365-Copilot-h-f-x-80-100-?jobDbPVId=275669596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:54.355Z",
+      "crawledAt": "2026-07-10T22:19:50.567Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -252,6 +257,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "firstSeenAt": "2026-06-12T13:15:13.965Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -297,7 +303,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=275739581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:54.043Z",
+      "crawledAt": "2026-07-10T22:19:50.172Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -314,17 +320,20 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+        "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+        "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+          "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+          "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -370,7 +379,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=275739726&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:53.725Z",
+      "crawledAt": "2026-07-10T22:19:49.931Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -387,14 +396,17 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+        "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
+        "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -440,7 +452,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=276097271&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:53.414Z",
+      "crawledAt": "2026-07-10T22:19:49.687Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -457,11 +469,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+        "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
+        "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
+          "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:15.028Z",
@@ -510,7 +524,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=276369111&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:53.050Z",
+      "crawledAt": "2026-07-10T22:19:49.447Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,11 +550,13 @@
         "berater-berater-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
         "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
         "counsellor-counsellor-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+        "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+          "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:28.199Z",
@@ -589,7 +605,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=276369151&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:52.675Z",
+      "crawledAt": "2026-07-10T22:19:49.209Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -607,11 +623,13 @@
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
         "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
-        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
+        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
+          "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
@@ -622,6 +640,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -667,7 +686,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=276369181&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:52.335Z",
+      "crawledAt": "2026-07-10T22:19:48.968Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -684,11 +703,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+        "responsabile-servizi-cassa-malattia-m-w-d-80-100-vaudoise-assurances-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+          "responsabile-servizi-cassa-malattia-m-w-d-80-100-vaudoise-assurances-berne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.638Z",
@@ -737,7 +758,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=276446426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:52.002Z",
+      "crawledAt": "2026-07-10T22:19:48.722Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -754,11 +775,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
+        "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+        "consulente-senior-m-w-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
+          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+          "consulente-senior-m-w-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
@@ -768,6 +791,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -813,7 +837,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=276446476&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:51.679Z",
+      "crawledAt": "2026-07-10T22:19:48.479Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,11 +854,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Diritto e compliance",
       "previousSlugs": [
-        "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+        "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+          "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:19.533Z",
@@ -883,7 +909,7 @@
       "url": "https://vaudoise.softgarden.io/job/65519536/Kundenberater-in-Customer-Service-m-w-d-%E2%80%93-100-?jobDbPVId=277501356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:51.370Z",
+      "crawledAt": "2026-07-10T22:19:48.236Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -901,11 +927,13 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "de": [
-          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch"
+          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch",
+          "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
         ],
         "it": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
-          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch"
+          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch",
+          "costumer-service-collaboratore-trice-m-w-d-100-vaudoise-assurances-fribourg"
         ],
         "en": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
@@ -918,9 +946,11 @@
       "previousSlugs": [
         "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch",
         "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
-        "costumer-service-employee-m-f-d-100-vaudoise-assurances-fribourg"
+        "costumer-service-employee-m-f-d-100-vaudoise-assurances-fribourg",
+        "costumer-service-collaboratore-trice-m-w-d-100-vaudoise-assurances-fribourg"
       ],
       "firstSeenAt": "2026-06-24T12:54:48.849Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -966,7 +996,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=276977356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:51.060Z",
+      "crawledAt": "2026-07-10T22:19:47.951Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -983,11 +1013,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+        "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+        "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+          "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.959Z",
@@ -1036,7 +1068,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=276977446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:50.750Z",
+      "crawledAt": "2026-07-10T22:19:47.702Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -1067,6 +1099,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.678Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1112,7 +1145,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=276977456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:50.425Z",
+      "crawledAt": "2026-07-10T22:19:47.441Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1128,9 +1161,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
+      "firstSeenAt": "2026-05-18T13:27:27.079Z",
       "previousSlugsByLocale": {
         "it": [
-          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+          "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+          "responsabile-broker-m-w-d-100-vaudoise-assurances-bern"
+        ],
+        "de": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+          "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern"
         ],
         "en": [
           "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
@@ -1140,9 +1179,10 @@
         ]
       },
       "previousSlugs": [
-        "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+        "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern",
+        "responsabile-broker-m-w-d-100-vaudoise-assurances-bern"
       ],
-      "firstSeenAt": "2026-05-18T13:27:27.079Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1188,7 +1228,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=276977546&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:50.119Z",
+      "crawledAt": "2026-07-10T22:19:47.203Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1221,6 +1261,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1266,7 +1307,7 @@
       "url": "https://vaudoise.softgarden.io/job/65588916/Leiter-in-Ausbildung-%E2%80%93-Insurance-Training-m-w-d-80-100-?jobDbPVId=278034314&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:49.809Z",
+      "crawledAt": "2026-07-10T22:19:46.954Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1283,14 +1324,17 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+        "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+        "responsabile-ausbildung-insurance-training-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+          "responsabile-ausbildung-insurance-training-m-w-d-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:26.895Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1336,7 +1380,7 @@
       "url": "https://vaudoise.softgarden.io/job/65607556/Gestionnaire-Service-Client-et-Souscription-h-f-x-80-100-?jobDbPVId=277128006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:49.491Z",
+      "crawledAt": "2026-07-10T22:19:46.709Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1355,13 +1399,15 @@
       "previousSlugs": [
         "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
         "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+        "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
+        "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
           "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
-          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
+          "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-26T12:20:02.667Z",
@@ -1410,7 +1456,7 @@
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=277246401&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:49.172Z",
+      "crawledAt": "2026-07-10T22:19:46.472Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1427,11 +1473,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+        "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+          "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon"
         ],
         "en": [
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
@@ -1441,6 +1489,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1486,7 +1535,7 @@
       "url": "https://vaudoise.softgarden.io/job/63770144/D%C3%A9veloppeur-d%C3%A9veloppeuse-Power-Platform-et-.NET-h-f-x-80-100-?jobDbPVId=277266936&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:48.862Z",
+      "crawledAt": "2026-07-10T22:19:46.232Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1503,11 +1552,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
+        "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch",
+        "potere-piattaforma-e-net-sviluppatore-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
+          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch",
+          "potere-piattaforma-e-net-sviluppatore-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-27T22:58:36.624Z",
@@ -1556,7 +1607,7 @@
       "url": "https://vaudoise.softgarden.io/job/64946996/Ing%C3%A9nieur-ing%C3%A9nieure-Devops-h-f-x-80-%C3%A0-100-?jobDbPVId=277296641&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:48.552Z",
+      "crawledAt": "2026-07-10T22:19:45.987Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1572,20 +1623,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
-      "previousSlugsByLocale": {
-        "fr": [
-          "devops-engineer-h-f-x-80-a-100-vaudoise-ch"
-        ],
-        "it": [
-          "devops-engineer-h-f-x-80-a-100-vaudoise-ch",
-          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
-        ]
-      },
       "previousSlugs": [
         "devops-engineer-h-f-x-80-a-100-vaudoise-ch",
-        "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
+        "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch",
+        "devops-ingegnere-h-f-x-80-a-100-vaudoise-assurances-lausanne"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-h-f-x-80-a-100-vaudoise-ch",
+          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch",
+          "devops-ingegnere-h-f-x-80-a-100-vaudoise-assurances-lausanne"
+        ],
+        "fr": [
+          "devops-engineer-h-f-x-80-a-100-vaudoise-ch"
+        ]
+      },
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1631,7 +1685,7 @@
       "url": "https://vaudoise.softgarden.io/job/65729431/Technical-Lead-Int%C3%A9gration-Java-h-f-x-80-100-?jobDbPVId=277672896&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:48.240Z",
+      "crawledAt": "2026-07-10T22:19:45.636Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1649,17 +1703,20 @@
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
         "technical-lead-integration-java-h-f-x-80-100-vaudoise-ch",
-        "responsable-technique-integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
+        "responsable-technique-integration-java-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-integration-java-h-f-x-80-100-vaudoise-ch"
+          "technical-lead-integration-java-h-f-x-80-100-vaudoise-ch",
+          "integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "fr": [
           "responsable-technique-integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:59:42.807Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1705,7 +1762,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=277608006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:47.925Z",
+      "crawledAt": "2026-07-10T22:19:45.393Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1722,11 +1779,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
-        "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+        "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
+        "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
+          "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:22.605Z",
@@ -1775,7 +1834,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=277608021&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:47.618Z",
+      "crawledAt": "2026-07-10T22:19:45.153Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -1793,12 +1852,14 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse",
-        "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100"
+        "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100",
+        "gestore-prestazioni-animalia-incaricato-delle-assicurazioni-per-cani-e-gatti-m-f-x-80-100-vaudoise-assurances-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse",
-          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100"
+          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100",
+          "gestore-prestazioni-animalia-incaricato-delle-assicurazioni-per-cani-e-gatti-m-f-x-80-100-vaudoise-assurances-suisse"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:22.330Z",
@@ -1847,7 +1908,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=277608041&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:47.281Z",
+      "crawledAt": "2026-07-10T22:19:44.889Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -1866,12 +1927,14 @@
       "previousSlugs": [
         "conseiller-conseillere-h-f-x-100-vaudoise-ch",
         "conseiller-conseillere-h-f-x-100-vaudoise-ch-2",
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
+        "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
+          "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
@@ -1926,7 +1989,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=277608161&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:46.953Z",
+      "crawledAt": "2026-07-10T22:19:44.640Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1943,11 +2006,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
+        "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
+        "collaboratore-trice-schaden-m-w-d-60-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
+          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
+          "collaboratore-trice-schaden-m-w-d-60-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:21.770Z",
@@ -1996,7 +2061,7 @@
       "url": "https://vaudoise.softgarden.io/job/65778086/Senior-Fullstack-Engineer-Technical-Leader-.NET-Angular-Azure-h-f-x-80-100-?jobDbPVId=277737276&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:46.641Z",
+      "crawledAt": "2026-07-10T22:19:44.400Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2013,17 +2078,20 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
+        "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch",
+        "senior-fullstack-ingegnere-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
+          "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch",
+          "senior-fullstack-ingegnere-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T23:18:24.014Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2069,7 +2137,7 @@
       "url": "https://vaudoise.softgarden.io/job/65812286/Expert-Experte-SIRH-h-f-x-%E2%80%93-100-CDD-2-ans-?jobDbPVId=277827526&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:46.330Z",
+      "crawledAt": "2026-07-10T22:19:44.158Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2086,11 +2154,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
+        "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
+          "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne"
         ],
         "en": [
           "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
@@ -2100,6 +2170,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:42:21.749Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2145,7 +2216,7 @@
       "url": "https://vaudoise.softgarden.io/job/65149268/Ing%C3%A9nieur-Ing%C3%A9nieure-Workplace-IT-h-f-x-80-100-?jobDbPVId=277930081&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:46.013Z",
+      "crawledAt": "2026-07-10T22:19:43.918Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2162,11 +2233,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+        "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+        "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+          "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-05T12:53:06.905Z",
@@ -2215,7 +2288,7 @@
       "url": "https://vaudoise.softgarden.io/job/65834701/Responsable-Release-Management-Testing-h-f-x-80-100-?jobDbPVId=277954336&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:45.701Z",
+      "crawledAt": "2026-07-10T22:19:43.670Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2232,11 +2305,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "responsable-release-management-testing-h-f-x-80-100-vaudoise-ch"
+        "responsable-release-management-testing-h-f-x-80-100-vaudoise-ch",
+        "gestione-del-rilascio-testing-manager-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-release-management-testing-h-f-x-80-100-vaudoise-ch"
+          "responsable-release-management-testing-h-f-x-80-100-vaudoise-ch",
+          "gestione-del-rilascio-testing-manager-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "responsable-release-management-testing-h-f-x-80-100-vaudoise-ch"
@@ -2291,7 +2366,7 @@
       "url": "https://vaudoise.softgarden.io/job/65898929/Expert-Formations-Insurance-Training-Experte-Formations-Insurance-Training-h-f-x-80-100-?jobDbPVId=278115929&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:45.384Z",
+      "crawledAt": "2026-07-10T22:19:43.428Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2308,17 +2383,20 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "expert-formations-insurance-training-experte-formations-insurance-training-h-f-x-80-100"
+        "expert-formations-insurance-training-experte-formations-insurance-training-h-f-x-80-100",
+        "formazione-professionale-assicurazione-formazione-esperto-formazione-assicurazione-h-f-x-80-100-vaudoise-assurances"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-formations-insurance-training-experte-formations-insurance-training-h-f-x-80-100"
+          "expert-formations-insurance-training-experte-formations-insurance-training-h-f-x-80-100",
+          "formazione-professionale-assicurazione-formazione-esperto-formazione-assicurazione-h-f-x-80-100-vaudoise-assurances"
         ],
         "de": [
           "expert-formations-insurance-training-experte-formations-insurance-training-h-f-x-80-100"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:22.656Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2364,7 +2442,7 @@
       "url": "https://vaudoise.softgarden.io/job/65899719/Expert-in-Ausbildung-Insurance-Training-m-w-d-80%E2%80%93100-?jobDbPVId=278118344&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:45.051Z",
+      "crawledAt": "2026-07-10T22:19:43.183Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2381,17 +2459,20 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "expert-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+        "expert-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+        "formazione-professionale-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+          "expert-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+          "formazione-professionale-m-f-d-80-100-vaudoise-assurances-bern"
         ],
         "fr": [
           "expert-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:22.350Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2437,7 +2518,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=278173789&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:44.733Z",
+      "crawledAt": "2026-07-10T22:19:42.934Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2454,14 +2535,17 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "business-analyst-rh-h-f-x-80-100-vaudoise-ch"
+        "business-analyst-rh-h-f-x-80-100-vaudoise-ch",
+        "business-analista-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-rh-h-f-x-80-100-vaudoise-ch"
+          "business-analyst-rh-h-f-x-80-100-vaudoise-ch",
+          "business-analista-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2507,7 +2591,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=278173819&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:44.415Z",
+      "crawledAt": "2026-07-10T22:19:42.692Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2524,11 +2608,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Previdenza",
       "previousSlugs": [
-        "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+        "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
+        "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
+          "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:21.219Z",
@@ -2577,7 +2663,7 @@
       "url": "https://vaudoise.softgarden.io/job/65923194/Senior-Sachbearbeiter-in-Leistungen-Unfall-m-w-d-80%E2%80%93100-?jobDbPVId=278255659&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:44.073Z",
+      "crawledAt": "2026-07-10T22:19:42.285Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2594,11 +2680,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "senior-sachbearbeiter-in-leistungen-unfall-m-w-d-80-100-vaudoise-ch"
+        "senior-sachbearbeiter-in-leistungen-unfall-m-w-d-80-100-vaudoise-ch",
+        "servizio-d-infortunio-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sachbearbeiter-in-leistungen-unfall-m-w-d-80-100-vaudoise-ch"
+          "senior-sachbearbeiter-in-leistungen-unfall-m-w-d-80-100-vaudoise-ch",
+          "servizio-d-infortunio-m-f-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "senior-sachbearbeiter-in-leistungen-unfall-m-w-d-80-100-vaudoise-ch"
@@ -2653,7 +2741,7 @@
       "url": "https://vaudoise.softgarden.io/job/65939834/Architecte-Data-Information-h-f-x-80-100-?jobDbPVId=278307109&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:43.750Z",
+      "crawledAt": "2026-07-10T22:19:42.037Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2670,17 +2758,20 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
-        "architecte-data-information-h-f-x-80-100-vaudoise-ch"
+        "architecte-data-information-h-f-x-80-100-vaudoise-ch",
+        "data-information-architect-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architecte-data-information-h-f-x-80-100-vaudoise-ch"
+          "architecte-data-information-h-f-x-80-100-vaudoise-ch",
+          "data-information-architect-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "architecte-data-information-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:25.375Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2726,7 +2817,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=278350049&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:43.431Z",
+      "crawledAt": "2026-07-10T22:19:41.784Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2743,11 +2834,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+        "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+        "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+          "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:19.254Z",
@@ -2796,7 +2889,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=278350079&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:43.116Z",
+      "crawledAt": "2026-07-10T22:19:41.539Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2814,12 +2907,14 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
+        "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
+          "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
@@ -2874,7 +2969,7 @@
       "url": "https://vaudoise.softgarden.io/job/65953473/Responsable-Campus-Learning-Development-h-f-x-80-100-?jobDbPVId=278393573&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:42.804Z",
+      "crawledAt": "2026-07-10T22:19:41.159Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2891,11 +2986,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "responsable-campus-learning-development-h-f-x-80-100-vaudoise-ch"
+        "responsable-campus-learning-development-h-f-x-80-100-vaudoise-ch",
+        "responsabile-del-campus-apprendimento-e-sviluppo-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-campus-learning-development-h-f-x-80-100-vaudoise-ch"
+          "responsable-campus-learning-development-h-f-x-80-100-vaudoise-ch",
+          "responsabile-del-campus-apprendimento-e-sviluppo-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "responsable-campus-learning-development-h-f-x-80-100-vaudoise-ch"
@@ -2950,7 +3047,7 @@
       "url": "https://vaudoise.softgarden.io/job/65951575/Leiter-in-Campus-Learning-Development-m-w-d-80%E2%80%93100-?jobDbPVId=278410728&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:42.483Z",
+      "crawledAt": "2026-07-10T22:19:40.916Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2967,11 +3064,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "previousSlugs": [
-        "leiter-in-campus-learning-development-m-w-d-80-100-vaudoise-ch"
+        "leiter-in-campus-learning-development-m-w-d-80-100-vaudoise-ch",
+        "responsabile-campus-learning-development-m-w-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-campus-learning-development-m-w-d-80-100-vaudoise-ch"
+          "leiter-in-campus-learning-development-m-w-d-80-100-vaudoise-ch",
+          "responsabile-campus-learning-development-m-w-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "leiter-in-campus-learning-development-m-w-d-80-100-vaudoise-ch"
@@ -3026,7 +3125,7 @@
       "url": "https://vaudoise.softgarden.io/job/65958973/Mitarbeiter-in-Support-Leistungen-Unfall-m-w-d-30-?jobDbPVId=278411743&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:42.171Z",
+      "crawledAt": "2026-07-10T22:19:40.676Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3043,11 +3142,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "mitarbeiter-in-support-leistungen-unfall-m-w-d-30-vaudoise-ch"
+        "mitarbeiter-in-support-leistungen-unfall-m-w-d-30-vaudoise-ch",
+        "collaboratore-trice-support-leistungen-unfall-m-w-d-30-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-support-leistungen-unfall-m-w-d-30-vaudoise-ch"
+          "mitarbeiter-in-support-leistungen-unfall-m-w-d-30-vaudoise-ch",
+          "collaboratore-trice-support-leistungen-unfall-m-w-d-30-vaudoise-assurances-bern"
         ],
         "en": [
           "mitarbeiter-in-support-leistungen-unfall-m-w-d-30-vaudoise-ch"
@@ -3102,7 +3203,7 @@
       "url": "https://vaudoise.softgarden.io/job/65968298/Care-Manager-h-f-x-80-100-?jobDbPVId=278437638&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:41.764Z",
+      "crawledAt": "2026-07-10T22:19:40.431Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3165,7 +3266,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=278464583&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:10:41.427Z",
+      "crawledAt": "2026-07-10T22:19:40.184Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3183,18 +3284,21 @@
       "jobCategory": "Previdenza",
       "previousSlugs": [
         "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
-        "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne"
+        "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne",
+        "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
-          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne"
+          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne",
+          "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne"
         ],
         "fr": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3240,7 +3344,7 @@
       "url": "https://vaudoise.softgarden.io/job/65778221/Soutien-client%C3%A8le-h-f-x-100-?jobDbPVId=278556603&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:10:41.110Z",
+      "crawledAt": "2026-07-10T22:19:39.935Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3257,11 +3361,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
-        "soutien-clientele-h-f-x-100-vaudoise-ch"
+        "soutien-clientele-h-f-x-100-vaudoise-ch",
+        "supporto-clienti-h-f-x-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "soutien-clientele-h-f-x-100-vaudoise-ch"
+          "soutien-clientele-h-f-x-100-vaudoise-ch",
+          "supporto-clienti-h-f-x-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-02T23:18:23.396Z",

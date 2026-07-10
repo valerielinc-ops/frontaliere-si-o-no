@@ -1,55 +1,53 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-09T12:22:45.861Z",
-  "total": 381,
+  "generatedAt": "2026-07-10T22:17:28.355Z",
+  "total": 378,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 110697,
-  "avgDurationMs": 110697,
+  "unchangedCount": 0,
+  "durationMs": 96742,
+  "avgDurationMs": 96742,
   "durationHistory": [
-    110697
+    96742
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistante en pharmacie  (f/h/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Grosse Apotheke Dr. G. Bichsel AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3116107.4026364",
-      "location": "Bern",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692131",
+      "location": "Interlaken",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistante en pharmacie  (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Grosse Apotheke Dr. G. Bichsel AG (Gruppo Galenica), con sede a Interlaken, Bahnhofstrasse 5A, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692131-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-interlaken-be-grosse-apotheke-dr-g-bichsel-ag?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-      "id": "galenica-8a75894cbcb0",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "slug": "galenica-grosse-apotheke-dr-g-bichsel-ag-assistente-di-farmacia-afc-interlaken",
+      "id": "galenica-a960474f737a",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
+      "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
-        "completeness": 22
+        "translation": 25,
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

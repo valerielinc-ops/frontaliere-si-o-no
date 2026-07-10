@@ -1,59 +1,18 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-07-10T12:07:19.057Z",
+  "generatedAt": "2026-07-10T22:11:19.748Z",
   "total": 6,
   "newCount": 6,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18594,
-  "avgDurationMs": 18594,
+  "durationMs": 12963,
+  "avgDurationMs": 12963,
   "durationHistory": [
-    18594
+    12963
   ],
   "newJobs": [
-    {
-      "id": "company-u7vkyi",
-      "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
-      "company": "IBSA Institut Biochimique",
-      "title": "Clinical Research Officer",
-      "location": "All Area All Clear Apply now » Clinical Research Officer Location: Collina d'Oro",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-06T22:20:40.267Z",
-      "firstSeenAt": "2026-07-06T22:20:40.267Z",
-      "sourceLang": "it",
-      "country": "CH",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "addressLocality": "Collina d'Oro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "6500",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "id": "company-356u61",
       "slug": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
@@ -137,6 +96,47 @@
       }
     },
     {
+      "id": "company-u7vkyi",
+      "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
+      "company": "IBSA Institut Biochimique",
+      "title": "Clinical Research Officer",
+      "location": "All Area All Clear Apply now » Clinical Research Officer Location: Collina d'Oro",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-07-06T22:20:40.267Z",
+      "firstSeenAt": "2026-07-06T22:20:40.267Z",
+      "sourceLang": "it",
+      "country": "CH",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressLocality": "Collina d'Oro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6500",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "id": "company-24q2ge",
       "slug": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
       "company": "IBSA Institut Biochimique",
@@ -208,7 +208,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6500",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,

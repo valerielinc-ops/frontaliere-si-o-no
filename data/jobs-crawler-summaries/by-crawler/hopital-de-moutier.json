@@ -1,16 +1,16 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-07-10T12:32:40.037Z",
-  "total": 5,
+  "generatedAt": "2026-07-10T22:23:02.207Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3237,
-  "avgDurationMs": 3237,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2898,
+  "avgDurationMs": 2898,
   "durationHistory": [
-    3237
+    2898
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:32:37.780Z",
+      "crawledAt": "2026-07-10T22:23:00.442Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -44,11 +44,11 @@
       "postedDate": "2026-07-08",
       "datePosted": "2026-07-08",
       "firstSeenAt": "2026-07-10T10:55:15.038Z",
-      "_qualityScore": 74,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:32:37.786Z",
+      "crawledAt": "2026-07-10T22:23:00.447Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,11 +82,11 @@
       "postedDate": "2026-06-30",
       "datePosted": "2026-06-30",
       "firstSeenAt": "2026-07-10T10:55:15.046Z",
-      "_qualityScore": 74,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134729364-medecin-dermatologue",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:32:37.782Z",
+      "crawledAt": "2026-07-10T22:23:00.445Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -120,11 +120,11 @@
       "postedDate": "2026-06-29",
       "datePosted": "2026-06-29",
       "firstSeenAt": "2026-07-10T10:55:15.045Z",
-      "_qualityScore": 74,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132226830-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:32:37.788Z",
+      "crawledAt": "2026-07-10T22:23:00.439Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -158,17 +158,16 @@
       "postedDate": "2026-06-15",
       "datePosted": "2026-06-15",
       "firstSeenAt": "2026-07-10T10:55:15.040Z",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-de-moutier-f5e18fd4fc17",
       "slug": "assistenti-di-pratica-medica-mpa-w-m-d-hopital-de-moutier-moutier",
@@ -210,5 +209,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

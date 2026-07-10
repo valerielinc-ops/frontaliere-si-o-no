@@ -1,16 +1,16 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-07-10T13:07:03.531Z",
+  "generatedAt": "2026-07-10T22:24:53.295Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3403,
-  "avgDurationMs": 3403,
+  "durationMs": 3249,
+  "avgDurationMs": 3249,
   "durationHistory": [
-    3403
+    3249
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/digital-customer-support-specialist-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T13:07:01.868Z",
+      "crawledAt": "2026-07-10T22:24:51.668Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T12:14:00.098Z",
       "_qualityScore": 85,
@@ -75,7 +75,8 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:07:02.260Z",
+      "crawledAt": "2026-07-10T22:24:52.017Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {

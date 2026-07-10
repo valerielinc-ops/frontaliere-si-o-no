@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-10T11:59:55.314Z",
-  "total": 81,
+  "generatedAt": "2026-07-10T22:04:00.745Z",
+  "total": 79,
   "newCount": 3,
   "updatedCount": 75,
-  "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 55116,
-  "avgDurationMs": 55116,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 50259,
+  "avgDurationMs": 50259,
   "durationHistory": [
-    55116
+    50259
   ],
   "newJobs": [
     {
@@ -1174,86 +1174,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Business-Auditor---Global-Products---Solutions-with-focus-on-Trading--Product-Sales-and-Execution-Activities---Group-Internal-Audit-100---f-m-d-_r-18786-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Business-Auditor---Global-Products---Solutions-with-focus-on-Trading--Product-Sales-and-Execution-Activities---Group-Internal-Audit-100---f-m-d-_r-18786-2",
-      "title": "Senior Business Auditor – Global Products & Solutions with focus on Trading, Product Sales and Execution Activities - Group Internal Audit 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-business-auditor-global-products-solutions-with-focus-on-trading-product-sales-and-execution-activities-group-internal-audit-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-06-26",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
-      "title": "Junior Regulatory Reporting Specialist - 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-regulatory-reporting-specialist-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-06-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operation-Specialist-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18988-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operation-Specialist-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18988-1",
       "title": "Operation Specialist - Cash Management 100% (f/m/d) - (Contract through our external payroll partner with immediate start for 12 months with possible extension)",
@@ -1321,6 +1241,47 @@
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "currency": "CHF",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
+      "title": "Junior Regulatory Reporting Specialist - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-regulatory-reporting-specialist-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-06-24",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
       "_qualityScore": 84,

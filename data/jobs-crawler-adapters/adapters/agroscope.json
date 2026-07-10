@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&f=verwaltungseinheit:1083812"
   ],
   "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812 — the Agroscope org unit, NOT a canton facet, so the listing is already national). Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-07-10T13:10:35.697Z",
+  "updatedAt": "2026-07-10T22:29:43.935Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/dottorando-a-trasferimento-dei-pfas-da-suolo-e-foraggi-a-latte-e-carne-di-ruminanti/d5a2a564-08cb-4159-9864-2a83f7cb6511": {
       "location": "Posieux, Svizzera",
@@ -25,17 +25,17 @@
       "company": "Agroscope",
       "postedDate": "2026-07-07"
     },
-    "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491": {
-      "location": "6210 Sursee",
-      "canton": "LU",
-      "company": "Agroscope",
-      "postedDate": "2026-06-07"
-    },
     "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/2831c0bf-f7ac-4b32-8148-245268dabc35": {
       "location": "6210 Sursee",
       "canton": "LU",
       "company": "Agroscope",
       "postedDate": "2026-07-07"
+    },
+    "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491": {
+      "location": "6210 Sursee",
+      "canton": "LU",
+      "company": "Agroscope",
+      "postedDate": "2026-06-07"
     },
     "https://jobs.admin.ch/posti-vacanti/system-engineer-responsabile-di-progetto/66e0f353-a604-4242-aa49-6180e5a80818": {
       "location": "Posieux, Swizzera",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-07-10T11:59:45.922Z",
+  "assembledAt": "2026-07-10T22:03:55.846Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:59:30.841Z",
+      "crawledAt": "2026-07-10T22:03:40.809Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:29.930Z",
+      "crawledAt": "2026-07-10T22:03:39.983Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/2156fd7f-6945-4e7a-8a75-f785cf475947",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:59:29.052Z",
+      "crawledAt": "2026-07-10T22:03:39.245Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -241,14 +242,17 @@
         "pensumMax": 50
       },
       "previousSlugs": [
-        "auditeur-trice-interne-srg-ssr-bern"
+        "auditeur-trice-interne-srg-ssr-bern",
+        "revisore-interno-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditeur-trice-interne-srg-ssr-bern"
+          "auditeur-trice-interne-srg-ssr-bern",
+          "revisore-interno-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -294,7 +298,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/kundenberater-in-im-kundencenter-srg/49fbabac-3c25-43e6-a560-ae8e78299667",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:28.196Z",
+      "crawledAt": "2026-07-10T22:03:38.424Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,14 +355,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+        "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -404,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-wirtschaft-tv-online/1ac187bb-1ac0-4d9e-93c3-514216b23a97",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:27.199Z",
+      "crawledAt": "2026-07-10T22:03:37.596Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,14 +456,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
+        "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
+        "tirocinante-economia-tv-online-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
+          "tirocinante-economia-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -502,7 +512,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:26.318Z",
+      "crawledAt": "2026-07-10T22:03:36.860Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,14 +576,17 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "service-operator-srg-ssr-bern"
+        "service-operator-srg-ssr-bern",
+        "operatore-di-servizio-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-operator-srg-ssr-bern"
+          "service-operator-srg-ssr-bern",
+          "operatore-di-servizio-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -619,7 +632,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste-pour-l-emission-on-en-parle/e4b54b62-3c24-47f7-ac80-87e4913b9ad1",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:59:25.470Z",
+      "crawledAt": "2026-07-10T22:03:36.138Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,14 +675,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+        "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -715,7 +731,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:24.605Z",
+      "crawledAt": "2026-07-10T22:03:35.410Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -814,7 +830,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/redactura-redactur-da-musica/7c66d830-b72e-4214-8375-038c53352ee0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:23.488Z",
+      "crawledAt": "2026-07-10T22:03:34.665Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -871,6 +887,7 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-06-29T11:35:07.581Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -915,7 +932,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-hr-a-tempo-determinato/06271038-08e4-4448-8763-70ad9aced33c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:22.643Z",
+      "crawledAt": "2026-07-10T22:03:33.960Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -952,6 +969,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:25.033Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -997,7 +1015,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-rh-cdd-f-h-d/42692ab2-1abb-40f8-9b0d-ebfae20a3bc6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:59:21.773Z",
+      "crawledAt": "2026-07-10T22:03:33.149Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,6 +1063,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:03.601Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1090,7 +1109,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-comunicazione-rsi/9f6d7002-daae-4d10-aadc-e7048cd57fd7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:19.964Z",
+      "crawledAt": "2026-07-10T22:03:31.614Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1135,6 +1154,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T12:57:11.547Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1180,7 +1200,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:19.011Z",
+      "crawledAt": "2026-07-10T22:03:30.876Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1220,6 +1240,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1233,6 +1254,393 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-77d1f68399d3",
+      "slug": "assistente-in-finanza-srg-ssr-bern",
+      "slugByLocale": {
+        "it": "assistente-in-finanza-srg-ssr-bern",
+        "en": "assistant-in-finance-srg-ssr-bern",
+        "de": "assistent-in-finanzen-srg-ssr-bern",
+        "fr": "assistant-en-finances-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Assistent:in Finanzen",
+      "titleByLocale": {
+        "it": "Assistente: in Finanza",
+        "en": "Assistant: in Finance",
+        "de": "Assistent:in Finanzen",
+        "fr": "Assistant : en finances"
+      },
+      "description": "Das ist Ihr Beitrag Im Bereich Finanzen der SRG engagieren Sie sich als Mitglied des Assistenzpools für die administrative und organisatorische Unterstützung des Leitungsteams Finanzen, u. a. durch:\n• Agendaführung ausgewählter Mitglieder des Leitungsteams Finanzen\n• Terminsuche und Organisation von internen und externen Meetings, Geschäftsreisen und Anlässen\n• Bewirtschaftung der bereichsspezifischen Kommunikationskanäle (z.B. MS Teams Kanäle, Newsletter oder Intranet)\n• Organisation und Prüfung von Übersetzungen mit Schwerpunkt Deutsch und Italienisch (z.B. Präsentationen, Unterlagen und Kommunikationsinhalte)\n• Koordination von Weiterbildungsangeboten sowie Unterstützung bei Change- und Transformationsmassnahmen\n• Betreuung der Schnittstelle mit anderen Assistenzpools der SRG sowie Ferienvertretung der weiteren Assistenzperson(en) im Bereich Finanzen Damit begeistern Sie uns\n• Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen\n• Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise\n• Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen\n• Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen\n• Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift Damit begeistern wir Sie\n• Vielseitiger Einblick in die SRG im Zentrum der Finanzorganisation\n• Eine vielseitige Funktion, in der Eigeninitiative und neue Ideen gefragt sind\n• Hybrides Arbeitsmodell mit teilweise Home-Office\n• Ein engagiertes Team, das den Service public mit Leidenschaft lebt\n• Ein offenes und wertschätzendes Arbeitsklima Noch Fragen? zum Bewerbungsprozess Silvia Flück Partnerin HR zentrale Bereiche Telefon +41 58 136 10 73 Wir handeln als EIN Team für den Erfolg der SRG. Gemeinsam mit anderen Bereichen verantwortet Finanzen die strategische Steuerung, zielgerichtete Mittelallokation und schafft Transparenz für nachhaltige Entscheidungen.",
+      "descriptionByLocale": {
+        "it": "Nel settore delle finanze a SRG, come membro del pool di assistenza, si è impegnati al sostegno amministrativo e organizzativo del team di gestione finanziaria, tra cui:\n• Gestione dell'agenda dei membri selezionati del team di gestione delle finanze\n• Appuntamento ricerca e organizzazione di incontri interni ed esterni, viaggi di lavoro ed eventi\n• Gestione dei canali di comunicazione specifici (ad es. MS Canali di team, newsletter o Intranet)\n• Organizzazione ed esame delle traduzioni con particolare attenzione al tedesco e all'italiano (ad esempio presentazioni, documenti e contenuti di comunicazione)\n• Coordinamento delle opportunità di formazione e sostegno alle misure di cambiamento e di trasformazione\n• Supervisione dell'interfaccia con altri pool di assistenza della SRG così come la rappresentazione vacanza degli altri assistenti(i) nel settore della finanza\n• Diversi anni di esperienza in una funzione di assistente, idealmente di ruoli di leadership\n• Modo di lavoro orientato al servizio, strutturato e proattivo\n• Discrezione nel trattare le informazioni sensibili e la priorità affidabile delle preoccupazioni\n• L'affinità digitale include l'esperienza nell'utilizzo degli strumenti MS 365\n• La cooperazione interdisciplinare in un ambiente dinamico con l'ancoraggio in diverse regioni linguistiche\n• Molto buona conoscenza del tedesco e italiano incl. E siamo sicuri della parola e della scrittura.\n• Versatile conoscenza della SRG al centro dell'organizzazione finanziaria\n• Una funzione versatile in cui sono necessarie iniziative e nuove idee\n• Modello di lavoro ibrido con ufficio parzialmente domestico\n• Un team dedicato che vive il servizio pubblico con passione\n• Ancora domande? Silvia Flück Partner nelle aree centrali HR telefono +41 58 136 10 73 Agiamo come squadra ONE per il successo di SRG. Insieme ad altri settori, la finanza è responsabile per la gestione strategica, l'assegnazione mirata dei fondi e crea trasparenza per le decisioni sostenibili.",
+        "en": "In the area of finance at SRG, as a member of the assistance pool, you are committed to the administrative and organizational support of the finance management team, including by:\n• Agenda management of selected members of the Finance management team\n• Appointment search and organisation of internal and external meetings, business trips and events\n• Management of area-specific communication channels (e.g. MS Teams channels, newsletter or intranet)\n• Organization and examination of translations with a focus on German and Italian (e.g. presentations, documents and communication content)\n• Coordination of training opportunities and support for change and transformation measures\n• Supervision of the interface with other assistance pools of the SRG as well as holiday representation of the other assistant(s) in the area of finance Let us\n• Several years of experience in an assistant function, ideally of leadership roles\n• Service-oriented, structured and proactive way of working\n• Discretion in dealing with sensitive information and reliable prioritization of concerns\n• Digital affinity including experience in using MS 365 tools\n• Enjoying interdisciplinary cooperation in a dynamic environment with anchoring in different language regions\n• Very good knowledge of German and Italian incl. And we are sure of the word and scripture.\n• Versatile insight into the SRG at the center of the financial organization\n• A versatile function in which initiative and new ideas are required\n• Hybrid working model with partially home office\n• A dedicated team that lives the public service with passion\n• An open and appreciative working environment Still questions? Silvia Flück Partnerin HR central areas telephone +41 58 136 10 73 We act as ONE team for the success of SRG. Together with other areas, finance is responsible for strategic management, targeted allocation of funds and creates transparency for sustainable decisions.",
+        "de": "Das ist Ihr Beitrag Im Bereich Finanzen der SRG engagieren Sie sich als Mitglied des Assistenzpools für die administrative und organisatorische Unterstützung des Leitungsteams Finanzen, u. a. durch:\n• Agendaführung ausgewählter Mitglieder des Leitungsteams Finanzen\n• Terminsuche und Organisation von internen und externen Meetings, Geschäftsreisen und Anlässen\n• Bewirtschaftung der bereichsspezifischen Kommunikationskanäle (z.B. MS Teams Kanäle, Newsletter oder Intranet)\n• Organisation und Prüfung von Übersetzungen mit Schwerpunkt Deutsch und Italienisch (z.B. Präsentationen, Unterlagen und Kommunikationsinhalte)\n• Koordination von Weiterbildungsangeboten sowie Unterstützung bei Change- und Transformationsmassnahmen\n• Betreuung der Schnittstelle mit anderen Assistenzpools der SRG sowie Ferienvertretung der weiteren Assistenzperson(en) im Bereich Finanzen Damit begeistern Sie uns\n• Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen\n• Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise\n• Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen\n• Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen\n• Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift Damit begeistern wir Sie\n• Vielseitiger Einblick in die SRG im Zentrum der Finanzorganisation\n• Eine vielseitige Funktion, in der Eigeninitiative und neue Ideen gefragt sind\n• Hybrides Arbeitsmodell mit teilweise Home-Office\n• Ein engagiertes Team, das den Service public mit Leidenschaft lebt\n• Ein offenes und wertschätzendes Arbeitsklima Noch Fragen? zum Bewerbungsprozess Silvia Flück Partnerin HR zentrale Bereiche Telefon +41 58 136 10 73 Wir handeln als EIN Team für den Erfolg der SRG. Gemeinsam mit anderen Bereichen verantwortet Finanzen die strategische Steuerung, zielgerichtete Mittelallokation und schafft Transparenz für nachhaltige Entscheidungen.",
+        "fr": "Dans le domaine des finances chez SRG, en tant que membre du pool d'assistance, vous êtes engagé à l'appui administratif et organisationnel de l'équipe de gestion financière, y compris par :\n• Gestion du programme de certains membres de l'équipe de gestion des finances\n• Recherche de rendez-vous et organisation de réunions internes et externes, voyages d'affaires et événements\n• Gestion des canaux de communication spécifiques aux zones (p. ex. Chaînes d'équipes, newsletter ou intranet)\n• Organisation et examen des traductions en mettant l'accent sur l'allemand et l'italien (par exemple présentations, documents et contenu de communication)\n• Coordination des possibilités de formation et appui aux mesures de changement et de transformation\n• Supervision de l'interface avec d'autres pools d'assistance du SRG ainsi que représentation des vacances des autres assistants dans le domaine des finances\n• Plusieurs années d'expérience dans une fonction d'assistant, idéalement des rôles de leadership\n• Mode de travail axé sur les services, structuré et proactif\n• Discrétion dans le traitement des informations sensibles et priorité fiable des préoccupations\n• affinité numérique incluant l'expérience dans l'utilisation des outils MS 365\n• Profitez de la coopération interdisciplinaire dans un environnement dynamique avec ancrage dans différentes régions linguistiques\n• Très bonne connaissance de l'allemand et de l'italien incl. Et nous sommes sûrs du mot et des Écritures.\n• Aperçu polyvalent du GRS au centre de l'organisation financière\n• Une fonction polyvalente dans laquelle l'initiative et les nouvelles idées sont nécessaires\n• Modèle de travail hybride avec bureau à domicile partiel\n• Une équipe dévouée qui vit la fonction publique avec passion\n• Un environnement de travail ouvert et appréciant Des questions ? Silvia Flück Partnerin Secteurs centraux RH Téléphone +41 58 136 10 73 Nous agissons comme ONE équipe pour le succès de SRG. Avec d'autres domaines, le financement est responsable de la gestion stratégique, de l'affectation ciblée des fonds et de la transparence des décisions durables."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T22:03:30.121Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 21",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
+      "requirements": [
+        "Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen",
+        "Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise",
+        "Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen",
+        "Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools",
+        "Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen",
+        "Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen",
+          "Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise",
+          "Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen",
+          "Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools",
+          "Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen",
+          "Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "c68706e7-6382-4b0a-8976-cc7fa737e98e",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 60,
+        "pensumMax": 80
+      },
+      "previousSlugs": [
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
+        ],
+        "en": [
+          "assistent-in-finanzen-srg-ssr-bern"
+        ],
+        "fr": [
+          "assistent-in-finanzen-srg-ssr-bern"
+        ]
+      },
+      "firstSeenAt": "2026-06-30T23:26:49.331Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-3c9d5cbb35cb",
+      "slug": "revisore-interno-srg-ssr-bern-97427c",
+      "slugByLocale": {
+        "it": "revisore-interno-srg-ssr-bern-97427c",
+        "en": "internal-auditor-srg-ssr-bern-97427c",
+        "de": "interner-prufer-srg-ssr-bern",
+        "fr": "auditeur-trice-interne-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Auditeur.trice interne",
+      "titleByLocale": {
+        "it": "Auditeur.trice interne",
+        "en": "Internal auditor",
+        "de": "Interner Prüfer",
+        "fr": "Auditeur.trice interne"
+      },
+      "description": "Votre mission Au sein de l'équipe Révision interne , vous assumez les responsabilités suivantes :\n• Réaliser des missions de révision interne en respectant les exigences des normes de révision (IPPF)\n• Evaluer et examiner les processus de gestion et les projets, identifier les points faibles ainsi que les risques et élaborer des propositions d'amélioration apportant une valeur ajoutée\n• Rédiger des rapports d'audit et communiquer les résultats aux personnes concernées de manière claire\n• Etre en contact permanent avec les responsables et vérifier la mise en œuvre des recommandations de révision Votre profil\n• Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion\n• Au moins deux ans d'expérience pratique dans l'audit interne ou externe\n• Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification\n• Esprit conceptuel et analytique et approche méthodique\n• Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand\n• Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail Ce que nous vous offrons\n• Une fonction polyvalente avec responsabilités dans l'environnement dynamique des médias électroniques et du service public\n• Un environnement de travail stimulant et convivial\n• Des conditions d'engagement modernes\n• De bonnes possibilités de formation et de perfectionnement\n• Des thèmes variés et des interlocuteur.trices à tous les niveaux Des questions? A propos du processus de recrutement Silvia Flück Partenaire RH Téléphone +41 58 136 10 73 La Révision interne est l'organe d'audit et de conseil qui analyse et améliore en continu la gestion des risques, le pilotage et le contrôle de la SSR.",
+      "descriptionByLocale": {
+        "it": "La vostra missione all'interno del team di revisione interna, avete le seguenti responsabilità:\n• Condurre gli impegni di revisione interna in conformità con gli standard di revisione (IPPF) requisiti\n• Valutare e rivedere i processi e i progetti di gestione, identificare debolezze e rischi, e sviluppare proposte di miglioramento con valore aggiunto\n• Scrivere report di audit e comunicare i risultati alle persone interessate\n• Essere in costante contatto con i funzionari e monitorare l'attuazione delle raccomandazioni di revisione Il tuo profilo\n• Master's degree/Bachelor (università/scuola superiore) in economia o gestione informatica\n• Almeno due anni di esperienza pratica nell'audit interno o esterno\n• CIA, CISA o certificazione equivalente o volontà di ottenere questa certificazione\n• Approccio concettuale, analitico e metodologico\n• Espressione facile e precisa in francese (orale e scritta) buona conoscenza del tedesco\n• Eccellente capacità di comunicazione, competenze sociali, capacità di lavorare come squadra e di imporre, autonomia nel lavoro Cosa offriamo\n• Una funzione versatile con responsabilità nell'ambiente dinamico dei media elettronici e del servizio pubblico\n• Un ambiente di lavoro stimolante e facile da usare\n• Condizioni moderne di impegno\n• Buone opportunità di formazione e sviluppo\n• Diversi temi e interlocutori a tutti i livelli Domande? Informazioni sul processo di reclutamento Silvia Flück HR Partner Telefono +41 58 136 10 73 L'Internal Review è l'organo di verifica e consulenza che analizza continuamente e migliora la gestione dei rischi, la gestione e il controllo della SSR.",
+        "en": "Your Mission Within the Internal Review team, you have the following responsibilities:\n• Conduct internal review engagements in accordance with revision standards (IPPF) requirements\n• Evaluate and review management processes and projects, identify weaknesses and risks, and develop proposals for improvement with added value\n• Write audit reports and communicate results to the persons concerned clearly\n• To be in constant contact with officials and to monitor the implementation of review recommendations Your profile\n• Master's degree/Bachelor (university/high school) in economics or management computer science\n• At least two years of practical experience in internal or external audit\n• CIA, CISA or equivalent certification or willingness to obtain this certification\n• Conceptual, analytical and methodical approach\n• Easy and precise expression in French (oral and written) good knowledge of German\n• Excellent communication skills, social skills, ability to work as a team and to impose, autonomy in the work What we offer\n• A versatile function with responsibilities in the dynamic environment of electronic media and public service\n• A stimulating and user-friendly working environment\n• Modern conditions of engagement\n• Good training and development opportunities\n• Various themes and interlocutors at all levels Questions? About the recruitment process Silvia Flück HR Partner Phone +41 58 136 10 73 The Internal Review is the audit and advisory body that continuously analyses and improves the risk management, management and control of the SSR.",
+        "de": "Ihre Mission Im internen Review-Team haben Sie folgende Aufgaben:\n• Durchführung interner Überprüfungsverpflichtungen gemäß den Anforderungen der Revisionsstandards (IPPF)\n• Bewerten und überprüfen Sie Managementprozesse und Projekte, identifizieren Sie Schwächen und Risiken und entwickeln Sie Verbesserungsvorschläge mit Mehrwert\n• Verfassen Sie Auditberichte und teilen Sie die Ergebnisse den betroffenen Personen klar mit\n• In ständigem Kontakt mit Beamten zu stehen und die Umsetzung der Überprüfungsempfehlungen zu überwachen Dein Profil\n• Master-Abschluss / Bachelor (Universität / High School) in Wirtschaft oder Management Informatik\n• Mindestens zwei Jahre praktische Erfahrung im internen oder externen Audit\n• CIA, CISA oder gleichwertige Zertifizierung oder Bereitschaft, diese Zertifizierung zu erhalten\n• Konzeptioneller, analytischer und methodischer Ansatz\n• Einfacher und präziser Ausdruck in Französisch (mündlich und schriftlich) gute Deutschkenntnisse\n• Hervorragende Kommunikationsfähigkeiten, soziale Fähigkeiten, Fähigkeit, als Team zu arbeiten und zu verhängen, Autonomie in der Arbeit Was wir anbieten\n• Eine vielseitige Funktion mit Verantwortlichkeiten im dynamischen Umfeld der elektronischen Medien und des öffentlichen Dienstes\n• Eine anregende und benutzerfreundliche Arbeitsumgebung\n• Moderne Bedingungen des Engagements\n• Gute Ausbildungs- und Entwicklungsmöglichkeiten\n• Verschiedene Themen und Gesprächspartner auf allen Ebenen Fragen? Über den Rekrutierungsprozess Silvia Flück HR Partner Phone +41 58 136 10 73 Die Interne Überprüfung ist das Prüfungs- und Beratungsgremium, das das Risikomanagement, das Management und die Kontrolle der SSR kontinuierlich analysiert und verbessert.",
+        "fr": "Votre mission Au sein de l'équipe Révision interne , vous assumez les responsabilités suivantes :\n• Réaliser des missions de révision interne en respectant les exigences des normes de révision (IPPF)\n• Evaluer et examiner les processus de gestion et les projets, identifier les points faibles ainsi que les risques et élaborer des propositions d'amélioration apportant une valeur ajoutée\n• Rédiger des rapports d'audit et communiquer les résultats aux personnes concernées de manière claire\n• Etre en contact permanent avec les responsables et vérifier la mise en œuvre des recommandations de révision Votre profil\n• Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion\n• Au moins deux ans d'expérience pratique dans l'audit interne ou externe\n• Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification\n• Esprit conceptuel et analytique et approche méthodique\n• Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand\n• Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail Ce que nous vous offrons\n• Une fonction polyvalente avec responsabilités dans l'environnement dynamique des médias électroniques et du service public\n• Un environnement de travail stimulant et convivial\n• Des conditions d'engagement modernes\n• De bonnes possibilités de formation et de perfectionnement\n• Des thèmes variés et des interlocuteur.trices à tous les niveaux Des questions? A propos du processus de recrutement Silvia Flück Partenaire RH Téléphone +41 58 136 10 73 La Révision interne est l'organe d'audit et de conseil qui analyse et améliore en continu la gestion des risques, le pilotage et le contrôle de la SSR."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-10T22:03:29.364Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Marketing / Comunicazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
+      "requirements": [
+        "Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion",
+        "Au moins deux ans d'expérience pratique dans l'audit interne ou externe",
+        "Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification",
+        "Esprit conceptuel et analytique et approche méthodique",
+        "Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand",
+        "Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion",
+          "Au moins deux ans d'expérience pratique dans l'audit interne ou externe",
+          "Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification",
+          "Esprit conceptuel et analytique et approche méthodique",
+          "Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "52527d21-58ff-4fab-bcc4-663b0b2d7623",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 50,
+        "pensumMax": 50
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-srg-ssr-bern-2",
+        "auditeur-trice-interne-srg-ssr-bern",
+        "revisore-interno-srg-ssr-bern-97427c"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-srg-ssr-bern-2",
+          "auditeur-trice-interne-srg-ssr-bern",
+          "revisore-interno-srg-ssr-bern-97427c"
+        ],
+        "en": [
+          "auditeur-trice-interne-srg-ssr-bern-2"
+        ],
+        "de": [
+          "auditeur-trice-interne-srg-ssr-bern-2"
+        ]
+      },
+      "firstSeenAt": "2026-06-30T23:26:48.032Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-264e7f909cb4",
+      "slug": "stage-nel-settore-eventi-e-mediapartenariati-srg-ssr-comano",
+      "slugByLocale": {
+        "it": "stage-nel-settore-eventi-e-mediapartenariati-srg-ssr-comano",
+        "en": "internships-in-the-events-and-media-partnership-sector-srg-ssr-comano",
+        "de": "buhnen-im-bereich-event-und-mediapartnerships-srg-ssr-comano",
+        "fr": "stages-dans-le-secteur-des-partenariats-evenementiels-et-mediatiques-srg-ssr-comano"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Stage nel settore eventi e mediapartenariati",
+      "titleByLocale": {
+        "it": "Stage nel settore eventi e mediapartenariati",
+        "en": "Internships in the events and media partnership sector",
+        "de": "Bühnen im Bereich Event und Mediapartnerships",
+        "fr": "Stages dans le secteur des partenariats événementiels et médiatiques"
+      },
+      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Supporto alla pianificazione logistica degli eventi.\n• Gestione delle prenotazioni per gli eventi da parte del pubblico.\n• Coordinamento del personale di supporto (hostess e steward) per gli eventi.\n• Partecipazione alle attività operative sul campo.\n• Collaborazione alla creazione di contenuti e materiali promozionali. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?\n• Sei una persona dinamica, flessibile e resistente allo stress?\n• Possiedi buone capacità organizzative e attenzione ai dettagli?\n• Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?\n• Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? Info sul processo di candidatura Stage di 4 mesi, tra fine agosto e dicembre 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 26 luglio 2026 . La RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+      "descriptionByLocale": {
+        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Supporto alla pianificazione logistica degli eventi.\n• Gestione delle prenotazioni per gli eventi da parte del pubblico.\n• Coordinamento del personale di supporto (hostess e steward) per gli eventi.\n• Partecipazione alle attività operative sul campo.\n• Collaborazione alla creazione di contenuti e materiali promozionali. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?\n• Sei una persona dinamica, flessibile e resistente allo stress?\n• Possiedi buone capacità organizzative e attenzione ai dettagli?\n• Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?\n• Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? Info sul processo di candidatura Stage di 4 mesi, tra fine agosto e dicembre 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 26 luglio 2026 . La RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Support for event logistics planning.\n• Reservation management for events by the public.\n• Coordination of support staff (hostess and steward) for events.\n• Participation in field operations.\n• Collaboration with the creation of promotional materials and content. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Do you have a strong interest in the world of events and communication?\n• Are you a dynamic, flexible and stress-resistant person?\n• Do you have good organizational skills and attention to detail?\n• Are you able to establish interpersonal relationships and like teamwork?\n• Can you adapt to irregular working hours and have a driver's license?\n• Do you have any good knowledge of Swiss territory and general culture?\n• Knowledge of national languages and English is a preferential title! Any further questions? Info on the 4 month internship application process, between late August and December 2026, the workplace is in Comano. Applying is easy! Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Radiotelevision Act (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Unterstützung bei der Planung der Eventlogistik.\n• Reservierungsmanagement für Veranstaltungen durch die Öffentlichkeit.\n• Koordination des Supportpersonals (Hostess und Steward) für Veranstaltungen.\n• Teilnahme an Feldoperationen.\n• Zusammenarbeit mit der Erstellung von Werbematerialien und Inhalten. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Haben Sie ein starkes Interesse an der Welt der Ereignisse und Kommunikation?\n• Sind Sie eine dynamische, flexible und stressresistente Person?\n• Haben Sie gute organisatorische Fähigkeiten und Liebe zum Detail?\n• Können Sie zwischenmenschliche Beziehungen aufbauen und Teamwork mögen?\n• Können Sie sich an unregelmäßige Arbeitszeiten anpassen und einen Führerschein besitzen?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Weitere Fragen? Infos zum 4-monatigen Bewerbungsprozess, zwischen Ende August und Dezember 2026 befindet sich der Arbeitsplatz in Comano. Die Bewerbung ist einfach! Nur Bewerbungen, die über jobs.rsi.ch eingereicht werden, werden von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Radiotelevision Act (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Soutien à la planification logistique des événements.\n• Gestion des réservations pour les événements du public.\n• Coordination du personnel d'appui (hôtesse et intendant) pour les événements.\n• Participation aux opérations sur le terrain.\n• Collaboration avec la création de matériel et de contenu promotionnels. Toi ?\n• Vous allez à l'université (ou à une école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Avez-vous un grand intérêt pour le monde des événements et de la communication?\n• Êtes-vous une personne dynamique, flexible et résistante au stress?\n• Avez-vous de bonnes compétences organisationnelles et une bonne attention aux détails?\n• Êtes-vous capable d'établir des relations interpersonnelles et comme le travail d'équipe?\n• Pouvez-vous vous adapter aux horaires de travail irréguliers et avoir un permis de conduire ?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! D'autres questions ? Info sur le processus de candidature de 4 mois, entre fin août et décembre 2026, le lieu de travail est à Comano. Appliquer est facile! Seules les demandes soumises par jobs.rsi.ch seront examinées et accompagnées d'une lettre de motivation, d'un CV et d'un certificat de participation ou d'un diplôme universitaire. RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions radiophoniques, télévisées et numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
+      },
+      "location": "Comano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-10T22:03:28.659Z",
+      "addressLocality": "Comano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6949",
+      "streetAddress": "via Cureglia 38",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
+      "requirements": [
+        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+        "Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?",
+        "Sei una persona dinamica, flessibile e resistente allo stress?",
+        "Possiedi buone capacità organizzative e attenzione ai dettagli?",
+        "Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?",
+        "Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?",
+        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
+        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+          "Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?",
+          "Sei una persona dinamica, flessibile e resistente allo stress?",
+          "Possiedi buone capacità organizzative e attenzione ai dettagli?",
+          "Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?",
+          "Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?",
+          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
+          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "9bece2f2-6173-4517-ba54-75721cbd91a6",
+        "org": "rsi",
+        "orgLabel": "RSI",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-07-02T12:13:15.488Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "srg-ssr-24aa89531c10",
+      "slug": "stage-nella-redazione-digitale-rsi-cultura-srg-ssr-comano",
+      "slugByLocale": {
+        "it": "stage-nella-redazione-digitale-rsi-cultura-srg-ssr-comano",
+        "en": "stage-in-digital-editing-rsi-culture-srg-ssr-comano",
+        "de": "buhne-im-digital-editing-rsi-culture-srg-ssr-comano",
+        "fr": "etape-du-montage-numerique-rsi-culture-srg-ssr-comano"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Stage nella redazione digitale RSI Cultura",
+      "titleByLocale": {
+        "it": "Stage nella redazione digitale RSI Cultura",
+        "en": "Stage in digital editing RSI Culture",
+        "de": "Bühne im Digital Editing RSI Culture",
+        "fr": "Étape du montage numérique RSI Culture"
+      },
+      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Valorizzazione dell'offerta culturale radio e TV della RSI sul digitale.\n• Redazione di articoli per il portale RSI Cultura.\n• Creazione di contenuti per i canali social di RSI Cultura.\n• Collaborazione alle attività quotidiane della redazione digitale. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano il mondo della cultura e la produzione di contenuti digitali?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?\n• Sei una persona curiosa, proattiva e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura mercoledì 29 luglio 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+      "descriptionByLocale": {
+        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Valorizzazione dell'offerta culturale radio e TV della RSI sul digitale.\n• Redazione di articoli per il portale RSI Cultura.\n• Creazione di contenuti per i canali social di RSI Cultura.\n• Collaborazione alle attività quotidiane della redazione digitale. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano il mondo della cultura e la produzione di contenuti digitali?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?\n• Sei una persona curiosa, proattiva e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura mercoledì 29 luglio 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
+        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Evaluation of RSI's cultural radio and TV offer on digital.\n• Writing of articles for the portal RSI Culture.\n• Content creation for social channels of CSR Culture.\n• Collaboration with the daily activities of digital editing. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Are you interested in the world of culture and the production of digital content?\n• Do you have good communication and writing skills?\n• Would you like to work in a digital editor and learn about the tools of online communication?\n• Are you a curious, proactive and team-oriented person?\n• Do you have any good knowledge of Swiss territory and general culture?\n• Knowledge of national languages and English is a preferential title! What do we offer more questions? About the 6-month internship application process, between September 2026 and February 2027, the workplace is in Comano. Applying is easy Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. The deadline for submission of the application on Wednesday 29 July 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Radiotelevision Act (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
+        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Evaluierung des kulturellen Radio- und TV-Angebots von RSI im digitalen Bereich.\n• Schreiben von Artikeln für das Portal RSI Culture.\n• Erstellung von Inhalten für soziale Kanäle der CSR-Kultur.\n• Zusammenarbeit mit den täglichen Aktivitäten der digitalen Bearbeitung. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Sie interessieren sich für die Welt der Kultur und die Produktion von digitalen Inhalten?\n• Haben Sie gute Kommunikation und Schreibfähigkeiten?\n• Möchten Sie in einem digitalen Editor arbeiten und sich über die Werkzeuge der Online-Kommunikation informieren?\n• Sind Sie eine neugierige, proaktive und teamorientierte Person?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Was bieten wir mehr Fragen an? Über den 6-monatigen Bewerbungsprozess für Praktika zwischen September 2026 und Februar 2027 befindet sich der Arbeitsplatz in Comano. Bewerbung ist einfach Nur über jobs.rsi.ch eingereichte Bewerbungen werden berücksichtigt und von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. Die Frist für die Einreichung des Antrags am Mittwoch, den 29. Juli 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Radiotelevision Act (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
+        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Évaluation de l'offre de radio et de télévision culturelles de RSI sur le numérique.\n• Rédaction d'articles pour le portail RSI Culture.\n• Création de contenu pour les canaux sociaux de la culture RSE.\n• Collaboration avec les activités quotidiennes du montage numérique. Toi ?\n• Vous allez à l'université (ou à une école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Êtes-vous intéressé par le monde de la culture et de la production de contenu numérique?\n• Avez-vous de bonnes compétences en communication et en écriture?\n• Aimeriez-vous travailler dans un éditeur numérique et apprendre les outils de communication en ligne?\n• Êtes-vous une personne curieuse, proactive et orientée vers l'équipe?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! Que proposons-nous d'autres questions? À propos du processus de candidature de 6 mois, entre septembre 2026 et février 2027, le lieu de travail est à Comano. La candidature est facile Seules les candidatures soumises par jobs.rsi.ch seront prises en considération et accompagnées d'une lettre de motivation, d'un CV et d'un certificat de participation ou d'un diplôme universitaire. Date limite pour le dépôt de la demande: mercredi 29 juillet 2026. LA RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions radiophoniques, télévisées et numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
+      },
+      "location": "Comano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-10T22:03:27.861Z",
+      "addressLocality": "Comano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6949",
+      "streetAddress": "via Cureglia 38",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
+      "requirements": [
+        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+        "Ti interessano il mondo della cultura e la produzione di contenuti digitali?",
+        "Possiedi buone competenze comunicative e di scrittura?",
+        "Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?",
+        "Sei una persona curiosa, proattiva e orientata al lavoro di squadra?",
+        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
+        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
+          "Ti interessano il mondo della cultura e la produzione di contenuti digitali?",
+          "Possiedi buone competenze comunicative e di scrittura?",
+          "Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?",
+          "Sei una persona curiosa, proattiva e orientata al lavoro di squadra?",
+          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
+          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "38f358d6-97d8-49ea-8676-555f9adf6966",
+        "org": "rsi",
+        "orgLabel": "RSI",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-07-02T22:57:28.962Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-a269cc50ab65",
@@ -1265,7 +1673,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-spam-e-young-unit-rsi/f758873d-0a18-44da-92a2-77451acbd13e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:06.530Z",
+      "crawledAt": "2026-07-10T22:03:18.357Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1308,6 +1716,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T22:57:28.118Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1353,7 +1762,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-redazione-sportiva-digitale/09f45389-a3b1-4856-a944-aeac0e046644",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:05.639Z",
+      "crawledAt": "2026-07-10T22:03:15.640Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1396,6 +1805,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-07T11:57:58.242Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1441,7 +1851,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/business-controller-offre-regionale-rts-contrat-a-duree-maximale/fdb4d9ca-c568-42ce-b6ec-ebb1195631a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:59:04.703Z",
+      "crawledAt": "2026-07-10T22:03:14.882Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1483,11 +1893,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+        "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
+        "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
+          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
+          "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern"
         ],
         "en": [
           "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
@@ -1497,6 +1909,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:12:18.194Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1542,7 +1955,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-musicale-rete-due/3cc6c92a-0f29-4989-b512-dcdd43e54ec7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:03.773Z",
+      "crawledAt": "2026-07-10T22:03:14.121Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1587,6 +2000,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-09T22:23:16.448Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1603,28 +2017,28 @@
     },
     {
       "id": "srg-ssr-2c91b76d0eec",
-      "slug": "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+      "slug": "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
       "slugByLocale": {
+        "it": "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "en": "managing-director-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
         "de": "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "it": "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "en": "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "fr": "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "fr": "directeur-general-a-srg-bern-freiburg-wallis-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
       "title": "Geschäftsführer:in SRG Bern Freiburg Wallis",
       "titleByLocale": {
-        "de": "Geschäftsführer:in SRG Bern Freiburg Wallis",
         "it": "Amministratore delegato: in SRG Bern Freiburg Wallis",
         "en": "Managing Director: in SRG Bern Freiburg Wallis",
+        "de": "Geschäftsführer:in SRG Bern Freiburg Wallis",
         "fr": "Directeur général: à SRG Bern Freiburg Wallis"
       },
       "description": "Das ist dein Beitrag\n• Du führst die Geschäftsstelle der SRG BE FR VS mit einer Stellvertretung und arbeitest eng mit dem Präsidium zusammen, um die operativen Geschäfte und die strategische Weiterentwicklung der Genossenschaft sicherzustellen.\n• Du bereitest die Geschäfte des Vorstands vor, koordinierst aktiv deren Umsetzung, betreust die Genossenschaftsmitglieder und gestaltest und organisierst Veranstaltungen sowie die Generalversammlung.\n• Du planst und gestaltest die Kommunikation und die Öffentlichkeitsarbeit mit und stellst deren Veröffentlichung sicher.\n• Du trägst die Verantwortung für Budget, Buchhaltung und Jahresabschluss und stellst die Zusammenarbeit mit den SRG-Gremien und SRF sicher. Das bringst du mit\n• Du verfügst über einen höheren Bildungsabschluss bzw. Berufserfahrung und bringst Erfahrung in Projektmanagement, Eventorganisation, Kommunikation und administrativen Aufgaben mit.\n• Kenntnisse in Finanzen und Führung sind ein Plus.\n• Du bist eine kommunikative und initiative Persönlichkeit mit Organisationstalent und Freude am Umgang mit unterschiedlichsten Menschen und Anspruchsgruppen.\n• Du interessierst dich für gesellschaftliche Themen und den medialen Service public, denkst strategisch und bewegst dich mit Offenheit in bestehenden wie auch sich wandelnden Strukturen. Das bieten wir dir\n• Dich erwartet eine sinnstiftende Aufgabe im öffentlichen Interesse\n• Du verfügst über grossen Gestaltungsspielraum und viel Flexibilität bei der Organisation deiner Arbeit.\n• Du profitierst von einer engen Zusammenarbeit mit engagierten Gremien und Partnerorganisationen.\n• Wir bieten dir eine der Verantwortung entsprechende Entlöhnung sowie die Möglichkeit, die Zukunft des medialen Service public in der Region aktiv mitzugestalten. Noch Fragen? zum Bewerbungsprozess Oliver Wolf HR Berater Telefon +41 58 135 02 79 Du willst Medien, Politik und Gesellschaft näher zusammenbringen? Dann gestalte mit uns den medialen Service public in der Region. Die SRG Bern Freiburg Wallis ist Teil der SRG SSR. Als Brücke zwischen der Zivilgesellschaft und dem Unternehmen SRF setzen wir uns für den medialen Service public in unserer Region ein. Wir organisieren Veranstaltungen, fördern den Dialog zwischen Publikum, Politik und Medien und engagieren uns medienpolitisch für einen unabhängigen Journalismus. Möchtest du gemeinsam mit einem engagierten Vorstand die Zukunft unserer Genossenschaft aktiv mitgestalten? In unserer Geschäftsstelle erwartet dich eine abwechslungsreiche Aufgabe mit grossem Gestaltungsspielraum – mitten im gesellschaftlichen Diskurs, nahe an Medien, Politik und Öffentlichkeit. Dabei agierst du in einer kleinen Geschäftsstelle mit viel Eigenverantwortung – aber in direkter Nähe zur SRG bzw. SRF und deren sich wandelnden Strukturen.",
       "descriptionByLocale": {
-        "de": "Das ist dein Beitrag\n• Du führst die Geschäftsstelle der SRG BE FR VS mit einer Stellvertretung und arbeitest eng mit dem Präsidium zusammen, um die operativen Geschäfte und die strategische Weiterentwicklung der Genossenschaft sicherzustellen.\n• Du bereitest die Geschäfte des Vorstands vor, koordinierst aktiv deren Umsetzung, betreust die Genossenschaftsmitglieder und gestaltest und organisierst Veranstaltungen sowie die Generalversammlung.\n• Du planst und gestaltest die Kommunikation und die Öffentlichkeitsarbeit mit und stellst deren Veröffentlichung sicher.\n• Du trägst die Verantwortung für Budget, Buchhaltung und Jahresabschluss und stellst die Zusammenarbeit mit den SRG-Gremien und SRF sicher. Das bringst du mit\n• Du verfügst über einen höheren Bildungsabschluss bzw. Berufserfahrung und bringst Erfahrung in Projektmanagement, Eventorganisation, Kommunikation und administrativen Aufgaben mit.\n• Kenntnisse in Finanzen und Führung sind ein Plus.\n• Du bist eine kommunikative und initiative Persönlichkeit mit Organisationstalent und Freude am Umgang mit unterschiedlichsten Menschen und Anspruchsgruppen.\n• Du interessierst dich für gesellschaftliche Themen und den medialen Service public, denkst strategisch und bewegst dich mit Offenheit in bestehenden wie auch sich wandelnden Strukturen. Das bieten wir dir\n• Dich erwartet eine sinnstiftende Aufgabe im öffentlichen Interesse\n• Du verfügst über grossen Gestaltungsspielraum und viel Flexibilität bei der Organisation deiner Arbeit.\n• Du profitierst von einer engen Zusammenarbeit mit engagierten Gremien und Partnerorganisationen.\n• Wir bieten dir eine der Verantwortung entsprechende Entlöhnung sowie die Möglichkeit, die Zukunft des medialen Service public in der Region aktiv mitzugestalten. Noch Fragen? zum Bewerbungsprozess Oliver Wolf HR Berater Telefon +41 58 135 02 79 Du willst Medien, Politik und Gesellschaft näher zusammenbringen? Dann gestalte mit uns den medialen Service public in der Region. Die SRG Bern Freiburg Wallis ist Teil der SRG SSR. Als Brücke zwischen der Zivilgesellschaft und dem Unternehmen SRF setzen wir uns für den medialen Service public in unserer Region ein. Wir organisieren Veranstaltungen, fördern den Dialog zwischen Publikum, Politik und Medien und engagieren uns medienpolitisch für einen unabhängigen Journalismus. Möchtest du gemeinsam mit einem engagierten Vorstand die Zukunft unserer Genossenschaft aktiv mitgestalten? In unserer Geschäftsstelle erwartet dich eine abwechslungsreiche Aufgabe mit grossem Gestaltungsspielraum – mitten im gesellschaftlichen Diskurs, nahe an Medien, Politik und Öffentlichkeit. Dabei agierst du in einer kleinen Geschäftsstelle mit viel Eigenverantwortung – aber in direkter Nähe zur SRG bzw. SRF und deren sich wandelnden Strukturen.",
         "it": "Questo è il tuo contributo\n• Potrai gestire l'ufficio di SRG BE FR VS con un vice e lavorare a stretto contatto con il consiglio di amministrazione per garantire il business operativo e lo sviluppo strategico della cooperativa.\n• Preparate l'attività del Consiglio, coordinate attivamente la sua attuazione, supervisionate i membri della cooperativa e organizzate eventi e l'Assemblea Generale.\n• Pianifica e modella la comunicazione e le relazioni pubbliche e assicura la loro pubblicazione.\n• Lei è responsabile del bilancio, del bilancio contabile e del bilancio e garantisce la collaborazione con gli organi SRG e SRF. Lo porti con te.\n• Hai un grado di istruzione superiore o un'esperienza professionale e porta esperienza nella gestione del progetto, organizzazione eventi, comunicazione e compiti amministrativi.\n• La conoscenza della finanza e della leadership è un vantaggio.\n• Sei una personalità comunicativa e di iniziativa con talento organizzativo e piacere nel trattare con persone e stakeholder diversi.\n• Sei interessato agli argomenti sociali e al pubblico dei media, pensa in modo strategico e si muove con apertura nelle strutture esistenti e mutevoli. Questo è ciò che vi offriamo\n• Un compito significativo vi aspetta nell'interesse pubblico\n• Hai molto spazio per la manovra e molta flessibilità nell'organizzazione del tuo lavoro.\n• Lei beneficia di una stretta collaborazione con comitati impegnati e organizzazioni partner.\n• Vi offriamo una remunerazione corrispondente alla responsabilità e l'opportunità di plasmare attivamente il futuro del servizio multimediale pubblico nella regione. Ancora domande? sul processo di applicazione Oliver Wolf consulente telefonica +41 58 135 02 79 Vuoi avvicinare i media, la politica e la società? Quindi plasmare il servizio di stampa pubblico nella regione con noi. SRG Bern Freiburg Wallis fa parte della SSR. Come ponte tra la società civile e la società SRF, ci impegniamo al pubblico dei media nella nostra regione. Organizziamo eventi, promuoviamo il dialogo tra il pubblico, la politica e i media e ci impegniamo al giornalismo indipendente nella politica dei media. Vorresti plasmare attivamente il futuro della nostra cooperativa insieme a una tavola dedicata? Nel nostro ufficio, ci si può aspettare un compito vario con una grande quantità di spazio per la manovra – nel mezzo del discorso sociale, vicino ai media, alla politica e al pubblico. Si agisce in un piccolo ufficio con un sacco di auto-responsabilità – ma nelle immediate vicinanze della SRG o SRF e delle sue strutture mutevoli.",
         "en": "This is your contribution\n• You will manage the office of SRG BE FR VS with a deputy and work closely with the board to ensure the operational business and the strategic development of the cooperative.\n• You prepare the business of the Board, actively coordinate its implementation, supervise the members of the cooperative and organise events and the General Assembly.\n• You plan and shape the communication and public relations work and ensure their publication.\n• You are responsible for budget, accounting and financial statements and ensure cooperation with the SRG bodies and SRF. You bring that with you\n• You have a higher education degree or Professional experience and brings experience in project management, event organization, communication and administrative tasks.\n• Knowledge of finance and leadership is a plus.\n• You are a communicative and initiative personality with organizational talent and pleasure in dealing with different people and stakeholders.\n• You are interested in social topics and the media service public, think strategically and move with openness in existing and changing structures. This is what we offer you\n• A meaningful task awaits you in the public interest\n• You have a lot of room for manoeuvre and a lot of flexibility in organizing your work.\n• You benefit from close cooperation with committed committees and partner organisations.\n• We offer you a remuneration corresponding to the responsibility and the opportunity to actively shape the future of the media service public in the region. Still questions? on the application process Oliver Wolf HR consultant telephone +41 58 135 02 79 You want to bring media, politics and society closer together? Then shape the public media service in the region with us. SRG Bern Freiburg Wallis is part of SRG SSR. As a bridge between civil society and the company SRF, we are committed to the media service public in our region. We organize events, promote dialogue between the public, politics and the media and are committed to independent journalism in media policy. Would you like to actively shape the future of our cooperative together with a dedicated board? In our office, you can expect a varied task with a great deal of room for manoeuvre – in the middle of social discourse, close to the media, politics and the public. You act in a small office with a lot of self-responsibility – but in the immediate vicinity of the SRG or SRF and its changing structures.",
+        "de": "Das ist dein Beitrag\n• Du führst die Geschäftsstelle der SRG BE FR VS mit einer Stellvertretung und arbeitest eng mit dem Präsidium zusammen, um die operativen Geschäfte und die strategische Weiterentwicklung der Genossenschaft sicherzustellen.\n• Du bereitest die Geschäfte des Vorstands vor, koordinierst aktiv deren Umsetzung, betreust die Genossenschaftsmitglieder und gestaltest und organisierst Veranstaltungen sowie die Generalversammlung.\n• Du planst und gestaltest die Kommunikation und die Öffentlichkeitsarbeit mit und stellst deren Veröffentlichung sicher.\n• Du trägst die Verantwortung für Budget, Buchhaltung und Jahresabschluss und stellst die Zusammenarbeit mit den SRG-Gremien und SRF sicher. Das bringst du mit\n• Du verfügst über einen höheren Bildungsabschluss bzw. Berufserfahrung und bringst Erfahrung in Projektmanagement, Eventorganisation, Kommunikation und administrativen Aufgaben mit.\n• Kenntnisse in Finanzen und Führung sind ein Plus.\n• Du bist eine kommunikative und initiative Persönlichkeit mit Organisationstalent und Freude am Umgang mit unterschiedlichsten Menschen und Anspruchsgruppen.\n• Du interessierst dich für gesellschaftliche Themen und den medialen Service public, denkst strategisch und bewegst dich mit Offenheit in bestehenden wie auch sich wandelnden Strukturen. Das bieten wir dir\n• Dich erwartet eine sinnstiftende Aufgabe im öffentlichen Interesse\n• Du verfügst über grossen Gestaltungsspielraum und viel Flexibilität bei der Organisation deiner Arbeit.\n• Du profitierst von einer engen Zusammenarbeit mit engagierten Gremien und Partnerorganisationen.\n• Wir bieten dir eine der Verantwortung entsprechende Entlöhnung sowie die Möglichkeit, die Zukunft des medialen Service public in der Region aktiv mitzugestalten. Noch Fragen? zum Bewerbungsprozess Oliver Wolf HR Berater Telefon +41 58 135 02 79 Du willst Medien, Politik und Gesellschaft näher zusammenbringen? Dann gestalte mit uns den medialen Service public in der Region. Die SRG Bern Freiburg Wallis ist Teil der SRG SSR. Als Brücke zwischen der Zivilgesellschaft und dem Unternehmen SRF setzen wir uns für den medialen Service public in unserer Region ein. Wir organisieren Veranstaltungen, fördern den Dialog zwischen Publikum, Politik und Medien und engagieren uns medienpolitisch für einen unabhängigen Journalismus. Möchtest du gemeinsam mit einem engagierten Vorstand die Zukunft unserer Genossenschaft aktiv mitgestalten? In unserer Geschäftsstelle erwartet dich eine abwechslungsreiche Aufgabe mit grossem Gestaltungsspielraum – mitten im gesellschaftlichen Diskurs, nahe an Medien, Politik und Öffentlichkeit. Dabei agierst du in einer kleinen Geschäftsstelle mit viel Eigenverantwortung – aber in direkter Nähe zur SRG bzw. SRF und deren sich wandelnden Strukturen.",
         "fr": "C'est votre contribution\n• Vous gérerez le bureau de SRG BE FR VS avec un adjoint et travaillerez en étroite collaboration avec le conseil pour assurer l'activité opérationnelle et le développement stratégique de la coopérative.\n• Vous préparez les travaux du Conseil, coordonnez activement sa mise en œuvre, supervisez les membres de la coopérative et organisez les manifestations et l'Assemblée générale.\n• Vous planifiez et façonnez le travail de communication et de relations publiques et assurez leur publication.\n• Vous êtes responsable du budget, de la comptabilité et des états financiers et vous assurez la coopération avec les organes du GRS et du FRS. Apporte ça avec toi.\n• Vous avez un diplôme d'études supérieures ou une expérience professionnelle et apporte de l'expérience en gestion de projet, organisation d'événements, communication et tâches administratives.\n• La connaissance de la finance et du leadership est un atout.\n• Vous êtes une personnalité communicative et d'initiative avec le talent organisationnel et le plaisir de traiter avec différentes personnes et parties prenantes.\n• Vous êtes intéressé par les sujets sociaux et le service des médias public, pensez stratégiquement et bougez avec ouverture dans les structures existantes et en évolution. C'est ce que nous vous offrons.\n• Une tâche significative vous attend dans l'intérêt public\n• Vous avez beaucoup de marge de manoeuvre et beaucoup de flexibilité dans l'organisation de votre travail.\n• Vous bénéficiez d'une coopération étroite avec les comités engagés et les organisations partenaires.\n• Nous vous offrons une rémunération correspondant à la responsabilité et la possibilité de façonner activement l'avenir du service des médias dans la région. Toujours des questions sur le processus de demande Oliver Wolf Conseiller en RH Téléphone +41 58 135 02 79 Vous voulez rapprocher les médias, la politique et la société ? Alors façonnez le service public des médias de la région avec nous. SRG Bern Freiburg Wallis fait partie de SRG SSR. En tant que pont entre la société civile et la société SRF, nous nous engageons auprès du public du service des médias de notre région. Nous organisons des événements, promouvons le dialogue entre le public, la politique et les médias et nous sommes engagés dans le journalisme indépendant dans la politique des médias. Souhaitez-vous façonner activement l'avenir de notre coopérative avec un conseil d'administration dédié? Dans notre bureau, vous pouvez vous attendre à une tâche variée avec beaucoup de marge de manœuvre – au milieu du discours social, proche des médias, de la politique et du public. Vous agissez dans un petit bureau avec beaucoup d'autoresponsabilité – mais à proximité immédiate du SRG ou du SRF et de ses structures changeantes."
       },
       "location": "Zürich",
@@ -1632,7 +2046,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:02.798Z",
+      "crawledAt": "2026-07-10T22:03:13.384Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1655,10 +2069,7 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Du verfügst über einen höheren Bildungsabschluss bzw. Berufserfahrung und bringst Erfahrung in Projektmanagement, Eventorganisation, Kommunikation und administrativen Aufgaben mit.",
-          "Kenntnisse in Finanzen und Führung sind ein Plus.",
-          "Du bist eine kommunikative und initiative Persönlichkeit mit Organisationstalent und Freude am Umgang mit unterschiedlichsten Menschen und Anspruchsgruppen.",
-          "Du interessierst dich für gesellschaftliche Themen und den medialen Service public, denkst strategisch und bewegst dich mit Offenheit in bestehenden wie auch sich wandelnden Strukturen."
+          "Kenntnisse in Finanzen und Führung sind ein Plus."
         ]
       },
       "_srgMeta": {
@@ -1668,20 +2079,35 @@
         "pensumMin": 70,
         "pensumMax": 70
       },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-07-10T11:59:02.798Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+      ],
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T11:59:02.798Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-39f924e74956",
@@ -1698,9 +2124,9 @@
       "title": "Stage nella redazione di attualità e approfondimento di Rete Due",
       "titleByLocale": {
         "it": "Stage nella redazione di attualità e approfondimento di Rete Due",
-        "fr": "Étape dans l'actualité et l'approfondissement de Rete Due",
         "en": "Stage in topical and deepening of Rete Due",
-        "de": "Bühne in der aktuellen und Vertiefung von Rete Due"
+        "de": "Bühne in der aktuellen und Vertiefung von Rete Due",
+        "fr": "Stage nella redazione di attualità e approfondimento di Rete Due"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Partecipazione alla vita di redazione, redazione di canovacci che spaziano tra temi e discipline: letteratura, cinema, spettacoli, filosofia, archiettura, scienza...\n• Ricerca e selezione delle notizie.\n• Apprendimento dell'utilizzo del software agenzie e gestione programma - Open media.\n• Apprendimento dell'utilizzo del software di montaggio audio - Digas.\n• Interazione diretta con interlocutrici/tori, ospiti ed esperti.\n• Preparazione di scalette per le interviste. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Sei una persona curiosa e interessata all'attualità?\n• Hai un forte interesse per la cultura in tutte le sue forme e declinazioni?\n• Possiedi buone competenze comunicative e di scrittura?\n• Sei una persona intraprendente e alla quale piace lavorare in squadra?\n• Conosci le principali testate culturali svizzere e italiane?\n• Possiedi delle buone conoscenze del territorio?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 10 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
@@ -1714,7 +2140,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-di-attualita-e-approfondimento-di-rete-due/edb89425-650b-4264-8797-6de0c52e66cb",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T11:59:01.922Z",
+      "crawledAt": "2026-07-10T22:03:12.605Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1758,6 +2184,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "firstSeenAt": "2026-07-10T11:59:01.922Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1770,391 +2198,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-07-10T11:59:01.922Z"
-    },
-    {
-      "id": "srg-ssr-77d1f68399d3",
-      "slug": "assistente-in-finanza-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "assistente-in-finanza-srg-ssr-bern",
-        "en": "assistant-in-finance-srg-ssr-bern",
-        "de": "assistent-in-finanzen-srg-ssr-bern",
-        "fr": "assistant-en-finances-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Assistent:in Finanzen",
-      "titleByLocale": {
-        "it": "Assistente: in Finanza",
-        "en": "Assistant: in Finance",
-        "de": "Assistent:in Finanzen",
-        "fr": "Assistant : en finances"
-      },
-      "description": "Das ist Ihr Beitrag Im Bereich Finanzen der SRG engagieren Sie sich als Mitglied des Assistenzpools für die administrative und organisatorische Unterstützung des Leitungsteams Finanzen, u. a. durch:\n• Agendaführung ausgewählter Mitglieder des Leitungsteams Finanzen\n• Terminsuche und Organisation von internen und externen Meetings, Geschäftsreisen und Anlässen\n• Bewirtschaftung der bereichsspezifischen Kommunikationskanäle (z.B. MS Teams Kanäle, Newsletter oder Intranet)\n• Organisation und Prüfung von Übersetzungen mit Schwerpunkt Deutsch und Italienisch (z.B. Präsentationen, Unterlagen und Kommunikationsinhalte)\n• Koordination von Weiterbildungsangeboten sowie Unterstützung bei Change- und Transformationsmassnahmen\n• Betreuung der Schnittstelle mit anderen Assistenzpools der SRG sowie Ferienvertretung der weiteren Assistenzperson(en) im Bereich Finanzen Damit begeistern Sie uns\n• Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen\n• Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise\n• Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen\n• Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen\n• Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift Damit begeistern wir Sie\n• Vielseitiger Einblick in die SRG im Zentrum der Finanzorganisation\n• Eine vielseitige Funktion, in der Eigeninitiative und neue Ideen gefragt sind\n• Hybrides Arbeitsmodell mit teilweise Home-Office\n• Ein engagiertes Team, das den Service public mit Leidenschaft lebt\n• Ein offenes und wertschätzendes Arbeitsklima Noch Fragen? zum Bewerbungsprozess Silvia Flück Partnerin HR zentrale Bereiche Telefon +41 58 136 10 73 Wir handeln als EIN Team für den Erfolg der SRG. Gemeinsam mit anderen Bereichen verantwortet Finanzen die strategische Steuerung, zielgerichtete Mittelallokation und schafft Transparenz für nachhaltige Entscheidungen.",
-      "descriptionByLocale": {
-        "it": "Nel settore delle finanze a SRG, come membro del pool di assistenza, si è impegnati al sostegno amministrativo e organizzativo del team di gestione finanziaria, tra cui:\n• Gestione dell'agenda dei membri selezionati del team di gestione delle finanze\n• Appuntamento ricerca e organizzazione di incontri interni ed esterni, viaggi di lavoro ed eventi\n• Gestione dei canali di comunicazione specifici (ad es. MS Canali di team, newsletter o Intranet)\n• Organizzazione ed esame delle traduzioni con particolare attenzione al tedesco e all'italiano (ad esempio presentazioni, documenti e contenuti di comunicazione)\n• Coordinamento delle opportunità di formazione e sostegno alle misure di cambiamento e di trasformazione\n• Supervisione dell'interfaccia con altri pool di assistenza della SRG così come la rappresentazione vacanza degli altri assistenti(i) nel settore della finanza\n• Diversi anni di esperienza in una funzione di assistente, idealmente di ruoli di leadership\n• Modo di lavoro orientato al servizio, strutturato e proattivo\n• Discrezione nel trattare le informazioni sensibili e la priorità affidabile delle preoccupazioni\n• L'affinità digitale include l'esperienza nell'utilizzo degli strumenti MS 365\n• La cooperazione interdisciplinare in un ambiente dinamico con l'ancoraggio in diverse regioni linguistiche\n• Molto buona conoscenza del tedesco e italiano incl. E siamo sicuri della parola e della scrittura.\n• Versatile conoscenza della SRG al centro dell'organizzazione finanziaria\n• Una funzione versatile in cui sono necessarie iniziative e nuove idee\n• Modello di lavoro ibrido con ufficio parzialmente domestico\n• Un team dedicato che vive il servizio pubblico con passione\n• Ancora domande? Silvia Flück Partner nelle aree centrali HR telefono +41 58 136 10 73 Agiamo come squadra ONE per il successo di SRG. Insieme ad altri settori, la finanza è responsabile per la gestione strategica, l'assegnazione mirata dei fondi e crea trasparenza per le decisioni sostenibili.",
-        "en": "In the area of finance at SRG, as a member of the assistance pool, you are committed to the administrative and organizational support of the finance management team, including by:\n• Agenda management of selected members of the Finance management team\n• Appointment search and organisation of internal and external meetings, business trips and events\n• Management of area-specific communication channels (e.g. MS Teams channels, newsletter or intranet)\n• Organization and examination of translations with a focus on German and Italian (e.g. presentations, documents and communication content)\n• Coordination of training opportunities and support for change and transformation measures\n• Supervision of the interface with other assistance pools of the SRG as well as holiday representation of the other assistant(s) in the area of finance Let us\n• Several years of experience in an assistant function, ideally of leadership roles\n• Service-oriented, structured and proactive way of working\n• Discretion in dealing with sensitive information and reliable prioritization of concerns\n• Digital affinity including experience in using MS 365 tools\n• Enjoying interdisciplinary cooperation in a dynamic environment with anchoring in different language regions\n• Very good knowledge of German and Italian incl. And we are sure of the word and scripture.\n• Versatile insight into the SRG at the center of the financial organization\n• A versatile function in which initiative and new ideas are required\n• Hybrid working model with partially home office\n• A dedicated team that lives the public service with passion\n• An open and appreciative working environment Still questions? Silvia Flück Partnerin HR central areas telephone +41 58 136 10 73 We act as ONE team for the success of SRG. Together with other areas, finance is responsible for strategic management, targeted allocation of funds and creates transparency for sustainable decisions.",
-        "de": "Das ist Ihr Beitrag Im Bereich Finanzen der SRG engagieren Sie sich als Mitglied des Assistenzpools für die administrative und organisatorische Unterstützung des Leitungsteams Finanzen, u. a. durch:\n• Agendaführung ausgewählter Mitglieder des Leitungsteams Finanzen\n• Terminsuche und Organisation von internen und externen Meetings, Geschäftsreisen und Anlässen\n• Bewirtschaftung der bereichsspezifischen Kommunikationskanäle (z.B. MS Teams Kanäle, Newsletter oder Intranet)\n• Organisation und Prüfung von Übersetzungen mit Schwerpunkt Deutsch und Italienisch (z.B. Präsentationen, Unterlagen und Kommunikationsinhalte)\n• Koordination von Weiterbildungsangeboten sowie Unterstützung bei Change- und Transformationsmassnahmen\n• Betreuung der Schnittstelle mit anderen Assistenzpools der SRG sowie Ferienvertretung der weiteren Assistenzperson(en) im Bereich Finanzen Damit begeistern Sie uns\n• Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen\n• Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise\n• Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen\n• Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen\n• Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift Damit begeistern wir Sie\n• Vielseitiger Einblick in die SRG im Zentrum der Finanzorganisation\n• Eine vielseitige Funktion, in der Eigeninitiative und neue Ideen gefragt sind\n• Hybrides Arbeitsmodell mit teilweise Home-Office\n• Ein engagiertes Team, das den Service public mit Leidenschaft lebt\n• Ein offenes und wertschätzendes Arbeitsklima Noch Fragen? zum Bewerbungsprozess Silvia Flück Partnerin HR zentrale Bereiche Telefon +41 58 136 10 73 Wir handeln als EIN Team für den Erfolg der SRG. Gemeinsam mit anderen Bereichen verantwortet Finanzen die strategische Steuerung, zielgerichtete Mittelallokation und schafft Transparenz für nachhaltige Entscheidungen.",
-        "fr": "Dans le domaine des finances chez SRG, en tant que membre du pool d'assistance, vous êtes engagé à l'appui administratif et organisationnel de l'équipe de gestion financière, y compris par :\n• Gestion du programme de certains membres de l'équipe de gestion des finances\n• Recherche de rendez-vous et organisation de réunions internes et externes, voyages d'affaires et événements\n• Gestion des canaux de communication spécifiques aux zones (p. ex. Chaînes d'équipes, newsletter ou intranet)\n• Organisation et examen des traductions en mettant l'accent sur l'allemand et l'italien (par exemple présentations, documents et contenu de communication)\n• Coordination des possibilités de formation et appui aux mesures de changement et de transformation\n• Supervision de l'interface avec d'autres pools d'assistance du SRG ainsi que représentation des vacances des autres assistants dans le domaine des finances\n• Plusieurs années d'expérience dans une fonction d'assistant, idéalement des rôles de leadership\n• Mode de travail axé sur les services, structuré et proactif\n• Discrétion dans le traitement des informations sensibles et priorité fiable des préoccupations\n• affinité numérique incluant l'expérience dans l'utilisation des outils MS 365\n• Profitez de la coopération interdisciplinaire dans un environnement dynamique avec ancrage dans différentes régions linguistiques\n• Très bonne connaissance de l'allemand et de l'italien incl. Et nous sommes sûrs du mot et des Écritures.\n• Aperçu polyvalent du GRS au centre de l'organisation financière\n• Une fonction polyvalente dans laquelle l'initiative et les nouvelles idées sont nécessaires\n• Modèle de travail hybride avec bureau à domicile partiel\n• Une équipe dévouée qui vit la fonction publique avec passion\n• Un environnement de travail ouvert et appréciant Des questions ? Silvia Flück Partnerin Secteurs centraux RH Téléphone +41 58 136 10 73 Nous agissons comme ONE équipe pour le succès de SRG. Avec d'autres domaines, le financement est responsable de la gestion stratégique, de l'affectation ciblée des fonds et de la transparence des décisions durables."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:23:33.885Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Schwarztorstrasse 21",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
-      "requirements": [
-        "Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen",
-        "Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise",
-        "Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen",
-        "Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools",
-        "Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen",
-        "Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Mehrjährige Erfahrung in einer Assistenzfunktion, idealerweise von Führungsrollen",
-          "Dienstleistungsoriente, strukturierte und proaktive Arbeitsweise",
-          "Diskretion im Umgang mit sensiblen Informationen und verlässliches Priorisieren von Anliegen",
-          "Digitale Affinität inklusive Erfahrung im Umgang mit MS 365-Tools",
-          "Freude an interdisziplinärer Zusammenarbeit in einem dynamischen Umfeld mit Verankerung in verschiedenen Sprachregionen",
-          "Sehr gute Kenntnisse in Deutsch und Italienisch inkl. stilsicherer Auftritt in Wort und Schrift"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "c68706e7-6382-4b0a-8976-cc7fa737e98e",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 60,
-        "pensumMax": 80
-      },
-      "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
-        ],
-        "en": [
-          "assistent-in-finanzen-srg-ssr-bern"
-        ],
-        "fr": [
-          "assistent-in-finanzen-srg-ssr-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T23:26:49.331Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-3c9d5cbb35cb",
-      "slug": "revisore-interno-srg-ssr-bern-97427c",
-      "slugByLocale": {
-        "it": "revisore-interno-srg-ssr-bern-97427c",
-        "en": "internal-auditor-srg-ssr-bern-97427c",
-        "de": "interner-prufer-srg-ssr-bern",
-        "fr": "auditeur-trice-interne-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Auditeur.trice interne",
-      "titleByLocale": {
-        "it": "Auditeur.trice interne",
-        "en": "Internal auditor",
-        "de": "Interner Prüfer",
-        "fr": "Auditeur.trice interne"
-      },
-      "description": "Votre mission Au sein de l'équipe Révision interne , vous assumez les responsabilités suivantes :\n• Réaliser des missions de révision interne en respectant les exigences des normes de révision (IPPF)\n• Evaluer et examiner les processus de gestion et les projets, identifier les points faibles ainsi que les risques et élaborer des propositions d'amélioration apportant une valeur ajoutée\n• Rédiger des rapports d'audit et communiquer les résultats aux personnes concernées de manière claire\n• Etre en contact permanent avec les responsables et vérifier la mise en œuvre des recommandations de révision Votre profil\n• Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion\n• Au moins deux ans d'expérience pratique dans l'audit interne ou externe\n• Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification\n• Esprit conceptuel et analytique et approche méthodique\n• Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand\n• Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail Ce que nous vous offrons\n• Une fonction polyvalente avec responsabilités dans l'environnement dynamique des médias électroniques et du service public\n• Un environnement de travail stimulant et convivial\n• Des conditions d'engagement modernes\n• De bonnes possibilités de formation et de perfectionnement\n• Des thèmes variés et des interlocuteur.trices à tous les niveaux Des questions? A propos du processus de recrutement Silvia Flück Partenaire RH Téléphone +41 58 136 10 73 La Révision interne est l'organe d'audit et de conseil qui analyse et améliore en continu la gestion des risques, le pilotage et le contrôle de la SSR.",
-      "descriptionByLocale": {
-        "it": "La vostra missione all'interno del team di revisione interna, avete le seguenti responsabilità:\n• Condurre gli impegni di revisione interna in conformità con gli standard di revisione (IPPF) requisiti\n• Valutare e rivedere i processi e i progetti di gestione, identificare debolezze e rischi, e sviluppare proposte di miglioramento con valore aggiunto\n• Scrivere report di audit e comunicare i risultati alle persone interessate\n• Essere in costante contatto con i funzionari e monitorare l'attuazione delle raccomandazioni di revisione Il tuo profilo\n• Master's degree/Bachelor (università/scuola superiore) in economia o gestione informatica\n• Almeno due anni di esperienza pratica nell'audit interno o esterno\n• CIA, CISA o certificazione equivalente o volontà di ottenere questa certificazione\n• Approccio concettuale, analitico e metodologico\n• Espressione facile e precisa in francese (orale e scritta) buona conoscenza del tedesco\n• Eccellente capacità di comunicazione, competenze sociali, capacità di lavorare come squadra e di imporre, autonomia nel lavoro Cosa offriamo\n• Una funzione versatile con responsabilità nell'ambiente dinamico dei media elettronici e del servizio pubblico\n• Un ambiente di lavoro stimolante e facile da usare\n• Condizioni moderne di impegno\n• Buone opportunità di formazione e sviluppo\n• Diversi temi e interlocutori a tutti i livelli Domande? Informazioni sul processo di reclutamento Silvia Flück HR Partner Telefono +41 58 136 10 73 L'Internal Review è l'organo di verifica e consulenza che analizza continuamente e migliora la gestione dei rischi, la gestione e il controllo della SSR.",
-        "en": "Your Mission Within the Internal Review team, you have the following responsibilities:\n• Conduct internal review engagements in accordance with revision standards (IPPF) requirements\n• Evaluate and review management processes and projects, identify weaknesses and risks, and develop proposals for improvement with added value\n• Write audit reports and communicate results to the persons concerned clearly\n• To be in constant contact with officials and to monitor the implementation of review recommendations Your profile\n• Master's degree/Bachelor (university/high school) in economics or management computer science\n• At least two years of practical experience in internal or external audit\n• CIA, CISA or equivalent certification or willingness to obtain this certification\n• Conceptual, analytical and methodical approach\n• Easy and precise expression in French (oral and written) good knowledge of German\n• Excellent communication skills, social skills, ability to work as a team and to impose, autonomy in the work What we offer\n• A versatile function with responsibilities in the dynamic environment of electronic media and public service\n• A stimulating and user-friendly working environment\n• Modern conditions of engagement\n• Good training and development opportunities\n• Various themes and interlocutors at all levels Questions? About the recruitment process Silvia Flück HR Partner Phone +41 58 136 10 73 The Internal Review is the audit and advisory body that continuously analyses and improves the risk management, management and control of the SSR.",
-        "de": "Ihre Mission Im internen Review-Team haben Sie folgende Aufgaben:\n• Durchführung interner Überprüfungsverpflichtungen gemäß den Anforderungen der Revisionsstandards (IPPF)\n• Bewerten und überprüfen Sie Managementprozesse und Projekte, identifizieren Sie Schwächen und Risiken und entwickeln Sie Verbesserungsvorschläge mit Mehrwert\n• Verfassen Sie Auditberichte und teilen Sie die Ergebnisse den betroffenen Personen klar mit\n• In ständigem Kontakt mit Beamten zu stehen und die Umsetzung der Überprüfungsempfehlungen zu überwachen Dein Profil\n• Master-Abschluss / Bachelor (Universität / High School) in Wirtschaft oder Management Informatik\n• Mindestens zwei Jahre praktische Erfahrung im internen oder externen Audit\n• CIA, CISA oder gleichwertige Zertifizierung oder Bereitschaft, diese Zertifizierung zu erhalten\n• Konzeptioneller, analytischer und methodischer Ansatz\n• Einfacher und präziser Ausdruck in Französisch (mündlich und schriftlich) gute Deutschkenntnisse\n• Hervorragende Kommunikationsfähigkeiten, soziale Fähigkeiten, Fähigkeit, als Team zu arbeiten und zu verhängen, Autonomie in der Arbeit Was wir anbieten\n• Eine vielseitige Funktion mit Verantwortlichkeiten im dynamischen Umfeld der elektronischen Medien und des öffentlichen Dienstes\n• Eine anregende und benutzerfreundliche Arbeitsumgebung\n• Moderne Bedingungen des Engagements\n• Gute Ausbildungs- und Entwicklungsmöglichkeiten\n• Verschiedene Themen und Gesprächspartner auf allen Ebenen Fragen? Über den Rekrutierungsprozess Silvia Flück HR Partner Phone +41 58 136 10 73 Die Interne Überprüfung ist das Prüfungs- und Beratungsgremium, das das Risikomanagement, das Management und die Kontrolle der SSR kontinuierlich analysiert und verbessert.",
-        "fr": "Votre mission Au sein de l'équipe Révision interne , vous assumez les responsabilités suivantes :\n• Réaliser des missions de révision interne en respectant les exigences des normes de révision (IPPF)\n• Evaluer et examiner les processus de gestion et les projets, identifier les points faibles ainsi que les risques et élaborer des propositions d'amélioration apportant une valeur ajoutée\n• Rédiger des rapports d'audit et communiquer les résultats aux personnes concernées de manière claire\n• Etre en contact permanent avec les responsables et vérifier la mise en œuvre des recommandations de révision Votre profil\n• Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion\n• Au moins deux ans d'expérience pratique dans l'audit interne ou externe\n• Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification\n• Esprit conceptuel et analytique et approche méthodique\n• Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand\n• Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail Ce que nous vous offrons\n• Une fonction polyvalente avec responsabilités dans l'environnement dynamique des médias électroniques et du service public\n• Un environnement de travail stimulant et convivial\n• Des conditions d'engagement modernes\n• De bonnes possibilités de formation et de perfectionnement\n• Des thèmes variés et des interlocuteur.trices à tous les niveaux Des questions? A propos du processus de recrutement Silvia Flück Partenaire RH Téléphone +41 58 136 10 73 La Révision interne est l'organe d'audit et de conseil qui analyse et améliore en continu la gestion des risques, le pilotage et le contrôle de la SSR."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:23:33.049Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Marketing / Comunicazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
-      "requirements": [
-        "Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion",
-        "Au moins deux ans d'expérience pratique dans l'audit interne ou externe",
-        "Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification",
-        "Esprit conceptuel et analytique et approche méthodique",
-        "Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand",
-        "Excellente aptitude à la communication, compétences sociales, capacité à travailler en équipe et à s'imposer, autonomie dans le travail"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Diplôme de Master/Bachelor (université/haute école) en sciences économiques ou en informatique de gestion",
-          "Au moins deux ans d'expérience pratique dans l'audit interne ou externe",
-          "Certification CIA, CISA ou équivalent ou volonté d'obtenir cette certification",
-          "Esprit conceptuel et analytique et approche méthodique",
-          "Expression aisée et précise en français (oral et écrit) bonnes connaissances de l'allemand"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "52527d21-58ff-4fab-bcc4-663b0b2d7623",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 50,
-        "pensumMax": 50
-      },
-      "previousSlugs": [
-        "auditeur-trice-interne-srg-ssr-bern-2",
-        "auditeur-trice-interne-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "auditeur-trice-interne-srg-ssr-bern-2",
-          "auditeur-trice-interne-srg-ssr-bern"
-        ],
-        "en": [
-          "auditeur-trice-interne-srg-ssr-bern-2"
-        ],
-        "de": [
-          "auditeur-trice-interne-srg-ssr-bern-2"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T23:26:48.032Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-264e7f909cb4",
-      "slug": "stage-nel-settore-eventi-e-mediapartenariati-srg-ssr-comano",
-      "slugByLocale": {
-        "it": "stage-nel-settore-eventi-e-mediapartenariati-srg-ssr-comano",
-        "en": "internships-in-the-events-and-media-partnership-sector-srg-ssr-comano",
-        "de": "buhnen-im-bereich-event-und-mediapartnerships-srg-ssr-comano",
-        "fr": "stages-dans-le-secteur-des-partenariats-evenementiels-et-mediatiques-srg-ssr-comano"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Stage nel settore eventi e mediapartenariati",
-      "titleByLocale": {
-        "it": "Stage nel settore eventi e mediapartenariati",
-        "en": "Internships in the events and media partnership sector",
-        "de": "Bühnen im Bereich Event und Mediapartnerships",
-        "fr": "Stages dans le secteur des partenariats événementiels et médiatiques"
-      },
-      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Supporto alla pianificazione logistica degli eventi.\n• Gestione delle prenotazioni per gli eventi da parte del pubblico.\n• Coordinamento del personale di supporto (hostess e steward) per gli eventi.\n• Partecipazione alle attività operative sul campo.\n• Collaborazione alla creazione di contenuti e materiali promozionali. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?\n• Sei una persona dinamica, flessibile e resistente allo stress?\n• Possiedi buone capacità organizzative e attenzione ai dettagli?\n• Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?\n• Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? Info sul processo di candidatura Stage di 4 mesi, tra fine agosto e dicembre 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 26 luglio 2026 . La RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-      "descriptionByLocale": {
-        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Supporto alla pianificazione logistica degli eventi.\n• Gestione delle prenotazioni per gli eventi da parte del pubblico.\n• Coordinamento del personale di supporto (hostess e steward) per gli eventi.\n• Partecipazione alle attività operative sul campo.\n• Collaborazione alla creazione di contenuti e materiali promozionali. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?\n• Sei una persona dinamica, flessibile e resistente allo stress?\n• Possiedi buone capacità organizzative e attenzione ai dettagli?\n• Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?\n• Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! COSA OFFRIAMO Altre domande? Info sul processo di candidatura Stage di 4 mesi, tra fine agosto e dicembre 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 26 luglio 2026 . La RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Support for event logistics planning.\n• Reservation management for events by the public.\n• Coordination of support staff (hostess and steward) for events.\n• Participation in field operations.\n• Collaboration with the creation of promotional materials and content. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Do you have a strong interest in the world of events and communication?\n• Are you a dynamic, flexible and stress-resistant person?\n• Do you have good organizational skills and attention to detail?\n• Are you able to establish interpersonal relationships and like teamwork?\n• Can you adapt to irregular working hours and have a driver's license?\n• Do you have any good knowledge of Swiss territory and general culture?\n• Knowledge of national languages and English is a preferential title! Any further questions? Info on the 4 month internship application process, between late August and December 2026, the workplace is in Comano. Applying is easy! Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Radiotelevision Act (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
-        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Unterstützung bei der Planung der Eventlogistik.\n• Reservierungsmanagement für Veranstaltungen durch die Öffentlichkeit.\n• Koordination des Supportpersonals (Hostess und Steward) für Veranstaltungen.\n• Teilnahme an Feldoperationen.\n• Zusammenarbeit mit der Erstellung von Werbematerialien und Inhalten. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Haben Sie ein starkes Interesse an der Welt der Ereignisse und Kommunikation?\n• Sind Sie eine dynamische, flexible und stressresistente Person?\n• Haben Sie gute organisatorische Fähigkeiten und Liebe zum Detail?\n• Können Sie zwischenmenschliche Beziehungen aufbauen und Teamwork mögen?\n• Können Sie sich an unregelmäßige Arbeitszeiten anpassen und einen Führerschein besitzen?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Weitere Fragen? Infos zum 4-monatigen Bewerbungsprozess, zwischen Ende August und Dezember 2026 befindet sich der Arbeitsplatz in Comano. Die Bewerbung ist einfach! Nur Bewerbungen, die über jobs.rsi.ch eingereicht werden, werden von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Radiotelevision Act (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
-        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Soutien à la planification logistique des événements.\n• Gestion des réservations pour les événements du public.\n• Coordination du personnel d'appui (hôtesse et intendant) pour les événements.\n• Participation aux opérations sur le terrain.\n• Collaboration avec la création de matériel et de contenu promotionnels. Toi ?\n• Vous allez à l'université (ou à une école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Avez-vous un grand intérêt pour le monde des événements et de la communication?\n• Êtes-vous une personne dynamique, flexible et résistante au stress?\n• Avez-vous de bonnes compétences organisationnelles et une bonne attention aux détails?\n• Êtes-vous capable d'établir des relations interpersonnelles et comme le travail d'équipe?\n• Pouvez-vous vous adapter aux horaires de travail irréguliers et avoir un permis de conduire ?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! D'autres questions ? Info sur le processus de candidature de 4 mois, entre fin août et décembre 2026, le lieu de travail est à Comano. Appliquer est facile! Seules les demandes soumises par jobs.rsi.ch seront examinées et accompagnées d'une lettre de motivation, d'un CV et d'un certificat de participation ou d'un diplôme universitaire. RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions radiophoniques, télévisées et numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
-      },
-      "location": "Comano",
-      "canton": "TI",
-      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:23:32.204Z",
-      "addressLocality": "Comano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6949",
-      "streetAddress": "via Cureglia 38",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
-      "requirements": [
-        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-        "Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?",
-        "Sei una persona dinamica, flessibile e resistente allo stress?",
-        "Possiedi buone capacità organizzative e attenzione ai dettagli?",
-        "Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?",
-        "Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?",
-        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-          "Hai uno spiccato interesse per il mondo degli eventi e della comunicazione?",
-          "Sei una persona dinamica, flessibile e resistente allo stress?",
-          "Possiedi buone capacità organizzative e attenzione ai dettagli?",
-          "Sei abile nell'instaurare rapporti interpersonali e ti piace il lavoro di squadra?",
-          "Puoi adattarti ad orari di lavoro irregolari e hai la patente di guida?",
-          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "9bece2f2-6173-4517-ba54-75721cbd91a6",
-        "org": "rsi",
-        "orgLabel": "RSI",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "firstSeenAt": "2026-07-02T12:13:15.488Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-24aa89531c10",
-      "slug": "stage-nella-redazione-digitale-rsi-cultura-srg-ssr-comano",
-      "slugByLocale": {
-        "it": "stage-nella-redazione-digitale-rsi-cultura-srg-ssr-comano",
-        "en": "stage-in-digital-editing-rsi-culture-srg-ssr-comano",
-        "de": "buhne-im-digital-editing-rsi-culture-srg-ssr-comano",
-        "fr": "etape-du-montage-numerique-rsi-culture-srg-ssr-comano"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Stage nella redazione digitale RSI Cultura",
-      "titleByLocale": {
-        "it": "Stage nella redazione digitale RSI Cultura",
-        "en": "Stage in digital editing RSI Culture",
-        "de": "Bühne im Digital Editing RSI Culture",
-        "fr": "Étape du montage numérique RSI Culture"
-      },
-      "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Valorizzazione dell'offerta culturale radio e TV della RSI sul digitale.\n• Redazione di articoli per il portale RSI Cultura.\n• Creazione di contenuti per i canali social di RSI Cultura.\n• Collaborazione alle attività quotidiane della redazione digitale. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano il mondo della cultura e la produzione di contenuti digitali?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?\n• Sei una persona curiosa, proattiva e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura mercoledì 29 luglio 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-      "descriptionByLocale": {
-        "it": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Valorizzazione dell'offerta culturale radio e TV della RSI sul digitale.\n• Redazione di articoli per il portale RSI Cultura.\n• Creazione di contenuti per i canali social di RSI Cultura.\n• Collaborazione alle attività quotidiane della redazione digitale. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano il mondo della cultura e la produzione di contenuti digitali?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?\n• Sei una persona curiosa, proattiva e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura mercoledì 29 luglio 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "en": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Evaluation of RSI's cultural radio and TV offer on digital.\n• Writing of articles for the portal RSI Culture.\n• Content creation for social channels of CSR Culture.\n• Collaboration with the daily activities of digital editing. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Are you interested in the world of culture and the production of digital content?\n• Do you have good communication and writing skills?\n• Would you like to work in a digital editor and learn about the tools of online communication?\n• Are you a curious, proactive and team-oriented person?\n• Do you have any good knowledge of Swiss territory and general culture?\n• Knowledge of national languages and English is a preferential title! What do we offer more questions? About the 6-month internship application process, between September 2026 and February 2027, the workplace is in Comano. Applying is easy Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. The deadline for submission of the application on Wednesday 29 July 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Radiotelevision Act (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
-        "de": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Evaluierung des kulturellen Radio- und TV-Angebots von RSI im digitalen Bereich.\n• Schreiben von Artikeln für das Portal RSI Culture.\n• Erstellung von Inhalten für soziale Kanäle der CSR-Kultur.\n• Zusammenarbeit mit den täglichen Aktivitäten der digitalen Bearbeitung. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Sie interessieren sich für die Welt der Kultur und die Produktion von digitalen Inhalten?\n• Haben Sie gute Kommunikation und Schreibfähigkeiten?\n• Möchten Sie in einem digitalen Editor arbeiten und sich über die Werkzeuge der Online-Kommunikation informieren?\n• Sind Sie eine neugierige, proaktive und teamorientierte Person?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Was bieten wir mehr Fragen an? Über den 6-monatigen Bewerbungsprozess für Praktika zwischen September 2026 und Februar 2027 befindet sich der Arbeitsplatz in Comano. Bewerbung ist einfach Nur über jobs.rsi.ch eingereichte Bewerbungen werden berücksichtigt und von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. Die Frist für die Einreichung des Antrags am Mittwoch, den 29. Juli 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Radiotelevision Act (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
-        "fr": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Évaluation de l'offre de radio et de télévision culturelles de RSI sur le numérique.\n• Rédaction d'articles pour le portail RSI Culture.\n• Création de contenu pour les canaux sociaux de la culture RSE.\n• Collaboration avec les activités quotidiennes du montage numérique. Toi ?\n• Vous allez à l'université (ou à une école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Êtes-vous intéressé par le monde de la culture et de la production de contenu numérique?\n• Avez-vous de bonnes compétences en communication et en écriture?\n• Aimeriez-vous travailler dans un éditeur numérique et apprendre les outils de communication en ligne?\n• Êtes-vous une personne curieuse, proactive et orientée vers l'équipe?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! Que proposons-nous d'autres questions? À propos du processus de candidature de 6 mois, entre septembre 2026 et février 2027, le lieu de travail est à Comano. La candidature est facile Seules les candidatures soumises par jobs.rsi.ch seront prises en considération et accompagnées d'une lettre de motivation, d'un CV et d'un certificat de participation ou d'un diplôme universitaire. Date limite pour le dépôt de la demande: mercredi 29 juillet 2026. LA RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions radiophoniques, télévisées et numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
-      },
-      "location": "Comano",
-      "canton": "TI",
-      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:23:28.079Z",
-      "addressLocality": "Comano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6949",
-      "streetAddress": "via Cureglia 38",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
-      "requirements": [
-        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-        "Ti interessano il mondo della cultura e la produzione di contenuti digitali?",
-        "Possiedi buone competenze comunicative e di scrittura?",
-        "Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?",
-        "Sei una persona curiosa, proattiva e orientata al lavoro di squadra?",
-        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-          "Ti interessano il mondo della cultura e la produzione di contenuti digitali?",
-          "Possiedi buone competenze comunicative e di scrittura?",
-          "Ti piacerebbe lavorare in una redazione digitale e conoscere gli strumenti della comunicazione online?",
-          "Sei una persona curiosa, proattiva e orientata al lavoro di squadra?",
-          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "38f358d6-97d8-49ea-8676-555f9adf6966",
-        "org": "rsi",
-        "orgLabel": "RSI",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "firstSeenAt": "2026-07-02T22:57:28.962Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "addressRegion": "TI"
     }
   ]
 }
