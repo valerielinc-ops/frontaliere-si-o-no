@@ -1,21 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-07-10T10:23:47.467Z",
+  "generatedAt": "2026-07-10T12:27:47.353Z",
   "total": 18,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 26077,
-  "avgDurationMs": 26077,
+  "durationMs": 21045,
+  "avgDurationMs": 21045,
   "durationHistory": [
-    26077
+    21045
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213hof",
-      "slug": "collaboratori-trici-scientifici-che-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-ufficio-delle-misure-attive-bellinzona-orario-di-lavoro-4",
+      "slug": "collaboratori-trici-scientifici-che-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-ufficio-delle-misure-attive-bellinzona-orario-di-lavoro-4-213hof",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Collaboratori/trici scientifici/che a tempo parziale (50%) – a tempo pieno (100%), presso l’Ufficio delle misure attive, Bellinzona",
       "location": "Bellinzona",
@@ -35,16 +36,21 @@
       "firstSeenAt": "2026-07-10T10:23:40.279Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 72,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 4,
-        "completeness": 19
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213j37",
       "slug": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
@@ -255,6 +261,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
