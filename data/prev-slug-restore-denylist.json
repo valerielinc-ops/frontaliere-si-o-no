@@ -1,0 +1,1871 @@
+{
+  "description": "Slugs INTENTIONALLY removed from by-crawler slice histories by the umantis cross-tenant decontamination (#4055 / #4056 cycle, squash 028d6c1147; registry side 81089f8f47) plus censused garbage-title slugs. The recover-prev-slugs workflow must NEVER restore these: scan-prev-slug-losses.mjs sees the decontamination as a \"loss\" and backfill-prev-slugs-from-loss-events.mjs would re-import foreign companies' slugs (this happened in run 29106416912, commit efed987db). jobId is provenance (the job the slug was removed from); the runtime guard matches on file+slug. Regenerate with: node scripts/build-prev-slug-restore-denylist.mjs",
+  "generatedBy": "scripts/build-prev-slug-restore-denylist.mjs",
+  "sourceCommits": [
+    "028d6c1147b4980dd2df5fda8b3677893bc87059",
+    "81089f8f47abfb84d0184b10be9c4ee8ec08338e",
+    "1472959f7463c37fae75189ea59fd4753cab103e"
+  ],
+  "entries": [
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-804294b376ee",
+      "slug": "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-804294b376ee",
+      "slug": "coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-804294b376ee",
+      "slug": "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-804294b376ee",
+      "slug": "patient-management-billing-coordinator-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-8ae315894e77",
+      "slug": "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-8ae315894e77",
+      "slug": "infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-8ae315894e77",
+      "slug": "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-a406627be192",
+      "slug": "praktikantin-di-psicologia-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-a406627be192",
+      "slug": "psychologiepraktikantin-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "bethesda-spital.json",
+      "jobId": "bethesda-spital-a406627be192",
+      "slug": "psychology-practitioner-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-38d5b6d824ad",
+      "slug": "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-38d5b6d824ad",
+      "slug": "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-38d5b6d824ad",
+      "slug": "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio-uil1va",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-38d5b6d824ad",
+      "slug": "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-47216b96ea40",
+      "slug": "assistenzarzt-chirurgie-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-47216b96ea40",
+      "slug": "medecin-assistant-chirurgie-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-47216b96ea40",
+      "slug": "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-47216b96ea40",
+      "slug": "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno-uil1zn",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-664416ec85f6",
+      "slug": "capo-sala-presso-ristorante-gourmet-la-brezza-tschuggen-collection-ascona",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-664416ec85f6",
+      "slug": "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-664416ec85f6",
+      "slug": "head-waiter-at-gourmet-restaurant-la-brezza-tschuggen-collection-ascona",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-664416ec85f6",
+      "slug": "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-f9262dad15b4",
+      "slug": "information-specialist-in-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-f9262dad15b4",
+      "slug": "informationsspezialist-in-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-f9262dad15b4",
+      "slug": "specialista-dell-informazione-80-kanton-aargau-aarau-a8d429",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "buergenstock-hotels.json",
+      "jobId": "buergenstock-hotels-f9262dad15b4",
+      "slug": "specialiste-de-l-information-en-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "gesundheitszentrum-fricktal.json",
+      "jobId": "gesundheitszentrum-fricktal-4df22cba14f2",
+      "slug": "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "gesundheitszentrum-fricktal.json",
+      "jobId": "gesundheitszentrum-fricktal-4df22cba14f2",
+      "slug": "chef-d-equipe-technologie-des-musees-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "gesundheitszentrum-fricktal.json",
+      "jobId": "gesundheitszentrum-fricktal-4df22cba14f2",
+      "slug": "team-leader-in-museum-technology-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-480e05f04b61",
+      "slug": "care-expert-for-continence-and-urotherapy-50-80-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-480e05f04b61",
+      "slug": "esperta-di-cura-per-la-continenza-e-uroterapia-50-80-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-480e05f04b61",
+      "slug": "expert-en-soins-pour-la-continence-et-l-urotherapie-50-80-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-480e05f04b61",
+      "slug": "pflegeexpertin-kontinenz-forderung-urotherapie-50-80-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-677e754fb00c",
+      "slug": "direction-de-la-planification-du-bloc-operatoire-et-des-lits-80-100-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-677e754fb00c",
+      "slug": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-677e754fb00c",
+      "slug": "head-of-or-and-bed-disposition-80-100-m-f-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-677e754fb00c",
+      "slug": "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-9e2b39176c23",
+      "slug": "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-9e2b39176c23",
+      "slug": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-9e2b39176c23",
+      "slug": "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-9e2b39176c23",
+      "slug": "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-b97c3c483871",
+      "slug": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-b97c3c483871",
+      "slug": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
+      "reason": "foreign:spital-maennedorf"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-d9aa8d946fdc",
+      "slug": "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-d9aa8d946fdc",
+      "slug": "head-of-department-care-home-seora-laufenburg-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-d9aa8d946fdc",
+      "slug": "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "gkb.json",
+      "jobId": "gkb-d9aa8d946fdc",
+      "slug": "responsable-de-service-maison-de-retraite-seora-laufenburg-h-f-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-07687732086d",
+      "slug": "specialiste-en-soins-infirmiers-m-p-p-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-205e01063cfc",
+      "slug": "addetto-ai-trasporti-a-ore-0-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-205e01063cfc",
+      "slug": "associate-ai-trasporti-a-ore-0-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-205e01063cfc",
+      "slug": "mitarbeiter-ai-trasporti-a-ore-0-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-205e01063cfc",
+      "slug": "prepose-ai-trasporti-a-ore-0-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2118b647ba26",
+      "slug": "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2118b647ba26",
+      "slug": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2118b647ba26",
+      "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2838843b3dec",
+      "slug": "farmacista-ospedaliero-a-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2838843b3dec",
+      "slug": "hospital-pharmacist-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2838843b3dec",
+      "slug": "krankenhausapotheker-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-2838843b3dec",
+      "slug": "pharmacie-hospitalier-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-373438562459",
+      "slug": "assistant-d-etude-medicale-service-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-mendrisio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-373438562459",
+      "slug": "assistente-di-studio-medico-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-mendrisio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-373438562459",
+      "slug": "assistente-di-studio-medico-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkk",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-373438562459",
+      "slug": "medizinischer-studienassistent-pflegedienst-eoc-ente-ospedaliero-cantonale-mendrisio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-37efe8175193",
+      "slug": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-3fede25378fe",
+      "slug": "assistant-psychologist-or-specialist-psychologist-universitare-psychiatrische-dienste-bern-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-3fede25378fe",
+      "slug": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-3fede25378fe",
+      "slug": "psicologo-a-assistente-o-a-psicologo-a-specializzato-a-universitare-psychiatrische-dienste-bern-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-3fede25378fe",
+      "slug": "psychologue-assistant-e-ou-psychologue-specialise-e-universitare-psychiatrische-dienste-bern-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-40e3b5dab377",
+      "slug": "assistant-e-restauration-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-40e3b5dab377",
+      "slug": "ausiliario-a-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-40e3b5dab377",
+      "slug": "ausiliario-a-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona-uilnf2",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-40e3b5dab377",
+      "slug": "mitarbeiter-in-gastronomie-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-4e6532af8f79",
+      "slug": "agent-d-instruction-tribunal-de-district-wil-m-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-4e6532af8f79",
+      "slug": "cancelliere-del-tribunale-distrettuale-wil-m-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-4e6532af8f79",
+      "slug": "case-officer-in-district-court-wil-m-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-4e6532af8f79",
+      "slug": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-4e6532af8f79",
+      "slug": "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-60ea76dc717d",
+      "slug": "angestellte-r-in-logistik-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-60ea76dc717d",
+      "slug": "employe-e-in-logistique-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-60ea76dc717d",
+      "slug": "employee-in-logistics-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-60ea76dc717d",
+      "slug": "impiegato-a-in-logistica-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-6f7e4a68ee1d",
+      "slug": "apprendistato-addetto-a-di-cucina-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-6f7e4a68ee1d",
+      "slug": "apprendistato-addetto-a-di-cucina-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilq9m",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-6f7e4a68ee1d",
+      "slug": "apprentissage-assistant-de-cuisine-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-6f7e4a68ee1d",
+      "slug": "lehre-kuchenassistent-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-786c7795b410",
+      "slug": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-786c7795b410",
+      "slug": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno-uikzn3",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-786c7795b410",
+      "slug": "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-786c7795b410",
+      "slug": "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-8d0d7b6f0a67",
+      "slug": "intern-in-district-court-wil-m-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-8d0d7b6f0a67",
+      "slug": "praktikant-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-8d0d7b6f0a67",
+      "slug": "stagiaire-tribunal-de-district-wil-m-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-8d0d7b6f0a67",
+      "slug": "tirocinante-presso-il-tribunale-distrettuale-di-wil-f-f-d-kanton-st-gallen-flawil",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-bd9b7d909d8a",
+      "slug": "senior-controller-in-see-spital-ch",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c3ddd8102272",
+      "slug": "assistant-de-soins-pour-l-unite-endoscopie-et-chirurgie-euc-50-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c3ddd8102272",
+      "slug": "assistente-di-cura-dell-unita-di-endoscopia-e-chirurgia-ambulatoriale-uec-50-60-eoc-ente-ospedaliero-cantonale",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c3ddd8102272",
+      "slug": "care-assistant-for-the-endoscopy-and-surgery-unit-euc-50-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c3ddd8102272",
+      "slug": "pflegeassistentin-fur-die-endoskopie-und-chirurgie-einheit-euc-50-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d922725fb7",
+      "slug": "chef-du-bureau-du-registre-du-commerce-et-des-notaires-m-f-d-kanton-st-gallen-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d922725fb7",
+      "slug": "head-of-office-for-trade-register-and-notaries-m-f-d-kanton-st-gallen-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d922725fb7",
+      "slug": "leiter-in-amt-fur-handelsregister-und-notariate-m-w-d-kanton-st-gallen-ch",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d922725fb7",
+      "slug": "responsabile-amt-per-handelsregister-e-notariate-m-w-d-kanton-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d98231792b",
+      "slug": "dipl-pflegefachperson-station-marbach-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d98231792b",
+      "slug": "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-c6d98231792b",
+      "slug": "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "reason": "foreign:upd"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-ccae04d2ef7c",
+      "slug": "fach-psycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "reason": "foreign:klinik-im-hasel"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-ccae04d2ef7c",
+      "slug": "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "reason": "foreign:klinik-im-hasel"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-d975cae788b4",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-d975cae788b4",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-d975cae788b4",
+      "slug": "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-d975cae788b4",
+      "slug": "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-df91fd8be3a5",
+      "slug": "candidat-medical-medecine-interne-et-ou-soins-intensifs-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-df91fd8be3a5",
+      "slug": "candidato-medico-medicina-interna-e-o-medicina-intensiva-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-df91fd8be3a5",
+      "slug": "medical-candidate-internal-medicine-and-or-intensive-care-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-df91fd8be3a5",
+      "slug": "medizinischer-kandidat-innere-medizin-und-oder-intensivmedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e14fec6a0181",
+      "slug": "candidat-medical-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e14fec6a0181",
+      "slug": "candidato-medico-chirurgia-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e14fec6a0181",
+      "slug": "medical-candidate-surgery-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e14fec6a0181",
+      "slug": "medizinischer-kandidat-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e318b2ff3800",
+      "slug": "apprendistato-impiegato-a-in-logistica-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e318b2ff3800",
+      "slug": "apprenticeship-logistics-clerk-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e318b2ff3800",
+      "slug": "apprentissage-employe-en-logistique-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-e318b2ff3800",
+      "slug": "lehre-logistikmitarbeiter-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-eef8cb87eb73",
+      "slug": "fonction-publique-suisse-aide-a-la-maintenance-et-au-service-technique-aide-a-l-entrepot-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-eef8cb87eb73",
+      "slug": "schweizerischer-zivildienst-hilfe-bei-wartung-und-technischem-service-lagerhilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-eef8cb87eb73",
+      "slug": "servizio-civile-svizzero-aiuto-manutenzione-e-servizio-tecnico-aiuto-magazzino-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-eef8cb87eb73",
+      "slug": "swiss-civil-service-maintenance-and-technical-service-help-warehouse-help-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f2d7c9919ef4",
+      "slug": "specialista-organizzativo-e-hr-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f2d7c9919ef4",
+      "slug": "specialista-organizzativo-e-personalwesen-business-analyst-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f2d7c9919ef4",
+      "slug": "specialista-organizzativo-e-risorse-umane-business-analista-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f2d7c9919ef4",
+      "slug": "specialiste-organisationnel-et-analyste-business-rh-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f3572209386c",
+      "slug": "leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f3572209386c",
+      "slug": "procuratore-senior-procuratore-pubblico-capo-kanton-st-gallen-gossau",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f3572209386c",
+      "slug": "procureur-principal-kanton-st-gallen-gossau",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-f3572209386c",
+      "slug": "senior-prosecutor-chief-public-prosecutor-kanton-st-gallen-gossau",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-faef9e461231",
+      "slug": "abteilungsleiter-in-anasthesiepflege-see-spital-ch",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-faef9e461231",
+      "slug": "capo-dipartimento-infermieristica-anestesiologica-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-faef9e461231",
+      "slug": "chef-de-departement-soins-d-anesthesie-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-faef9e461231",
+      "slug": "head-of-department-anesthesia-nursing-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-fe66e516b524",
+      "slug": "avocat-m-f-d-kanton-st-gallen-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-fe66e516b524",
+      "slug": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-fe66e516b524",
+      "slug": "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-aargau.json",
+      "jobId": "kanton-aargau-fe66e516b524",
+      "slug": "lawyer-m-f-d-kanton-st-gallen-st-gallen",
+      "reason": "foreign:kanton-st-gallen"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-07373521a860",
+      "slug": "casa-giovanile-dei-pedagogi-sociali-80-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-07373521a860",
+      "slug": "pedagogue-sociale-pedagogue-sociale-accueil-jeunesse-80-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-07373521a860",
+      "slug": "social-pedagogue-social-pedagogue-youth-home-80-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-07373521a860",
+      "slug": "sozialpadagogin-sozialpadagoge-jugendheim-80-90-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "gestionnaire-de-projet-gestionnaire-de-projet-construction-routiere-80-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "project-manager-costruzione-strade-80-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "project-manager-project-manager-road-construction-80-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "projektleiterin-projektleiter-strassenbau-80-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "projektleiterin-projektleiter-strassenbau-80-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-0ec69856edd8",
+      "slug": "projektleiterin-projektleiter-strassenbau-80-100-kanton-aargau-ch-3",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-305b015aacbb",
+      "slug": "enseignant-niveau-primaire-ou-secondaire-60-environ-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-305b015aacbb",
+      "slug": "lehrperson-primar-o-sekundarschulstufe-60-ca-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-305b015aacbb",
+      "slug": "lehrperson-primar-oder-sekundarschulstufe-60-ca-90-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-305b015aacbb",
+      "slug": "teacher-primary-or-secondary-school-level-60-about-90-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-4598a6eb165b",
+      "slug": "insegnante-di-scuola-media-tedesco-150-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-4598a6eb165b",
+      "slug": "mittelschullehrperson-deutsch-150-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-4598a6eb165b",
+      "slug": "professeur-d-ecole-secondaire-allemand-150-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-4598a6eb165b",
+      "slug": "secondary-school-teacher-german-150-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-a5fdb57ae4b2",
+      "slug": "gestionnaire-de-projet-gestionnaire-de-projet-solar-offensive-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-a5fdb57ae4b2",
+      "slug": "project-manager-offensiva-solare-al-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-a5fdb57ae4b2",
+      "slug": "project-manager-project-manager-solar-offensive-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-a5fdb57ae4b2",
+      "slug": "projektleiterin-projektleiter-solaroffensive-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-a5fdb57ae4b2",
+      "slug": "projektleiterin-projektleiter-solaroffensive-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-c6084963f5a0",
+      "slug": "psicologo-scolastico-80-kanton-aargau-aarau-3e51ff",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-c6084963f5a0",
+      "slug": "psychologue-scolaire-psychologue-scolaire-80-kanton-aargau-aarau-3e51ff",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-c6084963f5a0",
+      "slug": "school-psychologist-school-psychologist-80-kanton-aargau-aarau-3e51ff",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-c6084963f5a0",
+      "slug": "schulpsychologin-schulpsychologe-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-c6084963f5a0",
+      "slug": "schulpsychologin-schulpsychologe-80-kanton-aargau-ch-2",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-e6f6880ce7a5",
+      "slug": "internship-in-communication-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-e6f6880ce7a5",
+      "slug": "praktikum-in-der-kommunikation-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-e6f6880ce7a5",
+      "slug": "stage-en-communication-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kanton-st-gallen.json",
+      "jobId": "kanton-st-gallen-e6f6880ce7a5",
+      "slug": "tirocinio-in-comunicazione-al-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-72107e873712",
+      "slug": "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-72107e873712",
+      "slug": "specialist-women-men-s-health-for-the-nursing-pool-max-60-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-72107e873712",
+      "slug": "specialistes-de-la-sante-pour-le-bassin-de-soins-max-60-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-72107e873712",
+      "slug": "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-854bc3a550f3",
+      "slug": "emergency-medical-technician-in-training-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-854bc3a550f3",
+      "slug": "rettungssanitater-in-in-ausbildung-see-spital-ch",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-854bc3a550f3",
+      "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-854bc3a550f3",
+      "slug": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
+      "reason": "foreign:see-spital"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-ce94bcf3201b",
+      "slug": "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-ce94bcf3201b",
+      "slug": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-f71361122f0c",
+      "slug": "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-f71361122f0c",
+      "slug": "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "kispi-sg.json",
+      "jobId": "kispi-sg-f71361122f0c",
+      "slug": "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "klinik-im-hasel.json",
+      "jobId": "klinik-im-hasel-99ee502087f8",
+      "slug": "chef-du-departement-de-la-culture-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "klinik-im-hasel.json",
+      "jobId": "klinik-im-hasel-99ee502087f8",
+      "slug": "head-of-culture-department-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "klinik-im-hasel.json",
+      "jobId": "klinik-im-hasel-99ee502087f8",
+      "slug": "responsabile-abteilung-kultur-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-0e4faf4798dc",
+      "slug": "pedagogia-sociale-hf-fh-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-0e4faf4798dc",
+      "slug": "pedagogue-sociale-pedagogue-sociale-hf-fh-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-0e4faf4798dc",
+      "slug": "social-pedagogue-social-pedagogue-hf-fh-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-0e4faf4798dc",
+      "slug": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-1150b9473d2c",
+      "slug": "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-23121f",
+      "reason": "garbage-title"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-1cc2114cd13a",
+      "slug": "pedagogia-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-1cc2114cd13a",
+      "slug": "pedagogue-sociale-pedagogue-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-1cc2114cd13a",
+      "slug": "social-pedagogue-social-pedagogue-hf-fh-80-kanton-aargau-aarau-2ae4ac",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-1cc2114cd13a",
+      "slug": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-89883f785c0b",
+      "slug": "evaluateur-immobilier-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-89883f785c0b",
+      "slug": "immobilienbewerter-in-80-100-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-89883f785c0b",
+      "slug": "real-estate-valuer-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-89883f785c0b",
+      "slug": "valutatore-immobiliare-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-898c5896ca6e",
+      "slug": "artisan-artisan-entretien-de-rue-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-898c5896ca6e",
+      "slug": "artisan-craftsman-street-maintenance-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-898c5896ca6e",
+      "slug": "handwerkerin-handwerker-strassenunterhalt-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-898c5896ca6e",
+      "slug": "manutenzione-stradale-artigianale-100-kanton-aargau-aarau-90ccd1",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-b3fd0dd7ed4f",
+      "slug": "insegnanti-hf-educational-program-pedagogia-sociale-60-80-kanton-aargau-aarau-569f26",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-b3fd0dd7ed4f",
+      "slug": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-b3fd0dd7ed4f",
+      "slug": "professeur-hf-cours-d-education-sociale-60-80-kanton-aargau-aarau-569f26",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-b3fd0dd7ed4f",
+      "slug": "teacher-hf-social-education-course-60-80-kanton-aargau-aarau-569f26",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-c124b4a1ad14",
+      "slug": "vor-ort-letter-in-ikt-unterstutzung-kantonsspital-aarau-ksa-aarau",
+      "reason": "garbage-title"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-d31f95d2346f",
+      "slug": "addetto-contabile-al-100-kanton-aargau-aarau-0e4206",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-d31f95d2346f",
+      "slug": "personnel-accounting-100-kanton-aargau-aarau-0e4206",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-d31f95d2346f",
+      "slug": "personnel-comptable-100-kanton-aargau-aarau-0e4206",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-d31f95d2346f",
+      "slug": "sachbearbeiter-in-rechnungswesen-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-fdd20d71aa74",
+      "slug": "avocat-stagiaire-juridique-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-fdd20d71aa74",
+      "slug": "legal-practitioner-legal-intern-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-fdd20d71aa74",
+      "slug": "rechtspraktikant-rechtspraktikantin-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "ksa.json",
+      "jobId": "ksa-fdd20d71aa74",
+      "slug": "tirocinante-legale-al-100-kanton-aargau-aarau-583152",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-27ac27e9eae8",
+      "slug": "care-advisor-in-80-100-general-agency-berner-oberland-allianz-suisse-thun",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-27ac27e9eae8",
+      "slug": "conseiller-en-soins-80-100-agence-generale-berner-oberland-allianz-suisse-thun",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-27ac27e9eae8",
+      "slug": "vorsorgeberater-in-80-100-agenzia-generale-berner-oberland-allianz-suisse-thun",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-44f16b909e4d",
+      "slug": "allianz-beerm-allianz-suisse-echallens",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-44f16b909e4d",
+      "slug": "allianz-bewerbermanagement-allianz-suisse-echallens",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-44f16b909e4d",
+      "slug": "conseiller-ere-a-la-clientele-f-m-d-80-100-agence-echallens-allianz-suisse-echallens",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-44f16b909e4d",
+      "slug": "conseiller-ere-a-la-clientele-h-f-d-80-100-agence-echallens-allianz-suisse-echallens",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-76a62d567f93",
+      "slug": "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-76a62d567f93",
+      "slug": "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-76a62d567f93",
+      "slug": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-76a62d567f93",
+      "slug": "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-e99708cc350c",
+      "slug": "employe-et-agent-du-personnel-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-e99708cc350c",
+      "slug": "employee-and-staff-officer-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-e99708cc350c",
+      "slug": "lohn-e-personalsachbearbeiter-in-100-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "sanatorium-kilchberg.json",
+      "jobId": "sanatorium-kilchberg-e99708cc350c",
+      "slug": "lohn-und-personalsachbearbeiter-in-100-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-1bfa5ad69173",
+      "slug": "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-1bfa5ad69173",
+      "slug": "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-1bfa5ad69173",
+      "slug": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-1bfa5ad69173",
+      "slug": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-34c8b3dc8dd5",
+      "slug": "spitex-assistant-de-sante-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-34c8b3dc8dd5",
+      "slug": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-34c8b3dc8dd5",
+      "slug": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-34c8b3dc8dd5",
+      "slug": "spitex-health-care-assistant-50-100-spital-davos-davos",
+      "reason": "foreign:spital-davos"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-6322c79842ec",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-6322c79842ec",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-6322c79842ec",
+      "slug": "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-6322c79842ec",
+      "slug": "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-b31b0f026929",
+      "slug": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-dd3f1efb3f84",
+      "slug": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-dd3f1efb3f84",
+      "slug": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "see-spital.json",
+      "jobId": "see-spital-dd3f1efb3f84",
+      "slug": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+      "reason": "foreign:klinik-sonnenhalde"
+    },
+    {
+      "file": "spital-davos.json",
+      "jobId": "spital-davos-501ff253ad6d",
+      "slug": "allianz-beerm-allianz-suisse-vevey",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "spital-davos.json",
+      "jobId": "spital-davos-501ff253ad6d",
+      "slug": "allianz-bewerbermanagement-allianz-suisse-vevey",
+      "reason": "foreign:allianz-suisse"
+    },
+    {
+      "file": "spital-davos.json",
+      "jobId": "spital-davos-501ff253ad6d",
+      "slug": "conseiller-en-prevoyance-au-service-externe-vevey-h-f-d-100-spital-davos-davos",
+      "reason": "cross-tenant-hybrid"
+    },
+    {
+      "file": "spital-davos.json",
+      "jobId": "spital-davos-976c9df256bc",
+      "slug": "medecin-chef-en-nephrologie-pediatrique-40-a-80-ostschweizer-kinderspital-st-gallen",
+      "reason": "foreign:kispi-sg"
+    },
+    {
+      "file": "spital-davos.json",
+      "jobId": "spital-davos-976c9df256bc",
+      "slug": "senior-assistant-physician-or-senior-physician-pediatric-nephrology-40-80-ostschweizer-kinderspital-st-gallen",
+      "reason": "foreign:kispi-sg"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "fachkrankenschwester-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "hotel-technician-permanent-position-tschuggen-collection-arosa",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "hoteltechniker-in-jahresanstellung-tschuggen-collection-arosa",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano-uikz1r",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "technicien-d-hotel-en-cdi-tschuggen-collection-arosa",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-434a00b45c92",
+      "slug": "tecnico-alberghiero-a-tempo-indeterminato-tschuggen-collection-arosa",
+      "reason": "foreign:tschuggen"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ae33d91e0b60",
+      "slug": "analista-di-business-nella-gestione-documentale-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ae33d91e0b60",
+      "slug": "analyste-metier-en-gestion-documentaire-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ae33d91e0b60",
+      "slug": "business-analyst-in-dokumentenmanagement-80-100-gkb-ch",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ae33d91e0b60",
+      "slug": "business-analyst-in-dokumentenmanagement-80-100-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-c117fae168b5",
+      "slug": "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "reason": "foreign:gesundheitszentrum-fricktal"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-c9da1cefb68e",
+      "slug": "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-cc9782105c01",
+      "slug": "legal-advisor-regulatory-relations-80-100-gkb-ch",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-cc9782105c01",
+      "slug": "legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-f260163c79ca",
+      "slug": "medico-radiologo-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-f260163c79ca",
+      "slug": "medico-radiologo-eoc-ente-ospedaliero-cantonale-bellinzona-uil4ya",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-f260163c79ca",
+      "slug": "radiologe-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-f260163c79ca",
+      "slug": "radiologue-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ffdca76f5fa9",
+      "slug": "it-controlling-und-governance-manager-100-gkb-ch",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "spital-maennedorf.json",
+      "jobId": "spital-maennedorf-ffdca76f5fa9",
+      "slug": "it-controlling-und-governance-manager-100-graubundner-kantonalbank-chur",
+      "reason": "foreign:gkb"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-1d5e09482f0b",
+      "slug": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-1d5e09482f0b",
+      "slug": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-1d5e09482f0b",
+      "slug": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-1d5e09482f0b",
+      "slug": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-dbcd66207932",
+      "slug": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "reason": "foreign:eoc"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-f6bf7211a6a1",
+      "slug": "scientific-volunteer-in-80-kanton-aargau-aarau",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "tschuggen.json",
+      "jobId": "tschuggen-f6bf7211a6a1",
+      "slug": "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "upd.json",
+      "jobId": "upd-a67318c29a3f",
+      "slug": "dipendenti-dell-applicazione-al-100-kanton-aargau-aarau-d35b52",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "upd.json",
+      "jobId": "upd-a67318c29a3f",
+      "slug": "prisoners-100-kanton-aargau-aarau-d35b52",
+      "reason": "foreign:kanton-aargau"
+    },
+    {
+      "file": "upd.json",
+      "jobId": "upd-a67318c29a3f",
+      "slug": "prisonniers-100-kanton-aargau-aarau-d35b52",
+      "reason": "foreign:kanton-aargau"
+    }
+  ]
+}

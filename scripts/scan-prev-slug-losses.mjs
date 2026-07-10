@@ -32,6 +32,7 @@ import path from 'node:path';
 import { execSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -107,6 +108,15 @@ function main() {
   const lossesByFile = new Map();
   const lossEvents = [];
 
+  // Slugs REMOVED ON PURPOSE by decontamination passes (see
+  // data/prev-slug-restore-denylist.json) must not count as losses: they
+  // would trip the writer-regression wire on every decontamination commit
+  // and feed the backfill the exact poison the decontamination deleted
+  // (issue #4061 / recovery run 29106416912). The backfill has its own
+  // guard too — this keeps the tripwire and the reports honest.
+  const denylist = loadRestoreDenylist();
+  let denylistedSkipped = 0;
+
   let fileIdx = 0;
   for (const file of slices) {
     fileIdx++;
@@ -130,11 +140,15 @@ function main() {
       try { cur = JSON.parse(res.stdout); } catch { continue; }
       if (!cur?.jobs) continue;
       if (prev && Array.isArray(prev.jobs)) {
+        const fileBase = file.replace(`${ABS_DIR}/`, '');
         for (const { jobKey, lost } of diffJobSlices(prev.jobs, cur.jobs)) {
-          lossEvents.push({ commit: commit.slice(0, 10), file: file.replace(`${ABS_DIR}/`, ''), jobId: jobKey, lost });
-          lossesByFile.set(file, (lossesByFile.get(file) || 0) + lost.length);
+          const kept = lost.filter((s) => !denylist.has(denylistKey(fileBase, s)));
+          denylistedSkipped += lost.length - kept.length;
+          if (kept.length === 0) continue;
+          lossEvents.push({ commit: commit.slice(0, 10), file: fileBase, jobId: jobKey, lost: kept });
+          lossesByFile.set(file, (lossesByFile.get(file) || 0) + kept.length);
           if (!lossesByJob.has(jobKey)) lossesByJob.set(jobKey, { slugs: new Set(), file });
-          for (const s of lost) lossesByJob.get(jobKey).slugs.add(s);
+          for (const s of kept) lossesByJob.get(jobKey).slugs.add(s);
         }
       }
       prev = cur;
@@ -145,10 +159,14 @@ function main() {
   console.log(JSON.stringify({
     since: SINCE,
     totalLost,
+    denylistedSkipped,
     filesAffected: lossesByFile.size,
     jobsAffected: lossesByJob.size,
     eventsCount: lossEvents.length,
   }, null, 2));
+  if (denylistedSkipped > 0) {
+    console.log(`\n⛔ skipped ${denylistedSkipped} denylisted (intentional decontamination)`);
+  }
 
   console.log('\nTOP 30 FILES BY LOST SLUGS:');
   for (const [f, n] of [...lossesByFile.entries()].sort((a, b) => b[1] - a[1]).slice(0, 30)) {
