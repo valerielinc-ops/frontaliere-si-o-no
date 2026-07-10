@@ -11,8 +11,86 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-09T22:33:32.815Z",
+  "updatedAt": "2026-07-10T22:10:39.056Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/cartongessista-gessatore-2682784/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/giardiniere-2682776/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2682768/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2682763/": {
+      "location": "Rivera",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2682760/": {
+      "location": "Sigirino",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2682757/": {
+      "location": "Manno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2682752/": {
+      "location": "Taverne",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/consulente-del-personale-2682749/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-esperto-2682744/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-2682738/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/muratore-2682735/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/manovale-edile-2682732/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
+    "https://www.pemsa.ch/it/job/montatore-montatrice-di-ponteggi-m-f-2682705/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-10"
+    },
     "https://www.pemsa.ch/it/job/responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-2682606/": {
       "location": "Lausanne",
       "canton": "VD",
@@ -331,7 +409,7 @@
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
-    "https://www.pemsa.ch/it/job/progettista-di-impianti-di-sicurezza-2682165/": {
+    "https://www.pemsa.ch/it/job/progettista-per-impianti-di-allarme-e-antifuoco-2682165/": {
       "location": "Manno",
       "canton": "TI",
       "company": "PEMSA",
@@ -352,12 +430,6 @@
     "https://www.pemsa.ch/it/job/muratore-e-formatore-di-casseforme-2682137/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-07"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-2682126/": {
-      "location": "Lugano",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
@@ -835,12 +907,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-01"
     },
-    "https://www.pemsa.ch/it/job/giardiniere-2681028/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-06-30"
-    },
     "https://www.pemsa.ch/it/job/macchinista-2681021/": {
       "location": "Lugano",
       "canton": "TI",
@@ -1099,12 +1165,6 @@
       "company": "PEMSA",
       "postedDate": "2026-06-26"
     },
-    "https://www.pemsa.ch/it/job/tecnico-di-piscine-m-f-2680485/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-25"
-    },
     "https://www.pemsa.ch/it/job/manovra-della-nave-2680443/": {
       "location": "Fribourg",
       "canton": "FR",
@@ -1120,12 +1180,6 @@
     "https://www.pemsa.ch/it/job/operaio-edile-2680435/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-25"
-    },
-    "https://www.pemsa.ch/it/job/montatore-montatrice-di-ponteggi-m-f-2680421/": {
-      "location": "La Chaux-de-Fonds",
-      "canton": "NE",
       "company": "PEMSA",
       "postedDate": "2026-06-25"
     },
@@ -1273,6 +1327,48 @@
       "company": "PEMSA",
       "postedDate": "2026-06-16"
     },
+    "https://www.pemsa.ch/it/job/addetto-a-pulizie-ordinarie-2678701/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-06-12"
+    },
+    "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-2678640/": {
+      "location": "Rivera",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-06-12"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-installatore-impianti-riscaldamento-sanitari-2678338/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-06-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-con-esperienza-2678333/": {
+      "location": "Agno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-06-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2678321/": {
+      "location": "Torricella",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-06-10"
+    },
+    "https://www.pemsa.ch/it/job/quadrista-cabaltore-2676561/": {
+      "location": "Mezzovico",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-05-29"
+    },
+    "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-05-19"
+    },
     "https://www.pemsa.ch/it/job/idraulico-imp-sanitari-2675191/": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -1281,12 +1377,6 @@
     },
     "https://www.pemsa.ch/it/job/installatore-idraulico-afc-riscaldamenti-2674359/": {
       "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-05-11"
-    },
-    "https://www.pemsa.ch/it/job/installatore-idraulico-2674351/": {
-      "location": "Agno",
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-05-11"
