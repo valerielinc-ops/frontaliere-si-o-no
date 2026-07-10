@@ -224,8 +224,17 @@ export function createSmnClinicParser(config) {
    * True when an API posting belongs to this clinic (see module header
    * for the attribution rules).
    */
+  // Drift-vs-empty telemetry: every scanned posting and every department
+  // label seen flow into these accumulators so fetchAllJobs can tell a
+  // legitimately empty board apart from an ATS label rename (the silent
+  // failure mode that killed the old ?clinic= HTML filter, issues 3857/3859).
+  let scannedPostings = 0;
+  const seenDepartmentLabels = new Set();
+
   function matchesClinicPosting(posting) {
+    scannedPostings += 1;
     const labels = extractPostingDepartmentLabels(posting);
+    for (const label of labels) seenDepartmentLabels.add(label);
     if (labels.some((label) => departmentTargets.has(label))) return true;
     if (cityScopedTargets.size > 0 && homeCity) {
       const postingCity = normalizeClinicLabel(posting?.location?.city);
@@ -267,6 +276,8 @@ export function createSmnClinicParser(config) {
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
+    scannedPostings = 0;
+    seenDepartmentLabels.clear();
 
     const postings = fetchSmartRecruitersJobs(SMN_SR_COMPANY_ID, {
       company: companyName,
@@ -342,6 +353,16 @@ export function createSmnClinicParser(config) {
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       });
+    }
+
+    if (jobs.length === 0 && scannedPostings > 0) {
+      const anyTargetSeen = [...departmentTargets].some((t) => seenDepartmentLabels.has(t))
+        || [...cityScopedTargets].some((t) => seenDepartmentLabels.has(t));
+      if (!anyTargetSeen) {
+        console.warn(`⚠️ ${companyName}: 0/${scannedPostings} postings matched AND none of the configured department labels appear anywhere in the tenant payload — likely ATS label drift (department rename), NOT a legitimately empty board. Update departmentLabels. Labels seen: ${[...seenDepartmentLabels].slice(0, 25).join(' | ')}`);
+      } else {
+        console.log(`ℹ️ ${companyName}: 0 matches but a configured department label is present in the payload — treating as legitimately empty board.`);
+      }
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);

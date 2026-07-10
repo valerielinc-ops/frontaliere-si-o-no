@@ -264,11 +264,17 @@ export async function fetchAllApgSgaJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    const publicUrl = normalizeSpace(listing.detail || listing.action || '') || CAREER_URL;
+    const publicUrl = normalizeSpace(listing.detail || listing.action || '');
+    if (!publicUrl) {
+      // No stable per-job URL → the sha1 id would collapse onto CAREER_URL
+      // and distinct postings would merge by stable id. Skip loudly instead.
+      console.warn(`   Skipping listing without detail/action URL: "${normalizeSpace(listing.title || '')}"`);
+      continue;
+    }
 
     // Enrich from the publication page's JSON-LD JobPosting (best-effort).
     let detail = null;
-    if (publicUrl !== CAREER_URL && isTrustedDomain(publicUrl)) {
+    if (isTrustedDomain(publicUrl)) {
       try {
         const detailHtml = await fetchHtml(publicUrl, { timeoutMs: 20000 });
         detail = parseJobPostingJsonLd(detailHtml);
