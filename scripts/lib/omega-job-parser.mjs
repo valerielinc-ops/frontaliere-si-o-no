@@ -455,6 +455,10 @@ export async function fetchAllOmegaJobs() {
     const { listings, cardCount } = parseListPage(html);
     console.log(`  📄 List page ${page + 1}: ${cardCount} cards, ${listings.length} OMEGA`);
     if (cardCount === 0) break; // past the last page
+    if (page === MAX_LIST_PAGES - 1) {
+      // Loud cap (same contract as swiss-re/pi-asp): never truncate silently.
+      console.warn(`  ⚠️ Reached MAX_LIST_PAGES=${MAX_LIST_PAGES} with cards still present — group job-finder may have more pages than we crawl; raise the cap if this persists.`);
+    }
     for (const listing of listings) {
       if (seen.has(listing.jobId)) continue;
       seen.add(listing.jobId);

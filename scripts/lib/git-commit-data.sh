@@ -1175,7 +1175,7 @@ if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
 fi
 
 # Backoff: 5s, 10s, 15s, ... + random jitter (0-5s)
-DELAY=$(( push_attempt * 5 + RANDOM % 6 ))
+DELAY=$(( push_attempt * 5 + RANDOM % 20 ))
 echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — waiting ${DELAY}s before resync..."
 sleep "$DELAY"
 git reset --mixed HEAD~1
