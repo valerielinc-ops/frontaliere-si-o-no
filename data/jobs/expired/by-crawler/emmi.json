@@ -25,7 +25,7 @@
       "fr": "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs"
     },
     "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-07-10T10:51:20.090Z",
+    "expiredAt": "2026-07-10T11:37:42.826Z",
     "previousSlugs": [
       "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
       "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
@@ -42,6 +42,101 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
+    "title": "Anlagenführer:in Käseverpackung",
+    "titleByLocale": {
+      "it": "Conduttore dell'impianto:in produzione di formaggio",
+      "en": "System operator:in cheese production",
+      "de": "Anlagenführer:in Käseverpackung",
+      "fr": "Opérateur du système:dans la production de fromage"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Kirchberg, Bern",
+    "addressLocality": "Kirchberg",
+    "descriptionByLocale": {
+      "it": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
+      "en": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
+      "de": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
+      "fr": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb."
+    },
+    "slugByLocale": {
+      "it": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
+      "en": "system-operator-in-cheese-production-emmi-kirchberg-bern",
+      "de": "anlagenfuhrer-in-kaseverpackung-emmi-ch",
+      "fr": "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-07-10T11:37:04.163Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-kaseproduktion-emmi-ch",
+      "anlagenfuhrer-in-kaseverpackung-emmi-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch",
+        "anlagenfuhrer-in-kaseverpackung-emmi-ch"
+      ],
+      "en": [
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+      ],
+      "de": [
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+      ],
+      "fr": [
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+      ]
+    },
+    "postalCode": "3422",
+    "streetAddress": "Winkelweg 4",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "responsabile-impianti-confezionamento-per-consumatori-emmi-kirchberg",
+    "title": "Anlagenführer:in Konsumentenpackungen",
+    "titleByLocale": {
+      "it": "Responsabile impianti confezionamento per consumatori",
+      "en": "Consumer Packaging Plant Operator",
+      "de": "Anlagenführer:in Konsumentenpackungen",
+      "fr": "Opérateur/opératrice d'installations de conditionnement pour consommateurs"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Kirchberg, Bern",
+    "addressLocality": "Kirchberg",
+    "descriptionByLocale": {
+      "it": "Descrizione\n• Tu gestisci e monitori i nostri impianti di produzione.\n• Tu ti assicuri che il nostro formaggio sia di alta qualità e igiene.\n• Risolvi piccoli problemi in modo autonomo o li segnala prima che diventino critici.\n• Pulire, riconfigurare e documentare in modo preciso (SAP) fa parte delle tue mansioni quotidiane.\n• Lavori in team e contribui a migliorare costantemente i nostri processi. Requisiti\n• Hai completato una formazione professionale.\n• L'esperienza nel settore alimentare o medico è un grande vantaggio.\n• Possiedi buone conoscenze della lingua tedesca, sia scritte che orali.\n• Qualità, igiene e sicurezza sono valori importanti per te.\n• Hai una buona comprensione tecnica e non hai paura delle macchine.\n• Ti distingui per spirito di squadra, iniziativa personale e un buon senso dell'umorismo. Cosa offriamo\n• Lavoro a turni (2-3 turni, anche lavoro diurno stagionale) non è un problema per te.\n• Sei flessibile e mobile.\n• Per noi conta ciò che sai fare, non l'anno di nascita.\n• Un buon formaggio richiede maturazione – e l'esperienza è per noi un vero segno di qualità.",
+      "en": "Description\n• You operate and monitor our production facilities.\n• You ensure that our cheese meets the highest quality and hygiene standards.\n• You resolve minor issues independently or report them before they become critical.\n• Cleaning, reconfiguring, and documenting accurately (SAP) are part of your daily tasks.\n• You work in a team and contribute to continually improving our processes. Requirements\n• You have completed vocational training.\n• Experience in the food or medical industry is a significant advantage.\n• You have good German language skills, both written and oral.\n• Quality, hygiene, and safety are important values for you.\n• You have a good technical understanding and are not afraid of machines.\n• You stand out for your teamwork, personal initiative, and good sense of humor. What we offer\n• Shift work (2-3 shifts, also seasonal day work) is not a problem for you.\n• You are flexible and mobile.\n• For us, what matters is what you can do, not your year of birth.\n• Good cheese requires maturation – and experience is a true quality characteristic for us.",
+      "de": "• Du bedienst und überwachst unsere Produktionsanlagen.\n• Du sorgst dafür, dass unser Käse so wird, wie er soll: top Qualität, top Hygiene.\n• Kleine Störungen bringst du souverän wieder ins Lot oder meldest sie, bevor es kritisch wird.\n• Reinigen, Umstellen und sauber Dokumentieren (SAP) gehören für dich ganz selbstverständlich dazu.\n• Du arbeitest im Team und hilfst mit, unsere Prozesse stetig besser zu machen.\n• Du verfügst über eine abgeschlossene Berufsausbildung; Erfahrung in der Lebensmittel- oder Medizinalbranche sind ein grosses Plus.\n• Du bringst gute Deutschkenntnisse in Wort und Schrift mit.\n• Qualität, Hygiene und Sicherheit sind für dich keine leeren Wörter.\n• Du hast ein gutes technisches Verständnis und keine Scheu vor Maschinen.\n• Du zeichnest dich durch Teamgeist, Eigeninitiative und eine gute Portion Humor aus.\n• Schichtarbeit (2-3 Schichten, saisonal auch Tagesbetrieb) ist für dich okay.\n• Du bist flexibel und mobil. Bei uns zählt nicht dein Geburtsjahr, sondern was du kannst. Guter Käse braucht Reife – und Erfahrung ist bei uns ein echtes Qualitätsmerkmal.",
+      "fr": "Description\n• Vous faites fonctionner et surveillez nos installations de production.\n• Vous vous assurez que notre fromage répond aux normes de qualité et d'hygiène les plus élevées.\n• Vous résolvez les petits problèmes de manière autonome ou les signalez avant qu'ils ne deviennent critiques.\n• Nettoyer, reconfigurer et documenter avec précision (SAP) font partie de vos tâches quotidiennes.\n• Vous travaillez en équipe et contribuez à améliorer continuellement nos processus. Exigences\n• Vous avez terminé une formation professionnelle.\n• L'expérience dans l'industrie alimentaire ou médicale est un grand avantage.\n• Vous avez de bonnes connaissances de l'allemand, à l'oral comme à l'écrit.\n• La qualité, l'hygiène et la sécurité sont des valeurs importantes pour vous.\n• Vous avez une bonne compréhension technique et n'avez pas peur des machines.\n• Vous vous distinguez par votre esprit d'équipe, votre initiative personnelle et votre bon sens de l'humour. Ce que nous offrons\n• Le travail posté (2-3 équipes, également travail de jour saisonnier) ne pose pas de problème pour vous.\n• Vous êtes flexible et mobile.\n• Pour nous, ce qui compte, c'est ce que vous pouvez faire, pas votre année de naissance.\n• Un bon fromage nécessite une maturation – et l'expérience est pour nous une véritable caractéristique de qualité."
+    },
+    "slugByLocale": {
+      "it": "responsabile-impianti-confezionamento-per-consumatori-emmi-kirchberg",
+      "en": "consumer-packaging-plant-operator-emmi-kirchberg",
+      "de": "anlagenfuhrer-in-konsumentenpackungen-emmi-ch",
+      "fr": "operateur-operatrice-d-installations-de-conditionnement-pour-consommateurs-emmi-kirchberg"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-07-10T11:37:04.163Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-konsumentenpackungen-emmi-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-konsumentenpackungen-emmi-ch"
+      ]
+    },
+    "postalCode": "3422",
+    "streetAddress": "Winkelweg 4",
+    "salaryMin": 94500,
+    "salaryMax": 143000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "gestore-dell-impianto-in-pet-emmi-suhr",
@@ -424,54 +519,6 @@
     "streetAddress": "Sandsteinhöhle 1",
     "salaryMin": 69500,
     "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
-    "title": "Anlagenführer:in Käseproduktion",
-    "titleByLocale": {
-      "it": "Conduttore dell'impianto:in produzione di formaggio",
-      "en": "System operator:in cheese production",
-      "de": "Anlagenführer:in Käseproduktion",
-      "fr": "Opérateur du système:dans la production de fromage"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Kirchberg, Bern",
-    "addressLocality": "Kirchberg",
-    "descriptionByLocale": {
-      "it": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
-      "en": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
-      "de": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb.",
-      "fr": "• Du kontrollierst und bedienst unserer Produktionsanlagen.\n• Du bist verantwortlich für die Mitarbeiter an der Linie.\n• Qualität checken gehört ebenfalls zu deinen Aufgaben.\n• Bei uns wird Sauberkeit gross geschrieben.\n• Du verfügst über eine abgeschlossene Lehre (z.B. Lebensmittel, Milch oder auch was ganz anderes, hast aber Bock dein Wissen zu erweitern).\n• Du bist frisch ab Ausbildund und hast noch keine Erfahrung? Bei uns hast du die Möglichkeit, diese zu sammeln.\n• Du hast Interesse an Maschinen (Du musst kein Profi sein - das wirst du bei uns).\n• Du bist Teamplayer:in und zuverlässig.\n• Du bringst Bereitschaft für 2-3 Schichtbetrieb mit, im Sommer ist auch mal Tagesbetrieb."
-    },
-    "slugByLocale": {
-      "it": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
-      "en": "system-operator-in-cheese-production-emmi-kirchberg-bern",
-      "de": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
-      "fr": "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-06-24T11:18:35.634Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-kaseproduktion-emmi-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
-      ],
-      "en": [
-        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
-      ],
-      "fr": [
-        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
-      ]
-    },
-    "postalCode": "3422",
-    "streetAddress": "Winkelweg 4",
-    "salaryMin": 68500,
-    "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
