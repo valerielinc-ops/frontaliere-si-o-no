@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-07-10T10:32:51.648Z",
+  "assembledAt": "2026-07-10T12:33:52.043Z",
   "jobs": [
     {
       "title": "Mitarbeiter*in in Verkauf Herren 80%",
@@ -30,14 +30,15 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in in vendita Herren 80%",
-        "de": "Mitarbeiter*in in Verkauf Herren 80%",
         "en": "Mitarbeiter*in in Sales Herren 80%",
+        "de": "Mitarbeiter*in in Verkauf Herren 80%",
         "fr": "Mitarbeiter*in in Vente Herren 80%"
       },
       "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-90bccbb22502",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-10T10:32:44.569Z",
+      "crawledAt": "",
       "salaryMin": 54800,
       "salaryMax": 84000,
       "currency": "CHF",
@@ -54,8 +55,7 @@
       "addressLocality": "Chur Mitarbeiterin in Verkauf",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-07-10T10:32:44.569Z"
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Verkauf (Warenpflege) Fashion 20%",
@@ -85,14 +85,15 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita (Warenpflege) Fashion 20%",
-        "de": "Mitarbeiter*in Verkauf (Warenpflege) Fashion 20%",
         "en": "Mitarbeiter*in Sales (Warenpflege) Fashion 20%",
+        "de": "Mitarbeiter*in Verkauf (Warenpflege) Fashion 20%",
         "fr": "Mitarbeiter*in Vente (Warenpflege) Fashion 20%"
       },
       "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-c8b00c256780",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-10T10:32:44.569Z",
+      "crawledAt": "",
       "salaryMin": 16600,
       "salaryMax": 25500,
       "currency": "CHF",
@@ -109,8 +110,7 @@
       "addressLocality": "Winterthur Mitarbeiterin Verkauf (Warenpflege)",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-07-10T10:32:44.569Z"
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter/in Verkauf Bijouterie 20%",
@@ -162,9 +162,9 @@
           "manor-mitarbeiter-in-verkauf-bijouterie-20-basel-mitarbeiterin-verkauf-bijouterie"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 14800,
       "salaryMax": 22700,
       "currency": "CHF",
@@ -227,9 +227,9 @@
           "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-manor-ag-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -282,16 +282,16 @@
       },
       "sourceLang": "it",
       "id": "manor-1165865e5ebb",
+      "previousSlugs": [
+        "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
@@ -347,9 +347,9 @@
       },
       "sourceLang": "it",
       "id": "manor-900d54e4e509",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 21600,
       "salaryMax": 33300,
       "currency": "CHF",
@@ -411,16 +411,16 @@
           "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50",
           "cashier-in-fashion-50-manor-ag-basel-kassiererin-fashion-50"
         ],
-        "fr": [
+        "en": [
           "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
         ],
-        "en": [
+        "fr": [
           "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:50:13.417Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 37000,
       "salaryMax": 56800,
       "currency": "CHF",
@@ -483,9 +483,9 @@
           "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-60-manor-ag-hochdorf-mitarbeiterin-logistik"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 41700,
       "salaryMax": 63600,
       "currency": "CHF",
@@ -538,9 +538,9 @@
       },
       "sourceLang": "it",
       "id": "manor-8bb88cc12c8e",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:50:13.417Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -593,9 +593,9 @@
       },
       "sourceLang": "it",
       "id": "manor-540d99180c8d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:36:38.736Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "currency": "CHF",
@@ -702,9 +702,9 @@
       },
       "sourceLang": "it",
       "id": "manor-8dcc7537950a",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -757,6 +757,10 @@
       },
       "sourceLang": "it",
       "id": "manor-4dda2fc76917",
+      "previousSlugs": [
+        "collaboratore-trice-in-backoffice-30-manor-ag-thun-mitarbeiterin-backoffice-30",
+        "manor-mitarbeiter-in-backoffice-30-thun-mitarbeiterin-backoffice-30"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-backoffice-30-manor-ag-thun-mitarbeiterin-backoffice-30",
@@ -766,13 +770,9 @@
           "manor-mitarbeiter-in-backoffice-30-thun-mitarbeiterin-backoffice-30"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-backoffice-30-manor-ag-thun-mitarbeiterin-backoffice-30",
-        "manor-mitarbeiter-in-backoffice-30-thun-mitarbeiterin-backoffice-30"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 20600,
       "salaryMax": 31200,
       "currency": "CHF",
@@ -825,6 +825,7 @@
       },
       "sourceLang": "it",
       "id": "manor-399b6fc4ff44",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 50400,
@@ -843,8 +844,7 @@
       "addressLocality": "Lausanne Collaborateurtrice vente (Home",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice supermarché (poissonnerie) 60%",
@@ -946,9 +946,9 @@
           "collaboratore-di-vendita-home-household-70-manor-ag-monthey-collaborateurtrice-vente-home"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 50400,
       "salaryMax": 77700,
       "currency": "CHF",
@@ -1013,9 +1013,9 @@
           "collaboratore-di-supermercato-frequent-products-80-manor-ag-nyon-collaborateurtrice-supermarche-produits"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "currency": "CHF",
@@ -1068,9 +1068,9 @@
       },
       "sourceLang": "it",
       "id": "manor-d2e0948ddd2a",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 47300,
       "salaryMax": 59100,
       "currency": "CHF",
@@ -1123,9 +1123,9 @@
       },
       "sourceLang": "it",
       "id": "manor-f90894c58e9d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 54300,
       "salaryMax": 83000,
       "currency": "CHF",
@@ -1178,6 +1178,10 @@
       },
       "sourceLang": "it",
       "id": "manor-7d526ee79b4f",
+      "previousSlugs": [
+        "collaboratore-trice-in-supermarkt-fisch-60-manor-ag-biel-mitarbeiterin-supermarkt-fisch",
+        "manor-mitarbeiter-in-supermarkt-fisch-60-biel-mitarbeiterin-supermarkt-fisch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-supermarkt-fisch-60-manor-ag-biel-mitarbeiterin-supermarkt-fisch",
@@ -1187,13 +1191,9 @@
           "manor-mitarbeiter-in-supermarkt-fisch-60-biel-mitarbeiterin-supermarkt-fisch"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-supermarkt-fisch-60-manor-ag-biel-mitarbeiterin-supermarkt-fisch",
-        "manor-mitarbeiter-in-supermarkt-fisch-60-biel-mitarbeiterin-supermarkt-fisch"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "currency": "CHF",
@@ -1300,9 +1300,9 @@
       },
       "sourceLang": "de",
       "id": "manor-e71e1c9a8b7e",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "currency": "CHF",
@@ -1355,9 +1355,9 @@
       },
       "sourceLang": "it",
       "id": "manor-fb015ed8a6f9",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "currency": "CHF",
@@ -1410,6 +1410,7 @@
       },
       "sourceLang": "it",
       "id": "manor-9efa7eac56c1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 36000,
@@ -1428,8 +1429,7 @@
       "addressLocality": "Genève 1 Collaborateurtrice vente",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice Visual Merchandising (Décoration food) 100%",
@@ -1465,6 +1465,7 @@
       },
       "sourceLang": "it",
       "id": "manor-00a1652aa7ef",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 60500,
@@ -1483,8 +1484,7 @@
       "addressLocality": "Genève 1 Collaborateurtrice Visual",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apprenti/e Gestionnaire du commerce de détail CFC (Parfumerie) 100%",
@@ -1584,9 +1584,9 @@
       },
       "sourceLang": "it",
       "id": "manor-3f000d9655c9",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1693,6 +1693,10 @@
       },
       "sourceLang": "it",
       "id": "manor-faa55edac52a",
+      "previousSlugs": [
+        "collaboratore-trice-in-logistik-50-100-manor-ag-hochdorf-mitarbeiterin-logistik-50",
+        "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-logistik-50-100-manor-ag-hochdorf-mitarbeiterin-logistik-50",
@@ -1702,13 +1706,9 @@
           "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-logistik-50-100-manor-ag-hochdorf-mitarbeiterin-logistik-50",
-        "manor-mitarbeiter-in-logistik-50-100-hochdorf-mitarbeiterin-logistik-50"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -1771,9 +1771,9 @@
           "dipendenti-nella-logistica-delle-merci-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenausgang"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -1844,9 +1844,9 @@
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-2"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:36:38.736Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -1899,9 +1899,9 @@
       },
       "sourceLang": "it",
       "id": "manor-8c8d23e9484b",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 13100,
       "salaryMax": 16500,
       "currency": "CHF",
@@ -1972,9 +1972,9 @@
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:11.926Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -2027,19 +2027,19 @@
       },
       "sourceLang": "it",
       "id": "manor-c84fa17668c1",
+      "previousSlugs": [
+        "collaboratore-trice-in-visual-merchandising-fashion-100-manor-ag-basel-mitarbeiterin-visual-merchandising",
+        "manor-mitarbeiter-in-visual-merchandising-fashion-100-basel-mitarbeiterin-visual-merchandising"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-visual-merchandising-fashion-100-manor-ag-basel-mitarbeiterin-visual-merchandising",
           "manor-mitarbeiter-in-visual-merchandising-fashion-100-basel-mitarbeiterin-visual-merchandising"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-visual-merchandising-fashion-100-manor-ag-basel-mitarbeiterin-visual-merchandising",
-        "manor-mitarbeiter-in-visual-merchandising-fashion-100-basel-mitarbeiterin-visual-merchandising"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -2102,9 +2102,9 @@
           "cassiere-non-alimentari-40-manor-ag-affoltern-am-albis-kassiererin"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "currency": "CHF",
@@ -2221,9 +2221,9 @@
           "gestione-del-pavimento-100-manor-ag-chur-floor-managerin-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -2288,9 +2288,9 @@
           "collaborateur-trice-vente-lancome-l-oreal-prestige-50-manor-ag-morges-collaborateurtrice-vente-lancomel-oreal"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -2353,9 +2353,9 @@
           "dipendenti-in-vendita-abbigliamento-donna-60-manor-ag-basel-mitarbeiterin-verkauf-damenkonfektion"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -2375,56 +2375,70 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Collaborateur/trice supermarché (Epicerie) 30%",
+      "title": "Mitarbeiter*in Merchandising Fashion 50%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-30/1359395955/",
-      "location": "Lausanne Collaborateurtrice supermarché (Epicerie)",
-      "canton": "VD",
+      "url": "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Merchandising-Fashion-50/1351296655/",
+      "location": "Aarau Mitarbeiterin Merchandising Fashion",
+      "canton": "AG",
       "country": "CH",
-      "category": "retail",
-      "description": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "category": "design",
+      "description": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice supermarché (Epicerie) 30% at Manor, located in Lausanne Collaborateurtrice supermarché (Epicerie), Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice supermarché (Epicerie) 30% bei Manor, gelegen in Lausanne Collaborateurtrice supermarché (Epicerie), Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice supermarché (Epicerie) 30% chez Manor, situé à Lausanne Collaborateurtrice supermarché (Epicerie), Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "it": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Merchandising Fashion 50% at Manor, located in Aarau Mitarbeiterin Merchandising Fashion, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Merchandising Fashion 50% bei Manor, gelegen in Aarau Mitarbeiterin Merchandising Fashion, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Merchandising Fashion 50% chez Manor, situé à Aarau Mitarbeiterin Merchandising Fashion, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-07-03",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
+      "slug": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
-        "en": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
-        "de": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
-        "fr": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie"
+        "it": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
+        "en": "employee-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
+        "de": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
+        "fr": "mitarbeiter-en-mode-marchand-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Epicerie) 30%",
-        "en": "Supermarché Collaborateur/trice (Epicerie) 30%",
-        "de": "Supermarché Collaborateur/trice (Epicerie) 30%",
-        "fr": "Supermarché Collaborateur/trice (Epicerie) 30%"
+        "it": "Collaboratore/trice*in Merchandising Fashion 50%",
+        "en": "Employee Merchandising Fashion 50%",
+        "de": "Mitarbeiter*in Merchandising Fashion 50%",
+        "fr": "Mitarbeiter* en mode marchand 50 %"
       },
       "sourceLang": "it",
-      "id": "manor-5d67308942dc",
+      "id": "manor-d1b59c2e3fca",
+      "previousSlugs": [
+        "collaboratore-trice-in-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
+        "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-in-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
+          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+        ]
+      },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "salaryMin": 21600,
-      "salaryMax": 33300,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 21600,
-          "maxValue": 33300,
+          "minValue": 31000,
+          "maxValue": 47000,
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Lausanne Collaborateurtrice supermarché (Epicerie)",
-      "addressRegion": "VD",
+      "addressLocality": "Aarau Mitarbeiterin Merchandising Fashion",
+      "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
     },
@@ -2483,70 +2497,56 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Merchandising Fashion 50%",
+      "title": "Collaborateur/trice supermarché (Epicerie) 30%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Merchandising-Fashion-50/1351296655/",
-      "location": "Aarau Mitarbeiterin Merchandising Fashion",
-      "canton": "AG",
+      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-30/1359395955/",
+      "location": "Lausanne Collaborateurtrice supermarché (Epicerie)",
+      "canton": "VD",
       "country": "CH",
-      "category": "design",
-      "description": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "category": "retail",
+      "description": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Mitarbeiter*in Merchandising Fashion 50% presso Manor, con sede a Aarau Mitarbeiterin Merchandising Fashion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Merchandising Fashion 50% at Manor, located in Aarau Mitarbeiterin Merchandising Fashion, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Merchandising Fashion 50% bei Manor, gelegen in Aarau Mitarbeiterin Merchandising Fashion, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Merchandising Fashion 50% chez Manor, situé à Aarau Mitarbeiterin Merchandising Fashion, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "it": "Collaborateur/trice supermarché (Epicerie) 30% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Collaborateur/trice supermarché (Epicerie) 30% at Manor, located in Lausanne Collaborateurtrice supermarché (Epicerie), Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Collaborateur/trice supermarché (Epicerie) 30% bei Manor, gelegen in Lausanne Collaborateurtrice supermarché (Epicerie), Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Collaborateur/trice supermarché (Epicerie) 30% chez Manor, situé à Lausanne Collaborateurtrice supermarché (Epicerie), Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-07-03",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
+      "slug": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
-        "en": "employee-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
-        "de": "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion",
-        "fr": "mitarbeiter-en-mode-marchand-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion"
+        "it": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
+        "en": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
+        "de": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie",
+        "fr": "manor-collaborateur-trice-supermarche-epicerie-30-lausanne-collaborateurtrice-supermarche-epicerie"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Merchandising Fashion 50%",
-        "en": "Employee Merchandising Fashion 50%",
-        "de": "Mitarbeiter*in Merchandising Fashion 50%",
-        "fr": "Mitarbeiter* en mode marchand 50 %"
+        "it": "Collaborateur/trice supermarché (Epicerie) 30%",
+        "en": "Supermarché Collaborateur/trice (Epicerie) 30%",
+        "de": "Supermarché Collaborateur/trice (Epicerie) 30%",
+        "fr": "Supermarché Collaborateur/trice (Epicerie) 30%"
       },
       "sourceLang": "it",
-      "id": "manor-d1b59c2e3fca",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratore-trice-in-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
-          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratore-trice-in-merchandising-fashion-50-manor-ag-aarau-mitarbeiterin-merchandising-fashion",
-        "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
-      ],
+      "id": "manor-5d67308942dc",
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "salaryMin": 21600,
+      "salaryMax": 33300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 21600,
+          "maxValue": 33300,
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Aarau Mitarbeiterin Merchandising Fashion",
-      "addressRegion": "AG",
+      "addressLocality": "Lausanne Collaborateurtrice supermarché (Epicerie)",
+      "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
     },
@@ -2594,9 +2594,9 @@
           "gestione-settoriale-frutte-vegetali-take-out-100-manor-ag-vevey-responsable-secteur-fruits"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "currency": "CHF",
@@ -2659,9 +2659,9 @@
           "servizio-partner-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -2727,9 +2727,9 @@
           "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2782,9 +2782,9 @@
       },
       "sourceLang": "en",
       "id": "manor-37dc131a7091",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -2837,9 +2837,9 @@
       },
       "sourceLang": "it",
       "id": "manor-b97e3480eb8d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -2904,9 +2904,9 @@
           "collaboratore-caisse-confection-enfants-student-20-manor-ag-morges-collaborateurtrice-caisse-confection"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 14400,
       "salaryMax": 22200,
       "currency": "CHF",
@@ -3067,9 +3067,9 @@
       },
       "sourceLang": "it",
       "id": "manor-20da51270318",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "currency": "CHF",
@@ -3122,9 +3122,9 @@
       },
       "sourceLang": "fr",
       "id": "manor-cb9884010e77",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -3177,19 +3177,19 @@
       },
       "sourceLang": "it",
       "id": "manor-96c0c5cef12e",
+      "previousSlugs": [
+        "collaboratore-trice-in-service-50-manor-ag-chur-mitarbeiterin-service-50",
+        "manor-mitarbeiter-in-service-50-chur-mitarbeiterin-service-50"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-service-50-manor-ag-chur-mitarbeiterin-service-50",
           "manor-mitarbeiter-in-service-50-chur-mitarbeiterin-service-50"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-service-50-manor-ag-chur-mitarbeiterin-service-50",
-        "manor-mitarbeiter-in-service-50-chur-mitarbeiterin-service-50"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 39000,
       "currency": "CHF",
@@ -3242,9 +3242,9 @@
       },
       "sourceLang": "it",
       "id": "manor-37bee72912f9",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -3297,9 +3297,9 @@
       },
       "sourceLang": "it",
       "id": "manor-536598fb2c6f",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -3364,9 +3364,9 @@
           "collaboratore-visual-merchandising-fashion-60-80-manor-ag-morges-collaborateurtrice-visual-merchandising"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -3429,9 +3429,9 @@
           "abbigliamento-uomo-sport-40-manor-ag-luzern-mitarbeiterin-verkauf-herrenkonfektion"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 31600,
       "salaryMax": 48600,
       "currency": "CHF",
@@ -3484,9 +3484,9 @@
       },
       "sourceLang": "fr",
       "id": "manor-7c4d54be71da",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -3560,73 +3560,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Logistik VZ 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-VZ-20/1354162655/",
-      "location": "Hochdorf Mitarbeiterin Logistik VZ",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik VZ 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik VZ, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik VZ 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik VZ, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik VZ 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik VZ, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik VZ 20% at Manor, located in Hochdorf Mitarbeiterin Logistik VZ, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik VZ 20% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik VZ, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik VZ 20% chez Manor, situé à Hochdorf Mitarbeiterin Logistik VZ, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-01",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-vz-20-manor-ag-hochdorf-mitarbeiterin-logistik-vz",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-vz-20-manor-ag-hochdorf-mitarbeiterin-logistik-vz",
-        "en": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
-        "de": "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
-        "fr": "logistique-des-employes-vz-20-manor-ag-hochdorf-mitarbeiterin-logistik-vz"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik VZ 20%",
-        "en": "Mitarbeiter*in Logistik VZ 20%.",
-        "de": "Mitarbeiter*in Logistik VZ 20%",
-        "fr": "Logistique des employés VZ 20 %"
-      },
-      "sourceLang": "it",
-      "id": "manor-ddf0e8f2dd41",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
-      ],
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 13900,
-      "salaryMax": 21200,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 13900,
-          "maxValue": 21200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Hochdorf Mitarbeiterin Logistik VZ",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
       "title": "Koch/Köchin 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -3660,9 +3593,9 @@
       },
       "sourceLang": "it",
       "id": "manor-29999019ec94",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69000,
       "salaryMax": 86500,
       "currency": "CHF",
@@ -3715,19 +3648,19 @@
       },
       "sourceLang": "it",
       "id": "manor-035fb3c4d347",
+      "previousSlugs": [
+        "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
+        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
           "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60",
-        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 41400,
       "salaryMax": 51900,
       "currency": "CHF",
@@ -3798,9 +3731,9 @@
           "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:11.926Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 41400,
       "salaryMax": 51900,
       "currency": "CHF",
@@ -3818,73 +3751,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Mitarbeiter*in Service 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Mitarbeiterin-Service-100/1358907455/",
-      "location": "Basel Mitarbeiterin Service 100",
-      "canton": "BS",
-      "country": "CH",
-      "category": "hospitality",
-      "description": "Mitarbeiter*in Service 100% presso Manor, con sede a Basel Mitarbeiterin Service 100, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Service 100% presso Manor, con sede a Basel Mitarbeiterin Service 100, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Service 100% presso Manor, con sede a Basel Mitarbeiterin Service 100, Canton Basilea Città, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Service 100% at Manor, located in Basel Mitarbeiterin Service 100, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Service 100% bei Manor, gelegen in Basel Mitarbeiterin Service 100, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Service 100% chez Manor, situé à Basel Mitarbeiterin Service 100, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-30",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-service-100-manor-ag-basel-mitarbeiterin-service-100",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-service-100-manor-ag-basel-mitarbeiterin-service-100",
-        "en": "employee-service-100-manor-ag-basel-mitarbeiterin-service-100",
-        "de": "manor-mitarbeiter-in-service-100-basel-mitarbeiterin-service-100",
-        "fr": "manor-mitarbeiter-in-service-100-basel-mitarbeiterin-service-100"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Service 100%",
-        "en": "Employee Service 100%",
-        "de": "Mitarbeiter*in Service 100%",
-        "fr": "Mitarbeiter*en service 100%"
-      },
-      "sourceLang": "it",
-      "id": "manor-635b303fb0bc",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-service-100-basel-mitarbeiterin-service-100"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-service-100-basel-mitarbeiterin-service-100"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-service-100-basel-mitarbeiterin-service-100"
-      ],
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 67500,
-      "salaryMax": 84500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67500,
-          "maxValue": 84500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Basel Mitarbeiterin Service 100",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Logistik 100%",
@@ -3920,6 +3786,10 @@
       },
       "sourceLang": "it",
       "id": "manor-07100ac0ef92",
+      "previousSlugs": [
+        "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
@@ -3929,13 +3799,9 @@
           "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
-        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -4052,9 +3918,9 @@
       },
       "sourceLang": "it",
       "id": "manor-9648c2acf84d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "currency": "CHF",
@@ -4179,9 +4045,9 @@
           "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:11.926Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -4298,9 +4164,9 @@
           "polydesigner-3d-cibo-60-manor-ag-chavannes-de-bogis-polydesigner"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -4353,9 +4219,9 @@
       },
       "sourceLang": "de",
       "id": "manor-5487a3fd4c3d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -4416,9 +4282,9 @@
           "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89500,
       "currency": "CHF",
@@ -4471,9 +4337,9 @@
       },
       "sourceLang": "it",
       "id": "manor-f9b1d467e293",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "currency": "CHF",
@@ -4547,72 +4413,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Warenbereitstellung-100/1358580155/",
-      "location": "Hochdorf Mitarbeiterin Logistik Warenbereitstellung",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik Warenbereitstellung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik Warenbereitstellung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik Warenbereitstellung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik Warenbereitstellung 100% at Manor, located in Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik Warenbereitstellung 100% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik Warenbereitstellung 100% chez Manor, situé à Hochdorf Mitarbeiterin Logistik Warenbereitstellung, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-26",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-logistik-warenbereitstellung-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-logistik-warenbereitstellung-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "en": "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "de": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "fr": "fourniture-logistique-des-marchandises-pour-les-employes-a-100-manor-ag-hochdorf-mitarbeiterin-logistik"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik Warenbereitstellung 100%",
-        "en": "Employee logistics provision of goods 100%",
-        "de": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
-        "fr": "Fourniture logistique des marchandises pour les employés à 100 %"
-      },
-      "sourceLang": "it",
-      "id": "manor-24ef08c3a316",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-      ],
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Hochdorf Mitarbeiterin Logistik Warenbereitstellung",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
-    },
-    {
       "title": "Collaborateur/trice supermarché (Food) 60%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -4658,9 +4458,9 @@
           "collaboratore-food-60-manor-ag-nyon-collaborateurtrice-supermarche-food"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -4713,19 +4513,19 @@
       },
       "sourceLang": "it",
       "id": "manor-482805491115",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-herrenkonfektion-60-manor-ag-aarau-mitarbeiterin-verkauf-herrenkonfektion",
+        "manor-mitarbeiter-in-verkauf-herrenkonfektion-60-aarau-mitarbeiterin-verkauf-herrenkonfektion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-herrenkonfektion-60-manor-ag-aarau-mitarbeiterin-verkauf-herrenkonfektion",
           "manor-mitarbeiter-in-verkauf-herrenkonfektion-60-aarau-mitarbeiterin-verkauf-herrenkonfektion"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-herrenkonfektion-60-manor-ag-aarau-mitarbeiterin-verkauf-herrenkonfektion",
-        "manor-mitarbeiter-in-verkauf-herrenkonfektion-60-aarau-mitarbeiterin-verkauf-herrenkonfektion"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -4778,6 +4578,10 @@
       },
       "sourceLang": "it",
       "id": "manor-9cf95065ce6c",
+      "previousSlugs": [
+        "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
+        "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
@@ -4787,13 +4591,9 @@
           "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
-        "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52500,
       "currency": "CHF",
@@ -4854,9 +4654,9 @@
           "conseillere-de-vente-confection-dames-60-manor-ag-chavannes-de-bogis-conseillere"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -4909,19 +4709,19 @@
       },
       "sourceLang": "it",
       "id": "manor-dfabe098294f",
+      "previousSlugs": [
+        "addetto-a-alle-vendite-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie",
+        "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "addetto-a-alle-vendite-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie",
           "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "previousSlugs": [
-        "addetto-a-alle-vendite-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie",
-        "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94800,
       "currency": "CHF",
@@ -5040,9 +4840,9 @@
           "collaboratore-trice-in-vendita-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "currency": "CHF",
@@ -5173,9 +4973,9 @@
           "cucina-operaia-fresh-to-go-manor-ag-nyon-collaborateurtrice-cuisine-fresh"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "currency": "CHF",
@@ -5244,9 +5044,9 @@
           "manor-retail-media-sales-manager-100-basel-retail-media-sales"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -5317,9 +5117,9 @@
           "manor-retail-media-sales-manager-100-basel-retail-media-sales-2"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:36:38.736Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -5380,9 +5180,9 @@
           "manor-retail-media-sales-manager-100-basel-retail-media-sales-3"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:11.926Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -5497,9 +5297,9 @@
           "manor-buyer-herren-fashion-100-basel-buyer-herren-fashion"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -5660,9 +5460,9 @@
       },
       "sourceLang": "it",
       "id": "manor-885ce64a18a4",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -5715,19 +5515,19 @@
       },
       "sourceLang": "it",
       "id": "manor-fdfcea239d31",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-hinwil-mitarbeiterin-verkauf-parfumerie",
+        "manor-mitarbeiter-in-verkauf-parfumerie-30-hinwil-mitarbeiterin-verkauf-parfumerie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-hinwil-mitarbeiterin-verkauf-parfumerie",
           "manor-mitarbeiter-in-verkauf-parfumerie-30-hinwil-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-hinwil-mitarbeiterin-verkauf-parfumerie",
-        "manor-mitarbeiter-in-verkauf-parfumerie-30-hinwil-mitarbeiterin-verkauf-parfumerie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",
@@ -5854,9 +5654,9 @@
           "dormitore-in-weinfachhandler-in-100-manor-ag-biel-sommelierin-weinfachhandlerin-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -5909,6 +5709,10 @@
       },
       "sourceLang": "it",
       "id": "manor-818497abe6ad",
+      "previousSlugs": [
+        "collaboratore-trice-in-visual-merchandising-80-manor-ag-rapperswil-mitarbeiterin-visual-merchandising",
+        "manor-mitarbeiter-in-visual-merchandising-80-rapperswil-mitarbeiterin-visual-merchandising"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-visual-merchandising-80-manor-ag-rapperswil-mitarbeiterin-visual-merchandising",
@@ -5918,13 +5722,9 @@
           "manor-mitarbeiter-in-visual-merchandising-80-rapperswil-mitarbeiterin-visual-merchandising"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-visual-merchandising-80-manor-ag-rapperswil-mitarbeiterin-visual-merchandising",
-        "manor-mitarbeiter-in-visual-merchandising-80-rapperswil-mitarbeiterin-visual-merchandising"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "currency": "CHF",
@@ -5977,6 +5777,10 @@
       },
       "sourceLang": "it",
       "id": "manor-4bc046df64c6",
+      "previousSlugs": [
+        "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
+        "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
@@ -5986,13 +5790,9 @@
           "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-logistik-100-manor-ag-hochdorf-mitarbeiterin-logistik-100",
-        "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -6045,19 +5845,19 @@
       },
       "sourceLang": "it",
       "id": "manor-f2f756843fc8",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-kinderkonfektion-40-manor-ag-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion",
+        "manor-mitarbeiter-in-verkauf-kinderkonfektion-40-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-kinderkonfektion-40-manor-ag-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion",
           "manor-mitarbeiter-in-verkauf-kinderkonfektion-40-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-kinderkonfektion-40-manor-ag-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion",
-        "manor-mitarbeiter-in-verkauf-kinderkonfektion-40-pfaffikon-mitarbeiterin-verkauf-kinderkonfektion"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "currency": "CHF",
@@ -6118,9 +5918,9 @@
           "manor-assistant-backoffice-manager-80-langenthal-assistant-backoffice-manager"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 75600,
       "salaryMax": 114400,
       "currency": "CHF",
@@ -6173,9 +5973,9 @@
       },
       "sourceLang": "it",
       "id": "manor-249745891a2c",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 51900,
       "salaryMax": 72300,
       "currency": "CHF",
@@ -6304,9 +6104,9 @@
           "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 16600,
       "salaryMax": 25500,
       "currency": "CHF",
@@ -6359,9 +6159,9 @@
       },
       "sourceLang": "fr",
       "id": "manor-19934496adb1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -6414,6 +6214,10 @@
       },
       "sourceLang": "it",
       "id": "manor-e23a20d76d9b",
+      "previousSlugs": [
+        "collaboratore-trice-in-logistik-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30",
+        "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-logistik-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30",
@@ -6423,13 +6227,9 @@
           "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-logistik-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30",
-        "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -6602,9 +6402,9 @@
           "collaboratore-trice-in-visual-merchandising-80-manor-ag-zug-mitarbeiterin-visual-merchandising"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 55600,
       "salaryMax": 84800,
       "currency": "CHF",
@@ -6657,9 +6457,9 @@
       },
       "sourceLang": "fr",
       "id": "manor-0ec0d7e9ad16",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -6712,19 +6512,19 @@
       },
       "sourceLang": "it",
       "id": "manor-60f131ac4b11",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
+        "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich-mitarbeiterin-verkauf-parfumerie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
           "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
-        "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich-mitarbeiterin-verkauf-parfumerie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "currency": "CHF",
@@ -6777,9 +6577,9 @@
       },
       "sourceLang": "it",
       "id": "manor-7248838867be",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:36:38.736Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -6797,62 +6597,6 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Cuisinier 60%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Vevey-Cuisinier-60/1355737755/",
-      "location": "Vevey Cuisinier 60",
-      "canton": "VD",
-      "country": "CH",
-      "category": "hospitality",
-      "description": "Cuisinier 60% presso Manor, con sede a Vevey Cuisinier 60, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Cuisinier 60% presso Manor, con sede a Vevey Cuisinier 60, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Cuisinier 60% presso Manor, con sede a Vevey Cuisinier 60, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Cuisinier 60% at Manor, located in Vevey Cuisinier 60, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Cuisinier 60% bei Manor, gelegen in Vevey Cuisinier 60, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Cuisinier 60% chez Manor, situé à Vevey Cuisinier 60, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-17",
-      "source": "company-website",
-      "slug": "manor-cuisinier-60-vevey-cuisinier-60",
-      "slugByLocale": {
-        "it": "manor-cuisinier-60-vevey-cuisinier-60",
-        "en": "cook-60-manor-ag-vevey-cuisinier-60",
-        "de": "kuche-60-manor-ag-vevey-cuisinier-60",
-        "fr": "cuisinier-60-manor-ag-vevey-cuisinier-60"
-      },
-      "titleByLocale": {
-        "it": "Cuisinier 60%",
-        "en": "Cook 60%",
-        "de": "Küche 60 %",
-        "fr": "Cuisinier 60%"
-      },
-      "sourceLang": "it",
-      "id": "manor-879e07774b89",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 39300,
-      "salaryMax": 49500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 39300,
-          "maxValue": 49500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Vevey Cuisinier 60",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice supermarché (Pain & Patisserie) Etudiant/e 15%",
@@ -6942,9 +6686,9 @@
       },
       "sourceLang": "it",
       "id": "manor-436101ab3b22",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 66000,
       "currency": "CHF",
@@ -7007,9 +6751,9 @@
           "dipendenti-nella-logistica-60-manor-ag-sargans-mitarbeiterin-logistik-60"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "currency": "CHF",
@@ -7062,19 +6806,19 @@
       },
       "sourceLang": "it",
       "id": "manor-9fff11f74503",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-damenkonfektion-40-manor-ag-spreitenbach-mitarbeiterin-verkauf-damenkonfektion",
+        "manor-mitarbeiter-in-verkauf-damenkonfektion-40-spreitenbach-mitarbeiterin-verkauf-damenkonfektion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-damenkonfektion-40-manor-ag-spreitenbach-mitarbeiterin-verkauf-damenkonfektion",
           "manor-mitarbeiter-in-verkauf-damenkonfektion-40-spreitenbach-mitarbeiterin-verkauf-damenkonfektion"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-damenkonfektion-40-manor-ag-spreitenbach-mitarbeiterin-verkauf-damenkonfektion",
-        "manor-mitarbeiter-in-verkauf-damenkonfektion-40-spreitenbach-mitarbeiterin-verkauf-damenkonfektion"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 29600,
       "salaryMax": 45400,
       "currency": "CHF",
@@ -7127,19 +6871,19 @@
       },
       "sourceLang": "it",
       "id": "manor-244e4cd16fe3",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-bijouterie-20-manor-ag-spreitenbach-mitarbeiterin-verkauf-bijouterie",
+        "manor-mitarbeiter-in-verkauf-bijouterie-20-spreitenbach-mitarbeiterin-verkauf-bijouterie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-bijouterie-20-manor-ag-spreitenbach-mitarbeiterin-verkauf-bijouterie",
           "manor-mitarbeiter-in-verkauf-bijouterie-20-spreitenbach-mitarbeiterin-verkauf-bijouterie"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-bijouterie-20-manor-ag-spreitenbach-mitarbeiterin-verkauf-bijouterie",
-        "manor-mitarbeiter-in-verkauf-bijouterie-20-spreitenbach-mitarbeiterin-verkauf-bijouterie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 14800,
       "salaryMax": 22700,
       "currency": "CHF",
@@ -7192,19 +6936,19 @@
       },
       "sourceLang": "it",
       "id": "manor-886039770bdd",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-spreitenbach-mitarbeiterin-verkauf-parfumerie",
+        "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach-mitarbeiterin-verkauf-parfumerie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-spreitenbach-mitarbeiterin-verkauf-parfumerie",
           "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-spreitenbach-mitarbeiterin-verkauf-parfumerie",
-        "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach-mitarbeiterin-verkauf-parfumerie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 22200,
       "salaryMax": 34100,
       "currency": "CHF",
@@ -7265,9 +7009,9 @@
           "manor-kassierer-in-spielwaren-sport-papeterie-herren-und-kinderkonfektion-20-emmen-kassiererin-spielwaren-sport"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 15800,
       "salaryMax": 24300,
       "currency": "CHF",
@@ -7320,19 +7064,19 @@
       },
       "sourceLang": "it",
       "id": "manor-eef8c519b49b",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-spielwaren-papeterie-sport-60-manor-ag-emmen-mitarbeiterin-verkauf-spielwaren",
+        "manor-mitarbeiter-in-verkauf-spielwaren-papeterie-sport-60-emmen-mitarbeiterin-verkauf-spielwaren"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-spielwaren-papeterie-sport-60-manor-ag-emmen-mitarbeiterin-verkauf-spielwaren",
           "manor-mitarbeiter-in-verkauf-spielwaren-papeterie-sport-60-emmen-mitarbeiterin-verkauf-spielwaren"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-spielwaren-papeterie-sport-60-manor-ag-emmen-mitarbeiterin-verkauf-spielwaren",
-        "manor-mitarbeiter-in-verkauf-spielwaren-papeterie-sport-60-emmen-mitarbeiterin-verkauf-spielwaren"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 47400,
       "salaryMax": 72900,
       "currency": "CHF",
@@ -7385,9 +7129,9 @@
       },
       "sourceLang": "it",
       "id": "manor-9d57a9e3a2f8",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 62400,
       "currency": "CHF",
@@ -7521,7 +7265,7 @@
       "addressRegion": "GE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "title": "Collaborateur/trice supermarché (Fruits & Légumes) Etudiant/e 20%",
@@ -7640,7 +7384,8 @@
       "addressLocality": "Luzern Lehrstelle Detailhandelsfachmannfrau EFZ",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Apprenti/e Gestionnaire du commerce de détail CFC (Confection Messieurs) 100%",
@@ -7817,9 +7562,9 @@
           "manor-gerant-100-emmen-gerant-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "currency": "CHF",
@@ -7926,19 +7671,19 @@
       },
       "sourceLang": "it",
       "id": "manor-0e934d5ccbbc",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-damenkonfektion-20-manor-ag-affoltern-am-albis-mitarbeiterin",
+        "manor-mitarbeiter-in-verkauf-damenkonfektion-20-affoltern-am-albis-mitarbeiterin"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-damenkonfektion-20-manor-ag-affoltern-am-albis-mitarbeiterin",
           "manor-mitarbeiter-in-verkauf-damenkonfektion-20-affoltern-am-albis-mitarbeiterin"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-damenkonfektion-20-manor-ag-affoltern-am-albis-mitarbeiterin",
-        "manor-mitarbeiter-in-verkauf-damenkonfektion-20-affoltern-am-albis-mitarbeiterin"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 16600,
       "salaryMax": 25500,
       "currency": "CHF",
@@ -8003,9 +7748,9 @@
           "collaboratore-servizio-clienti-50-manor-ag-delemont-collaborateurtrice-service-clients"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 32800,
       "salaryMax": 41300,
       "currency": "CHF",
@@ -8174,9 +7919,9 @@
           "manor-store-manager-100-liestal-store-manager-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "currency": "CHF",
@@ -8229,9 +7974,9 @@
       },
       "sourceLang": "it",
       "id": "manor-3911e04d3d38",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -8294,9 +8039,9 @@
           "dipendenti-nella-profumeria-di-vendita-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 47400,
       "salaryMax": 72900,
       "currency": "CHF",
@@ -8415,9 +8160,9 @@
           "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 33800,
       "salaryMax": 42300,
       "currency": "CHF",
@@ -8480,9 +8225,9 @@
           "profumeria-di-vendita-dei-dipendenti-bijoutery-100-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -8547,9 +8292,9 @@
           "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "currency": "CHF",
@@ -8602,9 +8347,9 @@
       },
       "sourceLang": "de",
       "id": "manor-f19e6ecceba9",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -8752,70 +8497,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Visual Merchandising 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Rickenbach-b_-Wil-Mitarbeiterin-Visual-Merchandising-40/1354960655/",
-      "location": "Rickenbach b",
-      "canton": "SG",
-      "country": "CH",
-      "category": "design",
-      "description": "Mitarbeiter*in Visual Merchandising 40% presso Manor, con sede a Rickenbach b. Wil Mitarbeiterin, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Visual Merchandising 40% presso Manor, con sede a Rickenbach b. Wil Mitarbeiterin, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Visual Merchandising 40% presso Manor, con sede a Rickenbach b. Wil Mitarbeiterin, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Visual Merchandising 40% at Manor, located in Rickenbach b. Wil Mitarbeiterin, Canton of St. Gallen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Visual Merchandising 40% bei Manor, gelegen in Rickenbach b. Wil Mitarbeiterin, Kanton St. Gallen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Visual Merchandising 40% chez Manor, situé à Rickenbach b. Wil Mitarbeiterin, Canton de Saint-Gall, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-10",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-visual-merchandising-40-manor-ag-rickenbach-b-wil-mitarbeiterin",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-visual-merchandising-40-manor-ag-rickenbach-b-wil-mitarbeiterin",
-        "en": "manor-mitarbeiter-in-visual-merchandising-40-rickenbach-b-wil-mitarbeiterin",
-        "de": "manor-mitarbeiter-in-visual-merchandising-40-rickenbach-b-wil-mitarbeiterin",
-        "fr": "mitarbeiter-en-marchandisation-visuelle-40-manor-ag-rickenbach-b-wil-mitarbeiterin"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Visual Merchandising 40%",
-        "en": "Mitarbeiter in Visual Merchandising 40%",
-        "de": "Mitarbeiter*in Visual Merchandising 40%",
-        "fr": "Mitarbeiter en marchandisation visuelle 40%"
-      },
-      "sourceLang": "it",
-      "id": "manor-143a7e68f58f",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-visual-merchandising-40-rickenbach-b-wil-mitarbeiterin"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-visual-merchandising-40-rickenbach-b-wil-mitarbeiterin"
-      ],
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 23000,
-      "salaryMax": 34800,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 23000,
-          "maxValue": 34800,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Rickenbach b",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
       "title": "Mitarbeiter*in Visual Merchandising 60-80%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -8849,6 +8530,10 @@
       },
       "sourceLang": "it",
       "id": "manor-c85c28f4ab1c",
+      "previousSlugs": [
+        "collaboratore-trice-in-visual-merchandising-60-80-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
+        "manor-mitarbeiter-in-visual-merchandising-60-80-solothurn-mitarbeiterin-visual-merchandising"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-visual-merchandising-60-80-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
@@ -8858,13 +8543,9 @@
           "manor-mitarbeiter-in-visual-merchandising-60-80-solothurn-mitarbeiterin-visual-merchandising"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-visual-merchandising-60-80-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
-        "manor-mitarbeiter-in-visual-merchandising-60-80-solothurn-mitarbeiterin-visual-merchandising"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "currency": "CHF",
@@ -8917,9 +8598,9 @@
       },
       "sourceLang": "it",
       "id": "manor-5772f9031c59",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 95200,
       "currency": "CHF",
@@ -8972,9 +8653,9 @@
       },
       "sourceLang": "it",
       "id": "manor-a309ddeb2d82",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 95200,
       "currency": "CHF",
@@ -9039,9 +8720,9 @@
           "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 7800,
       "salaryMax": 11900,
       "currency": "CHF",
@@ -9094,19 +8775,19 @@
       },
       "sourceLang": "it",
       "id": "manor-4d96974d96bc",
+      "previousSlugs": [
+        "collaboratore-trice-in-visual-merchandising-60-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
+        "manor-mitarbeiter-in-visual-merchandising-60-solothurn-mitarbeiterin-visual-merchandising"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-visual-merchandising-60-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
           "manor-mitarbeiter-in-visual-merchandising-60-solothurn-mitarbeiterin-visual-merchandising"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-visual-merchandising-60-manor-ag-solothurn-mitarbeiterin-visual-merchandising",
-        "manor-mitarbeiter-in-visual-merchandising-60-solothurn-mitarbeiterin-visual-merchandising"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "currency": "CHF",
@@ -9213,19 +8894,19 @@
       },
       "sourceLang": "it",
       "id": "manor-16d9a6fda457",
+      "previousSlugs": [
+        "collaboratore-trice-in-vendita-parfumerie-40-manor-ag-aarau-mitarbeiterin-verkauf-parfumerie",
+        "manor-mitarbeiter-in-verkauf-parfumerie-40-aarau-mitarbeiterin-verkauf-parfumerie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-vendita-parfumerie-40-manor-ag-aarau-mitarbeiterin-verkauf-parfumerie",
           "manor-mitarbeiter-in-verkauf-parfumerie-40-aarau-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-40-manor-ag-aarau-mitarbeiterin-verkauf-parfumerie",
-        "manor-mitarbeiter-in-verkauf-parfumerie-40-aarau-mitarbeiterin-verkauf-parfumerie"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 29600,
       "salaryMax": 45400,
       "currency": "CHF",
