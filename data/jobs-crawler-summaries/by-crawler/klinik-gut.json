@@ -1,21 +1,19 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-07-10T10:28:18.707Z",
+  "generatedAt": "2026-07-10T12:32:02.335Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2915,
-  "avgDurationMs": 2915,
+  "unchangedCount": 0,
+  "durationMs": 3160,
+  "avgDurationMs": 3160,
   "durationHistory": [
-    2915
+    3160
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "klinik-gut-1581-00c45976f0f5",
       "slug": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
@@ -29,7 +27,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:28:16.773Z",
+      "crawledAt": "2026-07-10T12:32:00.032Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -53,5 +51,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
