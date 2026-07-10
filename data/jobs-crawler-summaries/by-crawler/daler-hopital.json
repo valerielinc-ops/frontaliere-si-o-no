@@ -1,21 +1,19 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-07-10T12:59:21.523Z",
+  "generatedAt": "2026-07-10T22:50:20.937Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3602,
-  "avgDurationMs": 3602,
+  "unchangedCount": 0,
+  "durationMs": 3890,
+  "avgDurationMs": 3890,
   "durationHistory": [
-    3602
+    3890
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "daler-hopital-fbda5667e1b2",
       "slug": "gestionnaire-en-intendance-daler-hopital-fribourg",
@@ -29,7 +27,7 @@
       "url": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:59:19.211Z",
+      "crawledAt": "2026-07-10T22:50:18.519Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -67,7 +65,7 @@
       "url": "https://daler.ch/emplois#offer/4197/assistante-en-pharmacie",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:59:19.799Z",
+      "crawledAt": "2026-07-10T22:50:19.164Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -92,5 +90,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
