@@ -1,18 +1,19 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-07-10T12:27:30.350Z",
+  "generatedAt": "2026-07-10T22:54:47.098Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5017,
-  "avgDurationMs": 5017,
+  "unchangedCount": 1,
+  "durationMs": 5004,
+  "avgDurationMs": 5004,
   "durationHistory": [
-    5017
+    5004
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-nidwalden-984e39ec6365",
       "slug": "fachfrau-mann-gesundheit-efz-100-spital-nidwalden-stans",
@@ -20,13 +21,13 @@
       "companyKey": "spital-nidwalden",
       "companyDomain": "spital-nidwalden.ch",
       "title": "Fachfrau/-mann Gesundheit EFZ 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Stans",
       "canton": "NW",
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:28.000Z",
+      "crawledAt": "2026-07-10T22:54:44.572Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -41,17 +42,16 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-09",
-      "applyUrl": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
-      "_qualityScore": 58,
+      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019f4bdd6ed2142c&j=jobexchange",
+      "firstSeenAt": "2026-07-10T12:27:28.000Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "spital-nidwalden-d17c3f5c4a99",
       "slug": "3-mitarbeiter-innen-hauswirtschaft-zu-je-60-spital-nidwalden-stans",
@@ -65,7 +65,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:28.004Z",
+      "crawledAt": "2026-07-10T22:54:44.577Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/physiotherapeut-in/60097e2e-40bf-4f3c-a0c3-07b11d74bb07",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:28.005Z",
+      "crawledAt": "2026-07-10T22:54:44.579Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -127,15 +127,17 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-nidwalden-cc4f8ff29231",
-      "slug": "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege",
+      "slug": "stage-per-diploma-expert-in-nursing-emergency-nds-hf-per-diploma-expert-in-nursing-emergency-nds-hf-con-inizio-nel",
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
       "companyDomain": "spital-nidwalden.ch",
       "title": "Ausbildungsplatz zur Dipl. Expertin Notfallpflege NDS HF / zum Dipl. Experten Notfallpflege NDS HF mit Ausbildungsstart im Februar 2027",
-      "needsRetranslation": false,
       "location": "Stans",
       "canton": "NW",
       "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-februar-2027/525dca63-272f-4d19-bb7b-888a859a8016",
@@ -158,15 +160,16 @@
       "postedDate": "2026-04-12",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019d71b5d8560d59&j=jobexchange",
       "firstSeenAt": "2026-05-26T14:04:35.880Z",
-      "_qualityScore": 79,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
