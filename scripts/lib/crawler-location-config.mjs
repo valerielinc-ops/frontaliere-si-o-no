@@ -433,7 +433,6 @@ export const COMPANY_HQ = {
   'dxt-commodities':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'alten-switzerland':            { city: 'Lausanne',           canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
   'delvitech-sa':                 { city: 'Bioggio',            canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
-  'allianz-suisse':               { city: 'Wallisellen',        canton: 'ZH', postalCode: '8304', addressRegion: 'ZH' },
   'lastminute-com':               { city: 'Chiasso',            canton: 'TI', postalCode: '6830', addressRegion: 'TI' },
   'interroll':                    { city: "Sant'Antonino",      canton: 'TI', postalCode: '6592', addressRegion: 'TI' },
   'rittmeyer-ag':                 { city: 'Baar',               canton: 'ZG', postalCode: '6340', addressRegion: 'ZG' },

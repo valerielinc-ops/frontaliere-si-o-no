@@ -152,7 +152,6 @@ Questi chiamano l'API con parametri fissi (regionId, keyword, location param, bo
 | # | Crawler | Meccanismo attuale | Modifica necessaria |
 |---|---------|-------------------|---------------------|
 | 1 | **abb** | `ABB_SEARCH_KEYWORDS = ['ticino','graubünden','grisons','chur','davos','engadin']` | Aggiungere keyword per ogni cantone/città (zürich, bern, basel, geneva, lausanne...) |
-| 2 | **allianz** | `REGION_FILTERS = [{id:'38999405', label:'Tessin'}, {id:'38999401', label:'Graubünden'}]` | Scoprire e aggiungere ID per tutti i cantoni dall'API Umantis |
 | 3 | **axa** | `REGION_FILTERS = {tessin:'68794', ostschweiz:'68792'}` (nel parser) | Espandere mappa regioni nel parser con tutti i codici Prospective |
 | 4 | **axpo** | RSS globale `careers.axpo.com/jobs.rss` + `GR_CITIES` set hardcoded (**solo GR, no TI!**) | Rimuovere filtro `GR_CITIES` o espandere a tutti i cantoni |
 | 5 | **board** | `CAREERS_URL` con `locations%5B%5D=56` (= Switzerland) | URL è già CH-wide! Serve solo espandere post-filter `isBoardTargetLocation()` |

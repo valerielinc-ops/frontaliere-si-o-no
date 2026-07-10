@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-07-08T07:23:00.784Z",
-  "crawlersChecked": 541,
+  "crawlersChecked": 540,
   "urlChecksEnabled": false,
   "crawlers": {
     "a-group": {
@@ -105,19 +105,6 @@
           "type": "duplicate-descriptions-desc-only",
           "count": 2,
           "total": 20,
-          "message": "",
-          "hidden": true
-        }
-      ],
-      "severity": "WARNING"
-    },
-    "allianz-suisse": {
-      "total": 86,
-      "issues": [
-        {
-          "type": "duplicate-descriptions-desc-only",
-          "count": 11,
-          "total": 86,
           "message": "",
           "hidden": true
         }

@@ -1032,28 +1032,6 @@
       "crawlerStatus": "review"
     },
     {
-      "companyKey": "allianz-suisse",
-      "company": "Allianz Suisse",
-      "jobs": 2,
-      "ok": 0,
-      "watch": 1,
-      "review": 1,
-      "unknown": 0,
-      "localeIssues": 0,
-      "examples": [
-        {
-          "slug": "consulente-previdenziale-per-l-agenzia-generale-chur-100-allianz-bewerbermanagement",
-          "status": "review",
-          "reasons": [
-            "title_mismatch"
-          ],
-          "sourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4",
-          "localeIssues": []
-        }
-      ],
-      "crawlerStatus": "review"
-    },
-    {
       "companyKey": "ffs-officine-ferrovie-federali",
       "company": "FFS Officine (Ferrovie Federali)",
       "jobs": 17,
@@ -2333,28 +2311,6 @@
             "published_description_far_shorter_than_source"
           ],
           "sourceUrl": "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-%28sost_-maternit%C3%A0%29-TI-6926/1343827855/",
-          "localeIssues": []
-        }
-      ],
-      "crawlerStatus": "review"
-    },
-    {
-      "companyKey": "allianz-suisse",
-      "company": "Allianz Suisse",
-      "jobs": 2,
-      "ok": 0,
-      "watch": 1,
-      "review": 1,
-      "unknown": 0,
-      "localeIssues": 0,
-      "examples": [
-        {
-          "slug": "consulente-previdenziale-per-l-agenzia-generale-chur-100-allianz-bewerbermanagement",
-          "status": "review",
-          "reasons": [
-            "title_mismatch"
-          ],
-          "sourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4",
           "localeIssues": []
         }
       ],
@@ -13696,77 +13652,6 @@
         "execution",
         "critical",
         "business"
-      ],
-      "localeIssues": [],
-      "localeStatus": "ok"
-    },
-    {
-      "jobId": "",
-      "slug": "consulente-previdenziale-per-l-agenzia-generale-chur-100-allianz-bewerbermanagement",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "sourceLang": "de",
-      "publishedTitle": "Vorsorgeberater für Generalagentur Chur, 100% | Allianz | Bewerbermanagement",
-      "sourceTitle": "Consulente previdenziale per l’agenzia generale Chur, 100%",
-      "status": "review",
-      "severity": "high",
-      "reasons": [
-        "title_mismatch"
-      ],
-      "sourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4",
-      "finalSourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4/Default?",
-      "sourceMethod": "fetch",
-      "sourceHttpStatus": 200,
-      "sourceReason": "",
-      "titleRecall": 0.286,
-      "descRecall": 0.632,
-      "descJaccard": 0.054,
-      "lengthRatio": 0.098,
-      "publishedChars": 291,
-      "sourceChars": 2973,
-      "overlapTokens": [
-        "consulente",
-        "previdenziale",
-        "agenzia",
-        "generale",
-        "chur",
-        "100",
-        "allianz",
-        "bewerbermanagement",
-        "suisse",
-        "posizione",
-        "dell",
-        "tramite"
-      ],
-      "localeIssues": [],
-      "localeStatus": "ok"
-    },
-    {
-      "jobId": "",
-      "slug": "allianz-bewerbermanagement",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "sourceLang": "de",
-      "publishedTitle": "| Allianz | Bewerbermanagement",
-      "sourceTitle": "| Allianz | Bewerbermanagement",
-      "status": "watch",
-      "severity": "medium",
-      "reasons": [
-        "borderline_match"
-      ],
-      "sourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
-      "finalSourceUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4/Default?",
-      "sourceMethod": "fetch",
-      "sourceHttpStatus": 200,
-      "sourceReason": "",
-      "titleRecall": 1,
-      "descRecall": 0.067,
-      "descJaccard": 0.022,
-      "lengthRatio": 0.646,
-      "publishedChars": 245,
-      "sourceChars": 379,
-      "overlapTokens": [
-        "allianz"
       ],
       "localeIssues": [],
       "localeStatus": "ok"

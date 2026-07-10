@@ -149,7 +149,6 @@
     "jobs:update:klinik-wyssholzli": "node scripts/update-klinik-wyssholzli-jobs.mjs",
     "jobs:update:clinique-le-noirmont": "node scripts/update-clinique-le-noirmont-jobs.mjs",
     "jobs:update:pwc": "node scripts/update-pwc-jobs.mjs",
-    "jobs:update:allianz": "node scripts/update-allianz-jobs.mjs",
     "jobs:update:alten": "node scripts/update-alten-jobs.mjs",
     "jobs:update:ariston": "node scripts/update-ariston-jobs.mjs",
     "jobs:update:sunrise": "node scripts/update-sunrise-jobs.mjs",

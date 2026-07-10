@@ -105,21 +105,6 @@
     "discoveryMethod": "API with facetsList=LOCATIONS"
   },
 
-  "umantis": {
-    "_comment": "Umantis/Abacus ATS — POST form with region ID",
-    "platforms": {
-      "allianz": {
-        "name": "Allianz Suisse",
-        "filterMethod": "POST region filter",
-        "cantons": {
-          "TI": "38999405",
-          "GR": "38999401"
-        },
-        "discoveryMethod": "Scrape region dropdown from listing page"
-      }
-    }
-  },
-
   "successFactors": {
     "_comment": "SAP SuccessFactors / NES — keyword-based location search",
     "platforms": {
