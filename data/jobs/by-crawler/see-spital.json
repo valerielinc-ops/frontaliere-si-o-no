@@ -55,13 +55,11 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
+        "pj-absolvens-in-chirurgie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -145,7 +143,9 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
-        ]
+        ],
+        "en": [],
+        "fr": []
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -219,13 +219,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -322,13 +320,11 @@
         "assistente-di-cura-in-medicina-see-spital-horgen",
         "medical-care-assistant-see-spital-horgen",
         "pflegeassistent-in-medizin-see-spital-ch",
-        "assistant-de-soins-medicaux-see-spital-horgen",
-        "assistente-assistente-di-medicina-see-spital-horgen"
+        "assistant-de-soins-medicaux-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
-          "assistente-assistente-di-medicina-see-spital-horgen"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -421,13 +417,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-        "dipl-infermiere-re-notturno-see-spital-horgen"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-          "dipl-infermiere-re-notturno-see-spital-horgen"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -517,13 +511,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -618,13 +610,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
-        "studente-esperto-anestesia-nds-hf-see-spital-horgen"
+        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
-          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -647,7 +637,7 @@
       "slug": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "it": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
-        "en": "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "en": "dipl-care-professional-hf-surgery-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
         "fr": "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
       },
@@ -736,7 +726,18 @@
         }
       },
       "addressRegion": "ZH",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [],
+        "it": [],
+        "en": [
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+        ],
+        "fr": []
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+      ]
     },
     {
       "id": "see-spital-74bfb782fc7e",
@@ -819,13 +820,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "sanitario-di-emergenza-in-formazione-see-spital-horgen"
+        "rettungssanitater-in-in-ausbildung-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch",
-          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -921,13 +920,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-        "radiologo-a-formatore-a-hf-see-spital-horgen"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-          "radiologo-a-formatore-a-hf-see-spital-horgen"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -1017,13 +1014,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+        "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+          "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1122,13 +1117,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch",
-        "esperto-a-di-anestesia-see-spital-horgen"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch",
-          "esperto-a-di-anestesia-see-spital-horgen"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1228,18 +1221,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
-        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 73500,
@@ -1271,23 +1260,22 @@
       "title": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten",
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson HF Medizin überwiegend per den Nachtdienst im Wechsel con Tagdiensten",
-        "en": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten",
+        "en": "Dipl. Nurse HF Medicine mainly for night service in alternation with day services",
         "de": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten",
-        "fr": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten"
+        "fr": "Dipl. Infirmière HF Médecine principalement pour le service de nuit en alternance avec les services de jour"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Übernahme von Nachtdiensten sowie Tagdiensten: Sie sind bereit, ca. 60% Nachtdienste sowie 40% Tagdienste zu übernehmen (Aufteilung je nach Pensum).\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung.\n\nIhr Profil:\n\n• Flexibilität in der Einführungszeit: Sie sind bereit, in den ersten drei Monaten bis zur vollständigen Einarbeitung fast ausschliesslich Tagdienste zu übernehmen.\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Sie bringen sich mit Begeisterung in den Nachtdienst ein und übernehmen Verantwortung.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten. Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
-        "it": "Ihr Aufgabengebiet:\n\n• Übernahme von Nachtdiensten sowie Tagdiensten: Sie sind bereit, ca. 60% Nachtdienste sowie 40% Tagdienste zu übernehmen (Aufteilung je nach Pensum).\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung.\n\nIhr Profil:\n\n• Flexibilität in der Einführungszeit: Sie sind bereit, in den ersten drei Monaten bis zur vollständigen Einarbeitung fast ausschliesslich Tagdienste zu übernehmen.\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Sie bringen sich mit Begeisterung in den Nachtdienst ein und übernehmen Verantwortung.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten. Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "en": "Ihr Aufgabengebiet:\n\n• Übernahme von Nachtdiensten sowie Tagdiensten: Sie sind bereit, ca. 60% Nachtdienste sowie 40% Tagdienste zu übernehmen (Aufteilung je nach Pensum).\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung.\n\nIhr Profil:\n\n• Flexibilität in der Einführungszeit: Sie sind bereit, in den ersten drei Monaten bis zur vollständigen Einarbeitung fast ausschliesslich Tagdienste zu übernehmen.\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Sie bringen sich mit Begeisterung in den Nachtdienst ein und übernehmen Verantwortung.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten. Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "it": "Le tue responsabilità:\n\n• Acquisizione di servizi notturni e servizi diurni: Siete pronti a prendere oltre il 60% di servizi notturni e il 40% di servizi diurni (divisione a seconda della quantità di tempo).\n• Assumendo la responsabilità: si controlla e si assume la responsabilità del processo di cura per i pazienti assegnati a voi – La tua esperienza fa la differenza.\n• Lavoro di squadra vivente: Insieme con i colleghi, lavori in tandem con FaGes, assistenti di cura e praticanti di allattamento.\n• Condividere le conoscenze: Lei è attivamente coinvolto nella formazione pratica degli studenti di allattamento e degli studenti e condividere le Sue conoscenze ed esperienza.\n\nIl tuo profilo:\n\n• Flessibilità nel periodo introduttivo: Lei è pronto ad assumere quasi esclusivamente servizi diurni nei primi tre mesi fino alla piena familiarizzazione.\n• Formazione & esperienza: Hai completato e riconosciuto la formazione in Svizzera come Dipl. Specialista in allattamento HF o FH e già acquisito esperienza iniziale in un ospedale di cura acuta in Svizzera.\n• Impegno e flessibilità: il lavoro di squadra, la flessibilità e la resilienza ti contraddistinguono. Sono entusiasticamente coinvolti nel servizio notturno e si assumono la responsabilità.\n• Competenza & Comunicazione: Lei è professionalmente esperto e una personalità comunicativa che convince con parole chiare e azioni competenti.\n• Portano – una brezza dell'umorismo e della gioia al lavoro.\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione. Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
+        "en": "Your responsibilities:\n\n• Acquisition of night services as well as day services: You are ready to take over approximately 60% night services and 40% day services (division depending on the amount of time).\n• Assuming responsibility: You control and take responsibility for the care process for the patients assigned to you – Your expertise makes the difference.\n• Living teamwork: Together with colleagues, you work in tandem with FaGes, nursing assistants and nursing practitioners.\n• Share knowledge: You are actively involved in the practical training of nursing students and learners and share your knowledge and experience.\n\nYour profile:\n\n• Flexibility in the introductory period: You are ready to take on almost exclusively day services in the first three months until full familiarization.\n• Education & experience: You have completed and recognized training in Switzerland as a Dipl. Nursing specialist HF or FH and already gained initial experience in an acute care hospital in Switzerland.\n• Commitment & flexibility: Your teamwork, flexibility and resilience set you apart. They are enthusiastically involved in the night service and take responsibility.\n• Competence & Communication: You are professionally experienced and a communicative personality who convinces with clear words and competent actions.\n• They bring – a breeze of humor and joy at work.\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Diverse benefits – from great employee discounts to further education offers. A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
         "de": "Ihr Aufgabengebiet:\n• Übernahme von Nachtdiensten sowie Tagdiensten: Sie sind bereit, ca. 60% Nachtdienste sowie 40% Tagdienste zu übernehmen (Aufteilung je nach Pensum).\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung. Ihr Profil:\n• Flexibilität in der Einführungszeit: Sie sind bereit, in den ersten drei Monaten bis zur vollständigen Einarbeitung fast ausschliesslich Tagdienste zu übernehmen.\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Sie bringen sich mit Begeisterung in den Nachtdienst ein und übernehmen Verantwortung.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit. Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten. Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Ihr Aufgabengebiet:\n\n• Übernahme von Nachtdiensten sowie Tagdiensten: Sie sind bereit, ca. 60% Nachtdienste sowie 40% Tagdienste zu übernehmen (Aufteilung je nach Pensum).\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung.\n\nIhr Profil:\n\n• Flexibilität in der Einführungszeit: Sie sind bereit, in den ersten drei Monaten bis zur vollständigen Einarbeitung fast ausschliesslich Tagdienste zu übernehmen.\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Sie bringen sich mit Begeisterung in den Nachtdienst ein und übernehmen Verantwortung.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten. Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden."
+        "fr": "Vos responsabilités :\n\n• Acquisition de services de nuit et de jour : Vous êtes prêt à prendre en charge environ 60 % des services de nuit et 40 % des services de jour (division selon le temps).\n• En assumant la responsabilité: Vous contrôlez et prenez la responsabilité du processus de soins pour les patients qui vous sont assignés – Votre expertise fait la différence.\n• Travail d'équipe : Avec vos collègues, vous travaillez en collaboration avec FaGes, les infirmières auxiliaires et les infirmières praticiennes.\n• Partager les connaissances : Vous participez activement à la formation pratique des étudiants et des apprenants en sciences infirmières et partagez vos connaissances et votre expérience.\n\nVotre profil:\n\n• Flexibilité dans la période d'introduction: Vous êtes prêt à prendre presque exclusivement des services de jour dans les trois premiers mois jusqu'à la familiarisation complète.\n• Éducation & expérience: Vous avez complété et reconnu la formation en Suisse en tant que Dipl. Spécialiste des soins infirmiers HF ou FH et déjà acquis une expérience initiale dans un hôpital de soins actifs en Suisse.\n• Engagement et flexibilité : votre travail d'équipe, votre flexibilité et votre résilience vous distinguent. Ils participent avec enthousiasme au service de nuit et prennent leurs responsabilités.\n• Compétence & Communication: Vous êtes expérimenté professionnellement et une personnalité communicative qui convainc avec des mots clairs et des actions compétentes.\n• Ils apportent – une brise d'humour et de joie au travail.\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue. Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-07-09T22:33:28.606Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1338,14 +1326,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1444,13 +1430,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1541,13 +1525,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "sportarztin-arzt-see-spital-ch",
-        "medico-dello-sport-see-spital-horgen"
+        "sportarztin-arzt-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportarztin-arzt-see-spital-ch",
-          "medico-dello-sport-see-spital-horgen"
+          "sportarztin-arzt-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1567,12 +1549,12 @@
     },
     {
       "id": "see-spital-6322c79842ec",
-      "slug": "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+      "slug": "infermiere-a-specializzato-a-see-spital-horgen",
       "slugByLocale": {
-        "it": "medico-di-medicina-interna-nefrologia-see-spital-horgen",
-        "en": "assistant-physician-nephrology-see-spital-horgen",
+        "it": "infermiere-a-specializzato-a-see-spital-horgen",
+        "en": "specialised-nurses-see-spital-horgen",
         "de": "assistenzarzt-arztin-nephrologie-see-spital-horgen",
-        "fr": "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "fr": "infirmieres-specialisees-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -1641,11 +1623,21 @@
           "assistenzarzt-arztin-nephrologie-see-spital-ch"
         ],
         "it": [
-          "assistenzarzt-arztin-nephrologie-see-spital-ch"
+          "assistenzarzt-arztin-nephrologie-see-spital-ch",
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+        ],
+        "en": [
+          "assistant-physician-nephrology-see-spital-horgen"
+        ],
+        "fr": [
+          "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-arztin-nephrologie-see-spital-ch"
+        "assistenzarzt-arztin-nephrologie-see-spital-ch",
+        "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+        "assistant-physician-nephrology-see-spital-horgen",
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:55.950Z",
       "salaryMin": 73500,
@@ -1743,13 +1735,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch",
-        "studente-operatore-tecnico-see-spital-horgen"
+        "studierende-r-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch",
-          "studente-operatore-tecnico-see-spital-horgen"
+          "studierende-r-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1847,14 +1837,12 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
-        "fachinfermiere-efz-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
-          "fachinfermiere-efz-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1951,13 +1939,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-        "studente-studente-di-infermieristica-hf-see-spital-horgen"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-          "studente-studente-di-infermieristica-hf-see-spital-horgen"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2056,13 +2042,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
-        "medico-direttore-pneumologia-see-spital-horgen"
+        "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
-          "medico-direttore-pneumologia-see-spital-horgen"
+          "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.373Z",
@@ -2158,13 +2142,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
-        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
-          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2261,18 +2243,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
-          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
-          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
-        "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen",
-        "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
+        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 73500,
@@ -2365,18 +2343,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-in-see-spital-ch",
-          "op-lagerungspfleger-in-see-spital-horgen"
+          "op-lagerungspfleger-in-see-spital-ch"
         ],
         "it": [
-          "op-lagerungspfleger-in-see-spital-ch",
-          "operatore-di-preparazione-operatoria-see-spital-horgen"
+          "op-lagerungspfleger-in-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "op-lagerungspfleger-in-see-spital-ch",
-        "op-lagerungspfleger-in-see-spital-horgen",
-        "operatore-di-preparazione-operatoria-see-spital-horgen"
+        "op-lagerungspfleger-in-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:47.293Z",
       "salaryMin": 73500,
@@ -2472,18 +2446,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfall-see-spital-horgen"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
         ],
         "it": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
-          "esperto-a-di-emergenza-nds-o-specialista-di-assistenza-infermieristica-con-esperienza-in-emergenza-see-spital-horgen"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
         ]
       },
       "previousSlugs": [
-        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
-        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfall-see-spital-horgen",
-        "esperto-a-di-emergenza-nds-o-specialista-di-assistenza-infermieristica-con-esperienza-in-emergenza-see-spital-horgen"
+        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
       ],
       "firstSeenAt": "2026-05-26T14:55:46.690Z",
       "salaryMin": 73500,
@@ -2505,7 +2475,7 @@
       "slug": "wundexpert-in-see-spital-horgen",
       "slugByLocale": {
         "it": "wundexpert-in-see-spital-horgen",
-        "en": "wundexpert-in-see-spital-horgen",
+        "en": "wound-expert-see-spital-horgen",
         "de": "wundexperte-in-see-spital-horgen",
         "fr": "specialiste-des-plaies-see-spital-horgen"
       },
@@ -2576,18 +2546,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "wundexpert-in-see-spital-ch",
-          "wundexperte-in-see-spital-horgen"
+          "wundexpert-in-see-spital-ch"
         ],
         "it": [
-          "wundexpert-in-see-spital-ch",
-          "wundexpert-in-see-spital-horgen"
+          "wundexpert-in-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "wundexpert-in-see-spital-ch",
-        "wundexperte-in-see-spital-horgen",
-        "wundexpert-in-see-spital-horgen"
+        "wundexpert-in-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.594Z",
       "salaryMin": 73500,
@@ -2609,9 +2575,9 @@
       "slug": "specialista-in-radiologia-hf-see-spital-horgen",
       "slugByLocale": {
         "it": "specialista-in-radiologia-hf-see-spital-horgen",
-        "en": "specialista-in-radiologia-hf-see-spital-horgen",
+        "en": "radiologist-hf-see-spital-horgen",
         "de": "radiologiefachfrau-mann-hf-see-spital-ch",
-        "fr": "specialista-in-radiologia-hf-see-spital-horgen"
+        "fr": "radiologue-hf-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -2686,7 +2652,8 @@
         "it": [
           "radiologiefachfrau-mann-hf-see-spital-horgen",
           "specialista-di-radiologia-hf-see-spital-horgen"
-        ]
+        ],
+        "de": []
       },
       "previousSlugs": [
         "radiologiefachfrau-mann-hf-see-spital-horgen",
@@ -2712,10 +2679,10 @@
       "id": "see-spital-1bfa5ad69173",
       "slug": "operatore-notturno-centro-di-sonno-see-spital-horgen",
       "slugByLocale": {
-        "it": "operatore-notturno-centro-di-sonno-see-spital-horgen",
-        "en": "night-shift-staff-sleep-center-see-spital-horgen",
+        "it": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
+        "en": "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
-        "fr": "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
+        "fr": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -2793,10 +2760,18 @@
         ],
         "it": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
+        ],
+        "en": [
+          "night-shift-staff-sleep-center-see-spital-horgen"
+        ],
+        "fr": [
+          "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
+        "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
+        "night-shift-staff-sleep-center-see-spital-horgen",
+        "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:43.643Z",
       "salaryMin": 73500,
@@ -3026,13 +3001,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "assistent-in-aemp-see-spital-ch",
-        "assistente-in-aemp-see-spital-horgen"
+        "assistent-in-aemp-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-aemp-see-spital-ch",
-          "assistente-in-aemp-see-spital-horgen"
+          "assistent-in-aemp-see-spital-ch"
         ],
         "en": [
           "assistent-in-aemp-see-spital-ch"
@@ -3107,13 +3080,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
-        "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
+        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
-          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -3139,12 +3110,12 @@
     },
     {
       "id": "see-spital-3e8dde4a57cc",
-      "slug": "praxisassistent-in-see-spital-horgen",
+      "slug": "assistente-pratico-see-spital-horgen",
       "slugByLocale": {
-        "it": "praxisassistent-in-see-spital-horgen",
-        "en": "praxisassistent-in-see-spital-horgen",
+        "it": "assistente-pratico-see-spital-horgen",
+        "en": "practical-assistant-see-spital-horgen",
         "de": "praxisassistent-in-see-spital-ch",
-        "fr": "praxisassistent-in-see-spital-horgen"
+        "fr": "assistant-pratique-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3198,6 +3169,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praxisassistent-in-see-spital-ch",
+          "praxisassistent-in-see-spital-horgen"
+        ],
+        "en": [
+          "praxisassistent-in-see-spital-horgen"
+        ],
+        "fr": [
           "praxisassistent-in-see-spital-horgen"
         ]
       },
@@ -3331,13 +3308,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "med-praxisassistent-in-onkologie-see-spital-ch",
-        "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
+        "med-praxisassistent-in-onkologie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-onkologie-see-spital-ch",
-          "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
+          "med-praxisassistent-in-onkologie-see-spital-ch"
         ],
         "en": [
           "med-praxisassistent-in-onkologie-see-spital-ch"
@@ -3412,13 +3387,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-        "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-          "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
@@ -3493,13 +3466,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-arzt-onkologie-see-spital-ch",
-        "oncologia-del-medico-senior-see-spital-horgen"
+        "oberarztin-arzt-onkologie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-onkologie-see-spital-ch",
-          "oncologia-del-medico-senior-see-spital-horgen"
+          "oberarztin-arzt-onkologie-see-spital-ch"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
