@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-10T12:00:55.807Z",
+  "generatedAt": "2026-07-10T22:34:27.663Z",
   "total": 6,
-  "newCount": 3,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4533,
-  "avgDurationMs": 4533,
+  "durationMs": 4891,
+  "avgDurationMs": 4891,
   "durationHistory": [
-    4533
+    4891
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-77fa7eed54f5",
       "slug": "demichef-de-partie-m-w-giardino-group-champfer",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.637Z",
+      "crawledAt": "2026-07-10T22:34:24.971Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -40,11 +41,12 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-07-10T12:00:53.637Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.639Z",
+      "crawledAt": "2026-07-10T22:34:24.974Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -75,11 +77,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-steward/",
-      "_qualityScore": 71,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T12:00:53.639Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 20,
         "completeness": 17
       }
     },
@@ -95,7 +99,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.640Z",
+      "crawledAt": "2026-07-10T22:34:24.974Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -110,16 +114,16 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
-      "_qualityScore": 71,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-10T12:00:53.640Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 20,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "giardino-f99cad5a4ded",
       "slug": "marketing-pr-manager-giardino-group-ascona",
@@ -132,7 +136,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.635Z",
+      "crawledAt": "2026-07-10T22:34:24.970Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -168,7 +172,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.639Z",
+      "crawledAt": "2026-07-10T22:34:24.973Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -204,7 +208,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:00:53.640Z",
+      "crawledAt": "2026-07-10T22:34:24.974Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
