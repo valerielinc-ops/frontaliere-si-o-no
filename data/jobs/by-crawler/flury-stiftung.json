@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-07-10T10:36:00.950Z",
+  "assembledAt": "2026-07-10T12:06:11.862Z",
   "jobs": [
     {
       "id": "flury-stiftung-31ec11d4dd25",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Assistenzperson%20Gesundheit%20und%20Soziales%202027_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.587Z",
+      "crawledAt": "2026-07-10T12:06:09.254Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -78,8 +78,8 @@
           "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.234Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.234Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -125,7 +125,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Gesundheit%20EFZ%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.585Z",
+      "crawledAt": "2026-07-10T12:06:09.253Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -167,6 +167,7 @@
           "apprentissage-sante-professionnelle-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -180,8 +181,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -214,7 +214,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.583Z",
+      "crawledAt": "2026-07-10T12:06:09.252Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -252,6 +252,7 @@
           "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -265,8 +266,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-a7de50bef8f5",
@@ -299,7 +299,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-08/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202026.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.582Z",
+      "crawledAt": "2026-07-10T12:06:09.251Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -381,8 +381,8 @@
           "direction-departementale-tic-protection-des-donnees-100-flury-stiftung-schiers"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.228Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.228Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -428,7 +428,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.580Z",
+      "crawledAt": "2026-07-10T12:06:09.249Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -513,7 +513,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.579Z",
+      "crawledAt": "2026-07-10T12:06:09.248Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -607,7 +607,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Dipl.%20Pflegefachperson%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.577Z",
+      "crawledAt": "2026-07-10T12:06:09.246Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -677,8 +677,8 @@
           "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "salaryMin": 51800,
       "salaryMax": 78300,
       "baseSalary": {
@@ -724,7 +724,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Stelleninserat%20MA%20Haushalt%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.576Z",
+      "crawledAt": "2026-07-10T12:06:09.245Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -799,8 +799,8 @@
           "employee-menage-20-30-du-salaire-horaire-flury-stiftung-schiers"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "salaryMin": 17300,
       "salaryMax": 26100,
       "baseSalary": {
@@ -846,7 +846,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/FAGE%20oder%20Pflegefachperson%2040-100%25%20AHJ%20Demenz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.574Z",
+      "crawledAt": "2026-07-10T12:06:09.242Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -934,7 +934,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Fachverantwortung_Pflege%20AHJ.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.573Z",
+      "crawledAt": "2026-07-10T12:06:09.239Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -970,8 +970,8 @@
           "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.233Z",
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -1017,7 +1017,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Inserat_Pflegefachperson_AHJ_50-100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.566Z",
+      "crawledAt": "2026-07-10T12:06:09.234Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1053,8 +1053,8 @@
           "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-05-05T21:48:57.020Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-05T21:48:57.020Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1100,7 +1100,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Assistenzperson%20Pflege%2040%25-100%25_%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.564Z",
+      "crawledAt": "2026-07-10T12:06:09.232Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1182,7 +1182,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Assistenzperson%20Pflege%2040%20-%20100%25%20Altersheim%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.562Z",
+      "crawledAt": "2026-07-10T12:06:09.230Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1264,7 +1264,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Assistenzperson%20Pflege%20Demenz%20Station%2080-100%25%20Altersheim%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.560Z",
+      "crawledAt": "2026-07-10T12:06:09.229Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -1346,7 +1346,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2060-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.559Z",
+      "crawledAt": "2026-07-10T12:06:09.228Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1384,6 +1384,7 @@
           "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-12T11:11:57.344Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1397,8 +1398,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -1431,7 +1431,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.557Z",
+      "crawledAt": "2026-07-10T12:06:09.226Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1513,7 +1513,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.555Z",
+      "crawledAt": "2026-07-10T12:06:09.225Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1596,7 +1596,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.553Z",
+      "crawledAt": "2026-07-10T12:06:09.224Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1684,7 +1684,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.549Z",
+      "crawledAt": "2026-07-10T12:06:09.223Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1766,7 +1766,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.547Z",
+      "crawledAt": "2026-07-10T12:06:09.222Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1813,8 +1813,8 @@
           "medecin-assistant-en-chirurgie-flury-stiftung-schiers"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.232Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.232Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1860,7 +1860,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Hebamme.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.543Z",
+      "crawledAt": "2026-07-10T12:06:09.220Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1944,7 +1944,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/BMA%20Labor%2050%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.541Z",
+      "crawledAt": "2026-07-10T12:06:09.219Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2026,7 +2026,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-11/Dipl.%20Pflegefachperson%20Interdisziplin%C3%A4re%20Station%2040%20-%20100%25%20neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.536Z",
+      "crawledAt": "2026-07-10T12:06:09.218Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2093,8 +2093,8 @@
           "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:33:20.230Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:33:20.230Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2140,7 +2140,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Dipl.%20Pflegefachperson%20Dauernachtwache%2040%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.524Z",
+      "crawledAt": "2026-07-10T12:06:09.215Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2220,7 +2220,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Stationsleitung_Interdis-Station.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.522Z",
+      "crawledAt": "2026-07-10T12:06:09.213Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2302,7 +2302,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.519Z",
+      "crawledAt": "2026-07-10T12:06:09.211Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2388,7 +2388,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.512Z",
+      "crawledAt": "2026-07-10T12:06:09.209Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2424,8 +2424,8 @@
           "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T22:38:46.198Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T22:38:46.198Z",
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -2471,7 +2471,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Mitarbeiter_in%20Hauswirtschaft%20100%25%20Klosters.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:35:58.495Z",
+      "crawledAt": "2026-07-10T12:06:09.192Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
