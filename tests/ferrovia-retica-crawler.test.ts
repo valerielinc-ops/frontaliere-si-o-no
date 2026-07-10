@@ -16,7 +16,10 @@ import {
   inferLocation,
   stripHtml,
   normalizeSpace,
+  sourceLangFromUrl,
 } from '@/scripts/lib/ferrovia-retica-job-parser.mjs';
+import { mergeDiscoveredJobWithPrev } from '@/scripts/update-ferrovia-retica-jobs.mjs';
+import { repairRelabeledSourceLocale } from '@/scripts/lib/dedicated-crawler-common.mjs';
 
 // ─── Fixture: Career listing page ──────────────────────────
 const LISTING_HTML = `
@@ -249,6 +252,39 @@ describe('buildJob', () => {
     const job = buildJob({ title: 'Test Job', location: 'Chur', description: longDesc });
     expect(job!.description).toBe(longDesc);
   });
+
+  it('derives sourceLang from the crawled locale URL, not a hardcoded default', () => {
+    const itJob = buildJob({ title: 'Test Job', location: 'Chur', url: 'https://www.rhb.ch/it/job/test-job_2026-0001/' });
+    expect(itJob!.sourceLang).toBe('it');
+    expect(itJob!.titleByLocale).toEqual({ it: 'Test Job' });
+
+    const deJob = buildJob({ title: 'Testjob', location: 'Chur', url: 'https://www.rhb.ch/de/job/testjob_2026-0002/' });
+    expect(deJob!.sourceLang).toBe('de');
+
+    const frJob = buildJob({ title: 'Poste de test', location: 'Chur', url: 'https://www.rhb.ch/fr/job/poste-de-test_2026-0003/' });
+    expect(frJob!.sourceLang).toBe('fr');
+  });
+
+  it('falls back to sourceLang de when the URL carries no locale segment', () => {
+    const job = buildJob({ title: 'Test Job', location: 'Chur' });
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.titleByLocale).toEqual({ de: 'Test Job' });
+  });
+});
+
+describe('sourceLangFromUrl', () => {
+  it('extracts it/de/en/fr from RhB per-locale job URLs', () => {
+    expect(sourceLangFromUrl('https://www.rhb.ch/it/job/foo_2026-0001/')).toBe('it');
+    expect(sourceLangFromUrl('https://www.rhb.ch/de/job/foo_2026-0001/')).toBe('de');
+    expect(sourceLangFromUrl('https://www.rhb.ch/en/job/foo_2026-0001/')).toBe('en');
+    expect(sourceLangFromUrl('https://www.rhb.ch/fr/job/foo_2026-0001/')).toBe('fr');
+  });
+
+  it('defaults to de when the URL has no locale segment', () => {
+    expect(sourceLangFromUrl('https://www.rhb.ch/some/other/path')).toBe('de');
+    expect(sourceLangFromUrl('')).toBe('de');
+    expect(sourceLangFromUrl(undefined)).toBe('de');
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════
@@ -288,5 +324,140 @@ describe('buildFallbackDescription', () => {
     const desc = buildFallbackDescription('Macchinista', 'Poschiavo', '');
     expect(desc).toContain('Macchinista');
     expect(desc).toContain('Poschiavo');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// mergeDiscoveredJobWithPrev — derived sourceLang must win over the
+// pre-#3802 hardcoded 'de' stored in existing slices, and mislabeled
+// locale copies must be repaired (without losing genuine translations).
+// ═══════════════════════════════════════════════════════════════
+
+const SOURCE_TITLE = 'Responsabile officina (80-100%)';
+const SOURCE_DESC = 'La Ferrovia Retica cerca un responsabile officina per la sede di Poschiavo. '
+  + 'Il ruolo prevede la gestione del team, la pianificazione della manutenzione del materiale rotabile '
+  + 'e la collaborazione con i reparti tecnici della rete a scartamento ridotto piu estesa della Svizzera.';
+
+function freshItJob(overrides: Record<string, unknown> = {}) {
+  const job = buildJob({
+    title: SOURCE_TITLE,
+    location: 'Poschiavo',
+    description: SOURCE_DESC,
+    url: 'https://www.rhb.ch/it/job/responsabile-officina-80-100_2026-0042/',
+  });
+  return { ...job!, ...overrides };
+}
+
+function prevMislabeledDe(overrides: Record<string, unknown> = {}) {
+  // Shape of the existing data/jobs/by-crawler/ferrovia-retica.json entries:
+  // crawled from /it/job/ but stored with the hardcoded sourceLang 'de' and
+  // the Italian source text mislabeled under the 'de' key.
+  return {
+    title: SOURCE_TITLE,
+    url: 'https://www.rhb.ch/it/job/responsabile-officina-80-100_2026-0042/',
+    slug: 'responsabile-officina-80-100-ferrovia-retica-rhb-poschiavo',
+    sourceLang: 'de',
+    description: SOURCE_DESC,
+    titleByLocale: {
+      de: SOURCE_TITLE, // mislabeled source copy
+      fr: 'Responsable d\'atelier (80-100%)', // genuine AI translation
+      en: 'Workshop manager (80-100%)',
+    },
+    descriptionByLocale: {
+      de: SOURCE_DESC, // mislabeled source copy
+      fr: 'Le Chemin de fer rhetique recherche un responsable d\'atelier pour le site de Poschiavo, charge de la gestion de l\'equipe et de la planification de la maintenance du materiel roulant.',
+    },
+    slugByLocale: {
+      it: 'responsabile-officina-80-100-ferrovia-retica-rhb-poschiavo',
+      de: 'werkstattleiter-80-100-ferrovia-retica-rhb-poschiavo',
+    },
+    ...overrides,
+  };
+}
+
+describe('mergeDiscoveredJobWithPrev', () => {
+  it('lets the URL-derived sourceLang win over the stored hardcoded de', () => {
+    const merged = mergeDiscoveredJobWithPrev(freshItJob(), prevMislabeledDe());
+    expect(merged.sourceLang).toBe('it');
+  });
+
+  it('removes the mislabeled de copy, re-keys the source title under it, and flags needsRetranslation', () => {
+    const merged = mergeDiscoveredJobWithPrev(freshItJob(), prevMislabeledDe());
+    // de slot held an identical copy of the Italian source title → dropped
+    expect(merged.titleByLocale.de).toBeUndefined();
+    // source title now lives under the derived source locale
+    expect(merged.titleByLocale.it).toBe(SOURCE_TITLE);
+    // description map repaired the same way: mislabeled de copy dropped,
+    // freshest source description re-keyed under the derived source locale
+    expect(merged.descriptionByLocale.de).toBeUndefined();
+    expect(merged.descriptionByLocale.it).toBe(merged.description);
+    // AI pipeline must regenerate the locales from the correct source
+    expect(merged.needsRetranslation).toBe(true);
+  });
+
+  it('preserves genuine translations in non-source locales during the relabel', () => {
+    const merged = mergeDiscoveredJobWithPrev(freshItJob(), prevMislabeledDe());
+    expect(merged.titleByLocale.fr).toBe('Responsable d\'atelier (80-100%)');
+    expect(merged.titleByLocale.en).toBe('Workshop manager (80-100%)');
+    expect(merged.descriptionByLocale.fr).toContain('Chemin de fer rhetique');
+  });
+
+  it('preserves a genuine de translation that differs from the source text', () => {
+    const prev = prevMislabeledDe({
+      titleByLocale: {
+        de: 'Werkstattleiter/in (80-100%)', // real German translation, not a copy
+        fr: 'Responsable d\'atelier (80-100%)',
+      },
+    });
+    const merged = mergeDiscoveredJobWithPrev(freshItJob(), prev);
+    expect(merged.sourceLang).toBe('it');
+    expect(merged.titleByLocale.de).toBe('Werkstattleiter/in (80-100%)');
+    expect(merged.titleByLocale.it).toBe(SOURCE_TITLE);
+    // relabel still requires the pipeline to re-check the locale set
+    expect(merged.needsRetranslation).toBe(true);
+  });
+
+  it('does not force needsRetranslation when sourceLang is unchanged', () => {
+    const prev = prevMislabeledDe({ sourceLang: 'it' });
+    const merged = mergeDiscoveredJobWithPrev(freshItJob(), prev);
+    expect(merged.sourceLang).toBe('it');
+    expect(merged.needsRetranslation).toBeFalsy();
+    // no relabel → prev de entry (whatever it is) is left to prev-wins merge
+    expect(merged.titleByLocale.de).toBe(SOURCE_TITLE);
+  });
+
+  it('keeps the stored sourceLang when the fresh job has none', () => {
+    const merged = mergeDiscoveredJobWithPrev(freshItJob({ sourceLang: undefined }), prevMislabeledDe());
+    expect(merged.sourceLang).toBe('de');
+    expect(merged.needsRetranslation).toBeFalsy();
+  });
+});
+
+describe('repairRelabeledSourceLocale', () => {
+  it('is a no-op when the locale did not change', () => {
+    const { map, removedMislabeledCopy } = repairRelabeledSourceLocale(
+      { de: 'Titel' },
+      { prevLang: 'de', nextLang: 'de', sourceTexts: ['Titel'] },
+    );
+    expect(map).toEqual({ de: 'Titel' });
+    expect(removedMislabeledCopy).toBe(false);
+  });
+
+  it('removes the old-locale entry only when it matches a source-text candidate', () => {
+    const removed = repairRelabeledSourceLocale(
+      { de: ' Titolo   italiano ', fr: 'Titre francais' },
+      { prevLang: 'de', nextLang: 'it', sourceTexts: ['Titolo Italiano'] },
+    );
+    expect(removed.map.de).toBeUndefined();
+    expect(removed.map.it).toBe('Titolo Italiano');
+    expect(removed.map.fr).toBe('Titre francais');
+    expect(removed.removedMislabeledCopy).toBe(true);
+
+    const kept = repairRelabeledSourceLocale(
+      { de: 'Echter deutscher Titel' },
+      { prevLang: 'de', nextLang: 'it', sourceTexts: ['Titolo italiano'] },
+    );
+    expect(kept.map.de).toBe('Echter deutscher Titel');
+    expect(kept.removedMislabeledCopy).toBe(false);
   });
 });
