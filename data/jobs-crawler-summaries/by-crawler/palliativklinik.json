@@ -1,21 +1,19 @@
 {
   "key": "palliativklinik",
   "label": "Palliativklinik im Park",
-  "generatedAt": "2026-07-08T22:14:36.692Z",
+  "generatedAt": "2026-07-10T10:24:21.779Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 6522,
-  "avgDurationMs": 6522,
+  "unchangedCount": 0,
+  "durationMs": 6454,
+  "avgDurationMs": 6454,
   "durationHistory": [
-    6522
+    6454
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "palliativklinik-b10d570313ba",
       "slug": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim",
@@ -29,7 +27,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:31.419Z",
+      "crawledAt": "2026-07-10T10:24:16.465Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -66,7 +64,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:32.285Z",
+      "crawledAt": "2026-07-10T10:24:17.296Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -103,7 +101,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:33.103Z",
+      "crawledAt": "2026-07-10T10:24:18.116Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -140,7 +138,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:33.908Z",
+      "crawledAt": "2026-07-10T10:24:18.933Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -177,7 +175,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-08T22:14:34.716Z",
+      "crawledAt": "2026-07-10T10:24:19.771Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -201,5 +199,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
