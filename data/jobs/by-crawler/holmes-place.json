@@ -6,18 +6,25 @@
       "slugByLocale": {
         "de": "mehr-erfahren-holmes-place-oberrieden",
         "en": "apply-now-holmes-place-oberrieden",
-        "fr": "postuler-holmes-place-oberrieden"
+        "fr": "postuler-holmes-place-oberrieden",
+        "it": "sich-bewerben-holmes-place-oberrieden"
       },
       "company": "Holmes Place",
       "companyKey": "holmes-place",
       "companyDomain": "holmesplace.ch",
       "title": "Mehr erfahren",
       "titleByLocale": {
-        "de": "Mehr erfahren"
+        "de": "Mehr erfahren",
+        "it": "Scopri di più",
+        "fr": "En savoir plus",
+        "en": "Find out more"
       },
       "description": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
       "descriptionByLocale": {
-        "de": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team."
+        "de": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+        "it": "Maggiori informazioni su Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+        "en": "Find out more about Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+        "fr": "En savoir plus sur Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team."
       },
       "location": "Oberrieden",
       "canton": "ZH",
@@ -42,7 +49,10 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugs": [
+        "mehr-erfahren-holmes-place-oberrieden"
+      ]
     },
     {
       "id": "holmes-place-2c12260d3ad6",
