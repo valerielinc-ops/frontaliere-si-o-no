@@ -557,5 +557,42 @@
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "software-ingegnere-in-test-hybrid-set-up-swiss-re-madrid-es",
+    "title": "Software Engineer in Test (Hybrid set up)",
+    "titleByLocale": {
+      "it": "Software Ingegnere in Test (Hybrid set up)",
+      "en": "Software Engineer in Test (Hybrid set up)",
+      "de": "Software Ingenieur in Test (Hybrid set up)",
+      "fr": "Software Ingénieur in Test (Hybrid set up)"
+    },
+    "company": "Swiss Re",
+    "companyKey": "swiss-re",
+    "location": "Madrid, ES",
+    "addressLocality": "Madrid, ES",
+    "descriptionByLocale": {
+      "it": "Software Engineer in Test (Hybrid set up) — Swiss Re"
+    },
+    "slugByLocale": {
+      "it": "software-ingegnere-in-test-hybrid-set-up-swiss-re-madrid-es",
+      "en": "software-engineer-in-test-hybrid-set-up-swiss-re-ch",
+      "de": "software-ingenieur-in-test-hybrid-set-up-swiss-re-madrid-es",
+      "fr": "software-ingenieur-in-test-hybrid-set-up-swiss-re-madrid-es"
+    },
+    "sector": "Assicurazioni",
+    "expiredAt": "2026-07-10T13:08:41.542Z",
+    "previousSlugs": [
+      "software-engineer-in-test-hybrid-set-up-swiss-re-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "software-engineer-in-test-hybrid-set-up-swiss-re-ch"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   }
 ]
