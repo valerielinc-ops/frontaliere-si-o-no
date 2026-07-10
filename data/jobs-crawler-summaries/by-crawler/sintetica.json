@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-09T22:22:33.050Z",
+  "generatedAt": "2026-07-10T11:57:11.607Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10638,
-  "avgDurationMs": 10638,
+  "durationMs": 10941,
+  "avgDurationMs": 10941,
   "durationHistory": [
-    10638
+    10941
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -136,7 +136,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica",
+      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
       "category": "science",
       "datePosted": "2026-07-07",
       "source": "sintetica-careers-crawler",
@@ -257,6 +257,7 @@
       },
       "sourceLang": "en",
       "id": "sintetica-4302b766b847",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -540,9 +541,9 @@
       },
       "sourceLang": "en",
       "id": "sintetica-4302b766b847",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -586,7 +587,7 @@
       "salaryMin": 101500,
       "salaryMax": 169000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
