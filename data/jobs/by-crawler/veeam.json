@@ -1,6 +1,6 @@
 {
   "crawlerKey": "veeam",
-  "assembledAt": "2026-07-10T10:35:16.238Z",
+  "assembledAt": "2026-07-10T12:22:11.027Z",
   "jobs": [
     {
       "id": "veeam-3c560a68fc1b",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781639101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:35:14.359Z",
+      "crawledAt": "2026-07-10T12:22:07.457Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
@@ -75,6 +75,7 @@
           "senior-sales-engineer-data-ai-security-veeam-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:23:02.867Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -87,8 +88,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "veeam-d366ba0cf23b",
@@ -121,7 +121,7 @@
       "url": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781641101",
       "source": "Veeam Software Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:35:14.339Z",
+      "crawledAt": "2026-07-10T12:22:07.401Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "streetAddress": "Lindenstrasse 16",
