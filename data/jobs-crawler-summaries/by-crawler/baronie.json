@@ -1,21 +1,19 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-07-10T12:38:59.716Z",
+  "generatedAt": "2026-07-10T22:45:37.498Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8898,
-  "avgDurationMs": 8898,
+  "unchangedCount": 0,
+  "durationMs": 8509,
+  "avgDurationMs": 8509,
   "durationHistory": [
-    8898
+    8509
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Cocoa Administration Officer",
       "slug": "cocoa-administration-officer-baronie-caslano",
@@ -39,19 +37,21 @@
       "contractType": "permanent",
       "validThrough": "",
       "id": "baronie-f84d3811be6e",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "6500",
       "firstSeenAt": "2026-07-10T10:34:01.659Z",
-      "_qualityScore": 85,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
