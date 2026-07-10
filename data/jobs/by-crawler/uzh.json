@@ -3070,12 +3070,12 @@
     },
     {
       "id": "uzh-89910ee35217",
-      "slug": "wissenschaftliche-assistenz-universitat-zurich-zurich",
+      "slug": "assistenza-scientifica-universitat-zurich-zurich-d1daad",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-uzh-zurich",
-        "en": "wissenschaftliche-assistenz-universitat-zurich-zurich",
-        "fr": "wissenschaftliche-assistenz-universitat-zurich-zurich",
-        "it": "wissenschaftliche-assistenz-universitat-zurich-zurich"
+        "en": "scientific-assistance-universitat-zurich-zurich-d1daad",
+        "fr": "assistance-scientifique-universitat-zurich-zurich-d1daad",
+        "it": "assistenza-scientifica-universitat-zurich-zurich-d1daad"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3122,13 +3122,16 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-assistenz-uzh-zurich",
-          "assistenza-scientifica-universitat-zurich-zurich"
+          "assistenza-scientifica-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
         ],
         "en": [
-          "scientific-assistance-universitat-zurich-zurich"
+          "scientific-assistance-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
         ],
         "fr": [
-          "assistance-scientifique-universitat-zurich-zurich"
+          "assistance-scientifique-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -3137,7 +3140,8 @@
         "wissenschaftliche-assistenz-uzh-zurich-gk2bb8",
         "assistenza-scientifica-universitat-zurich-zurich",
         "scientific-assistance-universitat-zurich-zurich",
-        "assistance-scientifique-universitat-zurich-zurich"
+        "assistance-scientifique-universitat-zurich-zurich",
+        "wissenschaftliche-assistenz-universitat-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3931,12 +3935,12 @@
     },
     {
       "id": "uzh-78b9c1f73959",
-      "slug": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
+      "slug": "studente-di-dottorato-in-universitat-zurich-zurich-ccf66a",
       "slugByLocale": {
         "de": "stellenausschreibung-doktorand-in-uzh-zurich",
-        "en": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
-        "fr": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
-        "it": "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
+        "en": "job-advertisement-doctoral-student-in-universitat-zurich-zurich-ccf66a",
+        "fr": "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich-ccf66a",
+        "it": "studente-di-dottorato-in-universitat-zurich-zurich-ccf66a"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3983,13 +3987,16 @@
       "previousSlugsByLocale": {
         "it": [
           "stellenausschreibung-doktorand-in-uzh-zurich",
-          "studente-di-dottorato-in-universitat-zurich-zurich"
+          "studente-di-dottorato-in-universitat-zurich-zurich",
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
         ],
         "en": [
-          "job-advertisement-doctoral-student-in-universitat-zurich-zurich"
+          "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
         ],
         "fr": [
-          "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
+          "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich",
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -3998,7 +4005,8 @@
         "stellenausschreibung-doktorand-in-uzh-zurich-8q1muc",
         "studente-di-dottorato-in-universitat-zurich-zurich",
         "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
-        "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
+        "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich",
+        "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7227,10 +7235,10 @@
       "id": "uzh-768408efecbd",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
-        "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "en": "liaison-librarian-ub-natural-sciences-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7274,14 +7282,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
+          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
         ],
         "fr": [
-          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        ],
+        "en": [
+          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-24T12:46:54.711Z",
@@ -8204,12 +8216,12 @@
     },
     {
       "id": "uzh-3b71fe2ebc40",
-      "slug": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
+      "slug": "scientifico-r-assistente-medico-in-universitat-zurich-zurich-5d1a96",
       "slugByLocale": {
         "de": "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
-        "en": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
-        "fr": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
-        "it": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
+        "en": "scientific-r-assistant-doctor-in-universitat-zurich-zurich-5d1a96",
+        "fr": "docteur-adjoint-scientifique-universitat-zurich-zurich-5d1a96",
+        "it": "scientifico-r-assistente-medico-in-universitat-zurich-zurich-5d1a96"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8256,13 +8268,16 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
-          "scientifico-r-assistente-medico-in-universitat-zurich-zurich"
+          "scientifico-r-assistente-medico-in-universitat-zurich-zurich",
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
         ],
         "en": [
-          "scientific-r-assistant-doctor-in-universitat-zurich-zurich"
+          "scientific-r-assistant-doctor-in-universitat-zurich-zurich",
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
         ],
         "fr": [
-          "docteur-adjoint-scientifique-universitat-zurich-zurich"
+          "docteur-adjoint-scientifique-universitat-zurich-zurich",
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -8270,7 +8285,8 @@
         "wissenschaftliche-r-assistenzarzt-in-uzh-zurich-o9bj1k",
         "scientifico-r-assistente-medico-in-universitat-zurich-zurich",
         "scientific-r-assistant-doctor-in-universitat-zurich-zurich",
-        "docteur-adjoint-scientifique-universitat-zurich-zurich"
+        "docteur-adjoint-scientifique-universitat-zurich-zurich",
+        "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9133,12 +9149,12 @@
     },
     {
       "id": "uzh-e2c1aa4a7129",
-      "slug": "laboratory-technician-uzh-zurich",
+      "slug": "tecnico-di-laboratorio-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "laboratory-technician-universitat-zurich-zurich",
-        "it": "laboratory-technician-uzh-zurich",
-        "de": "laboratory-technician-uzh-zurich",
-        "fr": "laboratory-technician-uzh-zurich"
+        "it": "tecnico-di-laboratorio-universitat-zurich-zurich",
+        "de": "laboratory-techniker-universitat-zurich-zurich",
+        "fr": "laboratory-technicien-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9194,7 +9210,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:10:29.632Z"
+      "firstSeenAt": "2026-07-08T11:10:29.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-uzh-zurich"
+        ],
+        "de": [
+          "laboratory-technician-uzh-zurich"
+        ],
+        "fr": [
+          "laboratory-technician-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-f809cc993db7",

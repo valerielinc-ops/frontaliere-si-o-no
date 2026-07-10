@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "montatore-montatrice-di-ponteggi-m-f-pemsa-la-chaux-de-fonds",
-        "en": "montatore-montatrice-di-ponteggi-m-f-pemsa-la-chaux-de-fonds",
-        "de": "montatore-montatrice-di-ponteggi-m-f-pemsa-la-chaux-de-fonds",
-        "fr": "montatore-montatrice-di-ponteggi-m-f-pemsa-la-chaux-de-fonds"
+        "en": "wiring-mounter-m-f-pemsa-la-chaux-de-fonds",
+        "de": "verdrahtung-montage-m-f-pemsa-la-chaux-de-fonds",
+        "fr": "cable-montoir-m-f-pemsa-la-chaux-de-fonds"
       },
       "id": "pemsa-104eba1f0e9d",
       "needsRetranslation": true,
@@ -1411,7 +1411,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -1429,14 +1429,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -12939,9 +12931,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "en": "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "de": "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "en": "implementations-pemsa-torricella",
+        "de": "durchfuhrungen-pemsa-torricella",
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "needsRetranslation": true,

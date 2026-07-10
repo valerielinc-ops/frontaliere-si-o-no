@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "clinique-de-genolier-e66c5879374b",
-      "slug": "stagiaire-controle-de-gestion-clinique-de-genolier",
+      "slug": "controllo-della-gestione-dei-treni-clinique-de-genolier-genolier",
       "slugByLocale": {
         "fr": "stagiaire-controle-de-gestion-clinique-de-genolier",
-        "it": "stagiaire-controle-de-gestion-clinique-de-genolier",
-        "en": "stagiaire-controle-de-gestion-clinique-de-genolier",
+        "it": "controllo-della-gestione-dei-treni-clinique-de-genolier-genolier",
+        "en": "trainee-management-control-clinique-de-genolier-genolier",
         "de": "stagiaire-controle-de-gestion-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:27:21.608Z"
+      "firstSeenAt": "2026-07-10T10:27:21.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-controle-de-gestion-clinique-de-genolier"
+        ],
+        "en": [
+          "stagiaire-controle-de-gestion-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-controle-de-gestion-clinique-de-genolier"
+      ]
     },
     {
       "id": "clinique-de-genolier-6bf649606366",
@@ -118,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "receptionniste-stagiaire-clinique-de-genolier",
-        "ricevitore-interno-clinique-de-genolier-genolier"
+        "receptionniste-stagiaire-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionniste-stagiaire-clinique-de-genolier",
-          "ricevitore-interno-clinique-de-genolier-genolier"
+          "receptionniste-stagiaire-clinique-de-genolier"
         ],
         "en": [
           "receptionniste-stagiaire-clinique-de-genolier"
@@ -274,13 +283,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-medecine-oncologie-clinique-de-genolier",
-        "oncologia-infermiera-clinique-de-genolier-genolier"
+        "infirmier-ere-medecine-oncologie-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-medecine-oncologie-clinique-de-genolier",
-          "oncologia-infermiera-clinique-de-genolier-genolier"
+          "infirmier-ere-medecine-oncologie-clinique-de-genolier"
         ],
         "en": [
           "infirmier-ere-medecine-oncologie-clinique-de-genolier"
@@ -354,13 +361,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-polyclinique-clinique-de-genolier",
-        "infermiera-polyclinic-clinique-de-genolier-genolier"
+        "infirmier-ere-polyclinique-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-polyclinique-clinique-de-genolier",
-          "infermiera-polyclinic-clinique-de-genolier-genolier"
+          "infirmier-ere-polyclinique-clinique-de-genolier"
         ],
         "en": [
           "infirmier-ere-polyclinique-clinique-de-genolier"
@@ -434,13 +439,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-soignant-transporteur-clinique-de-genolier",
-        "carriera-carriera-clinique-de-genolier-genolier"
+        "aide-soignant-transporteur-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-soignant-transporteur-clinique-de-genolier",
-          "carriera-carriera-clinique-de-genolier-genolier"
+          "aide-soignant-transporteur-clinique-de-genolier"
         ],
         "en": [
           "aide-soignant-transporteur-clinique-de-genolier"
@@ -513,13 +516,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-polyvalent-e-polyclinique-endoscopie-clinique-de-genolier",
-        "infermiera-policlinica-multiuso-endoscopia-clinique-de-genolier-genolier"
+        "infirmier-ere-polyvalent-e-polyclinique-endoscopie-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-polyvalent-e-polyclinique-endoscopie-clinique-de-genolier",
-          "infermiera-policlinica-multiuso-endoscopia-clinique-de-genolier-genolier"
+          "infirmier-ere-polyvalent-e-polyclinique-endoscopie-clinique-de-genolier"
         ],
         "en": [
           "infirmier-ere-polyvalent-e-polyclinique-endoscopie-clinique-de-genolier"
@@ -593,14 +594,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier",
-        "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier-genolier",
-        "cdd-multiuso-infermiera-3-o-6-mesi-clinique-de-genolier-genolier"
+        "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier",
-          "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier-genolier",
-          "cdd-multiuso-infermiera-3-o-6-mesi-clinique-de-genolier-genolier"
+          "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier-genolier"
         ],
         "en": [
           "infirmier-e-polyvalent-e-en-cdd-3-ou-6-mois-clinique-de-genolier"
@@ -674,13 +673,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
-        "infermiera-esperto-di-cura-intermedia-terapia-intensiva-assistenza-di-emergenza-anestesia-clinique-de-genolier-genolier"
+        "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
-          "infermiera-esperto-di-cura-intermedia-terapia-intensiva-assistenza-di-emergenza-anestesia-clinique-de-genolier-genolier"
+          "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
         ],
         "en": [
           "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
@@ -756,14 +753,12 @@
       "previousSlugs": [
         "assistant-e-medical-e-clinique-de-genolier",
         "assistent-e-medical-e-clinique-de-genolier-genolier",
-        "assistente-medico-clinique-de-genolier-genolier",
-        "assistente-medico-swiss-medical-network-genolier"
+        "assistente-medico-clinique-de-genolier-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-clinique-de-genolier",
-          "assistente-medico-clinique-de-genolier-genolier",
-          "assistente-medico-swiss-medical-network-genolier"
+          "assistente-medico-clinique-de-genolier-genolier"
         ],
         "en": [
           "assistant-e-medical-e-clinique-de-genolier"

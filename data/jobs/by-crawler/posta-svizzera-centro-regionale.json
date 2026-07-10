@@ -24,12 +24,12 @@
         "en": "Housekeeper:in",
         "fr": "Femme de ménage:"
       },
-      "slug": "hauswart-in-post",
+      "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "hauswart-in-post",
+        "it": "housekeeper-in-die-schweizerische-post-bern",
         "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
-        "fr": "hauswart-in-post"
+        "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T12:14:39.555Z"
+      "firstSeenAt": "2026-07-10T12:14:39.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-post"
+        ],
+        "fr": [
+          "hauswart-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73806-de_DE",
@@ -90,9 +101,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gwatt-thun",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gwatt-thun",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-gwatt-thun",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-gwatt-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -129,6 +140,12 @@
       "firstSeenAt": "2026-07-10T10:39:07.543Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -392,12 +409,12 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-ilanz",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-ilanz",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-ilanz",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-ilanz"
       },
       "sourceLang": "de",
       "department": "",
@@ -431,7 +448,18 @@
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/74216-de_DE",
@@ -455,12 +483,12 @@
         "de": "Immobilienbewirtschafter:in",
         "fr": "Gestionnaire immobilier:in"
       },
-      "slug": "immobilienbewirtschafter-in-post",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-20b1e3",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-post",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-20b1e3",
+        "en": "property-manager-in-die-schweizerische-post-zurich-20b1e3",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        "fr": "gestionnaire-immobilier-in-die-schweizerische-post-zurich-20b1e3"
       },
       "sourceLang": "de",
       "department": "",
@@ -494,7 +522,22 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-post"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-post",
+        "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74241-de_DE",
@@ -518,12 +561,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-zurich-oerlikon",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-zurich-oerlikon",
+        "en": "delivery-in-packages-die-schweizerische-post-zurich-oerlikon",
         "de": "zusteller-in-pakete-die-schweizerische-post-zurich-oerlikon",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-zurich-oerlikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -558,7 +601,21 @@
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74222-de_DE",
@@ -585,9 +642,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
       "sourceLang": "de",
       "department": "",
@@ -608,6 +665,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -730,9 +793,9 @@
       "slug": "stv-teamleader-in-zustellung-lettere-e-pacchi-entwicklungsprogramm-im-distributionsgebiet-die-schweizerische-post-hinwil",
       "slugByLocale": {
         "it": "stv-teamleader-in-zustellung-lettere-e-pacchi-entwicklungsprogramm-im-distributionsgebiet-die-schweizerische-post-hinwil",
-        "en": "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post",
+        "en": "stv-teamleader-in-delivery-letters-and-packages-development-program-in-the-distribution-area-die-schweizerische-post",
         "de": "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post",
-        "fr": "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post"
+        "fr": "stv-teamleader-dans-les-lettres-de-livraison-et-les-paquets-programme-de-developpement-dans-la-zone-de-distribution-die"
       },
       "sourceLang": "de",
       "department": "",
@@ -769,6 +832,12 @@
       "firstSeenAt": "2026-07-10T10:39:07.543Z",
       "previousSlugsByLocale": {
         "it": [
+          "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post"
+        ],
+        "en": [
+          "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post"
+        ],
+        "fr": [
           "stv-teamleader-in-zustellung-briefe-und-pakete-entwicklungsprogramm-im-distributionsgebiet-post"
         ]
       },
@@ -872,9 +941,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
+        "en": "ticket-controller-in-and-customer-advice-postauto-luzern",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-luzern",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-luzern"
       },
       "sourceLang": "de",
       "department": "",
@@ -908,7 +977,18 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "ticketkontrolleur-in-und-kundenberatung-postauto-luzern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Grosskunden-und-Postfachzustellung-Bern-und-Postparc/74189-de_DE",
@@ -1010,12 +1090,12 @@
         "de": "Teamleiter:in Bewirtschaftung",
         "fr": "Chef d'équipe : en gestion"
       },
-      "slug": "teamleiter-in-bewirtschaftung-post",
+      "slug": "team-leader-in-management-die-schweizerische-post-zurich",
       "slugByLocale": {
-        "it": "teamleiter-in-bewirtschaftung-post",
+        "it": "team-leader-in-management-die-schweizerische-post-zurich",
         "en": "teamleiter-in-bewirtschaftung-die-schweizerische-post-zurich",
         "de": "teamleiter-in-bewirtschaftung-die-schweizerische-post-zurich",
-        "fr": "teamleiter-in-bewirtschaftung-die-schweizerische-post-zurich"
+        "fr": "chef-d-equipe-en-gestion-die-schweizerische-post-zurich"
       },
       "sourceLang": "de",
       "department": "",
@@ -1050,7 +1130,19 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-bewirtschaftung-post"
+        ],
+        "fr": [
+          "teamleiter-in-bewirtschaftung-die-schweizerische-post-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-bewirtschaftung-post",
+        "teamleiter-in-bewirtschaftung-die-schweizerische-post-zurich"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74244-de_DE",
@@ -5334,10 +5426,10 @@
         "de": "Assistante / Assistent gérance immobilière",
         "fr": "Assistante / Assistant gérance immobilière"
       },
-      "slug": "assistante-assistant-gerance-immobiliere-post",
+      "slug": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
       "slugByLocale": {
-        "it": "assistante-assistant-gerance-immobiliere-post",
-        "en": "assistante-assistant-gerance-immobiliere-post",
+        "it": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
+        "en": "assistant-property-management-assistant-la-poste-suisse-renens-vd",
         "de": "assistante-assistant-gerance-immobiliere-post",
         "fr": "assistante-assistant-gerance-immobiliere-la-poste-suisse-renens-vd"
       },
@@ -5374,7 +5466,18 @@
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-assistant-gerance-immobiliere-post"
+        ],
+        "en": [
+          "assistante-assistant-gerance-immobiliere-post"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-assistant-gerance-immobiliere-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-CDD-6-mois%2C-Aubonne%2CGimel/74056-fr_FR",
@@ -5469,11 +5572,11 @@
         "de": "CarPostal Fahrer",
         "fr": "Conductrice/Conducteur CarPostal"
       },
-      "slug": "conductrice-conducteur-carpostal-post",
+      "slug": "driver-per-il-dispositivo-carpostal-carpostal-sierre",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-post",
-        "en": "conductrice-conducteur-carpostal-post",
-        "de": "conductrice-conducteur-carpostal-post",
+        "it": "driver-per-il-dispositivo-carpostal-carpostal-sierre",
+        "en": "carpostal-driver-carpostal-sierre",
+        "de": "carpostal-fahrer-carpostal-sierre",
         "fr": "conductrice-conducteur-carpostal-carpostal-sierre"
       },
       "sourceLang": "fr",
@@ -5508,7 +5611,21 @@
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T10:39:07.543Z"
+      "firstSeenAt": "2026-07-10T10:39:07.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/R%C3%A9gulatriceR%C3%A9gulateur-de-trafic/74237-fr_FR",

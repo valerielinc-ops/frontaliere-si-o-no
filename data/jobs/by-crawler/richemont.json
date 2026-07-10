@@ -582,11 +582,11 @@
     },
     {
       "id": "richemont-4cd8e26192e6",
-      "slug": "specialiste-metier-polissage-richemont-les-breuleux",
+      "slug": "specialista-di-lucidatura-professionale-donze-baume-les-breuleux",
       "slugByLocale": {
-        "it": "specialiste-metier-polissage-richemont-les-breuleux",
-        "en": "specialiste-metier-polissage-richemont-les-breuleux",
-        "de": "specialiste-metier-polissage-richemont-les-breuleux",
+        "it": "specialista-di-lucidatura-professionale-donze-baume-les-breuleux",
+        "en": "professional-polishing-specialist-donze-baume-les-breuleux",
+        "de": "professional-polierspezialist-donze-baume-les-breuleux",
         "fr": "specialiste-metier-polissage-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -635,19 +635,17 @@
         "specialiste-metier-polissage-cartier-manufacture-villars-sur-glane",
         "specialiste-metier-polissage-richemont-villars-sur-glane",
         "polier-spezialist-cartier-manufacture-villars-sur-glane",
-        "professional-polishing-specialist-donze-baume-les-breuleux",
-        "professional-polierspezialist-donze-baume-les-breuleux",
-        "specialista-di-lucidatura-professionale-donze-baume-les-breuleux"
+        "specialiste-metier-polissage-richemont-les-breuleux"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "professional-polishing-specialist-donze-baume-les-breuleux"
+          "specialiste-metier-polissage-richemont-les-breuleux"
         ],
         "de": [
-          "professional-polierspezialist-donze-baume-les-breuleux"
+          "specialiste-metier-polissage-richemont-les-breuleux"
         ],
         "it": [
-          "specialista-di-lucidatura-professionale-donze-baume-les-breuleux"
+          "specialiste-metier-polissage-richemont-les-breuleux"
         ]
       },
       "firstSeenAt": "2026-05-27T00:11:33.816Z",
@@ -4001,12 +3999,12 @@
     },
     {
       "id": "richemont-953627c387f2",
-      "slug": "sales-showroom-coordinator-richemont-zurich",
+      "slug": "sales-showroom-coordinatore-watchfinder-zurich",
       "slugByLocale": {
-        "it": "sales-showroom-coordinator-richemont-zurich",
+        "it": "sales-showroom-coordinatore-watchfinder-zurich",
         "en": "sales-showroom-coordinator-watchfinder-zurich",
-        "de": "sales-showroom-coordinator-richemont-zurich",
-        "fr": "sales-showroom-coordinator-richemont-zurich"
+        "de": "verkaufs-und-showroom-koordinator-watchfinder-zurich",
+        "fr": "coordinateur-des-ventes-et-du-showroom-watchfinder-zurich"
       },
       "company": "Watchfinder",
       "companyKey": "richemont",
@@ -4059,7 +4057,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-showroom-coordinator-richemont-zurich"
+        ],
+        "de": [
+          "sales-showroom-coordinator-richemont-zurich"
+        ],
+        "fr": [
+          "sales-showroom-coordinator-richemont-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sales-showroom-coordinator-richemont-zurich"
+      ]
     },
     {
       "id": "richemont-16f4f6613402",
@@ -6493,12 +6505,12 @@
     },
     {
       "id": "richemont-8497b69ac396",
-      "slug": "boutique-manager-richemont-st-moritz",
+      "slug": "responsabile-boutique-cartier-st-moritz",
       "slugByLocale": {
-        "it": "boutique-manager-richemont-st-moritz",
+        "it": "responsabile-boutique-cartier-st-moritz",
         "en": "boutique-manager-cartier-st-moritz",
         "de": "boutique-manager-richemont-st-moritz",
-        "fr": "boutique-manager-richemont-st-moritz"
+        "fr": "directeur-de-la-boutique-cartier-st-moritz"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -6566,12 +6578,13 @@
         "manager-cartier-st-moritz",
         "manager-de-boutique-cartier-st-moritz",
         "gestionnaire-de-boutiques-cartier-st-moritz",
-        "directeur-de-la-boutique-cartier-st-moritz"
+        "boutique-manager-richemont-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-negozio-cartier-st-moritz",
-          "manager-di-boutique-cartier-st-moritz"
+          "manager-di-boutique-cartier-st-moritz",
+          "boutique-manager-richemont-st-moritz"
         ],
         "de": [
           "manager-cartier-st-moritz"
@@ -6579,7 +6592,7 @@
         "fr": [
           "manager-de-boutique-cartier-st-moritz",
           "gestionnaire-de-boutiques-cartier-st-moritz",
-          "directeur-de-la-boutique-cartier-st-moritz"
+          "boutique-manager-richemont-st-moritz"
         ]
       },
       "firstSeenAt": "2026-05-11T22:47:08.685Z",
@@ -6865,10 +6878,10 @@
     },
     {
       "id": "richemont-a2c8ee9da37d",
-      "slug": "responsable-d-ateliers-richemont-neuchatel",
+      "slug": "responsabile-del-workshop-panerai-neuchatel",
       "slugByLocale": {
-        "it": "responsable-d-ateliers-richemont-neuchatel",
-        "en": "responsable-d-ateliers-richemont-neuchatel",
+        "it": "responsabile-del-workshop-panerai-neuchatel",
+        "en": "workshop-manager-panerai-neuchatel",
         "de": "responsable-d-ateliers-richemont-neuchatel",
         "fr": "responsable-d-ateliers-panerai-neuchatel"
       },
@@ -6913,8 +6926,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsabile-d-atelier-panerai-neuchatel",
-        "workshop-manager-panerai-neuchatel",
-        "workshopleiter-panerai-neuchatel"
+        "workshopleiter-panerai-neuchatel",
+        "responsable-d-ateliers-richemont-neuchatel"
       ],
       "firstSeenAt": "2026-06-26T22:54:29.740Z",
       "salaryMin": 83000,
@@ -6928,16 +6941,24 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-ateliers-richemont-neuchatel"
+        ],
+        "en": [
+          "responsable-d-ateliers-richemont-neuchatel"
+        ]
       }
     },
     {
       "id": "richemont-a766407d076e",
-      "slug": "clienteling-data-project-manager-richemont-meyrin",
+      "slug": "gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin",
       "slugByLocale": {
-        "it": "clienteling-data-project-manager-richemont-meyrin",
+        "it": "gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin",
         "en": "clienteling-data-project-manager-roger-dubuis-meyrin",
-        "de": "clienteling-data-project-manager-richemont-meyrin",
-        "fr": "clienteling-data-project-manager-richemont-meyrin"
+        "de": "clienteling-data-projektmanager-roger-dubuis-meyrin",
+        "fr": "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin"
       },
       "company": "Roger Dubuis",
       "companyKey": "richemont",
@@ -6979,19 +7000,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "clienteling-data-projektmanager-roger-dubuis-meyrin",
-        "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin",
-        "gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin"
+        "clienteling-data-project-manager-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "clienteling-data-projektmanager-roger-dubuis-meyrin"
+          "clienteling-data-project-manager-richemont-meyrin"
         ],
         "fr": [
-          "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin"
+          "clienteling-data-project-manager-richemont-meyrin"
         ],
         "it": [
-          "gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin"
+          "clienteling-data-project-manager-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-07-03T12:44:54.178Z",
@@ -7168,11 +7187,11 @@
     },
     {
       "id": "richemont-1d7bddcd7d58",
-      "slug": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
+      "slug": "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle",
       "slugByLocale": {
-        "it": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
-        "en": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
-        "de": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
+        "it": "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle",
+        "en": "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
+        "de": "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle",
         "fr": "charge-de-projets-rh-h-f-cdm-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -7217,17 +7236,19 @@
       "previousSlugs": [
         "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
         "personal-project-manager-h-f-hom-cartier-manufacture-le-locle",
-        "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle",
-        "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle"
+        "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
-          "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle"
+          "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
         ],
         "de": [
           "personal-project-manager-h-f-hom-cartier-manufacture-le-locle",
-          "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle"
+          "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
+        ],
+        "en": [
+          "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
         ]
       },
       "firstSeenAt": "2026-05-18T13:14:11.206Z",
@@ -9770,11 +9791,11 @@
     },
     {
       "id": "richemont-ddb0d3eed776",
-      "slug": "technicien-qualite-h-f-x-richemont-le-locle",
+      "slug": "tecnico-qualita-h-f-x-cartier-manufacture-le-locle",
       "slugByLocale": {
-        "it": "technicien-qualite-h-f-x-richemont-le-locle",
-        "en": "technicien-qualite-h-f-x-richemont-le-locle",
-        "de": "technicien-qualite-h-f-x-richemont-le-locle",
+        "it": "tecnico-qualita-h-f-x-cartier-manufacture-le-locle",
+        "en": "quality-technician-h-f-x-cartier-manufacture-le-locle",
+        "de": "qualitatsfachkraft-w-m-x-cartier-manufacture-le-locle",
         "fr": "technicien-qualite-h-f-x-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -9828,7 +9849,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-qualite-h-f-x-richemont-le-locle"
+        ],
+        "en": [
+          "technicien-qualite-h-f-x-richemont-le-locle"
+        ],
+        "de": [
+          "technicien-qualite-h-f-x-richemont-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-qualite-h-f-x-richemont-le-locle"
+      ]
     },
     {
       "id": "richemont-d82582a2cf6f",
@@ -9988,11 +10023,11 @@
     },
     {
       "id": "richemont-c2963aee6e4f",
-      "slug": "procurement-category-manager-richemont-plan-les-ouates-2",
+      "slug": "responsabile-categoria-acquisti-piaget-plan-les-ouates",
       "slugByLocale": {
-        "it": "procurement-category-manager-richemont-plan-les-ouates-2",
+        "it": "responsabile-categoria-acquisti-piaget-plan-les-ouates",
         "en": "procurement-category-manager-piaget-plan-les-ouates",
-        "de": "procurement-category-manager-richemont-plan-les-ouates-2",
+        "de": "einkaufs-kategorie-manager-piaget-plan-les-ouates",
         "fr": "procurement-category-manager-richemont-plan-les-ouates"
       },
       "company": "Piaget",
@@ -10046,7 +10081,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-category-manager-richemont-plan-les-ouates-2"
+        ],
+        "de": [
+          "procurement-category-manager-richemont-plan-les-ouates-2"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-category-manager-richemont-plan-les-ouates-2"
+      ]
     },
     {
       "id": "richemont-b6c36826e203",
@@ -12346,12 +12392,12 @@
     },
     {
       "id": "richemont-13904a170d66",
-      "slug": "senior-operations-controller-h-f-richemont-geneva",
+      "slug": "controllore-delle-operazioni-senior-h-f-van-cleef-arpels-geneva",
       "slugByLocale": {
-        "it": "senior-operations-controller-h-f-richemont-geneva",
+        "it": "controllore-delle-operazioni-senior-h-f-van-cleef-arpels-geneva",
         "en": "senior-operations-controller-h-f-van-cleef-arpels-geneva",
-        "de": "senior-operations-controller-h-f-richemont-geneva",
-        "fr": "senior-operations-controller-h-f-richemont-geneva"
+        "de": "leitender-betriebsleiter-h-f-van-cleef-arpels-geneva",
+        "fr": "controleur-principal-des-operations-h-f-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -12404,7 +12450,21 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-operations-controller-h-f-richemont-geneva"
+        ],
+        "de": [
+          "senior-operations-controller-h-f-richemont-geneva"
+        ],
+        "fr": [
+          "senior-operations-controller-h-f-richemont-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-operations-controller-h-f-richemont-geneva"
+      ]
     },
     {
       "id": "richemont-9b6a97636310",
@@ -12754,12 +12814,12 @@
     },
     {
       "id": "richemont-a2f83419c8e8",
-      "slug": "sales-associate-m-f-richemont-geneva",
+      "slug": "vendite-associate-m-f-van-cleef-arpels-geneva",
       "slugByLocale": {
-        "it": "sales-associate-m-f-richemont-geneva",
+        "it": "vendite-associate-m-f-van-cleef-arpels-geneva",
         "en": "sales-associate-m-f-van-cleef-arpels-geneva",
-        "de": "sales-associate-m-f-richemont-geneva",
-        "fr": "sales-associate-m-f-richemont-geneva"
+        "de": "vertriebsmitarbeiter-m-f-van-cleef-arpels-geneva",
+        "fr": "associe-commercial-m-f-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -12808,7 +12868,8 @@
         "sales-associate-richemont-geneva-2",
         "addetto-alle-vendite-vhernier-geneva",
         "conseiller-de-vente-vhernier-geneva",
-        "associe-de-vente-vhernier-geneva"
+        "associe-de-vente-vhernier-geneva",
+        "sales-associate-m-f-richemont-geneva"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.764Z",
       "salaryMin": 60500,
@@ -12822,6 +12883,17 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-f-richemont-geneva"
+        ],
+        "de": [
+          "sales-associate-m-f-richemont-geneva"
+        ],
+        "fr": [
+          "sales-associate-m-f-richemont-geneva"
+        ]
       }
     },
     {

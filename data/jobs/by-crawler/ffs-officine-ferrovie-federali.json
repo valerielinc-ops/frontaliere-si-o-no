@@ -1474,7 +1474,7 @@
       "slugByLocale": {
         "it": "tecnico-industriale-specializzato-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "en": "specialized-industrial-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
-        "de": "spezialisierter-industrietechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
+        "de": "techniker-industriale-specializzato-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "fr": "technicien-industriel-specialise-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -1561,13 +1561,21 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-10T12:04:31.186Z"
+      "firstSeenAt": "2026-07-10T12:04:31.186Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "spezialisierter-industrietechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "spezialisierter-industrietechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona"
+      ]
     },
     {
       "id": "sbb-39da0c1a3100",
-      "slug": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "responsabile-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "responsabile-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "sitemanager-intervention-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "einsatzleiter-in-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne"
@@ -1641,11 +1649,13 @@
       "crawledAt": "2026-07-10T12:04:42.584Z",
       "previousSlugsByLocale": {
         "it": [
-          "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne"
+          "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
+          "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne"
+        "capo-fe-del-sito-intervento-ffs-officine-ferrovie-federali-biel-bienne",
+        "chef-fe-de-site-intervention-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
