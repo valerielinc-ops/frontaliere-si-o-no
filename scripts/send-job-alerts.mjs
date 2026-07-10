@@ -1477,11 +1477,15 @@ async function main() {
   }
 
   // 4. Send emails
+  let failedEmailSet = new Set();
   if (DRY_RUN) {
     console.log('   🔵 DRY RUN — not sending emails');
   } else {
     const result = await sendBatch(emailsToSend);
     console.log(`   ✅ Sent ${result.sent} emails`);
+    failedEmailSet = new Set(
+      result.failedItems.map((item) => (item.recipient?.email || '').toLowerCase()).filter(Boolean),
+    );
 
     // 4b. Enqueue failed emails for retry on the next run
     if (result.failed > 0) {
@@ -1508,6 +1512,25 @@ async function main() {
       });
     });
     console.log('   📊 Firestore updated');
+
+    // 5b. Mirror last_sent_at onto job_alert_subscribers/{email} (root doc),
+    // the same field/shape newsletter_subscribers/{email}.last_sent_at already
+    // carries. This is what lets send-newsletter.mjs apply a symmetric 36h
+    // cooldown (see NEWSLETTER_COOLDOWN_MS above) — until this write existed,
+    // the newsletter had no way to know a job alert had just gone out.
+    const sentEmails = [...new Set(
+      emailsToSend
+        .map((email) => email.to.toLowerCase())
+        .filter((email) => !failedEmailSet.has(email)),
+    )];
+    if (sentEmails.length > 0) {
+      await commitInChunks(db, sentEmails, (batch, email) => {
+        batch.set(db.collection('job_alert_subscribers').doc(email), {
+          last_sent_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+      });
+      console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);
+    }
 
     // 6. Personalization enrichment (no-clobber). Consolidate every signal we
     // just read — browsing subdoc (filter usage, viewed-job cities/categories,
