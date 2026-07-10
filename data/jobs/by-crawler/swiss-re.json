@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-10T11:31:21.999Z",
+  "assembledAt": "2026-07-10T12:25:41.902Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -7712,65 +7712,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "swiss-re-dd66e49bdc0b",
-      "slug": "software-engineer-in-test-hybrid-set-up-swiss-re-ch",
-      "slugByLocale": {
-        "it": "software-engineer-in-test-hybrid-set-up-swiss-re-ch",
-        "en": "software-engineer-in-test-hybrid-set-up-swiss-re-ch",
-        "de": "software-ingenieur-in-test-hybrid-set-up-swiss-re-madrid-es",
-        "fr": "software-ingenieur-in-test-hybrid-set-up-swiss-re-madrid-es"
-      },
-      "company": "Swiss Re",
-      "companyKey": "swiss-re",
-      "companyDomain": "swissre.com",
-      "title": "Software Engineer in Test (Hybrid set up)",
-      "titleByLocale": {
-        "it": "Software Ingegnere in Test (Hybrid set up)",
-        "en": "Software Engineer in Test (Hybrid set up)",
-        "de": "Software Ingenieur in Test (Hybrid set up)",
-        "fr": "Software Ingénieur in Test (Hybrid set up)"
-      },
-      "description": "Software Engineer in Test (Hybrid set up) — Swiss Re",
-      "descriptionByLocale": {
-        "it": "Software Engineer in Test (Hybrid set up) — Swiss Re"
-      },
-      "location": "Madrid, ES",
-      "canton": "ZH",
-      "url": "https://www.swissre.com/careers/job/Software-Engineer-in-Test-Hybrid-set-up-/1398264633",
-      "source": "Swiss Re Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:29:56.626Z",
-      "addressLocality": "Madrid, ES",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.swissre.com/careers/job/Software-Engineer-in-Test-Hybrid-set-up-/1398264633",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:23:21.533Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
