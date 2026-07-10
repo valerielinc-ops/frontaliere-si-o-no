@@ -1,16 +1,17 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-07-10T12:54:58.123Z",
+  "generatedAt": "2026-07-10T13:12:19.085Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3788,
-  "avgDurationMs": 3788,
+  "durationMs": 3688,
+  "avgDurationMs": 3688,
   "durationHistory": [
-    3788
+    3788,
+    3688
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +40,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=2e0d7681-1dfa-4885-83e3-147c68e43bf7,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:54:56.510Z",
+      "crawledAt": "2026-07-10T13:12:17.379Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -77,7 +78,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=2e0d7681-1dfa-4885-83e3-147c68e43bf7,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:54:56.510Z",
+      "crawledAt": "2026-07-10T13:12:17.379Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "country": "CH",
       "_qualityScore": 94,
