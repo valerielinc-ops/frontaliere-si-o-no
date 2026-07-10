@@ -20,7 +20,13 @@
 #
 # Exit codes:
 #   0  — success (committed+pushed, or nothing to commit)
-#   1  — push still failing after retries (should not happen normally)
+#   1  — push still failing after retries for a NON-contention reason
+#        (network outage, auth failure, hook decline, ...) — must stay a
+#        red step, never silently absorbed
+#   42 — PUSH_CONTENTION_EXHAUSTED: retries exhausted AND the LAST push
+#        failure was a ref rejection/race (output matched rejected /
+#        fetch first / cannot lock ref / non-fast-forward). Only this
+#        class is safe for callers to treat as "self-heals next run".
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -825,6 +831,20 @@ git_fetch_retry() {
 MAX_PUSH_ATTEMPTS="${MAX_PUSH_ATTEMPTS:-14}"
 push_attempt=0
 
+# Classify a failed `git push`'s combined output: 0 (true) only for the
+# ref-contention class — another writer advanced main between our fetch and
+# our push (`! [rejected]` / "fetch first" / "cannot lock ref" /
+# "non-fast-forward"). Everything else (outage, DNS, auth/token expiry, hook
+# decline, quota) is NOT contention: exhausting retries on those must exit 1,
+# not 42 — otherwise a real failure becomes a silently-green step in the
+# grouped workflows that absorb 42. Note `\[rejected\]` deliberately does NOT
+# match `! [remote rejected]` (pre-receive/protected-branch hook declines):
+# those don't self-heal on the next scheduled run, so they stay exit 1;
+# server-side ref races still match via "cannot lock ref".
+is_push_contention_output() {
+  printf '%s' "${1:-}" | grep -qiE '\[rejected\]|fetch first|cannot lock ref|non-fast-forward'
+}
+
 # ── GROUPED-ISOLATED path: commit from the worktree WITHOUT touching it ─────
 # Used only for crawler-group shared-workspace invocations (SLICE_ONLY=true
 # and JOBS_SLICE_FILE set — see the flag assignment above). Builds the commit
@@ -944,7 +964,12 @@ commit_isolated_from_worktree() {
     new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")"
 
     ensure_git_auth
-    if git push origin "${new_commit}:refs/heads/main"; then
+    # Capture the push output (echoed below either way, so the step log stays
+    # complete) so exhaustion can be classified on the LAST attempt: only a
+    # genuine rejection/race may become exit 42.
+    push_out=""
+    if push_out="$(git push origin "${new_commit}:refs/heads/main" 2>&1)"; then
+      printf '%s\n' "$push_out"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
       # Deliberately do NOT fast-forward refs/heads/main after the push:
@@ -962,9 +987,18 @@ commit_isolated_from_worktree() {
       fi
       return 0
     fi
+    printf '%s\n' "$push_out"
 
     if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
-      echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts"
+      if is_push_contention_output "$push_out"; then
+        echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
+        # 42 = PUSH_CONTENTION_EXHAUSTED: distinct from generic failure (1) so the
+        # grouped failure-report can skip the per-crawler issue for this systemic
+        # class (the cycle self-heals at the next scheduled run; persistent loss
+        # surfaces via the crawler-health staleness monitor).
+        return 42
+      fi
+      echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts and the LAST failure is NOT a ref rejection/race (outage/auth/hook?) — exiting 1 so it surfaces as a real failure."
       return 1
     fi
 
@@ -1153,7 +1187,12 @@ fi
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
 ensure_git_auth
-if git push origin main; then
+# Capture the push output (echoed below either way, so the step log stays
+# complete) so exhaustion can be classified on the LAST attempt: only a
+# genuine rejection/race may become exit 42.
+push_out=""
+if push_out="$(git push origin main 2>&1)"; then
+  printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 
   # ── 5. Trigger deploy — GITHUB_TOKEN pushes don't trigger other workflows ─
@@ -1168,9 +1207,15 @@ if git push origin main; then
 
   exit 0
 fi
+printf '%s\n' "$push_out"
 
 if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
-  echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts"
+  if is_push_contention_output "$push_out"; then
+    echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
+    # 42 = PUSH_CONTENTION_EXHAUSTED (see the grouped path above for rationale).
+    exit 42
+  fi
+  echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts and the LAST failure is NOT a ref rejection/race (outage/auth/hook?) — exiting 1 so it surfaces as a real failure."
   exit 1
 fi
 

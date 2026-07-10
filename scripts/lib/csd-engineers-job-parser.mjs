@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -201,20 +201,13 @@ function extractTag(block, tag) {
  */
 async function fetchDetailPage(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': USER_AGENT,
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) return null;
-    const html = await res.text();
+    // Shared fetchHtml (retry + WAF/Jina rescue) instead of a naked fetch:
+    // the single-attempt fetch left ~12 jobs on the "{title} — CSD" placeholder
+    // whenever one request hiccuped (audit run 29094286784 residue).
+    const html = await fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': USER_AGENT } });
+    if (!html) return null;
 
     const result = {
       city: '', postalCode: '', street: '',
