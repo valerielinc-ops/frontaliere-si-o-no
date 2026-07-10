@@ -5165,6 +5165,23 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
     // non-source-locale entry identical to the source slug = no real
     // translation was registered → keep whatever the current crawl has.
     if (regSrc && regLoc === regSrc) return null;
+  } else if (!src) {
+    // previousSlugs writer regression (#3785/#3794/#3844/#3852/#3874): when the
+    // job carries NO sourceLang, the guard above was silently DISABLED — a
+    // registry entry frozen pre-translation (every locale a byte-copy of the
+    // source slug, e.g. the KSA entries registered raw-across-all-locales on
+    // 2026-07-09) would then re-pin the untranslated slug over a real
+    // translation for EVERY locale, master included, wiping the whole
+    // slugByLocale in one pass. With the source locale unknown, treat a
+    // per-locale value that is identical to ANY OTHER locale's registry value
+    // as a suspected source-copy and refuse to pin it. Fully-translated
+    // entries keep distinct per-locale slugs, so their pins still apply; the
+    // rare legitimately-identical cross-locale slug simply stays unpinned —
+    // never reverting a live translation is the safe direction.
+    for (const [otherLocale, otherValue] of Object.entries(registered.slugByLocale)) {
+      if (otherLocale === locale) continue;
+      if (normalizeSpace(String(otherValue || '')) === regLoc) return null;
+    }
   }
   return regLoc;
 }
@@ -5180,11 +5197,35 @@ export function registerJobSlug(job, registry) {
   // entries without canton. Falls back to TI when neither job.canton nor
   // job.location resolves — matches the back-fill migration semantics.
   const canton = String(job.canton || '').toUpperCase().trim() || 'TI';
+  // previousSlugs writer regression (#3785/#3794/#3844/#3852/#3874): do NOT
+  // freeze non-source locale slots that are still byte-copies of the source
+  // slug. A job registered before AI localization finished used to pin its
+  // untranslated copies into the immutable entry (e.g. the KSA entries created
+  // 2026-07-09 with the raw DE slug across all four locales); any later pin
+  // pass whose source-copy guard was weaker (sourceLang missing/misdetected)
+  // then reverted the real translations to those frozen copies. Copies are
+  // simply left unregistered — backfillRegistryLocaleSlugs adds each locale
+  // the first time a REAL translation exists, which was already its contract.
+  const src = job.sourceLang || null;
+  const rawByLocale = (job.slugByLocale && typeof job.slugByLocale === 'object') ? job.slugByLocale : {};
+  const srcSlug = src ? normalizeSpace(String(rawByLocale[src] || '')) : '';
+  const slugByLocale = {};
+  for (const [locale, value] of Object.entries(rawByLocale)) {
+    const cur = normalizeSpace(String(value || ''));
+    if (!cur) continue;
+    if (src && locale !== src && srcSlug && cur === srcSlug) continue; // untranslated copy — let it settle first
+    if (!src) {
+      // Source locale unknown: a value identical to another locale's value is a
+      // suspected copy (mirrors registryPinnedLocaleSlug's unknown-source rule).
+      const dupe = Object.entries(rawByLocale).some(([ol, ov]) =>
+        ol !== locale && normalizeSpace(String(ov || '')) === cur);
+      if (dupe) continue;
+    }
+    slugByLocale[locale] = cur;
+  }
   registry[fp] = {
     canonicalSlug: slug,
-    slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
-      ? { ...job.slugByLocale }
-      : {},
+    slugByLocale,
     createdAt: new Date().toISOString().slice(0, 10),
     canton,
   };
