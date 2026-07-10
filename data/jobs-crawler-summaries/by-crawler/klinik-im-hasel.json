@@ -1,16 +1,16 @@
 {
   "key": "klinik-im-hasel",
   "label": "Klinik im Hasel",
-  "generatedAt": "2026-07-10T11:30:16.864Z",
-  "total": 6,
+  "generatedAt": "2026-07-10T12:13:14.768Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6593,
-  "avgDurationMs": 6593,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7631,
+  "avgDurationMs": 7631,
   "durationHistory": [
-    6593
+    7631
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/465/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:30:12.403Z",
+      "crawledAt": "2026-07-10T12:13:09.902Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/462/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:30:13.107Z",
+      "crawledAt": "2026-07-10T12:13:10.697Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/460/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:30:13.815Z",
+      "crawledAt": "2026-07-10T12:13:11.479Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:30:14.525Z",
+      "crawledAt": "2026-07-10T12:13:12.261Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:30:15.132Z",
+      "crawledAt": "2026-07-10T12:13:12.853Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-im-hasel-399ff35f5a04",
       "slug": "segretario-a-di-reparto-con-specializzazione-in-farmacia-f-m-d-50-klinik-im-hasel-gontenschwil",
@@ -242,5 +241,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

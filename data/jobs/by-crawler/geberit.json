@@ -1,6 +1,6 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-07-10T10:37:01.376Z",
+  "assembledAt": "2026-07-10T12:06:53.888Z",
   "jobs": [
     {
       "id": "geberit-1560",
@@ -33,7 +33,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=sv_SE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.501Z",
+      "crawledAt": "2026-07-10T12:06:51.540Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -134,7 +134,7 @@
       "url": "https://jobs.geberit.com/job-invite/1922/?locale=sv_SE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.495Z",
+      "crawledAt": "2026-07-10T12:06:51.528Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -217,7 +217,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.492Z",
+      "crawledAt": "2026-07-10T12:06:51.519Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -246,8 +246,8 @@
           "chef-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:19.077Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.077Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -292,7 +292,7 @@
       "url": "https://jobs.geberit.com/job-invite/1799/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.492Z",
+      "crawledAt": "2026-07-10T12:06:51.518Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -371,7 +371,7 @@
       "url": "https://jobs.geberit.com/job-invite/811/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.490Z",
+      "crawledAt": "2026-07-10T12:06:51.518Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -462,7 +462,7 @@
       "url": "https://jobs.geberit.com/job-invite/1818/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.490Z",
+      "crawledAt": "2026-07-10T12:06:51.517Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -521,6 +521,85 @@
       "firstSeenAt": "2026-07-02T11:05:14.107Z"
     },
     {
+      "id": "geberit-1635",
+      "slug": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "mobile-apps-software-architect-a-80-100-geberit-ch",
+        "fr": "mobile-apps-software-architecte-a-80-100-geberit-rapperswil-jona",
+        "it": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
+        "en": "mobile-apps-software-architect-a-80-100-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Mobile Apps Software Architect (a) 80-100%",
+      "titleByLocale": {
+        "de": "Mobile Apps Software Architect (a) 80-100%",
+        "en": "Mobile Apps Software Architect (a) 80-100%",
+        "it": "Mobile Apps Software Architetto (a) 80-100%",
+        "fr": "Mobile Apps Software Architecte (a) 80-100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "de": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "it": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "en": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1635/?locale=sv_SE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:06:51.517Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-09",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1635/?locale=sv_SE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugs": [
+        "applicazioni-mobili-software-architect-a-80-100-geberit-rapperswil-jona",
+        "architecte-logiciel-des-applications-mobiles-a-80-100-geberit-rapperswil-jona",
+        "mobile-apps-software-architect-a-80-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applicazioni-mobili-software-architect-a-80-100-geberit-rapperswil-jona",
+          "mobile-apps-software-architect-a-80-100-geberit-ch"
+        ],
+        "fr": [
+          "architecte-logiciel-des-applications-mobiles-a-80-100-geberit-rapperswil-jona"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-02T11:05:14.106Z"
+    },
+    {
       "id": "geberit-1917",
       "slug": "ingegneria-dei-materiali-di-stage-presso-la-sede-della-toilette-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -551,7 +630,7 @@
       "url": "https://jobs.geberit.com/job-invite/1917/?locale=sv_SE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.489Z",
+      "crawledAt": "2026-07-10T12:06:51.516Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -606,169 +685,6 @@
       "firstSeenAt": "2026-07-02T11:05:14.102Z"
     },
     {
-      "id": "geberit-1635",
-      "slug": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "mobile-apps-software-architect-a-80-100-geberit-ch",
-        "fr": "mobile-apps-software-architecte-a-80-100-geberit-rapperswil-jona",
-        "it": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
-        "en": "mobile-apps-software-architect-a-80-100-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Mobile Apps Software Architect (a) 80-100%",
-      "titleByLocale": {
-        "de": "Mobile Apps Software Architect (a) 80-100%",
-        "en": "Mobile Apps Software Architect (a) 80-100%",
-        "it": "Mobile Apps Software Architetto (a) 80-100%",
-        "fr": "Mobile Apps Software Architecte (a) 80-100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "de": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "it": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "en": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## HAUPTAUFGABEN​\n\nIn dieser spannenden Rolle hast du die Möglichkeit, dein Know-how weiter zu vertiefen und gemeinsam mit einem dynamischen Team neue Massstäbe zu setzen. Fühlst du dich in der Mobile Apps Architektur auf iOS und Android zu Hause, liebst Herausforderungen und möchtest deine Fähigkeiten weiterentwickeln? Dann werde Teil eines aussergewöhnlichen Teams:\n\n- Strategische Verantwortung für die Architektur mehrerer Geberit Mobile Apps (Control, Home, Service, Pro)\n- Definition und Weiterentwicklung der Technologie-Roadmap\n- Konzeption und Implementierung von Architektur-Standards für Microsoft .NET MAUI,\nAndroid und iOS, C#\n- Integration von Azure Services und Aufbau CI/CD-Pipelines\n- Operative Mitarbeit bei der Implementierung komplexer Features und Code-Reviews\n- Enge Zusammenarbeit mit dem Mobile Apps Scrum-Team sowie Schnittstellen zu Geberit IT und weiteren Fachbereichen\n\n## PROFIL\n\nFür diese herausfordernde Funktion bringst du ein abgeschlossenes Studium in Informatik oder Softwareentwicklung und mehrjährige Berufserfahrung mit. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Erfahrung in der Architektur von Mobile Apps (MAUI, Xamarin oder ähnliche Frameworks)\n- Fundierte Kenntnisse in C#, Azure Cloud Services, CI/CD-Prozessen und App Store Deployment\n- Erfahrung in der Entwicklung für Android und iOS\n- Verständnis für Clean Architecture und moderne Software-Design-Prinzipien\n- Freude an technischen Herausforderungen sowie ein gutes Gespür für saubere, wartbare Code\n- Eigenverantwortliche, lösungsorientierte und strukturierte Arbeitsweise\n- Kommunikationsstärke und Fähigkeit zur Zusammenarbeit in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (min. Level B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1635/?locale=sv_SE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.489Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-09",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1635/?locale=sv_SE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "applicazioni-mobili-software-architect-a-80-100-geberit-rapperswil-jona",
-        "architecte-logiciel-des-applications-mobiles-a-80-100-geberit-rapperswil-jona",
-        "mobile-apps-software-architect-a-80-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "applicazioni-mobili-software-architect-a-80-100-geberit-rapperswil-jona",
-          "mobile-apps-software-architect-a-80-100-geberit-ch"
-        ],
-        "fr": [
-          "architecte-logiciel-des-applications-mobiles-a-80-100-geberit-rapperswil-jona"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-02T11:05:14.106Z"
-    },
-    {
-      "id": "geberit-1987",
-      "slug": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "service-controller-a-80-100-geberit-ch",
-        "it": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
-        "en": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
-        "fr": "service-controller-a-80-100-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Service Controller (a) 80 - 100%",
-      "titleByLocale": {
-        "de": "Service Controller (a) 80 - 100%",
-        "fr": "Service Controller (a) 80 - 100%",
-        "en": "Service Controller (a) 80 - 100%",
-        "it": "Service Controller (a) 80 - 100%"
-      },
-      "description": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
-      "descriptionByLocale": {
-        "de": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
-        "en": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
-        "it": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
-        "fr": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:36:59.486Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "controller-dei-servizi-a-80-100-geberit-rapperswil-jona",
-        "service-a-a-b-c-c-d-d-e-e-e-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
-        "f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
-        "service-controller-a-80-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "controller-dei-servizi-a-80-100-geberit-rapperswil-jona",
-          "service-controller-a-80-100-geberit-ch"
-        ],
-        "en": [
-          "service-a-a-b-c-c-d-d-e-e-e-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
-          "service-controller-a-80-100-geberit-ch"
-        ],
-        "de": [
-          "f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-02T11:05:14.078Z"
-    },
-    {
       "id": "geberit-1989",
       "slug": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
       "slugByLocale": {
@@ -799,7 +715,7 @@
       "url": "https://jobs.geberit.com/job-invite/1989/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.486Z",
+      "crawledAt": "2026-07-10T12:06:51.513Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -859,6 +775,90 @@
       }
     },
     {
+      "id": "geberit-1987",
+      "slug": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "service-controller-a-80-100-geberit-ch",
+        "it": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
+        "en": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
+        "fr": "service-controller-a-80-100-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Service Controller (a) 80 - 100%",
+      "titleByLocale": {
+        "de": "Service Controller (a) 80 - 100%",
+        "fr": "Service Controller (a) 80 - 100%",
+        "en": "Service Controller (a) 80 - 100%",
+        "it": "Service Controller (a) 80 - 100%"
+      },
+      "description": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
+      "descriptionByLocale": {
+        "de": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
+        "en": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
+        "it": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position.",
+        "fr": "## MAIN TASKS\n\nAs Service Controller, you act as a business partner for R&D and represent Finance in corporate projects. The role combines operational controlling responsibilities with the opportunity to grow beyond the current scope. At the same time, you contribute to the further development of reporting, analytics, and processes. In particular, this includes the following activities:\n\n- Support R&D controlling, including project reporting, budgeting, and forecasting\n- Ensure efficient controlling processes and data quality in project environments\n- Provide insights and recommendations for management decisions\n- Further develop reporting, KPIs, and financial processes\n- Contribute to group-wide controlling projects\n- Support and actively shape finance and analytics initiatives across functions\n\n## PROFILE\n\nYou have a degree in Finance, Controlling, or Business Administration as well as experience in Controlling in a dynamic or project-driven environment. Your skills and qualifications include:\n\n- Experience with SAP and analytics tools\n- Strong analytical and conceptual thinking\n- Hands-on mindset combined with drive and initiative\n- Motivation to improve processes and challenge the status quo constructively\n- Strong communication skills in German and English\n\n## ADDITIONAL INFORMATION\n\nWe only consider direct applications for this position."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T12:06:51.512Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugs": [
+        "controller-dei-servizi-a-80-100-geberit-rapperswil-jona",
+        "service-a-a-b-c-c-d-d-e-e-e-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
+        "f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
+        "service-controller-a-80-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "controller-dei-servizi-a-80-100-geberit-rapperswil-jona",
+          "service-controller-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "service-a-a-b-c-c-d-d-e-e-e-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
+          "service-controller-a-80-100-geberit-ch"
+        ],
+        "de": [
+          "f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-02T11:05:14.078Z"
+    },
+    {
       "id": "geberit-2001",
       "slug": "responsabile-del-prodotto-ceramiche-e-accessori-internazionali-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -889,7 +889,7 @@
       "url": "https://jobs.geberit.com/job-invite/2001/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.485Z",
+      "crawledAt": "2026-07-10T12:06:51.511Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -962,7 +962,7 @@
       "url": "https://jobs.geberit.com/job-invite/2028/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.445Z",
+      "crawledAt": "2026-07-10T12:06:51.430Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -979,8 +979,8 @@
       "applyUrl": "https://jobs.geberit.com/job-invite/2028/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-02T11:05:14.044Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-02T11:05:14.044Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -993,91 +993,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "geberit-2036",
-      "slug": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-      "slugByLocale": {
-        "de": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "it": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "en": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
-        "fr": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
-      "titleByLocale": {
-        "de": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
-        "it": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
-        "en": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
-        "fr": "Fachmitarbeiter Spritzgiesstechnik (a) 100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "de": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "it": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "en": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2036/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.443Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2036/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
-        "specialist-injection-molding-technology-a-100-geberit-rapperswil-jona",
-        "technologie-de-moulage-par-injection-specialisee-a-100-geberit-rapperswil-jona",
-        "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
-          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
-        ],
-        "en": [
-          "specialist-injection-molding-technology-a-100-geberit-rapperswil-jona",
-          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
-        ],
-        "fr": [
-          "technologie-de-moulage-par-injection-specialisee-a-100-geberit-rapperswil-jona",
-          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-09T22:26:20.979Z"
     },
     {
       "id": "geberit-2051",
@@ -1110,7 +1025,7 @@
       "url": "https://jobs.geberit.com/job-invite/2051/?locale=sv_SE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:36:59.443Z",
+      "crawledAt": "2026-07-10T12:06:51.429Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "streetAddress": "Schachenstrasse 77",
@@ -1167,12 +1082,95 @@
       "firstSeenAt": "2026-07-07T12:01:00.843Z"
     },
     {
+      "id": "geberit-2036",
+      "slug": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
+      "slugByLocale": {
+        "it": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
+        "en": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
+        "de": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch",
+        "fr": "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
+      "titleByLocale": {
+        "it": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
+        "en": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
+        "de": "Fachmitarbeiter Spritzgiesstechnik (a) 100%",
+        "fr": "Fachmitarbeiter Spritzgiesstechnik (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "en": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "de": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für das Einrichten der Spritzgussmaschinen inkl. Peripheriegeräte, sodass der Produktionsauftrag in der geforderten Qualität und ohne Störungen ausgeführt werden kann. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Einrichten von Spritzgussmaschinen (Engel, Arburg, Krauss Maffai) und der zugehörigen Peripherie\n- Einstellung und Optimierung von Prozessparametern zur Sicherstellung einer stabilen Produktion\n- Durchführung der Erstmusterprüfung gemäss Prüfplänen sowie Zeichnung\n- Saubere und vollständige Führung der Werkzeugdokumentation\n- Durchführung von Wartungs- und Reinigungsarbeiten gemäss Vorgaben\n- Behebung von Störungen und Einleitung entsprechender Korrekturmassnahmen\n\nMehr erfahren: im Kurzfilm\n\n## PROFIL\n\nDu bringst eine abgeschlossene Grundausbildung zum Kunststofftechnologen, Polymechaniker oder Kunststoffpraktiker mit oder verfügst über Berufserfahrung als Einrichter von Spritzgussanlagen. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Affinität und Interesse an neuen Automatisierungsprozessen in der Produktion\n- Sorgfältige, korrekte und selbständige Arbeitsweise\n- Gute Deutschkenntnisse und Kommunikationsfähigkeit\n- Gute Kenntnisse der Microsoft-Office-Anwendungen\n- Bereitschaft für eine Tätigkeit im 2-Schichtbetrieb\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2036/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:06:51.428Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2036/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
+        "specialist-injection-molding-technology-a-100-geberit-rapperswil-jona",
+        "technologie-de-moulage-par-injection-specialisee-a-100-geberit-rapperswil-jona",
+        "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnologia-di-stampaggio-ad-iniezione-specialistica-a-100-geberit-rapperswil-jona",
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ],
+        "en": [
+          "specialist-injection-molding-technology-a-100-geberit-rapperswil-jona",
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "technologie-de-moulage-par-injection-specialisee-a-100-geberit-rapperswil-jona",
+          "fachmitarbeiter-spritzgiesstechnik-a-100-geberit-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:26:20.979Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "geberit-2061",
       "slug": "operateur-de-production-3x8-h-f-geberit-ch",
       "slugByLocale": {
-        "de": "operateur-de-production-3x8-h-f-geberit-ch",
         "it": "operateur-de-production-3x8-h-f-geberit-ch",
         "en": "operateur-de-production-3x8-h-f-geberit-ch",
+        "de": "operateur-de-production-3x8-h-f-geberit-ch",
         "fr": "operateur-de-production-3x8-h-f-geberit-ch"
       },
       "company": "Geberit",
@@ -1180,24 +1178,24 @@
       "companyDomain": "geberit.com",
       "title": "Opérateur de production 3x8 (h/f)",
       "titleByLocale": {
-        "de": "Opérateur de production 3x8 (h/f)",
-        "fr": "Opérateur de production 3x8 (h/f)",
         "it": "Opérateur de production 3x8 (h/f)",
-        "en": "Opérateur de production 3x8 (h/f)"
+        "en": "Opérateur de production 3x8 (h/f)",
+        "de": "Opérateur de production 3x8 (h/f)",
+        "fr": "Opérateur de production 3x8 (h/f)"
       },
       "description": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
       "descriptionByLocale": {
-        "de": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
-        "fr": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
-        "it": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
-        "en": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire"
+        "it": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
+        "en": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
+        "de": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire",
+        "fr": "Pour notre unité de production de tubes multicouches Geberit FlowFit et Mepla à Givisiez, nous cherchons notre futur\n\nOpérateur de production 3x8 (H/F) 100%\n\nResponsabilités :\n\n- Collaborer avec les conducteurs de ligne pour garantir le bon déroulement de la fabrication\n\n- Participer et aider lors des changements de production\n\n- Procéder au contrôle qualité des tubes en cours de production\n- Conduire les lignes d’emballage\n\nProfil :\n\n- CFC d’opérateur sur machine automatisée (OMA), mécanicien de production, mécanicien ou formation jugée équivalente\n\n- Expérience dans le domaine industriel\n\n- Travail en équipes (3 x 8)\n\n- Polyvalent avec de bonnes aptitudes à apprendre\n\n- Capable de travailler en équipe, persévérant et aimant le contact\n\n- Maitrise du français oral/écrit obligatoire"
       },
       "location": "Givisiez",
       "canton": "FR",
       "url": "https://jobs.geberit.com/job-invite/2061/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:36:59.440Z",
+      "crawledAt": "2026-07-10T12:06:51.425Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Route Jo Siffert 38",
@@ -1213,9 +1211,7 @@
       "postedDate": "2026-07-09",
       "applyUrl": "https://jobs.geberit.com/job-invite/2061/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "operatore-di-produzione-3x8-h-f-geberit-givisiez",
         "produktionsbetreiber-3x8-h-f-geberit-givisiez",
@@ -1232,6 +1228,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:26:20.978Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1243,8 +1240,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-09T22:26:20.978Z"
+      }
     },
     {
       "id": "geberit-1949",
@@ -1323,7 +1319,7 @@
         }
       },
       "firstSeenAt": "2026-07-02T11:05:14.101Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1403,96 +1399,7 @@
         }
       },
       "firstSeenAt": "2026-07-02T11:05:14.101Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "geberit-2040",
-      "slug": "gestione-global-talent-development-a-80-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "manager-global-talent-development-a-80-100-geberit-ch",
-        "it": "gestione-global-talent-development-a-80-100-geberit-rapperswil-jona",
-        "en": "manager-global-talent-development-a-80-100-geberit-ch",
-        "fr": "gestionnaire-developpement-des-talents-mondiaux-a-80-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Manager Global Talent Development (a) 80-100%",
-      "titleByLocale": {
-        "de": "Manager Global Talent Development (a) 80-100%",
-        "en": "Manager Global Talent Development (a) 80-100%",
-        "it": "Gestione Global Talent Development (a) 80-100 %",
-        "fr": "Gestionnaire Développement des talents mondiaux (a) 80-100 %"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn deiner Funktion verantwortest du Design, Implementierung, Steuerung sowie Durchführung und Administration von gruppenweiten HR Projekten und Prozessen in der Personal- und Organisationsentwicklung. Hierbei arbeitest du in enger Abstimmung mit den HR-Abteilungen der internationalen Geberit Standorte. Dein Fokus liegt insbesondere auf:\n\n- Weiterentwicklung und Umsetzung des gruppenweiten Talentmanagements\n- Konzeption und Implementierung von Entwicklungsprogrammen für Führungskräfte und Mitarbeitende\n- Betreuung und aktive Gestaltung des Hochschulnetzwerkes Unitech innerhalb Geberit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium (Betriebswirtschaft o.ä.) sowie mehrjährige Erfahrung als HR Business Partner oder Personalentwickler in einem internationalen Industrieumfeld mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Ausgewiesene, internationale Projektleitungserfahrung\n- Strategisch denkende sowie umsetzungs- und organisationsstarke Persönlichkeit\n- Ausgeprägte konzeptionelle Fähigkeiten gepaart mit pragmatischem Handeln\n- Motivierter Teamplayer mit Freude an länderübergreifender Zusammenarbeit\n- Ausgezeichnete Sprachkenntnisse in Deutsch und Englisch\n\n## ZUSÄTZLICHE BEMERKUNGEN\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "de": "## HAUPTAUFGABEN​\n\nIn deiner Funktion verantwortest du Design, Implementierung, Steuerung sowie Durchführung und Administration von gruppenweiten HR Projekten und Prozessen in der Personal- und Organisationsentwicklung. Hierbei arbeitest du in enger Abstimmung mit den HR-Abteilungen der internationalen Geberit Standorte. Dein Fokus liegt insbesondere auf:\n\n- Weiterentwicklung und Umsetzung des gruppenweiten Talentmanagements\n- Konzeption und Implementierung von Entwicklungsprogrammen für Führungskräfte und Mitarbeitende\n- Betreuung und aktive Gestaltung des Hochschulnetzwerkes Unitech innerhalb Geberit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium (Betriebswirtschaft o.ä.) sowie mehrjährige Erfahrung als HR Business Partner oder Personalentwickler in einem internationalen Industrieumfeld mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Ausgewiesene, internationale Projektleitungserfahrung\n- Strategisch denkende sowie umsetzungs- und organisationsstarke Persönlichkeit\n- Ausgeprägte konzeptionelle Fähigkeiten gepaart mit pragmatischem Handeln\n- Motivierter Teamplayer mit Freude an länderübergreifender Zusammenarbeit\n- Ausgezeichnete Sprachkenntnisse in Deutsch und Englisch\n\n## ZUSÄTZLICHE BEMERKUNGEN\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "it": "## TASK PRINCIPALI\n\nNel tuo ruolo, sei responsabile per la progettazione, l'implementazione, il controllo e l'implementazione e l'amministrazione di progetti e processi HR a livello di gruppo nel personale e nello sviluppo organizzativo. Qui si lavora in stretto coordinamento con i dipartimenti HR delle sedi internazionali Geberit. La vostra attenzione è in particolare su:\n\n- Ulteriore sviluppo e implementazione della gestione del talento di Gruppo\n- Concezione e realizzazione di programmi di sviluppo per manager e dipendenti\n- Supervisione e progettazione attiva della rete universitaria Unitech all'interno di Geberit\n\n## PROFESSIONALE\n\nSi porta una laurea completa (amministrazione aziendale o simile) e diversi anni di esperienza come partner aziendale HR o sviluppatore del personale in un ambiente industriale internazionale. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Esperienza internazionale di gestione dei progetti\n- Il pensiero strategico e l'attuazione- e la personalità forte dell'organizzazione\n- Forti competenze concettuali accoppiate con azione pragmatica\n- Giocatore di squadra motivato con piacere nella cooperazione transnazionale\n- Competenze linguistiche eccellenti in tedesco e inglese\n\n## COMMENTI ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nIn your role, you are responsible for the design, implementation, control and implementation and administration of group-wide HR projects and processes in personnel and organizational development. Here you work in close coordination with the HR departments of the international Geberit locations. Your focus is in particular on:\n\n- Further development and implementation of Group-wide talent management\n- Conception and implementation of development programs for managers and employees\n- Supervision and active design of the university network Unitech within Geberit\n\n## PROFILE\n\nYou bring a completed degree (business administration or similar) as well as several years of experience as an HR business partner or personnel developer in an international industrial environment. In addition, the following characteristics and abilities characterize you:\n\n- Proven international project management experience\n- Strategically thinking as well as implementation- and organization-strong personality\n- Strong conceptual skills coupled with pragmatic action\n- Motivated team player with pleasure in transnational cooperation\n- Excellent language skills in German and English\n\n## ADDITIONAL COMMENTS\n\nFor this position, we only consider direct applications.",
-        "fr": "## PRINCIPALES TÂCHES\n\nDans votre rôle, vous êtes responsable de la conception, de la mise en oeuvre, du contrôle, de la mise en oeuvre et de l'administration des projets et des processus de RH à l'échelle du groupe dans le domaine du développement du personnel et de l'organisation. Ici, vous travaillez en étroite coordination avec les départements RH des sites Geberit internationaux. Votre attention est en particulier sur:\n\n- Poursuite du développement et de la mise en œuvre de la gestion des aptitudes à l ' échelle du Groupe\n- Conception et mise en oeuvre de programmes de perfectionnement pour les gestionnaires et les employés\n- Supervision et conception active du réseau universitaire Unitech à Geberit\n\n## PROFIL\n\nVous apportez un diplôme (administration d'entreprise ou similaire) ainsi que plusieurs années d'expérience en tant que partenaire d'affaires RH ou développeur de personnel dans un environnement industriel international. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Expérience internationale éprouvée en gestion de projet\n- La pensée stratégique ainsi que la mise en œuvre- et l'organisation-une personnalité forte\n- Fortes compétences conceptuelles associées à une action pragmatique\n- Joueur d'équipe motivé avec plaisir dans la coopération transnationale\n- Excellentes compétences linguistiques en allemand et anglais\n\n## COMMENTAIRES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2040/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:14:44.832Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2040/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "manager-global-talent-management-a-80-100-geberit-ch",
-        "gestione-globale-dei-talenti-a-80-100-geberit-rapperswil-jona",
-        "gestionnaire-gestion-globale-des-talents-a-80-100-geberit-rapperswil-jona",
-        "manager-global-talent-development-a-80-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-global-talent-management-a-80-100-geberit-ch",
-          "gestione-globale-dei-talenti-a-80-100-geberit-rapperswil-jona",
-          "manager-global-talent-development-a-80-100-geberit-ch"
-        ],
-        "en": [
-          "manager-global-talent-management-a-80-100-geberit-ch"
-        ],
-        "de": [
-          "manager-global-talent-management-a-80-100-geberit-ch"
-        ],
-        "fr": [
-          "manager-global-talent-management-a-80-100-geberit-ch",
-          "gestionnaire-gestion-globale-des-talents-a-80-100-geberit-rapperswil-jona"
-        ]
-      },
-      "salaryMin": 92000,
-      "salaryMax": 156500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 156500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-07T22:17:17.978Z",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

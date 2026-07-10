@@ -256,12 +256,12 @@
     },
     {
       "id": "klinik-sonnenhalde-4b64f2c58b0a",
-      "slug": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
+      "slug": "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
-        "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
-        "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+        "it": "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "en": "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen",
+        "de": "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "fr": "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -313,29 +313,16 @@
         ]
       },
       "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
-        ],
         "it": [
           "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
           "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
-          "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen",
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
-        ],
-        "en": [
-          "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen"
-        ],
-        "fr": [
-          "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen"
+          "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
         "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
         "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
-        "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen",
-        "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen",
-        "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+        "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen"
       ],
       "firstSeenAt": "2026-05-19T09:58:41.750Z",
       "salaryMin": 37200,
@@ -349,7 +336,8 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "klinik-sonnenhalde-035f6fcfd730",

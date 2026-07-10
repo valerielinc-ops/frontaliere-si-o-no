@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-07-09T22:38:58.820Z",
+  "assembledAt": "2026-07-10T12:11:51.719Z",
   "jobs": [
     {
       "id": "holcim-031c669f5cde",
@@ -30,7 +30,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/St_-Gallen-ChauffeureChauffeuse-St_-9000/1365498457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:54.286Z",
+      "crawledAt": "2026-07-10T12:11:47.333Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -47,11 +47,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeure-chauffeuse-holcim-ch"
+        "chauffeure-chauffeuse-holcim-ch",
+        "cuffie-cameriere-holcim-group-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-chauffeuse-holcim-ch"
+          "chauffeure-chauffeuse-holcim-ch",
+          "cuffie-cameriere-holcim-group-st-gallen"
         ],
         "en": [
           "chauffeure-chauffeuse-holcim-ch"
@@ -100,7 +102,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:53.839Z",
+      "crawledAt": "2026-07-10T12:11:46.882Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -116,16 +118,18 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:53.801Z",
+      "previousSlugs": [
+        "allrounder-in-holcim-ch",
+        "allrounder-holcim-group-ingenbohl-brunnen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-holcim-ch"
+          "allrounder-in-holcim-ch",
+          "allrounder-holcim-group-ingenbohl-brunnen"
         ]
       },
-      "previousSlugs": [
-        "allrounder-in-holcim-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:53.801Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -140,223 +144,80 @@
       }
     },
     {
-      "id": "holcim-f26ec4eb52d4",
-      "slug": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
+      "id": "holcim-fd9804a1ae73",
+      "slug": "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen",
       "slugByLocale": {
-        "de": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "it": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
-        "en": "construction-machine-operator-in-the-quarry-80-100-holcim-group-wurenlingen",
-        "fr": "operateur-de-machines-de-construction-dans-la-carriere-80-100-holcim-group-wurenlingen"
+        "it": "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen",
+        "en": "operations-excellence-manager-agg-80-100-holcim-ch",
+        "de": "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
+        "fr": "gestionnaire-d-excellence-des-operations-agg-80-100-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
       "companyDomain": "holcim.com",
-      "title": "Baumaschinenführer:in im Steinbruch 80-100%",
+      "title": "Spezialist Aufbereitungstechnik 80-100%",
       "titleByLocale": {
-        "de": "Baumaschinenführer:in im Steinbruch 80-100%",
-        "it": "Operatore di macchine da costruzione: nella cava 80-100 %",
-        "en": "Construction machine operator: in the quarry 80-100 %",
-        "fr": "Opérateur de machines de construction: dans la carrière 80-100 %"
+        "it": "Operazioni Excellence Manager AGG 80-100%",
+        "en": "Operations Excellence Manager AGG 80-100%",
+        "de": "Spezialist Aufbereitungstechnik 80-100%",
+        "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
-      "description": "Baumaschinenführer:in im Steinbruch 80-100% — Holcim Group a Würenlingen.",
+      "description": "Spezialist Aufbereitungstechnik 80-100% — Holcim Group a Würenlingen.",
       "descriptionByLocale": {
-        "de": "Baumaschinenführer:in im Steinbruch 80-100% — Holcim Group a Würenlingen."
+        "de": "Spezialist Aufbereitungstechnik 80-100% — Holcim Group a Würenlingen."
       },
       "location": "Würenlingen",
       "canton": "AG",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialist-Aufbereitungstechnik-80-100-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:53.396Z",
+      "crawledAt": "2026-07-10T12:11:45.959Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Produzione",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Materiali da costruzione / Cemento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-09T22:38:53.396Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
-        ],
-        "en": [
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
-        ],
-        "fr": [
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
-      ]
-    },
-    {
-      "id": "holcim-097f9f53c70a",
-      "slug": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
-      "slugByLocale": {
-        "de": "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "it": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
-        "en": "construction-machine-operator-in-allrounder-in-holcim-group-kehrsiten",
-        "fr": "operateur-de-machines-de-construction-in-allrounder-in-holcim-group-kehrsiten"
-      },
-      "company": "Holcim Group",
-      "companyKey": "holcim",
-      "companyDomain": "holcim.com",
-      "title": "Baumaschinenführer:in / Allrounder:in",
-      "titleByLocale": {
-        "de": "Baumaschinenführer:in / Allrounder:in",
-        "it": "Operatore di macchine da costruzione:in / Allrounder:in",
-        "en": "Construction machine operator:in / Allrounder:in",
-        "fr": "Opérateur de machines de construction:in / Allrounder:in"
-      },
-      "description": "Baumaschinenführer:in / Allrounder:in — Holcim Group a Kehrsiten.",
-      "descriptionByLocale": {
-        "de": "Baumaschinenführer:in / Allrounder:in — Holcim Group a Kehrsiten."
-      },
-      "location": "Kehrsiten",
-      "canton": "NW",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
-      "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:52.957Z",
-      "addressLocality": "Kehrsiten",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Materiali da costruzione / Cemento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
-        ],
-        "en": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
-        ],
-        "fr": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-09T22:38:52.957Z"
-    },
-    {
-      "id": "holcim-ca7c0c096d1c",
-      "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
-      "slugByLocale": {
-        "it": "consigliere-giuridico-80-100-holcim-group-zurich",
-        "en": "legal-counsel-80-100-holcim-ch",
-        "de": "legal-counsel-80-100-holcim-ch",
-        "fr": "conseiller-juridique-80-100-holcim-group-zurich"
-      },
-      "company": "Holcim Group",
-      "companyKey": "holcim",
-      "companyDomain": "holcim.com",
-      "title": "Legal Counsel 80-100%",
-      "titleByLocale": {
-        "it": "Consigliere giuridico 80-100 %",
-        "en": "Legal Counsel 80-100 %",
-        "de": "Legal Counsel 80-100%",
-        "fr": "Conseiller juridique 80-100 %"
-      },
-      "description": "Legal Counsel 80-100% — Holcim Group a Zurich.",
-      "descriptionByLocale": {
-        "de": "Legal Counsel 80-100% — Holcim Group a Zurich."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
-      "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:52.514Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Materiali da costruzione / Cemento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
+      "postedDate": "2026-07-07",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialist-Aufbereitungstechnik-80-100-AG-5303/1357553857/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "legal-counsel-80-100-holcim-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "spezialist-aufbereitungstechnik-80-100-holcim-ch",
+          "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen"
+        ],
         "it": [
-          "legal-counsel-80-100-holcim-ch"
+          "operations-excellence-manager-agg-80-100-holcim-ch",
+          "spezialist-aufbereitungstechnik-80-100-holcim-ch",
+          "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
         ],
         "fr": [
-          "legal-counsel-80-100-holcim-ch"
+          "operations-excellence-manager-agg-80-100-holcim-ch"
         ]
       },
+      "previousSlugs": [
+        "operations-excellence-manager-agg-80-100-holcim-ch",
+        "spezialist-aufbereitungstechnik-80-100-holcim-ch",
+        "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
+        "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:44.753Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-07-08T22:25:51.964Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }
@@ -389,7 +250,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-GR-7204/1361159157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:52.066Z",
+      "crawledAt": "2026-07-10T12:11:45.503Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -406,11 +267,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-holcim-ch"
+        "baumaschinenfuhrer-in-holcim-ch",
+        "baumaschinenfuhrer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-holcim-ch"
+          "baumaschinenfuhrer-in-holcim-ch",
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
         ]
       },
       "needsRetranslation": true,
@@ -456,7 +319,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mitarbeiterin-f%C3%BCr-Betriebsstoffgruppe-AG-5303/1365752557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:51.619Z",
+      "crawledAt": "2026-07-10T12:11:45.043Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -474,11 +337,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
-        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
+        "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
+          "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
         ],
         "en": [
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
@@ -503,71 +368,150 @@
       }
     },
     {
-      "id": "holcim-fd9804a1ae73",
-      "slug": "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen",
+      "id": "holcim-097f9f53c70a",
+      "slug": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
       "slugByLocale": {
-        "it": "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen",
-        "en": "operations-excellence-manager-agg-80-100-holcim-ch",
-        "de": "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
-        "fr": "gestionnaire-d-excellence-des-operations-agg-80-100-holcim-group-wurenlingen"
+        "it": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
+        "en": "construction-machine-operator-in-allrounder-in-holcim-group-kehrsiten",
+        "de": "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
+        "fr": "operateur-de-machines-de-construction-in-allrounder-in-holcim-group-kehrsiten"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
       "companyDomain": "holcim.com",
-      "title": "Operations Excellence Manager AGG 80-100%",
+      "title": "Baumaschinenführer:in / Allrounder:in",
       "titleByLocale": {
-        "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Operations Excellence Manager AGG 80-100%",
-        "de": "Manager für operative Exzellenz AGG 80-100 %",
-        "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
+        "it": "Operatore di macchine da costruzione:in / Allrounder:in",
+        "en": "Construction machine operator:in / Allrounder:in",
+        "de": "Baumaschinenführer:in / Allrounder:in",
+        "fr": "Opérateur de machines de construction:in / Allrounder:in"
       },
-      "description": "Operations Excellence Manager AGG 80-100% — Holcim Group a Würenlingen.",
+      "description": "Baumaschinenführer:in / Allrounder:in — Holcim Group a Kehrsiten.",
       "descriptionByLocale": {
-        "de": "Operations Excellence Manager AGG 80-100% — Holcim Group a Würenlingen."
+        "de": "Baumaschinenführer:in / Allrounder:in — Holcim Group a Kehrsiten."
       },
-      "location": "Würenlingen",
-      "canton": "AG",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Operations-Excellence-Manager-AGG-80-100-AG-5303/1357553857/",
+      "location": "Kehrsiten",
+      "canton": "NW",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
       "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:38:51.173Z",
-      "addressLocality": "Würenlingen",
-      "addressRegion": "AG",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:11:44.608Z",
+      "addressLocality": "Kehrsiten",
+      "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Produzione",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
       "sector": "Materiali da costruzione / Cemento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Operations-Excellence-Manager-AGG-80-100-AG-5303/1357553857/",
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:51.964Z",
+      "previousSlugs": [
+        "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
+        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
+        "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-excellence-manager-agg-80-100-holcim-ch"
+          "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
+          "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
         ],
         "fr": [
-          "operations-excellence-manager-agg-80-100-holcim-ch"
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
         ]
       },
-      "previousSlugs": [
-        "operations-excellence-manager-agg-80-100-holcim-ch"
-      ],
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:38:52.957Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "holcim-ca7c0c096d1c",
+      "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
+      "slugByLocale": {
+        "it": "consigliere-giuridico-80-100-holcim-group-zurich",
+        "en": "legal-counsel-80-100-holcim-ch",
+        "de": "legal-counsel-80-100-holcim-ch",
+        "fr": "conseiller-juridique-80-100-holcim-group-zurich"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "Legal Counsel 80-100%",
+      "titleByLocale": {
+        "it": "Consigliere giuridico 80-100 %",
+        "en": "Legal Counsel 80-100 %",
+        "de": "Legal Counsel 80-100%",
+        "fr": "Conseiller juridique 80-100 %"
+      },
+      "description": "Legal Counsel 80-100% — Holcim Group a Zurich.",
+      "descriptionByLocale": {
+        "de": "Legal Counsel 80-100% — Holcim Group a Zurich."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:11:44.164Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "legal-counsel-80-100-holcim-ch",
+        "consigliere-giuridico-80-100-holcim-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-80-100-holcim-ch",
+          "consigliere-giuridico-80-100-holcim-group-zurich"
+        ],
+        "fr": [
+          "legal-counsel-80-100-holcim-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:44.753Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -600,7 +544,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:50.731Z",
+      "crawledAt": "2026-07-10T12:11:43.700Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -617,11 +561,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-holcim-ch"
+        "anlagen-und-apparatebauer-in-holcim-ch",
+        "anlagen-e-apparatebauer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-holcim-ch"
+          "anlagen-und-apparatebauer-in-holcim-ch",
+          "anlagen-e-apparatebauer-in-holcim-group-untervaz"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-holcim-ch"
@@ -641,6 +587,81 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "holcim-f26ec4eb52d4",
+      "slug": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
+      "slugByLocale": {
+        "it": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
+        "en": "construction-machine-operator-in-the-quarry-80-100-holcim-group-wurenlingen",
+        "de": "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+        "fr": "operateur-de-machines-de-construction-dans-la-carriere-80-100-holcim-group-wurenlingen"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "Baumaschinenführer:in im Steinbruch 80-100%",
+      "titleByLocale": {
+        "it": "Operatore di macchine da costruzione: nella cava 80-100 %",
+        "en": "Construction machine operator: in the quarry 80-100 %",
+        "de": "Baumaschinenführer:in im Steinbruch 80-100%",
+        "fr": "Opérateur de machines de construction: dans la carrière 80-100 %"
+      },
+      "description": "Baumaschinenführer:in im Steinbruch 80-100% — Holcim Group a Würenlingen.",
+      "descriptionByLocale": {
+        "de": "Baumaschinenführer:in im Steinbruch 80-100% — Holcim Group a Würenlingen."
+      },
+      "location": "Würenlingen",
+      "canton": "AG",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:11:43.246Z",
+      "addressLocality": "Würenlingen",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:38:53.396Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -673,7 +694,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-80-100-AG-5303/829324802/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:50.290Z",
+      "crawledAt": "2026-07-10T12:11:42.804Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -690,11 +711,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-80-100-holcim-ch"
+        "mechaniker-in-80-100-holcim-ch",
+        "meccanica-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-80-100-holcim-ch"
+          "mechaniker-in-80-100-holcim-ch",
+          "meccanica-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "mechaniker-in-80-100-holcim-ch"
@@ -746,7 +769,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Specialist-Cash-Collection-&-Debitoren-CH-%C2%AD8050/1363033857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:38:49.846Z",
+      "crawledAt": "2026-07-10T12:11:42.356Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -805,7 +828,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Pr%C3%A4ventive-Instandhaltung-80-100-AG-5303/1360175157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:49.389Z",
+      "crawledAt": "2026-07-10T12:11:41.901Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -822,11 +845,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
+        "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
+          "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
@@ -881,7 +906,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Allrounder-Betriebsstoffe-Baumaschinenf%C3%BChrer-80-100-AG-5303/1360174757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:48.950Z",
+      "crawledAt": "2026-07-10T12:11:41.450Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -898,11 +923,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
+        "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
+          "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
@@ -954,7 +981,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:38:48.505Z",
+      "crawledAt": "2026-07-10T12:11:40.994Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -971,11 +998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+        "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+          "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
         ],
         "en": [
           "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
@@ -1016,7 +1045,7 @@
         "it": "Installateur·trice électricien·ne 80-100%",
         "en": "Electrical equipment 80-100%",
         "de": "Elektrische Ausrüstung 80-100%",
-        "fr": "Matériel électrique 80-100%"
+        "fr": "Installateur·trice électricien·ne 80-100%"
       },
       "description": "Installateur·trice électricien·ne 80-100% — Holcim Group a Eclépens.",
       "descriptionByLocale": {
@@ -1027,7 +1056,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:38:48.065Z",
+      "crawledAt": "2026-07-10T12:11:40.551Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1065,7 +1094,7 @@
         "it": "chef-staff-ristorante-60-70-holcim-group-untervaz",
         "en": "chef-staff-restaurant-60-70-holcim-group-untervaz",
         "de": "koch-kochin-personalrestaurant-60-70-holcim-ch",
-        "fr": "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        "fr": "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1086,7 +1115,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Koch-K%C3%B6chin-Personalrestaurant-60-70-GR-7204/1361996657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:38:47.173Z",
+      "crawledAt": "2026-07-10T12:11:40.112Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1104,16 +1133,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "koch-kochin-personalrestaurant-60-70-holcim-ch",
+        "chef-staff-ristorante-60-70-holcim-group-untervaz",
         "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+          "koch-kochin-personalrestaurant-60-70-holcim-ch",
+          "chef-staff-ristorante-60-70-holcim-group-untervaz"
         ],
         "en": [
           "koch-kochin-personalrestaurant-60-70-holcim-ch"
         ],
         "fr": [
+          "koch-kochin-personalrestaurant-60-70-holcim-ch",
           "chef-restaurant-du-personnel-60-70-holcim-group-untervaz"
         ]
       },
@@ -1160,7 +1192,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-60-100-GR-7204/1354410157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:46.725Z",
+      "crawledAt": "2026-07-10T12:11:39.658Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1177,11 +1209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
+        "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
+          "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
@@ -1236,7 +1270,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:46.287Z",
+      "crawledAt": "2026-07-10T12:11:39.220Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1309,7 +1343,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Schichtverantwortlicher-60-100-GR-7204/1364122157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:45.412Z",
+      "crawledAt": "2026-07-10T12:11:38.339Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1326,11 +1360,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schichtverantwortliche-r-60-100-holcim-ch"
+        "schichtverantwortliche-r-60-100-holcim-ch",
+        "schichtverantwortliche-r-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtverantwortliche-r-60-100-holcim-ch"
+          "schichtverantwortliche-r-60-100-holcim-ch",
+          "schichtverantwortliche-r-60-100-holcim-group-untervaz"
         ]
       },
       "needsRetranslation": true,
@@ -1376,7 +1412,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:44.960Z",
+      "crawledAt": "2026-07-10T12:11:37.879Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1393,11 +1429,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lastwagenfuhrer-in-beton-holcim-ch"
+        "lastwagenfuhrer-in-beton-holcim-ch",
+        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lastwagenfuhrer-in-beton-holcim-ch"
+          "lastwagenfuhrer-in-beton-holcim-ch",
+          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
         ]
       },
       "needsRetranslation": true,
@@ -1443,7 +1481,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:44.518Z",
+      "crawledAt": "2026-07-10T12:11:37.413Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1460,11 +1498,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+        "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+          "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
         ],
         "en": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
@@ -1519,7 +1559,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:43.627Z",
+      "crawledAt": "2026-07-10T12:11:36.534Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1586,7 +1626,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:43.185Z",
+      "crawledAt": "2026-07-10T12:11:36.096Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1603,11 +1643,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-80-100-holcim-ch"
+        "projektleiter-in-80-100-holcim-ch",
+        "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-holcim-ch"
+          "projektleiter-in-80-100-holcim-ch",
+          "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "projektleiter-in-80-100-holcim-ch"
@@ -1648,7 +1690,7 @@
         "it": "Laboratorio: nella tecnologia del legante 80-100 %",
         "en": "Laboratory:in binder technology 80-100 %",
         "de": "Laborant:in Bindemitteltechnologie 80-100%",
-        "fr": "Laboratoire: technologie de reliure 80-100 %"
+        "fr": "Laborant:in Bindemitteltechnologie 80-100%"
       },
       "description": "Laborant:in Bindemitteltechnologie 80-100% — Holcim Group a Würenlingen.",
       "descriptionByLocale": {
@@ -1659,7 +1701,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Laborantin-Bindemitteltechnologie-80-100-AG-5303/1359795357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:42.746Z",
+      "crawledAt": "2026-07-10T12:11:35.647Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1677,17 +1719,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+          "laboratoire-technologie-de-reliure-80-100-holcim-group-wurenlingen"
         ],
         "it": [
-          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+          "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
         ]
       },
       "previousSlugs": [
-        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+        "laboratoire-technologie-de-reliure-80-100-holcim-group-wurenlingen",
+        "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:43.387Z",
@@ -1727,7 +1773,7 @@
       "descriptionByLocale": {
         "it": "Descrizione Intern:in / student:in sostenibilità & ottimizzazione di processo 80 100 %. Holcim Group a Würenlingen.",
         "en": "Description Intern:in / student:in sustainability & process optimization 80 100 % — Holcim Group a Würenlingen.",
-        "de": "## Beschreibung\n\nPraktikant:in / Werkstudent:in Nachhaltigkeit & Prozessoptimierung 80-100 % — Holcim Group a Würenlingen.",
+        "de": "Praktikant:in / Werkstudent:in Nachhaltigkeit & Prozessoptimierung 80-100 % — Holcim Group a Würenlingen.",
         "fr": "Description Stage:in / student:in sustainability & process optimization 80 100 % — Holcim Group a Würenlingen."
       },
       "location": "Würenlingen",
@@ -1735,7 +1781,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-Werkstudentin-Nachhaltigkeit-&-Prozessoptimierung-80-100-AG-5303/1361236157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:42.309Z",
+      "crawledAt": "2026-07-10T12:11:35.199Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1802,7 +1848,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:38:41.874Z",
+      "crawledAt": "2026-07-10T12:11:34.730Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1869,7 +1915,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:41.422Z",
+      "crawledAt": "2026-07-10T12:11:34.284Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1886,11 +1932,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenmechaniker-in-holcim-ch"
+        "baumaschinenmechaniker-in-holcim-ch",
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenmechaniker-in-holcim-ch"
+          "baumaschinenmechaniker-in-holcim-ch",
+          "baumaschinenmechaniker-in-holcim-group-wurenlingen"
         ]
       },
       "needsRetranslation": true,
@@ -1923,7 +1971,7 @@
       "title": "Head of Logistics - Central Eastern Europe (CEE)",
       "titleByLocale": {
         "it": "Responsabile Logistica - Central Eastern Europe (CEE)",
-        "en": "Head of Logistics - Central Eastern Europe (EEC)",
+        "en": "Head of Logistics - Central Eastern Europe (CEE)",
         "de": "Leiter Logistik - Central Eastern Europe (CEE)",
         "fr": "Responsable Logistique - Central Eastern Europe (CEE)"
       },
@@ -1936,7 +1984,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Logistics-Central-Eastern-Europe-%28CEE%29-6300/1365323157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:38:40.968Z",
+      "crawledAt": "2026-07-10T12:11:33.833Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1952,20 +2000,22 @@
       "applyUrl": "https://careers.holcimgroup.com/job/Zug-Head-of-Logistics-Central-Eastern-Europe-%28CEE%29-6300/1365323157/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:41.603Z",
+      "previousSlugs": [
+        "head-of-logistics-central-eastern-europe-cee-holcim-ch",
+        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug",
+        "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-logistics-central-eastern-europe-cee-holcim-ch"
+          "head-of-logistics-central-eastern-europe-cee-holcim-ch",
+          "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
         ],
         "fr": [
           "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
         ]
       },
-      "previousSlugs": [
-        "head-of-logistics-central-eastern-europe-cee-holcim-ch",
-        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:41.603Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1975,76 +2025,6 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "holcim-8d3b1fb12a26",
-      "slug": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
-      "slugByLocale": {
-        "it": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
-        "en": "corporate-communications-intern-for-6-months-holcim-ch",
-        "de": "corporate-communications-intern-for-6-months-holcim-ch",
-        "fr": "corporate-communications-stagiaire-for-6-months-holcim-group-zug"
-      },
-      "company": "Holcim Group",
-      "companyKey": "holcim",
-      "companyDomain": "holcim.com",
-      "title": "Corporate Communications intern for 6-months",
-      "titleByLocale": {
-        "it": "Corporate Communications Tirocinante for 6-months",
-        "en": "Corporate Communications intern for 6-months",
-        "de": "Corporate Communications Praktikant for 6-months",
-        "fr": "Corporate Communications Stagiaire for 6-months"
-      },
-      "description": "Corporate Communications intern for 6-months — Holcim Group a Zug.",
-      "descriptionByLocale": {
-        "de": "Corporate Communications intern for 6-months — Holcim Group a Zug."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
-      "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:38:40.527Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Materiali da costruzione / Cemento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:41.158Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "corporate-communications-intern-for-6-months-holcim-ch"
-        ],
-        "fr": [
-          "corporate-communications-intern-for-6-months-holcim-ch"
-        ]
-      },
-      "previousSlugs": [
-        "corporate-communications-intern-for-6-months-holcim-ch"
-      ],
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -2077,7 +2057,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Innovation-Process-Engineer-Thermal-6300/1358364657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:38:40.084Z",
+      "crawledAt": "2026-07-10T12:11:33.383Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2093,11 +2073,14 @@
       "applyUrl": "https://careers.holcimgroup.com/job/Zug-Innovation-Process-Engineer-Thermal-6300/1358364657/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:40.718Z",
+      "previousSlugs": [
+        "innovation-process-engineer-thermal-holcim-ch",
+        "innovation-process-ingegnere-thermal-holcim-group-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-process-engineer-thermal-holcim-ch"
+          "innovation-process-engineer-thermal-holcim-ch",
+          "innovation-process-ingegnere-thermal-holcim-group-zug"
         ],
         "de": [
           "innovation-process-engineer-thermal-holcim-ch"
@@ -2106,9 +2089,8 @@
           "innovation-process-engineer-thermal-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "innovation-process-engineer-thermal-holcim-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:40.718Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2127,7 +2109,7 @@
       "slug": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
       "slugByLocale": {
         "it": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-        "en": "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+        "en": "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf",
         "de": "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
         "fr": "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf"
       },
@@ -2136,7 +2118,7 @@
       "companyDomain": "holcim.com",
       "title": "H&S Koordinator:in Kies & Beton 80-100%",
       "titleByLocale": {
-        "it": "H&S Coordinatore: in Kies & Beton 80-100 %",
+        "it": "H&S Koordinator:in Kies & Beton 80-100%",
         "en": "H&S Coordinator: in Kies & Beton 80-100 %",
         "de": "H&S Koordinator:in Kies & Beton 80-100%",
         "fr": "Coordonnateur de la santé et de la sécurité : à Kies & Beton 80-100 %"
@@ -2150,7 +2132,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-H&S-Koordinatorin-Kies-&-Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:39.636Z",
+      "crawledAt": "2026-07-10T12:11:32.949Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2209,7 +2191,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:38:39.185Z",
+      "crawledAt": "2026-07-10T12:11:32.509Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2227,12 +2209,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "camion-driver-in-holcim-group-oberdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
-          "lastwagenfuhrer-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf",
+          "camion-driver-in-holcim-group-oberdorf"
         ],
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
@@ -2252,6 +2236,78 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "holcim-8d3b1fb12a26",
+      "slug": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
+      "slugByLocale": {
+        "it": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
+        "en": "corporate-communications-intern-for-6-months-holcim-ch",
+        "de": "corporate-communications-intern-for-6-months-holcim-ch",
+        "fr": "corporate-communications-stagiaire-for-6-months-holcim-group-zug"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "Corporate Communications intern for 6-months",
+      "titleByLocale": {
+        "it": "Corporate Communications Tirocinante for 6-months",
+        "en": "Corporate Communications intern for 6-months",
+        "de": "Corporate Communications Praktikant for 6-months",
+        "fr": "Corporate Communications Stagiaire for 6-months"
+      },
+      "description": "Corporate Communications intern for 6-months — Holcim Group a Zug.",
+      "descriptionByLocale": {
+        "de": "Corporate Communications intern for 6-months — Holcim Group a Zug."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T12:11:32.063Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "corporate-communications-intern-for-6-months-holcim-ch",
+        "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-communications-intern-for-6-months-holcim-ch",
+          "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
+        ],
+        "fr": [
+          "corporate-communications-intern-for-6-months-holcim-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:41.158Z",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -2284,7 +2340,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:38:38.729Z",
+      "crawledAt": "2026-07-10T12:11:31.616Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2300,11 +2356,14 @@
       "applyUrl": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:25:39.369Z",
+      "previousSlugs": [
+        "head-of-ready-to-operate-ccus-holcim-ch",
+        "responsabile-ready-to-operate-ccus-holcim-group-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ready-to-operate-ccus-holcim-ch"
+          "head-of-ready-to-operate-ccus-holcim-ch",
+          "responsabile-ready-to-operate-ccus-holcim-group-zug"
         ],
         "de": [
           "head-of-ready-to-operate-ccus-holcim-ch"
@@ -2313,9 +2372,8 @@
           "head-of-ready-to-operate-ccus-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-ready-to-operate-ccus-holcim-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:39.369Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {

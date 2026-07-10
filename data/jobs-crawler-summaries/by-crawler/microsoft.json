@@ -1,16 +1,16 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-09T22:27:04.207Z",
+  "generatedAt": "2026-07-10T12:14:27.597Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9346,
-  "avgDurationMs": 9346,
+  "durationMs": 7474,
+  "avgDurationMs": 7474,
   "durationHistory": [
-    9346
+    7474
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:27:01.495Z",
+      "crawledAt": "2026-07-10T12:14:25.143Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:27:01.490Z",
+      "crawledAt": "2026-07-10T12:14:25.139Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,47 +85,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "microsoft-200041378",
-      "slug": "services-account-executive-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Services Account Executive",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-08T11:19:31.638Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
-      "firstSeenAt": "2026-06-26T22:29:17.157Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,54 +1,19 @@
 {
   "key": "constellium",
   "label": "Constellium Valais",
-  "generatedAt": "2026-07-09T22:24:19.785Z",
+  "generatedAt": "2026-07-10T12:09:32.118Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10849,
-  "avgDurationMs": 10849,
+  "unchangedCount": 1,
+  "durationMs": 8628,
+  "avgDurationMs": 8628,
   "durationHistory": [
-    10849
+    8628
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "constellium-64f0aaeceb5b",
-      "slug": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-      "company": "Constellium Valais",
-      "companyKey": "constellium",
-      "companyDomain": "constellium.com",
-      "title": "Betriebsschlosser (m/w/d) im 4-Schicht-Betrieb 1",
-      "location": "Steg",
-      "canton": "VS",
-      "addressLocality": "Steg",
-      "postalCode": "3940",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Metallurgia / Alluminio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "url": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
-      "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
-      "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:24:16.002Z",
-      "firstSeenAt": "2026-07-08T22:07:31.018Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "id": "constellium-7282c877d445",
       "slug": "betriebsschlosser-in-tagesarbeit-constellium-ch",
@@ -74,7 +39,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-in-Tagesarbeit-Vala-3940/1386046533/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:24:16.828Z",
+      "crawledAt": "2026-07-10T12:09:30.074Z",
       "firstSeenAt": "2026-07-08T22:07:31.879Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -109,7 +74,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Sierre-Master-Planner-100-Vala-3960/1374193733/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:17.639Z",
+      "crawledAt": "2026-07-10T12:09:29.354Z",
       "firstSeenAt": "2026-07-08T22:07:32.687Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -121,5 +86,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "constellium-64f0aaeceb5b",
+      "slug": "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
+      "company": "Constellium Valais",
+      "companyKey": "constellium",
+      "companyDomain": "constellium.com",
+      "title": "Betriebsschlosser (m/w/d) im 4-Schicht-Betrieb 1",
+      "location": "Steg",
+      "canton": "VS",
+      "addressLocality": "Steg",
+      "postalCode": "3940",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "url": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
+      "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
+      "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-09T22:24:16.002Z",
+      "firstSeenAt": "2026-07-08T22:07:31.018Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "addressRegion": "VS",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }

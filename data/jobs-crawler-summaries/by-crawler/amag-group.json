@@ -1,18 +1,19 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-07-09T22:41:07.804Z",
+  "generatedAt": "2026-07-10T12:20:27.161Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4912,
-  "avgDurationMs": 4912,
+  "durationMs": 5058,
+  "avgDurationMs": 5058,
   "durationHistory": [
-    4912
+    5058
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Consulente tecnico motoveicoli (m/f) - 100%",
       "slug": "consulente-tecnico-motoveicoli-m-f-100",
@@ -35,54 +36,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-09-30",
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Consulente tecnico (m/f/d) 100%",
-      "slug": "consulente-tecnico-m-f-d-100-amag-group-breganzona",
-      "url": "https://jobs.amag-group.ch/Consulente-tecnico-mfd-100-it-j23030.html",
-      "applyUrl": "https://jobs.amag-group.ch/Consulente-tecnico-mfd-100-it-f23030.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Breganzona",
-      "addressLocality": "Breganzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "automotive",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-19",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-31",
-      "id": "amag-group-2812ef1319f3",
+      "id": "amag-group-2719a551e2a3",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6932",
-      "firstSeenAt": "2026-06-19T21:16:41.848Z",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-07-09T22:41:07.803Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
