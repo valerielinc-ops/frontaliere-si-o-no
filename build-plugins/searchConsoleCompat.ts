@@ -1,4 +1,5 @@
-import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import { resolveCantonSection, AGGREGATE_KEY, type CantonLocale } from './shared/cantonSection';
+import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
@@ -55,6 +56,41 @@ const SELF_MAPPABLE_EDITORIAL_SLUGS: ReadonlySet<string> = (() => {
  }
  return s;
 })();
+
+// Per-canton sector-hub slugs (jobsSeoPagesPlugin.ts Phase 3.2 for the 24
+// non-TI canton sections, jobSectorPagesPlugin.ts for the TI legacy section)
+// are emitted for EVERY (canton section × sector × locale) combo
+// unconditionally — either the full hub page or a below-floor noindex bridge
+// (canton-level MIN_JOBS_FOR_CANTON_PAGE floor AND the finer per-sector
+// MIN_JOBS_PER_CANTON_SECTOR floor both bridge, issue #3747) — so a URL
+// matching a locale's OWN sector slug under a non-aggregate canton section
+// always has a live target at the SAME path today. The national aggregate
+// sections (resolveCantonSection(locale, AGGREGATE_KEY), e.g.
+// /cerca-lavoro-svizzera/) get NO sector pages from either plugin and are
+// excluded via AGGREGATE_SECTIONS below. Per-locale Sets so a cross-locale
+// slug (e.g. EN `nurses` under an IT section) is NOT claimed live. Built once
+// at module load — same O(1)-per-URL rationale as SELF_MAPPABLE_EDITORIAL_SLUGS
+// (tests/search-console-compat.test.ts resolves 150k+ paths in one test).
+//
+// Per-canton company (`azienda-{slug}`) and company×city
+// (`azienda-{slug}-{city}`) hubs from the same #3747 fix are deliberately NOT
+// self-mapped: their slugs are data-driven (not enumerable at module load),
+// and the COMPANY_COMPAT_PATTERN branch below already resolves every URL of
+// that shape (kind 'company'), so they can never go unresolvable.
+const SELF_MAPPABLE_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string>> = (() => {
+ const out = {} as Record<SupportedLocale, ReadonlySet<string>>;
+ const locales: SupportedLocale[] = ['it', 'en', 'de', 'fr'];
+ for (const locale of locales) {
+ const s = new Set<string>();
+ for (const key of SECTOR_HUB_KEYS) s.add(SECTOR_HUB_SLUG[locale][key]);
+ out[locale] = s;
+ }
+ return out;
+})();
+
+const AGGREGATE_SECTIONS: ReadonlySet<string> = new Set(
+ (['it', 'en', 'de', 'fr'] as SupportedLocale[]).map((l) => resolveCantonSection(l, AGGREGATE_KEY)),
+);
 
 // Legacy TI sections — the listing fallback used for `search` and `company`
 // compat targets (canton-independent). Per-canton job-detail paths instead
@@ -455,10 +491,12 @@ export function resolveSearchConsoleCompatTarget(
  }
  // Family self-map: weekly-employers / job-market-snapshot / editorial-canton
  // (today, nurses-hub, part-time, care-variant only) / canton-hub (tutti,
- // settori, aziende) all emit this exact single-segment slug under EVERY
- // canton's job-board section unconditionally — either the full page or a
- // below-floor noindex bridge (see renderBelowFloorBridge /
- // emitEditorialBelowFloorBridge / emitCantonHubBelowFloorBridge) — so, like
+ // settori, aziende) / sector-hub (per-canton sector slugs, non-aggregate
+ // sections only — see SELF_MAPPABLE_SECTOR_HUB_SLUGS) all emit this exact
+ // single-segment slug under EVERY canton's job-board section
+ // unconditionally — either the full page or a below-floor noindex bridge
+ // (see renderBelowFloorBridge / emitEditorialBelowFloorBridge /
+ // emitCantonHubBelowFloorBridge / emitSectorHubBelowFloorBridge) — so, like
  // isProfessionCantonPath above, a URL matching one of these known slugs
  // always has a live target at the SAME path today, even if GSC's Coverage
  // export captured it as 404 from an earlier build.
@@ -466,7 +504,8 @@ export function resolveSearchConsoleCompatTarget(
  slug === WEEKLY_EMPLOYERS_SECTION[locale] ||
  slug === SNAPSHOT_SEGMENT ||
  (Object.values(HUB_SLUG_BY_LOCALE[locale]) as string[]).includes(slug) ||
- SELF_MAPPABLE_EDITORIAL_SLUGS.has(slug)
+ SELF_MAPPABLE_EDITORIAL_SLUGS.has(slug) ||
+ (SELF_MAPPABLE_SECTOR_HUB_SLUGS[locale].has(slug) && !AGGREGATE_SECTIONS.has(urlSection))
  ) {
  return {
  canonicalPath: ensureTrailingSlash(path),

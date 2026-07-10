@@ -25,7 +25,9 @@ vi.mock('node:fs', async (importOriginal) => {
   return { ...actual, readFileSync: (...args: unknown[]) => readFileSync(...args) };
 });
 
-const { syncErrorIssues } = await import('../scripts/lib/error-issue-sync.mjs');
+const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied } = await import('../scripts/lib/error-issue-sync.mjs');
+const { MODULE_LINK_SKEW_PATTERNS } = await import('../services/resilientImport');
+const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatterns');
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
 const posthogSync = await import('../scripts/posthog-error-issue-sync.mjs');
 const cfSync = await import('../scripts/cf-5xx-issue-sync.mjs');
@@ -161,6 +163,34 @@ describe('app-error-issue-sync.mjs', () => {
     expect(body).toContain('at foo (bar.js:1:1)');
   });
 
+  it('applies the shared deny-list to GA4 entries too (version-skew SyntaxError never files an issue)', async () => {
+    issueListEmptyThenCreate(103);
+    readFileSync.mockReturnValue(JSON.stringify({
+      ga4: {
+        errorHealth: {
+          totalErrors: 60,
+          errorRate: 0.3,
+          healthStatus: '🟢 HEALTHY',
+          appErrors: [
+            // Denied even above threshold: self-healed skew class (#3759).
+            { errorType: 'SyntaxError', errorMessage: "window_error: SyntaxError: The requested module './constants.js' does not provide an export named 'a'", pagePath: '/', count: 30, users: 8 },
+            // Real actionable error — must still be synced.
+            { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro', count: 12, users: 9 },
+          ],
+          topStacks: [],
+        },
+      },
+    }));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('x is not a function');
+    expect(title).not.toContain('does not provide an export');
+  });
+
   it('escalates priority to high when the site-wide error rate is critical', async () => {
     issueListEmptyThenCreate(102);
     readFileSync.mockReturnValue(JSON.stringify({
@@ -237,6 +267,41 @@ describe('posthog-error-issue-sync.mjs', () => {
     delete process.env.POSTHOG_PROJECT_ID;
   });
 
+  it('does not create issues for self-healed version-skew SyntaxErrors or opaque "Script error." (#3758/#3759/#3761)', async () => {
+    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
+    process.env.POSTHOG_PROJECT_ID = 'p';
+    issueListEmptyThenCreate(203);
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          // Denied: link-time version-skew wordings across engines — already
+          // self-healed client-side (cache-bust + budgeted reload) and kept in
+          // PostHog for chunk-load dashboards.
+          ["The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'", 'SyntaxError', 16, 9, 'https://frontaliereticino.ch/cerca-lavoro-ticino/'],
+          ["The requested module './constants.js' does not provide an export named 'a'", 'SyntaxError', 37, 8, 'https://frontaliereticino.ch/'],
+          ['import not found: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
+          ['ambiguous indirect export: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
+          ["Importing binding name 'House' is not found.", 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
+          // Denied: opaque cross-origin "Script error." (already dropped at
+          // before_send; residual pre-deploy events must not re-file issues).
+          ['Script error.', 'Error', 41, 12, 'https://frontaliereticino.ch/vita-in-ticino/vacanze-scolastiche-ticino-2026/'],
+          // Real actionable error — must still be synced.
+          ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
+        ],
+      }),
+    }));
+
+    await posthogSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('Cannot read properties');
+    delete process.env.POSTHOG_PERSONAL_API_KEY;
+    delete process.env.POSTHOG_PROJECT_ID;
+  });
+
   it('does not create a GitHub issue for "Importing a module script failed" even above threshold (#3762)', async () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
@@ -262,6 +327,36 @@ describe('posthog-error-issue-sync.mjs', () => {
     expect(title).not.toContain('Importing a module script');
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
+  });
+});
+
+describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .ts sources)', () => {
+  it('mirrors every MODULE_LINK_SKEW_PATTERNS source from services/resilientImport.ts byte-for-byte', () => {
+    const denySources = ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source);
+    for (const skew of MODULE_LINK_SKEW_PATTERNS) {
+      expect(denySources).toContain(skew.source);
+    }
+  });
+
+  it('mirrors the anchored "Script error." pattern from services/benignErrorPatterns.ts byte-for-byte', () => {
+    const benignScriptError = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test('Script error.') && p.source.startsWith('^'));
+    expect(benignScriptError).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignScriptError!.source);
+  });
+
+  it('isIssueDenied keeps real errors issue-able (incl. call-time skew TypeErrors and chunk-load 404s)', () => {
+    // Call-time skew TypeErrors are deliberately NOT denied: the same message
+    // shape can be a genuine first-party bug, so they must keep filing issues.
+    expect(isIssueDenied('ls(...).then is not a function')).toBe(false);
+    // Chunk-load fetch failures can indicate a persistent CDN prune/outage bug
+    // (the #1810 class) that self-heal cannot fix — keep them issue-able.
+    expect(isIssueDenied('Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
+    expect(isIssueDenied('Cannot read properties of null')).toBe(false);
+    // Contextualized "Script error." variants (not the bare opaque message) stay issue-able.
+    expect(isIssueDenied('[boot] Script error. while loading map widget')).toBe(false);
+    // And the denied class, for contrast:
+    expect(isIssueDenied("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'")).toBe(true);
+    expect(isIssueDenied('Script error.')).toBe(true);
   });
 });
 

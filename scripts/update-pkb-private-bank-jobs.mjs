@@ -146,7 +146,7 @@ function mergeParsedPkbJobs(parsedJobs) {
   const deduped = [...byUrl.values()];
 
   const cleanPkbJobs = mergePreserveLocaleData(pkbExisting, deduped).sort(
-    (a, b) => String(b.datePosted || '').localeCompare(String(a.datePosted || ''))
+    (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonPkb, ...cleanPkbJobs];
   writeJobsFiles(merged);

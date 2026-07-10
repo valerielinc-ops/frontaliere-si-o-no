@@ -40,8 +40,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "a-plus-plus-group",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/a-plus-plus-group.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "a-group",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/a-group.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -170,8 +170,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "abb",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/abb.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "abb-svizzera-sede-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/abb-svizzera-sede-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -675,8 +675,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "ail",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ail.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "ail-lugano",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ail-lugano.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -2360,8 +2360,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "axa",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/axa.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "axa-svizzera",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/axa-svizzera.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -2892,6 +2892,71 @@
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
           "run": "bash scripts/lib/git-commit-data.sh --slice-only \"🏦 Auto-update Banca del Sempione jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+        },
+        {
+          "name": "Report failure to GitHub Issues",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
+      "slug": "baronie",
+      "file": "update-jobs-baronie.yml",
+      "jobKey": "update-baronie-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated Baronie crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_BARONIE_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "node scripts/update-baronie-jobs.mjs"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "baronie",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/baronie.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Baronie jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
         },
         {
           "name": "Report failure to GitHub Issues",
@@ -6207,8 +6272,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "cler",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/cler.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "banca-cler",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/banca-cler.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -7650,8 +7715,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "coop",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/coop.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "coop-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/coop-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -7845,8 +7910,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "corner",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/corner.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "corner-banca",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/corner-banca.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -9344,8 +9409,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "dxt",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/dxt.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "dxt-commodities",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/dxt-commodities.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -9474,8 +9539,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "efg",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/efg.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "efg-international",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/efg-international.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -10257,8 +10322,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "eoc",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/eoc.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "eoc-ente-ospedaliero-cantonale",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/eoc-ente-ospedaliero-cantonale.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -13900,8 +13965,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "hamilton",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/hamilton.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "hamilton-bonaduz-ag",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/hamilton-bonaduz-ag.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -14554,8 +14619,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "hib",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/hib.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "hib-broye",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/hib-broye.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -16053,8 +16118,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "ibsa",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ibsa.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "ibsa-institut-biochimique",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ibsa-institut-biochimique.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -16899,8 +16964,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "ist",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ist.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "international-school-of-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/international-school-of-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -17743,8 +17808,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "kempinski",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/kempinski.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "grand-hotel-des-bains-kempinski",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/grand-hotel-des-bains-kempinski.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -19367,8 +19432,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "kronenhof",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/kronenhof.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "grand-hotel-kronenhof",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/grand-hotel-kronenhof.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -20415,8 +20480,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "lafonte",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lafonte.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "la-fonte",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/la-fonte.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -20545,8 +20610,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "lastminute",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lastminute.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "lastminute-com",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lastminute-com.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -20740,8 +20805,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "lidl",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lidl.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "lidl-svizzera",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lidl-svizzera.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -21065,8 +21130,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "lis",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lis.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "lis-lugano-istituti-sociali",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/lis-lugano-istituti-sociali.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -21138,7 +21203,8 @@
         {
           "name": "Scoped housekeeping",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "the-living-circle"
+            "JOBS_HOUSEKEEPING_SCOPE": "the-living-circle",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/the-living-circle.json"
           },
           "run": "node scripts/cleanup-jobs.mjs"
         },
@@ -22012,6 +22078,71 @@
       ]
     },
     {
+      "slug": "mcdonald-s-switzerland",
+      "file": "update-jobs-mcdonald-s-switzerland.yml",
+      "jobKey": "update-mcdonald-s-switzerland-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated McDonald's Switzerland crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_MCDONALDS_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "npm run jobs:update:mcdonalds"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "mcdonald-s-switzerland",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/mcdonald-s-switzerland.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"🍟 Auto-update McDonald's Switzerland jobs (dedicated crawler)\""
+        },
+        {
+          "name": "Report failure to GitHub Issues",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
       "slug": "medacta",
       "file": "update-jobs-medacta.yml",
       "jobKey": "update-medacta-jobs",
@@ -22051,8 +22182,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "medacta",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/medacta.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "medacta-international",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/medacta-international.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -22376,8 +22507,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "mendrisio",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/mendrisio.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "citta-di-mendrisio",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/citta-di-mendrisio.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -22709,8 +22840,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "migros",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/migros.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "migros-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/migros-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -25407,6 +25538,71 @@
       ]
     },
     {
+      "slug": "pkb-private-bank",
+      "file": "update-jobs-pkb-private-bank.yml",
+      "jobKey": "update-pkb-private-bank-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated PKB Private Bank crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_PKB_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "npm run jobs:update:pkb-private-bank"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "pkb-private-bank",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/pkb-private-bank.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update PKB Private Bank jobs (dedicated crawler)\""
+        },
+        {
+          "name": "Report failure to GitHub Issues",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
       "slug": "planzer",
       "file": "update-jobs-planzer.yml",
       "jobKey": "update-planzer-jobs",
@@ -25645,8 +25841,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "postch",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/postch.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "posta-svizzera-centro-regionale",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/posta-svizzera-centro-regionale.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -28379,8 +28575,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "sbb",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/sbb.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "ffs-officine-ferrovie-federali",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ffs-officine-ferrovie-federali.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -33004,8 +33200,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "supsi",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/supsi.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "supsi-dti",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/supsi-dti.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -33524,8 +33720,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "swisscom",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/swisscom.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "swisscom-sede-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/swisscom-sede-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -34495,8 +34691,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "tich",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/tich.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "amministrazione-cantonale-ti",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/amministrazione-cantonale-ti.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -35664,8 +35860,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "usi",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/usi.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "usi-universita-della-svizzera-italiana",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/usi-universita-della-svizzera-italiana.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -36188,8 +36384,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "vf",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/vf.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "vf-international-the-north-face-timberland",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/vf-international-the-north-face-timberland.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -36709,8 +36905,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "volg",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/volg.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "volg-fenaco",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/volg-fenaco.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -37358,8 +37554,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "zegna",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/zegna.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "ermenegildo-zegna-logistica",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/ermenegildo-zegna-logistica.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true
@@ -37683,8 +37879,8 @@
         {
           "name": "Housekeeping — remove expired job listings (scoped)",
           "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "zurich",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/zurich.json"
+            "JOBS_HOUSEKEEPING_SCOPE": "zurich-insurance-sede-ticino",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json"
           },
           "run": "node scripts/cleanup-jobs.mjs",
           "continue-on-error": true

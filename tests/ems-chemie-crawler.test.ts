@@ -459,7 +459,12 @@ describe('validateDedicatedLocaleCoverage — ems-chemie call site (issue #3797 
     );
   });
 
-  it('a genuine non-translation problem (untrusted domain) still hard-fails even with SKIP_AI_TRANSLATION=1 — deferral only covers translation gaps, guard is not simply disabled', () => {
+  it('a genuine non-translation problem (untrusted domain) is still enforced even with SKIP_AI_TRANSLATION=1 — the invalid job is quarantined per-item (#3789) and never committed, the 9 valid jobs survive', () => {
+    // Pre-#3789 this asserted a hard-fail of the WHOLE batch — the same
+    // all-or-nothing failure mode as the #3797/#3783 incidents, just on a
+    // different error class. The per-item gate (#3789) keeps the guard's
+    // actual guarantee (an untrusted-domain job never reaches the dataset)
+    // while no longer discarding the 9 valid jobs alongside it.
     const untrustedJob = {
       ...goodJob(99),
       slug: 'ems-chemie-untrusted-domain-job',
@@ -468,7 +473,26 @@ describe('validateDedicatedLocaleCoverage — ems-chemie call site (issue #3797 
     const jobs = [...Array.from({ length: 9 }, (_, i) => goodJob(i)), untrustedJob];
     const jobsPath = writeScratchJobs(jobs);
 
+    expect(() => runValidation(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as Array<{ url: string }>;
+    expect(after).toHaveLength(9);
+    expect(after.map((j) => j.url)).not.toContain('https://not-ems-group.example.test/jobs/untrusted');
+  });
+
+  it('a SYSTEMIC non-translation problem (majority untrusted domains) still hard-fails the run — per-item quarantine never silently wipes a broken batch', () => {
+    const untrusted = (n: number) => ({
+      ...goodJob(n),
+      slug: `ems-chemie-untrusted-domain-job-${n}`,
+      url: `https://not-ems-group.example.test/jobs/untrusted-${n}`,
+    });
+    const jobs = [goodJob(0), untrusted(1), untrusted(2)];
+    const jobsPath = writeScratchJobs(jobs);
+
     expect(() => runValidation(jobsPath)).toThrow(/localization validation failed/i);
+    // Dataset untouched: the previous data stays intact for the workflow's
+    // non-zero-exit issue-creation path.
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(3);
   });
 
   it('all-translated batch passes cleanly with no tolerance needed', () => {

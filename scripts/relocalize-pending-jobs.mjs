@@ -505,6 +505,86 @@ function clearRetranslationFlags(jobs) {
  *   omitting the set means "nothing attempted" — the safe default.
  * @returns {number} Number of jobs updated in the per-crawler file
  */
+/**
+ * Build the crawler-job → assembled-job lookup used by
+ * syncTranslationsToCrawlerFile. Exported for tests.
+ *
+ * previousSlugs writer regression (#3785/#3794/#3844/#3852/#3874, same class
+ * as #3734 already fixed in scatter-jobs-to-slices): the old single-pass
+ * first-wins index let one job's `previousSlugs` (or a stale locale slug)
+ * CLAIM another job's ACTIVE slug key before the true owner was even seen —
+ * common in same-title families (e.g. KSA "Dipl. Pflegefachfrau" ×10,
+ * "Berufswahlpraktikum Dentalassistent" ×8) whose histories get unioned by
+ * duplicate-merging. syncTranslationsToCrawlerFile then matched a slice job
+ * to its SIBLING and copied the sibling's titleByLocale/slugByLocale into it,
+ * reverting real translations; cleanPreviousSlugsPerLocale subsequently
+ * dropped the history entries that now matched the (wrong) active slugs —
+ * a silent previousSlugs loss with no journal capture.
+ *
+ * Fix: tiered index — URL identity keys first (never shadowed), then active
+ * slugs, then previousSlugs as weakest fallback.
+ */
+export function buildAssembledJobIndex(assembledJobs, companyKey) {
+  const assembledByKey = new Map();
+  const _addKey = (key, job) => {
+    const k = String(key || '').trim();
+    if (k && !assembledByKey.has(k)) assembledByKey.set(k, job);
+  };
+  const inScope = [];
+  for (const job of assembledJobs) {
+    const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
+    if (jobKey !== companyKey) continue;
+    inScope.push(job);
+  }
+  // Tier 1: URL (most stable identifier — never changes). Indexed for ALL
+  // in-scope jobs before any slug key so a slug/previousSlug of one job can
+  // never shadow another job's URL identity.
+  for (const job of inScope) {
+    if (job.url) _addKey(String(job.url).trim().toLowerCase(), job);
+  }
+  // Tier 2: ACTIVE slugs (master + per-locale) for all jobs.
+  for (const job of inScope) {
+    _addKey(job.slug, job);
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const localeSlug of Object.values(job.slugByLocale)) _addKey(localeSlug, job);
+    }
+  }
+  // Tier 3 (weakest): previousSlugs — the assembled job may have renamed its
+  // main slug and the crawler file still references the old one. Added LAST so
+  // a job's history can never claim a key that is another job's active slug.
+  for (const job of inScope) {
+    if (Array.isArray(job.previousSlugs)) {
+      for (const s of job.previousSlugs) _addKey(s, job);
+    }
+  }
+  return assembledByKey;
+}
+
+/**
+ * Resolve the assembled counterpart of a crawler slice job. Exported for tests.
+ *
+ * URL match is tried FIRST (stable identity); the slug key is only a fallback.
+ * Identity guard: a slug-keyed match is REJECTED when both sides carry a URL
+ * and the URLs disagree — matching by slug across two different postings is
+ * exactly the cross-job contamination this regression class is about. Skipping
+ * the sync for that job is always safer than syncing the wrong job's locales.
+ */
+export function matchAssembledJob(crawlerJob, assembledByKey) {
+  const crawlerUrl = String(crawlerJob.url || '').trim().toLowerCase();
+  if (crawlerUrl) {
+    const byUrl = assembledByKey.get(crawlerUrl);
+    if (byUrl) return byUrl;
+  }
+  const bySlug = assembledByKey.get(String(crawlerJob.slug || '').trim()) || null;
+  if (!bySlug) return null;
+  const assembledUrl = String(bySlug.url || '').trim().toLowerCase();
+  if (crawlerUrl && assembledUrl && crawlerUrl !== assembledUrl) {
+    console.log(`     🛑 sync identity guard: slice job ${crawlerJob.id || crawlerJob.slug} matched a DIFFERENT posting by slug (${bySlug.id || bySlug.slug}) — skipping to avoid cross-job locale corruption`);
+    return null;
+  }
+  return bySlug;
+}
+
 function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs) {
   const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
 
@@ -519,38 +599,14 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
     return 0;
   }
 
-  // Build a multi-key lookup for assembled jobs.
-  // Index by slug, locale slugs, previousSlugs, AND URL to handle all slug-mismatch cases.
-  const assembledByKey = new Map();
-  const _addKey = (key, job) => { if (key && !assembledByKey.has(key)) assembledByKey.set(key, job); };
-  for (const job of assembledJobs) {
-    const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
-    if (jobKey !== companyKey) continue;
-    _addKey(job.slug, job);
-    // Index by URL (most stable identifier — never changes)
-    if (job.url) _addKey(String(job.url).trim().toLowerCase(), job);
-    // Index by all locale slugs so crawler jobs with old slugs can still match
-    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const localeSlug of Object.values(job.slugByLocale)) {
-        const s = String(localeSlug || '').trim();
-        if (s && !assembledByKey.has(s)) assembledByKey.set(s, job);
-      }
-    }
-    // Index by previousSlugs — the assembled job may have renamed its main slug
-    // and the crawler file still references the old one
-    if (Array.isArray(job.previousSlugs)) {
-      for (const s of job.previousSlugs) {
-        if (s && !assembledByKey.has(s)) assembledByKey.set(s, job);
-      }
-    }
-  }
+  // Build a multi-key lookup for assembled jobs (URL identity first — see
+  // buildAssembledJobIndex for the cross-job contamination this prevents).
+  const assembledByKey = buildAssembledJobIndex(assembledJobs, companyKey);
 
   let updated = 0;
   const handledSlugs = new Set();
   for (const crawlerJob of crawlerData.jobs) {
-    const assembled = assembledByKey.get(crawlerJob.slug)
-      || (crawlerJob.url && assembledByKey.get(String(crawlerJob.url).trim().toLowerCase()))
-      || null;
+    const assembled = matchAssembledJob(crawlerJob, assembledByKey);
     if (!assembled) continue;
 
     // Track that this job was matched — used to avoid double retry-counting
@@ -641,6 +697,26 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
           const existingIsCopy = trimmedExisting.toLowerCase() === srcTitle;
           if (assembledIsCopy && !existingIsCopy) {
             // Assembled is WORSE (source copy), existing is better (translated) — skip
+            continue;
+          }
+        }
+        // GUARD (previousSlugs writer regression #3785/#3794/#3844/#3852/#3874):
+        // never overwrite a TRANSLATED locale slug with a source-copy from the
+        // assembled data. Mirrors the title guard above — slugByLocale had no
+        // equivalent, so a needsRetranslation job whose assembled twin still
+        // carried untranslated (source-copy) slugs had its real translated
+        // slugs reverted to the raw source slug; the old translated slug was
+        // then the only bridge left and cleanPreviousSlugsPerLocale dropped
+        // the raw history entries that now matched the active slugs.
+        if (field === 'slugByLocale' && trimmedExisting && trimmedValue && locale !== sourceLang) {
+          const srcSlugAssembled = String(assembled.slugByLocale?.[sourceLang] || '').trim();
+          const srcSlugCrawler = String(crawlerJob.slugByLocale?.[sourceLang] || '').trim();
+          const assembledIsCopy = (srcSlugAssembled && trimmedValue === srcSlugAssembled)
+            || (srcSlugCrawler && trimmedValue === srcSlugCrawler);
+          const existingIsCopy = (srcSlugAssembled && trimmedExisting === srcSlugAssembled)
+            || (srcSlugCrawler && trimmedExisting === srcSlugCrawler);
+          if (assembledIsCopy && !existingIsCopy) {
+            // Assembled is WORSE (source-copy slug), existing is a real translation — skip
             continue;
           }
         }

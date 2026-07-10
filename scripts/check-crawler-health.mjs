@@ -318,12 +318,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   'interroll',
   // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
   'vir-biotechnology',
-  // Recruitee API: 84 open roles across 9 countries, none in Switzerland.
-  'boggi-milano',
-  // Careers page 404s; jobs.ch confirms no current postings.
-  'rivopharm',
-  // DACH intervieweb feed: 2 openings, both Saarbrücken DE, none CH.
-  'zucchetti-switzerland',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
   // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was

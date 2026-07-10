@@ -7,8 +7,27 @@
  * 2. Coverage = 1 → needsRetranslation = true on every crawl
  * 3. translate-pending re-translates → slug instability
  */
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { mergeAndDeduplicate } from '../scripts/lib/dedicated-crawler-common.mjs';
+
+// mergeAndDeduplicate ends with saveSlugRegistry(): without this override the
+// test would OVERWRITE the real data/slug-registry.json of the checkout it
+// runs in (observed: the 16MB registry replaced by a ~40-line test registry,
+// which then broke harden-registry-pin.test.ts in the same vitest run).
+// Point load/save at a throwaway file for the whole suite.
+let _registryTmp = '';
+beforeAll(() => {
+  _registryTmp = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'slug-registry-test-')), 'slug-registry.json');
+  fs.writeFileSync(_registryTmp, '{}', 'utf8');
+  process.env.SLUG_REGISTRY_PATH_OVERRIDE = _registryTmp;
+});
+afterAll(() => {
+  delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+  try { fs.rmSync(path.dirname(_registryTmp), { recursive: true, force: true }); } catch { /* best-effort */ }
+});
 
 // A long English description (simulating VF's 4469-char EN source)
 const EN_DESC_LONG = 'The North Face EMEA is looking for an Influencer Marketing Coordinator to join our Communications Marketing team based in Stabio, Switzerland. ' +

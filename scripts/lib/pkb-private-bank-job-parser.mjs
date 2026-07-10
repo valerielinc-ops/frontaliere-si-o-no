@@ -361,7 +361,10 @@ export function buildPkbJob(url, parsed) {
     postalCode: HQ.postalCode,
     streetAddress: parsed.streetAddress || HQ.streetAddress,
     description,
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    // Canonical pipeline field is `postedDate` (the Arca24 microdata itemprop
+    // is `datePosted`, but every downstream consumer — JobBoard, sitemap,
+    // newsletter, assemble-jobs-dataset churn guard — reads `postedDate`).
+    postedDate: parsed.datePosted || new Date().toISOString().split('T')[0],
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',

@@ -192,8 +192,53 @@ describe('Search Console 404 compatibility resolver', () => {
   });
 
   it('routes expired job-detail style URLs back to the localized listing', () => {
-    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/cuochi/')).toEqual({
+    // NB: the fixture must NOT be a sector-hub slug (e.g. the old `cuochi`
+    // fixture) — those now self-map to their own live page (full hub or
+    // below-floor bridge, issue #3747), covered by the dedicated test below.
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/aiuto-cuoco-ristorante-lugano/')).toEqual({
       canonicalPath: '/cerca-lavoro-ticino/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+  });
+
+  // Issue #3747 — per-canton sector hubs emit every (canton section × sector ×
+  // locale) combo unconditionally: the full hub page, or a below-floor
+  // noindex bridge (canton-level MIN_JOBS_FOR_CANTON_PAGE floor AND the finer
+  // per-sector MIN_JOBS_PER_CANTON_SECTOR floor both bridge). A URL matching
+  // a locale's OWN sector slug under a non-aggregate canton section therefore
+  // always has a live target at the SAME path and must self-map.
+  it('self-maps sector-hub slugs under canton sections to their own live page (full page or below-floor bridge)', () => {
+    // Non-TI canton section, IT slug (below-floor cantons get a bridge).
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-berna/infermieri')).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/infermieri/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // Localized slug under a localized canton section.
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-bern/pflegepersonal/')).toEqual({
+      canonicalPath: '/de/jobs-in-bern/pflegepersonal/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    // TI legacy section: jobSectorPagesPlugin emits ALL sector hubs
+    // unconditionally, so the TI variant self-maps too.
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/cuochi/')).toEqual({
+      canonicalPath: '/cerca-lavoro-ticino/cuochi/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // National aggregate sections get NO sector pages from any plugin — a
+    // sector slug there is NOT claimed live (falls back to the section root).
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-svizzera/infermieri/')).toEqual({
+      canonicalPath: '/cerca-lavoro-svizzera/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+    // Cross-locale slug (EN word under an IT-locale path) is NOT claimed live:
+    // only the locale's own slug table is emitted at that prefix.
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-berna/nurses/')).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/',
       kind: 'expired-job',
       locale: 'it',
     });

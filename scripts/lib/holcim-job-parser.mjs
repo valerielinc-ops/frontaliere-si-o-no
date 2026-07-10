@@ -196,31 +196,59 @@ function detectEmploymentType(title = '') {
  * rendered 3x for responsive breakpoints, so de-dupe by href) plus the
  * "Showing X to Y of Z Jobs" total for pagination bookkeeping.
  */
-function parseSearchPage(html = '') {
-  const rows = [];
-  const seen = new Set();
+export function parseSearchPage(html = '') {
+  // Collect every tile-link occurrence (each job tile is rendered up to 3x
+  // for responsive breakpoints) and every location block WITH their byte
+  // offsets, then attribute by DOCUMENT POSITION: a tile's location is the
+  // first "-multilocation-value" block that appears after that tile and
+  // before the next tile. This makes no assumption about a fixed/uniform
+  // render ratio between location blocks and tiles (the previous
+  // `locs[i * floor(locs/rows)]` indexing silently misattributed every
+  // location as soon as one job rendered a different number of location
+  // blocks — e.g. a genuinely multi-location posting).
+  const tileHits = [];
   const tileRx = /class="jobTitle-link[^"]*"[^>]*href="([^"]+)"[^>]*>\s*([^<]*?)\s*</g;
   let m;
   while ((m = tileRx.exec(html)) !== null) {
-    const href = m[1];
-    if (seen.has(href)) continue;
-    seen.add(href);
-    rows.push({ href, title: normalizeSpace(m[2]) });
+    tileHits.push({ href: m[1], title: normalizeSpace(m[2]), index: m.index });
   }
 
-  // Attach the nearest following "-multilocation-value" location text to
-  // each row, in document order (tiles and their location blocks are
-  // emitted in the same relative order they appear in `rows`).
+  const locHits = [];
   const locRx = /-multilocation-value">([^<]*)/g;
-  const locs = [];
   let lm;
-  while ((lm = locRx.exec(html)) !== null) locs.push(normalizeSpace(lm[1]));
-  // Each unique row is followed by 3 responsive copies of its location block;
-  // take one location per unique href, in order.
-  const perRow = Math.max(1, Math.floor(locs.length / (rows.length || 1)));
-  rows.forEach((row, i) => {
-    row.locationText = locs[i * perRow] || locs[i] || '';
-  });
+  while ((lm = locRx.exec(html)) !== null) {
+    locHits.push({ text: normalizeSpace(lm[1]), index: lm.index });
+  }
+
+  const rows = [];
+  const byHref = new Map();
+  let locPtr = 0;
+  for (let t = 0; t < tileHits.length; t += 1) {
+    const tile = tileHits[t];
+    const nextTileIndex = t + 1 < tileHits.length ? tileHits[t + 1].index : Infinity;
+    // Advance to the first location block at/after this tile...
+    while (locPtr < locHits.length && locHits[locPtr].index < tile.index) locPtr += 1;
+    // ...and only claim it if it belongs to THIS tile (before the next one).
+    const locationText = (locPtr < locHits.length && locHits[locPtr].index < nextTileIndex)
+      ? locHits[locPtr].text
+      : '';
+
+    const existing = byHref.get(tile.href);
+    if (existing) {
+      // Duplicate responsive copy of an already-seen tile: use it only to
+      // backfill a location the first copy was missing.
+      if (!existing.locationText && locationText) existing.locationText = locationText;
+      continue;
+    }
+    const row = { href: tile.href, title: tile.title, locationText };
+    byHref.set(tile.href, row);
+    rows.push(row);
+  }
+
+  const rowsWithoutLocation = rows.filter((r) => !r.locationText).length;
+  if (rows.length > 0 && rowsWithoutLocation > 0) {
+    console.warn(`⚠️ Holcim search page: ${rowsWithoutLocation}/${rows.length} job tiles have no adjacent location block — page markup may have drifted.`);
+  }
 
   const totalMatch = html.match(/Showing\s+\d+\s+to\s+\d+\s+of\s+(\d+)\s+Jobs/i);
   const total = totalMatch ? Number(totalMatch[1]) : 0;

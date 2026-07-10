@@ -23,7 +23,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
-import { isAcceptableTranslation, hasConcatenatedWords } from './translation-quality.mjs';
+import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 
@@ -1337,13 +1337,23 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSource = normalizeForLengthComparison(currentSourceDesc);
       const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
-      if (!baseHasHtmlGarbage && (!currentSourceDesc || contentRatio < 0.85)) {
+      // Structure parity (#3721/#3836): the 85% rule compares whitespace-collapsed
+      // lengths, so a locale copy whose newline bullets were flattened into inline
+      // prose (the historical mergeLocaleTextMap/free-cascade normalizeSpace defect)
+      // scores ~100% and was never repaired — the flattened fossil then persisted
+      // forever because the locale-preserving merge keeps byLocale across crawls.
+      // When the authoritative base still has its bullets and the same-language
+      // locale copy has none, the copy is corrupt: restore the base.
+      const sourceCopyLostStructure = !baseHasHtmlGarbage &&
+        isStructureFlattenedCopy(baseDesc, currentSourceDesc);
+      if (!baseHasHtmlGarbage && (!currentSourceDesc || contentRatio < 0.85 || sourceCopyLostStructure)) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobChanged = true;
-        // Cascade: other locale translations were derived from the truncated source
-        // and are equally incomplete. Keep them visible (better partial than nothing)
-        // but mark for retranslation so the pipeline regenerates from the restored source.
-        if (currentSourceDesc && contentRatio < 0.85) {
+        // Cascade: other locale translations were derived from the truncated (or
+        // structure-flattened) source and are equally damaged. Keep them visible
+        // (better partial than nothing) but mark for retranslation so the pipeline
+        // regenerates from the restored source.
+        if (currentSourceDesc && (contentRatio < 0.85 || sourceCopyLostStructure)) {
           job.needsRetranslation = true;
         }
       }
@@ -2562,6 +2572,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     // Thin translation check: if translation is < 45% of source length, it's likely
     // a boilerplate stub ("Company X is hiring for Y role..."), not a real translation.
     if (srcDescForThinCheck.length >= 500 && text.length < srcDescForThinCheck.length * 0.45) return false;
+    // Structure parity (#3721/#3836): a translation that flattened away the
+    // source's bulleted list is a fossil from the pre-fix cascade/merge — it
+    // must not count as covered, or the flattened copy persists forever.
+    if (isStructureFlattenedCopy(cleanSourceDesc, cleanLocale)) return false;
     return true;
   }).length;
   const hasBudget = (ctx.getAiLocalizationCalls ? ctx.getAiLocalizationCalls() : 0) < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) || forceLocalization;
@@ -2727,7 +2741,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         const isThinStub = sourceDesc.length >= 500 && curDesc.length > 0 && curDesc.length < sourceDesc.length * 0.45;
         // When needsRetranslation is explicitly set, force retranslation of all non-source
         // locales — the existing content may be in the wrong language (e.g. Italian in EN slot).
-        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub || out.needsRetranslation;
+        // Structure parity (#3721/#3836): also retranslate fossil translations that
+        // flattened away the source's bulleted list (pre-fix cascade/merge output).
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub || out.needsRetranslation ||
+          isStructureFlattenedCopy(sourceDesc, curDesc);
         let desc = null;
         if (needsDesc) {
           // Use source locale description as translation input (clean text)
@@ -2991,17 +3008,23 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       const normBaseDesc = normalizeForLengthComparison(baseDesc);
       const normCurrentSource = normalizeForLengthComparison(currentSourceDesc);
       const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
+      // Structure parity (#3721/#3836): a flattened same-language copy keeps ~100%
+      // of the collapsed length, so the 85% rule alone never repairs it (see
+      // hardenJobLocaleFields for the full rationale).
+      const sourceCopyLostStructure = !baseHasHtmlGarbage &&
+        isStructureFlattenedCopy(baseDesc, currentSourceDesc);
       const shouldRestoreSourceDesc =
         !!baseDesc &&
         !baseHasHtmlGarbage &&
         baseDesc.length >= minDescriptionChars &&
-        (!currentSourceDesc || sourceContentRatio < 0.85);
+        (!currentSourceDesc || sourceContentRatio < 0.85 || sourceCopyLostStructure);
       if (shouldRestoreSourceDesc) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobTranslated = true;
-        // Cascade: if source was truncated, derived translations are also bad.
-        // Clear them so the loop below retranslates from the restored source.
-        if (currentSourceDesc && sourceContentRatio < 0.85) {
+        // Cascade: if source was truncated (or structure-flattened), derived
+        // translations are also bad. Clear them so the loop below retranslates
+        // from the restored source.
+        if (currentSourceDesc && (sourceContentRatio < 0.85 || sourceCopyLostStructure)) {
           job.needsRetranslation = true;
         }
       }
@@ -3079,6 +3102,12 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           isDescContaminated ||
           (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
           (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc)) ||
+          // Structure parity (#3721/#3836): the source has a real bulleted list but
+          // this stored translation has none — a fossil flattened by the pre-fix
+          // free cascade / merge normalizeSpace. Retranslate; isAcceptableTranslation
+          // below enforces structure parity on the replacement, so a flat candidate
+          // can never re-enter the dataset.
+          (locale !== sourceLang && isStructureFlattenedCopy(sourceDesc, currentDesc)) ||
           // When the source description was just restored from a richer base (85% rule),
           // force re-translation of all non-source locales — the old translations were
           // derived from the truncated source and are equally incomplete.
@@ -4045,8 +4074,11 @@ export function validateDedicatedLocaleCoverage({
     return;
   }
 
-  const raw = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
-  const jobs = Array.isArray(raw) ? raw.filter(isTargetJob) : [];
+  // `let` (not `const`): the per-item non-translation quarantine below (#3789)
+  // rewrites the dataset mid-validation and must keep the in-memory copies in
+  // sync so later paths (thin-source quarantine) don't resurrect removed jobs.
+  let raw = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
+  let jobs = Array.isArray(raw) ? raw.filter(isTargetJob) : [];
   if (jobs.length === 0) {
     const message = noJobsMessage || `No ${label} jobs found after crawl.`;
     if (failWhenNoJobs) {
@@ -4175,6 +4207,76 @@ export function validateDedicatedLocaleCoverage({
       'missing_description', 'untranslated_description',
       'missing_title', 'untranslated_title',
     ]);
+    // #3789 (follow-up of #3788/#3783): the gate was still ALL-OR-NOTHING for
+    // NON-translation blocking issues. One structurally invalid job (e.g. a
+    // missing/bad slug, an untrusted domain) threw at the bottom of this
+    // function, the crawler exited non-zero, and — since every generated
+    // crawler-group-*.yml only commits when the crawler exits 0 — the ENTIRE
+    // batch was silently discarded, valid jobs included. Make this per-item
+    // instead: QUARANTINE only the invalid jobs from the persisted dataset
+    // (they stay excluded — validation is not weakened) so the valid jobs
+    // still commit. Two escape hatches keep the loud failure where it is the
+    // safer outcome:
+    //   1. SYSTEMIC (>= JOBS_SYSTEMIC_INVALID_RATIO of the batch invalid, and
+    //      at least 2 invalid): that pattern is a parser break, not a
+    //      per-item glitch — hard-fail so the previous dataset stays intact
+    //      and the workflow's issue-creation path fires.
+    //   2. EVERY job invalid (incl. a 1-job source): quarantining would wipe
+    //      the crawler's whole dataset silently — worse than failing loudly.
+    const nonTranslationBlocking = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
+    if (nonTranslationBlocking.length > 0) {
+      const invalidSlugs = new Set(nonTranslationBlocking.map((i) => i.slug));
+      const invalidJobs = jobs.filter((j) => invalidSlugs.has(j?.slug));
+      const SYSTEMIC_INVALID_RATIO = Number(process.env.JOBS_SYSTEMIC_INVALID_RATIO) || 0.5;
+      const invalidRatio = invalidJobs.length / jobs.length;
+      const systemic = invalidRatio >= SYSTEMIC_INVALID_RATIO && invalidJobs.length >= 2;
+      if (!systemic && invalidJobs.length > 0 && invalidJobs.length < jobs.length) {
+        const sample = nonTranslationBlocking
+          .slice(0, sampleLimit)
+          .map((i) => `- ${i.slug} [${i.locale}] ${i.reason}`)
+          .join('\n');
+        try {
+          const kept = raw.filter((j) => !(isTargetJob(j) && invalidSlugs.has(j?.slug)));
+          writeJson(resolvedDataJobsPath, kept);
+          const publicJobsPath = inferPublicJobsPath(resolvedDataJobsPath);
+          if (fs.existsSync(publicJobsPath)) {
+            writeJson(publicJobsPath, kept);
+          }
+          console.warn(
+            `⚠️ ${label}: ${invalidJobs.length}/${jobs.length} job(s) failed non-translation validation — quarantined ONLY those from the dataset (${raw.length} → ${kept.length}) so the remaining valid job(s) still commit (per-item gate, #3789; previously the whole batch was discarded).\n${sample}`
+          );
+          raw = kept;
+          jobs = jobs.filter((j) => !invalidSlugs.has(j?.slug));
+          // The quarantined jobs are gone from the dataset: drop ALL their
+          // issues (translation ones included) so the tolerance math below
+          // only sees jobs that can actually commit.
+          const remainingBlocking = blockingIssues.filter((i) => !invalidSlugs.has(i.slug));
+          blockingIssues.length = 0;
+          blockingIssues.push(...remainingBlocking);
+          const remainingSoft = softIssues.filter((i) => !invalidSlugs.has(i.slug));
+          softIssues.length = 0;
+          softIssues.push(...remainingSoft);
+          for (const slug of invalidSlugs) thinSourceBySlug.delete(slug);
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            try {
+              fs.appendFileSync(
+                process.env.GITHUB_STEP_SUMMARY,
+                `\n⚠️ **${label}**: quarantined ${invalidJobs.length} job(s) with non-translation validation failure(s) ` +
+                `(kept ${jobs.length} valid job(s) — per-item commit gate, #3789):\n${sample}\n`,
+              );
+            } catch { /* best-effort only */ }
+          }
+        } catch (quarantineErr) {
+          // Quarantine write failed: leave blockingIssues intact so the final
+          // throw below preserves the previous (safe) all-or-nothing behavior.
+          console.warn(`⚠️ ${label} invalid-job quarantine failed: ${quarantineErr?.message || quarantineErr} — falling back to hard failure.`);
+        }
+      }
+    }
+    if (blockingIssues.length === 0 && softIssues.length === 0) {
+      console.log(`✅ ${label} localization validation passed for ${jobs.length} jobs (${locales.length} locales).`);
+      return;
+    }
     // FRO-628 (2026-07-07): crawlers that never set an explicit tolerance
     // defaulted to 0 — a single untranslated job (one transient 429 mid-run)
     // discarded the ENTIRE batch, including every other successfully
@@ -5163,6 +5265,23 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
     // non-source-locale entry identical to the source slug = no real
     // translation was registered → keep whatever the current crawl has.
     if (regSrc && regLoc === regSrc) return null;
+  } else if (!src) {
+    // previousSlugs writer regression (#3785/#3794/#3844/#3852/#3874): when the
+    // job carries NO sourceLang, the guard above was silently DISABLED — a
+    // registry entry frozen pre-translation (every locale a byte-copy of the
+    // source slug, e.g. the KSA entries registered raw-across-all-locales on
+    // 2026-07-09) would then re-pin the untranslated slug over a real
+    // translation for EVERY locale, master included, wiping the whole
+    // slugByLocale in one pass. With the source locale unknown, treat a
+    // per-locale value that is identical to ANY OTHER locale's registry value
+    // as a suspected source-copy and refuse to pin it. Fully-translated
+    // entries keep distinct per-locale slugs, so their pins still apply; the
+    // rare legitimately-identical cross-locale slug simply stays unpinned —
+    // never reverting a live translation is the safe direction.
+    for (const [otherLocale, otherValue] of Object.entries(registered.slugByLocale)) {
+      if (otherLocale === locale) continue;
+      if (normalizeSpace(String(otherValue || '')) === regLoc) return null;
+    }
   }
   return regLoc;
 }
@@ -5178,11 +5297,35 @@ export function registerJobSlug(job, registry) {
   // entries without canton. Falls back to TI when neither job.canton nor
   // job.location resolves — matches the back-fill migration semantics.
   const canton = String(job.canton || '').toUpperCase().trim() || 'TI';
+  // previousSlugs writer regression (#3785/#3794/#3844/#3852/#3874): do NOT
+  // freeze non-source locale slots that are still byte-copies of the source
+  // slug. A job registered before AI localization finished used to pin its
+  // untranslated copies into the immutable entry (e.g. the KSA entries created
+  // 2026-07-09 with the raw DE slug across all four locales); any later pin
+  // pass whose source-copy guard was weaker (sourceLang missing/misdetected)
+  // then reverted the real translations to those frozen copies. Copies are
+  // simply left unregistered — backfillRegistryLocaleSlugs adds each locale
+  // the first time a REAL translation exists, which was already its contract.
+  const src = job.sourceLang || null;
+  const rawByLocale = (job.slugByLocale && typeof job.slugByLocale === 'object') ? job.slugByLocale : {};
+  const srcSlug = src ? normalizeSpace(String(rawByLocale[src] || '')) : '';
+  const slugByLocale = {};
+  for (const [locale, value] of Object.entries(rawByLocale)) {
+    const cur = normalizeSpace(String(value || ''));
+    if (!cur) continue;
+    if (src && locale !== src && srcSlug && cur === srcSlug) continue; // untranslated copy — let it settle first
+    if (!src) {
+      // Source locale unknown: a value identical to another locale's value is a
+      // suspected copy (mirrors registryPinnedLocaleSlug's unknown-source rule).
+      const dupe = Object.entries(rawByLocale).some(([ol, ov]) =>
+        ol !== locale && normalizeSpace(String(ov || '')) === cur);
+      if (dupe) continue;
+    }
+    slugByLocale[locale] = cur;
+  }
   registry[fp] = {
     canonicalSlug: slug,
-    slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
-      ? { ...job.slugByLocale }
-      : {},
+    slugByLocale,
     createdAt: new Date().toISOString().slice(0, 10),
     canton,
   };
@@ -5663,6 +5806,30 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
     && localeTextCoverage(job?.descriptionByLocale || {}, minDescChars) >= LOCALES.length;
 }
 
+/**
+ * Whitespace normalizer for locale-map values that PRESERVES newlines.
+ *
+ * mergeLocaleTextMap used to run every value through `normalizeSpace`, which
+ * collapses `\n` to a plain space. Because the merge runs on EVERY crawl, the
+ * source-locale description — freshly parsed WITH line-start bullets — was
+ * re-flattened into inline `… • item• item` prose each run, and any structured
+ * translation was flattened the moment it was carried over. That is the
+ * upstream root cause of the audit-parser-quality "no structured content"
+ * ratchet criticals (#3721/#3836): the one-shot data repairs kept being undone
+ * by the next merge. Collapse runs of spaces/tabs but keep line structure
+ * (mirrors free-translate.mjs's normalizeBlock / crawler-template.mjs's
+ * normalizeDescriptionSpace, which fixed the same defect in the translation
+ * and parse layers respectively).
+ */
+function normalizeLocaleTextKeepLines(value = '') {
+  return String(value || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/[ ]?\n[ ]?/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = null) {
   const out = {};
 
@@ -5672,8 +5839,8 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
   // source-language copy or stale text.
   if (sourceLocale) {
     for (const locale of LOCALES) {
-      const av = normalizeSpace(String(a?.[locale] || ''));
-      const bv = normalizeSpace(String(b?.[locale] || ''));
+      const av = normalizeLocaleTextKeepLines(String(a?.[locale] || ''));
+      const bv = normalizeLocaleTextKeepLines(String(b?.[locale] || ''));
       if (locale === sourceLocale) {
         // Source locale: new data wins (the crawler just fetched it)
         out[locale] = bv.length >= minChars ? bv : (av.length >= minChars ? av : undefined);
@@ -5697,8 +5864,8 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
   // will propagate the fresh base title to the source locale anyway,
   // and non-source locales should only update through the translation pipeline.
   for (const locale of LOCALES) {
-    const av = normalizeSpace(String(a?.[locale] || ''));
-    const bv = normalizeSpace(String(b?.[locale] || ''));
+    const av = normalizeLocaleTextKeepLines(String(a?.[locale] || ''));
+    const bv = normalizeLocaleTextKeepLines(String(b?.[locale] || ''));
     if (av.length < minChars && bv.length < minChars) continue;
     if (av.length < minChars) { out[locale] = bv; continue; }
     // Existing value wins (b fills gaps, never overwrites)

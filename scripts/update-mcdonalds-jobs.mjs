@@ -125,7 +125,7 @@ function mergeParsedMcdoJobs(parsedJobs) {
   const deduped = [...byUrl.values()];
 
   const cleanMcdoJobs = mergePreserveLocaleData(mcdoExisting, deduped).sort(
-    (a, b) => String(b.datePosted || '').localeCompare(String(a.datePosted || ''))
+    (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonMcdo, ...cleanMcdoJobs];
   writeJobsFiles(merged);

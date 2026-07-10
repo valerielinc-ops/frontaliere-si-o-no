@@ -29,10 +29,33 @@ export const MIN_TRANSLATION_CHARS = 100;
 // Source bullet count above which losing ALL bullets in the candidate is
 // treated as structure-flattening rather than a legitimately bullet-free
 // translation (mirrors job-localization-pipeline.mjs's passesQualityGate).
-const MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK = 3;
+export const MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK = 3;
 
 export function countBullets(text = '') {
   return (String(text || '').match(/^\s*[-*•]\s+/gm) || []).length;
+}
+
+/**
+ * Detects a stored locale copy that lost the source's list structure
+ * ("structure-flattening", the #3721/#3836 class): the source text carries a
+ * real bulleted list (≥ MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK line-start
+ * bullets) while the non-empty candidate has none. Unlike
+ * `isAcceptableTranslation` (which gates NEW translations before they are
+ * persisted), this predicate is meant for EXISTING `descriptionByLocale`
+ * entries, so repair passes (hardenJobLocaleFields, translateMissingJobLocales,
+ * enrichJobLocalesDCC) can re-flag fossil flattened copies that were written
+ * before the gates existed and are otherwise preserved forever by the
+ * locale-preserving merge.
+ *
+ * @param {string} source - authoritative same-language text (usually job.description)
+ * @param {string} candidate - stored locale copy to check
+ * @returns {boolean} true when candidate flattened away the source's list structure
+ */
+export function isStructureFlattenedCopy(source, candidate) {
+  const cand = typeof candidate === 'string' ? candidate.trim() : '';
+  if (!cand) return false;
+  if (countBullets(cand) > 0) return false;
+  return countBullets(source) >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK;
 }
 
 /**
