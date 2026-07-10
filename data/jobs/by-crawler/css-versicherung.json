@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-07-10T10:31:03.963Z",
+  "assembledAt": "2026-07-10T12:12:06.088Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:32.524Z",
+      "crawledAt": "2026-07-10T12:12:00.083Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -65,8 +65,8 @@
           "spontanbewerbung-kundenberater-in-fur-privatkunden-region-zofingen-aarau-frick-80-100-css"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:47.770Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:47.770Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -111,7 +111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/77c68a9b-85f3-4d22-91cd-8de58c003d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:31.852Z",
+      "crawledAt": "2026-07-10T12:11:59.391Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -145,8 +145,8 @@
           "application-spontanee-consultant-client-pour-clients-prives-region-baden-css-versicherung-baden"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:46.981Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:46.981Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -191,7 +191,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/bcb70e3a-5f9a-4dd9-87f8-a113a08029b0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:31.197Z",
+      "crawledAt": "2026-07-10T12:11:58.711Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -223,6 +223,7 @@
           "demande-spontanee-employe-service-a-la-clientele-rheintal-appenzellerland-80-100-css-versicherung-luzern"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:46.195Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -235,8 +236,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "css-versicherung-e75cc2c654ae",
@@ -269,7 +269,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a7fb511d-d61e-448c-a845-6a1d0e8220de",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:30.697Z",
+      "crawledAt": "2026-07-10T12:11:58.215Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -342,7 +342,7 @@
       "url": "https://jobs.css.ch/offene-stellen/vertrauensarzt-vertrauensaerztin/6b1f792d-bc1d-4c49-8bcb-0e88a2f3ce12",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:30.191Z",
+      "crawledAt": "2026-07-10T12:11:57.713Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -415,7 +415,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben/34525ee1-6d66-45f5-9eb7-e56567ea4dee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:29.615Z",
+      "crawledAt": "2026-07-10T12:11:57.147Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -443,6 +443,7 @@
           "collaboratore-trice-kundenservice-center-con-fokus-im-einzelleben-80-100-css-versicherung-root-hybrid"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:44.399Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -455,8 +456,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "css-versicherung-fdad179d5fd1",
@@ -489,7 +489,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung/d8f7d1ed-42ea-46b5-808d-a3f68d05db7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:29.062Z",
+      "crawledAt": "2026-07-10T12:11:56.588Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -562,7 +562,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-stationaer-pflege-drg-leistungspruefung/0e0dbc51-9e0d-4797-8792-f79f62a4cd0f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:28.508Z",
+      "crawledAt": "2026-07-10T12:11:56.006Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -635,7 +635,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-expertise/c67ee64e-73f4-40c6-a0b3-a0f6b5b86d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:27.927Z",
+      "crawledAt": "2026-07-10T12:11:55.445Z",
       "addressLocality": "Lausanne et/ou Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -663,8 +663,8 @@
           "esperto-di-benefici-nella-sezione-disposizioni-e-competenze-dei-benefici-80-100-css-versicherung-lausanne-et-ou-lucerne"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:41.538Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:41.538Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -709,7 +709,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-cloud-engineer-w-m/3e68320b-b9b0-4f2a-a32d-196ba3e0f1a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:27.307Z",
+      "crawledAt": "2026-07-10T12:11:54.865Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -727,8 +727,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/senior-cloud-engineer-w-m/3e68320b-b9b0-4f2a-a32d-196ba3e0f1a9",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:45:40.860Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:40.860Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
       "baseSalary": {
@@ -773,7 +773,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitaetssicherung/a4c4bbc6-cbad-4377-9140-0ffdb3c1f2b1",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:26.751Z",
+      "crawledAt": "2026-07-10T12:11:54.325Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -856,7 +856,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:26.165Z",
+      "crawledAt": "2026-07-10T12:11:53.783Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -935,7 +935,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:25.419Z",
+      "crawledAt": "2026-07-10T12:11:52.966Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1008,7 +1008,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-recruiting-august-2027/7a46f2ad-7cb6-4be7-b00d-50f247c7be7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:24.807Z",
+      "crawledAt": "2026-07-10T12:11:52.396Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1026,8 +1026,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-recruiting-august-2027/7a46f2ad-7cb6-4be7-b00d-50f247c7be7e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:45:36.595Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:36.595Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1072,7 +1072,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/cd1e1fe8-8676-40a5-ab74-43b4f9211a82",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:24.051Z",
+      "crawledAt": "2026-07-10T12:11:51.851Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1100,8 +1100,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-uster"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:35.896Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:35.896Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1146,7 +1146,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e1d5b806-8c66-4982-bad1-eef96155b28d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:23.421Z",
+      "crawledAt": "2026-07-10T12:11:51.276Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1174,8 +1174,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zurich-oerlikon"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:35.231Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:35.231Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1220,7 +1220,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/46b96d2e-89c0-4e24-9ed2-5c5d38c8dc6f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:22.860Z",
+      "crawledAt": "2026-07-10T12:11:50.666Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1248,8 +1248,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zug"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:34.526Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:34.526Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1294,7 +1294,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e2333279-8377-4fd4-81c3-97d4d7ab692e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:22.297Z",
+      "crawledAt": "2026-07-10T12:11:50.072Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1322,8 +1322,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:33.188Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:33.188Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1368,7 +1368,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/22909245-af4b-4fc2-989e-b8ca8a4c1ea9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:21.725Z",
+      "crawledAt": "2026-07-10T12:11:49.511Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1396,8 +1396,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-thun"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:32.514Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:32.514Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1442,7 +1442,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/ba047f39-d148-4a27-bd30-115cbc3241d5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:21.134Z",
+      "crawledAt": "2026-07-10T12:11:48.954Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1482,8 +1482,8 @@
           "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:31.858Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:31.858Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1528,7 +1528,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/47843161-c21d-4089-8c05-aabcf057f21c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:20.557Z",
+      "crawledAt": "2026-07-10T12:11:48.392Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1564,8 +1564,8 @@
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-07T12:22:47.522Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-07T12:22:47.522Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1610,7 +1610,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/164e34d5-1573-427f-b4af-ef4f42398424",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:19.982Z",
+      "crawledAt": "2026-07-10T12:11:47.826Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1638,8 +1638,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-altstatten-sg"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:29.845Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:29.845Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1684,7 +1684,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-vermittler-und-partnerschaften-august-2027/e7e13afd-788b-45a8-9877-573ccfd25a54",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:19.436Z",
+      "crawledAt": "2026-07-10T12:11:47.261Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1719,8 +1719,8 @@
           "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-zurich-oerlikon"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:29.103Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:29.103Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1765,7 +1765,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-service-center-august-2027/56b0b4de-f542-4546-a12e-2c5e32ff533d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:18.843Z",
+      "crawledAt": "2026-07-10T12:11:46.695Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1793,8 +1793,8 @@
           "internship-wms-hms-nel-centro-assistenza-hr-100-agosto-2027-css-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:28.426Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:28.426Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1839,7 +1839,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-august-2027/b960af58-8f97-4994-ae69-b52632906b67",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:18.291Z",
+      "crawledAt": "2026-07-10T12:11:46.082Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1871,6 +1871,7 @@
           "apprenticeship-professional-customer-dialogue-efz-partner-plus-agency-100-2027-aout-css-luzern"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:27.751Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1883,8 +1884,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "css-versicherung-cc447c0e1999",
@@ -1917,7 +1917,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-august-2027/5172f03c-185e-4979-a152-558d3d55bec5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:17.670Z",
+      "crawledAt": "2026-07-10T12:11:45.519Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1997,7 +1997,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-privatkunden-wohlen-mit-vbv/a0480423-0405-4de0-93c2-3731137737fb",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:17.071Z",
+      "crawledAt": "2026-07-10T12:11:44.729Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2015,8 +2015,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/kundenberater-in-privatkunden-wohlen-mit-vbv/a0480423-0405-4de0-93c2-3731137737fb",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:45:26.175Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:26.175Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2061,7 +2061,7 @@
       "url": "https://jobs.css.ch/offene-stellen/leistungsexpertin-leistungsexperte-leistungsgrundlagen-expertenwissen/5d01b71c-5f10-468f-b001-359f947a1a91",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:16.377Z",
+      "crawledAt": "2026-07-10T12:11:43.992Z",
       "addressLocality": "Luzern und/oder Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2102,6 +2102,7 @@
           "expert-en-rendement-expert-en-rendement-br-bases-de-rendement-et-connaissances-des-experts-80-100-css-versicherung"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:25.340Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2114,8 +2115,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "css-versicherung-410ae9ee4892",
@@ -2148,7 +2148,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/ad0d5dea-a283-4586-96e9-b2201b7f6a2e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:15.802Z",
+      "crawledAt": "2026-07-10T12:11:43.421Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -2225,7 +2225,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-versicherungsrecht-befristet/c42db141-30d8-4734-b978-c6569e60010b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:15.228Z",
+      "crawledAt": "2026-07-10T12:11:42.856Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2302,7 +2302,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/6b9dd2c7-03bd-4322-a2a3-53ef04382b7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:14.661Z",
+      "crawledAt": "2026-07-10T12:11:42.184Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2336,8 +2336,8 @@
           "consultant-client-pour-clients-prives-bale-100-css-versicherung-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:23.330Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:23.330Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2382,7 +2382,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-rheintal-mit-vbv/d8463033-afd3-4d29-8caa-75fcd1b5729c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:14.000Z",
+      "crawledAt": "2026-07-10T12:11:41.468Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2414,8 +2414,8 @@
           "kundenberater-in-fur-privatkunden-rheintal-mit-vbv-60-100-css-versicherung-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:22.531Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:22.531Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2460,7 +2460,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-direktvertrieb-root-oder-lausanne/8faac91f-42ea-4766-9aab-1991fcd89985",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:13.240Z",
+      "crawledAt": "2026-07-10T12:11:40.561Z",
       "addressLocality": "Root und/oder Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2492,8 +2492,8 @@
           "kundenberater-in-direktvertrieb-root-oder-lausanne-80-100-css-versicherung-root-und-oder"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:21.720Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:21.720Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2538,7 +2538,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne/96cb7b28-4e4e-475f-b1d5-9af82f917e60",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:12.666Z",
+      "crawledAt": "2026-07-10T12:11:40.000Z",
       "addressLocality": "Root et/ou Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2611,7 +2611,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-operations-leben/40d165a9-9956-4652-974c-e9c77b23fb26",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:12.089Z",
+      "crawledAt": "2026-07-10T12:11:39.428Z",
       "addressLocality": "Luzern oder Lausanne / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2647,8 +2647,8 @@
           "specialistes-fonctionnaires-css-versicherung-luzern-oder-lausanne-hybrid"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:19.631Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:19.631Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2693,7 +2693,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-neugeschaeft-underwriting-leben/da0af742-a415-41f7-97dc-33f6047240b7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:11.387Z",
+      "crawledAt": "2026-07-10T12:11:38.746Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2766,7 +2766,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-nouvelles-affaires-et-underwriting-vie/83bf1b47-1bd2-46a6-8346-cb95a644a03a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:10.820Z",
+      "crawledAt": "2026-07-10T12:11:38.175Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2839,7 +2839,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-operations-vie/fce56597-38b2-47bf-ab91-e9feae46fec5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:10.250Z",
+      "crawledAt": "2026-07-10T12:11:37.589Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2912,7 +2912,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/99f45573-b09c-479e-9447-685e082762a4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:09.527Z",
+      "crawledAt": "2026-07-10T12:11:36.903Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -2985,7 +2985,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-beschwerdenmanagement-mit-versicherungserfahrung/3f1e7315-6471-460a-af93-34f8afc1f6ac",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:08.951Z",
+      "crawledAt": "2026-07-10T12:11:36.333Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3048,7 +3048,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-privatkunden-solothurn/a50d971e-7ea0-4ceb-a1a8-2826297d1ca2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:08.395Z",
+      "crawledAt": "2026-07-10T12:11:35.749Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -3121,7 +3121,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung/61945026-407e-491a-a7aa-dcc732545475",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:07.628Z",
+      "crawledAt": "2026-07-10T12:11:35.063Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3194,7 +3194,7 @@
       "url": "https://jobs.css.ch/offene-stellen/junior-mediensprecher-in-deutschschweiz-befristet/9688bd42-08d0-459f-a341-317530f1783f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:07.021Z",
+      "crawledAt": "2026-07-10T12:11:34.482Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3267,7 +3267,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:06.312Z",
+      "crawledAt": "2026-07-10T12:11:33.712Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3330,7 +3330,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:05.448Z",
+      "crawledAt": "2026-07-10T12:11:33.146Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3403,7 +3403,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-frontend-engineer-web-w-m/85f8c390-775e-4243-8874-046098397121",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:04.797Z",
+      "crawledAt": "2026-07-10T12:11:32.570Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3421,8 +3421,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/senior-frontend-engineer-web-w-m/85f8c390-775e-4243-8874-046098397121",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:45:08.970Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:08.970Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3467,7 +3467,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/b66629d4-8742-45ba-867b-50058db70a79",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:04.202Z",
+      "crawledAt": "2026-07-10T12:11:32.019Z",
       "addressLocality": "Luzern / Root",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3495,8 +3495,8 @@
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:08.327Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:08.327Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -3541,7 +3541,7 @@
       "url": "https://jobs.css.ch/offene-stellen/manager-resilienz-w-m/70e29dd1-7f22-4539-a94a-3781566610b7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:03.258Z",
+      "crawledAt": "2026-07-10T12:11:31.515Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3559,8 +3559,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/manager-resilienz-w-m/70e29dd1-7f22-4539-a94a-3781566610b7",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:45:07.183Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:07.183Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3605,7 +3605,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/1811bcab-057a-4c9c-b6b4-e6478b325c8a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:02.611Z",
+      "crawledAt": "2026-07-10T12:11:30.936Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3678,7 +3678,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/360db106-e1a6-49ea-81ce-96b40a5b3bed",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:30:01.993Z",
+      "crawledAt": "2026-07-10T12:11:30.369Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3751,7 +3751,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-identity-und-access-management-engineer-w-m/11c90747-5262-431c-80c8-9e8da6216c9d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:30:01.165Z",
+      "crawledAt": "2026-07-10T12:11:29.753Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3777,8 +3777,8 @@
           "senior-identity-und-access-management-engineer-w-m-80-100-css-versicherung-luzern-hybrid"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:05.024Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:05.024Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3823,7 +3823,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-bern/49d0d786-6a39-435d-83ca-8664dd2d02bf",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:59.805Z",
+      "crawledAt": "2026-07-10T12:11:28.934Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3855,8 +3855,8 @@
           "kundenberater-in-fur-privatkunden-bern-90-css-versicherung-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:45:04.116Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:45:04.116Z",
       "salaryMin": 61700,
       "salaryMax": 93600,
       "baseSalary": {
@@ -3901,7 +3901,7 @@
       "url": "https://jobs.css.ch/offene-stellen/werkstudent-in-internes-kontrollsystem-iks-befristet/ed59b46a-11de-4a92-9839-1c72fac21f22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:59.136Z",
+      "crawledAt": "2026-07-10T12:11:28.248Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3978,7 +3978,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-mediensprecher-in/40c8c107-86fa-4b95-b364-42d9c20fb750",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:58.602Z",
+      "crawledAt": "2026-07-10T12:11:27.697Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4051,7 +4051,7 @@
       "url": "https://jobs.css.ch/offene-stellen/assistant-e-au-service-du-medecin-conseil/6ad66121-2101-4f81-9390-1d7805f711cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:29:57.849Z",
+      "crawledAt": "2026-07-10T12:11:27.016Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4124,7 +4124,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-unfallversicherung-und-militaerversicherung/a39f289c-0f25-4705-ae36-562f30267086",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:57.366Z",
+      "crawledAt": "2026-07-10T12:11:26.562Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4201,7 +4201,7 @@
       "url": "https://jobs.css.ch/offene-stellen/product-owner-data-warehouse-dwh-w-m/1e3f0ea9-9a9f-4816-bb40-bb20aecd0e49",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:56.835Z",
+      "crawledAt": "2026-07-10T12:11:25.979Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4219,8 +4219,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/product-owner-data-warehouse-dwh-w-m/1e3f0ea9-9a9f-4816-bb40-bb20aecd0e49",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T10:44:59.917Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:44:59.917Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -4265,7 +4265,7 @@
       "url": "https://jobs.css.ch/offene-stellen/collaborateur-trice-contentieux/17475691-3b55-4a8e-accc-177644a2903b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:29:56.266Z",
+      "crawledAt": "2026-07-10T12:11:25.415Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -4295,8 +4295,8 @@
           "litigazione-del-collaboratore-css-versicherung-lausanne"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:44:57.594Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:44:57.594Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4341,7 +4341,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-medienstelle-befristet/71ffe29e-ea2d-4dbe-91c0-2f64f10c7a77",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:55.804Z",
+      "crawledAt": "2026-07-10T12:11:24.943Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4418,7 +4418,7 @@
       "url": "https://jobs.css.ch/offene-stellen/ressortleiter-in-business-process-management/86e7752a-14ec-449c-af95-6ca6e0cadb63",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:55.339Z",
+      "crawledAt": "2026-07-10T12:11:24.487Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4446,8 +4446,8 @@
           "responsabile-della-gestione-dei-processi-aziendali-css-versicherung-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:44:56.561Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:44:56.561Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4492,7 +4492,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-lugano/825a0fb7-e609-468c-93ea-c7aaf9babf3f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T10:29:54.775Z",
+      "crawledAt": "2026-07-10T12:11:23.915Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -4555,7 +4555,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-bellinzona/2ad5d85a-6665-4121-826f-1b0515a323ee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T10:29:54.187Z",
+      "crawledAt": "2026-07-10T12:11:23.327Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -4618,7 +4618,7 @@
       "url": "https://jobs.css.ch/offene-stellen/cio-office-manager-in/c0bc02f4-c234-4cf1-9e58-059d41ff2a8c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:29:53.575Z",
+      "crawledAt": "2026-07-10T12:11:22.672Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4636,8 +4636,8 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/cio-office-manager-in/c0bc02f4-c234-4cf1-9e58-059d41ff2a8c",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T11:30:57.506Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T11:30:57.506Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
