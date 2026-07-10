@@ -76,11 +76,14 @@ export { WORKDAY_HOST_RE };
 // (or /Vacancies/<id>/Application/CheckLogin/<n> since the vendor dropped the
 // standalone Description page on some tenants — see ksa-job-parser.mjs).
 // Tenant lives in the subdomain; host-gated so no other crawler's key changes.
-const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]|$)/;
+// Exported (like WORKDAY_HOST_RE/workdayReqFromLeaf) so
+// extractJobIdentityFromUrl (dedicated-crawler-common.mjs) derives the SAME
+// per-tenant vacancy identity as mergeUrlKey Rule U — one definition, no drift.
+export const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]|$)/;
 // Per-job vacancy id lives in the ANCESTOR segment right after /vacancies/
 // (the URL is lowercased before matching). 1+ digits: observed ids are 3-4
 // digits today (1910, 5105, …) — far below NUM_ID_RE's ≥6-digit floor.
-const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
+export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 
 // Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
 // Cler's own requisition id is only 3-4 digits — below the generic
