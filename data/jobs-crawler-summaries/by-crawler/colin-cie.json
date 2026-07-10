@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-07-10T13:07:19.390Z",
+  "generatedAt": "2026-07-10T22:25:28.561Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8120,
-  "avgDurationMs": 8120,
+  "durationMs": 6557,
+  "avgDurationMs": 6557,
   "durationHistory": [
-    8120
+    6557
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "postalCode": "6900",
       "id": "colin-cie-39bced82bc8b",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,6 +81,7 @@
       "postalCode": "6900",
       "id": "colin-cie-5ba65fe9e9a3",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,6 +119,7 @@
       "postalCode": "8001",
       "id": "colin-cie-e1022f4d588f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
