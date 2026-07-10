@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-10T12:01:46.807Z",
+  "updatedAt": "2026-07-10T22:34:57.239Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
       "location": "Rothenburg, CH, 6023",
@@ -141,15 +141,15 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-08"
     },
-    "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/": {
-      "location": "Singapore, SG, 138538",
-      "canton": "SG",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-10"
-    },
     "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-10"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
       "company": "Ariston Group",
       "postedDate": "2026-07-10"
     }
