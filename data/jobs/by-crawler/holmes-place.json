@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "holmes-place",
+  "assembledAt": "2026-07-10T23:18:05.962Z",
   "jobs": [
     {
       "id": "holmes-place-2c12260d3ad6",
@@ -31,7 +33,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T13:28:56.644Z",
+      "crawledAt": "2026-07-10T23:18:03.838Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -74,9 +76,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T13:28:56.644Z"
+      "firstSeenAt": "2026-07-10T23:18:03.838Z"
     }
-  ],
-  "crawlerKey": "holmes-place",
-  "assembledAt": "2026-07-10T13:28:58.065Z"
+  ]
 }
