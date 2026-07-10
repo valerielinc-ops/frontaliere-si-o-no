@@ -391,14 +391,26 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen"
+          "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen",
+          "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
-          "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen"
+          "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen",
+          "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "en": [
+          "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio-uil1va"
+        ],
+        "fr": [
+          "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen"
+        "lingerie-mitarbeiter-100-w-m-i-buergenstock-hotels-obburgen",
+        "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio-uil1va",
+        "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-05-20T06:08:53.949Z",
       "salaryMin": 69500,
@@ -1193,7 +1205,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "informationsspezialist-in-80-kanton-aargau-ch"
+        ],
+        "it": [
+          "specialista-dell-informazione-80-kanton-aargau-aarau-a8d429"
+        ],
+        "en": [
+          "information-specialist-in-80-kanton-aargau-aarau"
+        ],
+        "fr": [
+          "specialiste-de-l-information-en-80-kanton-aargau-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "informationsspezialist-in-80-kanton-aargau-ch",
+        "specialista-dell-informazione-80-kanton-aargau-aarau-a8d429",
+        "information-specialist-in-80-kanton-aargau-aarau",
+        "specialiste-de-l-information-en-80-kanton-aargau-aarau"
+      ]
     },
     {
       "id": "buergenstock-hotels-3c3accb41e58",
@@ -1745,7 +1777,27 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona"
+        ],
+        "it": [
+          "capo-sala-presso-ristorante-gourmet-la-brezza-tschuggen-collection-ascona"
+        ],
+        "en": [
+          "head-waiter-at-gourmet-restaurant-la-brezza-tschuggen-collection-ascona"
+        ],
+        "fr": [
+          "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona",
+        "capo-sala-presso-ristorante-gourmet-la-brezza-tschuggen-collection-ascona",
+        "head-waiter-at-gourmet-restaurant-la-brezza-tschuggen-collection-ascona",
+        "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch"
+      ]
     },
     {
       "id": "buergenstock-hotels-36ef6318a190",
@@ -2612,7 +2664,27 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "en": [
+          "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno-uil1zn"
+        ],
+        "de": [
+          "assistenzarzt-chirurgie-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "fr": [
+          "medecin-assistant-chirurgie-eoc-ente-ospedaliero-cantonale-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno",
+        "medico-assistente-chirurgia-eoc-ente-ospedaliero-cantonale-locarno-uil1zn",
+        "assistenzarzt-chirurgie-eoc-ente-ospedaliero-cantonale-locarno",
+        "medecin-assistant-chirurgie-eoc-ente-ospedaliero-cantonale-locarno"
+      ]
     }
   ]
 }

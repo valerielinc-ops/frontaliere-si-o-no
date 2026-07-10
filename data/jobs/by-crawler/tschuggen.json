@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "en": [
+          "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
+          "scientific-volunteer-in-80-kanton-aargau-aarau"
+        ],
+        "fr": [
+          "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftliche-n-volontar-in-80-kanton-aargau-ch",
+        "scientific-volunteer-in-80-kanton-aargau-aarau",
+        "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
+      ]
     },
     {
       "id": "tschuggen-8d19d792463c",
@@ -515,7 +529,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "en": [
+          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "fr": [
+          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "de": [
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "tschuggen-1d5e09482f0b",
@@ -580,7 +620,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "de": [
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "en": [
+          "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "fr": [
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        ]
+      },
+      "previousSlugs": [
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "tschuggen-451b0e78fc49",
