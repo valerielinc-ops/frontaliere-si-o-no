@@ -99,18 +99,26 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      # ── Claude CLI Haiku fallback (opt-in via RC ENABLE_HAIKU_ARTICLE_FALLBACK) ──
+      # ── Claude CLI Haiku fallback (opt-in) ──────────────────────────────
       # Absolute last resort, reached only after every free-tier model AND the
       # local/ollama fallback above have failed (scripts/lib/ai-models.mjs
       # AI_MODELS.CLAUDE_CLI_HAIKU, pinned below local/* by sortChainByScore).
       # Zero marginal cost: auth is CLAUDE_CODE_OAUTH_TOKEN (same Max-plan
       # subscription token already used by pr-review-loop.yml/issue-fix.yml),
-      # never ANTHROPIC_API_KEY. Inert unless the RC flag is on: with it unset,
-      # getApiKeyForProvider(PROVIDER.CLAUDE_CLI) returns '' and the model is
-      # never offered — identical to today.
+      # never ANTHROPIC_API_KEY. Two equivalent switches — either enables it:
+      #   • Remote Config flag ENABLE_HAIKU_ARTICLE_FALLBACK=1 (loaded into
+      #     $GITHUB_ENV by load-rc-env.mjs above), or
+      #   • repo variable ENABLE_HAIKU_ARTICLE_FALLBACK=1 (Settings → Secrets
+      #     and variables → Actions → Variables — no Firebase access needed).
+      # With both unset, getApiKeyForProvider(PROVIDER.CLAUDE_CLI) returns ''
+      # and the model is never offered — identical to today. The $GITHUB_ENV
+      # export below normalizes the repo-var path so ai-models.mjs sees the
+      # flag in process.env either way.
       - name: Setup Claude CLI Haiku fallback
-        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK == '1'
-        run: npm install -g @anthropic-ai/claude-code
+        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK == '1' || vars.ENABLE_HAIKU_ARTICLE_FALLBACK == '1'
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
 
       # Primary identity for the self-trigger dispatch below = GitHub App
       # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
@@ -130,13 +138,15 @@ jobs:
       # Resolve which article section this run generates. The self-trigger chain
       # alternates `section` each run (frontaliere ⇄ svizzera) so both grow at
       # the same cadence without adding runs. Fail-safe: anything other than an
-      # explicit 'svizzera' (incl. empty cron default, URL-specific runs) falls
-      # back to 'frontaliere' — the ~95%-revenue funnel must never break.
+      # explicit 'svizzera' (incl. empty cron default) falls back to
+      # 'frontaliere' — the ~95%-revenue funnel must never break. URL-specific
+      # runs honour an explicit section too: the lost-article auto-retry
+      # dispatches url+section together, so a svizzera article lost to a push
+      # race must retry in its own section, not get rerouted to frontaliere.
       - name: Resolve target section
         id: section
         run: |
           SEC="${{ github.event.inputs.section }}"
-          if [ -n "${{ inputs.url }}" ]; then SEC="frontaliere"; fi
           if [ "$SEC" != "svizzera" ]; then SEC="frontaliere"; fi
           echo "section=$SEC" >> "$GITHUB_OUTPUT"
           echo "🎯 Target section: $SEC"
@@ -640,11 +650,17 @@ jobs:
           NO_CHANGES_STREAK: ${{ github.event.inputs.no_changes_streak || '0' }}
           # Section this run generated — the chain alternates it for the next run.
           CUR_SECTION: ${{ steps.section.outputs.section }}
+          # Source URL of the article this run generated (empty for evergreen /
+          # no-generation runs). Used to retry the SAME article by URL when a
+          # fully-generated article is lost to a commit/push race, instead of
+          # discarding the work and rescanning from scratch next run.
+          SOURCE_URL: ${{ steps.generate.outputs.source_url }}
         run: |
           # Outcome decision tree:
           # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
           # ⚪ has_changes=false (no source / all duplicates) → back-off based on streak length
-          # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retry_count=0
+          # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retrying the
+          #    same article by source URL (max 3 URL retries, then plain rescan)
           # 🟠 verified=false (committed but missing from source) → RETRY with backoff
           # 🔴 generate step failure → RETRY with backoff
           # Backoff schedule (failures): 60s → 300s → 1800s, max 3 retries
@@ -655,6 +671,7 @@ jobs:
           REASON="unknown"
           NEXT_RETRY="0"
           NEXT_STREAK="0"
+          NEXT_URL=""
 
           # Section alternation: flip to the sibling section on "advance" paths
           # (success, no-changes) so both sections grow at the same cadence; KEEP
@@ -695,11 +712,23 @@ jobs:
             [ "$SHOULD_TRIGGER" = "true" ] && NEXT_SECTION="$OTHER_SECTION"
             NEXT_RETRY="0"
           elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
+            # A fully-generated article lost to a commit/push race. When we
+            # know its source URL, retry the SAME article by URL (bounded by
+            # retry_count so a poison URL can't loop forever); the ledger
+            # commit was lost with the push, so the duplicate check will not
+            # block the regeneration. Keep the same section for the retry.
             SHOULD_TRIGGER="true"
             DELAY="60"
-            REASON="rebase_failed"
-            NEXT_RETRY="0"
             NEXT_STREAK="0"
+            CUR_RETRY="${RETRY_COUNT:-0}"
+            if [ -n "$SOURCE_URL" ] && [ "$CUR_RETRY" -lt 3 ]; then
+              NEXT_RETRY=$((CUR_RETRY + 1))
+              NEXT_URL="$SOURCE_URL"
+              REASON="rebase_failed_retry_url_${NEXT_RETRY}_of_3"
+            else
+              REASON="rebase_failed"
+              NEXT_RETRY="0"
+            fi
           else
             # Failure path: verify_failed OR generate_failed
             CUR_RETRY="${RETRY_COUNT:-0}"
@@ -726,6 +755,7 @@ jobs:
             echo "next_retry=$NEXT_RETRY"
             echo "next_streak=$NEXT_STREAK"
             echo "next_section=$NEXT_SECTION"
+            echo "next_url=$NEXT_URL"
           } >> "$GITHUB_OUTPUT"
 
           {
@@ -739,6 +769,7 @@ jobs:
             echo "| Retry count (next) | \`$NEXT_RETRY\` |"
             echo "| no_changes streak (next) | \`$NEXT_STREAK\` |"
             echo "| Section (this → next) | \`$CUR_SECTION\` → \`$NEXT_SECTION\` |"
+            echo "| Retry URL (next) | \`${NEXT_URL:-—}\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
       # Re-mint immediately before the late dispatch below: the frontaliere
@@ -775,6 +806,7 @@ jobs:
           RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
           NO_CHANGES_STREAK: ${{ steps.decide_trigger.outputs.next_streak }}
           SECTION: ${{ steps.decide_trigger.outputs.next_section }}
+          URL: ${{ steps.decide_trigger.outputs.next_url }}
         run: bash scripts/lib/trigger-self.sh
 
       - name: Report failure to GitHub Issues

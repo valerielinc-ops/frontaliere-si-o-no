@@ -19,4 +19,30 @@
 #   A blanket dismiss without per-file justification is not a bypass; the
 #   reviewer will still fire 🔴 sibling-class-fix on the opened PR.
 set -euo pipefail
+
+# ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
+# npm ci's `prepare` script sets core.hooksPath=.githooks inside EVERY GitHub
+# Actions job as well, so this gate also fired on data-refresh workflows that
+# push generated content (articles, crawler data) straight to main. Those are
+# not pre-PR dev pushes: a generated article touches ~13 files under
+# services/** whose boilerplate is shared by every sibling article file, so
+# the strict gate rejected the push 10/10 times (run 29090019854: 10871
+# candidates → exit 1 → "Article is LOST") and article production dropped to
+# zero. Skip the gate when running under GitHub Actions AND every pushed ref
+# targets main — issue-fix agents push claude/* branches, so the gate keeps
+# firing for the pre-PR pushes it was designed for.
+if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+  any_ref=0
+  all_main=1
+  while read -r _local_ref _local_sha remote_ref _remote_sha; do
+    [ -z "$remote_ref" ] && continue
+    any_ref=1
+    if [ "$remote_ref" != "refs/heads/main" ]; then all_main=0; fi
+  done
+  if [ "$any_ref" = "1" ] && [ "$all_main" = "1" ]; then
+    echo "sibling-gate: skipped (GitHub Actions automated push to main)"
+    exit 0
+  fi
+fi
+
 node scripts/ci/check-sibling-patterns.mjs --strict

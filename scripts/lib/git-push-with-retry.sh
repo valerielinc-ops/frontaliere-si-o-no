@@ -93,8 +93,18 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+# --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
+# of this helper is a data-refresh workflow pushing generated content to main —
+# not a pre-PR dev push, which is what the gate exists for (issue #3809).
+# npm ci's `prepare` script activates core.hooksPath=.githooks in CI too, and
+# since 2026-07-08 the strict gate deterministically rejected every article
+# push (run 29090019854: 13 generated files → 10871 sibling candidates →
+# exit 1 → 10/10 push attempts failed → "Article is LOST"), zeroing article
+# production. The hook also costs ~4 min per attempt on this repo, longer
+# than the interval between concurrent crawler commits to main, so even an
+# exit-0 hook would turn every push into a guaranteed-loss race.
 attempt=1
-until git push origin "HEAD:${BRANCH}"; do
+until git push --no-verify origin "HEAD:${BRANCH}"; do
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
     echo "::error::Failed to push after $MAX_ATTEMPTS attempts"
     exit 1
