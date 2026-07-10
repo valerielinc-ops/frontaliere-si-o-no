@@ -7425,10 +7425,22 @@ ${staticAnalyticsHtml}
  continue;
  }
  const bySector = cantonSectorBuckets.get(canton);
- if (!bySector) continue;
  for (const sector of SECTOR_HUB_KEYS) {
- const sJobs = bySector.get(sector) ?? [];
- if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) continue;
+ const sJobs = bySector?.get(sector) ?? [];
+ if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) {
+ // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): this
+ // per-sector floor is FINER than the canton-level MIN_JOBS_FOR_CANTON_PAGE
+ // branch above — a (canton, sector) count that fluctuates under the floor
+ // between builds would otherwise hard-404 a previously-emitted (and
+ // possibly indexed) URL on GH Pages. Emit the same noindex,follow bridge
+ // the canton-level branch uses, pointing at the always-live canton
+ // section root. Self-mapped in searchConsoleCompat.ts (sector-hub slugs).
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);
+ }
+ continue;
+ }
  // Source of truth for seoHubsPlugin's canton `settori` hub: record that a
  // crawlable `/{section}/{sectorSlug}/` page exists for this (canton, sector)
  // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
@@ -7666,12 +7678,52 @@ ${staticAnalyticsHtml}
  };
  const companyCantonSitemapEntries: string[] = [];
  let companyCantonPagesCount = 0;
+ // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): a company whose
+ // per-canton job count fluctuates under MIN_JOBS_PER_CANTON_COMPANY between
+ // builds would otherwise hard-404 a previously-emitted (and possibly
+ // indexed) /azienda-{slug}/ URL on GH Pages. Emit a noindex,follow bridge
+ // at the same URL, pointing at the always-live canton section root — same
+ // pattern as emitSectorHubBelowFloorBridge (PR #3594). Company slugs are
+ // data-driven (not enumerable at module load), so searchConsoleCompat.ts
+ // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
+ // resolves any residual company-hub 404 (kind 'company').
+ let companyCantonBelowFloorBridges = 0;
+ const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {
+ const section = buildCantonAwareSection(locale, canton);
+ const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${fullSlug}`.replace(/\/+/g, '/'));
+ const html = buildCanonicalBridgePage({
+ canonicalUrl: `${BASE_URL}${targetPath}`,
+ pathLabel: targetPath,
+ lang: locale,
+ noindex: true,
+ });
+ const relPath = canonicalPath.slice(1).replace(/\/$/, '');
+ const dir = np.join(distDir, relPath);
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ _md(dir);
+ _qw(dirIndex, html);
+ }
+ const flatFile = np.join(distDir, relPath + '.html');
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, html);
+ }
+ companyCantonBelowFloorBridges++;
+ };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
  const byCompany = cantonCompanyBuckets.get(canton);
  if (!byCompany) continue;
  for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany) {
- if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) continue;
+ if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitCompanyCantonBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}`);
+ }
+ continue;
+ }
  const sortedJobs = [...companyJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
  const db = firstParsableMs(a.crawledAt, a.datePosted);
@@ -7844,6 +7896,9 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ if (companyCantonBelowFloorBridges > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 company-canton below-floor bridges: ${companyCantonBelowFloorBridges} (per-canton company hubs)`);
+ }
  if (companyCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
  logBuildMem('jobsSeoPages: after company-canton-hubs', collector);
@@ -7896,13 +7951,54 @@ ${staticAnalyticsHtml}
  };
  const companyCitySitemapEntries: string[] = [];
  let companyCityPagesCount = 0;
+ // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): a (company,
+ // city) pair whose job count fluctuates under
+ // MIN_JOBS_PER_CANTON_COMPANY_CITY between builds would otherwise hard-404
+ // a previously-emitted (and possibly indexed) /azienda-{slug}-{city}/ URL
+ // on GH Pages. Emit a noindex,follow bridge at the same URL, pointing at
+ // the always-live canton section root — same pattern as
+ // emitSectorHubBelowFloorBridge (PR #3594). Company×city slugs are
+ // data-driven (not enumerable at module load), so searchConsoleCompat.ts
+ // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
+ // resolves any residual 404 of this shape (kind 'company').
+ let companyCityBelowFloorBridges = 0;
+ const emitCompanyCityBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {
+ const section = buildCantonAwareSection(locale, canton);
+ const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${fullSlug}`.replace(/\/+/g, '/'));
+ const html = buildCanonicalBridgePage({
+ canonicalUrl: `${BASE_URL}${targetPath}`,
+ pathLabel: targetPath,
+ lang: locale,
+ noindex: true,
+ });
+ const relPath = canonicalPath.slice(1).replace(/\/$/, '');
+ const dir = np.join(distDir, relPath);
+ const dirIndex = np.join(dir, 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ _md(dir);
+ _qw(dirIndex, html);
+ }
+ const flatFile = np.join(distDir, relPath + '.html');
+ if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, html);
+ }
+ companyCityBelowFloorBridges++;
+ };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
  const byCompany = buckets.get(canton);
  if (!byCompany) continue;
  for (const [cSlug, byCity] of byCompany) {
  for (const [citySlug, { name: companyName, cityDisplay, jobs: ccJobs }] of byCity) {
- if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) continue;
+ if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);
+ }
+ continue;
+ }
  const sortedJobs = [...ccJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
  const db = firstParsableMs(a.crawledAt, a.datePosted);
@@ -8061,6 +8157,9 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ }
+ if (companyCityBelowFloorBridges > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 company-city below-floor bridges: ${companyCityBelowFloorBridges} (per-canton company×city hubs)`);
  }
  if (companyCityPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);

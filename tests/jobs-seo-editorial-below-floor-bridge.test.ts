@@ -60,10 +60,25 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     expect(source).not.toContain('if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;');
   });
 
+  it('defines the per-canton company and company×city below-floor bridge helpers and wires them in (#3747)', () => {
+    expect(source).toContain('const emitCompanyCantonBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', canton: string, fullSlug: string): void => {');
+    expect(source).toContain('emitCompanyCantonBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}`);');
+    expect(source).toContain('const emitCompanyCityBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', canton: string, fullSlug: string): void => {');
+    expect(source).toContain('emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);');
+  });
+
+  it('does not contain the bare-continue 404 bug pattern for the per-sector/company/company-city floors (#3747)', () => {
+    expect(source).not.toContain('if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) continue;');
+    expect(source).not.toContain('if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) continue;');
+    expect(source).not.toContain('if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) continue;');
+  });
+
   it('every below-floor bridge points at the canton-root hub section via buildCantonAwareSection, matching the unconditionally-emitted canton hub', () => {
     for (const helperStart of [
       "const emitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {",
       "const emitSectorHubBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {",
+      "const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
+      "const emitCompanyCityBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
     ]) {
       const startIdx = source.indexOf(helperStart);
       expect(startIdx).toBeGreaterThan(-1);
@@ -123,13 +138,20 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       'emitLocationTypeBelowFloorBridge(locale, location, typeKey);',
       'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);',
       'emitSectorHubBelowFloorBridge(locale, canton,',
+      'emitCompanyCantonBelowFloorBridge(locale, canton,',
+      'emitCompanyCityBelowFloorBridge(locale, canton,',
     ];
     const expectedCallSiteCounts: Record<string, number> = {
       'emitEditorialBelowFloorBridge(locale, editorialCanton,': 5,
       'emitLocationBelowFloorBridge(locale, location);': 1,
       'emitLocationTypeBelowFloorBridge(locale, location, typeKey);': 1,
       'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);': 1,
-      'emitSectorHubBelowFloorBridge(locale, canton,': 1,
+      // 2 sites since #3747: the canton-level MIN_JOBS_FOR_CANTON_PAGE floor
+      // AND the finer per-sector MIN_JOBS_PER_CANTON_SECTOR floor both bridge.
+      'emitSectorHubBelowFloorBridge(locale, canton,': 2,
+      // Per-canton company hub / company×city hub floors (#3747).
+      'emitCompanyCantonBelowFloorBridge(locale, canton,': 1,
+      'emitCompanyCityBelowFloorBridge(locale, canton,': 1,
     };
     for (const pattern of callPatterns) {
       let idx = source.indexOf(pattern);
