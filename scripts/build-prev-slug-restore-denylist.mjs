@@ -80,13 +80,17 @@ export const DECON_COMMITS = [
 // Shallow-clone guard: on a clone whose history doesn't reach the pinned
 // decontamination commits, gitShowJson would fail-open (null) and the
 // regeneration would be silently near-empty — turning `--clean` into a
-// deceptive no-op. Fail loud instead.
+// deceptive no-op. Fail loud instead. NB: called from buildDenylist(), NOT at
+// module load — test files import this module for the pure helpers and CI
+// checkouts are depth-1 (a top-level throw would break the vitest gate).
 import { execFileSync as __execFileSync } from 'node:child_process';
-for (const c of DECON_COMMITS) {
-  try {
-    __execFileSync('git', ['cat-file', '-e', `${c}^{commit}`], { stdio: 'ignore' });
-  } catch {
-    throw new Error(`Pinned decontamination commit ${c} is unreachable (shallow clone?) — deepen history before regenerating/cleaning (git fetch --deepen or --unshallow).`);
+export function assertDeconCommitsReachable(commits = DECON_COMMITS) {
+  for (const c of commits) {
+    try {
+      __execFileSync('git', ['cat-file', '-e', `${c}^{commit}`], { cwd: ROOT, stdio: 'ignore' });
+    } catch {
+      throw new Error(`Pinned decontamination commit ${c} is unreachable (shallow clone?) — deepen history before regenerating/cleaning (git fetch --deepen or --unshallow).`);
+    }
   }
 }
 
@@ -222,6 +226,7 @@ function gitShowJson(ref, rel) {
  * @returns {Array<{file: string, jobId: string, slug: string, reason: string}>}
  */
 export function buildDenylist(commits = DECON_COMMITS) {
+  assertDeconCommitsReachable(commits);
   const entries = new Map(); // `${file}\0${jobId}\0${slug}` → entry
   for (const commit of commits) {
     const files = execSync(`git show --name-only --pretty=format: ${commit}`, { encoding: 'utf8', cwd: ROOT })
