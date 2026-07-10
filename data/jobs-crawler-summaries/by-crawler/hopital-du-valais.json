@@ -1,16 +1,16 @@
 {
   "key": "hopital-du-valais",
   "label": "Hôpital du Valais",
-  "generatedAt": "2026-07-10T10:25:34.178Z",
-  "total": 65,
+  "generatedAt": "2026-07-10T12:31:57.772Z",
+  "total": 64,
   "newCount": 1,
   "updatedCount": 64,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 29014,
-  "avgDurationMs": 29014,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 29771,
+  "avgDurationMs": 29771,
   "durationHistory": [
-    29014
+    29771
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b98fb4e87f5cf90dbd6ebd30cbb35c7/ATSANN0004782/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:10.801Z",
+      "crawledAt": "2026-07-10T12:31:33.911Z",
       "_hvsMeta": {
         "number": "ATSANN0004782",
         "sysId": "0b98fb4e87f5cf90dbd6ebd30cbb35c7",
@@ -77,7 +77,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/baf1a250478ec710339c9146736d435a/ATSANN0004796/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:08.750Z",
+      "crawledAt": "2026-07-10T12:31:31.737Z",
       "_hvsMeta": {
         "number": "ATSANN0004796",
         "sysId": "baf1a250478ec710339c9146736d435a",
@@ -117,7 +117,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/34a310a787b10314dbd6ebd30cbb355b/ATSANN0004791/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:09.098Z",
+      "crawledAt": "2026-07-10T12:31:32.107Z",
       "_hvsMeta": {
         "number": "ATSANN0004791",
         "sysId": "34a310a787b10314dbd6ebd30cbb355b",
@@ -157,7 +157,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4baa1cb347f94310339c9146736d430d/ATSANN0004794/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:09.466Z",
+      "crawledAt": "2026-07-10T12:31:32.459Z",
       "_hvsMeta": {
         "number": "ATSANN0004794",
         "sysId": "4baa1cb347f94310339c9146736d430d",
@@ -197,7 +197,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/885003db87f94fd0dbd6ebd30cbb3584/ATSANN0004790/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:09.798Z",
+      "crawledAt": "2026-07-10T12:31:32.843Z",
       "_hvsMeta": {
         "number": "ATSANN0004790",
         "sysId": "885003db87f94fd0dbd6ebd30cbb3584",
@@ -237,7 +237,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/89ba08ae97718710e7ce346e2153af8e/ATSANN0004786/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:10.131Z",
+      "crawledAt": "2026-07-10T12:31:33.207Z",
       "_hvsMeta": {
         "number": "ATSANN0004786",
         "sysId": "89ba08ae97718710e7ce346e2153af8e",
@@ -277,7 +277,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/20ac7cee83350f1017a39d20ceaad3d4/ATSANN0004789/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:10.463Z",
+      "crawledAt": "2026-07-10T12:31:33.558Z",
       "_hvsMeta": {
         "number": "ATSANN0004789",
         "sysId": "20ac7cee83350f1017a39d20ceaad3d4",
@@ -317,7 +317,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f00735f8740f654dbd6ebd30cbb3595/ATSANN0004328/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:11.140Z",
+      "crawledAt": "2026-07-10T12:31:34.267Z",
       "_hvsMeta": {
         "number": "ATSANN0004328",
         "sysId": "4f00735f8740f654dbd6ebd30cbb3595",
@@ -357,7 +357,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/534ba2ca83b1871017a39d20ceaad39e/ATSANN0004779/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:11.469Z",
+      "crawledAt": "2026-07-10T12:31:34.623Z",
       "_hvsMeta": {
         "number": "ATSANN0004779",
         "sysId": "534ba2ca83b1871017a39d20ceaad39e",
@@ -365,6 +365,7 @@
         "famille": "Administratif, Finances",
         "site": "SION"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-02T11:31:18.736Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -397,7 +398,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c0ea4a583f5c75017a39d20ceaad35e/ATSANN0004777/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:11.799Z",
+      "crawledAt": "2026-07-10T12:31:34.973Z",
       "_hvsMeta": {
         "number": "ATSANN0004777",
         "sysId": "1c0ea4a583f5c75017a39d20ceaad35e",
@@ -437,7 +438,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e453909197710750316bb0b71153af5a/ATSANN0004776/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:12.464Z",
+      "crawledAt": "2026-07-10T12:31:35.675Z",
       "_hvsMeta": {
         "number": "ATSANN0004776",
         "sysId": "e453909197710750316bb0b71153af5a",
@@ -477,7 +478,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e16e0bc997f14750e7ce346e2153af31/ATSANN0004775/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:12.826Z",
+      "crawledAt": "2026-07-10T12:31:36.025Z",
       "_hvsMeta": {
         "number": "ATSANN0004775",
         "sysId": "e16e0bc997f14750e7ce346e2153af31",
@@ -485,6 +486,7 @@
         "famille": "Informatique",
         "site": "SION"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T13:13:13.323Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -517,7 +519,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf0d470197f14750e7ce346e2153af1f/ATSANN0004774/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:13.190Z",
+      "crawledAt": "2026-07-10T12:31:36.379Z",
       "_hvsMeta": {
         "number": "ATSANN0004774",
         "sysId": "bf0d470197f14750e7ce346e2153af1f",
@@ -525,6 +527,7 @@
         "famille": "Informatique",
         "site": "SION"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T13:13:13.714Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -557,7 +560,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/924c34dc9771cb10e7ce346e2153afd5/ATSANN0004770/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:13.526Z",
+      "crawledAt": "2026-07-10T12:31:36.733Z",
       "_hvsMeta": {
         "number": "ATSANN0004770",
         "sysId": "924c34dc9771cb10e7ce346e2153afd5",
@@ -597,7 +600,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d228f4509731cb10e7ce346e2153afec/ATSANN0004768/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:13.862Z",
+      "crawledAt": "2026-07-10T12:31:37.107Z",
       "_hvsMeta": {
         "number": "ATSANN0004768",
         "sysId": "d228f4509731cb10e7ce346e2153afec",
@@ -637,7 +640,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e41945549775cb10e7ce346e2153af23/ATSANN0004773/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:14.235Z",
+      "crawledAt": "2026-07-10T12:31:37.460Z",
       "_hvsMeta": {
         "number": "ATSANN0004773",
         "sysId": "e41945549775cb10e7ce346e2153af23",
@@ -645,6 +648,7 @@
         "famille": "Médecins",
         "site": "SION"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-26T22:07:38.987Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -677,7 +681,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f794cd9c97f1cb10e7ce346e2153af37/ATSANN0004772/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:14.599Z",
+      "crawledAt": "2026-07-10T12:31:37.815Z",
       "_hvsMeta": {
         "number": "ATSANN0004772",
         "sysId": "f794cd9c97f1cb10e7ce346e2153af37",
@@ -717,7 +721,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3141cffb87e98310dbd6ebd30cbb3589/ATSANN0004765/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T10:25:14.933Z",
+      "crawledAt": "2026-07-10T12:31:38.171Z",
       "_hvsMeta": {
         "number": "ATSANN0004765",
         "sysId": "3141cffb87e98310dbd6ebd30cbb3589",
@@ -725,7 +729,7 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-25T22:32:35.542Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -758,7 +762,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1158fab74769c310339c9146736d430b/ATSANN0004764/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:15.635Z",
+      "crawledAt": "2026-07-10T12:31:38.875Z",
       "_hvsMeta": {
         "number": "ATSANN0004764",
         "sysId": "1158fab74769c310339c9146736d430b",
@@ -798,7 +802,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d55e6e3b4765c310339c9146736d437c/ATSANN0004761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:15.964Z",
+      "crawledAt": "2026-07-10T12:31:39.228Z",
       "_hvsMeta": {
         "number": "ATSANN0004761",
         "sysId": "d55e6e3b4765c310339c9146736d437c",
@@ -806,6 +810,7 @@
         "famille": "Informatique",
         "site": "SION"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-25T11:22:27.719Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -838,7 +843,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3b0079a387ad0f10dbd6ebd30cbb3580/ATSANN0004757/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:16.298Z",
+      "crawledAt": "2026-07-10T12:31:39.584Z",
       "_hvsMeta": {
         "number": "ATSANN0004757",
         "sysId": "3b0079a387ad0f10dbd6ebd30cbb3580",
@@ -878,7 +883,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e1df6a3797e98310e7ce346e2153af69/ATSANN0004762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:16.632Z",
+      "crawledAt": "2026-07-10T12:31:39.935Z",
       "_hvsMeta": {
         "number": "ATSANN0004762",
         "sysId": "e1df6a3797e98310e7ce346e2153af69",
@@ -918,7 +923,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45437f3397ad4710e7ce346e2153afa2/ATSANN0004767/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:16.998Z",
+      "crawledAt": "2026-07-10T12:31:40.289Z",
       "_hvsMeta": {
         "number": "ATSANN0004767",
         "sysId": "45437f3397ad4710e7ce346e2153afa2",
@@ -958,7 +963,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1b083eb39761c310e7ce346e2153af3f/ATSANN0004763/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:17.329Z",
+      "crawledAt": "2026-07-10T12:31:40.649Z",
       "_hvsMeta": {
         "number": "ATSANN0004763",
         "sysId": "1b083eb39761c310e7ce346e2153af3f",
@@ -998,7 +1003,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0acce9a787a90f10dbd6ebd30cbb35d0/ATSANN0004756/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:17.665Z",
+      "crawledAt": "2026-07-10T12:31:41.005Z",
       "_hvsMeta": {
         "number": "ATSANN0004756",
         "sysId": "0acce9a787a90f10dbd6ebd30cbb35d0",
@@ -1006,6 +1011,7 @@
         "famille": "Soins",
         "site": "SION"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-24T11:57:40.922Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -1038,7 +1044,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7ab0f9af47a58710339c9146736d43f0/ATSANN0004759/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:18.001Z",
+      "crawledAt": "2026-07-10T12:31:41.381Z",
       "_hvsMeta": {
         "number": "ATSANN0004759",
         "sysId": "7ab0f9af47a58710339c9146736d43f0",
@@ -1046,6 +1052,7 @@
         "famille": "Soins",
         "site": "BRIG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-24T11:57:40.252Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -1078,7 +1085,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b01935af87654f10dbd6ebd30cbb35ab/ATSANN0004760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:18.345Z",
+      "crawledAt": "2026-07-10T12:31:41.732Z",
       "_hvsMeta": {
         "number": "ATSANN0004760",
         "sysId": "b01935af87654f10dbd6ebd30cbb35ab",
@@ -1118,7 +1125,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/30701d028769cf50dbd6ebd30cbb3544/ATSANN0004747/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:25:18.680Z",
+      "crawledAt": "2026-07-10T12:31:42.099Z",
       "_hvsMeta": {
         "number": "ATSANN0004747",
         "sysId": "30701d028769cf50dbd6ebd30cbb3544",
@@ -1126,6 +1133,7 @@
         "famille": "Médico-Thérapeutique",
         "site": "BRIG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-22T22:52:21.556Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -1158,7 +1166,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/635414d397a18310316bb0b71153af26/ATSANN0004753/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:19.018Z",
+      "crawledAt": "2026-07-10T12:31:42.450Z",
       "_hvsMeta": {
         "number": "ATSANN0004753",
         "sysId": "635414d397a18310316bb0b71153af26",
@@ -1198,7 +1206,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e912149f97218310316bb0b71153afba/ATSANN0004752/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:19.366Z",
+      "crawledAt": "2026-07-10T12:31:42.819Z",
       "_hvsMeta": {
         "number": "ATSANN0004752",
         "sysId": "e912149f97218310316bb0b71153afba",
@@ -1238,7 +1246,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/08ed2bfa47edcb18339c9146736d4392/ATSANN0004750/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:25:19.703Z",
+      "crawledAt": "2026-07-10T12:31:43.183Z",
       "_hvsMeta": {
         "number": "ATSANN0004750",
         "sysId": "08ed2bfa47edcb18339c9146736d4392",
@@ -1256,8 +1264,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-du-valais-13faa7e909ed",
       "slug": "assistenti-sanitari-comunitari-chs-tra-il-60-e-il-100-per-i-nostri-servizi-chirurgici-hopital-du-valais-sion",
@@ -1303,5 +1310,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
