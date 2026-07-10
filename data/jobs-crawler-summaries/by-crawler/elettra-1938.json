@@ -1,19 +1,21 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-07-09T12:13:00.035Z",
+  "generatedAt": "2026-07-10T13:05:45.050Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4168,
-  "avgDurationMs": 4168,
+  "unchangedCount": 2,
+  "durationMs": 4376,
+  "avgDurationMs": 4376,
   "durationHistory": [
-    4168
+    4376
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "elettra-1938-cf83501f909d",
       "slug": "manutentore-elettromeccanico-elettra-1938-ch",
@@ -26,7 +28,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:12:57.842Z",
+      "crawledAt": "2026-07-10T13:05:42.825Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -62,7 +64,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:12:58.144Z",
+      "crawledAt": "2026-07-10T13:05:43.127Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -86,7 +88,5 @@
         "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

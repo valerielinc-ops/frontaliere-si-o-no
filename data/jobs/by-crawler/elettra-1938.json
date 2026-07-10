@@ -1,55 +1,7 @@
 {
+  "crawlerKey": "elettra-1938",
+  "assembledAt": "2026-07-10T13:05:45.050Z",
   "jobs": [
-    {
-      "id": "elettra-1938-cf83501f909d",
-      "slug": "manutentore-elettromeccanico-elettra-1938-ch",
-      "slugByLocale": {
-        "it": "manutentore-elettromeccanico-elettra-1938-ch",
-        "en": "electronic-maintenance-elettra-1938-stabio-svizzera",
-        "de": "elektronische-wartung-elettra-1938-stabio-svizzera",
-        "fr": "entretien-electronique-elettra-1938-stabio-svizzera"
-      },
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "Manutentore Elettromeccanico",
-      "titleByLocale": {
-        "it": "Manutentore Elettromeccanico",
-        "en": "Electronic maintenance",
-        "de": "Elektronische Wartung",
-        "fr": "Entretien électronique"
-      },
-      "description": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
-      "descriptionByLocale": {
-        "it": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
-        "en": "For the strengthening of our team at the Stabio headquarters, we look for an Electromechanical Keeper who will take care of the following tasks: Diagnosis and fault resolution on electrical installations and components Maintenance. .",
-        "de": "Für die Verstärkung unseres Teams in der Stabio-Zentrale suchen wir einen elektromechanischen Halter, der sich um folgende • Aufgaben kümmert: Diagnose und Fehlerbehebung bei Elektroinstallationen und Komponentenwartung.",
-        "fr": "Pour le renforcement de notre équipe au siège de Stabio, nous recherchons un gardien électromécanique qui s'occupera des tâches suivantes : Diagnostic et résolution de défaillance sur les installations et composants électriques Entretien. ."
-      },
-      "location": "Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:23:31.976Z",
-      "addressLocality": "Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6850",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:06:24.656Z"
-    },
     {
       "id": "elettra-1938-4eb9d2395e16",
       "slug": "operaio-d-esercizio-elettra-1938-ch",
@@ -73,7 +25,7 @@
       "descriptionByLocale": {
         "it": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
         "en": "For our headquarters in Stabio we are looking for a production operator who will take care of the following tasks: battery handling; test and repair activities; electronic card assembly; line-up activities...",
-        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende • Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
+        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende\n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
         "fr": "Pour notre siège social à Stabio, nous recherchons un opérateur de production qui s'occupera des tâches suivantes : la manipulation des batteries ; les activités de test et de réparation ; l'assemblage de cartes électroniques ; les activités de line-up..."
       },
       "location": "Stabio Svizzera",
@@ -81,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T22:23:32.278Z",
+      "crawledAt": "2026-07-10T13:05:43.127Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -98,7 +50,81 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:06:24.959Z"
+      "firstSeenAt": "2026-07-08T22:06:24.959Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "elettra-1938-cf83501f909d",
+      "slug": "manutentore-elettromeccanico-elettra-1938-ch",
+      "slugByLocale": {
+        "it": "manutentore-elettromeccanico-elettra-1938-ch",
+        "en": "electronic-maintenance-elettra-1938-stabio-svizzera",
+        "de": "elektronische-wartung-elettra-1938-stabio-svizzera",
+        "fr": "entretien-electronique-elettra-1938-stabio-svizzera"
+      },
+      "company": "Elettra 1938",
+      "companyKey": "elettra-1938",
+      "companyDomain": "elettra1938.ch",
+      "title": "Manutentore Elettromeccanico",
+      "titleByLocale": {
+        "it": "Manutentore Elettromeccanico",
+        "en": "Electronic maintenance",
+        "de": "Elektronische Wartung",
+        "fr": "Entretien électronique"
+      },
+      "description": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
+      "descriptionByLocale": {
+        "it": "Per il potenziamento del nostro team presso la sede di Stabio, cerchiamo un Manutentore Elettromeccanico che si occuperà delle seguenti mansioni: Interventi di diagnosi e risoluzione guasti su impianti e componenti elettrici Manutenzione...",
+        "en": "For the strengthening of our team at the Stabio headquarters, we look for an Electromechanical Keeper who will take care of the following tasks: Diagnosis and fault resolution on electrical installations and components Maintenance. .",
+        "de": "Für die Verstärkung unseres Teams in der Stabio-Zentrale suchen wir einen elektromechanischen Halter, der sich um folgende\n• Aufgaben kümmert: Diagnose und Fehlerbehebung bei Elektroinstallationen und Komponentenwartung.",
+        "fr": "Pour le renforcement de notre équipe au siège de Stabio, nous recherchons un gardien électromécanique qui s'occupera des tâches suivantes : Diagnostic et résolution de défaillance sur les installations et composants électriques Entretien. ."
+      },
+      "location": "Stabio Svizzera",
+      "canton": "TI",
+      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
+      "source": "Elettra 1938 Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-10T13:05:42.825Z",
+      "addressLocality": "Stabio Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6850",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:06:24.656Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
