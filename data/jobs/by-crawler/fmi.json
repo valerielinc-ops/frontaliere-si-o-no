@@ -3806,12 +3806,12 @@
     },
     {
       "id": "fmi-d2c3915bcbf3",
-      "slug": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
+      "slug": "assistente-medico-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
-        "en": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
+        "it": "assistente-medico-80-100-spitaler-fmi-ag-unterseen",
+        "en": "assistant-physician-80-100-spitaler-fmi-ag-unterseen-995a0a",
         "de": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
-        "fr": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+        "fr": "medecin-adjoint-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -3855,22 +3855,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
-        "assistente-medico-80-100-spitaler-fmi-ag-unterseen",
-        "assistant-physician-80-100-spitaler-fmi-ag-unterseen-995a0a",
         "assistant-physician-80-100-spitaler-fmi-ag-unterseen",
-        "medecin-adjoint-80-100-spitaler-fmi-ag-unterseen"
+        "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
-          "assistente-medico-80-100-spitaler-fmi-ag-unterseen"
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
         ],
         "en": [
-          "assistant-physician-80-100-spitaler-fmi-ag-unterseen-995a0a",
-          "assistant-physician-80-100-spitaler-fmi-ag-unterseen"
+          "assistant-physician-80-100-spitaler-fmi-ag-unterseen",
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
         ],
         "fr": [
-          "medecin-adjoint-80-100-spitaler-fmi-ag-unterseen"
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
         ]
       },
       "firstSeenAt": "2026-05-19T22:14:28.074Z",

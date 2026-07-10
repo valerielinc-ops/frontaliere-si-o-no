@@ -77,6 +77,19 @@ export const DECON_COMMITS = [
   '1472959f7463c37fae75189ea59fd4753cab103e',
 ];
 
+// Shallow-clone guard: on a clone whose history doesn't reach the pinned
+// decontamination commits, gitShowJson would fail-open (null) and the
+// regeneration would be silently near-empty — turning `--clean` into a
+// deceptive no-op. Fail loud instead.
+import { execFileSync as __execFileSync } from 'node:child_process';
+for (const c of DECON_COMMITS) {
+  try {
+    __execFileSync('git', ['cat-file', '-e', `${c}^{commit}`], { stdio: 'ignore' });
+  } catch {
+    throw new Error(`Pinned decontamination commit ${c} is unreachable (shallow clone?) — deepen history before regenerating/cleaning (git fetch --deepen or --unshallow).`);
+  }
+}
+
 /**
  * Company slug signatures — substrings that unambiguously identify the
  * employer a slug was generated for (same signature set the #4055
