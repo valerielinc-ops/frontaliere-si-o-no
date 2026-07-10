@@ -282,7 +282,10 @@ export function buildMcdoJob(parsed) {
     postalCode: parsed.postalCode || '',
     streetAddress: parsed.streetAddress || '',
     description,
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    // Canonical pipeline field is `postedDate` (schema.org JSON-LD calls it
+    // `datePosted`, but every downstream consumer — JobBoard, sitemap,
+    // newsletter, assemble-jobs-dataset churn guard — reads `postedDate`).
+    postedDate: parsed.datePosted || new Date().toISOString().split('T')[0],
     validThrough: parsed.validThrough || '',
     employmentType: parsed.employmentType,
     jobReqId: parsed.jobReqId,
