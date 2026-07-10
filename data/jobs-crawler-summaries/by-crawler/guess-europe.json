@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-07-10T10:47:35.428Z",
+  "generatedAt": "2026-07-10T11:33:06.629Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 1593,
-  "avgDurationMs": 1593,
+  "durationMs": 2242,
+  "avgDurationMs": 2242,
   "durationHistory": [
-    1593
+    2242
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -179,6 +179,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-30T11:45:02.283Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -215,6 +216,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:20:50.731Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -253,6 +255,7 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-21T22:33:44.054Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -289,6 +292,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:38:35.232Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
