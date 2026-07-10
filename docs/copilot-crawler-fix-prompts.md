@@ -141,11 +141,6 @@ Usa i prompt qui sotto direttamente in Copilot Chat. Ogni prompt include:
 @workspace Rivedi il crawler FART in `scripts/update-fart-jobs.mjs`. Caso di regressione: `1-addetto-al-reparto-verifica-e-pulizia-del-garage-autolinee-100-m-f-fart-ferrovie-autolinee-regionali-ticinesi-locarno` (`https://fartiamo.ch/wp-content/uploads/2026/02/Addetto-al-Reparto-Verifica-e-Pulizia-del-Garage-autolinee.pdf`). Problema osservato: 1/3 `review`, il PDF viene sintetizzato troppo. Modifica il crawler per usare tutto il testo estratto dal PDF e non un riassunto breve. Aggiungi test con fixture PDF/testo estratto che verifichi descrizione >= 400 caratteri e almeno 3 paragrafi significativi. Aggiungi una guard che blocchi body troppo corti rispetto al PDF normalizzato. Esegui `node scripts/update-fart-jobs.mjs`.
 ```
 
-### `allianz-suisse`
-```text
-@workspace Rivedi il crawler Allianz in `scripts/update-allianz-jobs.mjs`. Caso di regressione: `consulente-previdenziale-per-l-agenzia-generale-chur-100-allianz-bewerbermanagement` (`https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4`). Problema osservato: 1/2 `review` per `title_mismatch`. Modifica il crawler per leggere il titolo dalla scheda vacancy Umantis e non da breadcrumb o elementi laterali. Aggiungi test con fixture HTML reale che verifichi il titolo esatto. Aggiungi una guard di overlap titolo >= 0.7 con l’`h1` o col blocco `JobTitle` della sorgente. Esegui `node scripts/update-allianz-jobs.mjs`.
-```
-
 ### `lwphr`
 ```text
 @workspace Rivedi il crawler LWPHR in `scripts/update-lwphr-jobs.mjs`. Caso di regressione: `web-developer-lwp-ledermann-wieting-partners-lugano` (`https://www.lwphr.ch/uploads/1/4/6/5/146598773/web_developer.pdf`). Problema osservato: 1/11 `review` per `title_mismatch`; il titolo del PDF non viene estratto correttamente. Modifica il crawler per derivare il titolo dalla prima intestazione significativa del PDF, non dal filename o da una stringa generica. Aggiungi test con fixture PDF/testo estratto e verifica il titolo corretto. Aggiungi una guard che richieda overlap >= 0.7 tra titolo salvato e prima riga significativa del PDF. Esegui `node scripts/update-lwphr-jobs.mjs`.

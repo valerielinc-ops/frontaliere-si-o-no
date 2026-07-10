@@ -270,7 +270,7 @@ const canonicalCompanyRouteSlug = (companyName: string, votedSlug = '') => {
 
 const inferSector = (name: string, website = ''): string => {
  const source = `${name} ${website}`.toLowerCase();
- if (/(bank|banca|finance|wealth|credit|ubs|raiffeisen|migros|allianz|axa|zurich)/.test(source)) return 'Finanza & Banking';
+ if (/(bank|banca|finance|wealth|credit|ubs|raiffeisen|migros|axa|zurich)/.test(source)) return 'Finanza & Banking';
  if (/(software|tech|digital|it|cloud|ai|cyber|avaloq|nozomi)/.test(source)) return 'Tecnologia & IT';
  if (/(pharma|biotech|med|clinic|health|bio)/.test(source)) return 'Farmaceutico & Chimico';
  if (/(fashion|lux|watch|swatch|gucci|boss|moda|retail)/.test(source)) return 'Lusso & Moda';

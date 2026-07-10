@@ -189,8 +189,6 @@ const BRAND_ALIASES = new Map([
   ['tether-operations', 'tether'],
   ['tether-io', 'tether'],
   ['amministrazione-cantonale-ticino', 'amministrazione-cantonale-ti'],
-  ['allianz-suisse-sa', 'allianz-suisse'],
-  ['allianz-svizzera', 'allianz-suisse'],
   ['banca-cler-ag', 'banca-cler'],
   ['banca-sempione-sa', 'banca-sempione'],
   ['bps-suisse-sa', 'bps-suisse'],

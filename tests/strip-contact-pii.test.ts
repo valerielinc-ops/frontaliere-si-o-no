@@ -25,9 +25,9 @@ describe('stripContactPII', () => {
   });
 
   it('removes the recruiter name from the address block too', () => {
-    // Real-shape Allianz body: the agent's name fills its own address line.
+    // Real-shape insurer body (fixture uses a fictional company name): the agent's name fills its own address line.
     const out = stripContactPII(
-      'contattare Mario Rossi (tel. 058 123 45 67) quando vuoi.Allianz Suisse\nAgenzia generale Mario Rossi\nPiazza del Sole\n6500 Bellinzona',
+      'contattare Mario Rossi (tel. 058 123 45 67) quando vuoi.Assicura Helvetica\nAgenzia generale Mario Rossi\nPiazza del Sole\n6500 Bellinzona',
     );
     expect(out).not.toMatch(/Mario Rossi/);
     expect(out).not.toMatch(/058 123 45 67/);
@@ -38,7 +38,7 @@ describe('stripContactPII', () => {
   it('strips the person name from the address block even when not the phone contact', () => {
     // Phone contact is one person, but the address block names the agent.
     const out = stripContactPII(
-      'contattare Luca Bianchi (tel. 058 123 45 08) quando vuoi.Allianz Suisse\nAgenzia generale Mario Rossi\nPiazza del Sole\n6500 Bellinzona',
+      'contattare Luca Bianchi (tel. 058 123 45 08) quando vuoi.Assicura Helvetica\nAgenzia generale Mario Rossi\nPiazza del Sole\n6500 Bellinzona',
     );
     expect(out).not.toMatch(/Luca Bianchi/);
     expect(out).not.toMatch(/Mario Rossi/);
@@ -49,7 +49,7 @@ describe('stripContactPII', () => {
     // descriptionByLocale.it collapses newlines to spaces: the name is then
     // followed by an Italian street prefix ("Piazza") rather than a newline.
     const out = stripContactPII(
-      "puoi contattare l'agenzia quando vuoi. Allianz Suisse Agenzia generale Mario Rossi Piazza del Sole 6500 Bellinzona",
+      "puoi contattare l'agenzia quando vuoi. Assicura Helvetica Agenzia generale Mario Rossi Piazza del Sole 6500 Bellinzona",
     );
     expect(out).not.toMatch(/Mario Rossi/);
     expect(out).toMatch(/Agenzia generale Piazza del Sole 6500 Bellinzona/);
@@ -57,9 +57,9 @@ describe('stripContactPII', () => {
 
   it('strips the person name from the translated agency designations (EN/DE/FR)', () => {
     const cases = [
-      'when you want. Allianz Suisse General Agency Mario Rossi Piazza del Sole 6500',
-      'wenn Sie möchten. Allianz Suisse Allgemeine Agentur Mario Rossi Piazza del Sole 6500',
-      'vous le souhaitez. Allianz Suisse Agence générale Mario Rossi Piazza del Sole 6500',
+      'when you want. Assicura Helvetica General Agency Mario Rossi Piazza del Sole 6500',
+      'wenn Sie möchten. Assicura Helvetica Allgemeine Agentur Mario Rossi Piazza del Sole 6500',
+      'vous le souhaitez. Assicura Helvetica Agence générale Mario Rossi Piazza del Sole 6500',
     ];
     for (const c of cases) {
       const out = stripContactPII(c);
@@ -116,7 +116,7 @@ describe('stripContactPII', () => {
   });
 
   it('does not strip ordinary capitalized word pairs without a phone anchor', () => {
-    const text = 'Allianz Suisse è leader nel settore. Agenzia generale Sopraceneri, Ticino.';
+    const text = 'Assicura Helvetica è leader nel settore. Agenzia generale Sopraceneri, Ticino.';
     expect(stripContactPII(text)).toBe(text);
   });
 

@@ -1,7 +1,7 @@
 {
   "_source": "hand-curated public-knowledge list (replaces LinkedIn for autonomous run)",
   "_curatedAt": "2026-05-10",
-  "_count": 119,
+  "_count": 118,
   "_alreadyCrawled": 50,
   "_candidates": 69,
   "_note": "Re-run this script anytime to refresh `alreadyCrawled` flags from COMPANY_HQ.",
@@ -282,16 +282,6 @@
       "sector": "insurance",
       "size_bucket": "L",
       "ats_hint": "Workday",
-      "alreadyCrawled": true
-    },
-    {
-      "name": "Allianz Suisse",
-      "slug_suggestion": "allianz",
-      "hq_canton": "ZH",
-      "hq_city": "Zurich",
-      "sector": "insurance",
-      "size_bucket": "L",
-      "ats_hint": "?",
       "alreadyCrawled": true
     },
     {

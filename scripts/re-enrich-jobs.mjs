@@ -880,7 +880,6 @@ const COMPANY_ADDRESSES = {
   'zurich-insurance-sede-ticino':              { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano' },
   'helvetia-sede-ticino':                      { streetAddress: 'Via G.B. Pioda 12',       postalCode: '6900', addressLocality: 'Lugano' },
   'css-assicurazione':                         { streetAddress: 'Via Ghiringhelli 15',     postalCode: '6500', addressLocality: 'Bellinzona' },
-  'allianz-suisse':                            { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano' },
   'axa-svizzera':                              { streetAddress: 'Via della Posta 8',       postalCode: '6900', addressLocality: 'Lugano' },
   'suva-sede-ticino':                          { streetAddress: 'Via Lugano 4',             postalCode: '6500', addressLocality: 'Bellinzona' },
   'deloitte-ticino':                           { streetAddress: 'Via Ferruccio Pelli 1',   postalCode: '6900', addressLocality: 'Lugano' },
