@@ -1,16 +1,16 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-07-10T11:29:04.895Z",
+  "generatedAt": "2026-07-10T12:21:46.195Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8352,
-  "avgDurationMs": 8352,
+  "durationMs": 8170,
+  "avgDurationMs": 8170,
   "durationHistory": [
-    8352
+    8170
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j403.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:58.452Z",
+      "crawledAt": "2026-07-10T12:21:39.872Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,6 +47,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia Production AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-01T23:21:43.552Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -68,7 +69,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:00.321Z",
+      "crawledAt": "2026-07-10T12:21:41.692Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +112,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:59.466Z",
+      "crawledAt": "2026-07-10T12:21:40.889Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,6 +133,7 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz Radio AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -153,7 +155,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.171Z",
+      "crawledAt": "2026-07-10T12:21:42.501Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
