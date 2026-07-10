@@ -76,9 +76,13 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         },
       );
 
+      // Assert on the PUSHED commit (origin/main), not local HEAD: the
+      // grouped-isolated path deliberately never advances local refs (the
+      // job's checkout must stay the 3-way merge base for later siblings),
+      // so HEAD still points at the seed commit after a successful push.
       const committedFiles = execFileSync(
         'git',
-        ['show', '--stat', '--format=', 'HEAD'],
+        ['show', '--stat', '--format=', 'origin/main'],
         { cwd: repoDir, encoding: 'utf-8' },
       );
       expect(committedFiles).toContain('a.json');
@@ -97,6 +101,23 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         { cwd: repoDir, encoding: 'utf-8' },
       );
       expect(originLog.trim()).toBe('test commit');
+
+      // Regression (review of the isolated path): local refs must NOT be
+      // fast-forwarded after the push. Advancing refs/heads/main would shift
+      // the 3-way merge base for LATER siblings of the same run, making a
+      // mid-run remote change to their files look base-identical — skipping
+      // the merge and silently reverting it with the stale worktree copy.
+      const localMain = execFileSync(
+        'git',
+        ['rev-parse', 'refs/heads/main'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      ).trim();
+      const pushedSha = execFileSync(
+        'git',
+        ['rev-parse', 'origin/main'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      ).trim();
+      expect(localMain).not.toBe(pushedSha);
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
@@ -152,9 +173,13 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         },
       );
 
+      // Assert on the PUSHED commit (origin/main), not local HEAD: the
+      // grouped-isolated path deliberately never advances local refs (the
+      // job's checkout must stay the 3-way merge base for later siblings),
+      // so HEAD still points at the seed commit after a successful push.
       const committedFiles = execFileSync(
         'git',
-        ['show', '--stat', '--format=', 'HEAD'],
+        ['show', '--stat', '--format=', 'origin/main'],
         { cwd: repoDir, encoding: 'utf-8' },
       );
       expect(committedFiles).toContain('a.json');

@@ -880,6 +880,10 @@ commit_isolated_from_worktree() {
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
 
     for f in "${RESOLVED_FILES[@]}"; do
+      # Known limitation: a deleted tracked file is NOT committed as a
+      # deletion here (the remote blob stays in the private index). Grouped
+      # crawlers never delete their files — they write [] — so this is
+      # intentionally unhandled; retirements go through a manual commit.
       [ -f "$f" ] || continue
       if git check-ignore -q "$f" 2>/dev/null; then
         continue
@@ -939,11 +943,13 @@ commit_isolated_from_worktree() {
     if git push origin "${new_commit}:refs/heads/main"; then
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
-      # Keep the local branch ref in step for later siblings/log readability.
-      # Fast-forward only; never touches index or worktree.
-      if git merge-base --is-ancestor "$(git rev-parse refs/heads/main 2>/dev/null || echo "$base_sha")" "$new_commit" 2>/dev/null; then
-        git update-ref refs/heads/main "$new_commit" 2>/dev/null || true
-      fi
+      # Deliberately do NOT fast-forward refs/heads/main after the push:
+      # base_sha (the job's original checkout, resolved from HEAD at entry)
+      # must remain the 3-way merge base for EVERY sibling of this run.
+      # Advancing the local ref would shift the base for later siblings,
+      # making a mid-run remote change to their files (e.g. translate-pending
+      # updating a sibling's slice) look base-identical, skip the merge and
+      # get silently reverted by the stale worktree copy.
 
       if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
         echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
