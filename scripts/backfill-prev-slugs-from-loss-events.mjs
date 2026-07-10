@@ -39,6 +39,79 @@ const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 
 const CAP = 20;
 
+/**
+ * data/prev-slug-restore-denylist.json lists {file, jobId, slug} pairs that
+ * were REMOVED ON PURPOSE from slice histories by the umantis cross-tenant
+ * decontamination (#4055, squash 028d6c1147) — slugs of OTHER companies that
+ * the tenant-id collision had pinned onto the wrong slice, plus censused
+ * garbage-title slugs. The scan (scripts/scan-prev-slug-losses.mjs) cannot
+ * tell an intentional removal from an accidental loss, so without this guard
+ * the backfill "recovers" the poison right back: run 29106416912 (commit
+ * efed987db) re-imported kanton-aargau/GKB slugs into ksa.json that way.
+ * Generated deterministically by scripts/build-prev-slug-restore-denylist.mjs.
+ */
+const DENYLIST_PATH = path.resolve(ROOT, 'data', 'prev-slug-restore-denylist.json');
+
+/**
+ * Canonical denylist lookup key. NUL separator cannot occur in either part.
+ * @param {string} file slice basename, e.g. "ksa.json"
+ * @param {string} slug
+ * @returns {string}
+ */
+export function denylistKey(file, slug) {
+  return `${file}\u0000${slug}`;
+}
+
+/**
+ * Load the restore denylist as a Set keyed on `file\0slug`.
+ *
+ * Keyed on file+slug, NOT the full (file, jobId, slug) triple: a denylisted
+ * slug is foreign to (or garbage in) its whole slice, and the recovery path
+ * can re-home a slug onto a DIFFERENT job of the same file via the hash-tail
+ * redirect in resolveRecoveryTarget — run 29106416912 spread one denylisted
+ * ksa slug across three different jobs exactly that way. jobId in the file
+ * is provenance only.
+ *
+ * A missing file yields an empty set (guard off — e.g. fresh checkouts of
+ * forks); a present-but-unparsable file throws so the guard can never be
+ * silently disabled by a corrupt commit.
+ *
+ * @param {string} [file]
+ * @returns {Set<string>}
+ */
+export function loadRestoreDenylist(file = DENYLIST_PATH) {
+  if (!fs.existsSync(file)) return new Set();
+  const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const set = new Set();
+  for (const e of (parsed.entries || [])) {
+    if (e && e.file && e.slug) set.add(denylistKey(e.file, e.slug));
+  }
+  return set;
+}
+
+/**
+ * Drop denylisted (file, slug) pairs from a scan-produced recover list.
+ * Entries whose slugs are all denylisted are removed outright.
+ *
+ * @param {Array<{jobId: string, file: string, slugs: string[]}>} recoverList
+ * @param {Set<string>} denylist from loadRestoreDenylist()
+ * @returns {{entries: Array<{jobId: string, file: string, slugs: string[]}>, skipped: number}}
+ */
+export function filterDenylistedSlugs(recoverList, denylist) {
+  if (!denylist || denylist.size === 0) return { entries: recoverList, skipped: 0 };
+  let skipped = 0;
+  const entries = [];
+  for (const e of recoverList) {
+    const kept = (e.slugs || []).filter((s) => {
+      const hit = denylist.has(denylistKey(e.file, s));
+      if (hit) skipped++;
+      return !hit;
+    });
+    if (kept.length > 0) entries.push({ ...e, slugs: kept });
+  }
+  return { entries, skipped };
+}
+
 /** Detect language of a slug by counting known per-locale tokens. */
 const LANG_TOKENS = {
   it: new Set(['responsabile', 'tecnico', 'tecnica', 'ingegnere', 'manutenzione', 'magazzino', 'produzione', 'logistica', 'vendita', 'pulizia', 'operaio', 'addetto', 'addetta', 'apprendista', 'collaboratore', 'specialista', 'tornitore', 'fresatore', 'verniciatore', 'falegname', 'muratore', 'idraulico', 'autista', 'magazziniere', 'cuoco', 'cameriere', 'infermiere', 'fisioterapista', 'caporeparto', 'ricercatore', 'architetto', 'meccanico', 'elettricista', 'segretario', 'amministrazione', 'gestione', 'direttore', 'capo', 'reparto', 'qualita', 'controllo']),
@@ -227,8 +300,15 @@ function main() {
     process.exit(2);
   }
 
-  const recoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
-  console.log(`📥 Loaded ${recoverList.length} jobs with recoverable slugs from ${INPUT}\n`);
+  const rawRecoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
+  console.log(`📥 Loaded ${rawRecoverList.length} jobs with recoverable slugs from ${INPUT}`);
+
+  // Guard: never restore slugs that a decontamination pass removed on purpose
+  // (see DENYLIST_PATH docstring — this is what re-poisoned main in run
+  // 29106416912).
+  const denylist = loadRestoreDenylist();
+  const { entries: recoverList, skipped: denylistSkipped } = filterDenylistedSlugs(rawRecoverList, denylist);
+  console.log(`⛔ skipped ${denylistSkipped} denylisted (intentional decontamination)\n`);
 
   const stats = {
     filesUpdated: 0,
@@ -317,6 +397,7 @@ function main() {
   console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
   console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
   console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected || 0}`);
+  console.log(`  slugs skipped (denylisted):  ${denylistSkipped}`);
   console.log(`  slugs skipped (bucket full): ${stats.slugsSkippedAtCap}`);
   console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
