@@ -1,6 +1,6 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-07-10T10:34:29.060Z",
+  "assembledAt": "2026-07-10T12:39:28.896Z",
   "jobs": [
     {
       "id": "decathlon-3efdaf6cfdf8",
@@ -33,7 +33,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4134745-marketing-and-communication-manager-mittelland-region-deeng-3014-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:34:26.558Z",
+      "crawledAt": "2026-07-10T12:39:26.392Z",
       "addressLocality": "Bern",
       "postalCode": "3014",
       "addressRegion": "BE",
@@ -65,8 +65,8 @@
           "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.832Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.832Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -111,7 +111,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4195775-sportberaterin-velo-decathlon-zurich-center-20-90-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:26.207Z",
+      "crawledAt": "2026-07-10T12:39:25.999Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -146,6 +146,7 @@
           "consultant-sportif-en-velo-decathlon-zurich-center-20-90-decathlon-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:00.832Z",
       "salaryMin": 66200,
       "salaryMax": 100400,
@@ -158,8 +159,7 @@
           "maxValue": 100400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "decathlon-9771c1ff90a8",
@@ -192,7 +192,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4205211-sports-leader-verkaufstberater-mwd-20-decathlon-schweiz-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:25.844Z",
+      "crawledAt": "2026-07-10T12:39:25.630Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -273,7 +273,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233513-sportberaterin-decathlon-herblingen-20-befristet-november-bis-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:25.478Z",
+      "crawledAt": "2026-07-10T12:39:25.296Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -350,7 +350,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233519-sportberaterin-decathlon-herblingen-50-befristet-nov-bid-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:25.119Z",
+      "crawledAt": "2026-07-10T12:39:24.867Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -425,7 +425,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4250835-vendeur-technicien-atelier-20-80-cdd-hf-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:24.761Z",
+      "crawledAt": "2026-07-10T12:39:24.460Z",
       "addressLocality": "Matran",
       "postalCode": "",
       "addressRegion": "FR",
@@ -467,8 +467,8 @@
           "vendor-techniker-workshop-20-80-csd-h-f-avry-decathlon-matran"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.824Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.824Z",
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -513,7 +513,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:24.433Z",
+      "crawledAt": "2026-07-10T12:39:24.099Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -536,24 +536,24 @@
           "Excellent service client :"
         ]
       },
+      "previousSlugs": [
+        "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
+        "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ],
         "en": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
+          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
-        "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich"
-      ],
-      "firstSeenAt": "2026-06-10T09:03:00.823Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.823Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -598,7 +598,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sportberaterin-verkaufsberaterin-50-70-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:24.093Z",
+      "crawledAt": "2026-07-10T12:39:23.744Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -679,7 +679,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4303781-sports-leader-sportberater-mwd-70-im-bereich-velo-befristet-5-monate-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:23.712Z",
+      "crawledAt": "2026-07-10T12:39:23.357Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -754,7 +754,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:23.361Z",
+      "crawledAt": "2026-07-10T12:39:23.012Z",
       "addressLocality": "Bern",
       "postalCode": "",
       "addressRegion": "BE",
@@ -777,24 +777,24 @@
           "Excellent service client :"
         ]
       },
+      "previousSlugs": [
+        "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch",
+        "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
-          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ],
         "en": [
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
+          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch",
-        "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
-      ],
-      "firstSeenAt": "2026-06-10T09:03:00.817Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.817Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -839,7 +839,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4117941-team-leader-abteilungsleiter-mwd-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:23.059Z",
+      "crawledAt": "2026-07-10T12:39:22.698Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -871,8 +871,8 @@
           "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.817Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.817Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -917,7 +917,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4329461-sportsleader-multisportracket-80-90-flexibel-einsetzbar-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:22.730Z",
+      "crawledAt": "2026-07-10T12:39:22.351Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -994,7 +994,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229055-sportberater-verkaufsberater-mwd-20-30-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:22.426Z",
+      "crawledAt": "2026-07-10T12:39:22.017Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1071,7 +1071,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363465-werkstatt-techniker-60-stadt-zurich-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:22.006Z",
+      "crawledAt": "2026-07-10T12:39:21.589Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1087,25 +1087,25 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4363465-werkstatt-techniker-60-stadt-zurich-8001-zurich",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
-          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
-          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
-        ],
-        "it": [
-          "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-          "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich"
-        ]
-      },
       "previousSlugs": [
         "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
         "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
         "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
         "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich"
       ],
-      "firstSeenAt": "2026-06-11T07:53:18.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
+          "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich"
+        ],
+        "fr": [
+          "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
+          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T07:53:18.829Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -1150,7 +1150,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4369567-bike-sales-advisor-im-premiumbereich-mwd-80-van-rysel-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:21.675Z",
+      "crawledAt": "2026-07-10T12:39:21.227Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1188,8 +1188,8 @@
           "bike-sales-conseiller-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.808Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.808Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -1234,7 +1234,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370341-sports-leader-verkausberater-mwd-80-100-decathlon-winterthur-gruze-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:21.323Z",
+      "crawledAt": "2026-07-10T12:39:20.842Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1267,6 +1267,7 @@
           "sports-leader-verkausberater-m-w-d-80-100-decathlon-winterthur-gruze-decathlon-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:00.808Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1279,8 +1280,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "decathlon-53990cff8ed3",
@@ -1313,7 +1313,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370639-velo-verkaufer-und-montage-spezialist-mwd-20-80-baar-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:20.976Z",
+      "crawledAt": "2026-07-10T12:39:20.547Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -1388,7 +1388,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4372983-sports-leader-mwd-60-80-fur-3-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:20.637Z",
+      "crawledAt": "2026-07-10T12:39:20.206Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1415,6 +1415,7 @@
           "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:00.803Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -1427,8 +1428,7 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "decathlon-ff84b7683270",
@@ -1461,7 +1461,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373005-sports-leader-mwd-60-80-fur-2-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:20.301Z",
+      "crawledAt": "2026-07-10T12:39:19.805Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1533,7 +1533,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373697-customer-service-advisor-frdeeng-fixed-term-contract-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:34:19.898Z",
+      "crawledAt": "2026-07-10T12:39:19.380Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -1554,6 +1554,13 @@
           "Soddisfare il mio cliente con un'esperienza cliente omnicanale \"la migliore della categoria\""
         ]
       },
+      "previousSlugs": [
+        "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
+        "kundendienst-berater-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
@@ -1567,15 +1574,8 @@
           "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens"
         ]
       },
-      "previousSlugs": [
-        "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
-        "kundendienst-berater-fr-de-eng-fixed-term-contract-decathlon-onnens",
-        "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens",
-        "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
-        "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
-      ],
-      "firstSeenAt": "2026-06-10T09:03:00.801Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.801Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1620,7 +1620,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4377305-sport-leaderverkaufsberater-racketsport-mwd-50-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:19.533Z",
+      "crawledAt": "2026-07-10T12:39:19.032Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -1697,7 +1697,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4387597-conseiller-ere-sportif-ve-rayon-junior-sportconutrition-80-decathlon-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:19.175Z",
+      "crawledAt": "2026-07-10T12:39:18.593Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -1738,8 +1738,8 @@
           "junior-sports-counsellor-sportco-ernahrung-80-decathlon-conthey-decathlon-conthey"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.795Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.795Z",
       "salaryMin": 40800,
       "salaryMax": 62000,
       "baseSalary": {
@@ -1784,7 +1784,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389105-befristet-sports-leader-mwd-50-fur-3-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:18.870Z",
+      "crawledAt": "2026-07-10T12:39:18.258Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1859,7 +1859,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4414657-mecanicien-ne-technicien-ne-cycle-hf-60-80-cdi-neuchatelmarin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:18.486Z",
+      "crawledAt": "2026-07-10T12:39:17.863Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -1886,6 +1886,11 @@
           "Unsere Expansion geht insbesondere in der Deutschschweiz weiter und bietet Karrieremöglichkeiten im ganzen Land."
         ]
       },
+      "previousSlugs": [
+        "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
+        "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
+        "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
@@ -1893,13 +1898,8 @@
           "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
-        "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
-        "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
-      ],
-      "firstSeenAt": "2026-06-10T09:03:00.782Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.782Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1944,7 +1944,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4118089-team-leader-abteilungsleiter-wmd-decathlon-schaffhausen-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:18.109Z",
+      "crawledAt": "2026-07-10T12:39:17.406Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -1980,8 +1980,8 @@
           "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.779Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.779Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2026,7 +2026,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363351-sport-leader-verkaufsberater-mwd-60-befristet-luzern-city-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:17.731Z",
+      "crawledAt": "2026-07-10T12:39:17.069Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressRegion": "LU",
@@ -2101,7 +2101,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421375-ski-servicetechniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:17.404Z",
+      "crawledAt": "2026-07-10T12:39:16.759Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -2176,7 +2176,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421653-velomechaniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:17.044Z",
+      "crawledAt": "2026-07-10T12:39:16.323Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -2253,7 +2253,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421751-technicien-ne-atelier-hf-cdd-4-mois-100-federal-workshop-onnens-vd-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:16.667Z",
+      "crawledAt": "2026-07-10T12:39:15.922Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -2276,22 +2276,6 @@
           "Are you looking for a concrete experience, where you learn every day through contact with a variety of products?"
         ]
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
-          "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
-          "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
-          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
-        ],
-        "it": [
-          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
-          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
-          "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens"
-        ],
-        "de": [
-          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
-        ]
-      },
       "previousSlugs": [
         "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
         "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
@@ -2299,8 +2283,24 @@
         "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
         "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens"
       ],
-      "firstSeenAt": "2026-06-10T09:03:00.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
+          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
+          "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens"
+        ],
+        "en": [
+          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
+          "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
+          "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
+          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
+        ],
+        "de": [
+          "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.774Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2345,7 +2345,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4426171-sport-leader-verkaufsberater-mwd-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:16.247Z",
+      "crawledAt": "2026-07-10T12:39:15.536Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3321",
       "addressRegion": "BE",
@@ -2420,7 +2420,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4436433-conseiller-ere-sportif-ve-cycle-atelier-location-cdd-1-mois-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:15.747Z",
+      "crawledAt": "2026-07-10T12:39:15.178Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -2469,8 +2469,8 @@
           "berater-alter-sportlich-ve-zyklus-werkstatt-miete-cdd-decathlon-martigny-decathlon-martigny"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.738Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.738Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2515,7 +2515,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4308577-sportberaterin-decathlon-biel-city-cdd-60-bienne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:15.273Z",
+      "crawledAt": "2026-07-10T12:39:14.839Z",
       "addressLocality": "Bienne",
       "postalCode": "",
       "addressRegion": "BE",
@@ -2592,7 +2592,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4447885-vendeur-sportif-hf-passionnee-outdoor-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:14.885Z",
+      "crawledAt": "2026-07-10T12:39:14.506Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -2667,7 +2667,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4449975-sportberaterin-veloabteilung-decathlon-suhr-80-100-unbefristet-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:14.564Z",
+      "crawledAt": "2026-07-10T12:39:14.195Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -2744,7 +2744,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4450031-sportberaterin-veloabteilung-decathlon-suhr-20-befristet-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:14.205Z",
+      "crawledAt": "2026-07-10T12:39:13.828Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -2819,7 +2819,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452153-sport-leaderverkaufsberater-wasserwinter-mwd-60-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:13.898Z",
+      "crawledAt": "2026-07-10T12:39:13.469Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -2898,7 +2898,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452443-velomechaniker-100-wmd-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:13.517Z",
+      "crawledAt": "2026-07-10T12:39:13.074Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -2926,8 +2926,8 @@
           "meccanico-per-biciclette-80-100-f-m-d-rickenbach-decathlon-rickenbach"
         ]
       },
-      "firstSeenAt": "2026-06-16T13:12:52.359Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T13:12:52.359Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2972,7 +2972,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460199-sport-leader-verkaufsberater-mwd-20-befristet-interlaken-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:13.097Z",
+      "crawledAt": "2026-07-10T12:39:12.751Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -3051,7 +3051,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460239-sport-leader-verkaufsberater-mwd-80-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:12.713Z",
+      "crawledAt": "2026-07-10T12:39:12.421Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -3128,7 +3128,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460247-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:12.257Z",
+      "crawledAt": "2026-07-10T12:39:12.014Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -3205,7 +3205,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4464383-team-leader-abteilungsleiter-mwd-100-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:11.777Z",
+      "crawledAt": "2026-07-10T12:39:11.580Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -3237,8 +3237,8 @@
           "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-23T22:10:54.622Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-23T22:10:54.622Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3283,7 +3283,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4466783-conseiller-ere-cycle-hf-cdd-contrat-heure-villeneuve-1844-villeneuve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:11.437Z",
+      "crawledAt": "2026-07-10T12:39:11.243Z",
       "addressLocality": "Villeneuve",
       "postalCode": "1844",
       "addressRegion": "VD",
@@ -3360,7 +3360,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4467887-conseiller-ere-sportif-natation-hf-cdi-30-neuchatel-marin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:11.059Z",
+      "crawledAt": "2026-07-10T12:39:10.868Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -3437,7 +3437,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4474633-vendeur-velo-technicien-atelier-hf-contrat-horaire-70-delemont-2800-delemont",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:10.586Z",
+      "crawledAt": "2026-07-10T12:39:10.502Z",
       "addressLocality": "Delémont",
       "postalCode": "2800",
       "addressRegion": "JU",
@@ -3518,7 +3518,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4476015-sport-leader-verkaufsberater-mwd-40-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:10.178Z",
+      "crawledAt": "2026-07-10T12:39:10.163Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -3595,7 +3595,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4476969-conseiller-ere-caisse-cycle-hf-cdd-50-collombey-1868-collombey-muraz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:09.764Z",
+      "crawledAt": "2026-07-10T12:39:09.809Z",
       "addressLocality": "Collombey-Muraz",
       "postalCode": "1868",
       "addressRegion": "VS",
@@ -3627,8 +3627,8 @@
           "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-07-01T11:30:48.115Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-01T11:30:48.115Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -3673,7 +3673,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4477877-verkaufsberaterin-sport-leader-mwd-befristet-20-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:09.360Z",
+      "crawledAt": "2026-07-10T12:39:09.380Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -3752,7 +3752,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4479651-indirect-buyer-and-procurement-project-manager-cdd-6-9-months-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T10:34:08.959Z",
+      "crawledAt": "2026-07-10T12:39:09.052Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -3829,7 +3829,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229037-verkaufsberaterin-warenannahme-mwd-40-60-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:08.576Z",
+      "crawledAt": "2026-07-10T12:39:08.702Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3917,7 +3917,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4484507-conseiller-ere-cyclerunnatation-hf-cdd-60-yverdon-aoutsept-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:08.193Z",
+      "crawledAt": "2026-07-10T12:39:08.186Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -3996,7 +3996,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485197-sport-leader-verkaufsberater-mwd-40-60-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:07.853Z",
+      "crawledAt": "2026-07-10T12:39:07.821Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -4075,7 +4075,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485439-velomechaniker-mwd-40-60-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:07.530Z",
+      "crawledAt": "2026-07-10T12:39:07.479Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -4109,8 +4109,8 @@
           "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-07-06T13:47:12.857Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T13:47:12.857Z",
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -4155,7 +4155,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4487123-sport-leader-verkaufsberater-mwd-60-bern-city-3011-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:07.185Z",
+      "crawledAt": "2026-07-10T12:39:07.157Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "BE",
@@ -4229,7 +4229,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4488193-sport-leader-verkaufsberater-mwd-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:06.795Z",
+      "crawledAt": "2026-07-10T12:39:06.756Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4303,7 +4303,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490579-sport-leader-verkaufsberater-mwd-40-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:06.399Z",
+      "crawledAt": "2026-07-10T12:39:06.356Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -4382,7 +4382,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490585-sport-leader-verkaufsberater-mwd-20-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:06.065Z",
+      "crawledAt": "2026-07-10T12:39:05.975Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -4461,7 +4461,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4321061-conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-1800-vevey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:05.218Z",
+      "crawledAt": "2026-07-10T12:39:05.093Z",
       "addressLocality": "Vevey",
       "postalCode": "1800",
       "addressRegion": "VD",
@@ -4538,7 +4538,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4287595-sport-leader-verkaufsberater-mwd-60-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:04.854Z",
+      "crawledAt": "2026-07-10T12:39:04.728Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4575,8 +4575,8 @@
           "sportberater-in-decathlon-stans-40-60-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.822Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.822Z",
       "salaryMin": 41700,
       "salaryMax": 63600,
       "baseSalary": {
@@ -4621,7 +4621,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4392641-sport-leader-verkaufsberater-mwd-80-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:34:04.464Z",
+      "crawledAt": "2026-07-10T12:39:03.801Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4658,8 +4658,8 @@
           "sportberater-in-decathlon-stans-80-100-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:00.785Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:00.785Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4704,7 +4704,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4492459-conseiller-ere-sportif-mobiliteatelierlocation-hf-cdi-40-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:34:03.476Z",
+      "crawledAt": "2026-07-10T12:39:03.405Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -4821,161 +4821,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51000,
           "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "decathlon-23a5ee935a1f",
-      "slug": "coordinatore-delle-operazioni-di-trasporto-contratto-temporaneo-6-mesi-decathlon-onnens",
-      "slugByLocale": {
-        "it": "coordinatore-delle-operazioni-di-trasporto-contratto-temporaneo-6-mesi-decathlon-onnens",
-        "en": "transport-operations-coordinator-temporary-contract-6-months-decathlon-ch",
-        "de": "transport-operations-koordinator-temporary-contract-6-months-decathlon-onnens",
-        "fr": "transport-operations-coordinator-temporary-contract-6-months-decathlon-ch"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Transport Operations coordinator - Temporary contract (6 months)",
-      "titleByLocale": {
-        "it": "Coordinatore delle operazioni di trasporto - Contratto temporaneo (6 mesi)",
-        "en": "Transport Operations coordinator - Temporary contract (6 months)",
-        "de": "Transport Operations Koordinator - Temporary contract (6 months)",
-        "fr": "Transport Operations Coordinateur - Temporary contract (6 months)"
-      },
-      "description": "YOUR CHALLENGE AND THE CONTEXT At Decathlon Switzerland, we are fundamentally transforming our supply chain: moving from a \"stock\" mindset to a fast, sustainable \"flow\" mindset. Right now, our logistics team is facing a massive milestone: the upcoming relocation of our site to Niederwangen. Because Serena is currently fully dedicated to managing this complex relocation project, we need you to step in and take full ownership of the day-to-day transport operations . Your mission is to keep the business running smoothly during this critical transition. While Serena handles the relocation, you will be the one ensuring our stores are replenished daily and our customers never face empty shelves. WHAT YOU WILL ACTUALLY DO This is a hands-on, operational role. You will be the \"solo\" orchestrator of this specific scope, but you won't work in isolation—you will collaborate closely with Célia (Logistics) and sync with Serena (Transport). Your main goal is to improve product availability through efficient delivery schedules. You will:\n• Coordinate daily deliveries: You take the lead on daily operations. Ensure 90% of our stores receive daily deliveries, transitioning from a \"stock\" mindset to a \"flow\" mindset.\n• Monitor operations: Work daily with Célia (Logistics) and Serena (Transport) to ensure transport plans are respected and efficient.\n• Manage partners: Follow up with transport providers to ensure they meet our quality, cost, and deadline standards.\n• Drive circularity: Implement \"Reverse Logistics\" to manage store returns, second-life products, and recycling back to our warehouse.\n• Optimize transport plans: Help design and adapt transport routes for different regions to reduce CO2 emissions and costs.",
-      "descriptionByLocale": {
-        "it": "LA TUA SFIDA E IL CONTESTO In Decathlon Svizzera, stiamo trasformando radicalmente la nostra catena di approvvigionamento: passando da una mentalità \"stock\" a una mentalità \"flow\" veloce e sostenibile. In questo momento, il nostro team logistico sta affrontando un enorme traguardo: l'imminente trasferimento del nostro sito a Niederwangen. Poiché Serena è attualmente completamente dedicata alla gestione di questo complesso progetto di trasferimento, abbiamo bisogno che tu intervenga e assuma la piena proprietà delle operazioni di trasporto quotidiane. La tua missione è mantenere l'attività senza intoppi durante questa transizione critica. Mentre Serena si occupa del trasferimento, sarai tu a garantire che i nostri negozi vengano riforniti quotidianamente e che i nostri clienti non affrontino mai scaffali vuoti. COSA FARAI EFFETTIVAMENTE Questo è un ruolo pratico e operativo. Sarai l'orchestratore \"solo\" di questo ambito specifico, ma non lavorerai da solo: collaborerai a stretto contatto con Célia (Logistica) e sincronizzerai con Serena (Trasporti). Il tuo obiettivo principale è migliorare la disponibilità dei prodotti attraverso programmi di consegna efficienti. Dovrai:\n• Coordinare le consegne giornaliere: prendi il comando delle operazioni quotidiane. Garantire che il 90% dei nostri negozi riceva consegne giornaliere, passando da una mentalità \"stock\" a una mentalità \"flow\".\n• Monitora le operazioni: lavora quotidianamente con Célia (Logistica) e Serena (Trasporti) per garantire che i piani di trasporto siano rispettati ed efficienti.\n• Gestisci i partner: segui i fornitori di servizi di trasporto per assicurarti che soddisfino i nostri standard di qualità, costi e scadenze.\n• Guida",
-        "en": "YOUR CHALLENGE AND THE CONTEXT At Decathlon Switzerland, we are fundamentally transforming our supply chain: moving from a \"stock\" mindset to a fast, sustainable \"flow\" mindset. Right now, our logistics team is facing a massive milestone: the upcoming relocation of our site to Niederwangen. Because Serena is currently fully dedicated to managing this complex relocation project, we need you to step in and take full ownership of the day-to-day transport operations . Your mission is to keep the business running smoothly during this critical transition. While Serena handles the relocation, you will be the one ensuring our stores are replenished daily and our customers never face empty shelves. WHAT YOU WILL ACTUALLY DO This is a hands-on, operational role. You will be the \"solo\" orchestrator of this specific scope, but you won't work in isolation—you will collaborate closely with Célia (Logistics) and sync with Serena (Transport). Your main goal is to improve product availability through efficient delivery schedules. You will:\n• Coordinate daily deliveries: You take the lead on daily operations. Ensure 90% of our stores receive daily deliveries, transitioning from a \"stock\" mindset to a \"flow\" mindset.\n• Monitor operations: Work daily with Célia (Logistics) and Serena (Transport) to ensure transport plans are respected and efficient.\n• Manage partners: Follow up with transport providers to ensure they meet our quality, cost, and deadline standards.\n• Drive circularity: Implement \"Reverse Logistics\" to manage store returns, second-life products, and recycling back to our warehouse.\n• Optimize transport plans: Help design and adapt transport routes for different regions to reduce CO2 emissions and costs.",
-        "de": "IHRE HERAUSFORDERUNG UND DER KONTEXT Bei Decathlon Schweiz verändern wir unsere Lieferkette grundlegend: Von einer „Stock“ -Mentalität zu einer schnellen, nachhaltigen „Flow“ -Mentalität. Gerade jetzt steht unser Logistik-Team vor einem großen Meilenstein: dem bevorstehenden Umzug unseres Standorts nach Niederwangen. Da Serena sich derzeit voll und ganz der Verwaltung dieses komplexen Umzugsprojekts widmet, müssen Sie eingreifen und die volle Verantwortung für den täglichen Transport übernehmen. Ihre Mission ist es, das Geschäft während dieses kritischen Übergangs reibungslos am Laufen zu halten. Während Serena den Umzug übernimmt, sind Sie derjenige, der sicherstellt, dass unsere Geschäfte täglich aufgefüllt werden und unsere Kunden nie mit leeren Regalen konfrontiert werden. WAS SIE TATSÄCHLICH TUN WERDEN Dies ist eine praktische, operative Rolle. Sie werden der \"Solo\" -Orchestrator dieses spezifischen Bereichs sein, aber Sie werden nicht isoliert arbeiten - Sie werden eng mit Célia (Logistik) zusammenarbeiten und mit Serena (Transport) synchronisieren. Ihr Hauptziel ist es, die Produktverfügbarkeit durch effiziente Lieferpläne zu verbessern. Du wirst:\n• Tägliche Lieferungen koordinieren: Du übernimmst die Führung im täglichen Betrieb. Stellen Sie sicher, dass 90 % unserer Filialen tägliche Lieferungen erhalten und von einer „Lager“ -Mentalität zu einer „Flow“ -Mentalität übergehen.\n• Überwachung des Betriebs: Arbeiten Sie täglich mit Célia (Logistik) und Serena (Transport) zusammen, um sicherzustellen, dass die Transportpläne eingehalten und effizient sind.\n• Partner verwalten: Setzen Sie sich mit Transportanbietern in Verbindung, um sicherzustellen, dass sie unsere Qualitäts-, Kosten- und Terminstandards erfüllen.\n• Fahren",
-        "fr": "VOTRE DÉFI ET LE CONTEXTE Chez Decathlon Suisse, nous transformons fondamentalement notre chaîne d'approvisionnement : passer d'un état d'esprit \"stock\" à un état d'esprit \"flow\" rapide et durable. En ce moment, notre équipe logistique est confrontée à une étape importante: la prochaine réinstallation de notre site à Niederwangen. Parce que Serena est actuellement entièrement dédié à la gestion de ce projet de relocalisation complexe, nous avons besoin que vous interveniez et preniez pleinement en charge les opérations de transport quotidiennes. Votre mission est de maintenir le bon fonctionnement de l'entreprise pendant cette transition critique. Pendant que Serena s'occupe de la relocalisation, vous serez celui qui s'assurera que nos magasins sont reconstitués quotidiennement et que nos clients ne font jamais face à des étagères vides. Ce que vous ferez réellement C'est un rôle pratique et opérationnel. Vous serez l'orchestre « solo » de cette portée spécifique, mais vous ne travaillerez pas isolément, vous collaborerez étroitement avec Célia (Logistique) et vous synchroniserez avec Serena (Transport). Votre objectif principal est d'améliorer la disponibilité des produits grâce à des délais de livraison efficaces. Vous:\n• Coordonner les livraisons quotidiennes : vous prenez la tête des opérations quotidiennes. Assurez-vous que 90 % de nos magasins reçoivent des livraisons quotidiennes, passant d'un état d'esprit « stock » à un état d'esprit « flux ».\n• Surveiller les opérations : Travailler quotidiennement avec Célia (Logistique) et Serena (Transport) pour s'assurer que les plans de transport sont respectés et efficaces.\n• Gérer les partenaires: Suivez les fournisseurs de transport pour s'assurer qu'ils répondent à nos normes de qualité, de coûts et de délais.\n• Circularité de l'entraînement : Implémentez « Logistique inversée » pour gérer les retours en magasin, les produits de seconde vie et le recyclage à notre entrepôt.\n• Optimiser les plans de transport: aider à concevoir et adapter les itinéraires de transport pour différentes régions afin de réduire les émissions et les coûts de CO2."
-      },
-      "location": "Onnens",
-      "canton": "GE",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4197337-transport-operations-coordinator-temporary-contract-6-months-1425-onnens",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:48:17.020Z",
-      "addressLocality": "Onnens",
-      "postalCode": "1425",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4197337-transport-operations-coordinator-temporary-contract-6-months-1425-onnens",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "transport-operations-coordinator-temporary-contract-6-months-decathlon-ch",
-        "transport-operations-coordinatore-temporary-contract-6-months-decathlon-onnens",
-        "coordonnateur-des-operations-de-transport-contrat-temporaire-6-mois-decathlon-onnens"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "transport-operations-coordinator-temporary-contract-6-months-decathlon-ch",
-          "transport-operations-coordinatore-temporary-contract-6-months-decathlon-onnens"
-        ],
-        "de": [
-          "transport-operations-coordinator-temporary-contract-6-months-decathlon-ch"
-        ],
-        "fr": [
-          "coordonnateur-des-operations-de-transport-contrat-temporaire-6-mois-decathlon-onnens"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T09:03:00.831Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "decathlon-227bde3e530e",
-      "slug": "consulente-sportivo-ciclo-officina-noleggio-h-f-cdi-20-martigny-decathlon-martigny",
-      "slugByLocale": {
-        "it": "consulente-sportivo-ciclo-officina-noleggio-h-f-cdi-20-martigny-decathlon-martigny",
-        "en": "sports-counsellor-cycle-workshop-rental-h-f-cdi-20-martigny-decathlon-martigny",
-        "de": "sportberater-fahrrad-werkstatt-miete-h-f-cdi-20-martigny-decathlon-martigny",
-        "fr": "conseiller-ere-sportif-cycle-atelier-location-h-f-cdi-20-martigny-decathlon-ch"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Conseiller.ère sportif - Cycle / atelier / location (H/F) - CDI 20% - Martigny",
-      "titleByLocale": {
-        "it": "Consulente sportivo - Ciclo / officina / noleggio (H/F) - CDI 20% - Martigny.",
-        "en": "Sports Counsellor - Cycle / workshop / rental (H/F) - CDI 20% - Martigny.",
-        "de": "Sportberater - Fahrrad / Werkstatt / Miete (H / F) - CDI 20% - Martigny.",
-        "fr": "Conseiller.ère sportif - Cycle / atelier / location (H/F) - CDI 20% - Martigny"
-      },
-      "description": "Ton futur terrain de jeu Tu rejoindras le magasin de Martigny , ouvert en 2023 , constitué d’une équipe de 15 collaborateurs. Magasin situé en centre commercial, au pieds des montagnes à une dizaine de minutes des plus grosses stations de ski et bike park du Valais. Ton périmètre cycle / atelier / location est au cœur de notre stratégie locale. L'équipe est composée de 4 passionnés et réalise un CA global de 2 000 000 CHF . Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Pourquoi ce job est fait pour toi ? Tu cherches un métier qui bouge, où tu partages ta passion du sport du matin au soir ? Tu veux être fier⸱e de conseiller le bon équipement et de voir ton client repartir avec le sourire ? Tu aimes l'action, le terrain et le travail en équipe ? Tes 3 grands bénéfices chez nous :\n• Tu es au cœur de l'action. Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu inventes le commerce de demain : Tu ne fais pas que \"vendre\". Tu proposes des solutions durables : location de matériel, rachat de produits d'occasion (seconde vie) ou commandes digitales. Tu agis pour le sport et pour la planète.\n• Tu es autonome et responsable : C’est ton rayon ! Tu gères tes stocks, tu mets en valeur tes nouveautés et tu organises tes opérations commerciales. Ton impact se voit tout de suite sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Le conseil avant tout : Tu accueilles, tu écoutes et tu orientes les sportifs vers le produit parfait, que ce soit en rayon ou via nos outils digitaux. Tu proposes aussi notre programme de fidélité et tu gères l'encaissement.\n• Un rayon impeccable : Tu implantes les produits, tu gères le \"facing\" et tu rends ton espace de vente attractif, dynamique et adapté en fonction des saisons.\n• La maîtrise des stocks : De la réception des palettes à la mise en rayon, tu garantis que le client trouve toujours ce qu'il cherche. Tu prépares aussi les commandes web.\n• L’économie circulaire : Tu es l'ambassadeur de nos nouveaux modèles, de la location et du rachat d'occasion pour offrir une seconde vie au matériel par exemple.\n• Missions ponctuelles : Selon tes envies, tu pourras devenir référent-e sur un sujet, formateur-trice pour tes collègues ou même aider à la gestion globale du magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu ne souhaites pas travailler les samedis.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).",
-      "descriptionByLocale": {
-        "it": "Il tuo futuro parco giochi Si unirà al negozio Martigny, aperto nel 2023, composto da un team di 15 collaboratori. Negozio situato nel centro commerciale, ai piedi delle montagne a circa dieci minuti dal più grande parco sci e bici del Vallese. Il vostro ciclo perimetrale / workshop / noleggio è al centro della nostra strategia locale. Il team è composto da 4 appassionati e realizza una CA totale di 2.000.000 di CHF. Unisciti a un'avventura che continua a crescere Decathlon in Svizzera, è una storia di successo iniziata nel 2017 a Neuchâtel. Da allora, abbiamo aperto circa dieci negozi all'anno per raggiungere 50 punti vendita oggi. E non ci fermeremo lì! La nostra espansione continua, soprattutto in Svizzera tedesca, offrendo opportunità di carriera in tutto il paese. Perche' questo lavoro e' per te? Stai cercando una professione commovente, dove condividi la tua passione per lo sport da mattina a notte? Vuoi essere orgoglioso di consigliare l'attrezzatura giusta e vedere il tuo cliente andare via con un sorriso? Ti piace l'azione, il terreno e il lavoro di squadra? I tuoi 3 grandi benefici per noi:\n• Sei al centro dell'azione. La tua vita quotidiana è al 100% nel campo. Sei la faccia di Decathlon. Che si tratti di accogliere un principiante o consigliare un esperto, condividere la vostra passione e creare il link.\n• Stai inventando gli affari di domani, non stai solo vendendo. Offrite soluzioni durevoli: noleggio attrezzature, acquisto di seconda vita o ordini digitali. Ti comporti per lo sport e il pianeta.\n• Siete autonomi e responsabili: è il vostro dipartimento! Gestisci il tuo inventario, mostri le tue novità e organizzi le tue operazioni aziendali. Il vostro impatto è immediatamente evidente sulla soddisfazione dei vostri clienti. Cosa farai ogni giorno: le tue missioni\n• Il consiglio soprattutto: accogliate, ascoltate e dirigete gli atleti al prodotto perfetto, sia sullo scaffale che attraverso i nostri strumenti digitali. Offri anche il nostro programma di fidelizzazione e gestisci il flusso di cassa.\n• Un raggio impeccabile: installate i prodotti, gestite il \"facing\" e rendete il vostro spazio di vendita attraente, dinamico e adattato secondo le stagioni.\n• Controllo delle scorte: Dalla ricezione dei pallet alla spedizione, si garantisce che il cliente trova sempre ciò che vuole. Stai anche preparando ordini web.\n• Economia circolare: Lei è l'ambasciatore dei nostri nuovi modelli, noleggio e acquisto di seconda mano per offrire una seconda vita a attrezzature per esempio.\n• Missioni specifiche: A seconda dei tuoi desideri, puoi diventare un riferimento su un argomento, un formatore per i tuoi colleghi o anche aiutare con la gestione generale del negozio. Questo lavoro non e' per te se...\n• Preferiresti sederti dietro uno schermo tutto il giorno in pace.\n• Non ti piace andare spontaneamente agli altri.\n• Pensi di disfare i pallet, ordinando un raggio e elaborando la merce \"non è un tuo problema\".\n• Non vuoi lavorare il sabato.\n• Siete alla ricerca di programmi fissi e di routine: qui viviamo nel ritmo dello sport e i nostri programmi si adattano all'attività (anche se li comunichiamo a voi 6 settimane in anticipo in modo che possiate organizzare!).",
-        "en": "Your future playground You will join the Martigny store, opened in 2023 , made up of a team of 15 collaborators. Shop located in the shopping center, at the foot of the mountains about ten minutes from the biggest ski and bike park in Valais. Your perimeter cycle / workshop / rental is at the heart of our local strategy. The team is composed of 4 enthusiasts and realizes a total CA of 2,000,000 CHF. Join an adventure that continues to grow Decathlon in Switzerland, it is a success story that started in 2017 in Neuchâtel. Since then, we have opened about ten stores a year to reach 50 outlets today. And we're not going to stop there! Our expansion continues, especially in German-speaking Switzerland, offering career opportunities throughout the country. Why is this job for you? Are you looking for a moving profession, where you share your passion for sports from morning to night? You want to be proud to advise the right equipment and see your client go away with a smile? Do you like action, terrain and teamwork? Your 3 great benefits to us:\n• You're at the heart of the action. Your daily life is 100% in the field. You're Decathlon's face. Whether it's welcoming a beginner or advising an expert, you share your passion and create the link.\n• You're inventing tomorrow's business, you're not just selling. You offer durable solutions: equipment rental, second-life buyback or digital orders. You're acting for sport and the planet.\n• You are autonomous and responsible: It's your department! You manage your inventory, you showcase your novelties and you organize your business operations. Your impact is immediately apparent on your customers' satisfaction. What You Will Do Every Day: Your Missions\n• The advice above all: You welcome, listen and direct the athletes to the perfect product, whether on the shelf or through our digital tools. You also offer our loyalty program and manage the cash flow.\n• An impeccable ray: You install the products, manage the \"facing\" and make your sales space attractive, dynamic and adapted according to the seasons.\n• Stock control: From the reception of the pallets to the dispatch, you guarantee that the customer always finds what he wants. You're also preparing web orders.\n• Circular economy: You are the ambassador of our new models, rental and second-hand purchase to offer a second life to equipment for example.\n• Specific missions: Depending on your wishes, you can become a reference on a topic, trainer for your colleagues or even help with the overall management of the store. This job isn't for you if...\n• You'd rather sit behind a screen all day in peace.\n• You don't like to go spontaneously to others.\n• You think unpacking pallets, tidying a radius and processing merchandise \"that's not your problem.\"\n• You don't want to work on Saturdays.\n• You are looking for fixed and routine schedules: here we live in the rhythm of sport and our schedules adapt to the activity (even if we communicate them to you 6 weeks in advance so that you can organize!).",
-        "de": "Dein zukünftiger Spielplatz Sie werden dem 2023 eröffneten Martigny Store beitreten, der aus einem Team von 15 Mitarbeitern besteht. Shop befindet sich im Einkaufszentrum, am Fuße der Berge etwa zehn Minuten vom größten Ski- und Fahrradpark im Wallis entfernt. Ihr Perimeter-Zyklus / Werkstatt / Miete steht im Mittelpunkt unserer lokalen Strategie. Das Team besteht aus 4 Enthusiasten und realisiert eine Gesamt-CA von 2.000.000 CHF. Nehmen Sie an einem Abenteuer teil, das Decathlon in der Schweiz weiter wachsen lässt, es ist eine Erfolgsgeschichte, die 2017 in Neuenburg begann. Seitdem haben wir etwa zehn Geschäfte pro Jahr eröffnet, um heute 50 Filialen zu erreichen. Und damit werden wir nicht aufhören! Unsere Expansion geht weiter, insbesondere in der deutschsprachigen Schweiz, und bietet Karrieremöglichkeiten im ganzen Land. Warum ist dieser Job für Sie? Suchen Sie einen Umzugsberuf, in dem Sie Ihre Leidenschaft für Sport von morgens bis abends teilen? Sie möchten stolz darauf sein, die richtige Ausrüstung zu beraten und zu sehen, wie Ihr Kunde mit einem Lächeln weggeht? Magst du Action, Terrain und Teamwork? Ihre 3 großen Vorteile für uns:\n• Du bist im Mittelpunkt des Geschehens. Ihr tägliches Leben ist 100% im Feld. Du bist Decathlons Gesicht. Ob Sie einen Anfänger begrüßen oder einen Experten beraten, Sie teilen Ihre Leidenschaft und erstellen den Link.\n• Sie erfinden das Geschäft von morgen, Sie verkaufen nicht nur. Sie bieten dauerhafte Lösungen: Geräteverleih, Second-Life-Buyback oder digitale Bestellungen. Sie handeln für den Sport und den Planeten.\n• Sie sind autonom und verantwortlich: Es ist Ihre Abteilung! Sie verwalten Ihr Inventar, präsentieren Ihre Neuheiten und organisieren Ihren Geschäftsbetrieb. Ihre Wirkung zeigt sich sofort auf die Zufriedenheit Ihrer Kunden. Was Sie jeden Tag tun werden: Ihre Missionen\n• Der Rat vor allem: Sie begrüßen, hören und leiten die Athleten zum perfekten Produkt, ob im Regal oder durch unsere digitalen Tools. Sie bieten auch unser Treueprogramm an und verwalten den Cashflow.\n• Ein tadelloser Strahl: Sie installieren die Produkte, managen das „Gesicht und machen Ihre Verkaufsfläche attraktiv, dynamisch und den Jahreszeiten entsprechend angepasst.\n• Bestandskontrolle: Von der Annahme der Paletten bis zum Versand garantieren Sie, dass der Kunde immer das findet, was er will. Sie bereiten auch Web-Bestellungen vor.\n• Circular Economy: Sie sind der Botschafter unserer neuen Modelle, Miete und Second-Hand-Kauf, um zum Beispiel ein zweites Leben für Geräte zu bieten.\n• Spezifische Missionen: Je nach Ihren Wünschen können Sie eine Referenz zu einem Thema werden, Trainer für Ihre Kollegen oder sogar bei der Gesamtverwaltung des Shops helfen. Dieser Job ist nichts für dich, wenn...\n• Du würdest lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzen.\n• Du gehst nicht gerne spontan zu anderen.\n• Sie denken, dass Sie Paletten auspacken, einen Radius aufräumen und Waren verarbeiten, \"das ist nicht Ihr Problem.\"\n• Sie wollen nicht samstags arbeiten.\n• Sie suchen feste und routinemäßige Zeitpläne: Hier leben wir im Rhythmus des Sports und unsere Zeitpläne passen sich der Aktivität an (auch wenn wir sie Ihnen 6 Wochen im Voraus mitteilen, damit Sie sich organisieren können!).",
-        "fr": "Ton futur terrain de jeu Tu rejoindras le magasin de Martigny , ouvert en 2023 , constitué d’une équipe de 15 collaborateurs. Magasin situé en centre commercial, au pieds des montagnes à une dizaine de minutes des plus grosses stations de ski et bike park du Valais. Ton périmètre cycle / atelier / location est au cœur de notre stratégie locale. L'équipe est composée de 4 passionnés et réalise un CA global de 2 000 000 CHF . Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Pourquoi ce job est fait pour toi ? Tu cherches un métier qui bouge, où tu partages ta passion du sport du matin au soir ? Tu veux être fier⸱e de conseiller le bon équipement et de voir ton client repartir avec le sourire ? Tu aimes l'action, le terrain et le travail en équipe ? Tes 3 grands bénéfices chez nous :\n• Tu es au cœur de l'action. Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu inventes le commerce de demain : Tu ne fais pas que \"vendre\". Tu proposes des solutions durables : location de matériel, rachat de produits d'occasion (seconde vie) ou commandes digitales. Tu agis pour le sport et pour la planète.\n• Tu es autonome et responsable : C’est ton rayon ! Tu gères tes stocks, tu mets en valeur tes nouveautés et tu organises tes opérations commerciales. Ton impact se voit tout de suite sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Le conseil avant tout : Tu accueilles, tu écoutes et tu orientes les sportifs vers le produit parfait, que ce soit en rayon ou via nos outils digitaux. Tu proposes aussi notre programme de fidélité et tu gères l'encaissement.\n• Un rayon impeccable : Tu implantes les produits, tu gères le \"facing\" et tu rends ton espace de vente attractif, dynamique et adapté en fonction des saisons.\n• La maîtrise des stocks : De la réception des palettes à la mise en rayon, tu garantis que le client trouve toujours ce qu'il cherche. Tu prépares aussi les commandes web.\n• L’économie circulaire : Tu es l'ambassadeur de nos nouveaux modèles, de la location et du rachat d'occasion pour offrir une seconde vie au matériel par exemple.\n• Missions ponctuelles : Selon tes envies, tu pourras devenir référent-e sur un sujet, formateur-trice pour tes collègues ou même aider à la gestion globale du magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu ne souhaites pas travailler les samedis.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !)."
-      },
-      "location": "Martigny",
-      "canton": "VS",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4474205-conseiller-ere-sportif-cycle-atelier-location-hf-cdi-20-martigny-1920-martigny",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-09T12:48:02.683Z",
-      "addressLocality": "Martigny",
-      "postalCode": "1920",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4474205-conseiller-ere-sportif-cycle-atelier-location-hf-cdi-20-martigny-1920-martigny",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "conseiller-ere-sportif-cycle-atelier-location-h-f-cdi-20-martigny-decathlon-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-sportif-cycle-atelier-location-h-f-cdi-20-martigny-decathlon-ch"
-        ],
-        "en": [
-          "conseiller-ere-sportif-cycle-atelier-location-h-f-cdi-20-martigny-decathlon-ch"
-        ],
-        "de": [
-          "conseiller-ere-sportif-cycle-atelier-location-h-f-cdi-20-martigny-decathlon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T22:03:21.281Z",
-      "salaryMin": 12100,
-      "salaryMax": 18300,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 12100,
-          "maxValue": 18300,
           "unitText": "YEAR"
         }
       },
