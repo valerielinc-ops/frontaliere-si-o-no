@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-07-06T22:31:18.341Z",
+  "generatedAt": "2026-07-10T12:40:22.037Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21267,
-  "avgDurationMs": 21267,
+  "durationMs": 27835,
+  "avgDurationMs": 27835,
   "durationHistory": [
-    21267
+    27835
   ],
   "newJobs": [
     {
@@ -18,13 +18,13 @@
       "slug": "responsabile-globale-payroll-e-sistemi-hr-chiasso",
       "company": "lastminute.com",
       "title": "Global Payroll & HR Systems Manager",
-      "location": "Chiasso",
+      "location": "SwitzerlandTeam",
       "canton": "TI",
       "category": "tech",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "postedDate": "2026-03-09",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -36,8 +36,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-07-06T22:31:17.387Z",
       "firstSeenAt": "2026-07-06T22:31:17.387Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chiasso",
+      "addressLocality": "SwitzerlandTeam",
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 79500,
@@ -46,11 +45,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6830",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
