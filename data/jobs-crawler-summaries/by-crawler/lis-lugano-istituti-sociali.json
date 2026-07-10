@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-07-08T05:20:36.562Z",
+  "generatedAt": "2026-07-10T10:24:19.977Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 13,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35012,
-  "avgDurationMs": 35012,
+  "unchangedCount": 9,
+  "durationMs": 36854,
+  "avgDurationMs": 36854,
   "durationHistory": [
-    35012
+    36854
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,6 +51,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -105,6 +106,100 @@
       }
     },
     {
+      "title": "Assistenti di cura",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "slug": "assistenti-di-cura",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 65680,
+      "salaryMax": 77502,
+      "salaryCurrency": "CHF",
+      "salaryClass": "10",
+      "crawledAt": "",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "7b6de0bf699a0eacbdd0",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-06-19T22:12:20.738Z"
+      },
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "title": "Cuochi",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
+      "slug": "cuochi",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 65680,
+      "salaryMax": 77502,
+      "salaryCurrency": "CHF",
+      "salaryClass": "10",
+      "crawledAt": "",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "e427e27482a223275703",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-05-15T22:11:48.112Z"
+      },
+      "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "title": "Operatori Sociosanitari",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -150,51 +245,6 @@
       }
     },
     {
-      "title": "Assistenti di cura",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
-      "slug": "assistenti-di-cura",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-26",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 65680,
-      "salaryMax": 77502,
-      "salaryCurrency": "CHF",
-      "salaryClass": "10",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "7b6de0bf699a0eacbdd0",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-06-19T22:12:20.738Z"
-      },
-      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Collaboratori sanitari",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -231,6 +281,7 @@
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-3d122d9fd62d",
       "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -367,6 +418,7 @@
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-80dcd2586afe",
       "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -511,51 +563,6 @@
       }
     },
     {
-      "title": "Cuochi",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
-      "slug": "cuochi",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-26",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 65680,
-      "salaryMax": 77502,
-      "salaryCurrency": "CHF",
-      "salaryClass": "10",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "e427e27482a223275703",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-05-15T22:11:48.112Z"
-      },
-      "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Addetti servizi alla casa",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -600,7 +607,5 @@
         "completeness": 23
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
