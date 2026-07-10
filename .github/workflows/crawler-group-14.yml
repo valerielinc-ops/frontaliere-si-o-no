@@ -117,8 +117,8 @@ jobs:
           JOBS_MEDACTA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: medacta
-          JOBS_SLICE_FILE: data/jobs/by-crawler/medacta.json
+          JOBS_HOUSEKEEPING_SCOPE: medacta-international
+          JOBS_SLICE_FILE: data/jobs/by-crawler/medacta-international.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
@@ -1367,8 +1367,8 @@ jobs:
           JOBS_A_GROUP_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: a-plus-plus-group
-          JOBS_SLICE_FILE: data/jobs/by-crawler/a-plus-plus-group.json
+          JOBS_HOUSEKEEPING_SCOPE: a-group
+          JOBS_SLICE_FILE: data/jobs/by-crawler/a-group.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail

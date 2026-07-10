@@ -4,6 +4,8 @@ import {
   APG_SGA_COMPANY_NAME,
   isApgSgaJob,
   isTrustedDomain,
+  extractOstendisToken,
+  parseJobPostingJsonLd,
 } from '../scripts/lib/apg-sga-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +58,97 @@ describe('APG|SGA crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── extractOstendisToken (OJP embed discovery) ──
+  describe('extractOstendisToken', () => {
+    // Mirrors the live markup on /de/ueber-uns/offene-stellen-karriere/jobs/
+    const embedHtml = `
+      <script src="https://odm.ostendis.ch/ojp/assets/loader"
+        data-token="ai4f0o0e7r5cjud6rmdsrljzq3jhjl4r" id="ostendisLoader"></script>
+      <div id="ostendisJobs" class="ost-jobs"></div>
+      <script>
+        document.addEventListener("ostendisLoaderReady", function () {
+          OSTENDISJOBS.embed(
+            "ai4f0o0e7r5cjud6rmdsrljzq3jhjl4r",
+            "DE",
+            "#ostendisJobs",
+            {}
+          );
+        });
+      </script>`;
+
+    it('extracts the token from the OSTENDISJOBS.embed call', () => {
+      expect(extractOstendisToken(embedHtml)).toBe('ai4f0o0e7r5cjud6rmdsrljzq3jhjl4r');
+    });
+
+    it('falls back to the loader data-token attribute', () => {
+      const html = '<script data-token="zzzz9o0e7r5cjud6rmdsrljzq3jhjl4r" id="ostendisLoader"></script>';
+      expect(extractOstendisToken(html)).toBe('zzzz9o0e7r5cjud6rmdsrljzq3jhjl4r');
+    });
+
+    it('returns null when no embed is present', () => {
+      expect(extractOstendisToken('<html><body>Keine Stellen</body></html>')).toBeNull();
+      expect(extractOstendisToken('')).toBeNull();
+    });
+
+    it('ignores short attribute values that are not tokens', () => {
+      expect(extractOstendisToken('<div data-token="abc123"></div>')).toBeNull();
+    });
+  });
+
+  // ── parseJobPostingJsonLd (publication detail pages) ──
+  describe('parseJobPostingJsonLd', () => {
+    // Trimmed copy of the live JSON-LD served by jobs.apgsga.ch publications
+    const detailHtml = `<html><head><script type="application/ld+json">{
+      "@context": "https://schema.org/",
+      "@type": "JobPosting",
+      "title": "Key Account Manager:in Direktkunden 80-100%, Z\\u00fcrich",
+      "description": "<div><h1>Key Account Manager:in</h1><p>APG|SGA ist ein dynamisches Dienstleistungsunternehmen.</p></div>",
+      "datePosted": "2026-05-12",
+      "employmentType": ["PART_TIME", "FULL_TIME"],
+      "hiringOrganization": { "@type": "Organization", "name": "APG|SGA, Allgemeine Plakatgesellschaft AG" },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Z\\u00fcrich",
+          "postalCode": "8027",
+          "addressCountry": "CH"
+        }
+      }
+    }</script></head><body></body></html>`;
+
+    it('parses title, description, date, employment types and address', () => {
+      const parsed = parseJobPostingJsonLd(detailHtml);
+      expect(parsed).not.toBeNull();
+      expect(parsed!.title).toBe('Key Account Manager:in Direktkunden 80-100%, Zürich');
+      expect(parsed!.descriptionHtml).toContain('dynamisches Dienstleistungsunternehmen');
+      expect(parsed!.datePosted).toBe('2026-05-12');
+      expect(parsed!.employmentTypes).toEqual(['PART_TIME', 'FULL_TIME']);
+      expect(parsed!.addressLocality).toBe('Zürich');
+      expect(parsed!.postalCode).toBe('8027');
+    });
+
+    it('handles a scalar employmentType', () => {
+      const html = detailHtml.replace('["PART_TIME", "FULL_TIME"]', '"FULL_TIME"');
+      expect(parseJobPostingJsonLd(html)!.employmentTypes).toEqual(['FULL_TIME']);
+    });
+
+    it('returns null when no JobPosting JSON-LD is present', () => {
+      expect(parseJobPostingJsonLd('<html><body>404</body></html>')).toBeNull();
+      expect(parseJobPostingJsonLd('')).toBeNull();
+    });
+
+    it('ignores non-JobPosting JSON-LD nodes', () => {
+      const html = '<script type="application/ld+json">{"@type":"Organization","name":"APG|SGA"}</script>';
+      expect(parseJobPostingJsonLd(html)).toBeNull();
+    });
+
+    it('survives malformed JSON-LD', () => {
+      const html = '<script type="application/ld+json">{not json</script>';
+      expect(parseJobPostingJsonLd(html)).toBeNull();
     });
   });
 

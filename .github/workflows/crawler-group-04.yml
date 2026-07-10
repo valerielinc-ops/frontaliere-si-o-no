@@ -67,8 +67,8 @@ jobs:
           JOBS_LIDL_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: lidl
-          JOBS_SLICE_FILE: data/jobs/by-crawler/lidl.json
+          JOBS_HOUSEKEEPING_SCOPE: lidl-svizzera
+          JOBS_SLICE_FILE: data/jobs/by-crawler/lidl-svizzera.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
@@ -909,8 +909,8 @@ jobs:
           JOBS_CORNER_STRICT: ${{ github.event.inputs.strict_localization || '0' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: corner
-          JOBS_SLICE_FILE: data/jobs/by-crawler/corner.json
+          JOBS_HOUSEKEEPING_SCOPE: corner-banca
+          JOBS_SLICE_FILE: data/jobs/by-crawler/corner-banca.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
@@ -1205,8 +1205,8 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-axa.txt
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: axa
-          JOBS_SLICE_FILE: data/jobs/by-crawler/axa.json
+          JOBS_HOUSEKEEPING_SCOPE: axa-svizzera
+          JOBS_SLICE_FILE: data/jobs/by-crawler/axa-svizzera.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail

@@ -813,8 +813,8 @@ jobs:
           JOBS_ZEGNA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: zegna
-          JOBS_SLICE_FILE: data/jobs/by-crawler/zegna.json
+          JOBS_HOUSEKEEPING_SCOPE: ermenegildo-zegna-logistica
+          JOBS_SLICE_FILE: data/jobs/by-crawler/ermenegildo-zegna-logistica.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
@@ -1063,8 +1063,8 @@ jobs:
           JOBS_HAMILTON_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: hamilton
-          JOBS_SLICE_FILE: data/jobs/by-crawler/hamilton.json
+          JOBS_HOUSEKEEPING_SCOPE: hamilton-bonaduz-ag
+          JOBS_SLICE_FILE: data/jobs/by-crawler/hamilton-bonaduz-ag.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           set -uo pipefail
