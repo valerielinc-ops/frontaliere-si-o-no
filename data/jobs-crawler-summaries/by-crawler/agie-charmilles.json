@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-10T12:41:25.940Z",
+  "generatedAt": "2026-07-10T22:58:22.266Z",
   "total": 56,
   "newCount": 0,
   "updatedCount": 42,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 87058,
-  "avgDurationMs": 87058,
+  "durationMs": 86919,
+  "avgDurationMs": 86919,
   "durationHistory": [
-    87058
+    86919
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -378,7 +378,6 @@
       "currency": "CHF",
       "postalCode": "1204",
       "firstSeenAt": "2026-06-29T12:25:47.142Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -526,7 +525,6 @@
       "currency": "CHF",
       "postalCode": "1204",
       "firstSeenAt": "2026-06-28T10:23:00.911Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -897,16 +895,15 @@
       "validThrough": "",
       "workload": "100%",
       "id": "agie-charmilles-2d5b0b472e32",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:30:27.513Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -934,16 +931,15 @@
       "validThrough": "",
       "workload": "100%",
       "id": "agie-charmilles-984cfbf7b06e",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:30:27.513Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
