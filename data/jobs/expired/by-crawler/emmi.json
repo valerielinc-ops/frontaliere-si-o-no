@@ -25,7 +25,7 @@
       "fr": "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs"
     },
     "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-07-10T11:37:42.826Z",
+    "expiredAt": "2026-07-10T12:29:28.008Z",
     "previousSlugs": [
       "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
       "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
@@ -42,6 +42,56 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "venditore-emmi-lausanne-vaud",
+    "title": "Vendeur / Vendeuse",
+    "titleByLocale": {
+      "it": "Venditore",
+      "en": "Seller",
+      "de": "Verkäufer",
+      "fr": "Vendeur / Vendeuse"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Lausanne, Vaud",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili di consigliare e servire i clienti Coop nella nostra cantina di formaggio.\n• Sarete felici di svolgere varie attività di vendita come degustazioni.\n• Siete responsabili della manutenzione dell'assortimento di formaggio e della preparazione (carrying & packaging) dei prodotti.\n• Assicurarsi che i nostri scaffali sono sempre riempiti e che la merce è presentata in modo attraente.\n• L'impeccabile qualità delle merci è la nostra priorità - nel rispetto dei requisiti di igiene e cibo - si sta attivamente contribuendo a questo.\n• Hai completato un corso di formazione nelle vendite (retail manager) e hai una prima esperienza nella vendita di prodotti alimentari (ad esempio formaggio, panetteria, macelleria).\n• Sei flessibile per lavorare in diverse ore durante l'apertura del negozio.\n• La tua personalità aperta e affidabile ti aiuta a assumere sempre più responsabilità.\n• Parli fluentemente francese",
+      "en": "• You are responsible for advising and serving Coop customers in our cheese cellar.\n• You will be happy to carry out various sales activities such as tastings.\n• You are responsible for the maintenance of the cheese assortment and the preparation (carrying & packaging) of the products.\n• You ensure that our shelves are always filled and that the merchandise is presented in an attractive way.\n• The impeccable quality of the goods is our priority - respecting the hygiene and food requirements - you are actively contributing to this.\n• You have completed a training course in sales (retail manager) and have a first experience in selling food products (e.g. cheese, bakery, butchery).\n• You are flexible to work at different hours during the opening of the store.\n• Your open and reliable personality helps you take on more and more responsibilities.\n• You speak fluently French",
+      "de": "• Sie sind für die Beratung und Betreuung der Coop-Kunden in unserem Käsekeller verantwortlich.\n• Gerne führen Sie verschiedene Verkaufsaktivitäten wie Verkostungen durch.\n• Sie sind für die Pflege des Käsesortiments und die Zubereitung (Träger & Verpackung) der Produkte verantwortlich.\n• Sie sorgen dafür, dass unsere Regale immer gefüllt sind und die Ware attraktiv präsentiert wird.\n• Die einwandfreie Qualität der Waren ist unsere Priorität - unter Berücksichtigung der Hygiene- und Lebensmittelanforderungen - Sie tragen aktiv dazu bei.\n• Sie haben eine Schulung im Vertrieb (Retail Manager) absolviert und erste Erfahrungen im Verkauf von Lebensmitteln (z.B. Käse, Bäckerei, Metzgerei) gesammelt.\n• Sie sind flexibel, um zu verschiedenen Stunden während der Eröffnung des Ladens zu arbeiten.\n• Ihre offene und zuverlässige Persönlichkeit hilft Ihnen, mehr und mehr Verantwortung zu übernehmen.\n• Du sprichst fließend Französisch",
+      "fr": "• Vous êtes responsable de conseiller et de servir les clients de Coop dans notre cave à fromage. 燎\n• Vous vous chargez volontiers de différentes activités de vente  comme par exemple des dégustations.\n• Vous êtes responsable de l'entretien de l'assortiment de fromages ainsi que de la préparation (portionnement & emballage) des produits.\n• Vous veillez à ce que nos rayons soient toujours remplis et à ce que la marchandise soit présentée de manière attrayante.\n• La qualité irréprochable  de la marchandise est notre priorité - en respectant les prescriptions en matière d'hygiène et de denrées alimentaires 識 vous y contribuez activement.\n• Vous avez terminé une formation dans la vente (gestionnaire du commerce de détail) et disposez d'une première expérience dans la vente de produits alimentaires (e.g. fromage, boulangerie, boucherie). 燎縷\n• Vous êtes flexible pour travailler à différentes heures pendant l'ouverture du magasin.\n• Votre personnalité ouverte et fiable vous aide à assumer de plus en plus de tâches à responsabilité.\n• Vous parlez couramment français"
+    },
+    "slugByLocale": {
+      "it": "venditore-emmi-lausanne-vaud",
+      "en": "seller-emmi-lausanne-vaud",
+      "de": "verkaufer-emmi-lausanne-vaud",
+      "fr": "vendeur-vendeuse-emmi-ch"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-07-10T12:28:53.637Z",
+    "previousSlugs": [
+      "vendeur-vendeuse-emmi-ch",
+      "vendeur-vendeuse-emmi-lausanne"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "vendeur-vendeuse-emmi-ch",
+        "vendeur-vendeuse-emmi-lausanne"
+      ],
+      "en": [
+        "vendeur-vendeuse-emmi-ch"
+      ],
+      "de": [
+        "vendeur-vendeuse-emmi-ch"
+      ]
+    },
+    "postalCode": "1003",
+    "streetAddress": "Rue Saint Laurent 24-30",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
