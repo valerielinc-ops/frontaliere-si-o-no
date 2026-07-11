@@ -8320,6 +8320,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pizza-price-italy-implications.title': 'Pizza prices in Italy: what changes for border workers',
     'blog.article.pizza-price-italy-implications.excerpt': 'The increase in the cost of living in Italy is also reflected in the prices of pizza, a key element of spending for many Ticino border workers.',
     'blog.article.pizza-price-italy-implications.imageAlt': 'Pizza price in Naples, Italy: implications for Ticino cross-border workers',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Physiotherapist in Ticino: Diploma Recognition, Requirements, and Procedures',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'The requirements to work as a physiotherapist in Ticino, for border workers, are described below.',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'View of Lugano with surrounding hills.',
 };
 
 export default blogMetaEn;
