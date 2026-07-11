@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-07-10T12:01:47.134Z",
+  "generatedAt": "2026-07-10T22:34:57.704Z",
   "total": 23,
-  "newCount": 0,
-  "updatedCount": 23,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 37033,
-  "avgDurationMs": 37033,
+  "newCount": 1,
+  "updatedCount": 21,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 11868,
+  "avgDurationMs": 11868,
   "durationHistory": [
-    37033
+    11868
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "TECHNICIEN/NE DE SERVICE GAZ",
+      "slug": "technicien-ne-de-service-gaz-ariston-group-geneve-ch-1202",
+      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1413874733/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Genève, CH, 1202",
+      "addressLocality": "Genève, CH, 1202",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-07-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-08-08",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "SERVICETECHNIKER ÖL/GAS-ATMO (M/W)",
@@ -448,42 +479,6 @@
       }
     },
     {
-      "title": "TECNICO DI SERVIZIO PER IMPIANTI DI RISCALDAMENTO A GAS - 100%",
-      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gas-100-ariston-group-bedano-ch-6930",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GAS-100-Beda-6930/1411117633/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1411117633/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Bedano, CH, 6930",
-      "addressLocality": "Bedano, CH, 6930",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-09",
-      "id": "ariston-group-c69267f33476",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "6930",
-      "firstSeenAt": "2026-07-03T10:41:30.218Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "SERVICETECHNIKER GAS (M/W)",
       "slug": "servicetechniker-gas-m-w-ariston-group-biel-ch-2502",
       "url": "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/",
@@ -770,42 +765,6 @@
       }
     },
     {
-      "title": "SALES PROJECT",
-      "slug": "sales-project-ariston-group-singapore-sg-138538",
-      "url": "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1403158733/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Singapore, SG, 138538",
-      "addressLocality": "Singapore, SG, 138538",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-10",
-      "id": "ariston-group-081d7ee4af63",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-06-26T10:50:38.441Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "TEAMLEITER SERVICE GAS (M/W)",
       "slug": "teamleiter-service-gas-m-w-ariston-group-gerlafingen-ch-4563",
       "url": "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/",
@@ -842,6 +801,80 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "removedJobs": [
+    {
+      "title": "SALES PROJECT",
+      "slug": "progetto-di-sali-ariston-group-singapore-sg-138538",
+      "url": "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1403158733/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Singapore, SG, 138538",
+      "addressLocality": "Singapore, SG, 138538",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-10",
+      "id": "ariston-group-081d7ee4af63",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-06-26T10:50:38.441Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "title": "TECNICO DI SERVIZIO PER IMPIANTI DI RISCALDAMENTO A GAS - 100%",
+      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gas-100-ariston-group-bedano-ch-6930",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GAS-100-Beda-6930/1411117633/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1411117633/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bedano, CH, 6930",
+      "addressLocality": "Bedano, CH, 6930",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-08-09",
+      "id": "ariston-group-c69267f33476",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "6930",
+      "firstSeenAt": "2026-07-03T10:41:30.218Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }

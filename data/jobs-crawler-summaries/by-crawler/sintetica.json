@@ -1,18 +1,53 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-10T12:46:16.869Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-07-10T22:01:42.434Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12925,
-  "avgDurationMs": 12925,
+  "durationMs": 9892,
+  "avgDurationMs": 9892,
   "durationHistory": [
-    12925
+    9892
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "title": "Production Engineer - Couvet site",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Couvet",
+      "canton": "NE",
+      "country": "CH",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
+      "slug": "production-engineer-couvet-site-sintetica",
+      "category": "production",
+      "datePosted": "2026-07-10",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Couvet"
+      },
+      "sourceLang": "en",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 2,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
@@ -226,10 +261,10 @@
       "id": "sintetica-2161482f648c",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -259,63 +294,60 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "url": "https://app.ncoreplat.com/jobposition/789015/clinical-amp-medical-project-manager-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/789015/clinical-amp-medical-project-manager-ch/sintetica",
-      "title": "Clinical & Medical Project Manager - Mendrisio site (Ticino)",
+      "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "title": "Production Engineer - Couvet site",
       "company": "Sintetica SA",
       "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
+      "location": "Couvet",
+      "canton": "NE",
       "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
       "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica",
-      "category": "pharma",
-      "datePosted": "2026-07-06",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
+      "slug": "production-engineer-couvet-site-sintetica",
+      "category": "production",
+      "datePosted": "2026-07-10",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
+      "experienceLevel": "MID",
       "sector": "Farmaceutica",
       "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
+        "canton": "NE",
+        "location": "Couvet"
       },
       "sourceLang": "en",
-      "id": "sintetica-e0160822e548",
-      "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
-      "salaryMin": 101500,
-      "salaryMax": 169000,
+      "needsRetranslation": true,
+      "id": "sintetica-70d63209d4ff",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 21,
         "completeness": 20
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
@@ -552,10 +584,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -585,18 +617,18 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }

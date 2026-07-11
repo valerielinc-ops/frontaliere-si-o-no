@@ -1,50 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-07-10T13:10:35.875Z",
+  "generatedAt": "2026-07-10T22:29:44.099Z",
   "total": 9,
   "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 2047,
-  "avgDurationMs": 2047,
+  "durationMs": 1001,
+  "avgDurationMs": 1001,
   "durationHistory": [
-    2047
+    1001
   ],
   "newJobs": [
-    {
-      "title": "Collaboratore/trice scientifico/a",
-      "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
-      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18882",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "6210 Sursee",
-      "addressLocality": "Sursee",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-07",
-      "validThrough": "2026-07-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Collaboratore/trice scientifico/a",
       "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
@@ -67,58 +35,54 @@
       "validThrough": "2026-08-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "agroscope-84becb00b2c0",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-07T22:20:28.174Z",
-      "_qualityScore": 82,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     }
   ],
-  "removedJobs": [
+  "updatedJobs": [
     {
-      "title": "Responsabile Backoffice Certificazione delle sementi",
-      "slug": "responsabile-backoffice-certificazione-delle-sementi-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/responsabile-backoffice-certificazione-delle-sementi/bef9712a-9ded-41ac-abda-68fde4d54e87",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18234",
+      "title": "Collaboratore/trice scientifico/a",
+      "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
+      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18882",
       "company": "Agroscope",
       "companyKey": "agroscope",
       "companyDomain": "admin.ch",
-      "location": "8046 Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "6210 Sursee",
+      "addressLocality": "Sursee",
+      "addressRegion": "LU",
       "addressCountry": "CH",
-      "canton": "ZH",
+      "canton": "LU",
       "country": "CH",
       "category": "science",
       "sector": "Pubblica amministrazione",
       "source": "agroscope-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-02",
-      "validThrough": "2026-08-06",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-0a9b20c98295",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "postedDate": "2026-06-07",
+      "validThrough": "2026-07-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-195f010a8391",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-07-03T21:13:27.390Z",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-07-10T13:10:35.873Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 19
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Dottorando/a - Trasferimento dei PFAS da suolo e foraggi a latte e carne di ruminanti",
@@ -255,6 +219,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-02T10:28:15.021Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -292,6 +257,7 @@
       "streetAddress": "",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-15T13:46:34.713Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -328,6 +294,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-03T12:31:41.261Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

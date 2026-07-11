@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tinext",
-  "assembledAt": "2026-07-10T12:50:48.233Z",
+  "assembledAt": "2026-07-10T22:28:21.699Z",
   "jobs": [
     {
       "title": "Security & Network Engineer",
@@ -41,7 +41,7 @@
         "it": "ingegnere-di-rete-e-sicurezza-tinext-sa-morbio",
         "en": "security-network-engineer-tinext-sa-morbio",
         "de": "security-network-ingenieur-tinext-sa-morbio",
-        "fr": "security-network-engineer-tinext-lugano-secnetsys"
+        "fr": "security-network-ingenieur-tinext-sa-morbio"
       },
       "id": "tinext-8a05a5f06e0c",
       "salaryMin": 49500,
@@ -61,19 +61,20 @@
       "postalCode": "6500",
       "firstSeenAt": "2026-04-28T11:44:39.710Z",
       "previousSlugsByLocale": {
-        "de": [
-          "security-network-engineer-tinext-lugano-secnetsys"
-        ],
         "fr": [
+          "security-network-engineer-tinext-lugano-secnetsys",
           "security-network-ingenieur-tinext-sa-morbio"
         ],
         "it": [
           "security-network-engineer-tinext-lugano-secnetsys"
+        ],
+        "de": [
+          "security-network-engineer-tinext-lugano-secnetsys"
         ]
       },
       "previousSlugs": [
-        "security-network-ingenieur-tinext-sa-morbio",
-        "security-network-engineer-tinext-lugano-secnetsys"
+        "security-network-engineer-tinext-lugano-secnetsys",
+        "security-network-ingenieur-tinext-sa-morbio"
       ]
     },
     {
@@ -140,8 +141,7 @@
       },
       "previousSlugs": [
         "pouvoir-executif-tinext-sa-lugano"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }

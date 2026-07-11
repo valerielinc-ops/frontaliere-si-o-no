@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-07-10T12:40:11.632Z",
+  "generatedAt": "2026-07-10T22:57:11.220Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2681,
-  "avgDurationMs": 2681,
+  "durationMs": 2761,
+  "avgDurationMs": 2761,
   "durationHistory": [
-    2681
+    2761
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:40:09.996Z",
+      "crawledAt": "2026-07-10T22:57:09.517Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-ste-anne-7448b60f11f5",
-      "slug": "tso-o-strumentista-in-sala-operatoria-al-60-100-clinique-generale-ste-anne-fribourg",
-      "company": "Clinique Générale Ste-Anne",
-      "companyKey": "clinique-generale-ste-anne",
-      "companyDomain": "swissmedical.net",
-      "title": "TSO ou instrumentiste au bloc opératoire à 60-100%",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129116839-tso-ou-instrumentiste-au-bloc-operatoire-a-60-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129116839-tso-ou-instrumentiste-au-bloc-operatoire-a-60-100-",
-      "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-07T12:16:46.129Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1700",
-      "streetAddress": "Rue Hans-Geiler 6, 1700 Fribourg",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-14",
-      "datePosted": "2026-06-14",
-      "firstSeenAt": "2026-06-14T19:10:02.812Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
