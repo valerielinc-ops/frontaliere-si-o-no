@@ -1003,6 +1003,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Tax credit for border workers: calculation, limits and Italian declaration',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Setting up the tax credit for families with border children in Switzerland.',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'A family with children frontaliers in Switzerland, with a view of Lake Lugano.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Ticino hairdresser or beautician border worker: salary, recognition, and G permit',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'The latest updates on permits and the classification of border workers in the beauty sector.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'A hairdresser working in a beauty salon in Lugano, with a view of the lake.',
 };
 
 export default blogMetaChEn;
