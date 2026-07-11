@@ -985,6 +985,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Bankkonto in der Schweiz für Gebietsansässige: Dokumente, Hauptbanken und Kosten',
     'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'Die notwendigen Dokumente zur Eröffnung eines Bankkontos in der Schweiz als Gebietsansässiger und die wichtigsten Banken, die diesen Service anbieten',
     'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Schweizerdeutsch lernen: Kurse und Apps',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Sind Sie daran interessiert, Schweizerdeutsch zu lernen? Entdecken Sie die Kurse und Apps, die am besten zu Ihnen passen.',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Schweizerdeutsch-Kurse in einer Schule im Kanton Tessin',
 };
 
 export default blogMetaChDe;

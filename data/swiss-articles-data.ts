@@ -2951,6 +2951,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imparare-svizzero-tedesco-corsi-e-app',
+    category: 'pratico',
+    date: '2026-07-11T19:00:45.212Z',
+    image: '/images/blog/imparare-svizzero-tedesco-corsi-e-app.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
