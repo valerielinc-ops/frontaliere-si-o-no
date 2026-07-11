@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-07-11T10:33:32.353Z",
+  "assembledAt": "2026-07-11T22:17:46.925Z",
   "jobs": [
     {
       "id": "company-trmlc3",
@@ -365,7 +365,8 @@
       "country": "CH",
       "addressRegion": "SZ",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x8un2v",
@@ -810,7 +811,8 @@
       "country": "CH",
       "addressRegion": "SG",
       "salaryMin": 34500,
-      "salaryMax": 52200
+      "salaryMax": 52200,
+      "needsRetranslation": true
     },
     {
       "id": "company-aq2y7r",
@@ -1026,7 +1028,8 @@
       "addressLocality": "Muri bei Bern",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-fw0m7t",
