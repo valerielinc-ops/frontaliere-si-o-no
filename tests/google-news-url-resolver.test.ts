@@ -103,6 +103,30 @@ describe('decodeGoogleNewsUrl', () => {
     expect(await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl })).toBeNull();
   });
 
+  it('rejects a truncated/garbage batchexecute payload to a clean null (URL validation)', async () => {
+    const opaqueUrl = 'https://news.google.com/rss/articles/CBMiwAFAU_yqLMtrunc?oc=5';
+    const fetchImpl = vi.fn(async (url: string, init?: any) => {
+      if (init?.method === 'POST') {
+        // Truncated: "https://" with no host — must not pass validateRealUrl.
+        return { ok: true, text: async () => `)]}'\n[["wrb.fr","Fbv4je","[\\"garturlres\\",\\"https://\\"]"]]` };
+      }
+      return { ok: true, text: async () => '<c-wiz data-n-a-sg="S" data-n-a-ts="1700000000">x</c-wiz>' };
+    });
+    expect(await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl })).toBeNull();
+  });
+
+  it('rejects a decoded google-internal URL (validation)', async () => {
+    // Legacy token that base64-decodes to a news.google.com URL must be rejected.
+    const gInternal = 'https://news.google.com/articles/internal';
+    const urlBytes = Buffer.from(gInternal, 'utf8');
+    const buf = Buffer.concat([Buffer.from([0x08, 0x13, 0x12, urlBytes.length]), urlBytes]);
+    const tok = 'CBMi' + buf.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    // Offline decode finds the URL but validateRealUrl rejects google hosts →
+    // falls through to batchexecute; with no fetch it stays null.
+    const fetchImpl = vi.fn(async () => ({ ok: true, text: async () => '<html>no sig</html>' }));
+    expect(await decodeGoogleNewsUrl(`https://news.google.com/rss/articles/${tok}?oc=5`, { fetchImpl })).toBeNull();
+  });
+
   it('returns null for a non-Google-News URL', async () => {
     expect(await decodeGoogleNewsUrl('https://www.rsi.ch/x.html')).toBeNull();
   });

@@ -39,6 +39,27 @@ const USER_AGENT =
 // wrapper token. Value is the resolved URL or null (negative caching).
 const _decodeCache = new Map();
 
+/**
+ * Validate a decoded URL: parseable, http(s), a real publisher host (has a
+ * dot, not google). Rejects truncated/garbage matches so a slightly different
+ * RPC payload degrades to a clean null (→ caller fallback) instead of feeding
+ * a partial URL downstream. Returns the normalised URL string or null.
+ */
+function validateRealUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  let u;
+  try {
+    u = new URL(url);
+  } catch {
+    return null;
+  }
+  if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+  const host = u.hostname.toLowerCase();
+  if (!host.includes('.')) return null;
+  if (host === 'news.google.com' || host.endsWith('.google.com')) return null;
+  return u.toString();
+}
+
 /** True when `rawUrl` is a Google News RSS article wrapper link. */
 export function isGoogleNewsRssUrl(rawUrl) {
   try {
@@ -83,10 +104,7 @@ export function decodeOfflineBase64(token) {
     const s = buf.toString('utf8');
     const m = s.match(/https?:\/\/[^\s\x00-\x1f"'\\<>]+/);
     if (!m) return null;
-    const url = m[0];
-    // Reject the opaque-new-format sentinel and any google-internal URL.
-    if (/^https?:\/\/news\.google\.com/.test(url)) return null;
-    return url;
+    return validateRealUrl(m[0]);
   } catch {
     return null;
   }
@@ -158,7 +176,9 @@ async function decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs) {
   const txt = raw.replace(/\\\//g, '/').replace(/\\u002f/gi, '/');
   const m = txt.match(/https?:\/\/(?!news\.google\.com)[^\s"\\]+/);
   if (!m) return null;
-  return m[0];
+  // Validate: a slightly different payload could yield a truncated match —
+  // reject it to a clean null instead of returning a partial URL.
+  return validateRealUrl(m[0]);
 }
 
 /**
