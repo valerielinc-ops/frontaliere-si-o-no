@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-07-10T23:04:07.612Z",
+  "generatedAt": "2026-07-11T11:05:56.440Z",
   "total": 39,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 68913,
-  "avgDurationMs": 68913,
+  "durationMs": 92332,
+  "avgDurationMs": 92332,
   "durationHistory": [
-    68913
+    92332
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -260,17 +260,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
       "id": "company-tdaj3o",
-      "slug": "panzerelektriker-in-swiss-armed-forces-vtg-bern-tdaj3o",
+      "slug": "serbatoio-elettrico-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Panzerelektriker/-in",
       "location": "Bern",
@@ -291,7 +291,6 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-07-10T13:27:16.778Z",
       "firstSeenAt": "2026-07-10T13:27:16.778Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -300,11 +299,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
