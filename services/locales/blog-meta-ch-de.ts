@@ -1000,6 +1000,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Grenzgänger Lehrer Schule Tessin Gehaltsvoraussetzungen',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'Das neue Grenzgängergesetz erkennt den Lehrern des Kantons Tessin Titel und Gehalt zu.',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger unterrichtet in einer Schule im Kanton Tessin, mit Blick auf den Lago di Lugano.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Steuergutschrift für Grenzgänger: Berechnung, Grenzen und italienische Erklärung',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Festlegung der Steuergutschrift für Familien mit Grenzgängern in der Schweiz.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'Eine Familie mit Kindern Frontalierern in der Schweiz, mit Blick auf den Luganer See.',
 };
 
 export default blogMetaChDe;

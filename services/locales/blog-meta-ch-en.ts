@@ -1000,6 +1000,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Border teacher school Ticino salary requirements',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'The new law on border workers recognizes the title and salary of teachers in the Canton of Ticino.',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'A frontier teacher teaches in a school in the Canton of Ticino, with a view of Lake Lugano.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Tax credit for border workers: calculation, limits and Italian declaration',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Setting up the tax credit for families with border children in Switzerland.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'A family with children frontaliers in Switzerland, with a view of Lake Lugano.',
 };
 
 export default blogMetaChEn;

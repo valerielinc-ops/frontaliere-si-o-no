@@ -1000,6 +1000,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Frontaliere insegnante scuola Ticino stipendio requisiti',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino.',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere insegna in una scuola del Cantone Ticino, con la vista sul Lago di Lugano.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Credito d\'imposta per frontalieri: calcolo, limiti e dichiarazione italiana',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'Una famiglia con figli frontalieri in Svizzera, con la vista sul lago di Lugano.',
 };
 
 export default blogMetaChIt;

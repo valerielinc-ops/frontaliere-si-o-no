@@ -4451,6 +4451,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-italia-zona-economica-speciale': { name: 'Zona economica speciale', path: '/articoli-frontaliere/italia-zona-economica-speciale', parent: 'blog' },
     'blog-frontaliere-insegnante-scuola-ticino-stipendio-requisiti': { name: 'Frontaliere insegnante scuola Ticino', path: '/articoli-svizzera/frontaliere-insegnante-scuola-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio': { name: 'Frontalieri parrucchieri e estetisti in', path: '/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio', parent: 'blog' },
+    'blog-frontaliere-credito-imposta-2026-famiglia-con-figli': { name: 'Credito d\'imposta per frontalieri', path: '/articoli-svizzera/frontaliere-credito-imposta-2026-famiglia-con-figli/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

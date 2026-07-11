@@ -12888,6 +12888,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-credito-imposta-2026-famiglia-con-figli': {
+    title: 'Credito d\'imposta per frontalieri: calcolo, limiti e dichiarazione italiana',
+    description: 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, limiti',
+    ogTitle: 'Credito d\'imposta per frontalieri nel 2026: calcolo, limiti e compilazione della dichiarazione italiana.',
+    ogDescription: 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera.',
+    canonicalPath: '/articoli-svizzera/frontaliere-credito-imposta-2026-famiglia-con-figli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta per frontalieri: calcolo, limiti e dichiarazione italiana",
+      "description": "Impostazione del credito d'imposta per le famiglie con figli frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-credito-imposta-2026-famiglia-con-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia con figli frontalieri in Svizzera, con la vista sul lago di Lugano."
+      },
+      "datePublished": "2026-07-11T21:02:12+00:00",
+      "dateModified": "2026-07-11T21:02:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-credito-imposta-2026-famiglia-con-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
