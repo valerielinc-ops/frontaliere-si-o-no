@@ -160,6 +160,30 @@ export const EXPLICIT_GARBAGE = [
     slug: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-23121f',
     reason: 'garbage-title',
   },
+  // 3 more "logi-hyardfachfrau" garbage-title variants, pre-#4055, censused
+  // in #4062's follow-up (issue #4068): still living in previousSlugs of 3
+  // ksa.json nursing-role jobs even though #4055 didn't remove them via a
+  // diffable commit (foreignSigForSlug can't catch them — same-slice own
+  // signature). Never seen a foreign company's slice, so they carry no
+  // foreign: reason; garbage-title is the correct classification.
+  {
+    file: 'ksa.json',
+    jobId: 'ksa-07ec20d26c7e',
+    slug: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3',
+    reason: 'garbage-title',
+  },
+  {
+    file: 'ksa.json',
+    jobId: 'ksa-557d71381d6b',
+    slug: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-373473',
+    reason: 'garbage-title',
+  },
+  {
+    file: 'ksa.json',
+    jobId: 'ksa-6bed510181d9',
+    slug: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8',
+    reason: 'garbage-title',
+  },
   {
     file: 'ksa.json',
     jobId: 'ksa-c124b4a1ad14',
