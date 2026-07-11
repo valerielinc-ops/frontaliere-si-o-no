@@ -8357,6 +8357,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Frontaliere parrucchiere ed estetista in Ticino',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Guida operativa per parrucchieri ed estetisti frontalieri: stipendio, permesso G, imposta alla fonte e gestione previdenziale tra Svizzera e Italia.',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Salone di parrucchiere a Lugano con vista lago',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Settori in crescita: profughi ricercati, prospettive per chi cerca lavoro in Ticino',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Panorama di Lugano con edifici moderni e lago',
 };
 
 export default blogMetaIt;

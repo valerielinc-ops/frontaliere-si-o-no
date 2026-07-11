@@ -8356,6 +8356,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Border hairdresser and beautician in Ticino',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Operating guide for hairdressers and border beauticians: salary, G permit, tax at source and social security management between Switzerland and Italy.',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Hair salon in Lugano with lake view',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Growing sectors: wanted refugees, prospects for job seekers in Ticino',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'The Ticino labour market is going through a period of growth, with sectors such as technology and healthcare requiring skilled professionals.',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Lugano cityscape with modern buildings and lake',
 };
 
 export default blogMetaEn;
