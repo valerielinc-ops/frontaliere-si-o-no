@@ -1012,6 +1012,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.title': 'Sulla disoccupazione dei frontalieri si apre un nuovo fronte con Bruxelles',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.excerpt': 'Il nuovo accordo sulla sicurezza sociale potrebbe avere un impatto significativo sui frontalieri',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.imageAlt': 'Frontalieri in Svizzera',
+    'blog.article.ticino-nuovi-rincari.title': 'Ticino, rincari e commercianti in crisi. La vera Svizzera?',
+    'blog.article.ticino-nuovi-rincari.excerpt': 'Prezzi aumentati in Ticino, frontalieri che si recano in Italia per fare la spesa.',
+    'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: prezzi albanesi in evidenza',
 };
 
 export default blogMetaChIt;

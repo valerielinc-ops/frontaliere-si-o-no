@@ -1012,6 +1012,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.title': 'Unemployment of frontiersmen opens a new front with Brussels',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.excerpt': 'The new social security agreement could have a significant impact on border workers',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.imageAlt': 'Frontalieri in Switzerland',
+    'blog.article.ticino-nuovi-rincari.title': 'Ticino, rising prices and traders in crisis. The real Switzerland?',
+    'blog.article.ticino-nuovi-rincari.excerpt': 'Increased prices in Ticino, border crossers who travel to Italy to do their shopping.',
+    'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: prices in evidence',
 };
 
 export default blogMetaChEn;
