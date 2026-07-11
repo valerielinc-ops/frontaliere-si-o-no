@@ -730,7 +730,7 @@
     },
     {
       "id": "company-eqf82c",
-      "slug": "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c",
+      "slug": "responsabile-del-coordinamento-lodge-migros-logistics-neuendorf",
       "company": "Migros Logistics",
       "title": "Sachbearbeiter*in Koordination/Loge",
       "location": "Neuendorf",
@@ -799,19 +799,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c",
-        "en": "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c",
+        "it": "responsabile-del-coordinamento-lodge-migros-logistics-neuendorf",
+        "en": "person-in-charge-of-coordination-lodge-migros-logistics-neuendorf",
         "de": "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c",
-        "fr": "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c"
+        "fr": "responsable-de-la-coordination-logement-migros-logistics-neuendorf"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf"
+          "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf",
+          "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c"
+        ],
+        "en": [
+          "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c"
+        ],
+        "fr": [
+          "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf"
+        "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf",
+        "sachbearbeiter-in-koordination-loge-migros-logistics-neuendorf-eqf82c"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

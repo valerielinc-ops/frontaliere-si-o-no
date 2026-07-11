@@ -848,7 +848,7 @@
       "slugByLocale": {
         "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -881,7 +881,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "fr": [
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n4d",
@@ -15650,7 +15658,7 @@
       "crawledAt": "2026-07-10T12:31:26.618Z",
       "firstSeenAt": "2026-07-10T12:31:26.618Z",
       "slugByLocale": {
-        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -15694,7 +15702,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "de": [
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-x29n55",

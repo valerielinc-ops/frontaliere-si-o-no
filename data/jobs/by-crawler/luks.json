@@ -16974,8 +16974,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-100-luks-stans",
         "it": "fachfrau-mann-gesundheit-cfc-100-luzerner-kantonsspital-luks-stans",
-        "en": "fachfrau-mann-gesundheit-efz-100-luks-stans",
-        "fr": "fachfrau-mann-gesundheit-efz-100-luks-stans"
+        "en": "professional-health-efz-100-luzerner-kantonsspital-luks-stans",
+        "fr": "sante-professionnelle-efz-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17021,6 +17021,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-100-luks-stans"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-100-luks-stans"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-100-luks-stans"
         ]
       },

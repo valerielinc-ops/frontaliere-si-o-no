@@ -3857,9 +3857,9 @@
       },
       "slugByLocale": {
         "it": "progettista-per-impianti-di-allarme-e-antifuoco-pemsa-manno",
-        "en": "safety-plant-designer-pemsa-manno",
-        "de": "sicherheitsplaner-pemsa-manno",
-        "fr": "conception-d-installations-de-securite-pemsa-manno"
+        "en": "technical-project-designer-pemsa-manno",
+        "de": "technischer-projektentwickler-pemsa-manno",
+        "fr": "designer-de-projets-techniques-pemsa-manno"
       },
       "id": "pemsa-127e5b3e8d15",
       "salaryMin": 49500,
@@ -3879,10 +3879,22 @@
       "previousSlugsByLocale": {
         "it": [
           "progettista-di-impianti-di-sicurezza-pemsa-manno"
+        ],
+        "en": [
+          "safety-plant-designer-pemsa-manno"
+        ],
+        "de": [
+          "sicherheitsplaner-pemsa-manno"
+        ],
+        "fr": [
+          "conception-d-installations-de-securite-pemsa-manno"
         ]
       },
       "previousSlugs": [
-        "progettista-di-impianti-di-sicurezza-pemsa-manno"
+        "progettista-di-impianti-di-sicurezza-pemsa-manno",
+        "safety-plant-designer-pemsa-manno",
+        "sicherheitsplaner-pemsa-manno",
+        "conception-d-installations-de-securite-pemsa-manno"
       ]
     },
     {
@@ -6058,13 +6070,11 @@
       "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
-          "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
-          "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel"
+          "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
-        "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel"
+        "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suva-18b2c821664e",
-      "slug": "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds",
+      "slug": "centre-manager-80-100-suva-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds",
-        "it": "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds",
+        "it": "centre-manager-80-100-suva-la-chaux-de-fonds",
         "en": "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds",
-        "de": "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds"
+        "de": "center-manager-80-100-suva-la-chaux-de-fonds"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -63,7 +63,18 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-07-10T12:41:56.029Z"
+      "firstSeenAt": "2026-07-10T12:41:56.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds"
+        ],
+        "de": [
+          "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-centre-de-competence-80-100-suva-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "suva-362ca261dbd2",
@@ -119,8 +130,7 @@
         ],
         "it": [
           "specialiste-conduite-des-cas-80-100-suva-delemont",
-          "specialiste-conduite-des-cas-80-100-suva-geneve",
-          "specialista-della-gestione-dei-casi-80-100-per-cento-suva-ticino"
+          "specialiste-conduite-des-cas-80-100-suva-geneve"
         ],
         "en": [
           "specialiste-conduite-des-cas-80-100-suva-delemont"
@@ -131,8 +141,7 @@
       },
       "previousSlugs": [
         "specialiste-conduite-des-cas-80-100-suva-delemont",
-        "specialiste-conduite-des-cas-80-100-suva-geneve",
-        "specialista-della-gestione-dei-casi-80-100-per-cento-suva-ticino"
+        "specialiste-conduite-des-cas-80-100-suva-geneve"
       ],
       "firstSeenAt": "2026-07-04T12:22:50.060Z",
       "salaryMin": 60500,
@@ -198,13 +207,11 @@
       "pensum": "80-100%",
       "sfJobId": "1401963033",
       "previousSlugs": [
-        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
-        "personale-nel-centro-di-competenza-damage-80-100-suva-chur-ziegelbrucke"
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur",
-          "personale-nel-centro-di-competenza-damage-80-100-suva-chur-ziegelbrucke"
+          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
         ],
         "en": [
           "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-chur"
@@ -340,13 +347,11 @@
       "pensum": "80-100%",
       "sfJobId": "1383023233",
       "previousSlugs": [
-        "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-        "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
+        "bauingenieur-in-baumeister-in-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-          "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
         ],
         "en": [
           "bauingenieur-in-baumeister-in-80-100-suva-luzern"
@@ -419,13 +424,11 @@
       "pensum": "80-100%",
       "sfJobId": "1387059033",
       "previousSlugs": [
-        "facharztin-facharzt-neurologie-80-100-suva-winterthur",
-        "neurologia-specialistica-80-100-suva-winterthur-zurich"
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-neurologie-80-100-suva-winterthur",
-          "neurologia-specialistica-80-100-suva-winterthur-zurich"
+          "facharztin-facharzt-neurologie-80-100-suva-winterthur"
         ],
         "en": [
           "facharztin-facharzt-neurologie-80-100-suva-winterthur"
@@ -561,13 +564,11 @@
       "pensum": "80-100%",
       "sfJobId": "1410639833",
       "previousSlugs": [
-        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
-        "personale-in-spese-mediche-agguato-80-100-suva-aarau"
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau",
-          "personale-in-spese-mediche-agguato-80-100-suva-aarau"
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
         ],
         "en": [
           "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-aarau"
@@ -642,15 +643,13 @@
       "previousSlugs": [
         "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-projektmitarbeiter",
         "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029",
-        "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-bern",
-        "personale-del-progetto-in-informatica-circa-il-50-temporaneo-fino-a-30-giugno-2029-suva-projektmitarbeiter-in-informatik"
+        "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-projektmitarbeiter",
           "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029",
-          "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-bern",
-          "personale-del-progetto-in-informatica-circa-il-50-temporaneo-fino-a-30-giugno-2029-suva-projektmitarbeiter-in-informatik"
+          "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-bern"
         ],
         "en": [
           "projektmitarbeiter-in-informatik-ca-50-befristet-bis-30-juni-2029-suva-projektmitarbeiter"
@@ -726,13 +725,11 @@
       "pensum": "80-100%",
       "sfJobId": "1371896633",
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-        "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-          "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
@@ -805,13 +802,11 @@
       "pensum": "80-100%",
       "sfJobId": "1216709001",
       "previousSlugs": [
-        "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
-        "medico-con-vasta-conoscenza-in-traumatologia-80-100-suva-ticino"
+        "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont",
-          "medico-con-vasta-conoscenza-in-traumatologia-80-100-suva-ticino"
+          "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
         ],
         "en": [
           "medecin-avec-connaissances-approfondies-en-traumatologie-80-100-suva-delemont"
@@ -884,13 +879,11 @@
       "pensum": "80-100%",
       "sfJobId": "1399745833",
       "previousSlugs": [
-        "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
+        "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-          "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
+          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
         ],
         "en": [
           "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
@@ -1040,13 +1033,11 @@
       "pensum": "80-100%",
       "sfJobId": "1411281733",
       "previousSlugs": [
-        "medecin-assistant-e-en-medecine-du-travail-80-100-suva-lausanne",
-        "assistente-medico-in-medicina-professionale-80-100-suva-lausanne"
+        "medecin-assistant-e-en-medecine-du-travail-80-100-suva-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-e-en-medecine-du-travail-80-100-suva-lausanne",
-          "assistente-medico-in-medicina-professionale-80-100-suva-lausanne"
+          "medecin-assistant-e-en-medecine-du-travail-80-100-suva-lausanne"
         ],
         "en": [
           "medecin-assistant-e-en-medecine-du-travail-80-100-suva-lausanne"
@@ -1116,13 +1107,11 @@
       "pensum": "80-100%",
       "sfJobId": "1409237433",
       "previousSlugs": [
-        "specialiste-en-securite-integree-80-100-suva-fribourg",
-        "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg"
+        "specialiste-en-securite-integree-80-100-suva-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-securite-integree-80-100-suva-fribourg",
-          "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg"
+          "specialiste-en-securite-integree-80-100-suva-fribourg"
         ],
         "en": [
           "specialiste-en-securite-integree-80-100-suva-fribourg"
@@ -1194,13 +1183,11 @@
       "applyUrl": "https://jobs.suva.ch/job/La-Chaux-de-Fonds-Stage-d%C3%A9couverte-apprenti%E2%88%99e-employ%C3%A9%E2%88%99e-de-commerce-CFC-La-Chaux-de-Fonds-NE-2300/1286775701/",
       "sfJobId": "1286775701",
       "previousSlugs": [
-        "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
-        "apprendista-di-scoperta-di-stage-e-dipendente-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds"
+        "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de",
-          "apprendista-di-scoperta-di-stage-e-dipendente-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de-fonds"
+          "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
         ],
         "en": [
           "stage-decouverte-apprenti-e-employe-e-de-commerce-cfc-la-chaux-de-fonds-suva-la-chaux-de"
@@ -1336,13 +1323,11 @@
       "pensum": "80-100%",
       "sfJobId": "1395395933",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino"
+        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-          "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino"
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
@@ -1415,13 +1400,11 @@
       "pensum": "80-100%",
       "sfJobId": "1409638533",
       "previousSlugs": [
-        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-          "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
         ],
         "en": [
           "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
@@ -1494,13 +1477,11 @@
       "pensum": "80-100%",
       "sfJobId": "1410139533",
       "previousSlugs": [
-        "projekt-manager-in-stab-80-100-suva-luzern",
-        "project-manager-nel-personale-80-100-suva-luzern"
+        "projekt-manager-in-stab-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projekt-manager-in-stab-80-100-suva-luzern",
-          "project-manager-nel-personale-80-100-suva-luzern"
+          "projekt-manager-in-stab-80-100-suva-luzern"
         ],
         "en": [
           "projekt-manager-in-stab-80-100-suva-luzern"
@@ -1650,13 +1631,11 @@
       "pensum": "60-100%",
       "sfJobId": "1392145733",
       "previousSlugs": [
-        "secretaire-medical-e-60-100-suva-fribourg",
-        "segretario-medico-60-100-suva-fribourg-geneve-la-chaux-de-fonds-lausanne-sion"
+        "secretaire-medical-e-60-100-suva-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medical-e-60-100-suva-fribourg",
-          "segretario-medico-60-100-suva-fribourg-geneve-la-chaux-de-fonds-lausanne-sion"
+          "secretaire-medical-e-60-100-suva-fribourg"
         ],
         "en": [
           "secretaire-medical-e-60-100-suva-fribourg"

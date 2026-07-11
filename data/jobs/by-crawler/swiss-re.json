@@ -46,13 +46,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-underwriter-e-c-hybrid-m-f-x-80-100-swiss-re-ch",
-        "junior-underwriter-e-c-ibrido-m-f-x-80-100-swiss-re-hoofddorp-nl"
+        "junior-underwriter-e-c-hybrid-m-f-x-80-100-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-underwriter-e-c-hybrid-m-f-x-80-100-swiss-re-ch",
-          "junior-underwriter-e-c-ibrido-m-f-x-80-100-swiss-re-hoofddorp-nl"
+          "junior-underwriter-e-c-hybrid-m-f-x-80-100-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -78,7 +76,7 @@
         "it": "compliance-officer-fraud-risk-temporary-80-100-swiss-re-ch",
         "en": "compliance-officer-fraud-risk-temporary-80-100-swiss-re-ch",
         "de": "compliance-officer-betrugsrisiko-temporar-80-100-swiss-re-bratislava-sk",
-        "fr": "compliance-officer-fraud-risk-temporary-80-100-swiss-re-ch"
+        "fr": "agent-de-conformite-risque-de-fraude-temporaire-80-100-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -179,13 +177,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contracts-specialist-l-h-re-insurance-swiss-re-ch",
-        "contracts-specialista-l-h-re-insurance-swiss-re-zurich"
+        "contracts-specialist-l-h-re-insurance-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "contracts-specialist-l-h-re-insurance-swiss-re-ch",
-          "contracts-specialista-l-h-re-insurance-swiss-re-zurich"
+          "contracts-specialist-l-h-re-insurance-swiss-re-ch"
         ],
         "de": [
           "contracts-specialist-l-h-re-insurance-swiss-re-ch"
@@ -341,12 +337,12 @@
     },
     {
       "id": "swiss-re-bc58e4d4efc2",
-      "slug": "credit-controller-swiss-re-ch",
+      "slug": "titolare-del-credito-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "credit-controller-swiss-re-ch",
-        "it": "credit-controller-swiss-re-ch",
+        "it": "titolare-del-credito-swiss-re-bratislava-sk",
         "de": "credit-controller-swiss-re-ch",
-        "fr": "credit-controller-swiss-re-bratislava-sk"
+        "fr": "controleur-du-credit-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -400,7 +396,19 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:48.199Z"
+      "firstSeenAt": "2026-07-10T13:07:48.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-controller-swiss-re-ch"
+        ],
+        "fr": [
+          "credit-controller-swiss-re-bratislava-sk"
+        ]
+      },
+      "previousSlugs": [
+        "credit-controller-swiss-re-ch",
+        "credit-controller-swiss-re-bratislava-sk"
+      ]
     },
     {
       "id": "swiss-re-7a0707dc12c0",
@@ -780,7 +788,7 @@
         "it": "underwriter-engineering-construction-miami-swiss-re-ch",
         "en": "underwriter-engineering-construction-miami-swiss-re-ch",
         "de": "underwriter-engineering-construction-miami-swiss-re-ch",
-        "fr": "underwriter-engineering-construction-miami-swiss-re-ch"
+        "fr": "ingenieur-adjoint-construction-miami-swiss-re-mexico-city-mx"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1347,12 +1355,12 @@
     },
     {
       "id": "swiss-re-8eab68aeca2e",
-      "slug": "pricing-actuary-swiss-re-ch",
+      "slug": "attuario-dei-prezzi-swiss-re-tokyo-jp",
       "slugByLocale": {
         "en": "pricing-actuary-swiss-re-ch",
-        "it": "pricing-actuary-swiss-re-ch",
-        "de": "pricing-actuary-swiss-re-ch",
-        "fr": "pricing-actuary-swiss-re-ch"
+        "it": "attuario-dei-prezzi-swiss-re-tokyo-jp",
+        "de": "preisversicherungsmathematiker-swiss-re-tokyo-jp",
+        "fr": "actuaire-de-tarification-swiss-re-tokyo-jp"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1406,7 +1414,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:38.028Z"
+      "firstSeenAt": "2026-07-10T13:07:38.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-actuary-swiss-re-ch"
+        ],
+        "de": [
+          "pricing-actuary-swiss-re-ch"
+        ],
+        "fr": [
+          "pricing-actuary-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-actuary-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-af0c369e6747",
@@ -1495,7 +1517,7 @@
         "it": "senior-sales-executive-dati-e-servizi-di-rischio-apac-new-business-rds-swiss-re-singapore-sg",
         "en": "senior-sales-executive-apac-new-business-risk-data-services-rds-swiss-re-ch",
         "de": "senior-sales-executive-apac-new-business-risk-data-services-rds-swiss-re-ch",
-        "fr": "senior-sales-executive-apac-new-business-risk-data-services-rds-swiss-re-ch"
+        "fr": "cadre-superieur-des-ventes-apac-nouvelle-entreprise-donnees-et-services-sur-les-risques-drs-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1540,6 +1562,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-sales-executive-apac-new-business-risk-data-services-rds-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-sales-executive-apac-new-business-risk-data-services-rds-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:09.677Z",
@@ -1559,12 +1584,12 @@
     },
     {
       "id": "swiss-re-adde4a429d6b",
-      "slug": "senior-distribution-manager-swiss-re-ch",
+      "slug": "responsabile-della-distribuzione-senior-swiss-re-tokyo-jp",
       "slugByLocale": {
         "en": "senior-distribution-manager-swiss-re-ch",
-        "it": "senior-distribution-manager-swiss-re-ch",
+        "it": "responsabile-della-distribuzione-senior-swiss-re-tokyo-jp",
         "de": "senior-distribution-manager-swiss-re-ch",
-        "fr": "senior-distribution-manager-swiss-re-ch"
+        "fr": "directeur-principal-de-la-distribution-swiss-re-tokyo-jp"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1618,16 +1643,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:17.389Z"
+      "firstSeenAt": "2026-07-10T13:07:17.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-distribution-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-distribution-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-distribution-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-5f63a0352c2c",
-      "slug": "engineering-underwriter-swiss-re-ch",
+      "slug": "ingegneria-underwriter-swiss-re-beijing-cn",
       "slugByLocale": {
         "en": "engineering-underwriter-swiss-re-ch",
-        "it": "engineering-underwriter-swiss-re-ch",
+        "it": "ingegneria-underwriter-swiss-re-beijing-cn",
         "de": "engineering-underwriter-swiss-re-beijing-cn",
-        "fr": "engineering-underwriter-swiss-re-ch"
+        "fr": "ingenieur-adjoint-swiss-re-beijing-cn"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1681,7 +1717,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:14.546Z"
+      "firstSeenAt": "2026-07-10T13:07:14.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-underwriter-swiss-re-ch"
+        ],
+        "fr": [
+          "engineering-underwriter-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-underwriter-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-af03a9a63617",
@@ -1690,7 +1737,7 @@
         "en": "p-c-insurance-audit-manager-swiss-re-ch",
         "it": "p-c-insurance-audit-manager-swiss-re-ch",
         "de": "p-c-insurance-audit-manager-swiss-re-ch",
-        "fr": "p-c-insurance-audit-manager-swiss-re-ch"
+        "fr": "gestionnaire-de-la-verification-des-assurances-de-p-c-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2174,7 +2221,7 @@
         "it": "modelli-sulle-transazioni-finanziarie-swiss-re-bangalore-in",
         "en": "financial-transactions-modeler-swiss-re-ch",
         "de": "finanztransaktionen-modeler-swiss-re-bangalore-in",
-        "fr": "financial-transactions-modeler-swiss-re-ch"
+        "fr": "modele-d-operations-financieres-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2222,6 +2269,9 @@
         ],
         "de": [
           "financial-transactions-modeler-swiss-re-ch"
+        ],
+        "fr": [
+          "financial-transactions-modeler-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:06.329Z",
@@ -2241,12 +2291,12 @@
     },
     {
       "id": "swiss-re-3ea960dbc4b4",
-      "slug": "product-owner-swiss-re-ch",
+      "slug": "titolare-del-prodotto-swiss-re-mexico-city-mx",
       "slugByLocale": {
         "en": "product-owner-swiss-re-ch",
-        "it": "product-owner-swiss-re-ch",
+        "it": "titolare-del-prodotto-swiss-re-mexico-city-mx",
         "de": "product-owner-swiss-re-ch",
-        "fr": "product-owner-swiss-re-ch"
+        "fr": "proprietaire-du-produit-swiss-re-mexico-city-mx"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2300,7 +2350,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:11.613Z"
+      "firstSeenAt": "2026-07-10T13:07:11.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-swiss-re-ch"
+        ],
+        "fr": [
+          "product-owner-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-63c4ecd97eb1",
@@ -2381,12 +2442,12 @@
     },
     {
       "id": "swiss-re-9d7c0440f8b2",
-      "slug": "legal-counsel-swiss-re-ch",
+      "slug": "avviso-legale-swiss-re-zurich",
       "slugByLocale": {
         "en": "legal-counsel-swiss-re-ch",
-        "it": "legal-counsel-swiss-re-ch",
-        "de": "legal-counsel-swiss-re-ch",
-        "fr": "legal-counsel-swiss-re-ch"
+        "it": "avviso-legale-swiss-re-zurich",
+        "de": "rechtsberatung-swiss-re-zurich",
+        "fr": "conseiller-juridique-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2440,16 +2501,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:07:02.137Z"
+      "firstSeenAt": "2026-07-10T13:07:02.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-swiss-re-ch"
+        ],
+        "de": [
+          "legal-counsel-swiss-re-ch"
+        ],
+        "fr": [
+          "legal-counsel-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-f82f9020b3ba",
-      "slug": "clinical-risk-manager-swiss-re-ch",
+      "slug": "responsabile-del-rischio-clinico-swiss-re-zurich",
       "slugByLocale": {
         "en": "clinical-risk-manager-swiss-re-ch",
-        "it": "clinical-risk-manager-swiss-re-ch",
-        "de": "clinical-risk-manager-swiss-re-ch",
-        "fr": "clinical-risk-manager-swiss-re-ch"
+        "it": "responsabile-del-rischio-clinico-swiss-re-zurich",
+        "de": "klinischer-risikomanager-swiss-re-zurich",
+        "fr": "gestionnaire-des-risques-cliniques-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2503,7 +2578,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:06:51.321Z"
+      "firstSeenAt": "2026-07-10T13:06:51.321Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-risk-manager-swiss-re-ch"
+        ],
+        "de": [
+          "clinical-risk-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "clinical-risk-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-risk-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-c7ea0093d294",
@@ -2511,7 +2600,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-surety-hybrid-work-swiss-re-london-gb",
         "en": "underwriter-surety-hybrid-work-swiss-re-ch",
-        "de": "underwriter-surety-hybrid-work-swiss-re-ch",
+        "de": "underwriter-surety-hybridarbeit-swiss-re-london-gb",
         "fr": "surete-de-l-auteur-uvre-hybride-swiss-re-london-gb"
       },
       "company": "Swiss Re",
@@ -2556,6 +2645,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "underwriter-surety-hybrid-work-swiss-re-ch"
+        ],
+        "de": [
           "underwriter-surety-hybrid-work-swiss-re-ch"
         ]
       },
@@ -2721,7 +2813,7 @@
       "slugByLocale": {
         "it": "turco-underwriter-l-h-m-f-x-d-swiss-re-munich-de",
         "en": "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch",
-        "de": "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch",
+        "de": "turkischsprachiger-underwriter-l-h-m-w-x-d-swiss-re-munich-de",
         "fr": "un-souscripteur-turc-l-h-m-f-x-d-swiss-re-munich-de"
       },
       "company": "Swiss Re",
@@ -2769,6 +2861,9 @@
           "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch"
         ],
         "fr": [
+          "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch"
+        ],
+        "de": [
           "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch"
         ]
       },
@@ -3154,7 +3249,7 @@
         "it": "modello-di-transazioni-finanziarie-hybrid-swiss-re-bratislava-sk",
         "en": "financial-transactions-modeler-hybrid-swiss-re-ch",
         "de": "finanztransaktionen-modeler-hybrid-swiss-re-bratislava-sk",
-        "fr": "financial-transactions-modeler-hybrid-swiss-re-ch"
+        "fr": "modele-d-operations-financieres-hybride-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3201,6 +3296,9 @@
           "financial-transactions-modeler-hybrid-swiss-re-ch"
         ],
         "de": [
+          "financial-transactions-modeler-hybrid-swiss-re-ch"
+        ],
+        "fr": [
           "financial-transactions-modeler-hybrid-swiss-re-ch"
         ]
       },
@@ -3341,13 +3439,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch",
-        "cameriere-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-zurich-ch"
+        "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch",
-          "cameriere-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-zurich-ch"
+          "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3368,9 +3464,9 @@
     },
     {
       "id": "swiss-re-daa7b7ed41df",
-      "slug": "back-office-administrator-with-italian-or-spanish-swiss-re-ch",
+      "slug": "amministratore-di-ufficio-con-italiano-o-spagnolo-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "back-office-administrator-with-italian-or-spanish-swiss-re-ch",
+        "it": "amministratore-di-ufficio-con-italiano-o-spagnolo-swiss-re-bratislava-sk",
         "en": "back-office-administrator-with-italian-or-spanish-swiss-re-ch",
         "de": "back-office-administrator-mit-italienisch-oder-spanisch-swiss-re-bratislava-sk",
         "fr": "back-office-administrateur-avec-italien-ou-espagnol-swiss-re-bratislava-sk"
@@ -3425,7 +3521,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "back-office-administrator-with-italian-or-spanish-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "back-office-administrator-with-italian-or-spanish-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-a43eed6623d0",
@@ -3546,13 +3650,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-operational-excellence-lead-swiss-re-ch",
-        "leader-dell-eccellenza-operativa-senior-swiss-re-zurich"
+        "senior-operational-excellence-lead-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-operational-excellence-lead-swiss-re-ch",
-          "leader-dell-eccellenza-operativa-senior-swiss-re-zurich"
+          "senior-operational-excellence-lead-swiss-re-ch"
         ],
         "de": [
           "senior-operational-excellence-lead-swiss-re-ch"
@@ -3584,7 +3686,7 @@
         "en": "senior-r-d-actuary-swiss-re-ch",
         "it": "senior-r-d-actuary-swiss-re-ch",
         "de": "senior-r-d-actuary-swiss-re-ch",
-        "fr": "senior-r-d-actuary-swiss-re-ch"
+        "fr": "actuaire-principal-de-r-d-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3785,7 +3887,7 @@
         "en": "senior-financial-accountant-swiss-re-ch",
         "it": "senior-financial-accountant-swiss-re-ch",
         "de": "senior-financial-accountant-swiss-re-ch",
-        "fr": "senior-financial-accountant-swiss-re-ch"
+        "fr": "comptable-financier-principal-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3910,8 +4012,8 @@
       "slugByLocale": {
         "en": "senior-portfolio-manager-swiss-re-ch",
         "it": "senior-portfolio-manager-swiss-re-ch-2",
-        "de": "senior-portfolio-manager-swiss-re-ch-2",
-        "fr": "senior-portfolio-manager-swiss-re-ch-2"
+        "de": "senior-portfoliomanager-swiss-re-bangalore-in",
+        "fr": "aine-gestionnaire-de-portefeuille-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4044,8 +4146,8 @@
       "slugByLocale": {
         "en": "senior-portfolio-manager-swiss-re-ch",
         "it": "senior-portfolio-manager-swiss-re-ch",
-        "de": "senior-portfolio-manager-swiss-re-ch",
-        "fr": "senior-portfolio-manager-swiss-re-ch"
+        "de": "senior-portfoliomanager-swiss-re-hong-kong-hk",
+        "fr": "aine-gestionnaire-de-portefeuille-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4229,12 +4331,12 @@
     },
     {
       "id": "swiss-re-24547e32f8ab",
-      "slug": "records-management-associate-swiss-re-ch",
+      "slug": "gestione-record-associate-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "records-management-associate-swiss-re-ch",
-        "it": "records-management-associate-swiss-re-ch",
+        "it": "gestione-record-associate-swiss-re-bratislava-sk",
         "de": "records-management-associate-swiss-re-ch",
-        "fr": "records-management-associate-swiss-re-ch"
+        "fr": "associe-a-la-gestion-des-dossiers-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4288,7 +4390,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:06:24.888Z"
+      "firstSeenAt": "2026-07-10T13:06:24.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "records-management-associate-swiss-re-ch"
+        ],
+        "fr": [
+          "records-management-associate-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "records-management-associate-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-fcd79635f730",
@@ -4510,7 +4623,7 @@
         "it": "senior-structurer-trasferimento-al-rischio-alternativo-nyc-swiss-re-new-york-ny-us",
         "en": "senior-structurer-alternative-risk-transfer-nyc-swiss-re-ch",
         "de": "senior-structurer-alternativer-risikotransfer-nyc-swiss-re-new-york-ny-us",
-        "fr": "senior-structurer-alternative-risk-transfer-nyc-swiss-re-ch"
+        "fr": "structurer-principal-autres-transferts-de-risques-nyc-swiss-re-new-york-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4557,6 +4670,9 @@
           "senior-structurer-alternative-risk-transfer-nyc-swiss-re-ch"
         ],
         "de": [
+          "senior-structurer-alternative-risk-transfer-nyc-swiss-re-ch"
+        ],
+        "fr": [
           "senior-structurer-alternative-risk-transfer-nyc-swiss-re-ch"
         ]
       },
@@ -4646,12 +4762,12 @@
     },
     {
       "id": "swiss-re-6e817e20dd40",
-      "slug": "engineering-underwriter-swiss-re-ch-2",
+      "slug": "ingegneria-underwriter-swiss-re-mumbai-in",
       "slugByLocale": {
         "en": "engineering-underwriter-swiss-re-ch",
-        "it": "engineering-underwriter-swiss-re-ch-2",
+        "it": "ingegneria-underwriter-swiss-re-mumbai-in",
         "de": "engineering-underwriter-swiss-re-mumbai-in",
-        "fr": "engineering-underwriter-swiss-re-ch-2"
+        "fr": "ingenieur-adjoint-swiss-re-mumbai-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4708,11 +4824,16 @@
       "firstSeenAt": "2026-07-10T13:06:06.171Z",
       "previousSlugsByLocale": {
         "it": [
-          "engineering-underwriter-swiss-re-ch"
+          "engineering-underwriter-swiss-re-ch",
+          "engineering-underwriter-swiss-re-ch-2"
+        ],
+        "fr": [
+          "engineering-underwriter-swiss-re-ch-2"
         ]
       },
       "previousSlugs": [
-        "engineering-underwriter-swiss-re-ch"
+        "engineering-underwriter-swiss-re-ch",
+        "engineering-underwriter-swiss-re-ch-2"
       ]
     },
     {
@@ -4722,7 +4843,7 @@
         "en": "modelling-lead-americas-swiss-re-ch",
         "it": "modelling-lead-americas-swiss-re-ch",
         "de": "modelling-lead-americas-swiss-re-ch",
-        "fr": "modelling-lead-americas-swiss-re-ch"
+        "fr": "modelisation-du-plomb-ameriques-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4784,7 +4905,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich",
         "en": "underwriter-agriculture-p-c-re-swiss-re-ch",
-        "de": "underwriter-agriculture-p-c-re-swiss-re-zurich",
+        "de": "underwriter-landwirtschaft-p-c-re-swiss-re-zurich",
         "fr": "moins-de-107-2-du-total-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -4835,12 +4956,14 @@
           "underwriter-agriculture-p-c-re-swiss-re-ch"
         ],
         "de": [
-          "underwriter-agriculture-p-c-re-swiss-re-ch"
+          "underwriter-agriculture-p-c-re-swiss-re-ch",
+          "underwriter-agriculture-p-c-re-swiss-re-zurich"
         ]
       },
       "previousSlugs": [
         "underwriter-agriculture-p-c-re-swiss-re-ch",
-        "under-107-0-2-of-the-total-swiss-re-zurich"
+        "under-107-0-2-of-the-total-swiss-re-zurich",
+        "underwriter-agriculture-p-c-re-swiss-re-zurich"
       ],
       "firstSeenAt": "2026-07-08T11:23:54.824Z",
       "salaryMin": 1500,
@@ -4863,8 +4986,8 @@
       "slugByLocale": {
         "en": "senior-portfolio-manager-swiss-re-ch",
         "it": "senior-portfolio-manager-swiss-re-ch-3",
-        "de": "senior-portfolio-manager-swiss-re-ch-3",
-        "fr": "senior-portfolio-manager-swiss-re-ch-3"
+        "de": "senior-portfoliomanager-swiss-re-singapore-sg",
+        "fr": "aine-gestionnaire-de-portefeuille-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4934,8 +5057,8 @@
       "slugByLocale": {
         "en": "senior-portfolio-manager-swiss-re-ch",
         "it": "senior-portfolio-manager-swiss-re-ch-4",
-        "de": "senior-portfolio-manager-swiss-re-ch-4",
-        "fr": "senior-portfolio-manager-swiss-re-ch-4"
+        "de": "senior-portfoliomanager-swiss-re-seoul-kr",
+        "fr": "aine-gestionnaire-de-portefeuille-swiss-re-seoul-kr"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5006,7 +5129,7 @@
         "it": "senior-contabile-temporary-role-swiss-re-bratislava-sk",
         "en": "senior-accountant-temporary-role-swiss-re-ch",
         "de": "senior-buchhalter-temporary-role-swiss-re-bratislava-sk",
-        "fr": "senior-accountant-temporary-role-swiss-re-ch"
+        "fr": "comptable-principal-role-temporaire-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5053,6 +5176,9 @@
           "senior-accountant-temporary-role-swiss-re-ch"
         ],
         "de": [
+          "senior-accountant-temporary-role-swiss-re-ch"
+        ],
+        "fr": [
           "senior-accountant-temporary-role-swiss-re-ch"
         ]
       },
@@ -5118,13 +5244,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "underwriting-assistant-temporary-role-6-months-swiss-re-ch",
-        "assistente-di-sottoscrizione-ruolo-temporaneo-6-mesi-swiss-re-singapore-sg"
+        "underwriting-assistant-temporary-role-6-months-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "underwriting-assistant-temporary-role-6-months-swiss-re-ch",
-          "assistente-di-sottoscrizione-ruolo-temporaneo-6-mesi-swiss-re-singapore-sg"
+          "underwriting-assistant-temporary-role-6-months-swiss-re-ch"
         ],
         "fr": [
           "underwriting-assistant-temporary-role-6-months-swiss-re-ch"
@@ -5148,12 +5272,12 @@
     },
     {
       "id": "swiss-re-a36c49bdb66c",
-      "slug": "technical-sales-lead-pss-swiss-re-ch",
+      "slug": "vendita-tecnica-lead-pss-swiss-re-toronto-ca",
       "slugByLocale": {
         "en": "technical-sales-lead-pss-swiss-re-ch",
-        "it": "technical-sales-lead-pss-swiss-re-ch",
+        "it": "vendita-tecnica-lead-pss-swiss-re-toronto-ca",
         "de": "technical-sales-lead-pss-swiss-re-ch",
-        "fr": "technical-sales-lead-pss-swiss-re-ch"
+        "fr": "lead-des-ventes-techniques-pss-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5207,7 +5331,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:05:58.136Z"
+      "firstSeenAt": "2026-07-10T13:05:58.136Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-sales-lead-pss-swiss-re-ch"
+        ],
+        "fr": [
+          "technical-sales-lead-pss-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-sales-lead-pss-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-feccfa1cac96",
@@ -5567,7 +5702,7 @@
         "it": "infrastructure-finanza-professional-swiss-re-new-york-ny-us",
         "en": "infrastructure-finance-professional-swiss-re-ch",
         "de": "infrastructure-finanzen-professional-swiss-re-new-york-ny-us",
-        "fr": "infrastructure-finance-professional-swiss-re-ch"
+        "fr": "professionnels-du-financement-des-infrastructures-swiss-re-new-york-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5609,6 +5744,9 @@
       "firstSeenAt": "2026-07-08T11:23:50.592Z",
       "previousSlugsByLocale": {
         "it": [
+          "infrastructure-finance-professional-swiss-re-ch"
+        ],
+        "fr": [
           "infrastructure-finance-professional-swiss-re-ch"
         ]
       },
@@ -5704,9 +5842,9 @@
     },
     {
       "id": "swiss-re-e23d28b98492",
-      "slug": "head-contracts-l-h-north-america-toronto-swiss-re-ch",
+      "slug": "principali-contratti-l-h-north-america-toronto-swiss-re-toronto-ca",
       "slugByLocale": {
-        "it": "head-contracts-l-h-north-america-toronto-swiss-re-ch",
+        "it": "principali-contratti-l-h-north-america-toronto-swiss-re-toronto-ca",
         "en": "head-contracts-l-h-north-america-toronto-swiss-re-ch",
         "de": "head-contracts-l-h-north-america-toronto-swiss-re-ch",
         "fr": "contrats-principaux-l-h-amerique-du-nord-toronto-swiss-re-toronto-ca"
@@ -5761,7 +5899,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-contracts-l-h-north-america-toronto-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-contracts-l-h-north-america-toronto-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-929a25bfa399",
@@ -5986,12 +6132,12 @@
     },
     {
       "id": "swiss-re-e990d6a18b95",
-      "slug": "engineering-manager-swiss-re-ch",
+      "slug": "gestione-dell-ingegneria-swiss-re-hyderabad-in",
       "slugByLocale": {
         "en": "engineering-manager-swiss-re-ch",
-        "it": "engineering-manager-swiss-re-ch",
+        "it": "gestione-dell-ingegneria-swiss-re-hyderabad-in",
         "de": "engineering-manager-swiss-re-ch",
-        "fr": "engineering-manager-swiss-re-ch"
+        "fr": "directeur-technique-swiss-re-hyderabad-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6045,7 +6191,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:05:38.135Z"
+      "firstSeenAt": "2026-07-10T13:05:38.135Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "engineering-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-5a388911e004",
@@ -6115,7 +6272,7 @@
         "it": "compliance-officer-fraud-risk-12-mesi-contratto-a-tempo-determinato-80-100-swiss-re-london-gb",
         "en": "compliance-officer-fraud-risk-12-month-fixed-term-contract-80-100-swiss-re-ch",
         "de": "compliance-officer-betrugsrisiko-12-monatiger-befristeter-vertrag-80-100-swiss-re-london-gb",
-        "fr": "compliance-officer-fraud-risk-12-month-fixed-term-contract-80-100-swiss-re-ch"
+        "fr": "agent-de-conformite-risque-de-fraude-12-mois-contrat-a-duree-determinee-80-100-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6163,6 +6320,9 @@
         ],
         "de": [
           "compliance-officer-fraud-risk-12-month-fixed-term-contract-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "compliance-officer-fraud-risk-12-month-fixed-term-contract-80-100-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:48.173Z",
@@ -6187,7 +6347,7 @@
         "it": "senior-sales-executive-risk-data-solutions-saas-clima-risk-swiss-re-zurich",
         "en": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch",
         "de": "senior-sales-executive-risk-data-solutions-saas-klima-immobilienrisiko-swiss-re-zurich",
-        "fr": "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
+        "fr": "directeur-des-ventes-solutions-de-donnees-de-risque-saas-climat-risque-immobilier-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6234,6 +6394,9 @@
           "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
         ],
         "de": [
+          "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
+        ],
+        "fr": [
           "senior-sales-executive-risk-data-solutions-saas-climate-property-risk-swiss-re-ch"
         ]
       },
@@ -6583,13 +6746,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch",
-        "gestione-delle-operazioni-mgmt-di-terze-parti-swiss-re-bratislava-sk"
+        "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch",
-          "gestione-delle-operazioni-mgmt-di-terze-parti-swiss-re-bratislava-sk"
+          "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
         ],
         "de": [
           "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
@@ -6618,7 +6779,7 @@
         "en": "modelling-lead-americas-swiss-re-ch",
         "it": "modelling-lead-americas-swiss-re-ch-2",
         "de": "modelling-lead-americas-swiss-re-ch-2",
-        "fr": "modelling-lead-americas-swiss-re-ch-2"
+        "fr": "modelisation-du-plomb-ameriques-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6835,7 +6996,7 @@
         "en": "ai-engineering-lead-swiss-re-ch",
         "it": "ai-engineering-lead-swiss-re-ch",
         "de": "ai-engineering-lead-swiss-re-ch",
-        "fr": "ai-engineering-lead-swiss-re-ch"
+        "fr": "responsable-du-genie-de-l-ia-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6938,13 +7099,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-contracts-l-h-north-america-swiss-re-ch",
-        "principali-contratti-l-h-north-america-swiss-re-zurich"
+        "head-contracts-l-h-north-america-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-contracts-l-h-north-america-swiss-re-ch",
-          "principali-contratti-l-h-north-america-swiss-re-zurich"
+          "head-contracts-l-h-north-america-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -7167,7 +7326,7 @@
         "it": "engineering-construction-e-c-underwriter-swiss-re-ch",
         "en": "engineering-construction-e-c-underwriter-swiss-re-ch",
         "de": "engineering-construction-e-c-underwriter-swiss-re-ch",
-        "fr": "engineering-construction-e-c-underwriter-swiss-re-ch"
+        "fr": "ingenierie-et-construction-e-c-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7223,9 +7382,9 @@
     },
     {
       "id": "swiss-re-1ff272f2b9d3",
-      "slug": "senior-structurer-property-casualty-swiss-re-ch",
+      "slug": "strutturatore-senior-proprieta-e-casualita-swiss-re-zurich",
       "slugByLocale": {
-        "it": "senior-structurer-property-casualty-swiss-re-ch",
+        "it": "strutturatore-senior-proprieta-e-casualita-swiss-re-zurich",
         "en": "senior-structurer-property-casualty-swiss-re-ch",
         "de": "senior-structurer-eigentum-unfall-swiss-re-zurich",
         "fr": "structurer-principal-propriete-et-perte-swiss-re-zurich"
@@ -7270,10 +7429,14 @@
       "previousSlugsByLocale": {
         "en": [
           "senior-structurer-propertyy-swiss-re-zurich"
+        ],
+        "it": [
+          "senior-structurer-property-casualty-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "senior-structurer-propertyy-swiss-re-zurich"
+        "senior-structurer-propertyy-swiss-re-zurich",
+        "senior-structurer-property-casualty-swiss-re-ch"
       ],
       "firstSeenAt": "2026-07-08T11:23:45.145Z",
       "salaryMin": 101500,
@@ -7292,12 +7455,12 @@
     },
     {
       "id": "swiss-re-7c6dad1f2d1a",
-      "slug": "engineering-manager-swiss-re-ch-2",
+      "slug": "gestione-dell-ingegneria-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "engineering-manager-swiss-re-ch",
-        "it": "engineering-manager-swiss-re-ch-2",
+        "it": "gestione-dell-ingegneria-swiss-re-bratislava-sk",
         "de": "engineering-manager-swiss-re-ch-2",
-        "fr": "engineering-manager-swiss-re-ch-2"
+        "fr": "directeur-technique-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7354,11 +7517,16 @@
       "firstSeenAt": "2026-07-10T13:04:49.585Z",
       "previousSlugsByLocale": {
         "it": [
-          "engineering-manager-swiss-re-ch"
+          "engineering-manager-swiss-re-ch",
+          "engineering-manager-swiss-re-ch-2"
+        ],
+        "fr": [
+          "engineering-manager-swiss-re-ch-2"
         ]
       },
       "previousSlugs": [
-        "engineering-manager-swiss-re-ch"
+        "engineering-manager-swiss-re-ch",
+        "engineering-manager-swiss-re-ch-2"
       ]
     },
     {
@@ -7443,7 +7611,7 @@
         "en": "finance-reporting-manager-swiss-re-ch",
         "it": "finance-reporting-manager-swiss-re-ch",
         "de": "finance-reporting-manager-swiss-re-ch",
-        "fr": "finance-reporting-manager-swiss-re-ch"
+        "fr": "gestionnaire-des-rapports-financiers-swiss-re-kansas-city-mo-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7501,12 +7669,12 @@
     },
     {
       "id": "swiss-re-c639516f1814",
-      "slug": "reinsurance-contracts-expert-swiss-re-ch",
+      "slug": "contratti-di-assicurazione-esperto-swiss-re-kuala-lumpur-my",
       "slugByLocale": {
         "en": "reinsurance-contracts-expert-swiss-re-ch",
-        "it": "reinsurance-contracts-expert-swiss-re-ch",
-        "de": "reinsurance-contracts-expert-swiss-re-ch",
-        "fr": "reinsurance-contracts-expert-swiss-re-ch"
+        "it": "contratti-di-assicurazione-esperto-swiss-re-kuala-lumpur-my",
+        "de": "ruckversicherungsvertragsexperte-swiss-re-kuala-lumpur-my",
+        "fr": "expert-en-contrats-de-reassurance-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7560,7 +7728,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:04:58.640Z"
+      "firstSeenAt": "2026-07-10T13:04:58.640Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reinsurance-contracts-expert-swiss-re-ch"
+        ],
+        "de": [
+          "reinsurance-contracts-expert-swiss-re-ch"
+        ],
+        "fr": [
+          "reinsurance-contracts-expert-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reinsurance-contracts-expert-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-9be304ac7d00",
@@ -7569,7 +7751,7 @@
         "en": "governance-manager-l-h-swiss-re-ch",
         "it": "governance-manager-l-h-swiss-re-ch",
         "de": "governance-manager-l-h-swiss-re-ch",
-        "fr": "governance-manager-l-h-swiss-re-ch"
+        "fr": "gestionnaire-de-la-gouvernance-l-h-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7841,12 +8023,12 @@
     },
     {
       "id": "swiss-re-e00cd6573d64",
-      "slug": "associate-legal-counsel-swiss-re-ch",
+      "slug": "consigliere-legale-associato-swiss-re-kuala-lumpur-my",
       "slugByLocale": {
         "en": "associate-legal-counsel-swiss-re-ch",
-        "it": "associate-legal-counsel-swiss-re-ch",
+        "it": "consigliere-legale-associato-swiss-re-kuala-lumpur-my",
         "de": "associate-legal-counsel-swiss-re-ch",
-        "fr": "associate-legal-counsel-swiss-re-ch"
+        "fr": "conseiller-juridique-associe-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7900,15 +8082,26 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:04:44.730Z"
+      "firstSeenAt": "2026-07-10T13:04:44.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-legal-counsel-swiss-re-ch"
+        ],
+        "fr": [
+          "associate-legal-counsel-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-legal-counsel-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-7610f70cd939",
-      "slug": "experience-studies-actuarial-swiss-re-ch",
+      "slug": "studi-sull-esperienza-actuarial-swiss-re-kuala-lumpur-my",
       "slugByLocale": {
         "en": "experience-studies-actuarial-swiss-re-ch",
-        "it": "experience-studies-actuarial-swiss-re-ch",
-        "de": "experience-studies-actuarial-swiss-re-ch",
+        "it": "studi-sull-esperienza-actuarial-swiss-re-kuala-lumpur-my",
+        "de": "erfahrungsstudien-versicherungsmathematiker-swiss-re-kuala-lumpur-my",
         "fr": "experience-studies-actuarial-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -7963,7 +8156,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:04:46.274Z"
+      "firstSeenAt": "2026-07-10T13:04:46.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experience-studies-actuarial-swiss-re-ch"
+        ],
+        "de": [
+          "experience-studies-actuarial-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experience-studies-actuarial-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-d4cf9e83a55d",
@@ -8115,7 +8319,7 @@
       "slugByLocale": {
         "en": "senior-actuarial-analyst-swiss-re-ch",
         "it": "senior-actuarial-analyst-swiss-re-ch",
-        "de": "senior-actuarial-analyst-swiss-re-ch",
+        "de": "senior-aktuarialanalyst-swiss-re-bangalore-in",
         "fr": "senior-actuarial-analyst-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -8532,7 +8736,7 @@
         "it": "head-business-architecture-l-h-operations-swiss-re-ch",
         "en": "head-business-architecture-l-h-operations-swiss-re-ch",
         "de": "leiter-business-architecture-l-h-operations-swiss-re-bangalore-in",
-        "fr": "head-business-architecture-l-h-operations-swiss-re-ch"
+        "fr": "chef-de-l-architecture-d-affaires-operations-de-l-h-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8766,13 +8970,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "carrier-operations-process-analyst-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "carrier-operations-process-analista-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch"
+        "carrier-operations-process-analyst-hybrid-m-f-x-d-80-100-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrier-operations-process-analyst-hybrid-m-f-x-d-80-100-swiss-re-ch",
-          "carrier-operations-process-analista-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch"
+          "carrier-operations-process-analyst-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ],
         "fr": [
           "carrier-operations-process-analyst-hybrid-m-f-x-d-80-100-swiss-re-ch"
@@ -8872,12 +9074,12 @@
     },
     {
       "id": "swiss-re-04bc5873783c",
-      "slug": "client-manager-swiss-re-ch",
+      "slug": "gestione-clienti-swiss-re-kuala-lumpur-my",
       "slugByLocale": {
         "en": "client-manager-swiss-re-ch",
-        "it": "client-manager-swiss-re-ch",
-        "de": "client-manager-swiss-re-ch",
-        "fr": "client-manager-swiss-re-ch"
+        "it": "gestione-clienti-swiss-re-kuala-lumpur-my",
+        "de": "kundenmanager-swiss-re-kuala-lumpur-my",
+        "fr": "gestionnaire-de-clients-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8931,7 +9133,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:04:30.228Z"
+      "firstSeenAt": "2026-07-10T13:04:30.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-manager-swiss-re-ch"
+        ],
+        "de": [
+          "client-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "client-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-7cc2beae6a6d",
@@ -8940,7 +9156,7 @@
         "it": "responsabile-operazioni-l-h-di-architettura-aziendale-ibrido-swiss-re-singapore-sg",
         "en": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch",
         "de": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch-2",
-        "fr": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch-2"
+        "fr": "chef-de-l-architecture-d-affaires-operations-de-l-h-hybrid-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8987,6 +9203,9 @@
         "it": [
           "head-business-architecture-l-h-operations-hybrid-swiss-re-ch",
           "head-business-architecture-l-h-operations-hybrid-swiss-re-ch-2"
+        ],
+        "fr": [
+          "head-business-architecture-l-h-operations-hybrid-swiss-re-ch-2"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:36.371Z",
@@ -9011,7 +9230,7 @@
         "en": "head-business-architecture-l-h-operations-swiss-re-ch",
         "it": "head-business-architecture-l-h-operations-swiss-re-ch-2",
         "de": "head-business-architecture-l-h-operations-swiss-re-ch-2",
-        "fr": "head-business-architecture-l-h-operations-swiss-re-ch-2"
+        "fr": "chef-de-l-architecture-d-affaires-operations-de-l-h-swiss-re-fort-wayne-in-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9122,13 +9341,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch",
-        "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-milano-it"
+        "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch",
-          "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-milano-it"
+          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
         ],
         "de": [
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
@@ -9197,13 +9414,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "underwriting-associate-hybrid-m-w-x-d-80-100-swiss-re-ch",
-        "sottoscrizione-associate-hybrid-m-f-x-d-80-100-swiss-re-munich-de"
+        "underwriting-associate-hybrid-m-w-x-d-80-100-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "underwriting-associate-hybrid-m-w-x-d-80-100-swiss-re-ch",
-          "sottoscrizione-associate-hybrid-m-f-x-d-80-100-swiss-re-munich-de"
+          "underwriting-associate-hybrid-m-w-x-d-80-100-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -9229,7 +9444,7 @@
         "en": "costing-data-associate-swiss-re-ch",
         "it": "costing-data-associate-swiss-re-ch",
         "de": "costing-data-associate-swiss-re-ch",
-        "fr": "costing-data-associate-swiss-re-ch"
+        "fr": "cout-et-donnees-associees-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9407,14 +9622,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch",
-        "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2",
-        "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-zurich-ch"
+        "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch",
-          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2",
-          "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-zurich-ch"
+          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2"
         ],
         "de": [
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2"
@@ -9443,7 +9656,7 @@
         "it": "sales-operations-manager-us-canada-swiss-re-ch",
         "en": "sales-operations-manager-us-canada-swiss-re-ch",
         "de": "sales-operations-manager-usa-kanada-swiss-re-zurich",
-        "fr": "sales-operations-manager-us-canada-swiss-re-ch"
+        "fr": "directeur-des-operations-commerciales-etats-unis-et-canada-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9504,7 +9717,7 @@
         "en": "finance-manager-us-globals-swiss-re-ch",
         "it": "finance-manager-us-globals-swiss-re-ch",
         "de": "finance-manager-us-globals-swiss-re-ch",
-        "fr": "finance-manager-us-globals-swiss-re-ch"
+        "fr": "directeur-des-finances-us-globals-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -10359,9 +10572,9 @@
     },
     {
       "id": "swiss-re-f095ccc1cd49",
-      "slug": "property-facultative-underwriter-swiss-re-ch",
+      "slug": "proprieta-facoltativo-underwriter-swiss-re-hong-kong-hk",
       "slugByLocale": {
-        "it": "property-facultative-underwriter-swiss-re-ch",
+        "it": "proprieta-facoltativo-underwriter-swiss-re-hong-kong-hk",
         "en": "property-facultative-underwriter-swiss-re-ch",
         "de": "immobilien-facultative-underwriter-swiss-re-hong-kong-hk",
         "fr": "un-souscripteur-specialise-en-propriete-swiss-re-hong-kong-hk"
@@ -10416,7 +10629,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "property-facultative-underwriter-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "property-facultative-underwriter-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-9db88d0d6894",
@@ -10987,7 +11208,7 @@
         "it": "strutturatore-assicurazione-swiss-re-new-york-ny-us",
         "en": "structurer-insurance-linked-securities-swiss-re-ch",
         "de": "strukturierer-versicherungsverbundene-wertpapiere-swiss-re-new-york-ny-us",
-        "fr": "structurer-insurance-linked-securities-swiss-re-ch"
+        "fr": "structurer-assurance-titres-lies-swiss-re-new-york-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11035,6 +11256,9 @@
         ],
         "de": [
           "structurer-insurance-linked-securities-swiss-re-ch"
+        ],
+        "fr": [
+          "structurer-insurance-linked-securities-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:33.951Z",
@@ -11059,7 +11283,7 @@
         "en": "r-c-control-oversight-lead-swiss-re-ch",
         "it": "r-c-control-oversight-lead-swiss-re-ch",
         "de": "r-c-control-oversight-lead-swiss-re-ch",
-        "fr": "r-c-control-oversight-lead-swiss-re-ch"
+        "fr": "responsable-du-controle-et-de-la-surveillance-de-la-r-c-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11163,14 +11387,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss",
-        "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2",
-        "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-munich-de"
+        "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss",
-          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2",
-          "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-munich-de"
+          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
         ],
         "de": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
@@ -11239,13 +11461,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
-        "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es"
+        "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
-          "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es"
+          "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -11409,7 +11629,7 @@
       "slugByLocale": {
         "en": "pm-actuarial-analyst-swiss-re-ch",
         "it": "pm-actuarial-analista-swiss-re-kuala-lumpur-my",
-        "de": "pm-actuarial-analyst-swiss-re-ch",
+        "de": "pm-versicherungsmathematiker-swiss-re-kuala-lumpur-my",
         "fr": "pm-actuarial-analyste-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
@@ -11470,6 +11690,9 @@
           "pm-actuarial-analyst-swiss-re-ch"
         ],
         "fr": [
+          "pm-actuarial-analyst-swiss-re-ch"
+        ],
+        "de": [
           "pm-actuarial-analyst-swiss-re-ch"
         ]
       },
@@ -11600,14 +11823,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss",
-        "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2",
-        "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-london-gb"
+        "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss",
-          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2",
-          "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-london-gb"
+          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
         ],
         "de": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
@@ -11636,7 +11857,7 @@
         "it": "modello-di-transazioni-finanziarie-hybrid-swiss-re-folkestone-gb",
         "en": "financial-transactions-modeler-hybrid-swiss-re-ch-2",
         "de": "finanztransaktionen-modeler-hybrid-swiss-re-folkestone-gb",
-        "fr": "financial-transactions-modeler-hybrid-swiss-re-ch"
+        "fr": "modele-d-operations-financieres-hybride-swiss-re-folkestone-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11686,6 +11907,9 @@
         ],
         "de": [
           "financial-transactions-modeler-hybrid-swiss-re-ch-2"
+        ],
+        "fr": [
+          "financial-transactions-modeler-hybrid-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:26.378Z",
@@ -11710,7 +11934,7 @@
         "it": "modello-di-transazioni-finanziarie-hybrid-swiss-re-london-gb",
         "en": "financial-transactions-modeler-hybrid-swiss-re-ch-3",
         "de": "finanztransaktionen-modeler-hybrid-swiss-re-london-gb",
-        "fr": "financial-transactions-modeler-hybrid-swiss-re-ch"
+        "fr": "modele-d-operations-financieres-hybride-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11760,6 +11984,9 @@
         ],
         "de": [
           "financial-transactions-modeler-hybrid-swiss-re-ch-3"
+        ],
+        "fr": [
+          "financial-transactions-modeler-hybrid-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:26.075Z",
@@ -12290,7 +12517,7 @@
         "en": "head-p-c-claims-sid-swiss-re-ch",
         "it": "head-p-c-claims-sid-swiss-re-ch",
         "de": "head-p-c-claims-sid-swiss-re-ch",
-        "fr": "head-p-c-claims-sid-swiss-re-ch"
+        "fr": "reclamations-du-chef-p-c-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -12556,7 +12783,7 @@
         "it": "risk-consulente-p-c-insurance-swiss-re-zurich",
         "en": "risk-consultant-p-c-insurance-swiss-re-ch",
         "de": "risk-berater-p-c-insurance-swiss-re-zurich",
-        "fr": "risk-consultant-p-c-insurance-swiss-re-ch"
+        "fr": "consultant-en-risques-assurance-p-c-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -12604,6 +12831,9 @@
         ],
         "de": [
           "risk-consultant-p-c-insurance-swiss-re-ch"
+        ],
+        "fr": [
+          "risk-consultant-p-c-insurance-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:20.323Z",
@@ -12627,7 +12857,7 @@
       "slugByLocale": {
         "en": "actuarial-analyst-swiss-re-ch",
         "it": "actuarial-analista-swiss-re-mexico-city-mx",
-        "de": "actuarial-analyst-swiss-re-ch",
+        "de": "versicherungsmathematiker-swiss-re-mexico-city-mx",
         "fr": "actuarial-analyste-swiss-re-mexico-city-mx"
       },
       "company": "Swiss Re",
@@ -12689,6 +12919,9 @@
         ],
         "fr": [
           "actuarial-analyst-swiss-re-ch"
+        ],
+        "de": [
+          "actuarial-analyst-swiss-re-ch"
         ]
       },
       "previousSlugs": [
@@ -12697,12 +12930,12 @@
     },
     {
       "id": "swiss-re-b57b777c7a8c",
-      "slug": "operations-manager-swiss-re-ch",
+      "slug": "gestione-delle-operazioni-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "operations-manager-swiss-re-ch",
-        "it": "operations-manager-swiss-re-ch",
-        "de": "operations-manager-swiss-re-ch",
-        "fr": "operations-manager-swiss-re-ch"
+        "it": "gestione-delle-operazioni-swiss-re-bratislava-sk",
+        "de": "betriebsleiter-swiss-re-bratislava-sk",
+        "fr": "directeur-des-operations-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -12756,7 +12989,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:03:03.200Z"
+      "firstSeenAt": "2026-07-10T13:03:03.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-manager-swiss-re-ch"
+        ],
+        "de": [
+          "operations-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "operations-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operations-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-013a9115cfb1",
@@ -12837,7 +13084,7 @@
         "it": "claims-solutions-consulente-german-language-is-an-advantage-hybrid-swiss-re-bratislava-sk",
         "en": "claims-solutions-consultant-german-language-is-an-advantage-hybrid-swiss-re-ch",
         "de": "claims-solutions-berater-german-language-is-an-advantage-hybrid-swiss-re-bratislava-sk",
-        "fr": "claims-solutions-consultant-german-language-is-an-advantage-hybrid-swiss-re-ch"
+        "fr": "consultant-en-solutions-de-reclamations-la-langue-allemande-est-un-avantage-hybrid-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -12884,6 +13131,9 @@
           "claims-solutions-consultant-german-language-is-an-advantage-hybrid-swiss-re-ch"
         ],
         "de": [
+          "claims-solutions-consultant-german-language-is-an-advantage-hybrid-swiss-re-ch"
+        ],
+        "fr": [
           "claims-solutions-consultant-german-language-is-an-advantage-hybrid-swiss-re-ch"
         ]
       },
@@ -12971,7 +13221,7 @@
         "it": "sales-operations-manager-us-canada-swiss-re-ch-2",
         "en": "sales-operations-manager-us-canada-swiss-re-ch-2",
         "de": "sales-operations-manager-usa-kanada-swiss-re-toronto-ca",
-        "fr": "sales-operations-manager-us-canada-swiss-re-ch"
+        "fr": "directeur-des-operations-commerciales-etats-unis-et-canada-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13016,6 +13266,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-operations-manager-us-canada-swiss-re-ch"
+        ],
+        "fr": [
+          "sales-operations-manager-us-canada-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:17.902Z",
@@ -13035,12 +13288,12 @@
     },
     {
       "id": "swiss-re-5e1ffa5985ec",
-      "slug": "it-service-management-lead-swiss-re-ch",
+      "slug": "gestione-dei-servizi-it-lead-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "it-service-management-lead-swiss-re-ch",
-        "it": "it-service-management-lead-swiss-re-ch",
+        "it": "gestione-dei-servizi-it-lead-swiss-re-bratislava-sk",
         "de": "it-service-management-lead-swiss-re-ch",
-        "fr": "it-service-management-lead-swiss-re-ch"
+        "fr": "chef-de-la-gestion-des-services-informatiques-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13094,7 +13347,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:03:08.187Z"
+      "firstSeenAt": "2026-07-10T13:03:08.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-service-management-lead-swiss-re-ch"
+        ],
+        "fr": [
+          "it-service-management-lead-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-service-management-lead-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-6cd81665b95d",
@@ -13376,7 +13640,7 @@
       "slugByLocale": {
         "en": "actuarial-analyst-swiss-re-ch",
         "it": "actuarial-analista-swiss-re-mumbai-in",
-        "de": "actuarial-analyst-swiss-re-ch-2",
+        "de": "versicherungsmathematiker-swiss-re-mumbai-in",
         "fr": "actuarial-analyste-swiss-re-mumbai-in"
       },
       "company": "Swiss Re",
@@ -13439,6 +13703,9 @@
         ],
         "fr": [
           "actuarial-analyst-swiss-re-ch-2"
+        ],
+        "de": [
+          "actuarial-analyst-swiss-re-ch-2"
         ]
       },
       "previousSlugs": [
@@ -13448,12 +13715,12 @@
     },
     {
       "id": "swiss-re-2590c7e94c24",
-      "slug": "engineering-manager-swiss-re-ch-3",
+      "slug": "gestione-dell-ingegneria-swiss-re-bratislava-sk-18811b",
       "slugByLocale": {
         "en": "engineering-manager-swiss-re-ch",
-        "it": "engineering-manager-swiss-re-ch-3",
+        "it": "gestione-dell-ingegneria-swiss-re-bratislava-sk-18811b",
         "de": "engineering-manager-swiss-re-ch-3",
-        "fr": "engineering-manager-swiss-re-ch-3"
+        "fr": "directeur-technique-swiss-re-bratislava-sk-18811b"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13510,11 +13777,16 @@
       "firstSeenAt": "2026-07-10T13:02:54.602Z",
       "previousSlugsByLocale": {
         "it": [
-          "engineering-manager-swiss-re-ch"
+          "engineering-manager-swiss-re-ch",
+          "engineering-manager-swiss-re-ch-3"
+        ],
+        "fr": [
+          "engineering-manager-swiss-re-ch-3"
         ]
       },
       "previousSlugs": [
-        "engineering-manager-swiss-re-ch"
+        "engineering-manager-swiss-re-ch",
+        "engineering-manager-swiss-re-ch-3"
       ]
     },
     {
@@ -13524,7 +13796,7 @@
         "it": "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-london-gb",
         "en": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch-2",
         "de": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch-2",
-        "fr": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "fr": "conseiller-juridique-operations-mondiales-et-gouvernance-juridique-hybrid-m-f-x-j-80-100-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13571,6 +13843,9 @@
         "it": [
           "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
           "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch-2"
+        ],
+        "fr": [
+          "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:16.684Z",
@@ -13727,7 +14002,7 @@
         "it": "consigliere-legale-transazioni-globali-governance-legale-hybrid-m-e-x-d-80-100-swiss-re-zurich",
         "en": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
         "de": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "fr": "conseiller-juridique-operations-mondiales-et-gouvernance-juridique-hybrid-m-f-x-j-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13772,6 +14047,9 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "legal-counsel-global-transactions-legal-governance-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:17.597Z",
@@ -13796,7 +14074,7 @@
         "it": "responsabile-della-conformita-uk-smf-16-swiss-re-london-gb",
         "en": "compliance-officer-uk-smf-16-swiss-re-ch",
         "de": "compliance-officer-uk-smf-16-swiss-re-ch",
-        "fr": "compliance-officer-uk-smf-16-swiss-re-ch"
+        "fr": "agent-de-conformite-uk-smf-16-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13841,6 +14119,9 @@
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-uk-smf-16-swiss-re-ch"
+        ],
+        "fr": [
+          "compliance-officer-uk-smf-16-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:15.467Z",
@@ -13865,7 +14146,7 @@
         "it": "l-h-re-records-manager-swiss-re-bangalore-in",
         "en": "l-h-re-records-management-manager-swiss-re-ch",
         "de": "l-h-re-records-management-manager-swiss-re-ch",
-        "fr": "l-h-re-records-management-manager-swiss-re-ch"
+        "fr": "l-h-re-gestionnaire-de-la-gestion-des-dossiers-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -13909,6 +14190,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "l-h-re-records-management-manager-swiss-re-ch"
+        ],
+        "fr": [
           "l-h-re-records-management-manager-swiss-re-ch"
         ]
       },
@@ -14253,13 +14537,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-mid-level-data-services-risk-management-info-tech-swiss-re-ch",
-        "software-ingegnere-mid-level-data-services-risk-management-info-tech-swiss-re-bratislava-sk"
+        "software-engineer-mid-level-data-services-risk-management-info-tech-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-mid-level-data-services-risk-management-info-tech-swiss-re-ch",
-          "software-ingegnere-mid-level-data-services-risk-management-info-tech-swiss-re-bratislava-sk"
+          "software-engineer-mid-level-data-services-risk-management-info-tech-swiss-re-ch"
         ],
         "de": [
           "software-engineer-mid-level-data-services-risk-management-info-tech-swiss-re-ch"
@@ -14283,12 +14565,12 @@
     },
     {
       "id": "swiss-re-d39728698ab3",
-      "slug": "head-facultative-japan-swiss-re-ch",
+      "slug": "capo-del-giappone-swiss-re-tokyo-jp",
       "slugByLocale": {
         "en": "head-facultative-japan-swiss-re-ch",
-        "it": "head-facultative-japan-swiss-re-ch",
-        "de": "head-facultative-japan-swiss-re-ch",
-        "fr": "head-facultative-japan-swiss-re-ch"
+        "it": "capo-del-giappone-swiss-re-tokyo-jp",
+        "de": "leiter-fakultative-japan-swiss-re-tokyo-jp",
+        "fr": "chef-faculte-japon-swiss-re-tokyo-jp"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -14342,7 +14624,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:02:25.607Z"
+      "firstSeenAt": "2026-07-10T13:02:25.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-facultative-japan-swiss-re-ch"
+        ],
+        "de": [
+          "head-facultative-japan-swiss-re-ch"
+        ],
+        "fr": [
+          "head-facultative-japan-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-facultative-japan-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-4b424aa1ffbc",
@@ -14391,13 +14687,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-assistant-with-german-language-swiss-re-ch",
-        "assistente-di-squadra-con-la-lingua-tedesca-swiss-re-bratislava-sk"
+        "team-assistant-with-german-language-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-assistant-with-german-language-swiss-re-ch",
-          "assistente-di-squadra-con-la-lingua-tedesca-swiss-re-bratislava-sk"
+          "team-assistant-with-german-language-swiss-re-ch"
         ],
         "fr": [
           "team-assistant-with-german-language-swiss-re-ch"
@@ -14912,7 +15206,7 @@
         "it": "business-development-manager-assicurazione-commerciale-distribuzione-manager-swiss-re-chicago-il-us",
         "en": "business-development-manager-commercial-insurance-distribution-manager-swiss-re-ch",
         "de": "business-development-manager-commercial-insurance-distribution-manager-swiss-re-ch",
-        "fr": "business-development-manager-commercial-insurance-distribution-manager-swiss-re-ch"
+        "fr": "gestionnaire-du-developpement-des-affaires-assurance-commerciale-gestionnaire-de-la-distribution-swiss-re-chicago-il-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -14956,6 +15250,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "business-development-manager-commercial-insurance-distribution-manager-swiss-re-ch"
+        ],
+        "fr": [
           "business-development-manager-commercial-insurance-distribution-manager-swiss-re-ch"
         ]
       },
@@ -15122,12 +15419,12 @@
     },
     {
       "id": "swiss-re-bb37b922344e",
-      "slug": "lease-contract-manager-swiss-re-ch",
+      "slug": "gestione-del-contratto-di-locazione-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "lease-contract-manager-swiss-re-ch",
-        "it": "lease-contract-manager-swiss-re-ch",
+        "it": "gestione-del-contratto-di-locazione-swiss-re-bratislava-sk",
         "de": "lease-contract-manager-swiss-re-ch",
-        "fr": "lease-contract-manager-swiss-re-ch"
+        "fr": "gestionnaire-de-contrats-de-location-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -15181,7 +15478,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:02:19.722Z"
+      "firstSeenAt": "2026-07-10T13:02:19.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lease-contract-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "lease-contract-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lease-contract-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-56bbf8241625",
@@ -15230,13 +15538,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-auditor-professional-practices-swiss-re-ch",
-        "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk"
+        "senior-auditor-professional-practices-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-auditor-professional-practices-swiss-re-ch",
-          "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk"
+          "senior-auditor-professional-practices-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -15523,14 +15829,12 @@
           "service-assistent-in-m-f-x-d-50-swiss-re-zurich-ch"
         ],
         "it": [
-          "service-assistant-in-m-f-x-d-50-swiss-re-ch",
-          "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch"
+          "service-assistant-in-m-f-x-d-50-swiss-re-ch"
         ]
       },
       "previousSlugs": [
         "service-assistant-in-m-f-x-d-50-swiss-re-ch",
-        "service-assistent-in-m-f-x-d-50-swiss-re-zurich-ch",
-        "assistente-di-servizio-in-m-e-x-d-50-swiss-re-zurich-ch"
+        "service-assistent-in-m-f-x-d-50-swiss-re-zurich-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:23:09.677Z",
@@ -15555,7 +15859,7 @@
         "it": "accounts-payable-contabile-hybrid-swiss-re-bratislava-sk",
         "en": "accounts-payable-accountant-hybrid-swiss-re-ch",
         "de": "accounts-payable-buchhalter-hybrid-swiss-re-bratislava-sk",
-        "fr": "accounts-payable-accountant-hybrid-swiss-re-ch"
+        "fr": "comptable-hybrid-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -15602,6 +15906,9 @@
           "accounts-payable-accountant-hybrid-swiss-re-ch"
         ],
         "de": [
+          "accounts-payable-accountant-hybrid-swiss-re-ch"
+        ],
+        "fr": [
           "accounts-payable-accountant-hybrid-swiss-re-ch"
         ]
       },
@@ -16031,12 +16338,12 @@
     },
     {
       "id": "swiss-re-26fb0db45eab",
-      "slug": "distribution-manager-swiss-re-ch",
+      "slug": "gestione-della-distribuzione-swiss-re-tokyo-jp",
       "slugByLocale": {
         "en": "distribution-manager-swiss-re-ch",
-        "it": "distribution-manager-swiss-re-ch",
-        "de": "distribution-manager-swiss-re-ch",
-        "fr": "distribution-manager-swiss-re-ch"
+        "it": "gestione-della-distribuzione-swiss-re-tokyo-jp",
+        "de": "verteilungsmanager-swiss-re-tokyo-jp",
+        "fr": "gestionnaire-de-la-distribution-swiss-re-tokyo-jp"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -16090,7 +16397,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:01:57.641Z"
+      "firstSeenAt": "2026-07-10T13:01:57.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "distribution-manager-swiss-re-ch"
+        ],
+        "de": [
+          "distribution-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "distribution-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "distribution-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-d3f9ca1c97f7",
@@ -16587,7 +16908,7 @@
         "it": "gestione-del-fondo-di-ufficio-centrale-hybrid-80-100-swiss-re-london-gb",
         "en": "middle-office-fund-management-associate-hybrid-80-100-swiss-re-ch",
         "de": "middle-office-fund-management-associate-hybrid-80-100-swiss-re-ch",
-        "fr": "middle-office-fund-management-associate-hybrid-80-100-swiss-re-ch"
+        "fr": "associe-a-la-gestion-des-fonds-hybrid-80-100-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -16631,6 +16952,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "middle-office-fund-management-associate-hybrid-80-100-swiss-re-ch"
+        ],
+        "fr": [
           "middle-office-fund-management-associate-hybrid-80-100-swiss-re-ch"
         ]
       },
@@ -16781,12 +17105,12 @@
     },
     {
       "id": "swiss-re-5f5dc8358e43",
-      "slug": "engineering-underwriter-swiss-re-ch-3",
+      "slug": "ingegneria-underwriter-swiss-re-hong-kong-hk",
       "slugByLocale": {
         "en": "engineering-underwriter-swiss-re-ch",
-        "it": "engineering-underwriter-swiss-re-ch-3",
+        "it": "ingegneria-underwriter-swiss-re-hong-kong-hk",
         "de": "engineering-underwriter-swiss-re-hong-kong-hk",
-        "fr": "engineering-underwriter-swiss-re-ch-3"
+        "fr": "ingenieur-adjoint-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -16843,11 +17167,16 @@
       "firstSeenAt": "2026-07-10T13:01:41.149Z",
       "previousSlugsByLocale": {
         "it": [
-          "engineering-underwriter-swiss-re-ch"
+          "engineering-underwriter-swiss-re-ch",
+          "engineering-underwriter-swiss-re-ch-3"
+        ],
+        "fr": [
+          "engineering-underwriter-swiss-re-ch-3"
         ]
       },
       "previousSlugs": [
-        "engineering-underwriter-swiss-re-ch"
+        "engineering-underwriter-swiss-re-ch",
+        "engineering-underwriter-swiss-re-ch-3"
       ]
     },
     {
@@ -17264,7 +17593,7 @@
         "it": "agente-di-conformita-assicurazione-della-conformita-hybrid-80-100-swiss-re-madrid-es",
         "en": "compliance-officer-compliance-assurance-hybrid-80-100-swiss-re-ch",
         "de": "compliance-officer-compliance-assurance-hybrid-80-100-swiss-re-ch",
-        "fr": "compliance-officer-compliance-assurance-hybrid-80-100-swiss-re-ch"
+        "fr": "agent-de-conformite-assurance-de-conformite-hybrid-80-100-swiss-re-madrid-es"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -17308,6 +17637,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "compliance-officer-compliance-assurance-hybrid-80-100-swiss-re-ch"
+        ],
+        "fr": [
           "compliance-officer-compliance-assurance-hybrid-80-100-swiss-re-ch"
         ]
       },
@@ -17571,13 +17903,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch",
-        "werkstudent-life-health-germania-m-e-x-d-swiss-re-munich-de"
+        "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch",
-          "werkstudent-life-health-germania-m-e-x-d-swiss-re-munich-de"
+          "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -17672,7 +18002,7 @@
         "en": "senior-auditor-p-c-actuary-swiss-re-ch",
         "it": "senior-auditor-p-c-actuary-swiss-re-ch-2",
         "de": "senior-auditor-p-c-actuary-swiss-re-ch-2",
-        "fr": "senior-auditor-p-c-actuary-swiss-re-ch-2"
+        "fr": "verificateur-principal-actuaire-p-c-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -17884,7 +18214,7 @@
         "it": "consulenza-legale-concorso-commercio-e-sanzioni-economiche-80-100-etf-swiss-re-london-gb",
         "en": "legal-counsel-competition-trade-economic-sanctions-80-100-fte-swiss-re-ch",
         "de": "rechtsberatung-wettbewerb-handel-und-wirtschaftssanktionen-80-100-etf-swiss-re-london-gb",
-        "fr": "legal-counsel-competition-trade-economic-sanctions-80-100-fte-swiss-re-ch"
+        "fr": "conseiller-juridique-sanctions-en-matiere-de-concurrence-de-commerce-et-d-economie-80-100-etp-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -17932,6 +18262,9 @@
         ],
         "de": [
           "legal-counsel-competition-trade-economic-sanctions-80-100-fte-swiss-re-ch"
+        ],
+        "fr": [
+          "legal-counsel-competition-trade-economic-sanctions-80-100-fte-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:22:55.113Z",
@@ -17955,7 +18288,7 @@
       "slugByLocale": {
         "en": "technical-accounting-analyst-swiss-re-ch",
         "it": "technical-accounting-analyst-swiss-re-ch",
-        "de": "technical-accounting-analyst-swiss-re-ch",
+        "de": "technische-buchhaltung-analyst-swiss-re-sao-paulo-br",
         "fr": "technical-accounting-analyst-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -18019,7 +18352,7 @@
         "it": "international-property-underwriter-corso-swiss-re-ch",
         "en": "international-property-underwriter-corso-swiss-re-ch",
         "de": "international-property-underwriter-corso-swiss-re-ch",
-        "fr": "international-property-underwriter-corso-swiss-re-ch"
+        "fr": "un-souscripteur-international-de-propriete-corso-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18087,12 +18420,12 @@
     },
     {
       "id": "swiss-re-4e1c50b49fc4",
-      "slug": "marine-underwriter-swiss-re-ch",
+      "slug": "sottoscrittore-marino-swiss-re-london-gb",
       "slugByLocale": {
         "en": "marine-underwriter-swiss-re-ch",
-        "it": "marine-underwriter-swiss-re-ch",
+        "it": "sottoscrittore-marino-swiss-re-london-gb",
         "de": "marine-underwriter-swiss-re-london-gb",
-        "fr": "marine-underwriter-swiss-re-ch"
+        "fr": "sous-traitant-maritime-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18146,7 +18479,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:01:10.417Z"
+      "firstSeenAt": "2026-07-10T13:01:10.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marine-underwriter-swiss-re-ch"
+        ],
+        "fr": [
+          "marine-underwriter-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marine-underwriter-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-bcb93ad7aab2",
@@ -18195,13 +18539,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "underwriter-engineering-construction-swiss-re-ch",
-        "ingegneria-e-costruzioni-swiss-re-paris-fr"
+        "underwriter-engineering-construction-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "underwriter-engineering-construction-swiss-re-ch",
-          "ingegneria-e-costruzioni-swiss-re-paris-fr"
+          "underwriter-engineering-construction-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -18502,7 +18844,7 @@
       "slugByLocale": {
         "en": "valuation-risk-analyst-swiss-re-ch",
         "it": "valuation-risk-analyst-swiss-re-ch",
-        "de": "valuation-risk-analyst-swiss-re-ch",
+        "de": "bewertungsrisikoanalyst-swiss-re-bangalore-in",
         "fr": "valuation-risk-analyst-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -18706,7 +19048,7 @@
         "en": "finance-manager-swiss-re-ch",
         "it": "finanza-manager-swiss-re-toronto-ca",
         "de": "finanzen-manager-swiss-re-toronto-ca",
-        "fr": "finance-manager-swiss-re-ch"
+        "fr": "directeur-financier-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18767,6 +19109,9 @@
         ],
         "de": [
           "finance-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "finance-manager-swiss-re-ch"
         ]
       },
       "previousSlugs": [
@@ -18779,7 +19124,7 @@
       "slugByLocale": {
         "it": "senior-under-107-236-health-corso-swiss-re-zurich",
         "en": "senior-underwriter-accident-health-corso-swiss-re-ch",
-        "de": "senior-underwriter-accident-health-corso-swiss-re-ch",
+        "de": "senior-underwriter-unfall-gesundheit-corso-swiss-re-zurich",
         "fr": "accident-et-sante-de-l-assureur-senior-corso-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -18824,6 +19169,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-underwriter-accident-health-corso-swiss-re-ch"
+        ],
+        "de": [
           "senior-underwriter-accident-health-corso-swiss-re-ch"
         ]
       },
@@ -19067,7 +19415,7 @@
       "slugByLocale": {
         "en": "quantitative-risk-analyst-swiss-re-ch",
         "it": "quantitative-risk-analyst-swiss-re-ch",
-        "de": "quantitative-risk-analyst-swiss-re-ch",
+        "de": "quantitative-risikoanalytiker-swiss-re-bangalore-in",
         "fr": "quantitative-risk-analyst-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -19126,12 +19474,12 @@
     },
     {
       "id": "swiss-re-470d671ff479",
-      "slug": "apprentice-swiss-re-ch",
+      "slug": "apprendista-swiss-re-bangalore-in",
       "slugByLocale": {
         "en": "apprentice-swiss-re-ch",
-        "it": "apprentice-swiss-re-ch",
-        "de": "apprentice-swiss-re-ch",
-        "fr": "apprentice-swiss-re-ch"
+        "it": "apprendista-swiss-re-bangalore-in",
+        "de": "lehrling-swiss-re-bangalore-in",
+        "fr": "apprentissage-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -19185,7 +19533,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:00:36.653Z"
+      "firstSeenAt": "2026-07-10T13:00:36.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-swiss-re-ch"
+        ],
+        "de": [
+          "apprentice-swiss-re-ch"
+        ],
+        "fr": [
+          "apprentice-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprentice-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-f2c0d63adfda",
@@ -19690,7 +20052,7 @@
       "slugByLocale": {
         "it": "contratto-surety-underwriter-corso-swiss-re-boston-ma-us",
         "en": "contract-surety-underwriter-corso-swiss-re-ch",
-        "de": "contract-surety-underwriter-corso-swiss-re-ch",
+        "de": "kontraktburgschaft-underwriter-corso-swiss-re-boston-ma-us",
         "fr": "la-caution-contractuelle-corso-swiss-re-boston-ma-us"
       },
       "company": "Swiss Re",
@@ -19735,6 +20097,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "contract-surety-underwriter-corso-swiss-re-ch"
+        ],
+        "de": [
           "contract-surety-underwriter-corso-swiss-re-ch"
         ]
       },
@@ -20019,13 +20384,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "field-services-engineer-m-f-x-d-swiss-re-ch",
-        "field-services-ingegnere-m-f-x-d-swiss-re-munich-de"
+        "field-services-engineer-m-f-x-d-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-services-engineer-m-f-x-d-swiss-re-ch",
-          "field-services-ingegnere-m-f-x-d-swiss-re-munich-de"
+          "field-services-engineer-m-f-x-d-swiss-re-ch"
         ],
         "fr": [
           "field-services-engineer-m-f-x-d-swiss-re-ch"
@@ -20192,7 +20555,7 @@
         "it": "executive-assistant-asset-management-swiss-re-ch",
         "en": "executive-assistant-asset-management-swiss-re-ch",
         "de": "executive-assistent-asset-management-swiss-re-new-york-ny-us",
-        "fr": "executive-assistant-asset-management-swiss-re-ch"
+        "fr": "assistant-executif-gestion-des-biens-swiss-re-new-york-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -20252,7 +20615,7 @@
       "slugByLocale": {
         "en": "lead-ai-architect-swiss-re-ch",
         "it": "lead-ai-architetto-swiss-re-madrid-es",
-        "de": "lead-ai-architect-swiss-re-ch",
+        "de": "lead-ai-architekt-swiss-re-madrid-es",
         "fr": "lead-ai-architecte-swiss-re-madrid-es"
       },
       "company": "Swiss Re",
@@ -20313,6 +20676,9 @@
           "lead-ai-architect-swiss-re-ch"
         ],
         "fr": [
+          "lead-ai-architect-swiss-re-ch"
+        ],
+        "de": [
           "lead-ai-architect-swiss-re-ch"
         ]
       },
@@ -20397,7 +20763,7 @@
         "en": "deputy-finance-manager-swiss-re-ch",
         "it": "deputy-finance-manager-swiss-re-ch",
         "de": "deputy-finance-manager-swiss-re-ch",
-        "fr": "deputy-finance-manager-swiss-re-ch"
+        "fr": "directeur-adjoint-des-finances-swiss-re-mumbai-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -20460,7 +20826,7 @@
         "en": "financial-accountant-swiss-re-ch",
         "it": "financial-contabile-swiss-re-toronto-ca",
         "de": "financial-buchhalter-swiss-re-toronto-ca",
-        "fr": "financial-accountant-swiss-re-toronto-ca"
+        "fr": "comptable-financier-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -20521,10 +20887,14 @@
         ],
         "de": [
           "financial-accountant-swiss-re-ch"
+        ],
+        "fr": [
+          "financial-accountant-swiss-re-toronto-ca"
         ]
       },
       "previousSlugs": [
-        "financial-accountant-swiss-re-ch"
+        "financial-accountant-swiss-re-ch",
+        "financial-accountant-swiss-re-toronto-ca"
       ]
     },
     {
@@ -20672,7 +21042,7 @@
         "en": "senior-regulatory-risk-manager-hybrid-m-f-x-d-swiss-re-ch",
         "it": "senior-regulatory-risk-manager-hybrid-m-f-x-d-swiss-re-ch",
         "de": "senior-regulatory-risk-manager-hybrid-m-f-x-d-swiss-re-ch",
-        "fr": "senior-regulatory-risk-manager-hybrid-m-f-x-d-swiss-re-ch"
+        "fr": "gestionnaire-principal-des-risques-reglementaires-hybrid-m-f-x-d-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21128,8 +21498,7 @@
           "business-analyst-applications-identity-and-access-management-hybrid-set-up-swiss-re-madrid-es"
         ],
         "it": [
-          "business-analyst-applications-identity-and-access-management-160-hybrid-set-up-swiss-re-ch",
-          "business-analista-applications-identity-and-access-management-hybrid-set-up-swiss-re-madrid-es"
+          "business-analyst-applications-identity-and-access-management-160-hybrid-set-up-swiss-re-ch"
         ],
         "de": [
           "business-analyst-applications-identity-and-access-management-160-hybrid-set-up-swiss-re-ch"
@@ -21137,8 +21506,7 @@
       },
       "previousSlugs": [
         "business-analyst-applications-identity-and-access-management-160-hybrid-set-up-swiss-re-ch",
-        "business-analyst-applications-identity-and-access-management-hybrid-set-up-swiss-re-madrid-es",
-        "business-analista-applications-identity-and-access-management-hybrid-set-up-swiss-re-madrid-es"
+        "business-analyst-applications-identity-and-access-management-hybrid-set-up-swiss-re-madrid-es"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:17.343Z",
@@ -21305,12 +21673,12 @@
     },
     {
       "id": "swiss-re-70438cb6ecc6",
-      "slug": "executive-assistant-swiss-re-ch",
+      "slug": "assistente-esecutivo-swiss-re-bratislava-sk",
       "slugByLocale": {
         "en": "executive-assistant-swiss-re-ch",
-        "it": "executive-assistant-swiss-re-ch",
+        "it": "assistente-esecutivo-swiss-re-bratislava-sk",
         "de": "executive-assistent-swiss-re-bratislava-sk",
-        "fr": "executive-assistant-swiss-re-bratislava-sk"
+        "fr": "assistant-executif-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21364,7 +21732,19 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:00:04.759Z"
+      "firstSeenAt": "2026-07-10T13:00:04.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-swiss-re-ch"
+        ],
+        "fr": [
+          "executive-assistant-swiss-re-bratislava-sk"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-swiss-re-ch",
+        "executive-assistant-swiss-re-bratislava-sk"
+      ]
     },
     {
       "id": "swiss-re-95bb4fec68c8",
@@ -21413,13 +21793,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-operations-specialist-proj-infratructure-finance-12-months-contract-swiss-re-ch",
-        "global-operations-specialista-proj-infratructure-finanza-12-months-contract-swiss-re-kuala-lumpur-my"
+        "global-operations-specialist-proj-infratructure-finance-12-months-contract-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-operations-specialist-proj-infratructure-finance-12-months-contract-swiss-re-ch",
-          "global-operations-specialista-proj-infratructure-finanza-12-months-contract-swiss-re-kuala-lumpur-my"
+          "global-operations-specialist-proj-infratructure-finance-12-months-contract-swiss-re-ch"
         ],
         "de": [
           "global-operations-specialist-proj-infratructure-finance-12-months-contract-swiss-re-ch"
@@ -21655,12 +22033,12 @@
     },
     {
       "id": "swiss-re-b45ee03f4859",
-      "slug": "engineering-manager-swiss-re-ch-4",
+      "slug": "gestione-dell-ingegneria-swiss-re-hyderabad-in-acf044",
       "slugByLocale": {
         "en": "engineering-manager-swiss-re-ch",
-        "it": "engineering-manager-swiss-re-ch-4",
+        "it": "gestione-dell-ingegneria-swiss-re-hyderabad-in-acf044",
         "de": "engineering-manager-swiss-re-ch-4",
-        "fr": "engineering-manager-swiss-re-ch-4"
+        "fr": "directeur-technique-swiss-re-hyderabad-in-acf044"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21717,11 +22095,16 @@
       "firstSeenAt": "2026-07-10T12:59:51.297Z",
       "previousSlugsByLocale": {
         "it": [
-          "engineering-manager-swiss-re-ch"
+          "engineering-manager-swiss-re-ch",
+          "engineering-manager-swiss-re-ch-4"
+        ],
+        "fr": [
+          "engineering-manager-swiss-re-ch-4"
         ]
       },
       "previousSlugs": [
-        "engineering-manager-swiss-re-ch"
+        "engineering-manager-swiss-re-ch",
+        "engineering-manager-swiss-re-ch-4"
       ]
     },
     {
@@ -21942,7 +22325,7 @@
         "en": "underwriter-surety-hybrid-80-100-swiss-re-ch",
         "it": "underwriter-surety-hybrid-80-100-swiss-re-ch",
         "de": "underwriter-surety-hybrid-80-100-swiss-re-ch",
-        "fr": "underwriter-surety-hybrid-80-100-swiss-re-ch"
+        "fr": "surete-de-l-assureur-hybrid-80-100-swiss-re-madrid-es"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22005,7 +22388,7 @@
         "en": "senior-underwriter-surety-hybrid-80-100-swiss-re-ch",
         "it": "senior-underwriter-surety-hybrid-80-100-swiss-re-ch",
         "de": "senior-underwriter-surety-hybrid-80-100-swiss-re-ch",
-        "fr": "senior-underwriter-surety-hybrid-80-100-swiss-re-ch"
+        "fr": "surete-des-assureurs-seniors-hybrid-80-100-swiss-re-madrid-es"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22140,7 +22523,7 @@
         "it": "capo-rds-assicurazione-vendite-uk-i-swiss-re-london-gb",
         "en": "head-rds-insurance-sales-uk-i-swiss-re-ch",
         "de": "head-rds-insurance-sales-uk-i-swiss-re-ch",
-        "fr": "head-rds-insurance-sales-uk-i-swiss-re-ch"
+        "fr": "chef-rds-insurance-sales-royaume-uni-et-i-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22185,6 +22568,9 @@
       "previousSlugsByLocale": {
         "it": [
           "head-rds-insurance-sales-uk-i-swiss-re-ch"
+        ],
+        "fr": [
+          "head-rds-insurance-sales-uk-i-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:27:58.602Z",
@@ -22209,7 +22595,7 @@
         "en": "vp-hr-partner-us-swiss-re-ch",
         "it": "vp-risorse-umane-partner-us-swiss-re-armonk-ny-us",
         "de": "vp-hr-partner-us-swiss-re-ch",
-        "fr": "vp-hr-partner-us-swiss-re-armonk-ny-us"
+        "fr": "vp-partenaire-rh-etats-unis-swiss-re-armonk-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22267,10 +22653,14 @@
       "previousSlugsByLocale": {
         "it": [
           "vp-hr-partner-us-swiss-re-ch"
+        ],
+        "fr": [
+          "vp-hr-partner-us-swiss-re-armonk-ny-us"
         ]
       },
       "previousSlugs": [
-        "vp-hr-partner-us-swiss-re-ch"
+        "vp-hr-partner-us-swiss-re-ch",
+        "vp-hr-partner-us-swiss-re-armonk-ny-us"
       ]
     },
     {
@@ -22280,7 +22670,7 @@
         "it": "responsabile-operazioni-l-h-di-architettura-aziendale-ibrido-swiss-re-bratislava-sk",
         "en": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch",
         "de": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch",
-        "fr": "head-business-architecture-l-h-operations-hybrid-swiss-re-ch"
+        "fr": "chef-de-l-architecture-d-affaires-operations-de-l-h-hybrid-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22324,6 +22714,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "head-business-architecture-l-h-operations-hybrid-swiss-re-ch"
+        ],
+        "fr": [
           "head-business-architecture-l-h-operations-hybrid-swiss-re-ch"
         ]
       },
