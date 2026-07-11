@@ -1,5 +1,53 @@
 [
   {
+    "slug": "tirocinio-in-scienze-applicate-microsoft-zurich",
+    "title": "Applied Sciences Internship",
+    "titleByLocale": {
+      "it": "Tirocinio in Scienze Applicate",
+      "en": "Applied Sciences Internship",
+      "de": "Praktikum für angewandte Wissenschaften",
+      "fr": "Stage en sciences appliquées"
+    },
+    "company": "Microsoft",
+    "companyKey": "microsoft",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Questa posizione sarà aperta per un minimo di 5 giorni, con applicazioni accettate su base continuativa fino a quando la posizione non sarà riempita. Microsoft è un datore di lavoro pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a età, antenati, cittadinanza, colore, famiglia o congedo di assistenza medica, identità di genere o espressione, informazioni genetiche, stato di immigrazione, stato civile, stato medico, origine nazionale, disabilità fisica o mentale, affiliazione politica, stato veterano protetto o militare, razza, etnia, religione, sesso (compresa la gravidanza), orientamento sessuale, o qualsiasi altra caratteristica protetta da leggi, regolamenti e ordinanze locali applicabili. Se avete bisogno di assistenza con alloggi religiosi e/o di un alloggio ragionevole a causa di una disabilità durante il processo di applicazione, saperne di più sulla richiesta di alloggi.",
+      "en": "This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
+      "de": "Diese Position ist für mindestens 5 Tage geöffnet, wobei die Bewerbungen fortlaufend akzeptiert werden, bis die Position besetzt ist. Microsoft ist ein Arbeitgeber für Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Alter, Abstammung, Staatsangehörigkeit, Hautfarbe, Familie oder medizinische Versorgung Urlaub, Geschlechtsidentität oder Ausdruck, genetische Informationen, Einwanderungsstatus, Familienstand, Gesundheitszustand, nationale Herkunft, körperliche oder geistige Behinderung, politische Zugehörigkeit, geschützt Veteran oder Militärstatus, Rasse, Ethnizität, Religion, Geschlecht (einschließlich Schwangerschaft), sexuelle Orientierung oder andere durch geltende lokale Gesetze, Vorschriften und Verordnungen geschützte Merkmale. Wenn Sie Hilfe bei religiösen Unterkünften und / oder eine angemessene Unterkunft aufgrund einer Behinderung während des Bewerbungsprozesses benötigen, lesen Sie mehr über die Beantragung von Unterkünften.",
+      "fr": "Ce poste sera ouvert pendant au moins 5 jours, les candidatures étant acceptées de façon continue jusqu'à ce que le poste soit comblé. Microsoft est un employeur à chances égales. Tous les candidats qualifiés seront considérés pour un emploi sans égard à l'âge, à l'ascendance, à la citoyenneté, à la couleur, à la famille ou aux soins médicaux, à l'identité ou à l'expression de genre, à l'information génétique, à l'état d'immigration, à l'état matrimonial, à l'état médical, à l'origine nationale, à un handicap physique ou mental, à l'appartenance politique, à un ancien combattant protégé ou à un statut militaire protégé, à la race, à l'ethnicité, à la religion, au sexe (y compris la grossesse), à l'orientation sexuelle ou à toute autre caractéristique protégée par les lois, règlements et ordonnances locaux applicables. Si vous avez besoin d'aide en matière d'adaptation religieuse et/ou d'accommodement raisonnable en raison d'une déficience pendant le processus de demande, en savoir plus sur la demande d'adaptation."
+    },
+    "slugByLocale": {
+      "it": "tirocinio-in-scienze-applicate-microsoft-zurich",
+      "en": "applied-sciences-internship-microsoft-zurich",
+      "de": "praktikum-fur-angewandte-wissenschaften-microsoft-zurich",
+      "fr": "stage-en-sciences-appliquees-microsoft-zurich"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-07-11T21:57:40.715Z",
+    "previousSlugs": [
+      "applied-sciences-internship-microsoft-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "applied-sciences-internship-microsoft-zurich"
+      ],
+      "de": [
+        "applied-sciences-internship-microsoft-zurich"
+      ],
+      "fr": [
+        "applied-sciences-internship-microsoft-zurich"
+      ]
+    },
+    "postalCode": "8058",
+    "streetAddress": "The Circle 02",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "senior-software-ingegnere-microsoft-zurich",
     "title": "Senior Software Engineer",
     "titleByLocale": {
