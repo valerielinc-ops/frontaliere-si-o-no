@@ -3032,6 +3032,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ticino-nuovi-rincari',
+    category: 'pratico',
+    date: '2026-07-11T23:20:20.862Z',
+    image: '/images/blog/ticino-nuovi-rincari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

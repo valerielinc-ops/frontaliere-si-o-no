@@ -1012,6 +1012,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.title': 'Arbeitslosigkeit an der Grenze - Brüssel steuert ein neues Kapitel ein',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.excerpt': 'Das neue Abkommen über die soziale Sicherheit könnte erhebliche Auswirkungen auf die Grenzgänger haben',
     'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.imageAlt': 'Frontalieri in der Schweiz',
+    'blog.article.ticino-nuovi-rincari.title': 'Tessin, Preissteigerungen und Händler in der Krise. Die echte Schweiz?',
+    'blog.article.ticino-nuovi-rincari.excerpt': 'Erhöhte Preise im Tessin, Grenzgänger, die zum Einkaufen nach Italien reisen.',
+    'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: Preise in Evidenz',
 };
 
 export default blogMetaChDe;
