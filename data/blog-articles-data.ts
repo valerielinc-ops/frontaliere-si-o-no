@@ -25118,6 +25118,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'insegnanti-frontalieri-stipendio-requisiti-ticino',
+ category: 'pratico',
+ date: '2026-07-11T18:41:23.868Z',
+ image: '/images/blog/insegnanti-frontalieri-stipendio-requisiti-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

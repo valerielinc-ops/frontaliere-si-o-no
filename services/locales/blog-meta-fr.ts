@@ -8360,6 +8360,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Emprunts croissantes : recherche de travailleurs, perspectives pour les demandeurs d\'emploi en Ticino',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Le marché du travail tessinois connaît une période de croissance, avec des secteurs tels que la technologie et la santé qui nécessitent des professionnels qualifiés.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Paysage de Lugano avec des immeubles modernes et un lac',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontalier enseignant école ticino salaire exigences',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nouvelle convention italo-suisse du 9 décembre 1976 évite la double imposition avec le crédit d\'impôt (cadre CE de 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Une scène d\'enseignement au Tessin avec la ville en arrière-plan.',
 };
 
 export default blogMetaFr;
