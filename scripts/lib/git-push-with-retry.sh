@@ -3,7 +3,7 @@
 # Survives concurrent pushes from other workflows that also write to main.
 #
 # Usage:
-#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 10] \
+#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 15] \
 #     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
 #
 # Examples:
@@ -17,7 +17,8 @@
 #
 # Behaviour:
 #   - Pushes HEAD to origin/<branch>; on rejection, fetches + rebases + retries
-#     with linear backoff (attempt * 2 seconds).
+#     with linear backoff + random jitter (attempt * 2 + random[0..attempt] s)
+#     to desynchronise concurrent retrying workflows (thundering-herd guard).
 #   - Before each rebase, the working tree must be clean or rebase refuses to
 #     start ("cannot rebase: You have unstaged changes"). Default: discard any
 #     leftover dirty/untracked state with `git reset --hard HEAD` (safe when
@@ -77,7 +78,7 @@ if [ -f ".git/index.lock" ]; then
 fi
 
 BRANCH="main"
-MAX_ATTEMPTS=10
+MAX_ATTEMPTS=15
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
@@ -178,6 +179,6 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     fi
   fi
   attempt=$((attempt + 1))
-  sleep $((attempt * 2))
+  sleep $(( attempt * 2 + RANDOM % (attempt + 1) ))
 done
 echo "Push successful (attempt $attempt)"

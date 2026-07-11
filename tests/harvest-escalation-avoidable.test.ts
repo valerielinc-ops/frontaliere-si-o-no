@@ -73,6 +73,30 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     )).toBe(true);
   });
 
+  it('crawler-health con needs-human (aggiunto dal drainer crawlersFix pass, #3886) → NON contabile', () => {
+    // After the drainer's crawler max-turns pass runs, it adds fu-parked + needs-human
+    // to crawler issues that hit error_max_turns. isAvoidableMaxTurns must then
+    // return false (already covered by the needs-human gate), so the harvester
+    // stops counting them and the escalation self-heals.
+    expect(isAvoidableMaxTurns(
+      '[crawler-health] kiabi: broken',
+      ['agent:fix', 'agent:triaged', 'fu-parked', 'needs-human'],
+    )).toBe(false);
+    expect(isAvoidableMaxTurns(
+      '[crawler-health] apg-sga: broken',
+      ['agent:fix', 'agent:triaged', 'fu-parked', 'needs-human'],
+    )).toBe(false);
+  });
+
+  it('crawler-health senza needs-human (prima che il drainer giri) → contabile come segnale attivo', () => {
+    // Until the drainer's new pass runs and adds needs-human, crawler issues
+    // that hit max-turns are correctly counted as avoidable burn signal.
+    expect(isAvoidableMaxTurns(
+      '[crawler-health] kiabi: broken',
+      ['agent:fix', 'agent:triaged'],
+    )).toBe(true);
+  });
+
   it('PR consegnato (hasDeliveredPr) → NON contabile, anche single-item routable (#2653: overrun post-delivery)', () => {
     // 3/5 esempi dell'escalation #2653 (#2590/#2560/#2476) hanno aperto un PR poi
     // mergiato, poi sforato il cap su churn post-delivery. Un run che ha consegnato

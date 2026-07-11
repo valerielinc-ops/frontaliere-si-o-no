@@ -62,6 +62,7 @@ const BASE_URL = 'https://www.swatchgroup.com';
 const SWITZERLAND_COUNTRY_ID = '40';
 const listUrl = (page) =>
   // locale-segment-ok: portale esterno Swatch Group — il job-finder esiste solo sotto /en/, non è un path i18n del sito
+  // locale-segment-ok: portale esterno swatchgroup.com — il job-finder di gruppo è crawlato deliberatamente nella sola versione EN (taxonomy jf_country stabile), nessun path per-locale nostro.
   `${BASE_URL}/en/job-finder?jf_country=${SWITZERLAND_COUNTRY_ID}&page=${page}`;
 // 92 Swiss jobs group-wide ≈ 10 pages today; hard cap so a pager regression
 // can never turn into an unbounded crawl.
