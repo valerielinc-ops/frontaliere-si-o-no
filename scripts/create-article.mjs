@@ -126,6 +126,7 @@ import {
   incrementCounter as _incrementCounter,
 } from './lib/scheduler/quotaController.mjs';
 import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/discoveryPool.mjs';
+import { decodeGoogleNewsUrl } from './lib/discovery/googleNewsUrlResolver.mjs';
 import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
 import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
 import { extractArticleText } from './lib/extract-article-text.mjs';
@@ -1676,6 +1677,28 @@ function readSectionMetaIt() {
   return read(SECTION_META_IT_FILE);
 }
 
+/**
+ * Read the IT meta source of ALL sections concatenated (frontaliere +
+ * svizzera). The id/SEO/i18n namespace is shared across sections (see
+ * getAllArticleIds), and evergreen topics (professioni, "assicurazione vita",
+ * "vivere nei Grigioni") are frequently generated in BOTH sections — but
+ * checkForDuplicates historically compared titles/excerpts only within the
+ * ACTIVE section's file, so cross-section near-duplicates slipped through
+ * (2026-07-11: `assicurazione-vita-…-frontaliere` in svizzera vs
+ * `…-frontalieri` in frontaliere, one letter apart). Both meta files use the
+ * same `'blog.article.<id>.title'` key shape, so the callers' regexes work
+ * unchanged over the concatenation.
+ */
+function readAllSectionsMetaIt() {
+  const parts = [];
+  for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
+    try {
+      parts.push(read(`services/locales/${cfg.metaPrefix}-it.ts`));
+    } catch { /* missing/empty section file — skip */ }
+  }
+  return parts.join('\n');
+}
+
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
   const dayNum = d.getUTCDay() || 7; // Mon=1 .. Sun=7
@@ -1776,7 +1799,13 @@ function resolveGoogleNewsHeadline(candidate, provenHeadlines) {
       _resolvedGoogleNewsScore: bestScore,
     };
   }
-  return null;
+  // No direct-scan twin: instead of dropping the candidate (the old behaviour
+  // that discarded ~219 real frontaliere news items/run — run 29142084681,
+  // the "disoccupazione frontalieri" story), keep the wrapper and flag it for
+  // on-demand decoding at fetch time (decodeGoogleNewsUrl → real publisher
+  // URL via batchexecute). Lazy by design: only the headline the ranker
+  // actually picks pays the 2-request decode cost, not all 219.
+  return { ...candidate, _needsGoogleNewsDecode: true };
 }
 
 /** Extract slug words from a URL path for fuzzy matching against article IDs */
@@ -6251,7 +6280,10 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
 }
 
 function loadExistingArticleSummaries() {
-  const blogItSrc = readSectionMetaIt();
+  // Cross-section (2026-07-11): powers preFlightEvergreenCheck. Evergreen
+  // topics recur in both sections, so a sibling-section twin must be caught
+  // BEFORE spending an LLM generation cycle on a duplicate.
+  const blogItSrc = readAllSectionsMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
   const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
@@ -6302,7 +6334,9 @@ function preFlightEvergreenCheck(candidate) {
 //      otherwise fall through to title Jaccard.
 //   4. Thresholds unchanged because we're measuring on a meaningful denominator.
 function preFlightHeadlineCheck(headline) {
-  const blogItSrc = readSectionMetaIt();
+  // Cross-section (2026-07-11): a news headline already covered in the sibling
+  // section is a duplicate too (shared id/title namespace).
+  const blogItSrc = readAllSectionsMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
 
   const headlineWords = tokenizeIt(headline);
@@ -6342,8 +6376,12 @@ function preFlightHeadlineCheck(headline) {
 
 // ── Step 3a.2: Programmatic duplicate detection (multi-signal) ──
 function checkForDuplicates(data) {
-  // Read existing article titles AND excerpts from the section meta-it
-  const blogItSrc = readSectionMetaIt();
+  // Read existing article titles AND excerpts across ALL sections (frontaliere
+  // + svizzera). Cross-section coverage (was: active section only) so an
+  // evergreen already published in the sibling section is caught — the
+  // one-letter `…-frontaliere`/`…-frontalieri` twins, "vivere nei Grigioni",
+  // etc. (2026-07-11). Same shared id/title namespace as getAllArticleIds.
+  const blogItSrc = readAllSectionsMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
   const existingArticles = titleMatches.map(m => {
@@ -8034,6 +8072,13 @@ function gitAddAll(data) {
 // ── Main ────────────────────────────────────────────────────
 const MAX_DUPLICATE_RETRIES = 8;
 
+// Cap on how many Google-News candidates get folded into the proven pool per
+// run (see the GOOGLE_NEWS_INJECT block in main). Keeps the pre-spend topic
+// gate's classifier cost bounded — the pool already carries the direct-source
+// scan; this is a top-up of the frontaliere stories that only live on Google
+// News. Post-gate + dedup the effective count is far smaller.
+const GOOGLE_NEWS_INJECT_MAX = Number(process.env.GOOGLE_NEWS_INJECT_MAX) || 60;
+
 // Global wall-clock budget (2026-06-15). The generator has no overall deadline,
 // so a pathological run (slow free-tier models + fact-check treadmill) can balloon
 // to ~57min — past which the 30-min cron's next run cancels it anyway (5/60 runs
@@ -8270,6 +8315,37 @@ async function main() {
         headlines = headlines.filter((h) => !_isNearDuplicateHeadline(String(h.headline || ''), orphanStrings));
         if (beforeDedup > headlines.length) {
           console.error(`PROVEN_CROSS_POOL_DEDUP dropped=${beforeDedup - headlines.length} kept=${headlines.length}`);
+        }
+      }
+
+      // ── Inject Google-News candidates into the proven pool (2026-07-11) ──
+      // The 51/26 direct feeds carry mostly local cronaca; the genuinely
+      // frontaliere-relevant stories (es. "disoccupazione dei frontalieri")
+      // surface ONLY on Google News. Before this, they reached create-article
+      // solely via the discovery fallback and were dropped as "non risolto a
+      // fonte diretta" (run 29142084681: 219 dropped, 1 resolved → evergreen).
+      // We now fold the Google-News NEWS candidates (source='news' ONLY —
+      // never orphan/suggest, so no demand-query "offerte" leak in) into the
+      // proven pool so the same ranker + gates rank them alongside direct
+      // sources. Real-URL decoding is deferred to fetch time (lazy). Entirely
+      // best-effort: any failure leaves the direct-source pool untouched.
+      if (slotKind === 'proven' && evidenceForDiscovery) {
+        try {
+          _provenHeadlinesForDiscovery = headlines.slice();
+          const provenStrings = headlines.map((h) => String(h.headline || ''));
+          const gnPool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
+          const newsOnly = (gnPool.candidates || []).filter((c) => c && c.source === 'news');
+          const gnHeadlines = _discoveryCandidatesToHeadlines(newsOnly).slice(0, GOOGLE_NEWS_INJECT_MAX);
+          if (gnHeadlines.length > 0) {
+            const beforeInject = headlines.length;
+            const existingUrls = new Set(headlines.map((h) => h.url));
+            for (const gh of gnHeadlines) {
+              if (!existingUrls.has(gh.url)) headlines.push(gh);
+            }
+            console.error(`GOOGLE_NEWS_INJECT news_candidates=${newsOnly.length} injected=${headlines.length - beforeInject} pool=${headlines.length}`);
+          }
+        } catch (err) {
+          console.error(`⚠️  Google-News injection into proven pool failed (non-blocking): ${err?.message || err}`);
         }
       }
     }
@@ -8558,6 +8634,31 @@ async function main() {
                 console.warn(`[generator] could not persist ranker state: ${e?.message || e}`);
               }
             };
+
+            // ── Lazy Google-News URL decode (2026-07-11) ──
+            // A candidate folded in from Google News carries the wrapper URL +
+            // _needsGoogleNewsDecode. Decode the real publisher URL NOW — only
+            // for the ONE headline the ranker picked, so the 2-request decode
+            // cost is bounded — so fetchPageContent below hits the actual
+            // source article. On decode failure, or when the decoded URL turns
+            // out already-used, skip to the next headline instead of fetching
+            // an unusable news.google.com wrapper (which would yield no source
+            // text → topic-gate abort → wasted attempt).
+            if (chosen?._needsGoogleNewsDecode || isGoogleNewsRssUrl(url)) {
+              const realUrl = await decodeGoogleNewsUrl(url);
+              if (!realUrl) {
+                console.error(`   ⏭️  Google News non decodificabile — provo un'altra headline: "${String(chosen.headline || '').slice(0, 60)}"`);
+                continue;
+              }
+              const used = isSourceUrlAlreadyUsed(realUrl);
+              if (used.used) {
+                console.error(`   🔗 Google News decodificata ma URL già usata (→ ${used.articleId}) — provo un'altra headline`);
+                continue;
+              }
+              console.error(`   🔓 Google News decodificata → fonte reale: ${realUrl.slice(0, 80)}`);
+              url = realUrl;
+              chosen = { ...chosen, url: realUrl, _resolvedFromGoogleNewsRss: chosen.url };
+            }
 
             // Attempt the full article generation + duplicate check
             await generateAndValidateArticle(url, chosen);

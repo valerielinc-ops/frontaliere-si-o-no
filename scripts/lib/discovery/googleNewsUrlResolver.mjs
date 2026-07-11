@@ -1,0 +1,202 @@
+// scripts/lib/discovery/googleNewsUrlResolver.mjs
+//
+// Resolve a Google News RSS wrapper link
+// (https://news.google.com/rss/articles/<token>?...) to the REAL publisher
+// article URL, so the article generator can fetch the source content and
+// regenerate a news article from it.
+//
+// WHY (run 29142084681, 2026-07-11): create-article.mjs' Google News handling
+// only fuzzy-matched the RSS headline against the direct-source proven scan
+// (resolveGoogleNewsHeadline). News that lives ONLY on Google News (e.g. the
+// whole "disoccupazione dei frontalieri" story — the single most relevant
+// frontaliere topic that week) never matched a direct-scan headline, so ~219
+// candidates/run were dropped as "non risolto a fonte diretta" and the run
+// fell back to a generic evergreen. Decoding the real URL unlocks those.
+//
+// TWO wrapper formats exist:
+//   • OLD: the token after /articles/ is base64url of a small protobuf whose
+//     body contains the real URL as a plain UTF-8 string. Decodable OFFLINE.
+//   • NEW (2024+, current): the token is opaque (starts AU_yqL… once decoded)
+//     and the real URL must be fetched from Google's `batchexecute` RPC using
+//     a signature+timestamp scraped from the wrapper HTML. Verified working
+//     2026-07-11 against a live RSI link.
+//
+// Everything here is DEFENSIVE: any failure (network, format change, timeout)
+// returns null, and the caller keeps its existing fuzzy-match/skip behaviour.
+// A single format change on Google's side degrades to "same as before this
+// module existed", never worse.
+
+const BATCHEXECUTE_URL =
+  'https://news.google.com/_/DotsSplashUi/data/batchexecute';
+
+const DEFAULT_TIMEOUT_MS = 12000;
+
+const USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
+
+// Process-lifetime memo so the same wrapper is never decoded twice in a run
+// (the ranker may re-encounter a candidate across attempts). Keyed by the
+// wrapper token. Value is the resolved URL or null (negative caching).
+const _decodeCache = new Map();
+
+/** True when `rawUrl` is a Google News RSS article wrapper link. */
+export function isGoogleNewsRssUrl(rawUrl) {
+  try {
+    const u = new URL(rawUrl);
+    return (
+      u.hostname === 'news.google.com' &&
+      u.pathname.startsWith('/rss/articles/')
+    );
+  } catch {
+    return false;
+  }
+}
+
+/** Extract the opaque article token from a wrapper link. */
+function extractToken(gnUrl) {
+  const m = String(gnUrl).match(/\/rss\/articles\/([^?/]+)/);
+  return m ? m[1] : null;
+}
+
+function abortableFetch(fetchImpl, url, init, timeoutMs) {
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), timeoutMs);
+  if (t && typeof t.unref === 'function') t.unref();
+  return Promise.resolve(fetchImpl(url, { ...init, signal: ac.signal })).finally(
+    () => clearTimeout(t),
+  );
+}
+
+/**
+ * OFFLINE decode for the legacy format: base64url-decode the token and look
+ * for a plain http(s) URL in the bytes. Returns null for the opaque new
+ * format (no readable URL present).
+ */
+export function decodeOfflineBase64(token) {
+  if (!token || typeof token !== 'string') return null;
+  try {
+    let t = token;
+    // Legacy tokens are commonly prefixed with "CBMi" (protobuf framing).
+    if (t.startsWith('CBMi')) t = t.slice(4);
+    const b64 = t.replace(/-/g, '+').replace(/_/g, '/');
+    const buf = Buffer.from(b64, 'base64');
+    const s = buf.toString('utf8');
+    const m = s.match(/https?:\/\/[^\s\x00-\x1f"'\\<>]+/);
+    if (!m) return null;
+    const url = m[0];
+    // Reject the opaque-new-format sentinel and any google-internal URL.
+    if (/^https?:\/\/news\.google\.com/.test(url)) return null;
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * ONLINE decode for the current opaque format via Google's batchexecute RPC.
+ * Two requests: (1) GET the wrapper to scrape data-n-a-sg / data-n-a-ts,
+ * (2) POST batchexecute with the token to receive the real URL.
+ */
+async function decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs) {
+  // Step 1 — scrape signature + timestamp from the wrapper HTML.
+  const r1 = await abortableFetch(
+    fetchImpl,
+    gnUrl,
+    { headers: { 'User-Agent': USER_AGENT } },
+    timeoutMs,
+  );
+  if (!r1 || r1.ok === false) return null;
+  const html = await r1.text();
+  const sg = html.match(/data-n-a-sg="([^"]+)"/);
+  const ts = html.match(/data-n-a-ts="([^"]+)"/);
+  if (!sg || !ts) return null;
+
+  // Step 2 — batchexecute RPC. The inner payload shape mirrors Google's
+  // `Fbv4je`/`garturlreq` request (verified live 2026-07-11).
+  const inner = JSON.stringify([
+    'garturlreq',
+    [
+      ['X', 'X', ['X', 'X'], null, null, 1, 1, 'US:en', null, 1, null, null, null, null, null, 0, 1],
+      'X',
+      'X',
+      1,
+      [1, 1, 1],
+      1,
+      1,
+      null,
+      0,
+      0,
+      null,
+      0,
+    ],
+    token,
+    Number(ts[1]),
+    sg[1],
+  ]);
+  const body =
+    'f.req=' +
+    encodeURIComponent(JSON.stringify([[['Fbv4je', inner, null, 'generic']]]));
+
+  const r2 = await abortableFetch(
+    fetchImpl,
+    BATCHEXECUTE_URL,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'User-Agent': USER_AGENT,
+      },
+      body,
+    },
+    timeoutMs,
+  );
+  if (!r2 || r2.ok === false) return null;
+  const raw = await r2.text();
+  // The RPC payload is JSON-inside-JSON: forward slashes may arrive plain or
+  // escaped as \/ (and unicode-escaped as /). Normalise BEFORE matching
+  // so the URL regex captures the whole path either way.
+  const txt = raw.replace(/\\\//g, '/').replace(/\\u002f/gi, '/');
+  const m = txt.match(/https?:\/\/(?!news\.google\.com)[^\s"\\]+/);
+  if (!m) return null;
+  return m[0];
+}
+
+/**
+ * Resolve a Google News RSS wrapper link to the real publisher URL.
+ * Returns the real URL string, or null on any failure (caller falls back).
+ *
+ * @param {string} gnUrl
+ * @param {{ fetchImpl?: Function, timeoutMs?: number }} [opts]
+ * @returns {Promise<string|null>}
+ */
+export async function decodeGoogleNewsUrl(gnUrl, opts = {}) {
+  if (!isGoogleNewsRssUrl(gnUrl)) return null;
+  const token = extractToken(gnUrl);
+  if (!token) return null;
+  if (_decodeCache.has(token)) return _decodeCache.get(token);
+
+  const fetchImpl = opts.fetchImpl || globalThis.fetch;
+  const timeoutMs = Number.isFinite(opts.timeoutMs)
+    ? Number(opts.timeoutMs)
+    : DEFAULT_TIMEOUT_MS;
+
+  let resolved = null;
+  // Cheap offline attempt first (legacy format) — no network.
+  resolved = decodeOfflineBase64(token);
+  if (!resolved) {
+    try {
+      resolved = await decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs);
+    } catch {
+      resolved = null;
+    }
+  }
+  _decodeCache.set(token, resolved);
+  return resolved;
+}
+
+/** Test-only: clear the process-lifetime decode cache. */
+export function _resetDecodeCache() {
+  _decodeCache.clear();
+}
+
+export default decodeGoogleNewsUrl;
