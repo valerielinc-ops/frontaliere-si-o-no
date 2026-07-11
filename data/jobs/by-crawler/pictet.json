@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-07-11T10:33:41.996Z",
+  "assembledAt": "2026-07-11T21:51:41.981Z",
   "jobs": [
     {
       "id": "pictet-0c344e2b0437",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124666&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:40.105Z",
+      "crawledAt": "2026-07-11T21:51:39.845Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-06T15:03:48.972Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -95,7 +96,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124676&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:39.380Z",
+      "crawledAt": "2026-07-11T21:51:39.282Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -173,7 +174,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124670&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:38.816Z",
+      "crawledAt": "2026-07-11T21:51:38.696Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -250,7 +251,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124641&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:33:38.233Z",
+      "crawledAt": "2026-07-11T21:51:38.223Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -281,6 +282,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:57.435Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -325,7 +327,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124682&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:37.735Z",
+      "crawledAt": "2026-07-11T21:51:37.713Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -356,6 +358,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:56.621Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -400,7 +403,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124517&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:37.212Z",
+      "crawledAt": "2026-07-11T21:51:37.201Z",
       "addressLocality": "Hong Kong",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -429,7 +432,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-0e277c67c776",
@@ -462,7 +466,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124713&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:36.608Z",
+      "crawledAt": "2026-07-11T21:51:36.628Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -540,7 +544,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124277&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:36.003Z",
+      "crawledAt": "2026-07-11T21:51:36.020Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -618,7 +622,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124696&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:35.426Z",
+      "crawledAt": "2026-07-11T21:51:35.460Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -660,7 +664,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-5fe92c1758b2",
@@ -693,7 +698,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124717&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:33:34.350Z",
+      "crawledAt": "2026-07-11T21:51:34.466Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -757,7 +762,7 @@
         "it": "Relazioni con gli investitori",
         "en": "Investor Relations",
         "de": "Investor Relations",
-        "fr": "Relations avec les investisseurs"
+        "fr": "Investor Relations"
       },
       "description": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment asset manager that is part of the Pictet Group, with a focus on private equity, real estate, infrastructure, private credit and hedge funds. Pictet Group currently has more than €50bn of AUM in alternatives and more than €25bn of private equity AUM.\n\nPictet launched its first direct private equity fund in 2023, with a focus on lower mid market European buyout investments, raising over €430m. The fund operates out of London and focuses on investments in founder and family owned companies in B2B Services and Education across the UK and the DACH regions.\n\nYour role\n\nAs part of a team of 12 professionals, you will be responsible for Investor Relations. Your responsibilities will include:\n\n• Building and maintaining working relationships with Pictet's Wealth Management (PWM) relationship managers and Asset Management (PAM) sales staff across the network, understanding their client books, distribution priorities, and the broader Pictet product shelf;\n\n• Proactively identifying and developing relationships with Limited Partners (LPs) and co-investment prospects — leveraging existing relationships within Pictet to do so;\n • Runing a regular engagement calendar of product briefings, market updates, Q&A sessions, and bilateral meetings with distribution partners and LPs;\n • Managing LP relationships through the full fund cycle — from first meeting through commitment, onboarding, ongoing reporting, and re-ups;\n • Knowing the portfolio in sufficient depth to hold detailed investor conversations on any company without requiring a member of the senior investment team to be present;\n • Owning all investor-facing materials — pitch deck, DDQ, LP updates, fund profile — working closely with PAA Marketing and Communications to ensure quality, consistency, and alignment with PAA brand guidelines;\n • Maintaining DealCloud as the primary record of LP relationships and pipeline; use AI tools (Claude, Copilot) in materials drafting, research, competitor tracking, and preparation.\n\nYour profile\n\n• Minimum 7 years' experience in investor relations, product specialist, or distribution within private equity, private credit, or private markets;\n• Direct experience working with private banking or wealth management distribution channels and managing LP relationships through the full fund cycle;\n• Financially literate — able to discuss fund performance, portfolio company financials, and return attribution with confidence;\n• Experience with DealCloud or a comparable CRM platform will be preferred; strong written communication skills and the ability to produce clear, accurate investor-grade documents is required.\n• Credible with senior counterparts — PWM bankers, institutional allocators, and private clients; builds rapport naturally, follows through consistently, and navigates a multi-boutique, multi-stakeholder environment effectively\n• Genuinely passionate about private equity and the underlying investment strategy, with the ability to convey the investment story with conviction to clients and prospects; French language capability preferred but not required.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
@@ -812,7 +817,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
