@@ -4460,6 +4460,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': { name: 'Sulla disoccupazione dei frontalieri si', path: '/articoli-svizzera/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles/', parent: 'blog' },
     'blog-equipollenza-titolo-studio-italiano-svizzera-frontaliere': { name: 'Equipollenza titolo di studio italiano in', path: '/articoli-frontaliere/equipollenza-titolo-studio-italiano-svizzera-frontaliere', parent: 'blog' },
     'blog-ticino-nuovi-rincari': { name: 'Ticino, nuovi rincari e commercianti in', path: '/articoli-svizzera/ticino-nuovi-rincari/', parent: 'blog' },
+    'blog-sia-tredicesima-avs-guadagnarci-due-volte': { name: 'Frontalieri in pensione', path: '/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte', parent: 'blog' },
  };
 
  const info = sectionNames[section];

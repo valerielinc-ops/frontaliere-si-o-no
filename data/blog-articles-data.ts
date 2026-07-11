@@ -25208,6 +25208,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sia-tredicesima-avs-guadagnarci-due-volte',
+ category: 'fiscale',
+ date: '2026-07-11T23:36:34.739Z',
+ image: '/images/blog/sia-tredicesima-avs-guadagnarci-due-volte.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

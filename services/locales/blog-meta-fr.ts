@@ -8390,6 +8390,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Équivalence diplôme d\'italien en Suisse : que faire',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Les diplômes italiens sont équivalents en Suisse, mais il existe des procédures à suivre pour obtenir la reconnaissance',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Tredicesima AVS: pensione per frontalieri con doppia indennità',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'La Suisse a approuvé la mesure qui pourrait bénéficier aux pensionnaires transfrontaliers.',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier dans le Tessin',
 };
 
 export default blogMetaFr;
