@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3115,
+ "numberOfItems": 3116,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7790,7 +7790,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3112, "name": "Dogana Ponte Tresa: orari, attese e consigli pe...", "url": `${BASE_URL}/articoli-frontaliere/traffico-dogana-ponte-tresa-guida` },
           { "@type": "ListItem", "position": 3113, "name": "Lavorare in AXA Svizzera a Manno: guida per fro...", "url": `${BASE_URL}/articoli-frontaliere/axa-manno-lavoro-frontaliere` },
           { "@type": "ListItem", "position": 3114, "name": "Vivere in Valtellina e lavorare nei Grigioni da...", "url": `${BASE_URL}/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere` },
-          { "@type": "ListItem", "position": 3115, "name": "Di più aziende elettriche, scarsa voglia di cos...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-scarpa-voglia-di-costruire` }
+          { "@type": "ListItem", "position": 3115, "name": "Di più aziende elettriche, scarsa voglia di cos...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-scarpa-voglia-di-costruire` },
+          { "@type": "ListItem", "position": 3116, "name": "Lavora come fisioterapista in Ticino: riconosci...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti` }
  ]
  },
  {

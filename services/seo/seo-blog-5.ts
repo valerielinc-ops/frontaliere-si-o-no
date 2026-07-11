@@ -47145,6 +47145,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-fisioterapista-ticino-stipendio-requisiti': {
+    title: 'Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione',
+    description: 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavora, fisioterapista, riconoscimento, diploma',
+    ogTitle: 'Lavorare come fisioterapista in Ticino da frontaliere: riconoscimento del diploma, stipendio, iter di abilitazione, permesso G',
+    ogDescription: 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione',
+    canonicalPath: '/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione",
+      "description": "Per i frontalieri fisioterapisti, il riconoscimento del diploma e l'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l'iter di abilitazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-fisioterapista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un fisioterapista frontaliero si affaccia sulla vista del Lago di Lugano mentre prende il tramonto."
+      },
+      "datePublished": "2026-07-11T06:16:34+00:00",
+      "dateModified": "2026-07-11T06:16:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

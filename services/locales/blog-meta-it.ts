@@ -8330,6 +8330,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Nuovo accordo fiscale per frontalieri: cosa cambia e cosa fare',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri in transito',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione e cosa significa il permesso G?',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'Un fisioterapista frontaliero si affaccia sulla vista del Lago di Lugano mentre prende il tramonto.',
 };
 
 export default blogMetaIt;

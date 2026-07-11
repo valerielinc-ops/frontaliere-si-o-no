@@ -8328,6 +8328,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Wohnen im Veltlin und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Neue Steuervereinbarung für Grenzgänger: Was sich ändert und was zu tun ist',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalier in Transit',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Fisioterapia in Ticino: Diploma, Stipendio e Abilitazione',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'Für Grenzgänger als Physiotherapeuten sind die Anerkennung des Diploms und die Arbeitserlaubnis im Tessin von grundlegender Bedeutung. Aber wie funktioniert das Habilitationsverfahren und was bedeutet die G-Berechtigung?',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgängerlicher Physiotherapeut schaut auf die Aussicht auf den Luganersee während der Sonnenuntergang.',
 };
 
 export default blogMetaDe;

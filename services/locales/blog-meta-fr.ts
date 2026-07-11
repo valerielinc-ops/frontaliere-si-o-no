@@ -8330,6 +8330,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Vivre en Valteline et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Nouvel accord fiscal pour les frontaliers : ce qui change et ce qu\'il faut faire',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalier en transit',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Empruntez votre diplème de physiothérapeute au Tessin : reconnaissance, salaire et procédè de l\'habilitation',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'Pour les frontaliers physiothérapeutes, la reconnaissance du diplôme et l\'habilitation à travailler au Tessin sont fondamentales. Mais comment fonctionne le processus d\'activation et que signifie le permis G ?',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'Un physiothérapeute frontalier contemple la vue du lac de Lugano pendant le coucher du soleil.',
 };
 
 export default blogMetaFr;
