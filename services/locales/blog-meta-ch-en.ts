@@ -997,6 +997,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Transfer of the fifth of the pension: what changes with the new INPS convention',
     'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'The new INPS agreement for the transfer of the fifth of the pension introduces some procedural innovations.',
     'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier with loan',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Border teacher school Ticino salary requirements',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'The new law on border workers recognizes the title and salary of teachers in the Canton of Ticino.',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'A frontier teacher teaches in a school in the Canton of Ticino, with a view of Lake Lugano.',
 };
 
 export default blogMetaChEn;

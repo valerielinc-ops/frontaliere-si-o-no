@@ -997,6 +997,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Cessione del quinto della pensione: cosa cambia con la nuova convenzione INPS',
     'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'La nuova convenzione INPS per la cessione del quinto della pensione introduce alcune novità procedurali.',
     'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontaliere con finanziamento estinguibile',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Frontaliere insegnante scuola Ticino stipendio requisiti',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino.',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere insegna in una scuola del Cantone Ticino, con la vista sul Lago di Lugano.',
 };
 
 export default blogMetaChIt;

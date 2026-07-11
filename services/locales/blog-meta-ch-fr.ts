@@ -997,6 +997,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Cession du cinquième de la retraite : les changements avec la nouvelle convention INPS',
     'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'La nouvelle convention INPS pour la cession du cinquième de la pension introduit quelques nouveautés procédurales.',
     'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier avec prêt',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Frontalier enseignant école Tessin salaire exigences',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'La nouvelle loi sur les frontaliers reconnaît un titre et un salaire aux enseignants du canton du Tessin.',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Un enseignant frontalier enseigne dans une école du canton du Tessin, avec une vue sur le Lago di Lugano.',
 };
 
 export default blogMetaChFr;

@@ -997,6 +997,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Fünftelsrente-Neues INPS-Konzept: Was ändert sich?',
     'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'Die neue INPS-Vereinbarung für die Abtretung des Fünftels der Rente führt einige Verfahrensneuheiten ein.',
     'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier mit Kredit',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Grenzgänger Lehrer Schule Tessin Gehaltsvoraussetzungen',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'Das neue Grenzgängergesetz erkennt den Lehrern des Kantons Tessin Titel und Gehalt zu.',
+    'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger unterrichtet in einer Schule im Kanton Tessin, mit Blick auf den Lago di Lugano.',
 };
 
 export default blogMetaChDe;
