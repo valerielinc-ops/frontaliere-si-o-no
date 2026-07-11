@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-11T10:45:07.503Z",
+  "updatedAt": "2026-07-11T22:15:14.249Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
       "location": "Rothenburg, CH, 6023",
@@ -105,12 +105,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-10"
     },
-    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
-      "location": "Fontaines, CH, 2046",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-09"
-    },
     "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
@@ -122,12 +116,6 @@
       "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-06-26"
-    },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-09"
     },
     "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GAS-100-Beda-6930/1411117633/": {
       "location": "Bedano, CH, 6930",
