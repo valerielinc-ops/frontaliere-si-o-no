@@ -232,6 +232,18 @@ jobs:
           # local fallback (or any subset) on demand to validate/measure it
           # without waiting for the remote pool to exhaust naturally.
           AI_MODELS_FORCE_CHAIN: ${{ github.event.inputs.force_chain }}
+          # Slot routing: ALL slots → proven/news pool (owner request
+          # 2026-07-11: "sta pubblicando offerte non articoli" — the product
+          # intent is articles regenerated from the news sources). This is the
+          # spec § 13.2 rollback lever read by quotaController.decideSlot; it
+          # bypasses the discovery/demand pool ("offres fielmann", "stellen
+          # lugano" orphan-query pieces) whose 80-99 counter window the
+          # Jul 8-10 push outage had frozen the run counter into, making every
+          # post-fix publish draw discovery instead of news. To re-enable a
+          # discovery share, set the repo variable DISCOVERY_QUOTA_OVERRIDE
+          # to a 60-95 quota (e.g. 80 = 20% discovery) or to 'file' to fall
+          # back to the tuner-managed data/quota-state.json value.
+          DISCOVERY_QUOTA_OVERRIDE: ${{ vars.DISCOVERY_QUOTA_OVERRIDE || '100' }}
           # Section-aware wall-clock budget. The `frontaliere` pipeline is
           # gate-heavier than `svizzera`: it carries the frontaliere-density
           # relevance gate (>=8 keyword hits) on top of the shared fact-check /
