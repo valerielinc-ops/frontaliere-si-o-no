@@ -2339,10 +2339,10 @@
       "id": "denner-c25d25d4309d",
       "slug": "venditore-nel-salario-orario-denner-konolfingen",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-konolfingen",
-        "en": "seller-in-the-hourly-wage-denner-konolfingen",
+        "it": "venditore-nel-salario-orario-denner-ag-konolfingen",
+        "en": "seller-in-the-hourly-wage-denner-ag-konolfingen",
         "de": "verkaufer-in-im-stundenlohn-denner-konolfingen",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-konolfingen"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-konolfingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2400,17 +2400,21 @@
       "crawledAt": "2026-07-11T11:07:18.252Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-konolfingen"
+        "verkaufer-in-im-stundenlohn-denner-konolfingen",
+        "seller-in-the-hourly-wage-denner-konolfingen",
+        "vendeur-dans-le-salaire-horaire-denner-konolfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-konolfingen"
+          "verkaufer-in-im-stundenlohn-denner-konolfingen",
+          "seller-in-the-hourly-wage-denner-konolfingen"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-konolfingen"
+          "verkaufer-in-im-stundenlohn-denner-konolfingen",
+          "vendeur-dans-le-salaire-horaire-denner-konolfingen"
         ]
       },
       "firstSeenAt": "2026-07-10T12:30:58.162Z",
@@ -2432,10 +2436,10 @@
       "id": "denner-9704b8b58631",
       "slug": "product-manager-spirits-f-m-d-denner-zurich",
       "slugByLocale": {
-        "it": "product-manager-spirits-f-m-d-denner-zurich",
-        "en": "produkt-manager-spirituosen-w-m-d-denner",
+        "it": "product-manager-spirits-f-m-d-denner-ag-zurich",
+        "en": "product-manager-spirits-f-m-d-denner-zurich",
         "de": "produkt-manager-spirituosen-w-m-d-denner",
-        "fr": "gestionnaire-de-produits-spiritueux-f-m-d-denner-zurich"
+        "fr": "gestionnaire-de-produits-spiritueux-f-m-d-denner-ag-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2496,13 +2500,18 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-11T11:07:18.247Z",
       "previousSlugs": [
-        "produkt-manager-spirituosen-w-m-d-denner"
+        "produkt-manager-spirituosen-w-m-d-denner",
+        "gestionnaire-de-produits-spiritueux-f-m-d-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produkt-manager-spirituosen-w-m-d-denner"
         ],
         "fr": [
+          "produkt-manager-spirituosen-w-m-d-denner",
+          "gestionnaire-de-produits-spiritueux-f-m-d-denner-zurich"
+        ],
+        "en": [
           "produkt-manager-spirituosen-w-m-d-denner"
         ]
       },
@@ -2525,10 +2534,10 @@
       "id": "denner-1967b2fc0757",
       "slug": "venditore-nel-salario-orario-denner-biberist",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-biberist",
-        "en": "seller-in-the-hourly-wage-denner-biberist",
+        "it": "venditore-nel-salario-orario-denner-ag-biberist",
+        "en": "seller-in-the-hourly-wage-denner-ag-biberist",
         "de": "verkaufer-in-im-stundenlohn-denner-biberist",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-biberist"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-biberist"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2587,7 +2596,9 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-biberist"
+        "verkaufer-in-im-stundenlohn-denner-biberist",
+        "seller-in-the-hourly-wage-denner-biberist",
+        "vendeur-dans-le-salaire-horaire-denner-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2595,10 +2606,12 @@
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-biberist"
+          "verkaufer-in-im-stundenlohn-denner-biberist",
+          "seller-in-the-hourly-wage-denner-biberist"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-biberist"
+          "verkaufer-in-im-stundenlohn-denner-biberist",
+          "vendeur-dans-le-salaire-horaire-denner-biberist"
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:32.605Z",
@@ -2620,10 +2633,10 @@
       "id": "denner-a3e353fea1fa",
       "slug": "venditore-denner-frauenfeld",
       "slugByLocale": {
-        "it": "venditore-denner-frauenfeld",
-        "en": "seller-denner-frauenfeld",
+        "it": "venditore-denner-ag-frauenfeld-483d8d",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-frauenfeld",
-        "fr": "vendeur-denner-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2682,7 +2695,9 @@
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-frauenfeld"
+        "verkaufer-in-denner-frauenfeld",
+        "seller-denner-frauenfeld",
+        "vendeur-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2690,10 +2705,12 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "seller-denner-frauenfeld"
         ],
         "fr": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "vendeur-denner-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:32.576Z",
@@ -2715,10 +2732,10 @@
       "id": "denner-1fb0184e8209",
       "slug": "venditore-denner-aeschi-bei-spiez",
       "slugByLocale": {
-        "it": "venditore-denner-aeschi-bei-spiez",
-        "en": "verkaufer-in-denner-aeschi-bei-spiez",
+        "it": "venditore-migros-ticino-aeschi-bei-spiez",
+        "en": "seller-migros-ticino-aeschi-bei-spiez",
         "de": "verkaufer-in-denner-aeschi-bei-spiez",
-        "fr": "verkaufer-in-denner-aeschi-bei-spiez"
+        "fr": "vendeur-migros-ticino-aeschi-bei-spiez"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2779,11 +2796,18 @@
         "it": [
           "verkaufer-in-denner-3",
           "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-aeschi-bei-spiez"
+        ],
+        "fr": [
+          "verkaufer-in-denner-aeschi-bei-spiez"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-3",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-aeschi-bei-spiez"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

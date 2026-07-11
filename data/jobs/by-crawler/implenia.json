@@ -313,8 +313,8 @@
       "slugByLocale": {
         "de": "projektassistenz-80-100-gu-tu-w-m-d-implenia-ch",
         "it": "assistenza-al-progetto-80-100-gu-tu-f-m-d-implenia-glattpark-opfikon",
-        "en": "projektassistenz-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon",
-        "fr": "projektassistenz-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon"
+        "en": "project-assistance-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon",
+        "fr": "aide-au-projet-80-100-gu-tu-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -361,6 +361,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektassistenz-80-100-gu-tu-w-m-d-implenia-ch",
+          "projektassistenz-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "projektassistenz-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "projektassistenz-80-100-gu-tu-w-m-d-implenia-glattpark-opfikon"
         ]
       },
@@ -5305,9 +5311,9 @@
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+      "slug": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
-        "it": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "it": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
         "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
@@ -5354,12 +5360,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
+        "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-          "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
+          "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
         ],
         "en": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"

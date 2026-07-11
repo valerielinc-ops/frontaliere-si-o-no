@@ -128,7 +128,7 @@
         "it": "assistant-manager-advisory-compliance-zurich-insurance-sede-ticino-lugano-bn2gj0",
         "en": "assistant-manager-advisory-compliance-zurich-insurance-sede-ticino-lugano-bn2gj0",
         "de": "assistent-manager-advisory-compliance-zurich-insurance-sede-ticino-lugano-bn2gj0",
-        "fr": "assistant-manager-advisory-compliance-zurich-insurance-sede-ticino-lugano-bn2gj0"
+        "fr": "gestionnaire-adjoint-conformite-aux-avis-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -208,7 +208,7 @@
         "it": "sottoscrittore-di-fideiussione-senior-zurich-insurance-sede-ticino-lugano",
         "en": "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano-uhfwhd",
         "de": "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano-uhfwhd",
-        "fr": "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano-uhfwhd"
+        "fr": "un-souscripteur-de-caution-senior-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -222,6 +222,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano",
+          "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano-uhfwhd"
+        ],
+        "fr": [
           "senior-surety-underwriter-zurich-insurance-sede-ticino-lugano-uhfwhd"
         ]
       },
@@ -363,14 +366,20 @@
       "slugByLocale": {
         "it": "responsabile-recruitment-fa-development-zurich-insurance-sede-ticino-lugano",
         "en": "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9",
-        "de": "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9",
-        "fr": "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9"
+        "de": "rekrutierung-fa-development-manager-zurich-insurance-sede-ticino-lugano",
+        "fr": "gestionnaire-du-recrutement-et-du-developpement-de-la-fa-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
           "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano",
+          "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9"
+        ],
+        "de": [
+          "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9"
+        ],
+        "fr": [
           "recruitment-fa-development-manager-zurich-insurance-sede-ticino-lugano-bn15t9"
         ]
       },
@@ -520,7 +529,7 @@
         "it": "ifa-protection-consulente-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin-bo6iiw",
         "en": "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin-bo6iiw",
         "de": "ifa-protection-berater-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challenging-e-bo6iiw",
-        "fr": "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin-bo6iiw"
+        "fr": "conseiller-en-protection-de-l-ifa-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in"
       },
       "requirementsByLocale": {
         "it": [],
@@ -535,10 +544,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin"
+        ],
+        "fr": [
+          "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin-bo6iiw"
         ]
       },
       "previousSlugs": [
-        "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin"
+        "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin",
+        "ifa-protection-consultant-what-are-we-looking-for-an-energetic-impactful-candidate-with-the-desire-to-succeed-in-a-supportive-but-challengin-bo6iiw"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -641,7 +654,7 @@
     },
     {
       "id": "company-c3fmi3",
-      "slug": "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3",
+      "slug": "assistente-esecutivo-zurich-insurance-sede-ticino-lugano",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "Executive Assistant",
       "location": "Lugano",
@@ -679,10 +692,10 @@
         "fr": "La possibilité :\n\nNous sommes à la recherche d'un assistant exécutif pour effectuer diverses tâches administratives afin de soutenir notre PDG, SG.\n\nEn tant qu'adjoint exécutif, vous fournirez un soutien et des fonctions administratives générales et confidentielles, y compris des activités quotidiennes comme la gestion du journal, l'organisation de réunions, la réservation de voyages, la gestion des paiements/dépenses, la composition de la documentation/de la correspondance et le traitement des demandes de renseignements.\n\nPrincipales responsabilités :\n\n- Gérer, coordonner et maintenir le calendrier des PDG, y compris les réunions, les nominations et d'autres activités. Excellente maîtrise en gestion du calendrier, gestion efficace des priorités et résolution des conflits dans le calendrier des PDG.\n\n- Surveiller et gérer l'itinéraire et l'ordre du jour, la logistique des voyages et les activités, y compris l'hébergement, le transport et les repas. Coordonner avec les collègues et les contacts externes pour organiser les voyages, les visas et le logement.\n\n- Coordonner les événements majeurs impliquant le PDG. Aider à organiser régulièrement des réunions et des événements d'engagement des partenaires, y compris la gestion de la logistique, la préparation des conférences, les salles de réservation et les installations, et organiser des rafraîchissements.\n\n- Répondre et envoyer des courriels au nom du chef de la direction, y compris les transmettre au personnel approprié pour la gestion.\n\n- Composez des correspondances de routine et non courantes et la présentation à partir de brèves notes, instructions orales ou écrites.\n\n- Aider aux demandes de paiement des fournisseurs, en veillant à ce que toutes les demandes de paiement soient soumises et traitées rapidement. Préparer les rapports de dépenses et gérer les paiements pour les postes de dépenses.\n\n- Aider à la gestion des documents et au dépôt électronique, maintenir le professionnalisme et la confidentialité stricte de tous les documents.\n\n- Soutenir des projets spécifiques du point de vue administratif, au besoin.\n\nQualifications, compétences et expérience :\n\n- Expérience en matière de soutien administratif à la haute direction.\n\n- Capacité éprouvée de traiter les documents confidentiels et sensibles et les affectations critiques professionnellement.\n\n- Indépendant, méticuleux, et le maintien d'un haut niveau de professionnalisme dans un environnement rapide. Niveau élevé d'attention aux détails et à la précision.\n\n- Compétences informatiques et connaissance approfondie des logiciels pertinents tels que MS Word, PowerPoint, Excel, etc.\n\n- Capacité à prioriser et à multitâcher. Bonne gestion du temps, compétences en planification et en organisation, orientation client-service.\n\n- Bonnes compétences en communication verbale et écrite.\n\n- Flexible et prêt à apprendre.\n\n- Proactive et axée sur l'appropriation des tâches. Des personnes fortement motivées par l'initiative, autonomes et motivées."
       },
       "slugByLocale": {
-        "it": "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3",
+        "it": "assistente-esecutivo-zurich-insurance-sede-ticino-lugano",
         "en": "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3",
         "de": "executive-assistent-zurich-insurance-sede-ticino-lugano-c3fmi3",
-        "fr": "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3"
+        "fr": "assistant-executif-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -700,11 +713,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-zurich-insurance-sede-ticino-lugano"
+          "executive-assistant-zurich-insurance-sede-ticino-lugano",
+          "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3"
+        ],
+        "fr": [
+          "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3"
         ]
       },
       "previousSlugs": [
-        "executive-assistant-zurich-insurance-sede-ticino-lugano"
+        "executive-assistant-zurich-insurance-sede-ticino-lugano",
+        "executive-assistant-zurich-insurance-sede-ticino-lugano-c3fmi3"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -840,7 +858,7 @@
       "slugByLocale": {
         "it": "pricing-analista-zurich-insurance-sede-ticino-lugano-blie4q",
         "en": "pricing-analyst-zurich-insurance-sede-ticino-lugano-blie4q",
-        "de": "pricing-analyst-zurich-insurance-sede-ticino-lugano-blie4q",
+        "de": "preisanalyst-zurich-insurance-sede-ticino-lugano",
         "fr": "pricing-analyste-zurich-insurance-sede-ticino-lugano-blie4q"
       },
       "requirementsByLocale": {
@@ -855,10 +873,14 @@
       "previousSlugsByLocale": {
         "it": [
           "pricing-analyst-zurich-insurance-sede-ticino-lugano"
+        ],
+        "de": [
+          "pricing-analyst-zurich-insurance-sede-ticino-lugano-blie4q"
         ]
       },
       "previousSlugs": [
-        "pricing-analyst-zurich-insurance-sede-ticino-lugano"
+        "pricing-analyst-zurich-insurance-sede-ticino-lugano",
+        "pricing-analyst-zurich-insurance-sede-ticino-lugano-blie4q"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -916,13 +938,16 @@
         "it": "partner-cliente-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible",
         "en": "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t-j60iqc",
         "de": "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t-j60iqc",
-        "fr": "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t-j60iqc"
+        "fr": "partenaire-client-responsable-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to"
       },
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
           "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t",
+          "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t-j60iqc"
+        ],
+        "fr": [
           "client-partner-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-t-j60iqc"
         ]
       },
@@ -1136,8 +1161,8 @@
       },
       "slugByLocale": {
         "it": "coordinador-a-redes-de-peritos-y-proveedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de-bp4ha1",
-        "en": "coordinador-a-redes-de-peritos-y-proveedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de-bp4ha1",
-        "de": "coordinador-a-redes-de-peritos-y-proveedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de-bp4ha1",
+        "en": "coordinator-a-redes-de-peritos-y-probedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
+        "de": "koordinator-a-redes-de-peritos-y-probedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
         "fr": "coordinador-a-redes-de-peritos-y-proveedores-diversos-bilbao-zurich-insurance-sede-ticino-2024-hicimos-mas-de-bp4ha1"
       },
       "requirementsByLocale": {},
@@ -1170,7 +1195,7 @@
     },
     {
       "id": "company-c4nrka",
-      "slug": "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka",
+      "slug": "direttore-aggiunto-zurich-insurance-sede-ticino-lugano",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "Assistant Manager",
       "location": "Lugano",
@@ -1208,10 +1233,10 @@
         "fr": "Résumé:\nCe rôle est d'appuyer l'exécution du plan d'audit pour les vérifications complexes (locales et mondiales), avec une supervision minimale, et d'exécuter des activités de mission d'audit, y compris la détermination de la portée, l'analyse des risques et la documentation des résultats d'audit, conformément aux normes d'audit de groupe.\n\nEmploi\n• Responsabilités :\n1. Bâtir une compréhension approfondie des normes et de la méthodologie d'audit en groupe\n2. Aider l'équipe responsable à planifier et à déterminer la portée de la vérification pour les missions pertinentes et à conclure une entente sur l'analyse des risques\n3. Participer à des audits locaux, régionaux et mondiaux, achever les travaux d'audit et documenter les résultats d'audit conformément aux normes d'audit de groupe\n4. Assurer une supervision minimale des affectations, avec les directives requises et l'examen ultérieur\n5. S'entendre sur les mesures correctives et présenter le rapport de vérification final avec l'appui du chef de l'équipe/des sous-officiers pour des tâches plus difficiles, complexes et délicates sur le plan technique\n6. Suivre la mise en œuvre des actions convenues\n7. Développer ses propres connaissances et la sensibilisation des entreprises en examinant les ressources disponibles et en interagissant avec plusieurs intervenants\n8. Contribuer à l'équipe mondiale d'audit de groupe grâce à ses propres compétences professionnelles et connaissances techniques\n9. Atteindre l'objectif annuel d'utilisation en suivant son propre utilisation et en informant les parties prenantes concernées, en cas de faible utilisation à tout moment\n10. Utiliser l'analyse des données dans les audits, le cas échéant\n11. Compléter les évaluations annuelles du rendement (y compris les évaluations du niveau d'engagement et les personnes déplacées dans le cycle de gestion du rendement) en temps voulu et avec les normes de qualité requises\n12. Interagir avec les pairs du segment ou de la fonction, ou avec les propriétaires de processus, pour obtenir de l'information et des éclaircissements pendant la vérification, ainsi que pour obtenir leur adhésion sur les recommandations; établir de bonnes relations avec ces intervenants\n\nResponsabilités des entreprises\n1 Créer une analyse de rentabilisation pour des vérifications définies afin de démontrer les avantages potentiels, de clarifier la justification des mesures correctives et d'assurer l'adhésion des équipes d'affaires\n2 Aider les principaux intervenants de la vérification à se mettre d'accord sur l'analyse des risques, à élaborer le plan d'audit évolutif et à effectuer des vérifications afin de s'assurer que les politiques et procédures des secteurs d'activité sont modifiées et mises à jour.\n3 Recherche des sources primaires de données de vérification, sélection de l'information pertinente, analyse des thèmes clés et des tendances afin de fournir des intrants pour l'élaboration des politiques\n4 Procéder à des examens et proposer des changements pour améliorer l'efficacité du processus de vérification\n5 Fournir des conseils en matière d'audit pour répondre aux questions techniques spécifiques des parties prenantes et fournir des solutions appropriées conformément aux normes d'audit de groupe\n\nEmploi\n• Exigences\nÉducation\n1. Baccalauréat en audit, administration des affaires ou domaines connexes.\n2. Compétence en outils d'analyse de données (p. ex. SQL, Python, Power BI).\n3. Familiariser avec les applications d'IA/Automation dans la vérification (p. ex. détection d'anomalies, tests automatisés).\n4. Compétence intermédiaire en évaluation des risques de vérification, vérification interne et contrôles internes.\n5. Compétences de base en matière de réseautage et de gestion des intervenants.\n6. Au moins 5 ans d'expérience en vérification ou en gestion des risques; les antécédents de l'industrie financière ou de l'assurance préfèrent.\n7. L'expérience des vérifications réglementaires ou des vérifications de groupe est un avantage.\n8. Forte capacité d'analyse et de résolution de problèmes.\n9. Excellente capacité de communication et de collaboration.\n10. Bonne maîtrise de l'anglais écrit et parlé.\n\nC'est ça."
       },
       "slugByLocale": {
-        "it": "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka",
+        "it": "direttore-aggiunto-zurich-insurance-sede-ticino-lugano",
         "en": "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka",
         "de": "assistent-manager-zurich-insurance-sede-ticino-lugano-c4nrka",
-        "fr": "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka"
+        "fr": "directeur-adjoint-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1229,11 +1254,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-zurich-insurance-sede-ticino-lugano"
+          "assistant-manager-zurich-insurance-sede-ticino-lugano",
+          "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka"
+        ],
+        "fr": [
+          "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-zurich-insurance-sede-ticino-lugano"
+        "assistant-manager-zurich-insurance-sede-ticino-lugano",
+        "assistant-manager-zurich-insurance-sede-ticino-lugano-c4nrka"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -1334,7 +1364,7 @@
     },
     {
       "id": "company-sqwkve",
-      "slug": "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve",
+      "slug": "architetto-digitale-zurich-insurance-sede-ticino-is-blackrock",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "Digital Architect",
       "location": "is Blackrock",
@@ -1372,9 +1402,9 @@
         "fr": "Résumé de l'emploi\n\nL'architecte numérique de Zurich Life Ireland est un rôle clé qui contribuera à la transformation numérique de Zurich Life Ireland. Cette position permet de façonner et de diriger le paysage numérique de l'organisation en tirant parti des compétences techniques avancées et de la pensée stratégique pour offrir des solutions numériques efficaces.\n\nLe rôle est axé sur la conception et l'orchestration de parcours numériques complexes utilisés par nos clients, courtiers et propriétaires de programmes d'entreprise. Ces parcours nécessitent une intégration profonde entre plusieurs systèmes back-end, y compris les moteurs de règles de produits, les plates-formes de règles d'affaires, les services de calcul, les bases de données et les systèmes d'administration des politiques.\n\nLe candidat idéal possédera un ensemble complet de compétences techniques et fonctionnelles, capables de fournir des solutions de haute qualité dans un environnement de services financiers dynamique et en évolution rapide. Ces solutions viseront à permettre à nos clients d'interagir avec nous via différents canaux numériques dans tous les aspects de nos processus et de nos offres.\n\nCette position exige une compréhension approfondie de l'architecture numérique, combinée à une expérience approfondie de l'intégration et de l'orchestration des entreprises, et la capacité de stimuler l'innovation et l'efficacité grâce à la technologie.\n\nVotre rôle\n\nPrincipales responsabilités :\n\nLeadership, collaboration et engagement des intervenants :\n\n- Collaborer avec les analystes opérationnels, les gestionnaires de projet et d'autres intervenants pour recueillir les exigences et les traduire en spécifications techniques.\n\n- S'engager avec les unités commerciales pour comprendre leurs besoins et défis et proposer des solutions numériques qui offrent de la valeur et de l'efficacité.\n\n- Agir comme un pont entre les équipes de systèmes numériques, d'intégration et de base, en assurant l'alignement dans tous les domaines de prestation\n\nConception et développement de solutions\n\n- Concevoir et mettre en œuvre des solutions numériques évolutives, robustes et sécurisées qui améliorent et rationalisent les processus d'affaires dans de multiples systèmes back-end, notamment :\n\n-\n\n- Moteurs de production et de tarification\n\n- Règles de fonctionnement et services de décision\n\n- Systèmes de calcul\n\n- Plateformes d ' administration des politiques\n\n- Niveaux de données et de persistance\n\n- Assurer l'alignement des solutions numériques avec l'architecture d'entreprise globale et les objectifs commerciaux.\n\n- Utiliser des technologies et des cadres modernes pour construire des solutions qui soutiennent la conception axée sur l'API, l'architecture des microservices et les déploiements basés sur le cloud.\n\nIntégration et interopérabilité:\n\n- Mettre en œuvre et gérer les intégrations entre les nouvelles solutions numériques et les systèmes existants, en assurant un flux de données et une interopérabilité sans faille.\n\n- Tirer parti des outils d'intégration d'entreprise (p. ex. Mulesoft), des API pour :\n\n- Coordonner les flux de travail complexes\n\n- Permettre l'interopérabilité entre les systèmes disparates\n\n- Découpler les expériences numériques front-end des services back-end\n\nLeadership technique :\n\n- Fournir un leadership technique et des conseils aux équipes de développement, en veillant au respect des pratiques exemplaires et des normes architecturales.\n\n- Mentor et soutien des membres de l'équipe pour favoriser une culture d'apprentissage et d'amélioration continus.\n\nSécurité et conformité :\n\n- Veiller à ce que toutes les solutions numériques respectent les exigences de sécurité et de conformité, protègent les données sensibles et maintiennent la conformité réglementaire.\n\n- Mettre en œuvre les pratiques exemplaires en matière de sécurité et procéder à des évaluations régulières de la sécurité.\n\nDocumentation et rapports :\n\n- Créez et maintenez une documentation technique complète, y compris des diagrammes d'architecture, des documents de conception et des guides d'utilisation.\n\n- Fournir régulièrement des mises à jour et des rapports sur les progrès des initiatives numériques à la haute direction.\n\nVos compétences et votre expérience\n\nExpertise en architecture numérique :\n\n- Expérience éprouvée dans la conception et la mise en œuvre d'architectures numériques qui soutiennent la numérisation des processus d'affaires.\n\n- Forte connaissance des modèles architecturaux modernes, y compris les microservices, la conception axée sur l'API et les architectures natives du nuage.\n\nCompétence technique :\n\n- Compétence dans une gamme de technologies, y compris les outils d'intégration d'entreprise, le middleware, les API et les plateformes cloud\n\n- Expérience du cycle de vie du développement logiciel (SDLC) et des méthodologies agiles.\n\n- Une bonne compréhension des modèles de messagerie, de la sécurité des paramètres et de la modélisation des données.\n\nExpérience en matière d'intégration :\n\n- Expérience dans l'intégration de nouvelles solutions numériques avec les systèmes existants en utilisant les API REST/SOAP, les intergiciels et les outils d'intégration tels que Mulesoft.\n\n- Connaissance de la migration des données et des processus ETL.\n\n- Expérience de travail sur des plates-formes héritées et modernes dans des paysages d'intégration complexes\n\nGestion de projet et leadership :\n\n- Capacité démontrée de diriger et de diriger les projets depuis leur création jusqu'à leur achèvement, en assurant l'alignement avec les objectifs opérationnels.\n\n- De solides compétences en gestion de projet, avec de l'expérience en gestion d'équipes interfonctionnelles et en collaboration avec divers intervenants.\n\nCompétences d'analyse et de résolution des problèmes :\n\n- De solides compétences analytiques et de résolution de problèmes, avec la capacité de résoudre des problèmes techniques complexes.\n\n- Capacité d'analyser les besoins des entreprises et de les traduire en solutions numériques efficaces.\n\nCommunication et collaboration :\n\n- Excellente communication et aptitudes interpersonnelles, avec la capacité de travailler efficacement avec les intervenants à tous les niveaux.\n\n- Capacité d'articuler des concepts techniques complexes avec des auditoires non techniques.\n\nResponsabilités additionnelles :\n\nInnovation et amélioration continue :\n\n- Restez informé des dernières tendances et technologies en matière d'architecture numérique et d'intégration des entreprises.\n\n- Identifier les possibilités d'innovation et d'amélioration continue dans le paysage numérique.\n\nOrientation client :\n\n- Assurez-vous que les solutions numériques sont conçues et mises en œuvre pour répondre aux besoins de nos clients et améliorer leur expérience.\n\nInformations complémentaires\n\nLe principal lieu de travail est Blackrock, Co.Dublin.\n\nSi vous appréciez un environnement de travail passionnant et varié et que vous répondez aux exigences ci-dessus, notre recruteur est impatient de recevoir votre candidature en cliquant sur le bouton « Appliquer en ligne ».\n\nQui nous sommes\n\nZurich est l'une des principales compagnies d'assurance irlandaises fournissant un large éventail de produits et services d'assurance générale et d'assurance-vie. L'entreprise emploie plus de 1 000 personnes sur ses sites de Dublin et Wexford.\n\nZurich est une marque forte, Zurich en Irlande fait partie du Zurich Insurance Group, un assureur multiligne leader qui dessert ses clients sur les marchés mondiaux et locaux. Nos 55 000 collaborateurs dans le monde entier constituent la base de notre succès, aidant nos clients dans 210 pays et territoires à se comprendre et à se protéger des risques. Afin de fournir nos services, nous offrons un package de rémunération concurrentiel et des opportunités intéressantes pour la formation et le développement. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages ainsi que d'une culture forte, caractérisée par l'acceptation, la diversité et l'esprit d'équipe.\n\nÀ Zurich, nous sommes un employeur à égalité des chances. Nous attirons et conservons les personnes les plus qualifiées disponibles, sans égard à la race/ethnicité, à la religion, au sexe, à l'orientation sexuelle, à l'âge ou au handicap.\n\nCe rôle peut être disponible à temps partiel ou à temps plein. C'est parce que nous voulons les meilleures personnes pour nos rôles, et nous reconnaissons que parfois ces personnes ne sont pas disponibles à temps plein. Veuillez nous parler à l'entrevue de la flexibilité dont vous pourriez avoir besoin."
       },
       "slugByLocale": {
-        "it": "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve",
+        "it": "architetto-digitale-zurich-insurance-sede-ticino-is-blackrock",
         "en": "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve",
-        "de": "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve",
+        "de": "digitaler-architekt-zurich-insurance-sede-ticino-is-blackrock",
         "fr": "digital-architecte-zurich-insurance-sede-ticino-is-blackrock-sqwkve"
       },
       "requirementsByLocale": {
@@ -1393,11 +1423,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "digital-architect-zurich-insurance-sede-ticino-is-blackrock"
+          "digital-architect-zurich-insurance-sede-ticino-is-blackrock",
+          "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve"
+        ],
+        "de": [
+          "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve"
         ]
       },
       "previousSlugs": [
-        "digital-architect-zurich-insurance-sede-ticino-is-blackrock"
+        "digital-architect-zurich-insurance-sede-ticino-is-blackrock",
+        "digital-architect-zurich-insurance-sede-ticino-is-blackrock-sqwkve"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1772,7 +1807,7 @@
         "it": "gestione-sinistri-assicurazione-commerciale-livello-medio-a-esperto-zurich-insurance-sede-ticino-lugano",
         "en": "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano-hbusr4",
         "de": "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano-hbusr4",
-        "fr": "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano-hbusr4"
+        "fr": "gestionnaire-des-reclamations-assurance-commerciale-niveau-moyen-au-niveau-expert-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1786,6 +1821,9 @@
       "previousSlugsByLocale": {
         "it": [
           "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano",
+          "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano-hbusr4"
+        ],
+        "fr": [
           "claims-handler-commercial-insurance-mid-to-expert-level-zurich-insurance-sede-ticino-lugano-hbusr4"
         ]
       },

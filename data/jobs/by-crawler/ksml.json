@@ -469,8 +469,8 @@
       "slugByLocale": {
         "de": "teilpensum-5-6-klasse-7-9-5-lektionen-primarstufenkreis-rufenacht-rufenacht-39698",
         "it": "part-time-5-6-grado-7-9-5-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht-39698",
-        "en": "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenach-39698",
-        "fr": "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenach-39698"
+        "en": "sub-board-5-6-class-7-9-5-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht-39698",
+        "fr": "sous-tableau-5-6-classe-7-9-5-enseignements-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39698"
       },
       "slugDisambiguator": "39698",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -519,11 +519,18 @@
         "it": [
           "teilpensum-5-6-klasse-7-9-5-lektionen-primarstufenkreis-rufenacht-rufenacht-39698",
           "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht"
+        ],
+        "en": [
+          "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenach-39698"
+        ],
+        "fr": [
+          "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenach-39698"
         ]
       },
       "previousSlugs": [
         "teilpensum-5-6-klasse-7-9-5-lektionen-primarstufenkreis-rufenacht-rufenacht-39698",
-        "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht"
+        "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht",
+        "teilpensum-5-6-klasse-7-9-5-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenach-39698"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1693,8 +1700,8 @@
       "slugByLocale": {
         "de": "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-primarstufenkreis-37221",
         "it": "sostituzione-3-6a-classe-5-lezioni-ttg-lezioni-di-mezza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221",
-        "en": "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221",
-        "fr": "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221"
+        "en": "deputy-3rd-6th-grade-5-lessons-ttg-half-class-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37221",
+        "fr": "3e-6e-annee-5-lecons-ttg-demi-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht-37221"
       },
       "slugDisambiguator": "37221",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1743,11 +1750,18 @@
         "it": [
           "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-primarstufenkreis-37221",
           "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht"
+        ],
+        "en": [
+          "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221"
+        ],
+        "fr": [
+          "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221"
         ]
       },
       "previousSlugs": [
         "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-primarstufenkreis-37221",
-        "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht"
+        "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rufenacht",
+        "stellvertretung-3-6-klasse-5-lektionen-ttg-halbklassenunterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37221"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -310,7 +310,7 @@
       "slug": "dipl-expertin-experte-notfallpflege-nds-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "dipl-expertin-experte-notfallpflege-nds-hf-kantonsspital-aarau-ksa-aarau",
-        "en": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch",
+        "en": "postgraduate-degree-dipl-expert-expert-emergency-care-nds-hf-kantonsspital-aarau-ksa-aarau",
         "de": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch",
         "fr": "expertin-experte-notfallpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
       },
@@ -362,6 +362,9 @@
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch"
         ],
         "fr": [
+          "nachdiplomstudium-dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch"
+        ],
+        "en": [
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch"
         ]
       },
@@ -1398,9 +1401,9 @@
     },
     {
       "id": "ksa-a11e07523a1a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-ksa-ch",
+      "slug": "dipl-specialista-infermieristico-infermieristica-gastroenterologia-endoscopia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-ksa-ch",
+        "it": "dipl-specialista-infermieristico-infermieristica-gastroenterologia-endoscopia-kantonsspital-aarau-ksa-aarau",
         "en": "pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-ksa-ch",
         "fr": "pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-kantonsspital-aarau-ksa-aarau"
@@ -1457,7 +1460,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-endoskopie-ksa-ch"
+      ]
     },
     {
       "id": "ksa-331ead23b63b",
@@ -1993,7 +2004,7 @@
         "it": "supporto-ict-in-service-desk-kantonsspital-aarau-ksa-aarau",
         "en": "ict-supporter-in-service-desk-ksa-ch",
         "de": "ict-supporter-in-service-desk-ksa-ch",
-        "fr": "ict-supporter-in-service-desk-ksa-ch"
+        "fr": "service-d-appui-aux-tic-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2040,6 +2051,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ict-supporter-in-service-desk-ksa-ch"
+        ],
+        "fr": [
           "ict-supporter-in-service-desk-ksa-ch"
         ]
       },
@@ -2258,8 +2272,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -5231,8 +5244,8 @@
       "slugByLocale": {
         "de": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
         "it": "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
-        "fr": "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        "en": "medical-secretary-or-med-practical-assistant-kantonsspital-aarau-ksa-aarau",
+        "fr": "secretaire-medical-ou-med-assistant-pratique-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5279,13 +5292,17 @@
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        ],
+        "en": [
+          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
         "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztjq8",
-        "medical-secretary-or-med-practical-assistant-kantonsspital-aarau-ksa-aarau",
-        "secretaire-medical-ou-med-assistant-pratique-kantonsspital-aarau-ksa-aarau",
         "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinml1"
       ],
       "salaryMin": 62000,
@@ -6178,8 +6195,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6328,8 +6344,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6479,8 +6494,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6631,8 +6645,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -7515,8 +7528,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -7688,7 +7700,7 @@
       "slug": "esperto-certificato-in-cure-di-emergenza-nds-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "esperto-certificato-in-cure-di-emergenza-nds-hf-kantonsspital-aarau-ksa-aarau",
-        "en": "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-ksa-ch",
+        "en": "certified-expert-certified-expert-emergency-care-nds-hf-kantonsspital-aarau-ksa-aarau",
         "de": "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-ksa-ch",
         "fr": "expert-e-diplome-e-en-soins-d-urgence-epd-es-kantonsspital-aarau-ksa-aarau"
       },
@@ -7741,7 +7753,8 @@
           "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-ksa-ch"
         ],
         "en": [
-          "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
+          "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-kantonsspital-aarau-ksa-aarau",
+          "diplomierte-expertin-diplomierter-experte-notfallpflege-nds-hf-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -8474,8 +8487,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "fachexpertin-fachexperte-pflege-ksa-ch-3",
-        "fachexpertin-fachexperte-pflege-ksa-ch-4"
+        "fachexpertin-fachexperte-pflege-ksa-ch-3"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
