@@ -970,6 +970,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Wohnen im Veltlin und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Steuern, Vorschriften und Unterschiede zum Pol Tessin-Lombardei',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore.',
+    'blog.article.esportazione-zampe-di-maiale.title': 'Schweizer Export-Scherz nach China',
+    'blog.article.esportazione-zampe-di-maiale.excerpt': 'Historisch niedrige Preise und steigende Versandkosten untergraben die Gewinne der Schweizer Schweinefleischexporteure',
+    'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Bild einer Szene des Schweinefleischexports nach China',
 };
 
 export default blogMetaChDe;

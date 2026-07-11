@@ -2906,6 +2906,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'esportazione-zampe-di-maiale',
+    category: 'pratico',
+    date: '2026-07-11T09:25:42.763Z',
+    image: '/images/blog/esportazione-zampe-di-maiale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

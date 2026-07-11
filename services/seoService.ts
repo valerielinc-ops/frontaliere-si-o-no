@@ -4430,6 +4430,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-oltre-monti-lavorare-grigioni': { name: 'Frontalieri', path: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/', parent: 'blog' },
     'blog-trasferimento-residenza-svizzera-frontaliere': { name: 'Trasferimento residenza Svizzera', path: '/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere', parent: 'blog' },
     'blog-frontaliere-gravidanza-controlli-sanitari-lamal-cmi': { name: 'Frontaliere gravidanza', path: '/articoli-frontaliere/frontaliere-gravidanza-controlli-sanitari-lamal-cmi', parent: 'blog' },
+    'blog-esportazione-zampe-di-maiale': { name: 'Esportazione di carne suina', path: '/articoli-svizzera/esportazione-zampe-di-maiale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

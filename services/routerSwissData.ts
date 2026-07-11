@@ -346,6 +346,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-farmacista-ticino-stipendio-requisiti': { it: 'frontaliere-farmacista-ticino-stipendio-requisiti', en: 'frontaliere-pharmacist-ticino-salary-requirements', de: 'frontaliere-apotheker-ticino-salario-anforderungen', fr: 'frontaliere-pharmaciennes-ticino-salaire-conditions' },
  'assicurazione-vita-privata-svizzera-convienne-frontaliere': { it: 'assicurazione-vita-privata-svizzera-convienne-frontaliere', en: 'swiss-private-life-insurance-for-border-workers', de: 'schweizer-private-lebensversicherung-fur-grenzganger', fr: 'assurance-vie-privee-suisse-pour-travailleurs-frontaliers' },
  'vivere-oltre-monti-lavorare-grigioni': { it: 'vivere-oltre-monti-lavorare-grigioni', en: 'living-over-the-mountains-working-in-grisons', de: 'leben-uber-berge-erarbeiten-in-grisone', fr: 'vivre-au-dela-des-montagnes-travailler-en-grisons' },
+ 'esportazione-zampe-di-maiale': { it: 'esportazione-zampe-di-maiale', en: 'pork-exports-to-china', de: 'schweinefleisch-export-in-china', fr: 'exportation-de-porc-en-chine' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
