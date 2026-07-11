@@ -573,6 +573,30 @@ function main() {
     if (skippedWf) console.log(`parked-retry: ${skippedWf} skip WF-scope (capability-guard → restano parked/age-out).`);
   }
 
+  // --- CRAWLER MAX-TURNS PARK (non-queue-managed, escalation #3886) -----------
+  // Crawler issues (route='fix', !isQueueManaged) che colpiscono error_max_turns
+  // sono ESCLUSE dal rescue loop sotto (filtro isQueueManaged → solo queue-managed).
+  // Senza questo pass il marker `max-turns` resta senza park → needs-human non
+  // viene mai aggiunto → isAvoidableMaxTurns() li conta come "loop fixabile"
+  // → harvester escalation ricorre deterministicamente (#3853/#3858/#3862).
+  // Park con needs-human AL PRIMO max-turns: stessa logica del rescue queue-managed
+  // (error_max_turns è deterministico — ri-tentare lo stesso crawler riproduce
+  // identico esito al medesimo cap). I crawler non usano fu-attempt: nessun
+  // bump attempt qui, solo il segnale park + needs-human (human → rigenera parser).
+  // Gira PRIMA del gate slot (park non richiede lo slot libero).
+  {
+    const crawlersFix = listIssues(LBL_FIX).filter(
+      (i) => !isQueueManaged(i) && !has(i, 'needs-human') && !has(i, LBL_PARKED),
+    );
+    for (const iss of crawlersFix) {
+      if (hasFixPR(iss.number)) continue;
+      const outcome = latestFixOutcome(iss.number);
+      if (outcome !== 'max-turns') continue;
+      console.log(`PARK CRAWLER #${iss.number} → fu-parked + needs-human (error_max_turns deterministico, crawler non-queue-managed) — "${iss.title?.slice(0, 50)}"`);
+      edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX] });
+    }
+  }
+
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
   // può mai toccare la issue di una run viva (evita di togliere agent:fix mentre
   // il fix è in corso), e la promozione resta l'unica pending → mai cancellata.
