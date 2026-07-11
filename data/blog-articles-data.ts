@@ -25055,6 +25055,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferimento-residenza-svizzera-frontaliere',
+ category: 'pratico',
+ date: '2026-07-11T08:08:37.293Z',
+ image: '/images/blog/trasferimento-residenza-svizzera-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

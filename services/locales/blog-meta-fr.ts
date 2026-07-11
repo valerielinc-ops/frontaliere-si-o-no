@@ -8339,6 +8339,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'L\'assurance vie privée suisse convient-elle aux frontaliers ?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'La frontière tessinoise doit connaître les avantages et les inconvénients de l\'assurance vie privée suisse.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'Un frontaliere qui est dans une situation similaire pourrait chercher à comprendre comment fonctionne l\'assurance vie privée suisse.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Se marier en Suisse : documents, permis et impact fiscal-préventionnel',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'Le 1er janvier 2024, le nouvel accord frontalier entre en vigueur. Les frontaliers doivent remplir un formulaire spécial.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'Un frontalière s\'installe en Suisse avec sa famille',
 };
 
 export default blogMetaFr;

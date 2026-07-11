@@ -8337,6 +8337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'Lohnt sich die Schweizer Privatlebensversicherung für Grenzgänger?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'Die Tessiner Grenze muss die Vor- und Nachteile der schweizerischen Privatlebensversicherung kennen.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'Ein Frontalier, der in einer ähnlichen Situation ist, könnte sich für die Funktion der Schweizer privaten Lebensversicherung interessieren.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Heiraten in der Schweiz: Dokumente, Genehmigungen und steuerliche Auswirkungen',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'Am 1. Januar 2024 tritt die Neue Grenzgängervereinbarung in Kraft. Grenzgänger müssen ein spezielles Formular ausfüllen.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'Ein Frontalier zieht mit seiner Familie in die Schweiz',
 };
 
 export default blogMetaDe;
