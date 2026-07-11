@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-07-11T10:21:00.662Z",
+  "assembledAt": "2026-07-11T21:49:17.941Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.591Z",
+      "crawledAt": "2026-07-11T21:49:14.433Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -90,18 +90,21 @@
       "previousSlugs": [
         "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
         "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos"
+        "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos",
+        "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
-          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -147,7 +150,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.589Z",
+      "crawledAt": "2026-07-11T21:49:14.431Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -190,14 +193,17 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+        "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+          "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -243,7 +249,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.588Z",
+      "crawledAt": "2026-07-11T21:49:14.429Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -288,18 +294,21 @@
       "previousSlugs": [
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100",
-        "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos"
+        "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
-          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100"
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100",
+          "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
         ],
         "de": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -345,7 +354,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.587Z",
+      "crawledAt": "2026-07-11T21:49:14.428Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -369,11 +378,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+        "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+          "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
@@ -383,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -412,7 +424,7 @@
       "title": "Physiotherapeut (m/w/d) 60%",
       "titleByLocale": {
         "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
+        "en": "Physiotherapeut (m/w/d) 60%",
         "de": "Physiotherapeut (m/w/d) 60%",
         "fr": "Physiothérapie (m/p/p) 70-80 %"
       },
@@ -428,7 +440,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.586Z",
+      "crawledAt": "2026-07-11T21:49:14.426Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -456,12 +468,14 @@
         "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
         "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
         "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
+        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch"
+          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
+          "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
@@ -471,6 +485,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:42:17.137Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -500,7 +515,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
       },
@@ -516,7 +531,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.585Z",
+      "crawledAt": "2026-07-11T21:49:14.425Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -554,6 +569,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:35:51.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -599,7 +615,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.584Z",
+      "crawledAt": "2026-07-11T21:49:14.421Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -623,11 +639,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+        "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+          "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
@@ -682,7 +700,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.583Z",
+      "crawledAt": "2026-07-11T21:49:14.419Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -703,17 +721,20 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+        "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+          "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
         ],
         "de": [
           "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:52.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -743,7 +764,7 @@
       "title": "Pflegefachperson (w/m/d)",
       "titleByLocale": {
         "it": "Assistente sanitario (m/f/d)",
-        "en": "Nurse (f/m/d)",
+        "en": "Pflegefachperson (w/m/d)",
         "de": "Pflegefachperson (w/m/d)",
         "fr": "Aide-soignant (m/f/d)"
       },
@@ -759,7 +780,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.582Z",
+      "crawledAt": "2026-07-11T21:49:14.417Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -784,12 +805,14 @@
         "pflegefachperson-w-m-d-hochgebirgsklinik-davos-davos",
         "infirmiere-f-m-j-hochgebirgsklinik-davos-davos",
         "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
-        "infermiera-f-m-d-hochgebirgsklinik-davos-davos"
+        "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
+        "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-          "infermiera-f-m-d-hochgebirgsklinik-davos-davos"
+          "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
+          "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
@@ -804,6 +827,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.521Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -849,7 +873,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.581Z",
+      "crawledAt": "2026-07-11T21:49:14.410Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -873,12 +897,14 @@
         "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "nursing-assistant-f-m-d-hochgebirgsklinik-davos-davos",
         "assistant-infirmier-f-m-d-hochgebirgsklinik-davos-davos",
-        "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+        "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
+        "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
-          "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+          "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
+          "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
@@ -935,7 +961,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.580Z",
+      "crawledAt": "2026-07-11T21:49:14.409Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -962,14 +988,16 @@
         "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
         "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
         "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos",
+        "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
           "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
           "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-          "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+          "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos",
+          "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
@@ -1027,7 +1055,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.577Z",
+      "crawledAt": "2026-07-11T21:49:14.403Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1048,11 +1076,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
@@ -1107,7 +1137,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.575Z",
+      "crawledAt": "2026-07-11T21:49:14.400Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1131,11 +1161,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
@@ -1174,7 +1206,7 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
       "titleByLocale": {
-        "it": "Cosmetologo / Cosmetologo (f/m/d) 50 - 60 %",
+        "it": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "en": "Spa Therapist (m/f) 50 - 60 %",
         "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
@@ -1191,7 +1223,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.574Z",
+      "crawledAt": "2026-07-11T21:49:14.398Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1214,27 +1246,30 @@
       "pensum": "50 - 60%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
-        ],
         "it": [
           "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
-          "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
+          "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
+          "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
           "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
-        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
-        "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
-      ],
       "firstSeenAt": "2026-07-10T22:03:11.797Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -1266,7 +1301,7 @@
         "it": "Risorse Umane-Business Partner (m/w/d) 50–100 %",
         "en": "HR Business Partner (m/f/d) 50-100%",
         "de": "Personalwesen-Business Partner (m/w/d) 50–100 %",
-        "fr": "Partenaire d'affaires RH (m/f/j) 50-100%"
+        "fr": "HR-Business Partner (m/w/d) 50–100 %"
       },
       "description": "Mensch und Kultur. Die Hochgebirgsklinik Davos wächst – und unser HR wächst mit. Deshalb bauen wir unsere Personalarbeit Schritt für Schritt weiter aus: moderner, digitaler und zukunftsorientierter. Unser HR-Team befindet sich mitten in einer spannenden Entwicklungsphase: Wir bauen Prozesse und digitale Tools auf, schärfen Strukturen und schaffen Standards, die langfristig funktionieren. Das bedeutet: Nicht alles ist bereits perfekt – aber genau darin liegt die Chance. Du kannst mitgestalten, Ideen einbringen und Veränderungen aktiv vorantreiben. Wenn du Freude daran hast, Verantwortung zu übernehmen, pragmatische Lösungen zu finden und gemeinsam mit einem motivierten Team etwas aufzubauen, dann bist du bei uns genau richtig. Bei uns gestaltest du nicht nur HR-Prozesse – sondern die Zukunft unserer Personalarbeit. | Aufgaben:\n• Beraten und begleiten : Du bist kompetente Ansprechperson für Mitarbeitende und Sparringpartner/-in für Führungspersonen. Personalentwicklung von den Lehrlingen bis zu den Führungskräften ist für dich eine Herzenssache.\n• Gestalten statt abarbeiten : Du packst an beim Aufbau eines «Best-Class Human Resources Management» – mit Ideen, Pragmatismus und Herzblut. Employee Self Service und Management Self Service sind dir geläufige Begriffe. Du bringst deine Erfahrung lösungsorientiert ein.\n• Zahlen und Prozesse : Du optimierst gerne Prozesse und bringst dich mit Zahlenflair bei der Lohnbuchhaltung mit ein (ABACUS).\n• Systemaffinitä t: Du betreust und berätst rund um das Zeiterfassungssystem Polypoint und trägst zu reibungslosen Abläufen bei.\n• Teamplayer : Ferienvertretung, Transparenz, Offenheit und gegenseitige Unterstützung sind für dich selbstverständlich. | Anforderungen:\n• Fundiertes Know-how : Du hast eine universitäre Aus- und Weiterbildung im Bereich Human Resources Management oder bist eine ausgewiesene HR-Fachfrau oder ein HR-Fachmann.\n• Praxis im Gesundheitswesen : Wünschenswert ist Erfahrung im Gesundheitswesen (Klinik oder ähnliches Umfeld).\n• Expertise : Mehrjährige Berufserfahrung im HR-Management, eine ausgeprägte dienstleistungsorientierte Haltung.\n• Ruhe und Überblick : Auch in hektischen Momenten bleibst du fokussiert, lösungsorientiert und verlierst nie den Sinn für Humor.",
       "descriptionByLocale": {
@@ -1280,7 +1315,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjU0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.573Z",
+      "crawledAt": "2026-07-11T21:49:14.396Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1312,6 +1347,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:26:56.381Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1357,7 +1393,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.572Z",
+      "crawledAt": "2026-07-11T21:49:14.394Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1384,12 +1420,14 @@
         "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
         "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
         "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos",
-        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
+        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
+          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
@@ -1446,7 +1484,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.571Z",
+      "crawledAt": "2026-07-11T21:49:14.392Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1470,11 +1508,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+          "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
@@ -1529,7 +1569,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.570Z",
+      "crawledAt": "2026-07-11T21:49:14.390Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1553,11 +1593,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
@@ -1612,7 +1654,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.568Z",
+      "crawledAt": "2026-07-11T21:49:14.388Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1636,11 +1678,13 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
@@ -1650,6 +1694,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1695,7 +1740,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:20:53.556Z",
+      "crawledAt": "2026-07-11T21:49:14.368Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1714,11 +1759,13 @@
       "department": "Ausbildung",
       "streetAddress": "Promenade 117",
       "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+          "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
         ],
         "en": [
           "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
@@ -1740,7 +1787,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     }
   ]
 }
