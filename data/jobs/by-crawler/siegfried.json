@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-07-11T10:37:32.940Z",
+  "assembledAt": "2026-07-11T21:50:14.651Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:30.327Z",
+      "crawledAt": "2026-07-11T21:50:11.691Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,11 +53,13 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz",
+        "operatore-di-produzione-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -109,7 +111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:29.685Z",
+      "crawledAt": "2026-07-11T21:50:11.017Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,11 +153,13 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz",
+        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -165,6 +169,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -193,7 +198,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Recensione dati analitica",
+        "it": "Analytical Data Reviewer",
         "en": "Anal Rev",
         "de": "Analytical Data Reviewer",
         "fr": "Chercheur de données analytiques"
@@ -210,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:28.997Z",
+      "crawledAt": "2026-07-11T21:50:10.323Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,19 +236,22 @@
         "analytical-data-reviewer-siegfried-ch",
         "revisore-dei-dati-analitico-siegfried-zofingen",
         "analytische-datenprufer-siegfried-zofingen",
-        "analytical-data-reviewer-siegfried-zofingen"
+        "analytical-data-reviewer-siegfried-zofingen",
+        "recensione-dati-analitica-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analytical-data-reviewer-siegfried-ch",
           "revisore-dei-dati-analitico-siegfried-zofingen",
-          "analytical-data-reviewer-siegfried-zofingen"
+          "analytical-data-reviewer-siegfried-zofingen",
+          "recensione-dati-analitica-siegfried-zofingen"
         ],
         "de": [
           "analytische-datenprufer-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -289,7 +297,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:28.368Z",
+      "crawledAt": "2026-07-11T21:50:09.594Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -307,17 +315,20 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch"
+        "senior-lab-technician-analytics-siegfried-ch",
+        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -363,7 +374,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:27.726Z",
+      "crawledAt": "2026-07-11T21:50:08.884Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,14 +392,17 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "lab-technician-r-d-siegfried-ch"
+        "lab-technician-r-d-siegfried-ch",
+        "laboratorio-tecnico-r-d-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "laboratorio-tecnico-r-d-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -434,7 +448,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:27.081Z",
+      "crawledAt": "2026-07-11T21:50:07.690Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -455,12 +469,14 @@
         "lab-supervisor-qc-siegfried-ch",
         "lab-supervisore-qc-siegfried-evionnaz",
         "lab-vorgesetzter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-evionnaz"
+        "lab-supervisor-qc-siegfried-evionnaz",
+        "controllo-del-laboratorio-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz"
+          "lab-supervisore-qc-siegfried-evionnaz",
+          "controllo-del-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "lab-supervisor-qc-siegfried-ch"
@@ -519,7 +535,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/OPEX-Lead_R26_432",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:26.454Z",
+      "crawledAt": "2026-07-11T21:50:05.891Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -538,11 +554,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "opex-lead-siegfried-ch",
-        "opex-lead-siegfried-evionnaz"
+        "opex-lead-siegfried-evionnaz",
+        "piombo-opex-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "opex-lead-siegfried-ch"
+          "opex-lead-siegfried-ch",
+          "piombo-opex-siegfried-evionnaz"
         ],
         "en": [
           "opex-lead-siegfried-evionnaz"
@@ -600,7 +618,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-of-Sales---Business-Development-Drug-Products_R26_482-2",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:25.833Z",
+      "crawledAt": "2026-07-11T21:50:05.321Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,12 +639,14 @@
         "head-of-sales-business-development-drug-products-siegfried-ch",
         "responsabile-sales-business-development-drug-products-siegfried-zofingen",
         "leiter-sales-business-development-drug-products-siegfried-zofingen",
-        "responsable-sales-business-development-drug-products-siegfried-zofingen"
+        "responsable-sales-business-development-drug-products-siegfried-zofingen",
+        "responsabile-vendite-e-sviluppo-commerciale-prodotti-farmaceutici-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-sales-business-development-drug-products-siegfried-ch",
-          "responsabile-sales-business-development-drug-products-siegfried-zofingen"
+          "responsabile-sales-business-development-drug-products-siegfried-zofingen",
+          "responsabile-vendite-e-sviluppo-commerciale-prodotti-farmaceutici-siegfried-zofingen"
         ],
         "de": [
           "head-of-sales-business-development-drug-products-siegfried-ch",
@@ -683,7 +703,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:25.166Z",
+      "crawledAt": "2026-07-11T21:50:04.753Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -703,13 +723,15 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -764,7 +786,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:24.610Z",
+      "crawledAt": "2026-07-11T21:50:04.183Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -783,12 +805,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch"
+        "technicien-de-maintenance-electricite-siegfried-ch",
+        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -798,6 +822,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -843,7 +868,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:23.981Z",
+      "crawledAt": "2026-07-11T21:50:03.615Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -861,11 +886,13 @@
       "jobReqId": "R26_507",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "legal-counsel-80-100-siegfried-ch"
+        "legal-counsel-80-100-siegfried-ch",
+        "consulente-legale-80-100-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-80-100-siegfried-ch"
+          "legal-counsel-80-100-siegfried-ch",
+          "consulente-legale-80-100-siegfried-zofingen"
         ],
         "de": [
           "legal-counsel-80-100-siegfried-ch"
@@ -920,7 +947,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:23.317Z",
+      "crawledAt": "2026-07-11T21:50:03.044Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -939,17 +966,20 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "senior-lab-technician-process-safety-siegfried-ch",
-        "senior-lab-techniker-process-safety-siegfried-evionnaz"
+        "senior-lab-techniker-process-safety-siegfried-evionnaz",
+        "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-process-safety-siegfried-ch"
+          "senior-lab-technician-process-safety-siegfried-ch",
+          "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
         ],
         "de": [
           "senior-lab-techniker-process-safety-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -995,7 +1025,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:22.624Z",
+      "crawledAt": "2026-07-11T21:50:02.471Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,11 +1043,13 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch"
+        "intern-commercial-excellence-siegfried-ch",
+        "tirocinante-commercial-excellence-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -1027,6 +1059,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1072,7 +1105,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-Analytik-QC_R26_465",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:21.978Z",
+      "crawledAt": "2026-07-11T21:50:01.913Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1091,11 +1124,13 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "chemielaborant-in-analytik-qc-siegfried-ch",
-        "chemielaborant-in-analytik-qc-siegfried-zofingen"
+        "chemielaborant-in-analytik-qc-siegfried-zofingen",
+        "laboratorio-chimico-analisi-qc-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemielaborant-in-analytik-qc-siegfried-ch"
+          "chemielaborant-in-analytik-qc-siegfried-ch",
+          "laboratorio-chimico-analisi-qc-siegfried-zofingen"
         ],
         "en": [
           "chemielaborant-in-analytik-qc-siegfried-ch"
@@ -1153,7 +1188,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:37:21.344Z",
+      "crawledAt": "2026-07-11T21:50:01.337Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1172,11 +1207,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "qa-supervisor-siegfried-ch",
-        "qa-supervisor-siegfried-evionnaz"
+        "qa-supervisor-siegfried-evionnaz",
+        "qa-supervisore-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-supervisor-siegfried-ch"
+          "qa-supervisor-siegfried-ch",
+          "qa-supervisore-siegfried-evionnaz"
         ],
         "de": [
           "qa-supervisor-siegfried-ch"
@@ -1186,6 +1223,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:42:54.087Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1217,7 +1255,7 @@
         "it": "Assistente esecutivo",
         "en": "Executive Assistant",
         "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
+        "fr": "Executive Assistant"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\n Your Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n - Parken können Sie bei uns vergünstigt\n - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
@@ -1231,7 +1269,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:20.665Z",
+      "crawledAt": "2026-07-11T21:50:00.729Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1250,17 +1288,20 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "executive-assistant-siegfried-ch",
-        "executive-assistant-siegfried-zofingen"
+        "executive-assistant-siegfried-zofingen",
+        "assistente-esecutivo-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-siegfried-ch"
+          "executive-assistant-siegfried-ch",
+          "assistente-esecutivo-siegfried-zofingen"
         ],
         "fr": [
           "executive-assistant-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1306,7 +1347,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_553",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:20.023Z",
+      "crawledAt": "2026-07-11T21:50:00.161Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1325,12 +1366,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "process-manager-production-siegfried-ch",
-        "process-manager-production-m-f-d-siegfried-ch"
+        "process-manager-production-m-f-d-siegfried-ch",
+        "produzione-di-process-manager-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "process-manager-production-siegfried-ch",
-          "process-manager-production-m-f-d-siegfried-ch"
+          "process-manager-production-m-f-d-siegfried-ch",
+          "produzione-di-process-manager-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-23T23:03:52.957Z",
@@ -1379,7 +1422,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:37:19.355Z",
+      "crawledAt": "2026-07-11T21:49:59.467Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1397,14 +1440,17 @@
       "jobReqId": "R26_537",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "global-category-manager-capex-siegfried-ch"
+        "global-category-manager-capex-siegfried-ch",
+        "global-categoria-manager-capex-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-category-manager-capex-siegfried-ch"
+          "global-category-manager-capex-siegfried-ch",
+          "global-categoria-manager-capex-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-07-08T11:16:26.761Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1434,7 +1480,7 @@
       "title": "Betriebsingenieur/in",
       "titleByLocale": {
         "it": "Ingegnere di produzione",
-        "en": "Operational engineer",
+        "en": "Betriebsingenieur/in",
         "de": "Betriebsingenieur/in",
         "fr": "Ingénieur de production"
       },
@@ -1450,7 +1496,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:37:18.567Z",
+      "crawledAt": "2026-07-11T21:49:58.813Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1469,12 +1515,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "betriebsingenieur-in-siegfried-zofingen",
+        "ingegnere-di-produzione-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "betriebsingenieur-in-siegfried-zofingen",
+          "ingegnere-di-produzione-siegfried-zofingen"
         ],
         "en": [
           "betriebsingenieur-in-siegfried-zofingen"
@@ -1484,6 +1532,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
