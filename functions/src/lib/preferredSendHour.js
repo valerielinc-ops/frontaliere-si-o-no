@@ -5,7 +5,9 @@
  * UTC hour-of-day at which they most often open/click emails (a per-user
  * "best time to send"). Mirrors the structure of ./engagementScore.js — same
  * recency-weighting windows/values, same refresh-wrapper idiom (read subscriber
- * state, compute, skip-write-if-unchanged, swallow errors).
+ * state, compute, write, swallow errors). Unlike engagementScore, the refresh
+ * is gated behind a staleness check (see refreshPreferredSendHour) rather than
+ * a skip-write-if-unchanged check — see that function's docblock for why.
  *
  * Circular mean, NOT arithmetic mean: hours-of-day wrap around at midnight, so
  * a user who opens at 23:00 and again at 01:00 has a preference near 00:00 —
@@ -28,6 +30,10 @@ const RECENCY_WINDOWS = [
 
 export const PREFERRED_SEND_MIN_EVENTS = 3;
 export const PREFERRED_SEND_WINDOW_DAYS = 90;
+// Staleness-gate window for refreshPreferredSendHour (see below): once a
+// subscriber has enough samples to trust the circular mean, re-derive it at
+// most this often instead of on every single open/click.
+export const PREFERRED_SEND_REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
 function recencyWeight(daysSince) {
  for (const window of RECENCY_WINDOWS) {
@@ -48,6 +54,24 @@ function parseEventDate(value) {
  }
  const date = value instanceof Date ? value : new Date(value);
  return Number.isFinite(date.getTime()) ? date : null;
+}
+
+/**
+ * Convert accumulated (sin, cos) sums from a circular mean into an hour-of-day
+ * integer in [0, 23]. Extracted from computePreferredSendHour so other
+ * callers (e.g. offline scoring scripts) can share the exact same
+ * angle-to-hour conversion instead of re-deriving it.
+ *
+ * @param {number} sumSin
+ * @param {number} sumCos
+ * @returns {number} integer hour 0-23
+ */
+export function circularMeanToHour(sumSin, sumCos) {
+ const meanAngle = Math.atan2(sumSin, sumCos);
+ let hourFloat = (meanAngle * 24) / (2 * Math.PI);
+ if (hourFloat < 0) hourFloat += 24;
+ // Math.round(23.6) === 24 → wrap back to hour 0 of the next day.
+ return Math.round(hourFloat) % 24;
 }
 
 /**
@@ -89,11 +113,7 @@ export function computePreferredSendHour(events, now = new Date()) {
   return { hourUtc: null, sampleCount, strength: null };
  }
 
- const meanAngle = Math.atan2(sumSin, sumCos);
- let hourFloat = (meanAngle * 24) / (2 * Math.PI);
- if (hourFloat < 0) hourFloat += 24;
- // Math.round(23.6) === 24 → wrap back to hour 0 of the next day.
- const hourUtc = Math.round(hourFloat) % 24;
+ const hourUtc = circularMeanToHour(sumSin, sumCos);
 
  const resultantLength = Math.sqrt(sumSin * sumSin + sumCos * sumCos) / sumWeight;
  const strength = Math.round(resultantLength * 1000) / 1000;
@@ -114,12 +134,46 @@ export function computePreferredSendHour(events, now = new Date()) {
  * refreshEngagementScore's transaction protects concurrent counter
  * increments. A plain get() + compare-before-write is sufficient here.
  *
+ * Staleness gate (Firestore cost — #3798 code review): open/click webhooks
+ * fire at high volume, and without a gate every single one of them paid for
+ * an `events` query of up to 300 docs (~301 reads/event) just to re-derive a
+ * number that, once a subscriber has enough history, barely moves from event
+ * to event. refreshEngagementScore is O(1) (a counter increment inside a
+ * transaction) — this was the expensive one by a wide margin. So: read the
+ * subscriber doc FIRST (1 read); if it already has >= PREFERRED_SEND_MIN_EVENTS
+ * samples AND was refreshed within the last PREFERRED_SEND_REFRESH_INTERVAL_MS
+ * (6h), skip the events query entirely and return the cached values. The gate
+ * intentionally does NOT engage below the sample-count threshold: a
+ * cold-start subscriber (<3 events) has few events, so the query is cheap,
+ * and every additional event materially changes whether they clear the
+ * cold-start floor at all — recomputing on every event there is correct, not
+ * wasteful.
+ *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {*} FieldValue admin.firestore.FieldValue
  * @returns {Promise<{ updated: boolean, hourUtc?: number|null, sampleCount?: number, strength?: number|null }>}
  */
 export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
  try {
+  // Read the subscriber doc BEFORE the events query — this is what makes the
+  // staleness gate below cheap (1 read) instead of paying for the up-to-300
+  // doc events query first and only then discovering a refresh wasn't needed.
+  const currentSnap = await subscriberRef.get();
+  const current = currentSnap.exists ? currentSnap.data() : null;
+
+  if (current && current.preferred_send_sample_count >= PREFERRED_SEND_MIN_EVENTS) {
+   const updatedAt = parseEventDate(current.preferred_send_updated_at);
+   const isFresh = updatedAt && (Date.now() - updatedAt.getTime()) < PREFERRED_SEND_REFRESH_INTERVAL_MS;
+   if (isFresh) {
+    return {
+     updated: false,
+     hourUtc: current.preferred_send_hour_utc ?? null,
+     sampleCount: current.preferred_send_sample_count,
+     strength: current.preferred_send_strength ?? null,
+    };
+   }
+  }
+
   // Query the events subcollection OUTSIDE of any transaction (Firestore
   // transactions can't mix an initial query read with later ref.get() reads
   // the way this needs). No `where('event_type', 'in', [...])` filter on
@@ -139,16 +193,11 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
 
   const { hourUtc, sampleCount, strength } = computePreferredSendHour(events);
 
-  const currentSnap = await subscriberRef.get();
-  const current = currentSnap.exists ? currentSnap.data() : {};
-  const unchanged = current
-   && current.preferred_send_hour_utc === hourUtc
-   && current.preferred_send_sample_count === sampleCount
-   && current.preferred_send_strength === strength;
-  if (unchanged) {
-   return { updated: false, hourUtc, sampleCount, strength };
-  }
-
+  // Always write, even if the derived values are identical to what's already
+  // stored: preferred_send_updated_at is what resets the staleness-gate
+  // window above, so skipping the write on "unchanged" would mean the gate
+  // never re-engages and this subscriber keeps paying the full events-query
+  // cost on every future event forever.
   await subscriberRef.set({
    preferred_send_hour_utc: hourUtc,
    preferred_send_sample_count: sampleCount,

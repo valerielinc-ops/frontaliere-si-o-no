@@ -302,14 +302,6 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  );
  }
 
- // Refresh preferred send hour (#3798) — only open/click carry a time-of-day signal.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(
- db.collection('newsletter_subscribers').doc(email),
- admin.firestore.FieldValue,
- );
- }
-
  await db.collection('newsletter_subscribers').doc(email).collection('campaign_deliveries').doc(buildDeliveryDocId(email, campaignId)).set({
  email,
  provider: 'resend',
@@ -356,6 +348,18 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
+
+ // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
+ // signal. Runs AFTER the events.add() above so the just-arrived event is
+ // itself part of the sample the recompute reads back (otherwise the
+ // computation always lags one event behind, and the cold-start threshold
+ // would only ever be cleared on the event *after* the 3rd one).
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(
+ db.collection('newsletter_subscribers').doc(email),
+ admin.firestore.FieldValue,
+ );
+ }
 
  if (type === 'open') {
  await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'resend', campaignId, variant, locale });
@@ -431,13 +435,6 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
- // ── Preferred send hour (#3798) ──────────────────────────────
- // job_alert_subscribers/{email} has the same events subcollection shape as
- // newsletter_subscribers. Only open/click carry a time-of-day signal.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
- }
-
  // ── Per-alert delivery record (subcollection) ───────────────
  await subscriberRef.collection('alert_deliveries').doc(alertId).set({
  alert_id: alertId,
@@ -470,6 +467,15 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
+
+ // ── Preferred send hour (#3798) ──────────────────────────────
+ // job_alert_subscribers/{email} has the same events subcollection shape as
+ // newsletter_subscribers. Only open/click carry a time-of-day signal. Runs
+ // AFTER the events.add() above so the current event is part of the sample
+ // it reads.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
 }
 
 export async function handleResendWebhookRequest({ payload, headers, webhookSecret }) {

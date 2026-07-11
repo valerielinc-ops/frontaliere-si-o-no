@@ -144,11 +144,6 @@ export async function persistMailjetEvent(db, eventData) {
  await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
- // Refresh preferred send hour (#3798) — only open/click carry a time-of-day signal.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
- }
-
  // Update campaign delivery doc
  const deliveryData = {
  email,
@@ -201,6 +196,15 @@ export async function persistMailjetEvent(db, eventData) {
  occurred_at: timestamp,
  });
 
+ // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
+ // signal. Runs AFTER the events.add() above so the just-arrived event is
+ // itself part of the sample the recompute reads back (otherwise the
+ // computation always lags one event behind, and the cold-start threshold
+ // would only ever be cleared on the event *after* the 3rd one).
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
+
  if (type === 'open') {
  const variant = await lookupSentVariant(subscriberRef, campaignId, email);
  await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailjet', campaignId, variant });
@@ -236,12 +240,6 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
  }
 
- // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
- // same events subcollection shape as newsletter_subscribers.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
- }
-
  await subscriberRef.collection('events').add({
  email,
  event_type: type,
@@ -255,6 +253,13 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  timestamp: FieldValue.serverTimestamp(),
  occurred_at: timestamp,
  });
+
+ // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
+ // same events subcollection shape as newsletter_subscribers. Runs AFTER the
+ // events.add() above so the current event is part of the sample it reads.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
 
  return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }

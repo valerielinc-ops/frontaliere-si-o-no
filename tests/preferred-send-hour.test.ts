@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  circularMeanToHour,
   computePreferredSendHour,
   PREFERRED_SEND_MIN_EVENTS,
+  PREFERRED_SEND_REFRESH_INTERVAL_MS,
   PREFERRED_SEND_WINDOW_DAYS,
+  refreshPreferredSendHour,
 } from '../functions/src/lib/preferredSendHour.js';
 
 // Fixed reference "now" — event offsets are always expressed relative to this
@@ -20,6 +23,42 @@ function eventAt(daysAgo: number, hourUtc: number, minuteUtc = 0, type: 'open' |
 function circularDistance(a: number, b: number) {
   const diff = Math.abs(a - b) % 24;
   return Math.min(diff, 24 - diff);
+}
+
+// Minimal fake subscriberRef for testing refreshPreferredSendHour's staleness
+// gate directly, without going through a full webhook-core fake db. Tracks
+// whether the `events` subcollection was ever queried and what was written,
+// so gate tests can assert "no query / no write" precisely.
+function createFakeSubscriberRef({
+  docData = null as Record<string, unknown> | null,
+  events = [] as Array<Record<string, unknown>>,
+} = {}) {
+  const sets: Array<{ data: Record<string, unknown>; opts?: unknown }> = [];
+  let eventsQueried = false;
+  const ref = {
+    get: async () => ({ exists: !!docData, data: () => docData }),
+    set: async (data: Record<string, unknown>, opts?: unknown) => {
+      sets.push({ data, opts });
+    },
+    collection: (name: string) => {
+      if (name !== 'events') throw new Error(`unexpected subcollection: ${name}`);
+      return {
+        orderBy: () => ({
+          limit: () => ({
+            get: async () => {
+              eventsQueried = true;
+              return { docs: events.map((d) => ({ data: () => d })) };
+            },
+          }),
+        }),
+      };
+    },
+  };
+  return { ref, sets, wasEventsQueried: () => eventsQueried };
+}
+
+function fakeFieldValue() {
+  return { serverTimestamp: () => 'SERVER_TIMESTAMP' };
 }
 
 describe('preferredSendHour (functions/src/lib)', () => {
@@ -181,5 +220,130 @@ describe('preferredSendHour (functions/src/lib)', () => {
   it('handles an empty/non-array input gracefully', () => {
     expect(computePreferredSendHour([], NOW)).toEqual({ hourUtc: null, sampleCount: 0, strength: null });
     expect(computePreferredSendHour(undefined as never, NOW)).toEqual({ hourUtc: null, sampleCount: 0, strength: null });
+  });
+});
+
+describe('circularMeanToHour (functions/src/lib) — shared angle→hour conversion (#3798)', () => {
+  it('converts angle 0 (sin=0, cos=1) to hour 0', () => {
+    expect(circularMeanToHour(0, 1)).toBe(0);
+  });
+
+  it('converts a 90° angle (sin=1, cos=0) to hour 6', () => {
+    expect(circularMeanToHour(1, 0)).toBe(6);
+  });
+
+  it('wraps a negative atan2 angle (sin=-1, cos=0, i.e. -90°) to hour 18', () => {
+    // atan2(-1, 0) = -π/2 — exercises the `if (hourFloat < 0) hourFloat += 24` branch.
+    expect(circularMeanToHour(-1, 0)).toBe(18);
+  });
+
+  it('rounds an hour fraction of 23.6 up to 24 and wraps to 0', () => {
+    const theta = (2 * Math.PI * 23.6) / 24;
+    expect(circularMeanToHour(Math.sin(theta), Math.cos(theta))).toBe(0);
+  });
+});
+
+describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () => {
+  it('exposes the refresh interval constant (6 hours)', () => {
+    expect(PREFERRED_SEND_REFRESH_INTERVAL_MS).toBe(6 * 60 * 60 * 1000);
+  });
+
+  it('skips the events query and write when sample_count >= threshold and updated_at is fresh (<6h)', async () => {
+    const freshDate = new Date(Date.now() - 60 * 60 * 1000); // 1h ago
+    const { ref, sets, wasEventsQueried } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 5,
+        preferred_send_hour_utc: 9,
+        preferred_send_strength: 0.8,
+        preferred_send_updated_at: freshDate,
+      },
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(wasEventsQueried()).toBe(false);
+    expect(sets.length).toBe(0);
+    expect(result).toEqual({ updated: false, hourUtc: 9, sampleCount: 5, strength: 0.8 });
+  });
+
+  it('does NOT gate below the cold-start threshold, even with a fresh updated_at', async () => {
+    const freshDate = new Date(Date.now() - 60 * 60 * 1000);
+    const { ref, sets, wasEventsQueried } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 2,
+        preferred_send_hour_utc: null,
+        preferred_send_strength: null,
+        preferred_send_updated_at: freshDate,
+      },
+      events: [],
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(wasEventsQueried()).toBe(true);
+    expect(sets.length).toBe(1);
+    expect(result.updated).toBe(true);
+  });
+
+  it('re-runs the query and write once updated_at is older than the refresh interval (>6h)', async () => {
+    const staleDate = new Date(Date.now() - (PREFERRED_SEND_REFRESH_INTERVAL_MS + 60 * 60 * 1000));
+    const { ref, sets, wasEventsQueried } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 5,
+        preferred_send_hour_utc: 9,
+        preferred_send_strength: 0.8,
+        preferred_send_updated_at: staleDate,
+      },
+      events: [
+        { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+        { event_type: 'open', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+        { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+      ],
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(wasEventsQueried()).toBe(true);
+    expect(sets.length).toBe(1);
+    expect(result.updated).toBe(true);
+    expect(result.sampleCount).toBe(3);
+  });
+
+  it('is tolerant of a Firestore-Timestamp-like preferred_send_updated_at (fresh → gates)', async () => {
+    const freshDate = new Date(Date.now() - 60 * 60 * 1000);
+    const { ref, wasEventsQueried } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 4,
+        preferred_send_hour_utc: 10,
+        preferred_send_strength: 0.5,
+        preferred_send_updated_at: { toDate: () => freshDate },
+      },
+    });
+
+    await refreshPreferredSendHour(ref as never, fakeFieldValue());
+    expect(wasEventsQueried()).toBe(false);
+  });
+
+  it('is tolerant of an ISO-string preferred_send_updated_at (stale → re-runs)', async () => {
+    const staleIso = new Date(Date.now() - (PREFERRED_SEND_REFRESH_INTERVAL_MS + 1000)).toISOString();
+    const { ref, wasEventsQueried } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 4,
+        preferred_send_hour_utc: 10,
+        preferred_send_strength: 0.5,
+        preferred_send_updated_at: staleIso,
+      },
+      events: [],
+    });
+
+    await refreshPreferredSendHour(ref as never, fakeFieldValue());
+    expect(wasEventsQueried()).toBe(true);
+  });
+
+  it('does not gate when the subscriber doc does not exist yet', async () => {
+    const { ref, wasEventsQueried } = createFakeSubscriberRef({ docData: null, events: [] });
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+    expect(wasEventsQueried()).toBe(true);
+    expect(result.updated).toBe(true);
   });
 });
