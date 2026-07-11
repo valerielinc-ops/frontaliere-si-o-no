@@ -451,12 +451,17 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     mod.markModelExhausted(mod.AI_MODELS.GPT4O, 'timeout');
     mod.markModelExhausted(mod.AI_MODELS.GPT4O_MINI, 'content');
     mod.markModelExhausted(mod.AI_MODELS.GEMINI_FLASH, 'quota');
+    // 'nonretryable' = 404 unknown-model / decommissioned id (the Gemini
+    // non-retryable branch labels with this reason since the #4073 review 🔴
+    // fix) — a static incompatibility, not a daily quota: must not persist.
+    mod.markModelExhausted(mod.AI_MODELS.GEMINI_PRO, 'nonretryable');
     await mod.flushScores();
 
     const key = (id: string) => id.replace(/\//g, '__');
     const persisted = store._all.models as Record<string, { exhaustedUntil: string | null }>;
     expect(persisted[key(mod.AI_MODELS.GPT4O)].exhaustedUntil).toBeNull();
     expect(persisted[key(mod.AI_MODELS.GPT4O_MINI)].exhaustedUntil).toBeNull();
+    expect(persisted[key(mod.AI_MODELS.GEMINI_PRO)].exhaustedUntil).toBeNull();
     expect(persisted[key(mod.AI_MODELS.GEMINI_FLASH)].exhaustedUntil).not.toBeNull();
   });
 
