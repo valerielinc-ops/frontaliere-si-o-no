@@ -47769,6 +47769,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-frontalieri-2026-guida': {
+    title: 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
+    description: 'Guida al credito d\'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, dichiarazione',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
+    ogDescription: 'Guida al credito d\'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-frontalieri-2026-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta frontalieri 2026: calcolo e dichiarazione",
+      "description": "Guida al credito d'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-frontalieri-2026-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e il centro città"
+      },
+      "datePublished": "2026-07-11T21:15:47+00:00",
+      "dateModified": "2026-07-11T21:15:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontalieri-2026-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

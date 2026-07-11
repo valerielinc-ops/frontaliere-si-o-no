@@ -8378,6 +8378,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Lavora come parrucchiere o estetista in Ticino da frontaliere: permesso, stipendio e opportunità',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio, riconoscimento professionale e opportunità nel settore.',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Un frontaliere parrucchiere in un negozio di Lugano, con un cliente seduto sulla sedia da taglio.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
+    'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Guida operativa al credito d\'imposta per frontalieri 2026: come gestire la franchigia, le aliquote Irpef e la dichiarazione dei redditi in Italia.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Vista panoramica di Lugano con il lago e il centro città',
 };
 
 export default blogMetaIt;

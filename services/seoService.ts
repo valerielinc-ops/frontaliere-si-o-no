@@ -4452,6 +4452,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-insegnante-scuola-ticino-stipendio-requisiti': { name: 'Frontaliere insegnante scuola Ticino', path: '/articoli-svizzera/frontaliere-insegnante-scuola-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio': { name: 'Frontalieri parrucchieri e estetisti in', path: '/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio', parent: 'blog' },
     'blog-frontaliere-credito-imposta-2026-famiglia-con-figli': { name: 'Credito d\'imposta per frontalieri', path: '/articoli-svizzera/frontaliere-credito-imposta-2026-famiglia-con-figli/', parent: 'blog' },
+    'blog-credito-imposta-frontalieri-2026-guida': { name: 'Credito imposta 2026', path: '/articoli-frontaliere/credito-imposta-frontalieri-2026-guida', parent: 'blog' },
  };
 
  const info = sectionNames[section];

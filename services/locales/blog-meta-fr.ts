@@ -8378,6 +8378,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Frontaliers en Suisse: coiffure et esthétique',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Coiffeurs frontaliers et esthéticiennes au Tessin : permis G, salaire, reconnaissance professionnelle et opportunités dans le secteur.',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Un frontalier coiffeur dans un salon à Lugano, avec un client assis sur le fauteuil de coiffure.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Crédit d\'impôt frontalier 2026 : calcul et déclaration',
+    'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Guide opérationnel du crédit d\'impôt pour frontaliers 2026 : comment gérer la franchise, les taux d\'IRPEF et la déclaration de revenus en Italie.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Vue panoramique de Lugano avec le lac et le centre-ville',
 };
 
 export default blogMetaFr;
