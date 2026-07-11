@@ -1000,6 +1000,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.title': 'Frontalier enseignant école Tessin salaire exigences',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.excerpt': 'La nouvelle loi sur les frontaliers reconnaît un titre et un salaire aux enseignants du canton du Tessin.',
     'blog.article.frontaliere-insegnante-scuola-ticino-stipendio-requisiti.imageAlt': 'Un enseignant frontalier enseigne dans une école du canton du Tessin, avec une vue sur le Lago di Lugano.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Crédit d\'impôt pour frontaliers : calcul, limites et déclaration italienne',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Réglage du crédit d\'impôt pour les familles avec enfants frontaliers en Suisse.',
+    'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'Une famille avec enfants frontaliers en Suisse, avec vue sur le lac de Lugano.',
 };
 
 export default blogMetaChFr;

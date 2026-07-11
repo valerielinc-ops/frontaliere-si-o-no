@@ -2996,6 +2996,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-credito-imposta-2026-famiglia-con-figli',
+    category: 'fiscale',
+    date: '2026-07-11T21:02:12.327Z',
+    image: '/images/blog/frontaliere-credito-imposta-2026-famiglia-con-figli.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
