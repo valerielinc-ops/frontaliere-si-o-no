@@ -4,8 +4,10 @@ import {
   resolveEffectivePreferredHour,
   computeGlobalPreferredHour,
   perUserSendTimeEnabled,
+  logScheduleDistribution,
   MIN_GLOBAL_SAMPLE_USERS,
 } from '../scripts/lib/send-schedule.mjs';
+import { PREFERRED_SEND_MIN_EVENTS } from '../functions/src/lib/preferredSendHour.js';
 
 // Fixed reference "now" — every offset below is relative to this constant,
 // never to the real wall clock (see AGENTS.md "Test fixture: mai date assolute").
@@ -148,6 +150,24 @@ describe('resolveEffectivePreferredHour', () => {
     });
     expect(result).toEqual({ hourUtc: 14, source: 'personal' });
   });
+
+  // Regression guard for the #3798 code-review cleanup: resolveEffectivePreferredHour's
+  // default minEvents must come from the imported PREFERRED_SEND_MIN_EVENTS constant
+  // (functions/src/lib/preferredSendHour.js), not a hand-copied literal — this test
+  // breaks the moment the two drift apart, without ever hardcoding the threshold value.
+  it('defaults minEvents to the imported PREFERRED_SEND_MIN_EVENTS constant', () => {
+    const atThreshold = resolveEffectivePreferredHour({
+      subscriberDoc: { preferred_send_hour_utc: 14, preferred_send_sample_count: PREFERRED_SEND_MIN_EVENTS },
+      globalHour: null,
+    });
+    expect(atThreshold).toEqual({ hourUtc: 14, source: 'personal' });
+
+    const belowThreshold = resolveEffectivePreferredHour({
+      subscriberDoc: { preferred_send_hour_utc: 14, preferred_send_sample_count: PREFERRED_SEND_MIN_EVENTS - 1 },
+      globalHour: 9,
+    });
+    expect(belowThreshold).toEqual({ hourUtc: 9, source: 'global' });
+  });
 });
 
 describe('computeGlobalPreferredHour', () => {
@@ -200,6 +220,68 @@ describe('computeGlobalPreferredHour', () => {
   it('handles an empty/non-array input gracefully', () => {
     expect(computeGlobalPreferredHour([])).toEqual({ hourUtc: null, sampleUsers: 0 });
     expect(computeGlobalPreferredHour(undefined as never)).toEqual({ hourUtc: null, sampleUsers: 0 });
+  });
+});
+
+describe('logScheduleDistribution', () => {
+  // Regression guard for the #3798 code-review cleanup: send-newsletter.mjs's
+  // copy of this function used a fixed `{ personal, global }` bySource
+  // accumulator that silently dropped any 'fallback-doc' item (job-alerts'
+  // copy had it, newsletter's didn't — divergence bug). The shared version
+  // builds bySource dynamically from whatever sources it actually sees, so
+  // 'fallback-doc' (and any future source) is always tallied.
+  it('does not throw and tallies immediate/scheduled/bySource/byHour correctly with mixed sources', () => {
+    const items = [
+      { scheduledAt: '2026-07-11T09:15:00.000Z', sendTimeSource: 'personal' },
+      { scheduledAt: '2026-07-11T09:30:00.000Z', sendTimeSource: 'personal' },
+      { scheduledAt: '2026-07-11T20:00:00.000Z', sendTimeSource: 'fallback-doc' },
+      { scheduledAt: '2026-07-11T20:05:00.000Z', sendTimeSource: 'global' },
+      { scheduledAt: null, sendTimeSource: null },
+      { scheduledAt: undefined, sendTimeSource: undefined },
+    ];
+
+    let result: ReturnType<typeof logScheduleDistribution>;
+    expect(() => {
+      result = logScheduleDistribution(items);
+    }).not.toThrow();
+
+    expect(result!).toEqual({
+      immediate: 2,
+      scheduled: 4,
+      bySource: { personal: 2, 'fallback-doc': 1, global: 1 },
+      byHour: expect.arrayContaining([]),
+    });
+    expect(result!.byHour[9]).toBe(2);
+    expect(result!.byHour[20]).toBe(2);
+    expect(result!.byHour.reduce((a, b) => a + b, 0)).toBe(4);
+  });
+
+  it('supports custom accessors for a nested item shape (send-newsletter.mjs payload/meta)', () => {
+    const items = [
+      { payload: { scheduledAt: '2026-07-11T14:00:00.000Z' }, meta: { sendTimeSource: 'personal' } },
+      { payload: {}, meta: {} },
+    ];
+    const result = logScheduleDistribution(items, {
+      getScheduledAt: (item: any) => item.payload?.scheduledAt,
+      getSource: (item: any) => item.meta?.sendTimeSource,
+    });
+    expect(result).toEqual({
+      immediate: 1,
+      scheduled: 1,
+      bySource: { personal: 1 },
+      byHour: expect.any(Array),
+    });
+    expect(result.byHour[14]).toBe(1);
+  });
+
+  it('handles an empty array without throwing', () => {
+    expect(() => logScheduleDistribution([])).not.toThrow();
+    expect(logScheduleDistribution([])).toEqual({
+      immediate: 0,
+      scheduled: 0,
+      bySource: {},
+      byHour: new Array(24).fill(0),
+    });
   });
 });
 

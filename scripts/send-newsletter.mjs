@@ -50,7 +50,7 @@ import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
-import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled } from './lib/send-schedule.mjs';
+import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1837,38 +1837,6 @@ function enforceQaGate() {
   }
 }
 
-// ─── Per-user send-time distribution (dry-run/preview reporting, #3798) ─────
-
-/**
- * Print an immediate/scheduled breakdown for an assembled (not-yet-sent)
- * batch of cascade email items — no provider call needed, reads only what
- * Phase 5 already put on each item's payload/meta.
- */
-function logScheduleDistribution(emailsList) {
-  const bySource = { personal: 0, global: 0 };
-  const byHour = new Array(24).fill(0);
-  let immediate = 0;
-
-  for (const item of emailsList) {
-    const scheduledAt = item.payload?.scheduledAt;
-    if (!scheduledAt) { immediate += 1; continue; }
-    const hour = new Date(scheduledAt).getUTCHours();
-    if (Number.isInteger(hour) && hour >= 0 && hour <= 23) byHour[hour] += 1;
-    const source = item.meta?.sendTimeSource;
-    if (source && bySource[source] !== undefined) bySource[source] += 1;
-  }
-
-  const scheduledTotal = emailsList.length - immediate;
-  console.log(`📅 Scheduled-send distribution: ${immediate} immediate, ${scheduledTotal} scheduled (personal=${bySource.personal}, global=${bySource.global})`);
-  if (scheduledTotal > 0) {
-    const hourLine = byHour
-      .map((count, hour) => (count > 0 ? `${String(hour).padStart(2, '0')}h:${count}` : null))
-      .filter(Boolean)
-      .join(', ');
-    console.log(`   by UTC hour: ${hourLine}`);
-  }
-}
-
 // ─── Main ───────────────────────────────────────────────────
 
 async function main() {
@@ -2395,7 +2363,10 @@ async function main() {
     console.log(`  to: ${first?.payload?.to?.join(', ') || 'n/a'}`);
     console.log(`  subject: ${first?.payload?.subject || 'n/a'}`);
     console.log(`  matched jobs: ${subscriberData[0]?.matchedJobs?.map((job) => job.slug || job.title).join(', ') || 'none'}`);
-    logScheduleDistribution(cappedEmails);
+    logScheduleDistribution(cappedEmails, {
+      getScheduledAt: (item) => item.payload?.scheduledAt,
+      getSource: (item) => item.meta?.sendTimeSource,
+    });
     if (flushScores) await flushScores();
     return;
   }

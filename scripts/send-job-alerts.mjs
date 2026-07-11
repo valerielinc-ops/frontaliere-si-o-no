@@ -39,7 +39,7 @@ import {
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
-import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled } from './lib/send-schedule.mjs';
+import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -976,34 +976,6 @@ export async function mailerooMetaOnSent(item, sendResult) {
   }
 }
 
-// Per-user send-time distribution (dry-run reporting, #3798) — no provider
-// call needed, reads only what the matching loop already put on each
-// pre-send item (scheduledAt/sendTimeSource, set right before the
-// emailsToSend.push() above).
-function logScheduleDistribution(items) {
-  const bySource = { personal: 0, global: 0, 'fallback-doc': 0 };
-  const byHour = new Array(24).fill(0);
-  let immediate = 0;
-
-  for (const item of items) {
-    if (!item.scheduledAt) { immediate += 1; continue; }
-    const hour = new Date(item.scheduledAt).getUTCHours();
-    if (Number.isInteger(hour) && hour >= 0 && hour <= 23) byHour[hour] += 1;
-    const source = item.sendTimeSource;
-    if (source && bySource[source] !== undefined) bySource[source] += 1;
-  }
-
-  const scheduledTotal = items.length - immediate;
-  console.log(`   📅 Scheduled-send distribution: ${immediate} immediate, ${scheduledTotal} scheduled (personal=${bySource.personal}, fallback-doc=${bySource['fallback-doc']}, global=${bySource.global})`);
-  if (scheduledTotal > 0) {
-    const hourLine = byHour
-      .map((count, hour) => (count > 0 ? `${String(hour).padStart(2, '0')}h:${count}` : null))
-      .filter(Boolean)
-      .join(', ');
-    console.log(`      by UTC hour: ${hourLine}`);
-  }
-}
-
 async function sendBatch(emails) {
   // Use cascade for bulk sending
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
@@ -1588,7 +1560,7 @@ async function main() {
   let scheduleOutcomes = new Map();
   if (DRY_RUN) {
     console.log('   🔵 DRY RUN — not sending emails');
-    logScheduleDistribution(emailsToSend);
+    logScheduleDistribution(emailsToSend, { indent: '   ' });
   } else {
     const result = await sendBatch(emailsToSend);
     console.log(`   ✅ Sent ${result.sent} emails`);

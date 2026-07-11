@@ -100,18 +100,6 @@ function buildCanonicalDeliveryDocId(campaignId, email) {
   return `${campaignId}__${normalizeEmail(email)}`.replace(/[^a-z0-9@._-]+/gi, '-');
 }
 
-// ── Data loading: canonical delivery docs (denominator + send_time_source) ──
-
-async function loadDeliveriesCollectionGroup(db, cutoffDate) {
-  try {
-    const snap = await db.collectionGroup('campaign_deliveries').where('sent_at', '>=', cutoffDate).get();
-    return snap.docs;
-  } catch (e) {
-    if (String(e?.message || '').includes('index')) throw new MissingIndexError('campaign_deliveries', 'sent_at', e);
-    throw e;
-  }
-}
-
 /** Runs `fn` over `items` with at most `limit` in flight at once. */
 async function mapWithConcurrency(items, limit, fn) {
   const results = [];
@@ -127,88 +115,91 @@ async function mapWithConcurrency(items, limit, fn) {
 }
 
 /**
- * Fallback for when the collectionGroup index isn't available: page through
- * newsletter_subscribers/* and read each one's campaign_deliveries
+ * Shared loader for a timestamp-filtered collectionGroup query, with a
+ * fallback for when the collectionGroup composite index doesn't exist yet:
+ * page through newsletter_subscribers/* and read each one's `group`
  * subcollection directly (batched: subscribers paginated BATCH_PAGE_SIZE at a
  * time, each page's subcollection reads run with bounded concurrency).
+ *
+ * campaign_deliveries and events used to have two structurally-identical
+ * copies of this collectionGroup → MissingIndexError → per-subscriber-fallback
+ * flow (one per collection); collapsed into this one parametrized loader —
+ * see loadDeliveries/loadEvents below for the thin per-collection wrappers.
+ *
+ * @param {FirebaseFirestore.Firestore} db
+ * @param {Date} cutoffDate
+ * @param {object} options
+ * @param {string} options.group - subcollection name (e.g. 'campaign_deliveries', 'events')
+ * @param {string} options.timestampField - field the cutoff is compared against (e.g. 'sent_at', 'timestamp')
+ * @param {boolean} [options.includeIndexLinkWarning] - also print the "create the index" hint
+ *   on fallback (campaign_deliveries only — its MissingIndexError carries the original
+ *   Firestore error with the console index-creation link; events' does not warrant it here)
+ * @returns {Promise<{ docs: FirebaseFirestore.QueryDocumentSnapshot[], usedFallback: boolean }>}
  */
-async function loadDeliveriesPerSubscriber(db, cutoffDate) {
-  const docs = [];
-  let lastDoc = null;
-  for (;;) {
-    let q = db.collection('newsletter_subscribers').orderBy('__name__').limit(BATCH_PAGE_SIZE);
-    if (lastDoc) q = q.startAfter(lastDoc);
-    const page = await q.get();
-    if (page.empty) break;
-
-    const subscriberRefs = page.docs.filter((d) => d.id !== '_meta_').map((d) => d.ref);
-    const subSnaps = await mapWithConcurrency(subscriberRefs, SUBCOLLECTION_CONCURRENCY, (ref) =>
-      ref.collection('campaign_deliveries').where('sent_at', '>=', cutoffDate).get(),
-    );
-    for (const snap of subSnaps) docs.push(...snap.docs);
-
-    lastDoc = page.docs[page.docs.length - 1];
-    if (page.docs.length < BATCH_PAGE_SIZE) break;
+async function loadCollectionGroupWithFallback(db, cutoffDate, { group, timestampField, includeIndexLinkWarning = false }) {
+  async function queryCollectionGroup() {
+    try {
+      const snap = await db.collectionGroup(group).where(timestampField, '>=', cutoffDate).get();
+      return snap.docs;
+    } catch (e) {
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, timestampField, e);
+      throw e;
+    }
   }
-  return docs;
-}
 
-async function loadDeliveries(db, cutoffDate) {
+  async function queryPerSubscriber() {
+    const docs = [];
+    let lastDoc = null;
+    for (;;) {
+      let q = db.collection('newsletter_subscribers').orderBy('__name__').limit(BATCH_PAGE_SIZE);
+      if (lastDoc) q = q.startAfter(lastDoc);
+      const page = await q.get();
+      if (page.empty) break;
+
+      const subscriberRefs = page.docs.filter((d) => d.id !== '_meta_').map((d) => d.ref);
+      const subSnaps = await mapWithConcurrency(subscriberRefs, SUBCOLLECTION_CONCURRENCY, (ref) =>
+        ref.collection(group).where(timestampField, '>=', cutoffDate).get(),
+      );
+      for (const snap of subSnaps) docs.push(...snap.docs);
+
+      lastDoc = page.docs[page.docs.length - 1];
+      if (page.docs.length < BATCH_PAGE_SIZE) break;
+    }
+    return docs;
+  }
+
   try {
-    return { docs: await loadDeliveriesCollectionGroup(db, cutoffDate), usedFallback: false };
+    return { docs: await queryCollectionGroup(), usedFallback: false };
   } catch (e) {
     if (e instanceof MissingIndexError) {
       console.warn(`⚠️  ${e.message} — falling back to per-subscriber subcollection reads (slower).`);
-      console.warn(`   To speed this up, create the index via the link in the original error:\n   ${e.original?.message || ''}`);
-      return { docs: await loadDeliveriesPerSubscriber(db, cutoffDate), usedFallback: true };
+      if (includeIndexLinkWarning) {
+        console.warn(`   To speed this up, create the index via the link in the original error:\n   ${e.original?.message || ''}`);
+      }
+      return { docs: await queryPerSubscriber(), usedFallback: true };
     }
     throw e;
   }
+}
+
+// ── Data loading: canonical delivery docs (denominator + send_time_source) ──
+
+async function loadDeliveries(db, cutoffDate) {
+  return loadCollectionGroupWithFallback(db, cutoffDate, {
+    group: 'campaign_deliveries',
+    timestampField: 'sent_at',
+    includeIndexLinkWarning: true,
+  });
 }
 
 // ── Data loading: open/click events (numerator, cross-provider) ─────────────
 
-async function loadEventsCollectionGroup(db, cutoffDate) {
-  try {
-    const snap = await db.collectionGroup('events').where('timestamp', '>=', cutoffDate).get();
-    return snap.docs;
-  } catch (e) {
-    if (String(e?.message || '').includes('index')) throw new MissingIndexError('events', 'timestamp', e);
-    throw e;
-  }
-}
-
-async function loadEventsPerSubscriber(db, cutoffDate) {
-  const docs = [];
-  let lastDoc = null;
-  for (;;) {
-    let q = db.collection('newsletter_subscribers').orderBy('__name__').limit(BATCH_PAGE_SIZE);
-    if (lastDoc) q = q.startAfter(lastDoc);
-    const page = await q.get();
-    if (page.empty) break;
-
-    const subscriberRefs = page.docs.filter((d) => d.id !== '_meta_').map((d) => d.ref);
-    const subSnaps = await mapWithConcurrency(subscriberRefs, SUBCOLLECTION_CONCURRENCY, (ref) =>
-      ref.collection('events').where('timestamp', '>=', cutoffDate).get(),
-    );
-    for (const snap of subSnaps) docs.push(...snap.docs);
-
-    lastDoc = page.docs[page.docs.length - 1];
-    if (page.docs.length < BATCH_PAGE_SIZE) break;
-  }
-  return docs;
-}
-
 async function loadEvents(db, cutoffDate) {
-  try {
-    return await loadEventsCollectionGroup(db, cutoffDate);
-  } catch (e) {
-    if (e instanceof MissingIndexError) {
-      console.warn(`⚠️  ${e.message} — falling back to per-subscriber subcollection reads (slower).`);
-      return await loadEventsPerSubscriber(db, cutoffDate);
-    }
-    throw e;
-  }
+  const { docs } = await loadCollectionGroupWithFallback(db, cutoffDate, {
+    group: 'events',
+    timestampField: 'timestamp',
+  });
+  return docs;
 }
 
 // ── Aggregation ──────────────────────────────────────────────────────────

@@ -10,7 +10,12 @@
  * No Firestore access here beyond what the caller already has in hand — this
  * module only computes. The one exception is the env-driven kill switch
  * (perUserSendTimeEnabled), which is process-local and not a Firestore read.
+ * logScheduleDistribution is the one function here that's reporting rather
+ * than pure computation (console.log), shared by both send scripts' dry-run
+ * output — see its own docblock below.
  */
+
+import { PREFERRED_SEND_MIN_EVENTS, circularMeanToHour } from '../../functions/src/lib/preferredSendHour.js';
 
 // ── Kill switch (Fase 4 rollback) ────────────────────────────
 // PER_USER_SEND_TIME=off|0|false disables per-user scheduling; everything
@@ -109,10 +114,11 @@ export function computeScheduledSendAt({ preferredHourUtc, email, now = new Date
  * @param {object|null} params.subscriberDoc
  * @param {object|null} [params.fallbackDoc]
  * @param {number|null} [params.globalHour]
- * @param {number} [params.minEvents] - matches PREFERRED_SEND_MIN_EVENTS (functions/src/lib/preferredSendHour.js)
+ * @param {number} [params.minEvents] - default PREFERRED_SEND_MIN_EVENTS, imported from
+ *   functions/src/lib/preferredSendHour.js so the two thresholds can't drift apart
  * @returns {{ hourUtc: number|null, source: 'personal'|'fallback-doc'|'global'|null }}
  */
-export function resolveEffectivePreferredHour({ subscriberDoc, fallbackDoc = null, globalHour = null, minEvents = 3 }) {
+export function resolveEffectivePreferredHour({ subscriberDoc, fallbackDoc = null, globalHour = null, minEvents = PREFERRED_SEND_MIN_EVENTS }) {
   const personal = readPreferredHour(subscriberDoc);
   if (isValidHour(personal.hourUtc) && personal.sampleCount >= minEvents) {
     return { hourUtc: personal.hourUtc, source: 'personal' };
@@ -147,13 +153,16 @@ export const MIN_GLOBAL_SAMPLE_USERS = 5;
  * Site-wide fallback preferred hour: an UNWEIGHTED circular mean of every
  * qualified user's personal `preferred_send_hour_utc` (same circular-mean
  * approach as functions/src/lib/preferredSendHour.js's computePreferredSendHour
- * — hours wrap at midnight, so this is NOT an arithmetic average).
+ * — hours wrap at midnight, so this is NOT an arithmetic average). Shares the
+ * angle-to-hour conversion (circularMeanToHour) with that module directly,
+ * rather than re-deriving the atan2/wrap/round math here.
  *
  * @param {Array<object>} subscriberDatas - raw-shaped docs/rows (see readPreferredHour)
- * @param {number} [minEvents] - per-user qualification threshold (matches PREFERRED_SEND_MIN_EVENTS)
+ * @param {number} [minEvents] - per-user qualification threshold, default PREFERRED_SEND_MIN_EVENTS
+ *   (functions/src/lib/preferredSendHour.js)
  * @returns {{ hourUtc: number|null, sampleUsers: number }}
  */
-export function computeGlobalPreferredHour(subscriberDatas, minEvents = 3) {
+export function computeGlobalPreferredHour(subscriberDatas, minEvents = PREFERRED_SEND_MIN_EVENTS) {
   let sumSin = 0;
   let sumCos = 0;
   let sampleUsers = 0;
@@ -175,11 +184,77 @@ export function computeGlobalPreferredHour(subscriberDatas, minEvents = 3) {
     return { hourUtc: null, sampleUsers };
   }
 
-  const meanAngle = Math.atan2(sumSin, sumCos);
-  let hourFloat = (meanAngle * 24) / (2 * Math.PI);
-  if (hourFloat < 0) hourFloat += 24;
-  // Math.round(23.6) === 24 → wrap back to hour 0 (mirrors computePreferredSendHour).
-  const hourUtc = Math.round(hourFloat) % 24;
+  const hourUtc = circularMeanToHour(sumSin, sumCos);
 
   return { hourUtc, sampleUsers };
+}
+
+// ── Per-user send-time distribution (dry-run/preview reporting, #3798) ──────
+
+// Preferred display order for known sources — keeps the log line's column
+// order stable across runs. Any source not in this list (a future addition)
+// is still counted (see logScheduleDistribution below) and appended after,
+// sorted alphabetically, instead of being silently dropped the way a fixed
+// `{ personal: 0, global: 0 }` accumulator object would drop it.
+const KNOWN_SOURCE_ORDER = ['personal', 'fallback-doc', 'global'];
+
+function formatBySource(bySource) {
+  const knownKeys = KNOWN_SOURCE_ORDER.filter((source) => source in bySource);
+  const extraKeys = Object.keys(bySource)
+    .filter((source) => !KNOWN_SOURCE_ORDER.includes(source))
+    .sort();
+  return [...knownKeys, ...extraKeys].map((source) => `${source}=${bySource[source]}`).join(', ');
+}
+
+/**
+ * Print (and return) an immediate/scheduled breakdown for an assembled
+ * (not-yet-sent) batch of cascade email items — no provider call needed,
+ * reads only what the caller already computed for each item (scheduledAt /
+ * sendTimeSource, under whatever shape that caller's items happen to use).
+ *
+ * Single shared implementation for scripts/send-newsletter.mjs and
+ * scripts/send-job-alerts.mjs (previously duplicated and divergent — the
+ * newsletter copy's `bySource` accumulator was missing the 'fallback-doc' key
+ * that the job-alerts copy had, so a 'fallback-doc' item's count would
+ * silently vanish from the newsletter tally instead of being reported).
+ * `bySource` here is built dynamically from whatever sources are actually
+ * encountered, so no source — known or future — can ever be dropped that way.
+ *
+ * @param {Array<object>} items
+ * @param {object} [options]
+ * @param {(item: object) => string|null|undefined} [options.getScheduledAt] - default reads item.scheduledAt
+ * @param {(item: object) => string|null|undefined} [options.getSource] - default reads item.sendTimeSource
+ * @param {string} [options.indent] - leading indentation for the printed lines (default '')
+ * @returns {{ immediate: number, scheduled: number, bySource: Record<string, number>, byHour: number[] }}
+ */
+export function logScheduleDistribution(items, {
+  getScheduledAt = (item) => item?.scheduledAt,
+  getSource = (item) => item?.sendTimeSource,
+  indent = '',
+} = {}) {
+  const list = Array.isArray(items) ? items : [];
+  const bySource = {};
+  const byHour = new Array(24).fill(0);
+  let immediate = 0;
+
+  for (const item of list) {
+    const scheduledAt = getScheduledAt(item);
+    if (!scheduledAt) { immediate += 1; continue; }
+    const hour = new Date(scheduledAt).getUTCHours();
+    if (Number.isInteger(hour) && hour >= 0 && hour <= 23) byHour[hour] += 1;
+    const source = getSource(item);
+    if (source) bySource[source] = (bySource[source] ?? 0) + 1;
+  }
+
+  const scheduledTotal = list.length - immediate;
+  console.log(`${indent}📅 Scheduled-send distribution: ${immediate} immediate, ${scheduledTotal} scheduled (${formatBySource(bySource)})`);
+  if (scheduledTotal > 0) {
+    const hourLine = byHour
+      .map((count, hour) => (count > 0 ? `${String(hour).padStart(2, '0')}h:${count}` : null))
+      .filter(Boolean)
+      .join(', ');
+    console.log(`${indent}   by UTC hour: ${hourLine}`);
+  }
+
+  return { immediate, scheduled: scheduledTotal, bySource, byHour };
 }
