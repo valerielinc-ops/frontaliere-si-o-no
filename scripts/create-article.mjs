@@ -76,7 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -3319,8 +3319,19 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
 function repairLlmJson(raw) {
   let c = stripCodeFences(raw);
   const start = c.indexOf('{');
-  const end = c.lastIndexOf('}');
-  if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
+  if (start !== -1) {
+    // Bracket-balanced extraction (mirrors repairJsonArray in batch-add-faq-to-articles.mjs)
+    // so trailing LLM prose or a foreign '}' from an interior nested object does not
+    // pull in the wrong boundary via lastIndexOf. Falls back to lastIndexOf when
+    // findMatchingClose returns -1 (e.g. raw truncated inside a string literal).
+    const closeIdx = findMatchingClose(c, start, true);
+    if (closeIdx !== -1) {
+      c = c.slice(start, closeIdx + 1);
+    } else {
+      const end = c.lastIndexOf('}');
+      if (end > start) c = c.slice(start, end + 1);
+    }
+  }
   const out = fixJsonStringBody(c, { fixAsterisks: true });
   return out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
 }

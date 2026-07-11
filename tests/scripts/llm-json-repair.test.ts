@@ -356,4 +356,26 @@ describe('findMatchingClose', () => {
   it('returns -1 when unbalanced', () => {
     expect(findMatchingClose('[{"a":1}', 0)).toBe(-1);
   });
+
+  // Regression for repairLlmJson: using lastIndexOf('}') instead of
+  // findMatchingClose pulled in a foreign '}' from trailing LLM prose,
+  // slicing the JSON at a spurious interior boundary (issue #3615 class).
+  it('returns the first balanced close, not the last } in the string, so trailing prose with braces does not corrupt extraction', () => {
+    const src = '{"id":"test","content":"val"} trailing {prose}';
+    const close = findMatchingClose(src, 0);
+    // Should point to the outer } of the JSON object (position 28), not the
+    // last } in the string (position 45 in the trailing prose).
+    expect(src[close]).toBe('}');
+    expect(src.slice(0, close + 1)).toBe('{"id":"test","content":"val"}');
+    // lastIndexOf would return 45 (wrong); findMatchingClose returns 28 (correct).
+    expect(close).toBeLessThan(src.lastIndexOf('}'));
+  });
+
+  // Regression for repairLlmJson: when raw is truncated inside a string
+  // literal (LLM hits token limit mid-body), findMatchingClose returns -1
+  // so the caller falls back to lastIndexOf — same as before, no regression.
+  it('returns -1 for JSON truncated inside an unterminated string literal', () => {
+    const truncated = '{"id":"test","content":{"body1":"very long string that never ends...';
+    expect(findMatchingClose(truncated, 0)).toBe(-1);
+  });
 });
