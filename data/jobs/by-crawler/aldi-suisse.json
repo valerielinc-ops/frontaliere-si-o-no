@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-07-10T23:18:43.768Z",
+  "assembledAt": "2026-07-11T11:09:10.649Z",
   "jobs": [
     {
       "id": "aldi-suisse-9e420fe21829",
@@ -79,13 +79,15 @@
       "url": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:29.902Z",
+      "crawledAt": "2026-07-11T11:09:06.522Z",
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -95,6 +97,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -184,7 +187,7 @@
       "url": "https://www.jobs.aldi.ch/job/1386919233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:29.900Z",
+      "crawledAt": "2026-07-11T11:09:06.520Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-ar9swf"
@@ -201,6 +204,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:19.769Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -289,13 +293,15 @@
       "url": "https://www.jobs.aldi.ch/job/1397187033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:29.416Z",
+      "crawledAt": "2026-07-11T11:09:05.351Z",
       "previousSlugs": [
-        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+        "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+          "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg"
         ],
         "en": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
@@ -305,6 +311,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:18.342Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -392,7 +399,7 @@
       "url": "https://www.jobs.aldi.ch/job/1412672633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:29.415Z",
+      "crawledAt": "2026-07-11T11:09:05.349Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
         "sales-associate-m-w-d-aldi-suisse-uster",
@@ -402,11 +409,13 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "sales-associate-m-w-d-aldi-suisse-meilen",
         "vendeur-se-m-w-d-aldi-suisse-meilen",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -416,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:37.858Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -503,7 +513,7 @@
       "url": "https://www.jobs.aldi.ch/job/1412164433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:28.929Z",
+      "crawledAt": "2026-07-11T11:09:03.968Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
@@ -511,12 +521,14 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0"
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -526,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:23:43.822Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -613,15 +626,17 @@
       "url": "https://www.jobs.aldi.ch/job/1411086333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:28.926Z",
+      "crawledAt": "2026-07-11T11:09:03.966Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -631,6 +646,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T10:41:34.907Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -718,17 +734,19 @@
       "url": "https://www.jobs.aldi.ch/job/1410907533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:28.924Z",
+      "crawledAt": "2026-07-11T11:09:03.964Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -738,6 +756,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:14:10.101Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -825,15 +844,17 @@
       "url": "https://www.jobs.aldi.ch/job/1409863933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:28.435Z",
+      "crawledAt": "2026-07-11T11:09:02.512Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -843,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T21:45:07.319Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -862,8 +884,8 @@
       "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
       "slugByLocale": {
         "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "en": "sales-associate-m-w-d-aldi-suisse-uster",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "fr": "vendeur-se-m-w-d-aldi-suisse-uster"
       },
       "company": "ALDI SUISSE",
@@ -872,15 +894,15 @@
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
         "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
         "en": "Sales Associate (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
         "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8610 Uster, Zürichstrasse 1​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
         "it": "Compiti\n• Presentazione delle merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Funzionamento flessibile dal lunedì al sabato\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nUbicazione 8610 Uster, Zurichstrasse 1\nInizio del lavoro\nOra applicare direttamente al lavoro\nInformazioni per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8610 Uster, Zürichstrasse 1​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "en": "Tasks\n• Presentation of goods\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibly operational from Monday to Saturday\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above-average salary and very good social benefits\nLocation 8610 Uster, Zurichstrasse 1\nStart of work Now or by agreement\nNow apply directly to the job\nInformation for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8610 Uster, Zürichstrasse 1​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "fr": "Tâches\n• Présentation des biens\n\n• Trésoriers\n\n• Pain au four dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle en vente ou dans un environnement similaire\n\n• Une formation professionnelle idéalement complétée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexiblement opérationnel du lundi au samedi\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bons avantages sociaux\nEmplacement 8610 Uster, Zurichstrasse 1\nDébut des travaux Maintenant ou par accord\nMaintenant postuler directement au poste\nInformation des prestataires de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
       },
       "requirements": [
@@ -910,15 +932,7 @@
           "Reinigung der Filiale",
           "Mitarbeit bei anfallenden Arbeiten",
           "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibel einsatzbereit von Montag bis Samstag",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
         ]
       },
       "location": "Uster",
@@ -938,7 +952,9 @@
       "url": "https://www.jobs.aldi.ch/job/1401920533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T23:18:37.544Z",
+      "crawledAt": "2026-07-11T11:09:02.510Z",
+      "firstSeenAt": "2026-07-10T23:18:37.544Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -951,16 +967,15 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T23:18:37.544Z"
+      "country": "CH"
     },
     {
       "id": "aldi-suisse-28f9221c32d7",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf",
-        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "en": "sales-associate-m-w-d-aldi-suisse-aadorf",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "fr": "vendeur-se-m-w-d-aldi-suisse-aadorf"
       },
       "company": "ALDI SUISSE",
@@ -969,15 +984,15 @@
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
         "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
         "en": "Sales Associate (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
         "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8355 Aadorf, Wittenwilerstrasse 45​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
         "it": "Compiti\n• Rendere disponibili le merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Funzionamento flessibile dal lunedì al sabato\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nUbicazione 8355 Aadorf, Wittenwilerstrasse 45\nInizio del lavoro D'ora in poi o d'accordo\nOra applicare direttamente al lavoro\nInformazioni per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8355 Aadorf, Wittenwilerstrasse 45​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "en": "Tasks\n• Making goods available\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibly operational from Monday to Saturday\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above average salary and very good social benefits\nLocation 8355 Aadorf, Wittenwilerstrasse 45\nStart of work From now on or by agreement\nNow apply directly to the job\nInformation for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8355 Aadorf, Wittenwilerstrasse 45​\nArbeitsbeginn​Ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "fr": "Tâche\n• Mise à disposition des biens\n\n• Trésoriers\n\n• Pain de cuisson dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle dans les ventes ou dans un environnement similaire\n\n• Une formation professionnelle idéalement achevée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexiblement opérationnel du lundi au samedi\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bonnes prestations sociales\nEmplacement 8355 Aadorf, Wittenwilerstrasse 45\nDébut des travaux Dès maintenant ou par accord\nMaintenant postuler directement à l'emploi\nInformation des prestataires de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
       },
       "requirements": [
@@ -1007,15 +1022,7 @@
           "Reinigung der Filiale",
           "Mitarbeit bei anfallenden Arbeiten",
           "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibel einsatzbereit von Montag bis Samstag",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
         ]
       },
       "location": "Aadorf",
@@ -1035,7 +1042,25 @@
       "url": "https://www.jobs.aldi.ch/job/1401825833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:28.434Z",
+      "crawledAt": "2026-07-11T11:09:02.509Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-07-10T13:29:28.434Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1048,22 +1073,7 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T13:29:28.434Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "en": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      ]
+      "country": "CH"
     },
     {
       "id": "aldi-suisse-68d4eb2aa905",
@@ -1138,7 +1148,7 @@
       "url": "https://www.jobs.aldi.ch/job/1400926333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:27.950Z",
+      "crawledAt": "2026-07-11T11:09:01.140Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
@@ -1148,13 +1158,15 @@
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-10"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-10",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-10"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-10",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -1164,6 +1176,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:36.212Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1251,15 +1264,17 @@
       "url": "https://www.jobs.aldi.ch/job/1397687833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:27.948Z",
+      "crawledAt": "2026-07-11T11:09:01.138Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-12"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -1269,6 +1284,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:34.607Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1356,15 +1372,17 @@
       "url": "https://www.jobs.aldi.ch/job/1399109433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:27.461Z",
+      "crawledAt": "2026-07-11T11:08:59.830Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-13",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-biberist"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -1374,6 +1392,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:34.605Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1461,15 +1480,17 @@
       "url": "https://www.jobs.aldi.ch/job/1381527933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:27.455Z",
+      "crawledAt": "2026-07-11T11:08:59.820Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-16"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -1479,6 +1500,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:33.101Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1566,7 +1588,7 @@
       "url": "https://www.jobs.aldi.ch/job/1371618733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:29:26.943Z",
+      "crawledAt": "2026-07-11T11:08:58.502Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
@@ -1576,13 +1598,15 @@
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-17"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -1592,6 +1616,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:31.517Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
