@@ -343,6 +343,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'offerte-fielmann-svizzera': { it: 'offerte-fielmann-svizzera', en: 'fielmann-offers-switzerland', de: 'fielmann-angebote-schweiz', fr: 'offres-fielmann-suisse' },
  'axa-manno-lavoro-frontaliere': { it: 'axa-manno-lavoro-frontaliere', en: 'axa-manno-cross-border-jobs', de: 'axa-manno-grenzgaenger-jobs', fr: 'axa-manno-emplois-frontaliers' },
  'centrali-nucleari-scarpa-voglia-di-costruire': { it: 'centrali-nucleari-scarpa-voglia-di-costruire', en: 'nuclear-plants-scarce-will-to-build', de: 'kernkraftwerke-schlechte-stimmung-zu-bauen', fr: 'centrales-nucleaires-peu-de-volonte-de-construire' },
+ 'frontaliere-farmacista-ticino-stipendio-requisiti': { it: 'frontaliere-farmacista-ticino-stipendio-requisiti', en: 'frontaliere-pharmacist-ticino-salary-requirements', de: 'frontaliere-apotheker-ticino-salario-anforderungen', fr: 'frontaliere-pharmaciennes-ticino-salaire-conditions' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -961,6 +961,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'Mehr Elektrizitätswerke, wenig Lust auf den Bau von Kernkraftwerken',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'Die Schweizer Energiekonzerne begrüssen die Aufhebung des in Bern beschlossenen Kernkraftwerksverbots.',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Grenzganger-Apotheker in Ticino: Anerkennung, Gehalt und Ausbildungsverfahren',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Anerkennung des Titels des Apothekers für Grenzgänger, Gehalt, Habilitationsverfahren und G-Bewilligung.',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Eine Apothekerin arbeitet in einem Labor in Lugano',
 };
 
 export default blogMetaChDe;

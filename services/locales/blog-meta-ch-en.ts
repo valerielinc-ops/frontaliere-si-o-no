@@ -961,6 +961,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'More power companies, little desire to build nuclear power plants',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'Swiss energy groups welcome the lifting of the ban on the construction of nuclear power plants in Bern.',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Pharmacy Job in Ticino as a Border Worker: Recognition, Salary, and Qualification Process',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Recognition of the title of pharmacist for border workers, salary, qualification process and G permit.',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'A pharmacist working in a laboratory in Lugano',
 };
 
 export default blogMetaChEn;
