@@ -8380,6 +8380,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Border tax credit 2026: calculation and declaration',
     'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Operating guide to the tax credit for border workers 2026: how to manage the deductible, the IRPEF rates and the tax return in Italy.',
     'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Panoramic view of Lugano with the lake and city center',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Working as a mechanic car in Ticino: salary, CCL industry, permit G',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Withholding tax on earned income: ONLY withheld in Switzerland for cross-border commuters.',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'A mechanic working in a workshop in Lugano, Ticino.',
 };
 
 export default blogMetaEn;

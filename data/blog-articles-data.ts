@@ -25181,6 +25181,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'meccanico-auto-ticino-stipendio-permessi',
+ category: 'pratico',
+ date: '2026-07-11T21:40:18.676Z',
+ image: '/images/blog/meccanico-auto-ticino-stipendio-permessi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

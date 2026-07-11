@@ -8381,6 +8381,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Crédit d\'impôt frontalier 2026 : calcul et déclaration',
     'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Guide opérationnel du crédit d\'impôt pour frontaliers 2026 : comment gérer la franchise, les taux d\'IRPEF et la déclaration de revenus en Italie.',
     'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Vue panoramique de Lugano avec le lac et le centre-ville',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Meccanico auto in Ticino: retribuzione, CCL e patente G',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Envoyé à la source sur le revenu de travail: détenu en Suisse uniquement pour les travailleurs frontaliers.',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Un mécanicien travaille dans un atelier de Lugano, Tessin.',
 };
 
 export default blogMetaFr;
