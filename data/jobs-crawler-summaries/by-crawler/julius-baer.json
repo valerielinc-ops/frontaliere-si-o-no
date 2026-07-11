@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-11T10:21:38.116Z",
+  "generatedAt": "2026-07-11T21:50:07.759Z",
   "total": 78,
   "newCount": 3,
   "updatedCount": 75,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46086,
-  "avgDurationMs": 46086,
+  "durationMs": 55542,
+  "avgDurationMs": 55542,
   "durationHistory": [
-    46086
+    55542
   ],
   "newJobs": [
     {
@@ -1172,46 +1172,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
-      "title": "Junior Regulatory Reporting Specialist - 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-regulatory-reporting-specialist-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-06-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
