@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-07-10T22:05:21.999Z",
+  "assembledAt": "2026-07-11T10:33:41.996Z",
   "jobs": [
     {
       "id": "pictet-0c344e2b0437",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124666&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:55.029Z",
+      "crawledAt": "2026-07-11T10:33:40.105Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-06T15:03:48.972Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -95,7 +96,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124676&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:18.653Z",
+      "crawledAt": "2026-07-11T10:33:39.380Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,11 +114,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-transfer-agent-client-servicing-pictet-luxembourg"
+        "senior-transfer-agent-client-servicing-pictet-luxembourg",
+        "agente-di-trasferimento-senior-servizio-clienti-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-transfer-agent-client-servicing-pictet-luxembourg"
+          "senior-transfer-agent-client-servicing-pictet-luxembourg",
+          "agente-di-trasferimento-senior-servizio-clienti-pictet-group-luxembourg"
         ],
         "de": [
           "senior-transfer-agent-client-servicing-pictet-luxembourg"
@@ -171,7 +174,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124670&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:18.026Z",
+      "crawledAt": "2026-07-11T10:33:38.816Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -190,12 +193,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-process-manager-investment-pictet-geneva",
-        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
+        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
+        "business-process-manager-investimenti-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-process-manager-investment-pictet-geneva",
-          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
+          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
+          "business-process-manager-investimenti-pictet-group-geneva"
         ],
         "de": [
           "business-process-manager-investment-pictet-geneva"
@@ -246,7 +251,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124641&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T11:28:53.278Z",
+      "crawledAt": "2026-07-11T10:33:38.233Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -264,17 +269,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-fund-administration-ch-pictet-geneva"
+        "head-of-fund-administration-ch-pictet-geneva",
+        "responsabile-fund-administration-ch-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-fund-administration-ch-pictet-geneva"
+          "head-of-fund-administration-ch-pictet-geneva",
+          "responsabile-fund-administration-ch-pictet-group-geneva"
         ],
         "de": [
           "head-of-fund-administration-ch-pictet-geneva"
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:57.435Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -319,7 +327,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124682&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:52.726Z",
+      "crawledAt": "2026-07-11T10:33:37.735Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -337,17 +345,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buy-side-analyst-pictet-geneva"
+        "buy-side-analyst-pictet-geneva",
+        "buy-side-analista-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buy-side-analyst-pictet-geneva"
+          "buy-side-analyst-pictet-geneva",
+          "buy-side-analista-pictet-group-geneva"
         ],
         "fr": [
           "buy-side-analyst-pictet-geneva"
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:56.621Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -392,7 +403,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124517&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:52.112Z",
+      "crawledAt": "2026-07-11T10:33:37.212Z",
       "addressLocality": "Hong Kong",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -421,7 +432,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-0e277c67c776",
@@ -454,7 +466,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124713&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:16.000Z",
+      "crawledAt": "2026-07-11T10:33:36.608Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -472,11 +484,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-private-assets-valuation-pictet-luxembourg"
+        "internship-private-assets-valuation-pictet-luxembourg",
+        "internship-valutazione-dei-beni-privati-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-private-assets-valuation-pictet-luxembourg"
+          "internship-private-assets-valuation-pictet-luxembourg",
+          "internship-valutazione-dei-beni-privati-pictet-group-luxembourg"
         ],
         "de": [
           "internship-private-assets-valuation-pictet-luxembourg"
@@ -530,7 +544,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124277&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:15.356Z",
+      "crawledAt": "2026-07-11T10:33:36.003Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -548,11 +562,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-process-manager-pictet-geneva"
+        "business-process-manager-pictet-geneva",
+        "gestione-dei-processi-aziendali-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-process-manager-pictet-geneva"
+          "business-process-manager-pictet-geneva",
+          "gestione-dei-processi-aziendali-pictet-group-geneva"
         ],
         "de": [
           "business-process-manager-pictet-geneva"
@@ -606,7 +622,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124696&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T11:28:49.423Z",
+      "crawledAt": "2026-07-11T10:33:35.426Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -624,11 +640,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dach-origination-professional-direct-private-equity-pictet-zurich"
+        "dach-origination-professional-direct-private-equity-pictet-zurich",
+        "dach-origination-professional-equita-privata-diretta-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dach-origination-professional-direct-private-equity-pictet-zurich"
+          "dach-origination-professional-direct-private-equity-pictet-zurich",
+          "dach-origination-professional-equita-privata-diretta-pictet-group-zurich"
         ],
         "fr": [
           "dach-origination-professional-direct-private-equity-pictet-zurich"
@@ -646,14 +664,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-5fe92c1758b2",
       "slug": "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
-        "en": "valuer-fixed-term-contract-12-months-pictet-luxembourg",
         "it": "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg",
+        "en": "valuer-fixed-term-contract-12-months-pictet-luxembourg",
         "de": "bewerter-festvertrag-12-monate-pictet-group-luxembourg",
         "fr": "valeur-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg"
       },
@@ -662,24 +681,24 @@
       "companyDomain": "pictet.com",
       "title": "Valuer (Fixed-term contract - 12 months)",
       "titleByLocale": {
-        "en": "Valuer (Fixed-term contract - 12 months)",
         "it": "Valore (Contratto a termine - 12 mesi)",
+        "en": "Valuer (Fixed-term contract - 12 months)",
         "de": "Bewerter (Festvertrag - 12 Monate)",
         "fr": "Valeur (contrat à durée déterminée - 12 mois)"
       },
       "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented at 30 offices in financial centres worldwide, and currently employs over 5200 people. Pictet has been present since 1989 in Luxembourg, where it employs over 700 people.\n\nFundPartner Solutions provides a full suite of fund administration and private label funds services. The global team of industry experts specialises in fund domiciliation, registration and governance, as well as risk compliance and investment management services.\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\n By developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nYour role\n\nThe main objective of this position is to perform in-depth analysis and checks on all types of investments in funds managed by FundPartner Solutions (FPS). The Valuer will play a key role in establishing and verifying valuation procedures, with a particular focus on Hedge Funds and Private Assets. The ideal candidate will demonstrate strong analytical skills, rigor, and a collaborative team spirit to analyze Audited Financial Statements and ensure the highest standards of accuracy and compliance.\n\n• Audited Financial Statement Analysis: Analyze Audited Financial Statements of Hedge Funds and Private Assets to ensure accurate valuation and compliance with internal and regulatory standards.\n\n• Drafting and Review: Experience in drafting or working on Audited Financial Statements is considered a strong asset.\n\n• Audit and Client Requests: Respond to audit requests and client inquiries, providing detailed financial information or valuation methodologies to ensure compliance and client satisfaction.\n\n• Risk Reporting Management: Manage risk reporting and conduct risk analysis through audited financial statements to identify areas of improvement or potential risks.\n\n• Valuation Activities Reporting: Measure and report on valuation activities, ensuring excellent client service by providing accurate and timely reports.\n\n• Back Testing Reporting: Present back testing reports to Conducting Officers or Boards as required, demonstrating the ability to clearly communicate findings and recommendations.\n\nYour profile\n\n• Master's degree in Economics or Finance\n\n• Fluent in french and english\n\n• 3 to 5 years experience in valuation, pricing, or corporate action, with a strong focus on analyzing Audited Financial Statements of Hedge Funds and Private Assets.\nExperience in drafting or working on Audited Financial Statements is a plus.\nExperience in the audit of alternative funds (Hedge Funds or Private Assets) is also considered a strong asset.\n\n• Excellent knowledge of financial products and their valuation.\n\n• Broad knowledge of funds regulation and fund administration.\n\n• Experience with data vendors such as Bloomberg, Markit, ICE, Reuters.\n\n• Proficient use of data and communication tools (e.g. MS Office suite, Business Object, Tableau, etc).\n\n• Experience in the audit of alternative funds (Hedge Funds or Private Assets) is a plus.\n\n• Experience with online collaboration tools and digital reporting platforms is an asset.\n\n• Strong analytical skills and attention to detail.\n\n• High level of rigor and organizational skills.\n\n• Excellent problem-solving abilities.\n\n• Strong team spirit and ability to collaborate effectively.\n\n• Ability to present complex information clearly to senior management, Conducting Officers, or Boards, including back testing reports.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented at 30 offices in financial centres worldwide, and currently employs over 5200 people. Pictet has been present since 1989 in Luxembourg, where it employs over 700 people.\n\nFundPartner Solutions provides a full suite of fund administration and private label funds services. The global team of industry experts specialises in fund domiciliation, registration and governance, as well as risk compliance and investment management services.\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\n By developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nYour role\n\nThe main objective of this position is to perform in-depth analysis and checks on all types of investments in funds managed by FundPartner Solutions (FPS). The Valuer will play a key role in establishing and verifying valuation procedures, with a particular focus on Hedge Funds and Private Assets. The ideal candidate will demonstrate strong analytical skills, rigor, and a collaborative team spirit to analyze Audited Financial Statements and ensure the highest standards of accuracy and compliance.\n\n• Audited Financial Statement Analysis: Analyze Audited Financial Statements of Hedge Funds and Private Assets to ensure accurate valuation and compliance with internal and regulatory standards.\n\n• Drafting and Review: Experience in drafting or working on Audited Financial Statements is considered a strong asset.\n\n• Audit and Client Requests: Respond to audit requests and client inquiries, providing detailed financial information or valuation methodologies to ensure compliance and client satisfaction.\n\n• Risk Reporting Management: Manage risk reporting and conduct risk analysis through audited financial statements to identify areas of improvement or potential risks.\n\n• Valuation Activities Reporting: Measure and report on valuation activities, ensuring excellent client service by providing accurate and timely reports.\n\n• Back Testing Reporting: Present back testing reports to Conducting Officers or Boards as required, demonstrating the ability to clearly communicate findings and recommendations.\n\nYour profile\n\n• Master's degree in Economics or Finance\n\n• Fluent in french and english\n\n• 3 to 5 years experience in valuation, pricing, or corporate action, with a strong focus on analyzing Audited Financial Statements of Hedge Funds and Private Assets.\nExperience in drafting or working on Audited Financial Statements is a plus.\nExperience in the audit of alternative funds (Hedge Funds or Private Assets) is also considered a strong asset.\n\n• Excellent knowledge of financial products and their valuation.\n\n• Broad knowledge of funds regulation and fund administration.\n\n• Experience with data vendors such as Bloomberg, Markit, ICE, Reuters.\n\n• Proficient use of data and communication tools (e.g. MS Office suite, Business Object, Tableau, etc).\n\n• Experience in the audit of alternative funds (Hedge Funds or Private Assets) is a plus.\n\n• Experience with online collaboration tools and digital reporting platforms is an asset.\n\n• Strong analytical skills and attention to detail.\n\n• High level of rigor and organizational skills.\n\n• Excellent problem-solving abilities.\n\n• Strong team spirit and ability to collaborate effectively.\n\n• Ability to present complex information clearly to senior management, Conducting Officers, or Boards, including back testing reports.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "it": "La tua squadra\n\nIl Gruppo Pictet è uno dei principali asset manager indipendenti al mondo. Fondato nel 1805 e con sede a Ginevra, in Svizzera, il Gruppo è rappresentato in 30 sedi in centri finanziari in tutto il mondo, e attualmente impiega oltre 5200 persone. Pictet è presente dal 1989 a Lussemburgo, dove impiega oltre 700 persone.\n\nFundPartner Solutions offre una suite completa di servizi di gestione fondi e private label. Il team globale di esperti del settore si specializza nella domiciliazione dei fondi, registrazione e governance, così come nel rispetto dei rischi e nei servizi di gestione degli investimenti.\n\nLe operazioni forniscono un trattamento sicuro ed efficiente delle transazioni bancarie e dei fondi di investimento di Pictet. I nostri team assicurano che tutte le attività seguano le normative e gestiscano i rischi.\n Sviluppando e mantenendo un'infrastruttura moderna e robusta, garantiamo servizi affidabili e di alta qualità per la gestione della ricchezza Pictet, la gestione degli asset e i clienti immobiliari.\n\nIl tuo ruolo\n\nL'obiettivo principale di questa posizione è quello di effettuare analisi e controlli approfonditi su tutti i tipi di investimenti in fondi gestiti da FundPartner Solutions (FPS). Il Valuer svolgerà un ruolo chiave nella definizione e nella verifica delle procedure di valutazione, con particolare attenzione ai fondi di copertura e ai beni privati. Il candidato ideale dimostrerà forti competenze analitiche, rigore e uno spirito di squadra collaborativo per analizzare il bilancio verificato e garantire i più elevati standard di accuratezza e conformità.\n\n• Analisi del Bilancio Audit: Analizzare il Bilancio Audit dei Fondi e dei Beni Privati per garantire una valutazione accurata e il rispetto degli standard interni e normativi.\n\n• Redazione e revisione: L'esperienza nella stesura o nella lavorazione del bilancio Audited è considerata un bene forte.\n\n• Audit e richieste dei clienti: Rispondere alle richieste di audit e alle richieste dei clienti, fornendo informazioni finanziarie dettagliate o metodologie di valutazione per garantire la conformità e la soddisfazione del cliente.\n\n• Risk Reporting Management: Gestisci la segnalazione dei rischi e conduci l'analisi dei rischi attraverso i bilanci controllati per identificare aree di miglioramento o potenziali rischi.\n\n• Reporting: Misura e report sulle attività di valutazione, garantendo un servizio clienti eccellente fornendo report precisi e tempestivi.\n\n• Back Testing Reporting: Presentare i report di test a Conducting Officers or Boards come richiesto, dimostrando la capacità di comunicare chiaramente i risultati e le raccomandazioni.\n\nIl tuo profilo\n\n• Laurea magistrale in Economia o Finanza\n\n• Fluente in francese e inglese\n\n• Da 3 a 5 anni di esperienza nella valutazione, prezzi, o azione aziendale, con un forte focus sull'analisi del bilancio contabile dei fondi di copertura e dei beni privati.\nL'esperienza nella redazione o nella lavorazione del bilancio verificato è un vantaggio.\nL'esperienza nell'audit dei fondi alternativi (Hedge Funds o Private Assets) è anche considerata una risorsa forte.\n\n• Ottima conoscenza dei prodotti finanziari e la loro valutazione.\n\n• Ampia conoscenza della regolamentazione dei fondi e della gestione dei fondi.\n\n• Esperienza con fornitori di dati come Bloomberg, Markit, ICE, Reuters.\n\n• Utilizzo competente di dati e strumenti di comunicazione (ad esempio MS Office suite, Business Object, Tableau, ecc.).\n\n• L'esperienza nell'audit dei fondi alternativi (Hedge Funds o Private Assets) è un vantaggio.\n\n• L'esperienza con strumenti di collaborazione online e piattaforme di reporting digitale è un bene.\n\n• Forte capacità analitiche e attenzione ai dettagli.\n\n• Alto livello di rigore e capacità organizzative.\n\n• Ottima capacità di problem solving.\n\n• Forte spirito di squadra e capacità di collaborare efficacemente.\n\n• Possibilità di presentare informazioni complesse chiaramente a senior management, Conducting Officer o Boards, compresi i rapporti di test posteriori.\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione nel posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "de": "Dein Team\n\nDie Pictet Group ist einer der weltweit führenden unabhängigen Vermögensverwalter. Die 1805 gegründete Gruppe mit Hauptsitz in Genf, Schweiz, ist in 30 Büros in Finanzzentren weltweit vertreten und beschäftigt derzeit über 5200 Mitarbeiter. Pictet ist seit 1989 in Luxemburg präsent und beschäftigt dort über 700 Mitarbeiter.\n\nFundPartner Solutions bietet eine vollständige Suite von Fondsverwaltungs- und Private-Label-Fondsdienstleistungen. Das globale Team von Branchenexperten ist spezialisiert auf Fondsdomizilierung, Registrierung und Governance sowie Risk Compliance und Investment Management Services.\n\nOperationen bieten eine sichere und effiziente Verarbeitung der Bankgeschäfte und Investmentfonds von Pictet. Unsere Teams stellen sicher, dass alle Aktivitäten den Vorschriften entsprechen und Risiken managen.\n Durch die Entwicklung und Pflege einer modernen, robusten Infrastruktur garantieren wir zuverlässige, qualitativ hochwertige Dienstleistungen für Pictet Wealth Management, Asset Management und Immobilienkunden.\n\nDeine Rolle\n\nDas Hauptziel dieser Position ist eine eingehende Analyse und Überprüfung aller Arten von Anlagen in Fonds, die von FundPartner Solutions (FPS) verwaltet werden. Der Bewerter wird eine Schlüsselrolle bei der Festlegung und Überprüfung von Bewertungsverfahren spielen, mit besonderem Schwerpunkt auf Hedgefonds und Privatvermögen. Der ideale Kandidat wird starke analytische Fähigkeiten, Strenge und einen kooperativen Teamgeist zeigen, um geprüfte Abschlüsse zu analysieren und die höchsten Standards für Genauigkeit und Compliance zu gewährleisten.\n\n• Prüfung des Abschlusses: Analyse des geprüften Abschlusses von Hedgefonds und privaten Vermögenswerten, um eine genaue Bewertung und die Einhaltung interner und regulatorischer Standards sicherzustellen.\n\n• Entwurf und Überprüfung: Erfahrung in der Erstellung oder Arbeit an geprüften Abschlüssen gilt als ein starker Vermögenswert.\n\n• Audit- und Kundenanfragen: Reagieren Sie auf Auditanfragen und Kundenanfragen und stellen Sie detaillierte Finanzinformationen oder Bewertungsmethoden zur Verfügung, um die Einhaltung und Kundenzufriedenheit zu gewährleisten.\n\n• Management der Risikoberichterstattung: Management der Risikoberichterstattung und Durchführung von Risikoanalysen durch geprüfte Abschlüsse, um Verbesserungsbereiche oder potenzielle Risiken zu identifizieren.\n\n• Berichterstattung über Bewertungsaktivitäten: Messen und Berichten über Bewertungsaktivitäten, um einen hervorragenden Kundenservice durch genaue und zeitnahe Berichte zu gewährleisten.\n\n• Back Testing Reporting: Präsentieren Sie Back-Testing-Berichte an leitende Beamte oder Boards nach Bedarf, um die Fähigkeit zu demonstrieren, Ergebnisse und Empfehlungen klar zu kommunizieren.\n\nDein Profil\n\n• Master-Abschluss in Wirtschaft oder Finanzen\n\n• Fließend in Französisch und Englisch\n\n• 3 bis 5 Jahre Erfahrung in der Bewertung, Preisgestaltung oder Corporate Action, mit einem starken Fokus auf die Analyse von geprüften Abschlüssen von Hedgefonds und privaten Vermögenswerten.\nErfahrung in der Erstellung oder Arbeit an geprüften Abschlüssen ist ein Plus.\nErfahrung in der Prüfung von alternativen Fonds (Hedge Funds oder Private Assets) gilt ebenfalls als starker Vermögenswert.\n\n• Ausgezeichnetes Wissen über Finanzprodukte und deren Bewertung.\n\n• Breites Wissen über Fondsregulierung und Fondsverwaltung.\n\n• Erfahrung mit Datenanbietern wie Bloomberg, Markit, ICE, Reuters.\n\n• Professioneller Einsatz von Daten und Kommunikationstools (z. B. MS Office Suite, Business Object, Tableau usw.).\n\n• Erfahrung in der Prüfung von alternativen Fonds (Hedge Funds oder Private Assets) ist ein Plus.\n\n• Erfahrung mit Online-Collaboration-Tools und digitalen Berichtsplattformen ist ein Gewinn.\n\n• Starke analytische Fähigkeiten und Liebe zum Detail.\n\n• Hohe Strenge und organisatorische Fähigkeiten.\n\n• Hervorragende Fähigkeiten zur Problemlösung.\n\n• Starker Teamgeist und die Fähigkeit, effektiv zusammenzuarbeiten.\n\n• Fähigkeit, komplexe Informationen der Geschäftsleitung, den leitenden Angestellten oder den Vorständen klar zu präsentieren, einschließlich Back-Testing-Berichten.\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLe groupe Pictet est l'un des leaders mondiaux en matière de gestion de patrimoine et d'actifs. Fondé en 1805 et ayant son siège social à Genève, le Groupe est représenté dans 30 bureaux dans les centres financiers du monde entier et emploie actuellement plus de 5200 personnes. Pictet est présent depuis 1989 au Luxembourg, où il emploie plus de 700 personnes.\n\nFundPartner Solutions offre une gamme complète de services d'administration de fonds et de fonds de marques privées. L'équipe mondiale d'experts de l'industrie se spécialise dans la domiciliation des fonds, l'enregistrement et la gouvernance, ainsi que dans la conformité aux risques et les services de gestion des investissements.\n\nLes opérations assurent un traitement sûr et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes s'assurent que toutes les activités suivent les règlements et gèrent les risques.\n En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et les clients immobiliers de Pictet.\n\nVotre rôle\n\nL'objectif principal de cette position est d'effectuer une analyse approfondie et des contrôles sur tous les types d'investissements dans des fonds gérés par FundPartner Solutions (FPS). L'évaluateur jouera un rôle clé dans l'établissement et la vérification des procédures d'évaluation, en mettant particulièrement l'accent sur les fonds de couverture et les actifs privés. Le candidat idéal démontrera de solides compétences analytiques, la rigueur et un esprit d'équipe collaborative pour analyser les états financiers vérifiés et assurer les normes les plus élevées d'exactitude et de conformité.\n\n• Analyse des états financiers vérifiés : Analyser les états financiers vérifiés des fonds de couverture et des actifs privés afin d'assurer une évaluation et une conformité exactes aux normes internes et réglementaires.\n\n• Rédaction et examen : L'expérience dans la rédaction ou le travail des états financiers vérifiés est considérée comme un actif solide.\n\n• Demandes de vérification et d'évaluation des clients : Répondre aux demandes de vérification et aux demandes de renseignements des clients, en fournissant des renseignements financiers détaillés ou des méthodes d'évaluation pour assurer la conformité et la satisfaction des clients.\n\n• Gestion des rapports sur les risques : Gérer les rapports sur les risques et effectuer une analyse des risques au moyen d'états financiers vérifiés afin de déterminer les domaines où il y a amélioration ou les risques potentiels.\n\n• Activités d'évaluation Rapports : Mesurer et faire rapport sur les activités d'évaluation, en assurant un excellent service à la clientèle en fournissant des rapports exacts et opportuns.\n\n• Rapports d'essais antérieurs : Présentez les rapports d'essais antérieurs aux agents ou aux conseils d'administration au besoin, démontrant ainsi la capacité de communiquer clairement les constatations et les recommandations.\n\nVotre profil\n\n• Maîtrise en économie ou finance\n\n• Fluent en français et anglais\n\n• 3 à 5 ans d'expérience dans l'évaluation, l'établissement des prix ou l'action de l'entreprise, l'accent étant mis sur l'analyse des états financiers vérifiés des fonds de couverture et des actifs privés.\nL'expérience dans la rédaction ou le travail des états financiers vérifiés est un plus.\nL'expérience dans la vérification des fonds alternatifs (fonds de couverture ou actifs privés) est également considérée comme un actif solide.\n\n• Excellente connaissance des produits financiers et de leur évaluation.\n\n• Connaissance générale de la réglementation et de l'administration des fonds.\n\n• Expérience avec les fournisseurs de données tels que Bloomberg, Markit, ICE, Reuters.\n\n• Utilisation efficace des données et des outils de communication (p. ex., MS Office, Business Object, Tableau, etc.).\n\n• L'expérience dans la vérification des fonds alternatifs (fonds de couverture ou actifs privés) est un plus.\n\n• L'expérience des outils de collaboration en ligne et des plateformes de reporting numériques est un atout.\n\n• Fortes compétences analytiques et attention aux détails.\n\n• Niveau élevé de rigueur et de compétences organisationnelles.\n\n• Excellente capacité de résolution de problèmes.\n\n• Solide esprit d'équipe et capacité à collaborer efficacement.\n\n• Capacité de présenter clairement des renseignements complexes à la haute direction, aux agents de conduite ou aux conseils d'administration, y compris les rapports d'essais préalables.\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n•\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
+        "it": "La tua squadra\n\nIl Gruppo Pictet è uno dei principali asset manager indipendenti al mondo. Fondato nel 1805 e con sede a Ginevra, in Svizzera, il Gruppo è rappresentato in 30 sedi in centri finanziari in tutto il mondo, e attualmente impiega oltre 5200 persone. Pictet è presente dal 1989 a Lussemburgo, dove impiega oltre 700 persone.\n\nFundPartner Solutions offre una suite completa di servizi di gestione fondi e private label. Il team globale di esperti del settore si specializza nella domiciliazione dei fondi, registrazione e governance, così come nel rispetto dei rischi e nei servizi di gestione degli investimenti.\n\nLe operazioni forniscono un trattamento sicuro ed efficiente delle transazioni bancarie e dei fondi di investimento di Pictet. I nostri team assicurano che tutte le attività seguano le normative e gestiscano i rischi.\nSviluppando e mantenendo un'infrastruttura moderna e robusta, garantiamo servizi affidabili e di alta qualità per la gestione della ricchezza Pictet, la gestione degli asset e i clienti immobiliari.\n\nIl tuo ruolo\n\nL'obiettivo principale di questa posizione è quello di effettuare analisi e controlli approfonditi su tutti i tipi di investimenti in fondi gestiti da FundPartner Solutions (FPS). Il Valuer svolgerà un ruolo chiave nella definizione e nella verifica delle procedure di valutazione, con particolare attenzione ai fondi di copertura e ai beni privati. Il candidato ideale dimostrerà forti competenze analitiche, rigore e uno spirito di squadra collaborativo per analizzare il bilancio verificato e garantire i più elevati standard di accuratezza e conformità.\n\n• Analisi del Bilancio Audit: Analizzare il Bilancio Audit dei Fondi e dei Beni Privati per garantire una valutazione accurata e il rispetto degli standard interni e normativi.\n\n• Redazione e revisione: L'esperienza nella stesura o nella lavorazione del bilancio Audited è considerata un bene forte.\n\n• Audit e richieste dei clienti: Rispondere alle richieste di audit e alle richieste dei clienti, fornendo informazioni finanziarie dettagliate o metodologie di valutazione per garantire la conformità e la soddisfazione del cliente.\n\n• Risk Reporting Management: Gestisci la segnalazione dei rischi e conduci l'analisi dei rischi attraverso i bilanci controllati per identificare aree di miglioramento o potenziali rischi.\n\n• Reporting: Misura e report sulle attività di valutazione, garantendo un servizio clienti eccellente fornendo report precisi e tempestivi.\n\n• Back Testing Reporting: Presentare i report di test a Conducting Officers or Boards come richiesto, dimostrando la capacità di comunicare chiaramente i risultati e le raccomandazioni.\n\nIl tuo profilo\n\n• Laurea magistrale in Economia o Finanza\n\n• Fluente in francese e inglese\n\n• Da 3 a 5 anni di esperienza nella valutazione, prezzi, o azione aziendale, con un forte focus sull'analisi del bilancio contabile dei fondi di copertura e dei beni privati.\nL'esperienza nella redazione o nella lavorazione del bilancio verificato è un vantaggio.\nL'esperienza nell'audit dei fondi alternativi (Hedge Funds o Private Assets) è anche considerata una risorsa forte.\n\n• Ottima conoscenza dei prodotti finanziari e la loro valutazione.\n\n• Ampia conoscenza della regolamentazione dei fondi e della gestione dei fondi.\n\n• Esperienza con fornitori di dati come Bloomberg, Markit, ICE, Reuters.\n\n• Utilizzo competente di dati e strumenti di comunicazione (ad esempio MS Office suite, Business Object, Tableau, ecc.).\n\n• L'esperienza nell'audit dei fondi alternativi (Hedge Funds o Private Assets) è un vantaggio.\n\n• L'esperienza con strumenti di collaborazione online e piattaforme di reporting digitale è un bene.\n\n• Forte capacità analitiche e attenzione ai dettagli.\n\n• Alto livello di rigore e capacità organizzative.\n\n• Ottima capacità di problem solving.\n\n• Forte spirito di squadra e capacità di collaborare efficacemente.\n\n• Possibilità di presentare informazioni complesse chiaramente a senior management, Conducting Officer o Boards, compresi i rapporti di test posteriori.\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione nel posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented at 30 offices in financial centres worldwide, and currently employs over 5200 people. Pictet has been present since 1989 in Luxembourg, where it employs over 700 people.\n\nFundPartner Solutions provides a full suite of fund administration and private label funds services. The global team of industry experts specialises in fund domiciliation, registration and governance, as well as risk compliance and investment management services.\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nYour role\n\nThe main objective of this position is to perform in-depth analysis and checks on all types of investments in funds managed by FundPartner Solutions (FPS). The Valuer will play a key role in establishing and verifying valuation procedures, with a particular focus on Hedge Funds and Private Assets. The ideal candidate will demonstrate strong analytical skills, rigor, and a collaborative team spirit to analyze Audited Financial Statements and ensure the highest standards of accuracy and compliance.\n\n• Audited Financial Statement Analysis: Analyze Audited Financial Statements of Hedge Funds and Private Assets to ensure accurate valuation and compliance with internal and regulatory standards.\n\n• Drafting and Review: Experience in drafting or working on Audited Financial Statements is considered a strong asset.\n\n• Audit and Client Requests: Respond to audit requests and client inquiries, providing detailed financial information or valuation methodologies to ensure compliance and client satisfaction.\n\n• Risk Reporting Management: Manage risk reporting and conduct risk analysis through audited financial statements to identify areas of improvement or potential risks.\n\n• Valuation Activities Reporting: Measure and report on valuation activities, ensuring excellent client service by providing accurate and timely reports.\n\n• Back Testing Reporting: Present back testing reports to Conducting Officers or Boards as required, demonstrating the ability to clearly communicate findings and recommendations.\n\nYour profile\n\n• Master's degree in Economics or Finance\n\n• Fluent in french and english\n\n• 3 to 5 years experience in valuation, pricing, or corporate action, with a strong focus on analyzing Audited Financial Statements of Hedge Funds and Private Assets.\nExperience in drafting or working on Audited Financial Statements is a plus.\nExperience in the audit of alternative funds (Hedge Funds or Private Assets) is also considered a strong asset.\n\n• Excellent knowledge of financial products and their valuation.\n\n• Broad knowledge of funds regulation and fund administration.\n\n• Experience with data vendors such as Bloomberg, Markit, ICE, Reuters.\n\n• Proficient use of data and communication tools (e.g. MS Office suite, Business Object, Tableau, etc).\n\n• Experience in the audit of alternative funds (Hedge Funds or Private Assets) is a plus.\n\n• Experience with online collaboration tools and digital reporting platforms is an asset.\n\n• Strong analytical skills and attention to detail.\n\n• High level of rigor and organizational skills.\n\n• Excellent problem-solving abilities.\n\n• Strong team spirit and ability to collaborate effectively.\n\n• Ability to present complex information clearly to senior management, Conducting Officers, or Boards, including back testing reports.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Dein Team\n\nDie Pictet Group ist einer der weltweit führenden unabhängigen Vermögensverwalter. Die 1805 gegründete Gruppe mit Hauptsitz in Genf, Schweiz, ist in 30 Büros in Finanzzentren weltweit vertreten und beschäftigt derzeit über 5200 Mitarbeiter. Pictet ist seit 1989 in Luxemburg präsent und beschäftigt dort über 700 Mitarbeiter.\n\nFundPartner Solutions bietet eine vollständige Suite von Fondsverwaltungs- und Private-Label-Fondsdienstleistungen. Das globale Team von Branchenexperten ist spezialisiert auf Fondsdomizilierung, Registrierung und Governance sowie Risk Compliance und Investment Management Services.\n\nOperationen bieten eine sichere und effiziente Verarbeitung der Bankgeschäfte und Investmentfonds von Pictet. Unsere Teams stellen sicher, dass alle Aktivitäten den Vorschriften entsprechen und Risiken managen.\nDurch die Entwicklung und Pflege einer modernen, robusten Infrastruktur garantieren wir zuverlässige, qualitativ hochwertige Dienstleistungen für Pictet Wealth Management, Asset Management und Immobilienkunden.\n\nDeine Rolle\n\nDas Hauptziel dieser Position ist eine eingehende Analyse und Überprüfung aller Arten von Anlagen in Fonds, die von FundPartner Solutions (FPS) verwaltet werden. Der Bewerter wird eine Schlüsselrolle bei der Festlegung und Überprüfung von Bewertungsverfahren spielen, mit besonderem Schwerpunkt auf Hedgefonds und Privatvermögen. Der ideale Kandidat wird starke analytische Fähigkeiten, Strenge und einen kooperativen Teamgeist zeigen, um geprüfte Abschlüsse zu analysieren und die höchsten Standards für Genauigkeit und Compliance zu gewährleisten.\n\n• Prüfung des Abschlusses: Analyse des geprüften Abschlusses von Hedgefonds und privaten Vermögenswerten, um eine genaue Bewertung und die Einhaltung interner und regulatorischer Standards sicherzustellen.\n\n• Entwurf und Überprüfung: Erfahrung in der Erstellung oder Arbeit an geprüften Abschlüssen gilt als ein starker Vermögenswert.\n\n• Audit- und Kundenanfragen: Reagieren Sie auf Auditanfragen und Kundenanfragen und stellen Sie detaillierte Finanzinformationen oder Bewertungsmethoden zur Verfügung, um die Einhaltung und Kundenzufriedenheit zu gewährleisten.\n\n• Management der Risikoberichterstattung: Management der Risikoberichterstattung und Durchführung von Risikoanalysen durch geprüfte Abschlüsse, um Verbesserungsbereiche oder potenzielle Risiken zu identifizieren.\n\n• Berichterstattung über Bewertungsaktivitäten: Messen und Berichten über Bewertungsaktivitäten, um einen hervorragenden Kundenservice durch genaue und zeitnahe Berichte zu gewährleisten.\n\n• Back Testing Reporting: Präsentieren Sie Back-Testing-Berichte an leitende Beamte oder Boards nach Bedarf, um die Fähigkeit zu demonstrieren, Ergebnisse und Empfehlungen klar zu kommunizieren.\n\nDein Profil\n\n• Master-Abschluss in Wirtschaft oder Finanzen\n\n• Fließend in Französisch und Englisch\n\n• 3 bis 5 Jahre Erfahrung in der Bewertung, Preisgestaltung oder Corporate Action, mit einem starken Fokus auf die Analyse von geprüften Abschlüssen von Hedgefonds und privaten Vermögenswerten.\nErfahrung in der Erstellung oder Arbeit an geprüften Abschlüssen ist ein Plus.\nErfahrung in der Prüfung von alternativen Fonds (Hedge Funds oder Private Assets) gilt ebenfalls als starker Vermögenswert.\n\n• Ausgezeichnetes Wissen über Finanzprodukte und deren Bewertung.\n\n• Breites Wissen über Fondsregulierung und Fondsverwaltung.\n\n• Erfahrung mit Datenanbietern wie Bloomberg, Markit, ICE, Reuters.\n\n• Professioneller Einsatz von Daten und Kommunikationstools (z. B. MS Office Suite, Business Object, Tableau usw.).\n\n• Erfahrung in der Prüfung von alternativen Fonds (Hedge Funds oder Private Assets) ist ein Plus.\n\n• Erfahrung mit Online-Collaboration-Tools und digitalen Berichtsplattformen ist ein Gewinn.\n\n• Starke analytische Fähigkeiten und Liebe zum Detail.\n\n• Hohe Strenge und organisatorische Fähigkeiten.\n\n• Hervorragende Fähigkeiten zur Problemlösung.\n\n• Starker Teamgeist und die Fähigkeit, effektiv zusammenzuarbeiten.\n\n• Fähigkeit, komplexe Informationen der Geschäftsleitung, den leitenden Angestellten oder den Vorständen klar zu präsentieren, einschließlich Back-Testing-Berichten.\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
+        "fr": "Votre équipe\n\nLe groupe Pictet est l'un des leaders mondiaux en matière de gestion de patrimoine et d'actifs. Fondé en 1805 et ayant son siège social à Genève, le Groupe est représenté dans 30 bureaux dans les centres financiers du monde entier et emploie actuellement plus de 5200 personnes. Pictet est présent depuis 1989 au Luxembourg, où il emploie plus de 700 personnes.\n\nFundPartner Solutions offre une gamme complète de services d'administration de fonds et de fonds de marques privées. L'équipe mondiale d'experts de l'industrie se spécialise dans la domiciliation des fonds, l'enregistrement et la gouvernance, ainsi que dans la conformité aux risques et les services de gestion des investissements.\n\nLes opérations assurent un traitement sûr et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes s'assurent que toutes les activités suivent les règlements et gèrent les risques.\nEn développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et les clients immobiliers de Pictet.\n\nVotre rôle\n\nL'objectif principal de cette position est d'effectuer une analyse approfondie et des contrôles sur tous les types d'investissements dans des fonds gérés par FundPartner Solutions (FPS). L'évaluateur jouera un rôle clé dans l'établissement et la vérification des procédures d'évaluation, en mettant particulièrement l'accent sur les fonds de couverture et les actifs privés. Le candidat idéal démontrera de solides compétences analytiques, la rigueur et un esprit d'équipe collaborative pour analyser les états financiers vérifiés et assurer les normes les plus élevées d'exactitude et de conformité.\n\n• Analyse des états financiers vérifiés : Analyser les états financiers vérifiés des fonds de couverture et des actifs privés afin d'assurer une évaluation et une conformité exactes aux normes internes et réglementaires.\n\n• Rédaction et examen : L'expérience dans la rédaction ou le travail des états financiers vérifiés est considérée comme un actif solide.\n\n• Demandes de vérification et d'évaluation des clients : Répondre aux demandes de vérification et aux demandes de renseignements des clients, en fournissant des renseignements financiers détaillés ou des méthodes d'évaluation pour assurer la conformité et la satisfaction des clients.\n\n• Gestion des rapports sur les risques : Gérer les rapports sur les risques et effectuer une analyse des risques au moyen d'états financiers vérifiés afin de déterminer les domaines où il y a amélioration ou les risques potentiels.\n\n• Activités d'évaluation Rapports : Mesurer et faire rapport sur les activités d'évaluation, en assurant un excellent service à la clientèle en fournissant des rapports exacts et opportuns.\n\n• Rapports d'essais antérieurs : Présentez les rapports d'essais antérieurs aux agents ou aux conseils d'administration au besoin, démontrant ainsi la capacité de communiquer clairement les constatations et les recommandations.\n\nVotre profil\n\n• Maîtrise en économie ou finance\n\n• Fluent en français et anglais\n\n• 3 à 5 ans d'expérience dans l'évaluation, l'établissement des prix ou l'action de l'entreprise, l'accent étant mis sur l'analyse des états financiers vérifiés des fonds de couverture et des actifs privés.\nL'expérience dans la rédaction ou le travail des états financiers vérifiés est un plus.\nL'expérience dans la vérification des fonds alternatifs (fonds de couverture ou actifs privés) est également considérée comme un actif solide.\n\n• Excellente connaissance des produits financiers et de leur évaluation.\n\n• Connaissance générale de la réglementation et de l'administration des fonds.\n\n• Expérience avec les fournisseurs de données tels que Bloomberg, Markit, ICE, Reuters.\n\n• Utilisation efficace des données et des outils de communication (p. ex., MS Office, Business Object, Tableau, etc.).\n\n• L'expérience dans la vérification des fonds alternatifs (fonds de couverture ou actifs privés) est un plus.\n\n• L'expérience des outils de collaboration en ligne et des plateformes de reporting numériques est un atout.\n\n• Fortes compétences analytiques et attention aux détails.\n\n• Niveau élevé de rigueur et de compétences organisationnelles.\n\n• Excellente capacité de résolution de problèmes.\n\n• Solide esprit d'équipe et capacité à collaborer efficacement.\n\n• Capacité de présenter clairement des renseignements complexes à la haute direction, aux agents de conduite ou aux conseils d'administration, y compris les rapports d'essais préalables.\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n•\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
       },
       "location": "Luxembourg",
       "canton": "GE",
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124717&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:13.734Z",
+      "crawledAt": "2026-07-11T10:33:34.350Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -695,9 +714,24 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124717&selected_lang=en_GB",
       "jobReqId": "124717",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "valuer-fixed-term-contract-12-months-pictet-luxembourg",
+        "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "valuer-fixed-term-contract-12-months-pictet-luxembourg",
+          "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+        ],
+        "de": [
+          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
+        ],
+        "fr": [
+          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
+        ]
       },
+      "firstSeenAt": "2026-07-10T22:05:13.734Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -709,22 +743,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T22:05:13.734Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
-        ],
-        "de": [
-          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
-        ],
-        "fr": [
-          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
-        ]
-      },
-      "previousSlugs": [
-        "valuer-fixed-term-contract-12-months-pictet-luxembourg"
-      ]
+      }
     },
     {
       "id": "pictet-456caba1ff25",
@@ -743,7 +762,7 @@
         "it": "Relazioni con gli investitori",
         "en": "Investor Relations",
         "de": "Investor Relations",
-        "fr": "Relations avec les investisseurs"
+        "fr": "Investor Relations"
       },
       "description": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment asset manager that is part of the Pictet Group, with a focus on private equity, real estate, infrastructure, private credit and hedge funds. Pictet Group currently has more than €50bn of AUM in alternatives and more than €25bn of private equity AUM.\n\nPictet launched its first direct private equity fund in 2023, with a focus on lower mid market European buyout investments, raising over €430m. The fund operates out of London and focuses on investments in founder and family owned companies in B2B Services and Education across the UK and the DACH regions.\n\nYour role\n\nAs part of a team of 12 professionals, you will be responsible for Investor Relations. Your responsibilities will include:\n\n• Building and maintaining working relationships with Pictet's Wealth Management (PWM) relationship managers and Asset Management (PAM) sales staff across the network, understanding their client books, distribution priorities, and the broader Pictet product shelf;\n\n• Proactively identifying and developing relationships with Limited Partners (LPs) and co-investment prospects — leveraging existing relationships within Pictet to do so;\n • Runing a regular engagement calendar of product briefings, market updates, Q&A sessions, and bilateral meetings with distribution partners and LPs;\n • Managing LP relationships through the full fund cycle — from first meeting through commitment, onboarding, ongoing reporting, and re-ups;\n • Knowing the portfolio in sufficient depth to hold detailed investor conversations on any company without requiring a member of the senior investment team to be present;\n • Owning all investor-facing materials — pitch deck, DDQ, LP updates, fund profile — working closely with PAA Marketing and Communications to ensure quality, consistency, and alignment with PAA brand guidelines;\n • Maintaining DealCloud as the primary record of LP relationships and pipeline; use AI tools (Claude, Copilot) in materials drafting, research, competitor tracking, and preparation.\n\nYour profile\n\n• Minimum 7 years' experience in investor relations, product specialist, or distribution within private equity, private credit, or private markets;\n• Direct experience working with private banking or wealth management distribution channels and managing LP relationships through the full fund cycle;\n• Financially literate — able to discuss fund performance, portfolio company financials, and return attribution with confidence;\n• Experience with DealCloud or a comparable CRM platform will be preferred; strong written communication skills and the ability to produce clear, accurate investor-grade documents is required.\n• Credible with senior counterparts — PWM bankers, institutional allocators, and private clients; builds rapport naturally, follows through consistently, and navigates a multi-boutique, multi-stakeholder environment effectively\n• Genuinely passionate about private equity and the underlying investment strategy, with the ability to convey the investment story with conviction to clients and prospects; French language capability preferred but not required.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
@@ -797,7 +816,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
