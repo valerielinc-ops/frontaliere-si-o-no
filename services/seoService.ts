@@ -4443,6 +4443,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': { name: 'Frontaliere insegnante scuola ticino', path: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino', parent: 'blog' },
     'blog-imparare-svizzero-tedesco-corsi-e-app': { name: 'Imparare lo svizzero tedesco', path: '/articoli-svizzera/imparare-svizzero-tedesco-corsi-e-app/', parent: 'blog' },
     'blog-samarate-licenziamenti-2026': { name: 'Samarate', path: '/articoli-frontaliere/samarate-licenziamenti-2026', parent: 'blog' },
+    'blog-clima-ticino-stagioni': { name: 'Clima del Ticino', path: '/articoli-svizzera/clima-ticino-stagioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

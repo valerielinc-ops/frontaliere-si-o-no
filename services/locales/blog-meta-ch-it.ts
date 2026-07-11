@@ -988,6 +988,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Imparare lo svizzero tedesco: corsi e app',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Sei interessato a imparare lo svizzero tedesco? Scopri i corsi e le app più adatti per te.',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Classi di tedesco svizzero in una scuola del cantone Ticino',
+    'blog.article.clima-ticino-stagioni.title': 'Clima Ticino: stagionalità, temperature e precipitazioni',
+    'blog.article.clima-ticino-stagioni.excerpt': 'Il Ticino offre un clima temperato con quattro stagioni chiaramente distinguibili. La temperatura media in estate è di circa 25°C, mentre in inverno è di circa 0°C.',
+    'blog.article.clima-ticino-stagioni.imageAlt': 'Lago di Lugano in primavera',
 };
 
 export default blogMetaChIt;

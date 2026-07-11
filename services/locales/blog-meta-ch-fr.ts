@@ -988,6 +988,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Apprendre le suisse-allemand : cours et applications',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Êtes-vous intéressé à apprendre le suisse-allemand ? Découvrez les cours et les applications qui vous conviennent le mieux.',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Cours de tchèque suisse dans une école du canton du Tessin',
+    'blog.article.clima-ticino-stagioni.title': 'Climat Tessin : saisonnalité, températures et précipitations',
+    'blog.article.clima-ticino-stagioni.excerpt': 'Le Tessin offre un climat tempéré avec quatre saisons clairement distinctes. La température moyenne en été est d\'environ 25 °C, tandis qu\'en hiver, elle est d\'environ 0 °C.',
+    'blog.article.clima-ticino-stagioni.imageAlt': 'Lac de Lugano au printemps',
 };
 
 export default blogMetaChFr;
