@@ -4447,6 +4447,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere': { name: 'Pensionarsi in Svizzera', path: '/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere', parent: 'blog' },
     'blog-frontaliere-meccanico-auto-ticino': { name: 'Frontaliere meccanico', path: '/articoli-svizzera/frontaliere-meccanico-auto-ticino/', parent: 'blog' },
     'blog-frontalieri-busta-paga-svizzera-2026': { name: 'Busta paga svizzera 2026 per i frontalieri', path: '/articoli-frontaliere/frontalieri-busta-paga-svizzera-2026', parent: 'blog' },
+    'blog-cessione-del-quinto-della-pensione-2026': { name: 'Cessione del quinto della pensione', path: '/articoli-svizzera/cessione-del-quinto-della-pensione-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

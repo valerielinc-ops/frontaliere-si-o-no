@@ -354,6 +354,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'imparare-svizzero-tedesco-corsi-e-app': { it: 'imparare-svizzero-tedesco-corsi-e-app', en: 'learn-swiss-german', de: 'schweizerdeutsch-lernen', fr: 'apprendre-le-allemand-suisses' },
  'clima-ticino-stagioni': { it: 'clima-ticino-stagioni', en: 'ticino-climate-seasons', de: 'luganer-klima-saison', fr: 'climat-lugano-saison' },
  'frontaliere-meccanico-auto-ticino': { it: 'frontaliere-meccanico-auto-ticino', en: 'cross-border-mechanic-ticino-salary', de: 'grenzgaenger-kfz-mechaniker-tessin-gehalt', fr: 'frontalier-mecanicien-auto-ticino-salaire' },
+ 'cessione-del-quinto-della-pensione-2026': { it: 'cessione-del-quinto-della-pensione-2026', en: 'cessione-del-quinto-della-pensione-2026-frontalier', de: 'cessione-del-quinto-della-pensione-2026-frontalier', fr: 'cessione-del-quinto-della-pensione-2026-frontalier' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

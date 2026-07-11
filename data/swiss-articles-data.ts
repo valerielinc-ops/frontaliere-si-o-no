@@ -2978,6 +2978,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cessione-del-quinto-della-pensione-2026',
+    category: 'fiscale',
+    date: '2026-07-11T20:21:49.721Z',
+    image: '/images/blog/cessione-del-quinto-della-pensione-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
