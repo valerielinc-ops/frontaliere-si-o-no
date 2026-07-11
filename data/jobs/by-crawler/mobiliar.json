@@ -1,12 +1,12 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-07-10T10:56:41.938Z",
+  "assembledAt": "2026-07-10T22:24:35.443Z",
   "jobs": [
     {
       "id": "mobiliar-b675b17cce11",
-      "slug": "product-manager-w-m-d-mobiliar-ch",
+      "slug": "product-manager-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "product-manager-w-m-d-mobiliar-ch",
+        "it": "product-manager-f-m-d-die-mobiliar-bern",
         "en": "product-manager-w-m-d-die-mobiliar-bern",
         "de": "product-manager-w-m-d-mobiliar-ch",
         "fr": "gestionnaire-de-produits-f-m-d-die-mobiliar-bern"
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Manager-%28wmd%29/1164792155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:37.533Z",
+      "crawledAt": "2026-07-10T22:24:31.618Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,6 +69,14 @@
       "sfJobId": "1164792155",
       "firstSeenAt": "2026-07-09T12:23:01.857Z",
       "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-w-m-d-mobiliar-ch"
+      ],
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -78,6 +86,99 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "mobiliar-eabee8b702cb",
+      "slug": "apprendista-programm-data-analytics-ki-w-m-d-die-mobiliar-bern",
+      "slugByLocale": {
+        "it": "apprendista-programm-data-analytics-ki-w-m-d-die-mobiliar-bern",
+        "en": "trainee-program-data-analytics-ai-f-m-d-die-mobiliar-bern",
+        "de": "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch",
+        "fr": "apprenti-programm-data-analytics-ki-w-m-d-die-mobiliar-bern"
+      },
+      "company": "die Mobiliar",
+      "companyKey": "mobiliar",
+      "companyDomain": "mobiliar.ch",
+      "title": "Trainee-Programm Data, Analytics & KI (w/m/d)",
+      "titleByLocale": {
+        "it": "Apprendista-Programm Data, Analytics & KI (w/m/d)",
+        "en": "Trainee program Data, Analytics & AI (f/m/d)",
+        "de": "Trainee-Programm Data, Analytics & KI (w/m/d)",
+        "fr": "Apprenti-Programm Data, Analytics & KI (w/m/d)"
+      },
+      "description": "Das erwartet dich:\nAls Deep Dive Trainee Data Science tauchst du in drei verschiedene Teams ein – jeweils für sechs Monate in:\n\n• Analytics, Reporting & Projektmanagement (Asset Management)\n\n• Dokumenten-, Arbeitsmanagement und Robotics (Versicherungen)\n\n• Artificial Intelligence (Markt Management)\n\nDu sammelst praxisnahe Erfahrungen in Data-Science-, Analytics- und KI-Projekten, übernimmst früh Verantwortung in agilen Teams und baust dir ein bereichsübergreifendes Netzwerk mit Fachexpert:innen, Data Scientists, Developers und Product Ownern auf.\n\nDas bewirkst du bei uns:\nIm Asset Management überarbeitest du bestehende Applikationen und Scripts, führst sie in eine moderne Datenumgebung (z.B. Databricks) über und unterstützt beim Aufbau der Datenplattform: Du definierst mit den Teams Anforderungen, wirkst an der Datenstrategie mit und identifizierst mögliche KI-Lösungen.\n\nIm Bereich Dokumenten-, Arbeitsmanagement und Robotics arbeitest du im Requirements-Engineering und an Fachspezifikationen in agilen Teams mit, unterstützt den Product Owner, hilfst mit KI bei der Datenextraktion aus Dokumenten und E-Mails, übernimmst Aufgaben im Issue Management und entwickelst optional Robotics-Automatisierungen oder Java-/Python-Applikationen.\n\nIm Team Artificial Intelligence analysierst du Daten und fachliche Anforderungen, evaluierst Machine-Learning-Modelle und -Ansätze, prüfst ihre Qualität, vergleichst Baselines und Varianten und wirkst bei der Entwicklung sowie Umsetzung produktiver KI-Lösungen mit.\n\nDas bringst du mit:\n• Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)\n\n• Programmierkenntnisse in Python\n\n• Kenntnisse der Statistik und Machine Learning\n\n• Engagierte, verantwortungsbewusste und selbständige Arbeitsweise\n\n• Kommunikative Persönlichkeit\n\n• Fliessende Deutsch- und Englischkenntnisse\n\nBei uns arbeiten:\nDu arbeitest in verschiedenen motivierten Teams mit aufgestellten Kolleginnen und Kollegen an datengetriebenen Themen. In einer positiven, kollegialen Arbeitskultur und mit einem breiten internen Ausbildungsangebot gestaltest du deinen Einstieg in die Welt von Data Science und KI.\n\nDas Deep Dive Trainee-Programm dauert bis Ende Februar 2028 und umfasst ein Arbeitspensum von 80-100%. Auf dich warten professionelle und dynamische Teams in einer motivierenden und innovativen Arbeitsatmosphäre mit modernster Infrastruktur.\n\nProgrammstart ist per 1. September 2026 oder nach Vereinbarung.\n\nWeitere Informationen zum Rekrutierungsprozess findest du weiter unten.\n\nDas bieten wir:\nVergütung\n\nDu erhältst während dem Hochschulprogramm ein Jahreslohn von CHF 79’300 bei einem 100% Pensum.\n\nSozialleistungen\n\nWir beteiligen uns an deiner Krankenkassenprämie. Auch bist du weltweit erstklassig versichert und erhältst bei Krankheit oder Unfall ab dem 1. Tag Lohnfortzahlung.\n\nVergünstigungen\n\nWir bieten dir unter anderem ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
+      "descriptionByLocale": {
+        "it": "Questo è ciò che vi aspetta: Come Deep Dive Trainee Data Science, ti immergerai in tre diverse squadre – ciascuna per sei mesi in:\n• Analisi, Reporting & Project Management (Asset Management)\n• Documento, gestione del lavoro e robotica (assicurazione)\n• Intelligenza Artificiale (gestione dei biglietti) Si acquisisce esperienza pratica nei progetti di data science, analytics e AI, assumersi la responsabilità nei team agili in una fase iniziale e costruire una rete trasversale con esperti: donne, scienziati di dati, sviluppatori e proprietari di prodotti. Questo è ciò che fai con noi: Nella gestione degli asset, si rivede le applicazioni e gli script esistenti, trasferirli in un ambiente di dati moderno (ad esempio Databricks) e sostenere lo sviluppo della piattaforma dati: Definisci i requisiti con i team, contribuisci alla strategia dei dati e identifica le possibili soluzioni AI. Nell'area di documentazione, gestione del lavoro e robotica, lavorerai in requisiti di ingegneria e specifiche tecniche nei team agili, supporterai il proprietario del prodotto, aiuterai con l'IA nell'estrazione dei dati da documenti ed e-mail, assumerai compiti di gestione dei problemi e svilupperai facoltativamente l'automazione robotica o applicazioni Java/Python. Nel team di Artificial Intelligence, analizza i dati e i requisiti tecnici, valuta modelli e approcci di machine learning, controlla la loro qualità, confronta le linee di base e le varianti e partecipa allo sviluppo e all'implementazione di soluzioni AI produttive. Questo è ciò che portate con voi:\n• Laurea magistrale in STEM (ad esempio informatica, matematica, fisica o altri campi quantitativi di studio)\n• Capacità di programmazione in Python\n• Conoscenza delle statistiche e dell'apprendimento automatico\n• Metodi di lavoro indipendenti e responsabili\n• Personalità comunicativa\n• Conoscenze di flusso di tedesco e inglese Lavorare con noi: Lei lavora in vari team motivati con colleghi affermati su argomenti basati sui dati. In una cultura del lavoro positiva e collegiale e con un'ampia offerta di formazione interna, si forma il vostro ingresso nel mondo della scienza dei dati e dell'intelligenza artificiale. Il programma Deep Dive Trainee viene eseguito fino alla fine di febbraio 2027 e copre un carico di lavoro di 80-100%. Squadre professionali e dinamiche vi aspettano in un ambiente di lavoro motivante e innovativo con l'ultima infrastruttura. Inizio programma è a partire dal 1 settembre 2026 o per accordo. Maggiori informazioni sul processo di reclutamento possono essere trovate di seguito. Questo è ciò che offriamo: Remunerazione Durante il programma universitario, riceverete uno stipendio annuale di CHF 79’300 con un costo del 100%. Prestazioni sociali Contribuiamo al premio di assicurazione sanitaria. Siete anche assicurati di prima classe in tutto il mondo e ricevere il pagamento in caso di malattia o incidente dal primo giorno in poi. Vantaggi Tra le altre cose, vi offriamo un abbonamento a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali. Presente Altre condizioni di lavoro Vai al link Manager per Cookie Consent: Quando si visita un sito web, queste informazioni sul browser possono essere memorizzate e recuperate - di solito sotto forma di cookie. Dal momento che rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, il blocco di alcuni cookie può influenzare negativamente la tua esperienza sul Sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disattivati. Mostra ulteriori dettagli Fornitori Designazione Attivato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito:\n• \"route\" è usato per la fissazione di sessione\n• \"careerSiteCompany Id\" viene utilizzato per inviare la richiesta al centro dati corretto\n• \"JSESSIONID\" è posizionato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n• \"Coppio bilanciatore del carico\" (il nome del cookie reale può differire) impedisce al visitatore di saltare da un'istanza all'altra",
+        "en": "This is what awaits you: As a Deep Dive Trainee Data Science, you will immerse yourself in three different teams – each for six months in:\n• Analytics, Reporting & Project Management (Asset Management)\n• Document, work management and robotics (insurance)\n• Artificial Intelligence (Market Management) You gain practical experience in data science, analytics and AI projects, take on responsibility in agile teams at an early stage and build up a cross-departmental network with experts: women, data scientists, developers and product owners. This is what you do with us: In asset management, you revise existing applications and scripts, transfer them to a modern data environment (e.g. Databricks) and support the development of the data platform: You define requirements with the teams, contribute to the data strategy and identify possible AI solutions. In the area of document, work management and robotics, you will work in requirements engineering and technical specifications in agile teams, support the product owner, help with AI in data extraction from documents and e-mails, take on issues management tasks and optionally develop robotics automation or Java/Python applications. In the Artificial Intelligence team, you analyze data and technical requirements, evaluate machine learning models and approaches, check their quality, compare baselines and variants and participate in the development and implementation of productive AI solutions. This is what you bring with you:\n• Master's degree in STEM (e.g. computer science, mathematics, physics or other quantitative fields of study)\n• Programming skills in Python\n• Knowledge of statistics and machine learning\n• Committed, responsible and independent working methods\n• Communicative personality\n• Flowing knowledge of German and English Working with us: You work in various motivated teams with established colleagues on data-driven topics. In a positive, collegial work culture and with a broad internal training offer, you shape your entry into the world of data science and AI. The Deep Dive Trainee program runs until the end of February 2027 and covers a workload of 80-100%. Professional and dynamic teams are waiting for you in a motivating and innovative working atmosphere with the latest infrastructure. Program start is as of 1 September 2026 or by agreement. More information about the recruitment process can be found below. This is what we offer: Remuneration During the university program, you will receive an annual salary of CHF 79’300 with a 100% fee. Social benefits We contribute to your health insurance premium. You are also insured first-class worldwide and receive pay in case of illness or accident from the first day onwards. Advantages Among other things, we offer you a half-tax subscription, discounts on mobile phones as well as free subscriptions with flat rate and discounts at cultural events. Present Further conditions of employment go to link Manager for Cookie Consent: When you visit a website, this information about your browser can be stored and retrieved - usually in the form of cookies. Since we respect your right to privacy, you may refuse certain cookies. However, blocking certain cookies may negatively affect your experience on the Site and the services we offer. Necessary cookies These cookies are necessary for the use of this website and cannot be deactivated. Show more details Providers Description Activated SAP as service provider We use the following session cookies, all of which are necessary for the functionality of the website:\n• \"route\" is used for session stickiness\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n• \"JSESSIONID\" is placed on the visitor's device during the session so that the server can identify the visitor\n• \"Load balancer cookie\" (actual cookie name may differ) prevents a visitor from jumping from one instance to another",
+        "de": "Das erwartet dich:\nAls Deep Dive Trainee Data Science tauchst du in drei verschiedene Teams ein – jeweils für sechs Monate in:\n\n• Analytics, Reporting & Projektmanagement (Asset Management)\n\n• Dokumenten-, Arbeitsmanagement und Robotics (Versicherungen)\n\n• Artificial Intelligence (Markt Management)\n\nDu sammelst praxisnahe Erfahrungen in Data-Science-, Analytics- und KI-Projekten, übernimmst früh Verantwortung in agilen Teams und baust dir ein bereichsübergreifendes Netzwerk mit Fachexpert:innen, Data Scientists, Developers und Product Ownern auf.\n\nDas bewirkst du bei uns:\nIm Asset Management überarbeitest du bestehende Applikationen und Scripts, führst sie in eine moderne Datenumgebung (z.B. Databricks) über und unterstützt beim Aufbau der Datenplattform: Du definierst mit den Teams Anforderungen, wirkst an der Datenstrategie mit und identifizierst mögliche KI-Lösungen.\n\nIm Bereich Dokumenten-, Arbeitsmanagement und Robotics arbeitest du im Requirements-Engineering und an Fachspezifikationen in agilen Teams mit, unterstützt den Product Owner, hilfst mit KI bei der Datenextraktion aus Dokumenten und E-Mails, übernimmst Aufgaben im Issue Management und entwickelst optional Robotics-Automatisierungen oder Java-/Python-Applikationen.\n\nIm Team Artificial Intelligence analysierst du Daten und fachliche Anforderungen, evaluierst Machine-Learning-Modelle und -Ansätze, prüfst ihre Qualität, vergleichst Baselines und Varianten und wirkst bei der Entwicklung sowie Umsetzung produktiver KI-Lösungen mit.\n\nDas bringst du mit:\n• Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)\n\n• Programmierkenntnisse in Python\n\n• Kenntnisse der Statistik und Machine Learning\n\n• Engagierte, verantwortungsbewusste und selbständige Arbeitsweise\n\n• Kommunikative Persönlichkeit\n\n• Fliessende Deutsch- und Englischkenntnisse\n\nBei uns arbeiten:\nDu arbeitest in verschiedenen motivierten Teams mit aufgestellten Kolleginnen und Kollegen an datengetriebenen Themen. In einer positiven, kollegialen Arbeitskultur und mit einem breiten internen Ausbildungsangebot gestaltest du deinen Einstieg in die Welt von Data Science und KI.\n\nDas Deep Dive Trainee-Programm dauert bis Ende Februar 2028 und umfasst ein Arbeitspensum von 80-100%. Auf dich warten professionelle und dynamische Teams in einer motivierenden und innovativen Arbeitsatmosphäre mit modernster Infrastruktur.\n\nProgrammstart ist per 1. September 2026 oder nach Vereinbarung.\n\nWeitere Informationen zum Rekrutierungsprozess findest du weiter unten.\n\nDas bieten wir:\nVergütung\n\nDu erhältst während dem Hochschulprogramm ein Jahreslohn von CHF 79’300 bei einem 100% Pensum.\n\nSozialleistungen\n\nWir beteiligen uns an deiner Krankenkassenprämie. Auch bist du weltweit erstklassig versichert und erhältst bei Krankheit oder Unfall ab dem 1. Tag Lohnfortzahlung.\n\nVergünstigungen\n\nWir bieten dir unter anderem ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\nBeschreibung\nAktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
+        "fr": "Voilà ce qui vous attend : En tant que Dive Trainee Data Science, vous vous immergerez dans trois équipes différentes – chacune pendant six mois :\n• Analyse, rapports et gestion de projet (gestion de l'ensemble)\n• Document, gestion du travail et robotique (assurance)\n• Intelligence artificielle (gestion du marché) Vous acquérez une expérience pratique dans les domaines de la science des données, de l'analyse et de l'IA, vous assumez la responsabilité dans les équipes agiles dès le début et vous créez un réseau interdépartemental avec des experts : femmes, data savantes, développeurs et propriétaires de produits. C'est ce que vous faites de nous : Dans la gestion des actifs, vous révisez les applications et les scripts existants, les transférez dans un environnement de données moderne (par exemple Databricks) et soutenez le développement de la plateforme de données : Vous définissez les exigences avec les équipes, contribuez à la stratégie de données et identifiez les solutions possibles d'IA. Dans le domaine de la documentation, de la gestion du travail et de la robotique, vous travaillerez dans l'ingénierie des exigences et des spécifications techniques dans les équipes agiles, supporterez le propriétaire du produit, aidez l'IA dans l'extraction de données à partir de documents et d'e-mails, assumerez les tâches de gestion des problèmes et développerez éventuellement l'automatisation robotique ou les applications Java/Python. Dans l'équipe d'intelligence artificielle, vous analysez les données et les exigences techniques, évaluez les modèles et les approches d'apprentissage automatique, vérifiez leur qualité, comparez les données de base et les variantes et participez au développement et à la mise en œuvre de solutions d'IA productives. C'est ce que vous apportez avec vous :\n• Maîtrise en STEM (p. ex. informatique, mathématiques, physique ou autres domaines d'études quantitatifs)\n• Compétences en programmation en Python\n• Connaissance des statistiques et de l'apprentissage automatique\n• Méthodes de travail engagées, responsables et indépendantes\n• Personnalité communicative\n• Connaissance de l'allemand et de l'anglais Travailler avec nous: Vous travaillez dans diverses équipes motivées avec des collègues établis sur des sujets axés sur les données. Dans une culture de travail positive et collégiale et avec une large offre de formation interne, vous façonnez votre entrée dans le monde de la science des données et de l'IA. Le programme de stagiaires en plongée profonde s'étend jusqu'à la fin de février 2027 et couvre une charge de travail de 80 à 100 %. Des équipes professionnelles et dynamiques vous attendent dans une ambiance de travail motivante et innovante avec les dernières infrastructures. Le programme commence le 1er septembre 2026 ou par entente. Vous trouverez ci-dessous de plus amples renseignements sur le processus de recrutement. C'est ce que nous proposons : Rémunération Pendant le programme universitaire, vous recevrez un salaire annuel de CHF 79.300 avec des frais de 100%. Prestations sociales Nous contribuons à votre prime d'assurance maladie. Vous êtes également assuré de première classe dans le monde entier et recevez une rémunération en cas de maladie ou d'accident dès le premier jour. Avantages Entre autres, nous vous offrons un abonnement demi-taxe, des rabais sur les téléphones mobiles ainsi que des abonnements gratuits avec un tarif forfaitaire et des rabais sur les événements culturels. Présent Autres conditions d'emploi aller au lien Gestionnaire du consentement aux cookies : Lorsque vous visitez un site Web, ces informations sur votre navigateur peuvent être stockées et récupérées - généralement sous forme de cookies. Puisque nous respectons votre droit à la vie privée, vous pouvez refuser certains cookies. Cependant, bloquer certains cookies peut affecter négativement votre expérience sur le Site et les services que nous offrons. Cookies nécessaires Ces cookies sont nécessaires à l'utilisation de ce site et ne peuvent pas être désactivés. Afficher plus de détails Fournisseurs Désignation des marchandises Activé SAP en tant que prestataire de services Nous utilisons les cookies de session suivants, qui sont tous nécessaires pour la fonctionnalité du site:\n• \"route\" est utilisé pour la session collante\n• CarrièreSiteEntreprise Id\" est utilisé pour envoyer la requête au centre de données correct\n• \"JSESSIONID\" est placé sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n• \"Cookie d'équilibreur de charge\" (le nom réel du cookie peut différer) empêche un visiteur de sauter d'une instance à une autre"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.mobiliar.ch/job/Bern-Trainee-Programm-Data%2C-Analytics-&-KI-%28wmd%29/1165060855/",
+      "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T22:24:30.731Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://jobs.mobiliar.ch/job/Bern-Trainee-Programm-Data%2C-Analytics-&-KI-%28wmd%29/1165060855/",
+      "pensum": "80%",
+      "requirements": [
+        "Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)",
+        "Programmierkenntnisse in Python",
+        "Kenntnisse der Statistik und Machine Learning",
+        "Engagierte, verantwortungsbewusste und selbständige Arbeitsweise",
+        "Kommunikative Persönlichkeit",
+        "Fliessende Deutsch- und Englischkenntnisse"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Programmierkenntnisse in Python",
+          "Kenntnisse der Statistik und Machine Learning",
+          "Engagierte, verantwortungsbewusste und selbständige Arbeitsweise",
+          "Kommunikative Persönlichkeit",
+          "Fliessende Deutsch- und Englischkenntnisse"
+        ]
+      },
+      "sfJobId": "1165060855",
+      "previousSlugs": [
+        "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T11:23:41.520Z",
+      "needsRetranslation": true,
+      "salaryMin": 66000,
+      "salaryMax": 112000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 66000,
+          "maxValue": 112000,
           "unitText": "YEAR"
         }
       },
@@ -114,7 +215,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-KV-Lehrstelle-EFZ-2027-Generalagentur-Zug/940916774/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:36.734Z",
+      "crawledAt": "2026-07-10T22:24:29.843Z",
       "addressLocality": "Generalagentur Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,7 +310,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027/1165035655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:35.933Z",
+      "crawledAt": "2026-07-10T22:24:28.819Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,99 +374,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "mobiliar-eabee8b702cb",
-      "slug": "apprendista-programm-data-analytics-ki-w-m-d-die-mobiliar-bern",
-      "slugByLocale": {
-        "it": "apprendista-programm-data-analytics-ki-w-m-d-die-mobiliar-bern",
-        "en": "trainee-program-data-analytics-ai-f-m-d-die-mobiliar-bern",
-        "de": "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch",
-        "fr": "apprenti-programm-data-analytics-ki-w-m-d-die-mobiliar-bern"
-      },
-      "company": "die Mobiliar",
-      "companyKey": "mobiliar",
-      "companyDomain": "mobiliar.ch",
-      "title": "Trainee-Programm Data, Analytics & KI (w/m/d)",
-      "titleByLocale": {
-        "it": "Apprendista-Programm Data, Analytics & KI (w/m/d)",
-        "en": "Trainee program Data, Analytics & AI (f/m/d)",
-        "de": "Trainee-Programm Data, Analytics & KI (w/m/d)",
-        "fr": "Apprenti-Programm Data, Analytics & KI (w/m/d)"
-      },
-      "description": "Das erwartet dich:\nAls Deep Dive Trainee Data Science tauchst du in drei verschiedene Teams ein – jeweils für sechs Monate in:\n\n• Analytics, Reporting & Projektmanagement (Asset Management)\n\n• Dokumenten-, Arbeitsmanagement und Robotics (Versicherungen)\n\n• Artificial Intelligence (Markt Management)\n\nDu sammelst praxisnahe Erfahrungen in Data-Science-, Analytics- und KI-Projekten, übernimmst früh Verantwortung in agilen Teams und baust dir ein bereichsübergreifendes Netzwerk mit Fachexpert:innen, Data Scientists, Developers und Product Ownern auf.\n\nDas bewirkst du bei uns:\nIm Asset Management überarbeitest du bestehende Applikationen und Scripts, führst sie in eine moderne Datenumgebung (z.B. Databricks) über und unterstützt beim Aufbau der Datenplattform: Du definierst mit den Teams Anforderungen, wirkst an der Datenstrategie mit und identifizierst mögliche KI-Lösungen.\n\nIm Bereich Dokumenten-, Arbeitsmanagement und Robotics arbeitest du im Requirements-Engineering und an Fachspezifikationen in agilen Teams mit, unterstützt den Product Owner, hilfst mit KI bei der Datenextraktion aus Dokumenten und E-Mails, übernimmst Aufgaben im Issue Management und entwickelst optional Robotics-Automatisierungen oder Java-/Python-Applikationen.\n\nIm Team Artificial Intelligence analysierst du Daten und fachliche Anforderungen, evaluierst Machine-Learning-Modelle und -Ansätze, prüfst ihre Qualität, vergleichst Baselines und Varianten und wirkst bei der Entwicklung sowie Umsetzung produktiver KI-Lösungen mit.\n\nDas bringst du mit:\n• Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)\n\n• Programmierkenntnisse in Python\n\n• Kenntnisse der Statistik und Machine Learning\n\n• Engagierte, verantwortungsbewusste und selbständige Arbeitsweise\n\n• Kommunikative Persönlichkeit\n\n• Fliessende Deutsch- und Englischkenntnisse\n\nBei uns arbeiten:\nDu arbeitest in verschiedenen motivierten Teams mit aufgestellten Kolleginnen und Kollegen an datengetriebenen Themen. In einer positiven, kollegialen Arbeitskultur und mit einem breiten internen Ausbildungsangebot gestaltest du deinen Einstieg in die Welt von Data Science und KI.\n\nDas Deep Dive Trainee-Programm dauert bis Ende Februar 2028 und umfasst ein Arbeitspensum von 80-100%. Auf dich warten professionelle und dynamische Teams in einer motivierenden und innovativen Arbeitsatmosphäre mit modernster Infrastruktur.\n\nProgrammstart ist per 1. September 2026 oder nach Vereinbarung.\n\nWeitere Informationen zum Rekrutierungsprozess findest du weiter unten.\n\nDas bieten wir:\nVergütung\n\nDu erhältst während dem Hochschulprogramm ein Jahreslohn von CHF 79’300 bei einem 100% Pensum.\n\nSozialleistungen\n\nWir beteiligen uns an deiner Krankenkassenprämie. Auch bist du weltweit erstklassig versichert und erhältst bei Krankheit oder Unfall ab dem 1. Tag Lohnfortzahlung.\n\nVergünstigungen\n\nWir bieten dir unter anderem ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-      "descriptionByLocale": {
-        "it": "Questo è ciò che vi aspetta: Come Deep Dive Trainee Data Science, ti immergerai in tre diverse squadre – ciascuna per sei mesi in:\n• Analisi, Reporting & Project Management (Asset Management)\n• Documento, gestione del lavoro e robotica (assicurazione)\n• Intelligenza Artificiale (gestione dei biglietti) Si acquisisce esperienza pratica nei progetti di data science, analytics e AI, assumersi la responsabilità nei team agili in una fase iniziale e costruire una rete trasversale con esperti: donne, scienziati di dati, sviluppatori e proprietari di prodotti. Questo è ciò che fai con noi: Nella gestione degli asset, si rivede le applicazioni e gli script esistenti, trasferirli in un ambiente di dati moderno (ad esempio Databricks) e sostenere lo sviluppo della piattaforma dati: Definisci i requisiti con i team, contribuisci alla strategia dei dati e identifica le possibili soluzioni AI. Nell'area di documentazione, gestione del lavoro e robotica, lavorerai in requisiti di ingegneria e specifiche tecniche nei team agili, supporterai il proprietario del prodotto, aiuterai con l'IA nell'estrazione dei dati da documenti ed e-mail, assumerai compiti di gestione dei problemi e svilupperai facoltativamente l'automazione robotica o applicazioni Java/Python. Nel team di Artificial Intelligence, analizza i dati e i requisiti tecnici, valuta modelli e approcci di machine learning, controlla la loro qualità, confronta le linee di base e le varianti e partecipa allo sviluppo e all'implementazione di soluzioni AI produttive. Questo è ciò che portate con voi:\n• Laurea magistrale in STEM (ad esempio informatica, matematica, fisica o altri campi quantitativi di studio)\n• Capacità di programmazione in Python\n• Conoscenza delle statistiche e dell'apprendimento automatico\n• Metodi di lavoro indipendenti e responsabili\n• Personalità comunicativa\n• Conoscenze di flusso di tedesco e inglese Lavorare con noi: Lei lavora in vari team motivati con colleghi affermati su argomenti basati sui dati. In una cultura del lavoro positiva e collegiale e con un'ampia offerta di formazione interna, si forma il vostro ingresso nel mondo della scienza dei dati e dell'intelligenza artificiale. Il programma Deep Dive Trainee viene eseguito fino alla fine di febbraio 2027 e copre un carico di lavoro di 80-100%. Squadre professionali e dinamiche vi aspettano in un ambiente di lavoro motivante e innovativo con l'ultima infrastruttura. Inizio programma è a partire dal 1 settembre 2026 o per accordo. Maggiori informazioni sul processo di reclutamento possono essere trovate di seguito. Questo è ciò che offriamo: Remunerazione Durante il programma universitario, riceverete uno stipendio annuale di CHF 79’300 con un costo del 100%. Prestazioni sociali Contribuiamo al premio di assicurazione sanitaria. Siete anche assicurati di prima classe in tutto il mondo e ricevere il pagamento in caso di malattia o incidente dal primo giorno in poi. Vantaggi Tra le altre cose, vi offriamo un abbonamento a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali. Presente Altre condizioni di lavoro Vai al link Manager per Cookie Consent: Quando si visita un sito web, queste informazioni sul browser possono essere memorizzate e recuperate - di solito sotto forma di cookie. Dal momento che rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, il blocco di alcuni cookie può influenzare negativamente la tua esperienza sul Sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disattivati. Mostra ulteriori dettagli Fornitori Designazione Attivato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito:\n• \"route\" è usato per la fissazione di sessione\n• \"careerSiteCompany Id\" viene utilizzato per inviare la richiesta al centro dati corretto\n• \"JSESSIONID\" è posizionato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n• \"Coppio bilanciatore del carico\" (il nome del cookie reale può differire) impedisce al visitatore di saltare da un'istanza all'altra",
-        "en": "This is what awaits you: As a Deep Dive Trainee Data Science, you will immerse yourself in three different teams – each for six months in:\n• Analytics, Reporting & Project Management (Asset Management)\n• Document, work management and robotics (insurance)\n• Artificial Intelligence (Market Management) You gain practical experience in data science, analytics and AI projects, take on responsibility in agile teams at an early stage and build up a cross-departmental network with experts: women, data scientists, developers and product owners. This is what you do with us: In asset management, you revise existing applications and scripts, transfer them to a modern data environment (e.g. Databricks) and support the development of the data platform: You define requirements with the teams, contribute to the data strategy and identify possible AI solutions. In the area of document, work management and robotics, you will work in requirements engineering and technical specifications in agile teams, support the product owner, help with AI in data extraction from documents and e-mails, take on issues management tasks and optionally develop robotics automation or Java/Python applications. In the Artificial Intelligence team, you analyze data and technical requirements, evaluate machine learning models and approaches, check their quality, compare baselines and variants and participate in the development and implementation of productive AI solutions. This is what you bring with you:\n• Master's degree in STEM (e.g. computer science, mathematics, physics or other quantitative fields of study)\n• Programming skills in Python\n• Knowledge of statistics and machine learning\n• Committed, responsible and independent working methods\n• Communicative personality\n• Flowing knowledge of German and English Working with us: You work in various motivated teams with established colleagues on data-driven topics. In a positive, collegial work culture and with a broad internal training offer, you shape your entry into the world of data science and AI. The Deep Dive Trainee program runs until the end of February 2027 and covers a workload of 80-100%. Professional and dynamic teams are waiting for you in a motivating and innovative working atmosphere with the latest infrastructure. Program start is as of 1 September 2026 or by agreement. More information about the recruitment process can be found below. This is what we offer: Remuneration During the university program, you will receive an annual salary of CHF 79’300 with a 100% fee. Social benefits We contribute to your health insurance premium. You are also insured first-class worldwide and receive pay in case of illness or accident from the first day onwards. Advantages Among other things, we offer you a half-tax subscription, discounts on mobile phones as well as free subscriptions with flat rate and discounts at cultural events. Present Further conditions of employment go to link Manager for Cookie Consent: When you visit a website, this information about your browser can be stored and retrieved - usually in the form of cookies. Since we respect your right to privacy, you may refuse certain cookies. However, blocking certain cookies may negatively affect your experience on the Site and the services we offer. Necessary cookies These cookies are necessary for the use of this website and cannot be deactivated. Show more details Providers Description Activated SAP as service provider We use the following session cookies, all of which are necessary for the functionality of the website:\n• \"route\" is used for session stickiness\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n• \"JSESSIONID\" is placed on the visitor's device during the session so that the server can identify the visitor\n• \"Load balancer cookie\" (actual cookie name may differ) prevents a visitor from jumping from one instance to another",
-        "de": "Das erwartet dich:\nAls Deep Dive Trainee Data Science tauchst du in drei verschiedene Teams ein – jeweils für sechs Monate in:\n\n• Analytics, Reporting & Projektmanagement (Asset Management)\n\n• Dokumenten-, Arbeitsmanagement und Robotics (Versicherungen)\n\n• Artificial Intelligence (Markt Management)\n\nDu sammelst praxisnahe Erfahrungen in Data-Science-, Analytics- und KI-Projekten, übernimmst früh Verantwortung in agilen Teams und baust dir ein bereichsübergreifendes Netzwerk mit Fachexpert:innen, Data Scientists, Developers und Product Ownern auf.\n\nDas bewirkst du bei uns:\nIm Asset Management überarbeitest du bestehende Applikationen und Scripts, führst sie in eine moderne Datenumgebung (z.B. Databricks) über und unterstützt beim Aufbau der Datenplattform: Du definierst mit den Teams Anforderungen, wirkst an der Datenstrategie mit und identifizierst mögliche KI-Lösungen.\n\nIm Bereich Dokumenten-, Arbeitsmanagement und Robotics arbeitest du im Requirements-Engineering und an Fachspezifikationen in agilen Teams mit, unterstützt den Product Owner, hilfst mit KI bei der Datenextraktion aus Dokumenten und E-Mails, übernimmst Aufgaben im Issue Management und entwickelst optional Robotics-Automatisierungen oder Java-/Python-Applikationen.\n\nIm Team Artificial Intelligence analysierst du Daten und fachliche Anforderungen, evaluierst Machine-Learning-Modelle und -Ansätze, prüfst ihre Qualität, vergleichst Baselines und Varianten und wirkst bei der Entwicklung sowie Umsetzung produktiver KI-Lösungen mit.\n\nDas bringst du mit:\n• Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)\n\n• Programmierkenntnisse in Python\n\n• Kenntnisse der Statistik und Machine Learning\n\n• Engagierte, verantwortungsbewusste und selbständige Arbeitsweise\n\n• Kommunikative Persönlichkeit\n\n• Fliessende Deutsch- und Englischkenntnisse\n\nBei uns arbeiten:\nDu arbeitest in verschiedenen motivierten Teams mit aufgestellten Kolleginnen und Kollegen an datengetriebenen Themen. In einer positiven, kollegialen Arbeitskultur und mit einem breiten internen Ausbildungsangebot gestaltest du deinen Einstieg in die Welt von Data Science und KI.\n\nDas Deep Dive Trainee-Programm dauert bis Ende Februar 2028 und umfasst ein Arbeitspensum von 80-100%. Auf dich warten professionelle und dynamische Teams in einer motivierenden und innovativen Arbeitsatmosphäre mit modernster Infrastruktur.\n\nProgrammstart ist per 1. September 2026 oder nach Vereinbarung.\n\nWeitere Informationen zum Rekrutierungsprozess findest du weiter unten.\n\nDas bieten wir:\nVergütung\n\nDu erhältst während dem Hochschulprogramm ein Jahreslohn von CHF 79’300 bei einem 100% Pensum.\n\nSozialleistungen\n\nWir beteiligen uns an deiner Krankenkassenprämie. Auch bist du weltweit erstklassig versichert und erhältst bei Krankheit oder Unfall ab dem 1. Tag Lohnfortzahlung.\n\nVergünstigungen\n\nWir bieten dir unter anderem ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\nBeschreibung\nAktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-        "fr": "Voilà ce qui vous attend : En tant que Dive Trainee Data Science, vous vous immergerez dans trois équipes différentes – chacune pendant six mois :\n• Analyse, rapports et gestion de projet (gestion de l'ensemble)\n• Document, gestion du travail et robotique (assurance)\n• Intelligence artificielle (gestion du marché) Vous acquérez une expérience pratique dans les domaines de la science des données, de l'analyse et de l'IA, vous assumez la responsabilité dans les équipes agiles dès le début et vous créez un réseau interdépartemental avec des experts : femmes, data savantes, développeurs et propriétaires de produits. C'est ce que vous faites de nous : Dans la gestion des actifs, vous révisez les applications et les scripts existants, les transférez dans un environnement de données moderne (par exemple Databricks) et soutenez le développement de la plateforme de données : Vous définissez les exigences avec les équipes, contribuez à la stratégie de données et identifiez les solutions possibles d'IA. Dans le domaine de la documentation, de la gestion du travail et de la robotique, vous travaillerez dans l'ingénierie des exigences et des spécifications techniques dans les équipes agiles, supporterez le propriétaire du produit, aidez l'IA dans l'extraction de données à partir de documents et d'e-mails, assumerez les tâches de gestion des problèmes et développerez éventuellement l'automatisation robotique ou les applications Java/Python. Dans l'équipe d'intelligence artificielle, vous analysez les données et les exigences techniques, évaluez les modèles et les approches d'apprentissage automatique, vérifiez leur qualité, comparez les données de base et les variantes et participez au développement et à la mise en œuvre de solutions d'IA productives. C'est ce que vous apportez avec vous :\n• Maîtrise en STEM (p. ex. informatique, mathématiques, physique ou autres domaines d'études quantitatifs)\n• Compétences en programmation en Python\n• Connaissance des statistiques et de l'apprentissage automatique\n• Méthodes de travail engagées, responsables et indépendantes\n• Personnalité communicative\n• Connaissance de l'allemand et de l'anglais Travailler avec nous: Vous travaillez dans diverses équipes motivées avec des collègues établis sur des sujets axés sur les données. Dans une culture de travail positive et collégiale et avec une large offre de formation interne, vous façonnez votre entrée dans le monde de la science des données et de l'IA. Le programme de stagiaires en plongée profonde s'étend jusqu'à la fin de février 2027 et couvre une charge de travail de 80 à 100 %. Des équipes professionnelles et dynamiques vous attendent dans une ambiance de travail motivante et innovante avec les dernières infrastructures. Le programme commence le 1er septembre 2026 ou par entente. Vous trouverez ci-dessous de plus amples renseignements sur le processus de recrutement. C'est ce que nous proposons : Rémunération Pendant le programme universitaire, vous recevrez un salaire annuel de CHF 79.300 avec des frais de 100%. Prestations sociales Nous contribuons à votre prime d'assurance maladie. Vous êtes également assuré de première classe dans le monde entier et recevez une rémunération en cas de maladie ou d'accident dès le premier jour. Avantages Entre autres, nous vous offrons un abonnement demi-taxe, des rabais sur les téléphones mobiles ainsi que des abonnements gratuits avec un tarif forfaitaire et des rabais sur les événements culturels. Présent Autres conditions d'emploi aller au lien Gestionnaire du consentement aux cookies : Lorsque vous visitez un site Web, ces informations sur votre navigateur peuvent être stockées et récupérées - généralement sous forme de cookies. Puisque nous respectons votre droit à la vie privée, vous pouvez refuser certains cookies. Cependant, bloquer certains cookies peut affecter négativement votre expérience sur le Site et les services que nous offrons. Cookies nécessaires Ces cookies sont nécessaires à l'utilisation de ce site et ne peuvent pas être désactivés. Afficher plus de détails Fournisseurs Désignation des marchandises Activé SAP en tant que prestataire de services Nous utilisons les cookies de session suivants, qui sont tous nécessaires pour la fonctionnalité du site:\n• \"route\" est utilisé pour la session collante\n• CarrièreSiteEntreprise Id\" est utilisé pour envoyer la requête au centre de données correct\n• \"JSESSIONID\" est placé sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n• \"Cookie d'équilibreur de charge\" (le nom réel du cookie peut différer) empêche un visiteur de sauter d'une instance à une autre"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.mobiliar.ch/job/Bern-Trainee-Programm-Data%2C-Analytics-&-KI-%28wmd%29/1165060855/",
-      "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:35.131Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://jobs.mobiliar.ch/job/Bern-Trainee-Programm-Data%2C-Analytics-&-KI-%28wmd%29/1165060855/",
-      "pensum": "80%",
-      "requirements": [
-        "Abgeschlossenes Masterstudium im MINT-Bereich (z.B. Informatik, Mathematik, Physik oder weitere quantitative Studienrichtungen)",
-        "Programmierkenntnisse in Python",
-        "Kenntnisse der Statistik und Machine Learning",
-        "Engagierte, verantwortungsbewusste und selbständige Arbeitsweise",
-        "Kommunikative Persönlichkeit",
-        "Fliessende Deutsch- und Englischkenntnisse"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Programmierkenntnisse in Python",
-          "Kenntnisse der Statistik und Machine Learning",
-          "Engagierte, verantwortungsbewusste und selbständige Arbeitsweise",
-          "Kommunikative Persönlichkeit",
-          "Fliessende Deutsch- und Englischkenntnisse"
-        ]
-      },
-      "sfJobId": "1165060855",
-      "previousSlugs": [
-        "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
-        ],
-        "en": [
-          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
-        ],
-        "fr": [
-          "trainee-programm-data-analytics-ki-w-m-d-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T11:23:41.520Z",
-      "needsRetranslation": true,
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
       "id": "mobiliar-18a50d7ca486",
       "slug": "assicurazione-e-consulente-f-h-d-presso-la-riviera-general-agency-regione-pully-die-mobiliar-vevey",
       "slugByLocale": {
@@ -396,7 +404,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vevey-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Riviera-R%C3%A9gion-de-Pully/1164884655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:34.322Z",
+      "crawledAt": "2026-07-10T22:24:27.937Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -473,7 +481,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Young-Insurance-Professional-%28wmd%29-Generalagentur-Wil/1164879755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:33.369Z",
+      "crawledAt": "2026-07-10T22:24:27.050Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,7 +571,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Basel/1164878055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:32.550Z",
+      "crawledAt": "2026-07-10T22:24:26.171Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -643,7 +651,7 @@
       "url": "https://jobs.mobiliar.ch/job/Neuch%C3%A2tel-Gestionnaire-de-sinistres-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Neuch%C3%A2tel-%28fhd%29/1164073555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:31.739Z",
+      "crawledAt": "2026-07-10T22:24:25.287Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -721,7 +729,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-TechLead-Inkasso-Exkasso-Prozesse-%28SAP-FSCD%29-%28wmd%29/1165049355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:30.933Z",
+      "crawledAt": "2026-07-10T22:24:24.401Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -820,7 +828,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-SchadenmitarbeiterIn-%28wmd%29-Generalagentur-Horgen/1165059955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:30.132Z",
+      "crawledAt": "2026-07-10T22:24:23.511Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -914,7 +922,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Teamleiter-Underwriting-KMU-Markt-West-%28wmd%29/1164874755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:29.311Z",
+      "crawledAt": "2026-07-10T22:24:22.631Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,7 +1021,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Responsable-d'%C3%A9quipe-Souscription-PME-march%C3%A9-ouest-%28fhd%29/1164874655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:28.508Z",
+      "crawledAt": "2026-07-10T22:24:21.749Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1065,7 +1073,7 @@
       "slugByLocale": {
         "it": "pmi-di-sviluppo-del-mercato-sottoscritto-f-m-d-die-mobiliar-zurich",
         "en": "underwriter-market-development-smes-f-m-d-die-mobiliar-zurich",
-        "de": "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
+        "de": "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
         "fr": "pme-de-developpement-des-marches-sous-traitants-f-m-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
@@ -1090,7 +1098,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Underwriter-Marktbearbeitung-KMU-%28wmd%29/1164674755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:27.706Z",
+      "crawledAt": "2026-07-10T22:24:20.752Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1123,16 +1131,14 @@
         ]
       },
       "sfJobId": "1164674755",
-      "firstSeenAt": "2026-07-07T12:09:26.377Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "de": [
+          "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
+          "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
+        ],
         "it": [
           "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
           "pmi-di-sviluppo-del-mercato-sottoscritto-f-m-d-die-mobiliar-zurich"
-        ],
-        "de": [
-          "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
-          "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
         ],
         "en": [
           "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
@@ -1146,6 +1152,8 @@
         "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
         "pmi-di-sviluppo-del-mercato-sottoscritto-f-m-d-die-mobiliar-zurich"
       ],
+      "firstSeenAt": "2026-07-07T12:09:26.377Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1191,7 +1199,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Betriebswirtschafter-Applikationen-&-Daten-Immobilien-%28wmd%29/1165027055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:26.892Z",
+      "crawledAt": "2026-07-10T22:24:19.865Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1286,7 +1294,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Sp%C3%A9cialiste-assurances-de-personnes-%28fhd%29/1165024455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:26.068Z",
+      "crawledAt": "2026-07-10T22:24:18.859Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1350,7 +1358,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Verantwortlicher-Immobilien-Transaktionen-Markt-Ost-%28wmd%29/1164752455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:25.261Z",
+      "crawledAt": "2026-07-10T22:24:17.854Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1447,7 +1455,7 @@
       "url": "https://jobs.mobiliar.ch/job/Herisau-Verkaufssupportmitarbeiter-%28wm%29-Generalagentur-AusserRhoden/1164822255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:24.455Z",
+      "crawledAt": "2026-07-10T22:24:16.955Z",
       "addressLocality": "Herisau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1529,7 +1537,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Motorfahrzeug-Flotten-und-Privatkunden-%28wmd%29/1164973855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:23.659Z",
+      "crawledAt": "2026-07-10T22:24:15.944Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1621,7 +1629,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:22.864Z",
+      "crawledAt": "2026-07-10T22:24:15.061Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1685,7 +1693,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz/1164207255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:21.931Z",
+      "crawledAt": "2026-07-10T22:24:14.140Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1783,7 +1791,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Burgdorf-%28wmd%29/1164040155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:21.123Z",
+      "crawledAt": "2026-07-10T22:24:13.127Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1878,7 +1886,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:20.314Z",
+      "crawledAt": "2026-07-10T22:24:12.139Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2005,7 +2013,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Schadenspezialistin-%28wmd%29-Generalagentur-Basel/1165042255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:19.512Z",
+      "crawledAt": "2026-07-10T22:24:11.125Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2085,7 +2093,7 @@
       "url": "https://jobs.mobiliar.ch/job/Reinach-AG-KV-Lehrstelle-EFZ-2027-Generalagentur-Reinach-AG-%28wmd%29/1165038155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:18.696Z",
+      "crawledAt": "2026-07-10T22:24:10.240Z",
       "addressLocality": "Reinach",
       "addressCountry": "CH",
       "country": "CH",
@@ -2169,7 +2177,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Sachbearbeiter-Makler-Service-Center-%28wmd%29/1165036355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:17.875Z",
+      "crawledAt": "2026-07-10T22:24:09.224Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2267,7 +2275,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Leiter-Corporate-Resilience-Management-%28wmd%29/1164936255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:17.068Z",
+      "crawledAt": "2026-07-10T22:24:08.198Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2355,7 +2363,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-TPM-Owner-%28wmd%29/1165026655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:16.248Z",
+      "crawledAt": "2026-07-10T22:24:07.150Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2448,7 +2456,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sarnen-Schadenspezialist-%28wmd%29-Generalagentur-Obwalden-und-Nidwalden/1164700455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:15.441Z",
+      "crawledAt": "2026-07-10T22:24:06.260Z",
       "addressLocality": "Sarnen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2548,7 +2556,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-Stadt/1164704655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:14.635Z",
+      "crawledAt": "2026-07-10T22:24:05.361Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2627,7 +2635,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/1164849455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:13.801Z",
+      "crawledAt": "2026-07-10T22:24:04.477Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -2694,7 +2702,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Cyber-Governance-&-Risk-Manager-%28wmd%29/1165025955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:12.780Z",
+      "crawledAt": "2026-07-10T22:24:03.590Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2771,7 +2779,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:11.968Z",
+      "crawledAt": "2026-07-10T22:24:02.696Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2866,7 +2874,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:11.160Z",
+      "crawledAt": "2026-07-10T22:24:01.812Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2957,7 +2965,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Versicherungs-und-Vorsorgeberater-%28wm%29-Generalagentur-Glattal-%28Z%C3%BCrich-Nord%29/1164271355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:10.352Z",
+      "crawledAt": "2026-07-10T22:24:00.823Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3037,7 +3045,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-%28Senior%29-Brokerbetreuer-und-Underwriter-Sachversicherung-Unternehmensgesch%C3%A4ft-%28wmd%29/1164253555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:09.541Z",
+      "crawledAt": "2026-07-10T22:23:59.808Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3115,7 +3123,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BCtschwil-Leiter-Vorsorge-Generalagentur-Wil-%28wmd%29/1164253255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:08.732Z",
+      "crawledAt": "2026-07-10T22:23:58.795Z",
       "addressLocality": "Bütschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3210,7 +3218,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Seetal-Rontal/1164548055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:07.917Z",
+      "crawledAt": "2026-07-10T22:23:57.780Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3292,7 +3300,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Verkaufssupportmitarbeiter-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164539255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:07.080Z",
+      "crawledAt": "2026-07-10T22:23:56.775Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -3387,7 +3395,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:06.277Z",
+      "crawledAt": "2026-07-10T22:23:55.886Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -3486,7 +3494,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Responsable-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-Moutier-Saint-Imier/1164297555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:56:05.460Z",
+      "crawledAt": "2026-07-10T22:23:54.890Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -3566,7 +3574,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Schadenmitarbeiter-in-Personenschaden-%28mw%29-Generalagentur-St_-Gallen/1164288655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:04.652Z",
+      "crawledAt": "2026-07-10T22:23:53.992Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -3659,7 +3667,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Seetal-Rontal/1164010655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:03.813Z",
+      "crawledAt": "2026-07-10T22:23:53.105Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3748,7 +3756,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:03.002Z",
+      "crawledAt": "2026-07-10T22:23:52.087Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -3835,7 +3843,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:02.194Z",
+      "crawledAt": "2026-07-10T22:23:51.074Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3934,7 +3942,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sirnach-Versicherungs-und-Vorsorgeberater-%28mw%29-Generalagentur-Frauenfeld/1164919855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:01.371Z",
+      "crawledAt": "2026-07-10T22:23:50.199Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -4030,7 +4038,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lenzburg-Schadenmitarbeiter-%28wmd%29-Generalagentur-Lenzburg/1164762355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:56:00.557Z",
+      "crawledAt": "2026-07-10T22:23:49.163Z",
       "addressLocality": "Lenzburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -4129,7 +4137,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-Mitarbeiterin-Innendienst-%28wmd%29-Generalagentur-Luzern/1164803855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:59.739Z",
+      "crawledAt": "2026-07-10T22:23:48.287Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4227,7 +4235,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Dielsdorf/1164899755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:58.928Z",
+      "crawledAt": "2026-07-10T22:23:47.273Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -4313,7 +4321,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Informatik-Lehrstelle-EFZ-2027/1165001455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:58.116Z",
+      "crawledAt": "2026-07-10T22:23:46.278Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4405,7 +4413,7 @@
       "url": "https://jobs.mobiliar.ch/job/Glattpark-%28Opfikon%29-Schadenspezialist-%28wmd%29-Generalagentur-Glattal/1165017455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:57.292Z",
+      "crawledAt": "2026-07-10T22:23:45.364Z",
       "addressLocality": "Glattpark",
       "addressCountry": "CH",
       "country": "CH",
@@ -4483,7 +4491,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Haustechnik-Bern-%28wmd%29/1165016555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:56.484Z",
+      "crawledAt": "2026-07-10T22:23:44.467Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4584,7 +4592,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Horgen/1164802255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:55.673Z",
+      "crawledAt": "2026-07-10T22:23:43.572Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4706,7 +4714,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Stv_-Leiter-Schadendienst-im-innen-und-Aussendienst-%28wm%29-Generalagentur-Burgdorf/1164843655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:54.843Z",
+      "crawledAt": "2026-07-10T22:23:42.554Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -4805,7 +4813,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dietikon-KV-Lehrstelle-EFZ-2027-Generalagentur-Limmattal/1165022855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:54.030Z",
+      "crawledAt": "2026-07-10T22:23:41.666Z",
       "addressLocality": "Dietikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4897,7 +4905,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BClach-Mitarbeiter-Kunden-und-Maklersupport-%28wmd%29-Generalagentur-B%C3%BClach/1164960855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:53.209Z",
+      "crawledAt": "2026-07-10T22:23:40.769Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -4977,7 +4985,7 @@
       "url": "https://jobs.mobiliar.ch/job/Meilen-Schadenspezialist-%28mwd%29-Generalagentur-Meilen/1164954255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:52.403Z",
+      "crawledAt": "2026-07-10T22:23:39.883Z",
       "addressLocality": "Meilen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5046,12 +5054,12 @@
     },
     {
       "id": "mobiliar-44461ee6d30a",
-      "slug": "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+      "slug": "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
-        "en": "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+        "it": "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern",
+        "en": "personal-injury-specialist-f-m-d-die-mobiliar-bern",
         "de": "fachspezialistin-personenschaden-w-m-d-mobiliar-ch",
-        "fr": "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
+        "fr": "specialiste-en-dommages-corporels-f-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5075,7 +5083,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialistin-Personenschaden-%28wmd%29/1164950155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:51.585Z",
+      "crawledAt": "2026-07-10T22:23:38.990Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5107,11 +5115,19 @@
       "sfJobId": "1164950155",
       "previousSlugs": [
         "fachspezialistin-personenschaden-w-m-d-mobiliar-ch",
-        "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
+        "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+        "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialistin-personenschaden-w-m-d-mobiliar-ch",
+          "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+          "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
+        ],
+        "fr": [
           "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
         ]
       },
@@ -5162,7 +5178,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-IT-Security-Architect-%28wmd%29/1164945355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:50.769Z",
+      "crawledAt": "2026-07-10T22:23:38.106Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5260,7 +5276,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:55:49.946Z",
+      "crawledAt": "2026-07-10T22:23:37.221Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5339,7 +5355,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Schadenspezialist-%28wm%29-Personensch%C3%A4den-UVGKrankentaggeld-Generalagentur-Burgdorf/1163707355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:49.030Z",
+      "crawledAt": "2026-07-10T22:23:36.328Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -5408,87 +5424,6 @@
       "addressRegion": "BE"
     },
     {
-      "id": "mobiliar-66bd9805811f",
-      "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
-      "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
-        "en": "senior-account-manager-m-d-die-mobiliar-uster",
-        "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch",
-        "fr": "directeur-principal-des-comptes-m-j-die-mobiliar-uster"
-      },
-      "company": "die Mobiliar",
-      "companyKey": "mobiliar",
-      "companyDomain": "mobiliar.ch",
-      "title": "Versicherungs- und Vorsorgeberater (w/m/d) Generalagentur Uster",
-      "titleByLocale": {
-        "it": "Versicherungs- e Vorsorgeberater (w/m/d) agenzia generale Uster",
-        "en": "Senior Account Manager (m/d)",
-        "de": "Versicherungs- und Vorsorgeberater (w/m/d) Generalagentur Uster",
-        "fr": "Directeur principal des comptes (m/j)"
-      },
-      "description": "Das erwartet Sie:\nViel mehr, als nur ein Job - bei uns steht der Mensch im Mittelpunkt.\n\nWir suchen Verstärkung für unsere Generalagentur. In dieser Rolle bieten Sie unseren Kundinnen und Kunden Versicherungs- sowie Vorsorgelösungen an, die auf die persönlichen Bedürfnisse zugeschnitten sind. Mit Ihrem Einsatz treiben Sie den Ausbau der Kundenportfolios der Generalagentur Uster aktiv voran.\n\nDas bewirken Sie bei uns:\nIm Fokus dieser Stelle stehen die Betreuung sowie der aktive Ausbau Ihres Privat- und Firmenkundenportfolios.\n\nDank Ihrer freundlichen Art haben Sie stets ein offenes Ohr für Ihre Kundschaft, welcher Sie mit persönlicher Beratung und individuell zugeschnittenen Lösungen aus dem gesamten Versicherungs- und Vorsorgebereich zur Seite stehen.\n\nMit einem gewinnenden und überzeugenden Auftreten helfen Sie mit, die Mobiliar als persönlichste Versicherung im Bezirk Uster zu verankern. Als positive und kommunikative Person fällt es ihnen leicht, ein Kundennetzwerk auszubauen und zu pflegen.\n\nSie arbeiten gerne selbstständig und schätzen den offenen Austausch innerhalb des Teams und auch Team übergreifend.\n\nDas bringen Sie mit:\n• Abgeschlossene Ausbildung im kaufmännischen Bereich – Berufserfahrung im Finanz- und Versicherungsbereich sind von Vorteil. Aber auch motivierte Quereinsteiger: innen sind herzlich willkommen bei uns\n\n• Alter ab 28 Jahren\n\n• Freude am Aufbau und der Pflege von langjährigen Kundenbeziehungen sowie an der Gewinnung von Neukunden\n\n• Offen für eine neue Herausforderung und bereit, für unsere Kundinnen und Kunden vollen Einsatz zu geben\n\n• Authentische, gewinnende und empathische Persönlichkeit\n\n• Freude am aktiven Networking und am knüpfen von geschäftlichen Beziehungen\n\n• Ziel- und ergebnisorientierte Arbeit machen Ihnen Spass\n\nBei uns arbeiten:\nIn der Generalagentur Uster wartet ein vielfältiges und motiviertes Team auf Sie. Zusammen prägen wir die regionale Verankerung und pflegen einen offenen, kollegialen Austausch.\n\nIhr Arbeitsort ist im Bezirk Uster und Ihr Arbeitspensum beträgt 100%. Der Stellenantritt erfolgt nach Vereinbarung.\n\nWir bieten nebst einer sorgfältigen Einarbeitungsphase eine abwechslungsreiche Tätigkeit in einem spannenden Umfeld mit grossem Entwicklungspotenzial und weitreichenden Weiterbildungsmöglichkeiten, sowie tolle Kundinnen und Kunden, die sich auf eine Top-Betreuung freuen.\n\nAls führender Schweizer Versicherer und Top Arbeitgeberin 2026 sind für uns attraktive Anstellungsbedingungen eine Selbstverständlichkeit.\n\nWichtig bei uns auf der Generalagentur Uster ist: miteinander gestalten - gemeinsam wachsen.\n\nDas bieten wir:\nErfolgsbeteiligung\n\nSind wir erfolgreich, profitieren auch unsere Mitarbeitenden. Jedes Jahr wird über die Ausschüttung einer Erfolgsbeteiligung und deren Höhe entschieden.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot an. Bei jobrelevanten Weiterbildungen beteiligen wir uns.\n\nVergünstigungen\n\nWir bieten unter anderem bis zu 25% Prämienrabatt, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-      "descriptionByLocale": {
-        "it": "Questo è ciò che vi aspetta: Molto più di un semplice lavoro - la nostra attenzione è sull'uomo. Stiamo cercando rinforzi per la nostra agenzia generale. In questo ruolo, offriamo ai nostri clienti soluzioni di assicurazione e precauzione su misura per le loro esigenze personali. Con il vostro impegno, si guida attivamente l'espansione dei portafogli dei clienti del Generalagentur Uster. Puoi farlo con noi: Il focus è sul supporto e l'espansione attiva del portafoglio clienti privato e aziendale. Grazie alla vostra gentilezza avete sempre un orecchio aperto per la vostra clientela, che vi aiuterà con consigli personali e soluzioni personalizzate su misura dall'intera area di assicurazione e precauzione. Con un aspetto vincente e persuasivo, aiuta ad ancorare il Mobiliar come l'assicurazione più personale nel distretto di Uster. Come persona positiva e comunicativa è facile per loro sviluppare e mantenere una rete di clienti. Sono felici di lavorare in modo indipendente e apprezzare lo scambio aperto all'interno del team e anche il team. Prendi questo con te:\n• La formazione completa nel settore commerciale – l'esperienza professionale nei settori finanziario e assicurativo è un vantaggio. Ma anche i cross-comers motivati: dentro ci sono i benvenuti\n• Età da 28 anni\n• Piacere di costruire e mantenere relazioni a lungo termine con i clienti e di attrarre nuovi clienti\n• Aperto a una nuova sfida e pronto a dare pieno impegno ai nostri clienti\n• personalità autentica, vincente ed empatica\n• Gioia in rete attiva e relazioni commerciali\n• Il lavoro mirato e orientato ai risultati ti farà divertire Lavorare con noi: Una squadra diversificata e motivata vi aspetta presso l'Uster General Agency. Insieme formiamo l'ancoraggio regionale e manteniamo uno scambio aperto e collegiale. Il tuo posto di lavoro è nel quartiere Uster e il tuo carico di lavoro è al 100%. Il lavoro è iniziato da accordo. Oltre ad un'attenta fase di incorporazione, offriamo una variegata attività in un ambiente emozionante con grande potenziale di sviluppo e ampie opportunità di formazione, così come grandi clienti che sono in attesa di un alto rispetto. In qualità di principale assicuratore svizzero e datore di lavoro superiore nel 2026, le condizioni di lavoro attraenti sono una questione naturalmente per noi. Ciò che è importante con noi presso l'agenzia generale Uster è: formarsi l'un l'altro - crescere insieme. Offriamo: Partecipazione riuscita Se abbiamo successo, anche i nostri dipendenti beneficiano. Ogni anno viene presa una decisione sulla distribuzione di una quota di successo e il suo livello. Formazione e sviluppo Offriamo una vasta gamma di corsi interni e certificazioni cicero per alta qualità di consulenza e competenze di consulenza. Vantaggi Offriamo fino al 25% di sconto premium, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piana e sconti agli eventi culturali. Gestore delle autorizzazioni dei cookie: Se visiti un sito web, queste informazioni sul tuo browser - di solito sotto forma di cookie - possono essere salvate e recuperate. Nel rispetto del diritto alla privacy, è possibile rifiutare alcuni cookie. Tuttavia, se si bloccano alcuni cookie, questo potrebbe avere un impatto negativo sulla vostra esperienza sul Sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disabilitati. Maggiori dettagli Cookie necessari Fornitori Designazione Attivato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito:\n• \"route\" viene utilizzato per la fissazione della sessione\n• \"careerSiteCompany Id\" viene utilizzato per inviare la richiesta al centro dati corretto\n• \"JSESSIONID\" viene memorizzato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n• \"Coppio bilanciatore del carico\" (il nome del cookie reale può deviare) impedisce al visitatore di saltare da un'istanza all'altra",
-        "en": "This is what awaits you: Much more than just a job - our focus is on man. We're looking for backup for our general agency. In this role, you offer our customers insurance and precautionary solutions tailored to their personal needs. With your commitment, you actively drive the expansion of the customer portfolios of the Generalagentur Uster. You can do this with us: The focus is on the support and active expansion of your private and corporate customer portfolio. Thanks to your kindness have You always have an open ear for your clientele, which will help you with personal advice and individually tailored solutions from the entire insurance and precautionary area. With a winning and persuasive appearance, you help anchor the Mobiliar as the most personal insurance in the Uster district. As a positive and communicative person it is easy for them to develop and maintain a customer network. They are happy to work independently and appreciate the open exchange within the team and also team. Take this with you:\n• Complete training in the commercial sector – professional experience in the financial and insurance sectors is an advantage. But also motivated cross-comers: inside are welcome to us\n• Age from 28 years\n• Pleasure to build and maintain long-term customer relationships and to attract new customers\n• Open to a new challenge and ready to give full commitment to our customers\n• Authentic, winning and empathic personality\n• Joy in active networking and business relations\n• Target and result-oriented work will make you fun Working with us: A diverse and motivated team awaits you at the Uster General Agency. Together we shape the regional anchoring and maintain an open, collegial exchange. Your work place is in the Uster district and your workload is 100%. The job is started by agreement. In addition to a careful incorporation phase, we offer a varied activity in an exciting environment with great development potential and wide-ranging training opportunities, as well as great customers who are looking forward to a top-respect. As a leading Swiss insurer and top employer in 2026, attractive employment conditions are a matter of course for us. What is important with us at the general agency Uster is: to shape one another - to grow together. We offer: Successful participation If we are successful, our employees also benefit. Each year, a decision is taken on the distribution of a share of success and its level. Training and development We offer a wide range of internal courses and cicero certifications for high consulting quality and consulting skills. Benefits We offer up to 25% premium discount, discounts on mobile phones and free subscriptions with flat rate and discounts at cultural events. Manager for cookie permissions: If you visit a website, this information about your browser - usually in the form of cookies - can be saved and retrieved. As we respect your right to privacy, you can reject certain cookies. However, if you block certain cookies, this may have a negative impact on your experience on the Site and the services we offer. Necessary cookies These cookies are required for the use of this website and cannot be disabled. More details Necessary cookies Suppliers Description Activated SAP as service provider We use the following session cookies, all necessary for the functionality of the website:\n• \"route\" is used for session stickiness\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n• \"JSESSIONID\" is stored on the visitor's device during the session so that the server can identify the visitor\n• \"Load balancer cookie\" (actual cookie name may deviate) prevents a visitor from jumping from one instance to another",
-        "de": "Das erwartet Sie:\nViel mehr, als nur ein Job - bei uns steht der Mensch im Mittelpunkt.\n\nWir suchen Verstärkung für unsere Generalagentur. In dieser Rolle bieten Sie unseren Kundinnen und Kunden Versicherungs- sowie Vorsorgelösungen an, die auf die persönlichen Bedürfnisse zugeschnitten sind. Mit Ihrem Einsatz treiben Sie den Ausbau der Kundenportfolios der Generalagentur Uster aktiv voran.\n\nDas bewirken Sie bei uns:\nIm Fokus dieser Stelle stehen die Betreuung sowie der aktive Ausbau Ihres Privat- und Firmenkundenportfolios.\n\nDank Ihrer freundlichen Art haben Sie stets ein offenes Ohr für Ihre Kundschaft, welcher Sie mit persönlicher Beratung und individuell zugeschnittenen Lösungen aus dem gesamten Versicherungs- und Vorsorgebereich zur Seite stehen.\n\nMit einem gewinnenden und überzeugenden Auftreten helfen Sie mit, die Mobiliar als persönlichste Versicherung im Bezirk Uster zu verankern. Als positive und kommunikative Person fällt es ihnen leicht, ein Kundennetzwerk auszubauen und zu pflegen.\n\nSie arbeiten gerne selbstständig und schätzen den offenen Austausch innerhalb des Teams und auch Team übergreifend.\n\nDas bringen Sie mit:\n• Abgeschlossene Ausbildung im kaufmännischen Bereich – Berufserfahrung im Finanz- und Versicherungsbereich sind von Vorteil. Aber auch motivierte Quereinsteiger: innen sind herzlich willkommen bei uns\n\n• Alter ab 28 Jahren\n\n• Freude am Aufbau und der Pflege von langjährigen Kundenbeziehungen sowie an der Gewinnung von Neukunden\n\n• Offen für eine neue Herausforderung und bereit, für unsere Kundinnen und Kunden vollen Einsatz zu geben\n\n• Authentische, gewinnende und empathische Persönlichkeit\n\n• Freude am aktiven Networking und am knüpfen von geschäftlichen Beziehungen\n\n• Ziel- und ergebnisorientierte Arbeit machen Ihnen Spass\n\nBei uns arbeiten:\nIn der Generalagentur Uster wartet ein vielfältiges und motiviertes Team auf Sie. Zusammen prägen wir die regionale Verankerung und pflegen einen offenen, kollegialen Austausch.\n\nIhr Arbeitsort ist im Bezirk Uster und Ihr Arbeitspensum beträgt 100%. Der Stellenantritt erfolgt nach Vereinbarung.\n\nWir bieten nebst einer sorgfältigen Einarbeitungsphase eine abwechslungsreiche Tätigkeit in einem spannenden Umfeld mit grossem Entwicklungspotenzial und weitreichenden Weiterbildungsmöglichkeiten, sowie tolle Kundinnen und Kunden, die sich auf eine Top-Betreuung freuen.\n\nAls führender Schweizer Versicherer und Top Arbeitgeberin 2026 sind für uns attraktive Anstellungsbedingungen eine Selbstverständlichkeit.\n\nWichtig bei uns auf der Generalagentur Uster ist: miteinander gestalten - gemeinsam wachsen.\n\nDas bieten wir:\nErfolgsbeteiligung\n\nSind wir erfolgreich, profitieren auch unsere Mitarbeitenden. Jedes Jahr wird über die Ausschüttung einer Erfolgsbeteiligung und deren Höhe entschieden.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot an. Bei jobrelevanten Weiterbildungen beteiligen wir uns.\n\nVergünstigungen\n\nWir bieten unter anderem bis zu 25% Prämienrabatt, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\nBeschreibung\nAktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-        "fr": "Voilà ce qui vous attend : Bien plus qu'un simple travail, nous nous concentrons sur l'homme. Nous cherchons des renforts pour notre agence générale. Dans ce rôle, vous offrez à nos clients des solutions d'assurance et de précaution adaptées à leurs besoins personnels. Avec votre engagement, vous conduisez activement l'expansion des portefeuilles de clients de l'Uster Generalagentur. Vous pouvez le faire avec nous: L'accent est mis sur le soutien et l'expansion active de votre portefeuille de clients privés et d'entreprises. Grâce à votre gentillesse, vous avez toujours une oreille ouverte pour votre clientèle, qui vous aidera avec des conseils personnels et des solutions personnalisées de toute la zone d'assurance et de précaution. Avec une apparence gagnante et persuasive, vous aidez à ancrer la Mobiliar comme l'assurance la plus personnelle dans le district d'Uster. En tant que personne positive et communicative, il est facile pour eux de développer et de maintenir un réseau client. Ils sont heureux de travailler de façon indépendante et apprécient l'échange ouvert au sein de l'équipe et aussi de l'équipe. Prends ça avec toi :\n• Formation complète dans le secteur commercial – l'expérience professionnelle dans les secteurs financier et d'assurance est un avantage. Mais aussi des cross-comers motivés: à l'intérieur sont les bienvenus pour nous\n• Âge à partir de 28 ans\n• Le plaisir d'établir et de maintenir des relations client à long terme et d'attirer de nouveaux clients\n• Ouvert à un nouveau défi et prêt à donner plein engagement à nos clients\n• Personnalité authentique, gagnante et empathique\n• Joy dans la mise en réseau active et les relations d'affaires\n• Un travail ciblé et axé sur les résultats vous rendra amusant Travailler avec nous: Une équipe diversifiée et motivée vous attend à l'agence générale Uster. Ensemble, nous façonnons l'ancrage régional et maintenons un échange ouvert et collégial. Votre lieu de travail est dans le district d'Uster et votre charge de travail est de 100%. Le travail commence d'un commun accord. En plus d'une phase d'incorporation soignée, nous offrons une activité variée dans un environnement passionnant avec un grand potentiel de développement et de nombreuses possibilités de formation, ainsi que de grands clients qui attendent avec impatience un haut respect. En tant qu'assureur suisse de premier plan et employeur en 2026, les conditions d'emploi attrayantes sont bien sûr une question pour nous. Ce qui est important avec nous à l'agence générale Uster est : se façonner les uns les autres - grandir ensemble. Nous offrons: Participation réussie Si nous réussissons, nos employés en profiteront également. Chaque année, une décision est prise sur la répartition d'une part du succès et de son niveau. Formation et perfectionnement Nous offrons une large gamme de cours internes et de certifications cicero pour une haute qualité de conseil et des compétences de conseil. Avantages Nous offrons jusqu'à 25% de réduction premium, des réductions sur les téléphones mobiles et des abonnements gratuits avec un tarif forfaitaire et des réductions sur les événements culturels. Gestionnaire pour les autorisations de cookies : Si vous visitez un site Web, ces informations sur votre navigateur - généralement sous forme de cookies - peuvent être enregistrées et récupérées. Comme nous respectons votre droit à la vie privée, vous pouvez rejeter certains cookies. Cependant, si vous bloquez certains cookies, cela peut avoir un impact négatif sur votre expérience sur le Site et les services que nous offrons. Cookies nécessaires Ces cookies sont requis pour l'utilisation de ce site et ne peuvent être désactivés. Plus de détails Cookies nécessaires Fournisseurs Désignation des marchandises Activé SAP en tant que prestataire de services Nous utilisons les cookies de session suivants, tous nécessaires pour la fonctionnalité du site:\n• \"route\" est utilisé pour la session collant\n• \"CarrièreSiteEntreprise Id\" est utilisé pour envoyer la requête au centre de données correct\n• \"JSESSIONID\" est stocké sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n• \"Cookie d'équilibreur de charge\" (le nom réel des cookies peut s'écarter) empêche un visiteur de sauter d'une instance à une autre"
-      },
-      "location": "Uster",
-      "canton": "ZH",
-      "url": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
-      "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:48.221Z",
-      "addressLocality": "Uster",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8610",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
-      "pensum": "100%",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "sfJobId": "1163443155",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
-        ],
-        "en": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
-        ],
-        "fr": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T22:09:28.286Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "mobiliar-2b91d98d7c52",
       "slug": "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-vaduz-die-mobiliar-237-65-51",
       "slugByLocale": {
@@ -5519,7 +5454,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vaduz-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Vaduz/940913874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:47.407Z",
+      "crawledAt": "2026-07-10T22:23:35.311Z",
       "addressLocality": "237 65 51",
       "addressCountry": "CH",
       "country": "CH",
@@ -5611,7 +5546,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-KV-Lehrstelle-EFZ-2027-Generalagentur-Affoltern-am-Albis/940912874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:46.595Z",
+      "crawledAt": "2026-07-10T22:23:34.318Z",
       "addressLocality": "Affoltern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5705,7 +5640,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/940912074/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:55:45.772Z",
+      "crawledAt": "2026-07-10T22:23:33.431Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -5797,7 +5732,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wil%2C-Region-Wil-und-Toggenburg/940908174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:44.935Z",
+      "crawledAt": "2026-07-10T22:23:32.440Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -5892,7 +5827,7 @@
       "url": "https://jobs.mobiliar.ch/job/D%C3%BCdingen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-%28Profil-EM%29-Generalagentur-D%C3%BCdingen/1162909055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:44.121Z",
+      "crawledAt": "2026-07-10T22:23:31.547Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5973,7 +5908,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1163375655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:43.252Z",
+      "crawledAt": "2026-07-10T22:23:30.543Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -6053,7 +5988,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-KV-Lehrstelle-EFZ-2027-Generalagentur-Basel/1163321355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:42.436Z",
+      "crawledAt": "2026-07-10T22:23:29.539Z",
       "addressLocality": "Generalagentur Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6150,7 +6085,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:41.621Z",
+      "crawledAt": "2026-07-10T22:23:28.546Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -6232,7 +6167,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:40.810Z",
+      "crawledAt": "2026-07-10T22:23:27.638Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6321,7 +6256,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-KV-Lehrstelle-EFZ-2027-Generalagentur-Winterthur/1164471155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:39.998Z",
+      "crawledAt": "2026-07-10T22:23:26.597Z",
       "addressLocality": "Generalagentur Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -6416,7 +6351,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28KTGUVGUVGZ%29-mit-Branchenverantwortung-%28wmd%29/1163846755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:39.188Z",
+      "crawledAt": "2026-07-10T22:23:25.580Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6512,7 +6447,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:38.372Z",
+      "crawledAt": "2026-07-10T22:23:24.686Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -6607,7 +6542,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Biel/1164623355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:37.533Z",
+      "crawledAt": "2026-07-10T22:23:23.662Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6698,7 +6633,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Z%C3%BCrich/1164643255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:36.617Z",
+      "crawledAt": "2026-07-10T22:23:22.627Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6789,7 +6724,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Contact-Center-%28wmd%29/1164640755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:35.303Z",
+      "crawledAt": "2026-07-10T22:23:21.028Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6885,7 +6820,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schaffhausen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Schaffhausen/1164681355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:34.216Z",
+      "crawledAt": "2026-07-10T22:23:19.802Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6976,7 +6911,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1164744055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:33.369Z",
+      "crawledAt": "2026-07-10T22:23:18.701Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -7056,7 +6991,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rapperswil-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Rapperswil-Glarus/1164984555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:32.489Z",
+      "crawledAt": "2026-07-10T22:23:17.538Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -7150,7 +7085,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Vulnerability-Service-Manager-%28wmd%29/1164984355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:31.659Z",
+      "crawledAt": "2026-07-10T22:23:16.451Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7242,7 +7177,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Mobiliar-Langenthal/1164981855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:30.480Z",
+      "crawledAt": "2026-07-10T22:23:15.174Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -7340,7 +7275,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Mediamatik-Lehrstelle-EFZ-2027/1165000855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:29.650Z",
+      "crawledAt": "2026-07-10T22:23:14.289Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7434,7 +7369,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Entwickler-Digital-Business-EFZ-2027/1165000755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:28.819Z",
+      "crawledAt": "2026-07-10T22:23:13.402Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7526,7 +7461,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Lehre-und-Sport/1164999655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:27.751Z",
+      "crawledAt": "2026-07-10T22:23:12.502Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7617,7 +7552,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Fachfrau-Fachmann-Kundendialog-EFZ-2027/1164999555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:26.922Z",
+      "crawledAt": "2026-07-10T22:23:11.451Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7712,7 +7647,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027/1164999455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:55:25.972Z",
+      "crawledAt": "2026-07-10T22:23:10.400Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7771,6 +7706,86 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "mobiliar-66bd9805811f",
+      "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
+      "slugByLocale": {
+        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
+        "en": "senior-account-manager-m-d-die-mobiliar-uster",
+        "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch",
+        "fr": "directeur-principal-des-comptes-m-j-die-mobiliar-uster"
+      },
+      "company": "die Mobiliar",
+      "companyKey": "mobiliar",
+      "companyDomain": "mobiliar.ch",
+      "title": "Versicherungs- und Vorsorgeberater (w/m/d) Generalagentur Uster",
+      "titleByLocale": {
+        "it": "Versicherungs- e Vorsorgeberater (w/m/d) agenzia generale Uster",
+        "en": "Senior Account Manager (m/d)",
+        "de": "Versicherungs- und Vorsorgeberater (w/m/d) Generalagentur Uster",
+        "fr": "Directeur principal des comptes (m/j)"
+      },
+      "description": "Das erwartet Sie:\nViel mehr, als nur ein Job - bei uns steht der Mensch im Mittelpunkt.\n\nWir suchen Verstärkung für unsere Generalagentur. In dieser Rolle bieten Sie unseren Kundinnen und Kunden Versicherungs- sowie Vorsorgelösungen an, die auf die persönlichen Bedürfnisse zugeschnitten sind. Mit Ihrem Einsatz treiben Sie den Ausbau der Kundenportfolios der Generalagentur Uster aktiv voran.\n\nDas bewirken Sie bei uns:\nIm Fokus dieser Stelle stehen die Betreuung sowie der aktive Ausbau Ihres Privat- und Firmenkundenportfolios.\n\nDank Ihrer freundlichen Art haben Sie stets ein offenes Ohr für Ihre Kundschaft, welcher Sie mit persönlicher Beratung und individuell zugeschnittenen Lösungen aus dem gesamten Versicherungs- und Vorsorgebereich zur Seite stehen.\n\nMit einem gewinnenden und überzeugenden Auftreten helfen Sie mit, die Mobiliar als persönlichste Versicherung im Bezirk Uster zu verankern. Als positive und kommunikative Person fällt es ihnen leicht, ein Kundennetzwerk auszubauen und zu pflegen.\n\nSie arbeiten gerne selbstständig und schätzen den offenen Austausch innerhalb des Teams und auch Team übergreifend.\n\nDas bringen Sie mit:\n• Abgeschlossene Ausbildung im kaufmännischen Bereich – Berufserfahrung im Finanz- und Versicherungsbereich sind von Vorteil. Aber auch motivierte Quereinsteiger: innen sind herzlich willkommen bei uns\n\n• Alter ab 28 Jahren\n\n• Freude am Aufbau und der Pflege von langjährigen Kundenbeziehungen sowie an der Gewinnung von Neukunden\n\n• Offen für eine neue Herausforderung und bereit, für unsere Kundinnen und Kunden vollen Einsatz zu geben\n\n• Authentische, gewinnende und empathische Persönlichkeit\n\n• Freude am aktiven Networking und am knüpfen von geschäftlichen Beziehungen\n\n• Ziel- und ergebnisorientierte Arbeit machen Ihnen Spass\n\nBei uns arbeiten:\nIn der Generalagentur Uster wartet ein vielfältiges und motiviertes Team auf Sie. Zusammen prägen wir die regionale Verankerung und pflegen einen offenen, kollegialen Austausch.\n\nIhr Arbeitsort ist im Bezirk Uster und Ihr Arbeitspensum beträgt 100%. Der Stellenantritt erfolgt nach Vereinbarung.\n\nWir bieten nebst einer sorgfältigen Einarbeitungsphase eine abwechslungsreiche Tätigkeit in einem spannenden Umfeld mit grossem Entwicklungspotenzial und weitreichenden Weiterbildungsmöglichkeiten, sowie tolle Kundinnen und Kunden, die sich auf eine Top-Betreuung freuen.\n\nAls führender Schweizer Versicherer und Top Arbeitgeberin 2026 sind für uns attraktive Anstellungsbedingungen eine Selbstverständlichkeit.\n\nWichtig bei uns auf der Generalagentur Uster ist: miteinander gestalten - gemeinsam wachsen.\n\nDas bieten wir:\nErfolgsbeteiligung\n\nSind wir erfolgreich, profitieren auch unsere Mitarbeitenden. Jedes Jahr wird über die Ausschüttung einer Erfolgsbeteiligung und deren Höhe entschieden.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot an. Bei jobrelevanten Weiterbildungen beteiligen wir uns.\n\nVergünstigungen\n\nWir bieten unter anderem bis zu 25% Prämienrabatt, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
+      "descriptionByLocale": {
+        "it": "Questo è ciò che vi aspetta: Molto più di un semplice lavoro - la nostra attenzione è sull'uomo. Stiamo cercando rinforzi per la nostra agenzia generale. In questo ruolo, offriamo ai nostri clienti soluzioni di assicurazione e precauzione su misura per le loro esigenze personali. Con il vostro impegno, si guida attivamente l'espansione dei portafogli dei clienti del Generalagentur Uster. Puoi farlo con noi: Il focus è sul supporto e l'espansione attiva del portafoglio clienti privato e aziendale. Grazie alla vostra gentilezza avete sempre un orecchio aperto per la vostra clientela, che vi aiuterà con consigli personali e soluzioni personalizzate su misura dall'intera area di assicurazione e precauzione. Con un aspetto vincente e persuasivo, aiuta ad ancorare il Mobiliar come l'assicurazione più personale nel distretto di Uster. Come persona positiva e comunicativa è facile per loro sviluppare e mantenere una rete di clienti. Sono felici di lavorare in modo indipendente e apprezzare lo scambio aperto all'interno del team e anche il team. Prendi questo con te:\n• La formazione completa nel settore commerciale – l'esperienza professionale nei settori finanziario e assicurativo è un vantaggio. Ma anche i cross-comers motivati: dentro ci sono i benvenuti\n• Età da 28 anni\n• Piacere di costruire e mantenere relazioni a lungo termine con i clienti e di attrarre nuovi clienti\n• Aperto a una nuova sfida e pronto a dare pieno impegno ai nostri clienti\n• personalità autentica, vincente ed empatica\n• Gioia in rete attiva e relazioni commerciali\n• Il lavoro mirato e orientato ai risultati ti farà divertire Lavorare con noi: Una squadra diversificata e motivata vi aspetta presso l'Uster General Agency. Insieme formiamo l'ancoraggio regionale e manteniamo uno scambio aperto e collegiale. Il tuo posto di lavoro è nel quartiere Uster e il tuo carico di lavoro è al 100%. Il lavoro è iniziato da accordo. Oltre ad un'attenta fase di incorporazione, offriamo una variegata attività in un ambiente emozionante con grande potenziale di sviluppo e ampie opportunità di formazione, così come grandi clienti che sono in attesa di un alto rispetto. In qualità di principale assicuratore svizzero e datore di lavoro superiore nel 2026, le condizioni di lavoro attraenti sono una questione naturalmente per noi. Ciò che è importante con noi presso l'agenzia generale Uster è: formarsi l'un l'altro - crescere insieme. Offriamo: Partecipazione riuscita Se abbiamo successo, anche i nostri dipendenti beneficiano. Ogni anno viene presa una decisione sulla distribuzione di una quota di successo e il suo livello. Formazione e sviluppo Offriamo una vasta gamma di corsi interni e certificazioni cicero per alta qualità di consulenza e competenze di consulenza. Vantaggi Offriamo fino al 25% di sconto premium, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piana e sconti agli eventi culturali. Gestore delle autorizzazioni dei cookie: Se visiti un sito web, queste informazioni sul tuo browser - di solito sotto forma di cookie - possono essere salvate e recuperate. Nel rispetto del diritto alla privacy, è possibile rifiutare alcuni cookie. Tuttavia, se si bloccano alcuni cookie, questo potrebbe avere un impatto negativo sulla vostra esperienza sul Sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disabilitati. Maggiori dettagli Cookie necessari Fornitori Designazione Attivato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito:\n• \"route\" viene utilizzato per la fissazione della sessione\n• \"careerSiteCompany Id\" viene utilizzato per inviare la richiesta al centro dati corretto\n• \"JSESSIONID\" viene memorizzato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n• \"Coppio bilanciatore del carico\" (il nome del cookie reale può deviare) impedisce al visitatore di saltare da un'istanza all'altra",
+        "en": "This is what awaits you: Much more than just a job - our focus is on man. We're looking for backup for our general agency. In this role, you offer our customers insurance and precautionary solutions tailored to their personal needs. With your commitment, you actively drive the expansion of the customer portfolios of the Generalagentur Uster. You can do this with us: The focus is on the support and active expansion of your private and corporate customer portfolio. Thanks to your kindness have You always have an open ear for your clientele, which will help you with personal advice and individually tailored solutions from the entire insurance and precautionary area. With a winning and persuasive appearance, you help anchor the Mobiliar as the most personal insurance in the Uster district. As a positive and communicative person it is easy for them to develop and maintain a customer network. They are happy to work independently and appreciate the open exchange within the team and also team. Take this with you:\n• Complete training in the commercial sector – professional experience in the financial and insurance sectors is an advantage. But also motivated cross-comers: inside are welcome to us\n• Age from 28 years\n• Pleasure to build and maintain long-term customer relationships and to attract new customers\n• Open to a new challenge and ready to give full commitment to our customers\n• Authentic, winning and empathic personality\n• Joy in active networking and business relations\n• Target and result-oriented work will make you fun Working with us: A diverse and motivated team awaits you at the Uster General Agency. Together we shape the regional anchoring and maintain an open, collegial exchange. Your work place is in the Uster district and your workload is 100%. The job is started by agreement. In addition to a careful incorporation phase, we offer a varied activity in an exciting environment with great development potential and wide-ranging training opportunities, as well as great customers who are looking forward to a top-respect. As a leading Swiss insurer and top employer in 2026, attractive employment conditions are a matter of course for us. What is important with us at the general agency Uster is: to shape one another - to grow together. We offer: Successful participation If we are successful, our employees also benefit. Each year, a decision is taken on the distribution of a share of success and its level. Training and development We offer a wide range of internal courses and cicero certifications for high consulting quality and consulting skills. Benefits We offer up to 25% premium discount, discounts on mobile phones and free subscriptions with flat rate and discounts at cultural events. Manager for cookie permissions: If you visit a website, this information about your browser - usually in the form of cookies - can be saved and retrieved. As we respect your right to privacy, you can reject certain cookies. However, if you block certain cookies, this may have a negative impact on your experience on the Site and the services we offer. Necessary cookies These cookies are required for the use of this website and cannot be disabled. More details Necessary cookies Suppliers Description Activated SAP as service provider We use the following session cookies, all necessary for the functionality of the website:\n• \"route\" is used for session stickiness\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n• \"JSESSIONID\" is stored on the visitor's device during the session so that the server can identify the visitor\n• \"Load balancer cookie\" (actual cookie name may deviate) prevents a visitor from jumping from one instance to another",
+        "de": "Das erwartet Sie:\nViel mehr, als nur ein Job - bei uns steht der Mensch im Mittelpunkt.\n\nWir suchen Verstärkung für unsere Generalagentur. In dieser Rolle bieten Sie unseren Kundinnen und Kunden Versicherungs- sowie Vorsorgelösungen an, die auf die persönlichen Bedürfnisse zugeschnitten sind. Mit Ihrem Einsatz treiben Sie den Ausbau der Kundenportfolios der Generalagentur Uster aktiv voran.\n\nDas bewirken Sie bei uns:\nIm Fokus dieser Stelle stehen die Betreuung sowie der aktive Ausbau Ihres Privat- und Firmenkundenportfolios.\n\nDank Ihrer freundlichen Art haben Sie stets ein offenes Ohr für Ihre Kundschaft, welcher Sie mit persönlicher Beratung und individuell zugeschnittenen Lösungen aus dem gesamten Versicherungs- und Vorsorgebereich zur Seite stehen.\n\nMit einem gewinnenden und überzeugenden Auftreten helfen Sie mit, die Mobiliar als persönlichste Versicherung im Bezirk Uster zu verankern. Als positive und kommunikative Person fällt es ihnen leicht, ein Kundennetzwerk auszubauen und zu pflegen.\n\nSie arbeiten gerne selbstständig und schätzen den offenen Austausch innerhalb des Teams und auch Team übergreifend.\n\nDas bringen Sie mit:\n• Abgeschlossene Ausbildung im kaufmännischen Bereich – Berufserfahrung im Finanz- und Versicherungsbereich sind von Vorteil. Aber auch motivierte Quereinsteiger: innen sind herzlich willkommen bei uns\n\n• Alter ab 28 Jahren\n\n• Freude am Aufbau und der Pflege von langjährigen Kundenbeziehungen sowie an der Gewinnung von Neukunden\n\n• Offen für eine neue Herausforderung und bereit, für unsere Kundinnen und Kunden vollen Einsatz zu geben\n\n• Authentische, gewinnende und empathische Persönlichkeit\n\n• Freude am aktiven Networking und am knüpfen von geschäftlichen Beziehungen\n\n• Ziel- und ergebnisorientierte Arbeit machen Ihnen Spass\n\nBei uns arbeiten:\nIn der Generalagentur Uster wartet ein vielfältiges und motiviertes Team auf Sie. Zusammen prägen wir die regionale Verankerung und pflegen einen offenen, kollegialen Austausch.\n\nIhr Arbeitsort ist im Bezirk Uster und Ihr Arbeitspensum beträgt 100%. Der Stellenantritt erfolgt nach Vereinbarung.\n\nWir bieten nebst einer sorgfältigen Einarbeitungsphase eine abwechslungsreiche Tätigkeit in einem spannenden Umfeld mit grossem Entwicklungspotenzial und weitreichenden Weiterbildungsmöglichkeiten, sowie tolle Kundinnen und Kunden, die sich auf eine Top-Betreuung freuen.\n\nAls führender Schweizer Versicherer und Top Arbeitgeberin 2026 sind für uns attraktive Anstellungsbedingungen eine Selbstverständlichkeit.\n\nWichtig bei uns auf der Generalagentur Uster ist: miteinander gestalten - gemeinsam wachsen.\n\nDas bieten wir:\nErfolgsbeteiligung\n\nSind wir erfolgreich, profitieren auch unsere Mitarbeitenden. Jedes Jahr wird über die Ausschüttung einer Erfolgsbeteiligung und deren Höhe entschieden.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot an. Bei jobrelevanten Weiterbildungen beteiligen wir uns.\n\nVergünstigungen\n\nWir bieten unter anderem bis zu 25% Prämienrabatt, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\nBeschreibung\nAktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
+        "fr": "Voilà ce qui vous attend : Bien plus qu'un simple travail, nous nous concentrons sur l'homme. Nous cherchons des renforts pour notre agence générale. Dans ce rôle, vous offrez à nos clients des solutions d'assurance et de précaution adaptées à leurs besoins personnels. Avec votre engagement, vous conduisez activement l'expansion des portefeuilles de clients de l'Uster Generalagentur. Vous pouvez le faire avec nous: L'accent est mis sur le soutien et l'expansion active de votre portefeuille de clients privés et d'entreprises. Grâce à votre gentillesse, vous avez toujours une oreille ouverte pour votre clientèle, qui vous aidera avec des conseils personnels et des solutions personnalisées de toute la zone d'assurance et de précaution. Avec une apparence gagnante et persuasive, vous aidez à ancrer la Mobiliar comme l'assurance la plus personnelle dans le district d'Uster. En tant que personne positive et communicative, il est facile pour eux de développer et de maintenir un réseau client. Ils sont heureux de travailler de façon indépendante et apprécient l'échange ouvert au sein de l'équipe et aussi de l'équipe. Prends ça avec toi :\n• Formation complète dans le secteur commercial – l'expérience professionnelle dans les secteurs financier et d'assurance est un avantage. Mais aussi des cross-comers motivés: à l'intérieur sont les bienvenus pour nous\n• Âge à partir de 28 ans\n• Le plaisir d'établir et de maintenir des relations client à long terme et d'attirer de nouveaux clients\n• Ouvert à un nouveau défi et prêt à donner plein engagement à nos clients\n• Personnalité authentique, gagnante et empathique\n• Joy dans la mise en réseau active et les relations d'affaires\n• Un travail ciblé et axé sur les résultats vous rendra amusant Travailler avec nous: Une équipe diversifiée et motivée vous attend à l'agence générale Uster. Ensemble, nous façonnons l'ancrage régional et maintenons un échange ouvert et collégial. Votre lieu de travail est dans le district d'Uster et votre charge de travail est de 100%. Le travail commence d'un commun accord. En plus d'une phase d'incorporation soignée, nous offrons une activité variée dans un environnement passionnant avec un grand potentiel de développement et de nombreuses possibilités de formation, ainsi que de grands clients qui attendent avec impatience un haut respect. En tant qu'assureur suisse de premier plan et employeur en 2026, les conditions d'emploi attrayantes sont bien sûr une question pour nous. Ce qui est important avec nous à l'agence générale Uster est : se façonner les uns les autres - grandir ensemble. Nous offrons: Participation réussie Si nous réussissons, nos employés en profiteront également. Chaque année, une décision est prise sur la répartition d'une part du succès et de son niveau. Formation et perfectionnement Nous offrons une large gamme de cours internes et de certifications cicero pour une haute qualité de conseil et des compétences de conseil. Avantages Nous offrons jusqu'à 25% de réduction premium, des réductions sur les téléphones mobiles et des abonnements gratuits avec un tarif forfaitaire et des réductions sur les événements culturels. Gestionnaire pour les autorisations de cookies : Si vous visitez un site Web, ces informations sur votre navigateur - généralement sous forme de cookies - peuvent être enregistrées et récupérées. Comme nous respectons votre droit à la vie privée, vous pouvez rejeter certains cookies. Cependant, si vous bloquez certains cookies, cela peut avoir un impact négatif sur votre expérience sur le Site et les services que nous offrons. Cookies nécessaires Ces cookies sont requis pour l'utilisation de ce site et ne peuvent être désactivés. Plus de détails Cookies nécessaires Fournisseurs Désignation des marchandises Activé SAP en tant que prestataire de services Nous utilisons les cookies de session suivants, tous nécessaires pour la fonctionnalité du site:\n• \"route\" est utilisé pour la session collant\n• \"CarrièreSiteEntreprise Id\" est utilisé pour envoyer la requête au centre de données correct\n• \"JSESSIONID\" est stocké sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n• \"Cookie d'équilibreur de charge\" (le nom réel des cookies peut s'écarter) empêche un visiteur de sauter d'une instance à une autre"
+      },
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
+      "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T10:55:48.221Z",
+      "addressLocality": "Uster",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
+      "pensum": "100%",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "sfJobId": "1163443155",
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-uster-mobiliar-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T22:09:28.286Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-abfe60173fa1",
@@ -7835,13 +7850,11 @@
       },
       "sfJobId": "1164775855",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-uster-mobiliar-ch",
-        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-uster-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-uster-mobiliar-ch",
-          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-uster-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:48.388Z",
@@ -7858,7 +7871,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

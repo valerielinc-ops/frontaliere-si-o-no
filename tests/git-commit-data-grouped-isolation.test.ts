@@ -1,9 +1,9 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { delimiter, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -172,6 +172,93 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
       execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
       const remote = execFileSync('git', ['show', 'origin/main:data/jobs/by-crawler/newbie.json'], { cwd: repoDir, encoding: 'utf-8' });
       expect(remote).toContain('n1');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  // Exit-42 classification (PR #4056 round-1): 42 = PUSH_CONTENTION_EXHAUSTED
+  // may ONLY fire when the LAST push attempt failed with a ref rejection/race
+  // (rejected / fetch first / cannot lock ref / non-fast-forward). Any other
+  // terminal failure (network outage, auth expiry, hook decline) must stay
+  // exit 1 — the grouped workflows absorb 42 as "self-heals next run", and an
+  // outage silently classified as contention would turn a real failure into a
+  // green step. Simulated deterministically with a PATH `git` shim that fails
+  // every `git push` with a canned output and delegates everything else to
+  // the real git; MAX_PUSH_ATTEMPTS=1 exhausts the loop on the first attempt.
+  function runScriptWithPushShim(repoDir: string, sliceFile: string, pushFailureOutput: string) {
+    const realGit = execFileSync('which', ['git'], { encoding: 'utf-8' }).trim();
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-git-shim-'));
+    const outputFile = join(shimDir, 'push-output.txt');
+    writeFileSync(outputFile, pushFailureOutput);
+    writeFileSync(
+      join(shimDir, 'git'),
+      `#!/bin/bash\nif [ "$1" = "push" ]; then\n  cat '${outputFile}' >&2\n  exit 1\nfi\nexec '${realGit}' "$@"\n`,
+    );
+    chmodSync(join(shimDir, 'git'), 0o755);
+
+    const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
+      cwd: repoDir,
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+        MAX_PUSH_ATTEMPTS: '1',
+        JOBS_SLICE_FILE: sliceFile,
+        SKIP_AI_TRANSLATION: '1',
+        SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+        GH_TOKEN: '',
+        GITHUB_TOKEN: '',
+        GITHUB_RUN_ID: '',
+        GITHUB_REPOSITORY: '',
+        GITHUB_OUTPUT: '',
+      },
+    });
+    rmSync(shimDir, { recursive: true, force: true });
+    return result;
+  }
+
+  function seedRepoWithPendingSlice(repoDir: string) {
+    mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+    writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+    execFileSync('git', ['add', '.'], { cwd: repoDir });
+    execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+    execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+    writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+  }
+
+  it('exits 42 when retries are exhausted by a genuine ref rejection/race', () => {
+    const { originDir, repoDir } = initClonePair();
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      const result = runScriptWithPushShim(
+        repoDir,
+        'data/jobs/by-crawler/a.json',
+        'To https://github.com/example/repo.git\n' +
+          ' ! [rejected]        main -> main (fetch first)\n' +
+          "error: failed to push some refs to 'https://github.com/example/repo.git'\n" +
+          'hint: Updates were rejected because the remote contains work that you do not have locally.\n',
+      );
+      expect(result.status).toBe(42);
+      expect(`${result.stdout}${result.stderr}`).toContain('contention loss');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('exits 1 (NOT 42) when retries are exhausted by a non-contention failure (outage/auth)', () => {
+    const { originDir, repoDir } = initClonePair();
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      const result = runScriptWithPushShim(
+        repoDir,
+        'data/jobs/by-crawler/a.json',
+        "fatal: unable to access 'https://github.com/example/repo.git/': Could not resolve host: github.com\n",
+      );
+      expect(result.status).toBe(1);
+      expect(`${result.stdout}${result.stderr}`).toContain('NOT a ref rejection/race');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });

@@ -1,66 +1,7 @@
 {
+  "crawlerKey": "holmes-place",
+  "assembledAt": "2026-07-10T23:18:05.962Z",
   "jobs": [
-    {
-      "id": "holmes-place-ea707dd373db",
-      "slug": "scopri-di-piu-holmes-place-oberrieden",
-      "slugByLocale": {
-        "de": "mehr-erfahren-holmes-place-oberrieden",
-        "en": "apply-now-holmes-place-oberrieden",
-        "fr": "postuler-holmes-place-oberrieden",
-        "it": "scopri-di-piu-holmes-place-oberrieden"
-      },
-      "company": "Holmes Place",
-      "companyKey": "holmes-place",
-      "companyDomain": "holmesplace.ch",
-      "title": "Mehr erfahren",
-      "titleByLocale": {
-        "de": "Mehr erfahren",
-        "it": "Scopri di più",
-        "fr": "En savoir plus",
-        "en": "Find out more"
-      },
-      "description": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-      "descriptionByLocale": {
-        "de": "Mehr erfahren presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-        "it": "Maggiori informazioni su Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-        "en": "Find out more about Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-        "fr": "En savoir plus sur Presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internationale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team."
-      },
-      "location": "Oberrieden",
-      "canton": "ZH",
-      "url": "https://www.holmesplace.ch/de/karriere",
-      "source": "Holmes Place Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:36:01.376Z",
-      "addressLocality": "Oberrieden",
-      "addressRegion": "ZH",
-      "streetAddress": "Seestrasse 97",
-      "postalCode": "8942",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "sector": "Fitness / Wellness",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://www.holmesplace.ch/de/karriere",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "mehr-erfahren-holmes-place-oberrieden",
-        "sich-bewerben-holmes-place-oberrieden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mehr-erfahren-holmes-place-oberrieden",
-          "sich-bewerben-holmes-place-oberrieden"
-        ]
-      }
-    },
     {
       "id": "holmes-place-2c12260d3ad6",
       "slug": "sich-bewerben-holmes-place-oberrieden",
@@ -77,22 +18,22 @@
       "titleByLocale": {
         "de": "♪",
         "it": "sich bewerben",
-        "en": "Apply Now",
-        "fr": "Postuler maintenant"
+        "en": "♪",
+        "fr": "♪"
       },
       "description": "sich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
       "descriptionByLocale": {
-        "de": "Beschreibung Sich 136 am Holmes Place. Ort: Holmes Place Oberrieden. Holmes Place ist eine internationale Kette von Fitness- und Fitnessclubs mit mehreren Standorten in der Schweiz. Kandidaten für unser Team.",
-        "it": "Descrizione\nSich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
-        "en": "Description Sich bewerben at Holmes Place. Location: Holmes Place Oberrieden. Holmes Place is an international chain of fitness and fitness clubs with multiple locations in Switzerland. Candidates to join our team.",
-        "fr": "Description Sich bewerben à Holmes Place. Emplacement: Holmes Place Oberrieden. Holmes Place est une chaîne internationale de clubs de fitness et de fitness avec de multiples emplacements en Suisse. Candidats pour rejoindre notre équipe."
+        "de": "sich bewerben bei Holmes Place. Aktivitäten in der Nähe von Holmes Place Oberrieden Holmes Place ist eine internationale Fitness- und Wellness-Clubkette mit mehreren Standorten in der Schweiz. Treten Sie unserem Team bei.",
+        "it": "sich bewerben presso Holmes Place. Sede: Holmes Place Oberrieden. Holmes Place è una catena internazionale di club fitness e wellness con più sedi in Svizzera. Candidati per unirti al nostro team.",
+        "en": "sich bewerben at Holmes Place. Location: Holmes Place Oberrieden. Holmes Place is an international fitness and wellness club chain with multiple locations in Switzerland. Join our team.",
+        "fr": "Sich Bewerben à Holmes Place. Lieu: Holmes Place Oberrieden. Holmes Place est une chaîne internationale de club de fitness et de bien-être avec plusieurs emplacements en Suisse. Rejoignez notre équipe."
       },
       "location": "Oberrieden",
       "canton": "ZH",
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-09T12:48:36.626Z",
+      "crawledAt": "2026-07-10T23:18:03.838Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -105,7 +46,7 @@
       "sector": "Fitness / Wellness",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-10",
       "applyUrl": "https://www.holmesplace.ch/de/karriere",
       "requirements": [],
       "requirementsByLocale": {
@@ -135,8 +76,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-09T12:48:36.626Z",
-      "retranslationAttempts": 2
+      "firstSeenAt": "2026-07-10T23:18:03.838Z"
     }
   ]
 }

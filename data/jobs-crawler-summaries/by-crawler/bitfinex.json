@@ -1,16 +1,16 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-07-09T22:26:20.164Z",
+  "generatedAt": "2026-07-10T22:17:18.131Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2162,
-  "avgDurationMs": 2162,
+  "durationMs": 2819,
+  "avgDurationMs": 2819,
   "durationHistory": [
-    2162
+    2819
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://bitfinex.recruitee.com/o/qa-automation-engineer-100-remote-worldwide-utc79-10",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:26:18.461Z",
+      "crawledAt": "2026-07-10T22:17:15.668Z",
       "addressLocality": "Milan",
       "addressRegion": "Lombardia",
       "addressCountry": "",
@@ -65,7 +65,7 @@
       "url": "https://bitfinex.recruitee.com/o/product-manager-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:26:18.481Z",
+      "crawledAt": "2026-07-10T22:17:15.691Z",
       "addressLocality": "Lisboa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-33",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:26:18.576Z",
+      "crawledAt": "2026-07-10T22:17:15.815Z",
       "addressLocality": "Prague",
       "addressRegion": "Praha, Hlavní město",
       "addressCountry": "",
@@ -124,11 +124,11 @@
       "department": "Engineering",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-27T11:59:39.452Z",
-      "_qualityScore": 78,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -144,7 +144,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:26:18.594Z",
+      "crawledAt": "2026-07-10T22:17:15.842Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -164,11 +164,11 @@
       "department": "Engineering",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T09:45:31.197Z",
-      "_qualityScore": 78,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 14
       }
     }

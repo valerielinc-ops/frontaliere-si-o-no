@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-07-09T22:29:15.498Z",
+  "assembledAt": "2026-07-10T22:05:36.187Z",
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:29:13.403Z",
+      "crawledAt": "2026-07-10T22:05:33.945Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart",
         "linea-di-confezionamento-worker-100-cedes-ag-landquart"
@@ -78,12 +78,12 @@
     },
     {
       "id": "cedes-3fa516c3ca31",
-      "slug": "unsolicited-applications-cedes-landquart",
+      "slug": "candidature-non-richiesta-cedes-ag-landquart",
       "slugByLocale": {
-        "it": "unsolicited-applications-cedes-landquart",
+        "it": "candidature-non-richiesta-cedes-ag-landquart",
         "en": "unsolicited-applications-cedes-ag-landquart",
-        "de": "unsolicited-applications-cedes-landquart",
-        "fr": "unsolicited-applications-cedes-landquart"
+        "de": "unangeforderte-bewerbungen-cedes-ag-landquart",
+        "fr": "candidatures-non-sollicitees-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -117,25 +117,25 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-09T22:29:13.053Z",
+      "crawledAt": "2026-07-10T22:05:33.560Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
-        "candidature-non-richiesta-cedes-ag-landquart",
-        "unangeforderte-bewerbungen-cedes-ag-landquart",
-        "candidatures-non-sollicitees-cedes-ag-landquart"
+        "unsolicited-applications-cedes-landquart",
+        "candidature-non-richiesta-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unsolicited-applications-cedes-ag-landquart",
+          "unsolicited-applications-cedes-landquart",
           "candidature-non-richiesta-cedes-ag-landquart"
         ],
         "de": [
           "unsolicited-applications-cedes-ag-landquart",
-          "unangeforderte-bewerbungen-cedes-ag-landquart"
+          "unsolicited-applications-cedes-landquart"
         ],
         "fr": [
           "unsolicited-applications-cedes-ag-landquart",
-          "candidatures-non-sollicitees-cedes-ag-landquart"
+          "unsolicited-applications-cedes-landquart"
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:14.899Z",

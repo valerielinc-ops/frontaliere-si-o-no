@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-07-10T10:41:16.492Z",
+  "assembledAt": "2026-07-10T22:38:07.824Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "en": "sales-consultant-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-        "de": "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+        "de": "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "fr": "controleur-80-100-michel-gruppe-ag-meiringen"
       },
       "company": "Kuhn Rikon",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:41:14.488Z",
+      "crawledAt": "2026-07-10T22:38:06.139Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -56,6 +56,10 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
+        "de": [
+          "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        ],
         "it": [
           "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
@@ -64,10 +68,6 @@
         "en": [
           "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-        ],
-        "de": [
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-          "controllerin-controller-80-100-michel-gruppe-ag-meiringen"
         ]
       },
       "previousSlugs": [
@@ -123,7 +123,7 @@
       "url": "https://my.jobalino.ch/job/9a9d4a02165c3c3421fd36852f401c9f/consultante-vente-globus-gen-ve-100-h-f",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T10:41:14.033Z",
+      "crawledAt": "2026-07-10T22:38:05.682Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204",

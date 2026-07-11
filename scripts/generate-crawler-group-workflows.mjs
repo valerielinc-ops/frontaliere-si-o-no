@@ -284,8 +284,21 @@ export function buildCrawlerShellBody(crawler) {
         .split('${{ github.workflow }}')
         .join(crawlerWorkflowId);
       lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
-      lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+      // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh): the crawl
+      // succeeded and only the ref race was lost after every retry. That is a
+      // SYSTEMIC condition (a burst of concurrent groups), not a per-crawler
+      // signal: opening ~1 issue per losing crawler flooded the backlog with
+      // ~150 identical crawler-transient breadcrumbs on 2026-07-10. Skip the
+      // per-crawler issue for this class — the lost cycle self-heals at the
+      // next scheduled run and PERSISTENT loss still surfaces via the
+      // crawler-health staleness monitor. Any other non-zero exit keeps the
+      // original reporting behavior.
+      lines.push('if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then');
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
+      lines.push('fi');
+      lines.push('if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then');
+      lines.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
+      lines.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
       lines.push('fi');
       lines.push('');
       continue;
@@ -335,7 +348,13 @@ export function buildCrawlerShellBody(crawler) {
   // overall job/step show red in the Actions UI and what a future consumer
   // of this step's own exit status, e.g. `wait-all`, observes) if EITHER
   // the crawl OR the commit/push failed.
-  lines.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+  // Contention loss (42) with a successful crawl does NOT fail the step: the
+  // job conclusion is what close-recovered-failure-issues.mjs keys recovery
+  // on, and one race loser turning the whole 26-crawler group red both
+  // blocked the sweep from draining every sibling's recovered issue and made
+  // real failures indistinguishable from herd noise. Real crawl/commit
+  // failures (any other non-zero) still fail the step as before.
+  lines.push('if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then');
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');

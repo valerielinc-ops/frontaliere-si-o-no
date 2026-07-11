@@ -416,12 +416,21 @@ async function mergeJobs(discoveredJobs) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
+  // Intra-run dedup (same class as banca-cler, PR #4056): a source that
+  // publishes the same posting under two keys must not write duplicates.
+  // Iterate the deduped Map values (last occurrence wins) instead of the
+  // raw discovered list.
+  const dedupedDiscovered = [...discoveredByKey.values()];
+  if (dedupedDiscovered.length !== discoveredJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  }
+
   let added = 0;
   let updated = 0;
   let removed = 0;
   const merged = [];
 
-  for (const discovered of discoveredJobs) {
+  for (const discovered of dedupedDiscovered) {
     const key = jobMatchKey(discovered);
     const ex = existingByKey.get(key);
 

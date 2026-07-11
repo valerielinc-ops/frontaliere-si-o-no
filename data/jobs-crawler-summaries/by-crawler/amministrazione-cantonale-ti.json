@@ -1,49 +1,18 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-07-10T10:23:47.467Z",
+  "generatedAt": "2026-07-10T22:55:04.734Z",
   "total": 18,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 26077,
-  "avgDurationMs": 26077,
+  "unchangedCount": 15,
+  "durationMs": 21722,
+  "avgDurationMs": 21722,
   "durationHistory": [
-    26077
+    21722
   ],
-  "newJobs": [
-    {
-      "id": "company-213hof",
-      "slug": "collaboratori-trici-scientifici-che-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-ufficio-delle-misure-attive-bellinzona-orario-di-lavoro-4",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Collaboratori/trici scientifici/che a tempo parziale (50%) – a tempo pieno (100%), presso l’Ufficio delle misure attive, Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4232",
-      "source": "Company Careers Crawler",
-      "salaryMin": 88633,
-      "salaryMax": 141990,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-07-10T10:23:40.279Z",
-      "firstSeenAt": "2026-07-10T10:23:40.279Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 19
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-213j37",
@@ -157,6 +126,42 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-213hof",
+      "slug": "collaboratori-trici-scientifici-che-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-ufficio-delle-misure-attive-bellinzona-orario-di-lavoro-4-213hof",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Collaboratori/trici scientifici/che a tempo parziale (50%) – a tempo pieno (100%), presso l’Ufficio delle misure attive, Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4232",
+      "source": "Company Careers Crawler",
+      "salaryMin": 88633,
+      "salaryMax": 141990,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-07-10T10:23:40.279Z",
+      "firstSeenAt": "2026-07-10T10:23:40.279Z",
+      "sourceLang": "it",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-213hp8",
       "slug": "tribunale-d-appello-amministrazione-cantonale-ticino-locarno",

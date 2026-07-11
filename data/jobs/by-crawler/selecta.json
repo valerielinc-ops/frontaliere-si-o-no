@@ -1,15 +1,15 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-07-10T11:29:08.396Z",
+  "assembledAt": "2026-07-10T22:06:47.519Z",
   "jobs": [
     {
       "id": "selecta-de8e728002e9",
-      "slug": "automatenbetreuer-m-w-d-selecta-winterthur",
+      "slug": "operatore-automatico-m-f-d-selecta-winterthur",
       "slugByLocale": {
-        "it": "automatenbetreuer-m-w-d-selecta-winterthur",
-        "en": "automatenbetreuer-m-w-d-selecta-winterthur",
+        "it": "operatore-automatico-m-f-d-selecta-winterthur",
+        "en": "automatic-operator-m-f-d-selecta-winterthur",
         "de": "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
-        "fr": "automatenbetreuer-m-w-d-selecta-winterthur"
+        "fr": "operateur-automatique-m-f-d-selecta-winterthur"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -33,7 +33,7 @@
       "url": "https://careers.selecta.ch/Job/4599",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:04.486Z",
+      "crawledAt": "2026-07-10T22:06:45.592Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -59,11 +59,19 @@
       },
       "previousSlugs": [
         "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
-        "automatenbetreuer-m-w-d-selecta-winterthur"
+        "automatenbetreuer-m-w-d-selecta-winterthur",
+        "operatore-automatico-m-f-d-selecta-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
+          "automatenbetreuer-m-w-d-selecta-winterthur",
+          "operatore-automatico-m-f-d-selecta-winterthur"
+        ],
+        "en": [
+          "automatenbetreuer-m-w-d-selecta-winterthur"
+        ],
+        "fr": [
           "automatenbetreuer-m-w-d-selecta-winterthur"
         ]
       },
@@ -112,7 +120,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:04.301Z",
+      "crawledAt": "2026-07-10T22:06:44.836Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -195,7 +203,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:04.119Z",
+      "crawledAt": "2026-07-10T22:06:44.016Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -280,7 +288,7 @@
       "url": "https://careers.selecta.ch/Job/4586",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:03.144Z",
+      "crawledAt": "2026-07-10T22:06:43.311Z",
       "addressLocality": "Kirchberg BE / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -359,7 +367,7 @@
       "url": "https://careers.selecta.ch/Job/4603",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.964Z",
+      "crawledAt": "2026-07-10T22:06:42.540Z",
       "addressLocality": "Zürich / Aargau / Solothurn",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -401,8 +409,8 @@
           "projekttechniker-m-w-d-selecta-zurich-aargau-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:54.039Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -447,7 +455,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.783Z",
+      "crawledAt": "2026-07-10T22:06:41.869Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -490,8 +498,8 @@
           "servicetechniker-m-w-d-selecta-zurich-aargau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:53.326Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -536,7 +544,7 @@
       "url": "https://careers.selecta.ch/Job/4605",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.603Z",
+      "crawledAt": "2026-07-10T22:06:41.140Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -576,8 +584,8 @@
           "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:52.594Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -622,7 +630,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.425Z",
+      "crawledAt": "2026-07-10T22:06:40.406Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -659,8 +667,8 @@
           "sales-support-associate-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:51.883Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -705,7 +713,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.239Z",
+      "crawledAt": "2026-07-10T22:06:39.727Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -755,12 +763,12 @@
     },
     {
       "id": "selecta-87f53dbcaf7a",
-      "slug": "automatenbetreuer-m-w-d-selecta-herisau",
+      "slug": "operatore-automatico-m-f-d-selecta-herisau",
       "slugByLocale": {
-        "it": "automatenbetreuer-m-w-d-selecta-herisau",
-        "en": "automatenbetreuer-m-w-d-selecta-herisau",
+        "it": "operatore-automatico-m-f-d-selecta-herisau",
+        "en": "automatic-operator-m-f-d-selecta-herisau",
         "de": "automatenbetreuer-m-w-d-selecta-region-herisau",
-        "fr": "automatenbetreuer-m-w-d-selecta-herisau"
+        "fr": "operateur-automatique-m-f-d-selecta-herisau"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -784,7 +792,7 @@
       "url": "https://careers.selecta.ch/Job/4578",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:02.058Z",
+      "crawledAt": "2026-07-10T22:06:39.019Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "streetAddress": "",
@@ -810,11 +818,19 @@
       },
       "previousSlugs": [
         "automatenbetreuer-m-w-d-selecta-region-herisau",
-        "automatenbetreuer-m-w-d-selecta-herisau"
+        "automatenbetreuer-m-w-d-selecta-herisau",
+        "operatore-automatico-m-f-d-selecta-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-herisau",
+          "automatenbetreuer-m-w-d-selecta-herisau",
+          "operatore-automatico-m-f-d-selecta-herisau"
+        ],
+        "en": [
+          "automatenbetreuer-m-w-d-selecta-herisau"
+        ],
+        "fr": [
           "automatenbetreuer-m-w-d-selecta-herisau"
         ]
       },
@@ -863,7 +879,7 @@
       "url": "https://careers.selecta.ch/Job/4604",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.866Z",
+      "crawledAt": "2026-07-10T22:06:38.333Z",
       "addressLocality": "Suhr / Reiden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -942,7 +958,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.686Z",
+      "crawledAt": "2026-07-10T22:06:37.658Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -1021,7 +1037,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.497Z",
+      "crawledAt": "2026-07-10T22:06:36.914Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1100,7 +1116,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.315Z",
+      "crawledAt": "2026-07-10T22:06:36.739Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1140,8 +1156,8 @@
           "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:48.319Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1186,7 +1202,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:01.135Z",
+      "crawledAt": "2026-07-10T22:06:36.070Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1210,8 +1226,8 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:47.626Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1227,12 +1243,12 @@
     },
     {
       "id": "selecta-425837a6dddd",
-      "slug": "automatenbetreuer-m-w-d-selecta-sursee",
+      "slug": "operatore-automatico-m-f-d-selecta-sursee",
       "slugByLocale": {
-        "it": "automatenbetreuer-m-w-d-selecta-sursee",
-        "en": "automatenbetreuer-m-w-d-selecta-sursee",
+        "it": "operatore-automatico-m-f-d-selecta-sursee",
+        "en": "automatic-operator-m-f-d-selecta-sursee",
         "de": "automatenbetreuer-m-w-d-selecta-region-sursee",
-        "fr": "automatenbetreuer-m-w-d-selecta-sursee"
+        "fr": "operateur-automatique-m-f-d-selecta-sursee"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1256,7 +1272,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:00.938Z",
+      "crawledAt": "2026-07-10T22:06:35.364Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1282,11 +1298,19 @@
       },
       "previousSlugs": [
         "automatenbetreuer-m-w-d-selecta-region-sursee",
-        "automatenbetreuer-m-w-d-selecta-sursee"
+        "automatenbetreuer-m-w-d-selecta-sursee",
+        "operatore-automatico-m-f-d-selecta-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-sursee",
+          "automatenbetreuer-m-w-d-selecta-sursee",
+          "operatore-automatico-m-f-d-selecta-sursee"
+        ],
+        "en": [
+          "automatenbetreuer-m-w-d-selecta-sursee"
+        ],
+        "fr": [
           "automatenbetreuer-m-w-d-selecta-sursee"
         ]
       },
@@ -1335,7 +1359,7 @@
       "url": "https://careers.selecta.ch/Job/4612",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:00.731Z",
+      "crawledAt": "2026-07-10T22:06:34.688Z",
       "addressLocality": "Berner Oberland",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1385,12 +1409,12 @@
     },
     {
       "id": "selecta-d119c57872ba",
-      "slug": "automatenbetreuer-m-w-d-selecta-solothurn",
+      "slug": "operatore-automatico-m-f-d-selecta-solothurn",
       "slugByLocale": {
-        "it": "automatenbetreuer-m-w-d-selecta-solothurn",
-        "en": "automatenbetreuer-m-w-d-selecta-solothurn",
+        "it": "operatore-automatico-m-f-d-selecta-solothurn",
+        "en": "automatic-operator-m-f-d-selecta-solothurn",
         "de": "automatenbetreuer-m-w-d-selecta-region-solothurn",
-        "fr": "automatenbetreuer-m-w-d-selecta-solothurn"
+        "fr": "operateur-automatique-m-f-d-selecta-solothurn"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1414,7 +1438,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:00.543Z",
+      "crawledAt": "2026-07-10T22:06:33.971Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1440,11 +1464,19 @@
       },
       "previousSlugs": [
         "automatenbetreuer-m-w-d-selecta-region-solothurn",
-        "automatenbetreuer-m-w-d-selecta-solothurn"
+        "automatenbetreuer-m-w-d-selecta-solothurn",
+        "operatore-automatico-m-f-d-selecta-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-solothurn",
+          "automatenbetreuer-m-w-d-selecta-solothurn",
+          "operatore-automatico-m-f-d-selecta-solothurn"
+        ],
+        "en": [
+          "automatenbetreuer-m-w-d-selecta-solothurn"
+        ],
+        "fr": [
           "automatenbetreuer-m-w-d-selecta-solothurn"
         ]
       },
@@ -1493,7 +1525,7 @@
       "url": "https://careers.selecta.ch/Job/4607",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:29:00.346Z",
+      "crawledAt": "2026-07-10T22:06:33.290Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -1517,8 +1549,8 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:49.954Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1563,7 +1595,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:59.485Z",
+      "crawledAt": "2026-07-10T22:06:32.511Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1647,7 +1679,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:28:58.696Z",
+      "crawledAt": "2026-07-10T22:06:31.799Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",

@@ -1,16 +1,16 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-07-09T22:24:21.944Z",
-  "total": 5,
+  "generatedAt": "2026-07-10T22:15:10.018Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2478,
-  "avgDurationMs": 2478,
+  "unchangedCount": 0,
+  "durationMs": 2541,
+  "avgDurationMs": 2541,
   "durationHistory": [
-    2478
+    2541
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.beehire.com/invite/PRsnUQk7L",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.841Z",
+      "crawledAt": "2026-07-10T22:15:07.827Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.beehire.com/invite/P3a0hTtBw",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.845Z",
+      "crawledAt": "2026-07-10T22:15:07.831Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.843Z",
+      "crawledAt": "2026-07-10T22:15:07.829Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-09T22:24:19.846Z",
+      "crawledAt": "2026-07-10T22:15:07.832Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,46 +168,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "hopital-de-lavaux-5443ed0c2093",
-      "slug": "infermiera-esperto-nel-diabete-40-50-hopital-de-lavaux-bourg-en-lavaux",
-      "company": "Hôpital de Lavaux",
-      "companyKey": "hopital-de-lavaux",
-      "companyDomain": "hopitaldelavaux.ch",
-      "title": "Infirmier.ère expert.e conseil en diabétologie (40-50%)",
-      "location": "Bourg-en-Lavaux",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/qJFvc_DcU",
-      "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:07:55.458Z",
-      "addressLocality": "Bourg-en-Lavaux",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1096",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://app.beehire.com/invite/qJFvc_DcU",
-      "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
-      "firstSeenAt": "2026-05-19T22:28:49.115Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

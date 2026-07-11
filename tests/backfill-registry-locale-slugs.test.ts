@@ -84,7 +84,7 @@ describe('mergeAndDeduplicate backfills the registry for early-registered jobs',
 
   it('persists the later-translated locales (it/de) but skips the FR source-copy', async () => {
     const URL = 'https://recruitingapp-2908.umantis.com/Vacancies/7777/Description/1';
-    const FP = 'id|umantis.com|7777';
+    const FP = 'id|recruitingapp-2908.umantis.com|7777';
     const EN = 'real-estate-advisor-sion-swiss-life-ch';
     const REAL_IT = 'consulente-immobiliare-sion-swiss-life-sion';
     const REAL_DE = 'immobilienberater-sion-swiss-life-sion';

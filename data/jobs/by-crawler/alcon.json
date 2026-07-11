@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-07-10T12:01:34.383Z",
+  "assembledAt": "2026-07-10T22:35:06.447Z",
   "jobs": [
     {
       "id": "alcon-b66acee3cbdc",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:01:32.004Z",
+      "crawledAt": "2026-07-10T22:35:03.988Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:01:31.223Z",
+      "crawledAt": "2026-07-10T22:35:03.133Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Regulatory-Strategy-Sr-Associate--m-f-d----Medical-Devices---German---English-speaking_R-2026-48088-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:01:30.372Z",
+      "crawledAt": "2026-07-10T22:35:02.208Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Associate-Regulatory-Affairs-Strategy_R-2026-48146-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:01:29.565Z",
+      "crawledAt": "2026-07-10T22:35:01.346Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:01:28.788Z",
+      "crawledAt": "2026-07-10T22:35:00.375Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -382,18 +382,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-48005",
-      "firstSeenAt": "2026-07-07T22:18:44.741Z",
+      "previousSlugs": [
+        "director-corporate-strategy-business-development-alcon-ch",
+        "direttore-corporate-strategy-business-development-alcon-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "director-corporate-strategy-business-development-alcon-ch"
+          "director-corporate-strategy-business-development-alcon-ch",
+          "direttore-corporate-strategy-business-development-alcon-geneva"
         ],
         "de": [
           "director-corporate-strategy-business-development-alcon-ch"
         ]
       },
-      "previousSlugs": [
-        "director-corporate-strategy-business-development-alcon-ch"
-      ],
+      "firstSeenAt": "2026-07-07T22:18:44.741Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -439,7 +441,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:01:27.845Z",
+      "crawledAt": "2026-07-10T22:34:59.553Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -456,10 +458,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-46854",
-      "firstSeenAt": "2026-07-09T22:29:43.214Z",
+      "previousSlugs": [
+        "international-accounting-and-reporting-director-alcon-ch",
+        "international-accounting-and-reporting-direttore-alcon-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "international-accounting-and-reporting-director-alcon-ch"
+          "international-accounting-and-reporting-director-alcon-ch",
+          "international-accounting-and-reporting-direttore-alcon-fribourg"
         ],
         "de": [
           "international-accounting-and-reporting-director-alcon-ch"
@@ -468,9 +474,7 @@
           "international-accounting-and-reporting-director-alcon-ch"
         ]
       },
-      "previousSlugs": [
-        "international-accounting-and-reporting-director-alcon-ch"
-      ],
+      "firstSeenAt": "2026-07-09T22:29:43.214Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -483,6 +487,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "alcon-9ebeaed89713",
+      "slug": "senior-manager-materials-management-m-w-d-alcon-ch",
+      "slugByLocale": {
+        "de": "senior-manager-materials-management-m-w-d-alcon-ch",
+        "it": "senior-manager-materials-management-m-w-d-alcon-ch",
+        "en": "senior-manager-materials-management-m-w-d-alcon-ch",
+        "fr": "senior-manager-materials-management-m-w-d-alcon-ch"
+      },
+      "company": "Alcon",
+      "companyKey": "alcon",
+      "companyDomain": "alcon.com",
+      "title": "Senior Manager Materials Management (m/w/d)",
+      "titleByLocale": {
+        "de": "Senior Manager Materials Management (m/w/d)",
+        "en": "Senior Manager Materials Management (m/w/d)",
+        "it": "Senior Manager Materials Management (m/w/d)",
+        "fr": "Senior Manager Materials Management (m/w/d)"
+      },
+      "description": "Bei Alcon werden wir von der sinnvollen Arbeit angetrieben, die wir leisten, um Menschen zu helfen, brillant zu sehen. Als weltweit führendes Unternehmen in der Augenheilkunde setzen wir uns für Innovation und Fortschritt ein und handeln schnell. Bei uns werden Sie für Ihr Engagement und Ihre Leistungen belohnt und können Ihre Karriere wie nie zuvor vorantreiben. Gemeinsam gehen wir über uns hinaus, um das Leben unserer Patienten und Kunden zu verbessern. Wir fördern eine Unternehmenskultur, die alle einbezieht und suchen nach vielfältigen, talentierten Menschen, die sich Alcon anschließen möchten.\n\nAls Senior Manager Materials Management (m/w/d) verantworten Sie die strategische und operative Führung der Bereiche Material Management, Produktionsplanung, Einkauf und Logistik am Standort Schaffhausen . Gemeinsam mit dem Team stellen Sie eine exzellente Materialversorgung, hohe Lieferfähigkeit und effiziente Supply-Chain-Prozesse sicher. Gleichzeitig gestalten Sie die Weiterentwicklung der Organisation, fördern moderne Arbeitsweisen und nutzen neue Technologien, um die Supply Chain nachhaltig für die Zukunft aufzustellen.\n\nEin typischer Arbeitstag in dieser Funktion umfasst:\n\n• Führung, Coaching und Weiterentwicklung eines Teams von Führungskräften und Supply-Chain-Experten.\n\n• Gesamtverantwortung für Forecasting, Demand Planning, Produktionsplanung, Bestandsmanagement und Materialverfügbarkeit.\n\n• Steuerung der Einkaufs- und Beschaffungsaktivitäten sowie Weiterentwicklung strategischer Lieferantenbeziehungen auf nationaler und internationaler Ebene.\n\n• Sicherstellung einer effizienten und leistungsfähigen Supply Chain durch kontinuierliche Optimierung von Prozessen, Lagerbeständen und Service Levels.\n\n• Leitung von Initiativen im Bereich Digitalisierung, Automatisierung und kontinuierliche Verbesserung sowie Förderung datenbasierter Entscheidungsprozesse.\n\n• Verantwortung für Budgetplanung, Kostenkontrolle und die Einhaltung regulatorischer, qualitativer und sicherheitsrelevanter Anforderungen.\n\nWAS SIE ZU ALCON MITBRINGEN:\n\n• Abgeschlossenes Studium in Supply Chain Management, Operations Management, Betriebswirtschaft, Wirtschaftsingenieurwesen, Ingenieurwesen oder einer vergleichbaren Fachrichtung.\n\n• Mehrjährige Führungsverantwortung in den Bereichen Supply Chain Management, Materials Management, Produktionsplanung, Einkauf oder Logistik.\n\n• Fundierte Erfahrung in einem produzierenden Umfeld, idealerweise in der Medizintechnik.\n\n• Erfahrung in der Optimierung von Prozessen sowie der erfolgreichen Umsetzung von Veränderungs- und Transformationsinitiativen.\n\n• Sehr gute Kenntnisse in ERP-Systemen, idealerweise SAP.\n\n• Ausgeprägte analytische Fähigkeiten sowie ein hohes Maß an Eigeninitiative.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse.\n\nWIE SIE BEI ALCON ERFOLGREICH SEIN KÖNNEN:\n\n• Arbeiten Sie in einem herausfordernden Umfeld mit einem motivierten und qualitätsorientierten Team, das Ihnen dabei hilft, Ihre Ziele zu erreichen und erfolgreich zu sein.\n\n• Schließen Sie sich einem führenden, innovativen Unternehmen im Bereich der Medizintechnik an, das Leben verändert und auf das Sie wirklich stolz sein können.\n\n• Übernehmen Sie eine verantwortungsvolle Position mit Führungsaufgaben und gestalten Sie aktiv den Erfolg Ihres Teams mit.\n\n• Profitieren Sie von gezielter Förderung Ihrer individuellen Weiterentwicklung – inklusive Cross-Training und Perspektiven über den eigenen Aufgabenbereich hinaus.\n\n• Bringen Sie Ihre Ideen ein und wirken Sie an der kontinuierlichen Verbesserung und Optimierung von Prozessen mit.\n\nAlcon Careers\n\"See your impact\" unter https://alcon.com/about-us/career\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
+      "descriptionByLocale": {
+        "de": "Bei Alcon werden wir von der sinnvollen Arbeit angetrieben, die wir leisten, um Menschen zu helfen, brillant zu sehen. Als weltweit führendes Unternehmen in der Augenheilkunde setzen wir uns für Innovation und Fortschritt ein und handeln schnell. Bei uns werden Sie für Ihr Engagement und Ihre Leistungen belohnt und können Ihre Karriere wie nie zuvor vorantreiben. Gemeinsam gehen wir über uns hinaus, um das Leben unserer Patienten und Kunden zu verbessern. Wir fördern eine Unternehmenskultur, die alle einbezieht und suchen nach vielfältigen, talentierten Menschen, die sich Alcon anschließen möchten.\n\nAls Senior Manager Materials Management (m/w/d) verantworten Sie die strategische und operative Führung der Bereiche Material Management, Produktionsplanung, Einkauf und Logistik am Standort Schaffhausen . Gemeinsam mit dem Team stellen Sie eine exzellente Materialversorgung, hohe Lieferfähigkeit und effiziente Supply-Chain-Prozesse sicher. Gleichzeitig gestalten Sie die Weiterentwicklung der Organisation, fördern moderne Arbeitsweisen und nutzen neue Technologien, um die Supply Chain nachhaltig für die Zukunft aufzustellen.\n\nEin typischer Arbeitstag in dieser Funktion umfasst:\n\n• Führung, Coaching und Weiterentwicklung eines Teams von Führungskräften und Supply-Chain-Experten.\n\n• Gesamtverantwortung für Forecasting, Demand Planning, Produktionsplanung, Bestandsmanagement und Materialverfügbarkeit.\n\n• Steuerung der Einkaufs- und Beschaffungsaktivitäten sowie Weiterentwicklung strategischer Lieferantenbeziehungen auf nationaler und internationaler Ebene.\n\n• Sicherstellung einer effizienten und leistungsfähigen Supply Chain durch kontinuierliche Optimierung von Prozessen, Lagerbeständen und Service Levels.\n\n• Leitung von Initiativen im Bereich Digitalisierung, Automatisierung und kontinuierliche Verbesserung sowie Förderung datenbasierter Entscheidungsprozesse.\n\n• Verantwortung für Budgetplanung, Kostenkontrolle und die Einhaltung regulatorischer, qualitativer und sicherheitsrelevanter Anforderungen.\n\nWAS SIE ZU ALCON MITBRINGEN:\n\n• Abgeschlossenes Studium in Supply Chain Management, Operations Management, Betriebswirtschaft, Wirtschaftsingenieurwesen, Ingenieurwesen oder einer vergleichbaren Fachrichtung.\n\n• Mehrjährige Führungsverantwortung in den Bereichen Supply Chain Management, Materials Management, Produktionsplanung, Einkauf oder Logistik.\n\n• Fundierte Erfahrung in einem produzierenden Umfeld, idealerweise in der Medizintechnik.\n\n• Erfahrung in der Optimierung von Prozessen sowie der erfolgreichen Umsetzung von Veränderungs- und Transformationsinitiativen.\n\n• Sehr gute Kenntnisse in ERP-Systemen, idealerweise SAP.\n\n• Ausgeprägte analytische Fähigkeiten sowie ein hohes Maß an Eigeninitiative.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse.\n\nWIE SIE BEI ALCON ERFOLGREICH SEIN KÖNNEN:\n\n• Arbeiten Sie in einem herausfordernden Umfeld mit einem motivierten und qualitätsorientierten Team, das Ihnen dabei hilft, Ihre Ziele zu erreichen und erfolgreich zu sein.\n\n• Schließen Sie sich einem führenden, innovativen Unternehmen im Bereich der Medizintechnik an, das Leben verändert und auf das Sie wirklich stolz sein können.\n\n• Übernehmen Sie eine verantwortungsvolle Position mit Führungsaufgaben und gestalten Sie aktiv den Erfolg Ihres Teams mit.\n\n• Profitieren Sie von gezielter Förderung Ihrer individuellen Weiterentwicklung – inklusive Cross-Training und Perspektiven über den eigenen Aufgabenbereich hinaus.\n\n• Bringen Sie Ihre Ideen ein und wirken Sie an der kontinuierlichen Verbesserung und Optimierung von Prozessen mit.\n\nAlcon Careers\n\"See your impact\" unter https://alcon.com/about-us/career\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
+        "it": "Bei Alcon werden wir von der sinnvollen Arbeit angetrieben, die wir leisten, um Menschen zu helfen, brillant zu sehen. Als weltweit führendes Unternehmen in der Augenheilkunde setzen wir uns für Innovation und Fortschritt ein und handeln schnell. Bei uns werden Sie für Ihr Engagement und Ihre Leistungen belohnt und können Ihre Karriere wie nie zuvor vorantreiben. Gemeinsam gehen wir über uns hinaus, um das Leben unserer Patienten und Kunden zu verbessern. Wir fördern eine Unternehmenskultur, die alle einbezieht und suchen nach vielfältigen, talentierten Menschen, die sich Alcon anschließen möchten.\n\nAls Senior Manager Materials Management (m/w/d) verantworten Sie die strategische und operative Führung der Bereiche Material Management, Produktionsplanung, Einkauf und Logistik am Standort Schaffhausen . Gemeinsam mit dem Team stellen Sie eine exzellente Materialversorgung, hohe Lieferfähigkeit und effiziente Supply-Chain-Prozesse sicher. Gleichzeitig gestalten Sie die Weiterentwicklung der Organisation, fördern moderne Arbeitsweisen und nutzen neue Technologien, um die Supply Chain nachhaltig für die Zukunft aufzustellen.\n\nEin typischer Arbeitstag in dieser Funktion umfasst:\n\n• Führung, Coaching und Weiterentwicklung eines Teams von Führungskräften und Supply-Chain-Experten.\n\n• Gesamtverantwortung für Forecasting, Demand Planning, Produktionsplanung, Bestandsmanagement und Materialverfügbarkeit.\n\n• Steuerung der Einkaufs- und Beschaffungsaktivitäten sowie Weiterentwicklung strategischer Lieferantenbeziehungen auf nationaler und internationaler Ebene.\n\n• Sicherstellung einer effizienten und leistungsfähigen Supply Chain durch kontinuierliche Optimierung von Prozessen, Lagerbeständen und Service Levels.\n\n• Leitung von Initiativen im Bereich Digitalisierung, Automatisierung und kontinuierliche Verbesserung sowie Förderung datenbasierter Entscheidungsprozesse.\n\n• Verantwortung für Budgetplanung, Kostenkontrolle und die Einhaltung regulatorischer, qualitativer und sicherheitsrelevanter Anforderungen.\n\nWAS SIE ZU ALCON MITBRINGEN:\n\n• Abgeschlossenes Studium in Supply Chain Management, Operations Management, Betriebswirtschaft, Wirtschaftsingenieurwesen, Ingenieurwesen oder einer vergleichbaren Fachrichtung.\n\n• Mehrjährige Führungsverantwortung in den Bereichen Supply Chain Management, Materials Management, Produktionsplanung, Einkauf oder Logistik.\n\n• Fundierte Erfahrung in einem produzierenden Umfeld, idealerweise in der Medizintechnik.\n\n• Erfahrung in der Optimierung von Prozessen sowie der erfolgreichen Umsetzung von Veränderungs- und Transformationsinitiativen.\n\n• Sehr gute Kenntnisse in ERP-Systemen, idealerweise SAP.\n\n• Ausgeprägte analytische Fähigkeiten sowie ein hohes Maß an Eigeninitiative.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse.\n\nWIE SIE BEI ALCON ERFOLGREICH SEIN KÖNNEN:\n\n• Arbeiten Sie in einem herausfordernden Umfeld mit einem motivierten und qualitätsorientierten Team, das Ihnen dabei hilft, Ihre Ziele zu erreichen und erfolgreich zu sein.\n\n• Schließen Sie sich einem führenden, innovativen Unternehmen im Bereich der Medizintechnik an, das Leben verändert und auf das Sie wirklich stolz sein können.\n\n• Übernehmen Sie eine verantwortungsvolle Position mit Führungsaufgaben und gestalten Sie aktiv den Erfolg Ihres Teams mit.\n\n• Profitieren Sie von gezielter Förderung Ihrer individuellen Weiterentwicklung – inklusive Cross-Training und Perspektiven über den eigenen Aufgabenbereich hinaus.\n\n• Bringen Sie Ihre Ideen ein und wirken Sie an der kontinuierlichen Verbesserung und Optimierung von Prozessen mit.\n\nAlcon Careers\n\"See your impact\" unter https://alcon.com/about-us/career\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
+        "en": "Bei Alcon werden wir von der sinnvollen Arbeit angetrieben, die wir leisten, um Menschen zu helfen, brillant zu sehen. Als weltweit führendes Unternehmen in der Augenheilkunde setzen wir uns für Innovation und Fortschritt ein und handeln schnell. Bei uns werden Sie für Ihr Engagement und Ihre Leistungen belohnt und können Ihre Karriere wie nie zuvor vorantreiben. Gemeinsam gehen wir über uns hinaus, um das Leben unserer Patienten und Kunden zu verbessern. Wir fördern eine Unternehmenskultur, die alle einbezieht und suchen nach vielfältigen, talentierten Menschen, die sich Alcon anschließen möchten.\n\nAls Senior Manager Materials Management (m/w/d) verantworten Sie die strategische und operative Führung der Bereiche Material Management, Produktionsplanung, Einkauf und Logistik am Standort Schaffhausen . Gemeinsam mit dem Team stellen Sie eine exzellente Materialversorgung, hohe Lieferfähigkeit und effiziente Supply-Chain-Prozesse sicher. Gleichzeitig gestalten Sie die Weiterentwicklung der Organisation, fördern moderne Arbeitsweisen und nutzen neue Technologien, um die Supply Chain nachhaltig für die Zukunft aufzustellen.\n\nEin typischer Arbeitstag in dieser Funktion umfasst:\n\n• Führung, Coaching und Weiterentwicklung eines Teams von Führungskräften und Supply-Chain-Experten.\n\n• Gesamtverantwortung für Forecasting, Demand Planning, Produktionsplanung, Bestandsmanagement und Materialverfügbarkeit.\n\n• Steuerung der Einkaufs- und Beschaffungsaktivitäten sowie Weiterentwicklung strategischer Lieferantenbeziehungen auf nationaler und internationaler Ebene.\n\n• Sicherstellung einer effizienten und leistungsfähigen Supply Chain durch kontinuierliche Optimierung von Prozessen, Lagerbeständen und Service Levels.\n\n• Leitung von Initiativen im Bereich Digitalisierung, Automatisierung und kontinuierliche Verbesserung sowie Förderung datenbasierter Entscheidungsprozesse.\n\n• Verantwortung für Budgetplanung, Kostenkontrolle und die Einhaltung regulatorischer, qualitativer und sicherheitsrelevanter Anforderungen.\n\nWAS SIE ZU ALCON MITBRINGEN:\n\n• Abgeschlossenes Studium in Supply Chain Management, Operations Management, Betriebswirtschaft, Wirtschaftsingenieurwesen, Ingenieurwesen oder einer vergleichbaren Fachrichtung.\n\n• Mehrjährige Führungsverantwortung in den Bereichen Supply Chain Management, Materials Management, Produktionsplanung, Einkauf oder Logistik.\n\n• Fundierte Erfahrung in einem produzierenden Umfeld, idealerweise in der Medizintechnik.\n\n• Erfahrung in der Optimierung von Prozessen sowie der erfolgreichen Umsetzung von Veränderungs- und Transformationsinitiativen.\n\n• Sehr gute Kenntnisse in ERP-Systemen, idealerweise SAP.\n\n• Ausgeprägte analytische Fähigkeiten sowie ein hohes Maß an Eigeninitiative.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse.\n\nWIE SIE BEI ALCON ERFOLGREICH SEIN KÖNNEN:\n\n• Arbeiten Sie in einem herausfordernden Umfeld mit einem motivierten und qualitätsorientierten Team, das Ihnen dabei hilft, Ihre Ziele zu erreichen und erfolgreich zu sein.\n\n• Schließen Sie sich einem führenden, innovativen Unternehmen im Bereich der Medizintechnik an, das Leben verändert und auf das Sie wirklich stolz sein können.\n\n• Übernehmen Sie eine verantwortungsvolle Position mit Führungsaufgaben und gestalten Sie aktiv den Erfolg Ihres Teams mit.\n\n• Profitieren Sie von gezielter Förderung Ihrer individuellen Weiterentwicklung – inklusive Cross-Training und Perspektiven über den eigenen Aufgabenbereich hinaus.\n\n• Bringen Sie Ihre Ideen ein und wirken Sie an der kontinuierlichen Verbesserung und Optimierung von Prozessen mit.\n\nAlcon Careers\n\"See your impact\" unter https://alcon.com/about-us/career\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
+        "fr": "Bei Alcon werden wir von der sinnvollen Arbeit angetrieben, die wir leisten, um Menschen zu helfen, brillant zu sehen. Als weltweit führendes Unternehmen in der Augenheilkunde setzen wir uns für Innovation und Fortschritt ein und handeln schnell. Bei uns werden Sie für Ihr Engagement und Ihre Leistungen belohnt und können Ihre Karriere wie nie zuvor vorantreiben. Gemeinsam gehen wir über uns hinaus, um das Leben unserer Patienten und Kunden zu verbessern. Wir fördern eine Unternehmenskultur, die alle einbezieht und suchen nach vielfältigen, talentierten Menschen, die sich Alcon anschließen möchten.\n\nAls Senior Manager Materials Management (m/w/d) verantworten Sie die strategische und operative Führung der Bereiche Material Management, Produktionsplanung, Einkauf und Logistik am Standort Schaffhausen . Gemeinsam mit dem Team stellen Sie eine exzellente Materialversorgung, hohe Lieferfähigkeit und effiziente Supply-Chain-Prozesse sicher. Gleichzeitig gestalten Sie die Weiterentwicklung der Organisation, fördern moderne Arbeitsweisen und nutzen neue Technologien, um die Supply Chain nachhaltig für die Zukunft aufzustellen.\n\nEin typischer Arbeitstag in dieser Funktion umfasst:\n\n• Führung, Coaching und Weiterentwicklung eines Teams von Führungskräften und Supply-Chain-Experten.\n\n• Gesamtverantwortung für Forecasting, Demand Planning, Produktionsplanung, Bestandsmanagement und Materialverfügbarkeit.\n\n• Steuerung der Einkaufs- und Beschaffungsaktivitäten sowie Weiterentwicklung strategischer Lieferantenbeziehungen auf nationaler und internationaler Ebene.\n\n• Sicherstellung einer effizienten und leistungsfähigen Supply Chain durch kontinuierliche Optimierung von Prozessen, Lagerbeständen und Service Levels.\n\n• Leitung von Initiativen im Bereich Digitalisierung, Automatisierung und kontinuierliche Verbesserung sowie Förderung datenbasierter Entscheidungsprozesse.\n\n• Verantwortung für Budgetplanung, Kostenkontrolle und die Einhaltung regulatorischer, qualitativer und sicherheitsrelevanter Anforderungen.\n\nWAS SIE ZU ALCON MITBRINGEN:\n\n• Abgeschlossenes Studium in Supply Chain Management, Operations Management, Betriebswirtschaft, Wirtschaftsingenieurwesen, Ingenieurwesen oder einer vergleichbaren Fachrichtung.\n\n• Mehrjährige Führungsverantwortung in den Bereichen Supply Chain Management, Materials Management, Produktionsplanung, Einkauf oder Logistik.\n\n• Fundierte Erfahrung in einem produzierenden Umfeld, idealerweise in der Medizintechnik.\n\n• Erfahrung in der Optimierung von Prozessen sowie der erfolgreichen Umsetzung von Veränderungs- und Transformationsinitiativen.\n\n• Sehr gute Kenntnisse in ERP-Systemen, idealerweise SAP.\n\n• Ausgeprägte analytische Fähigkeiten sowie ein hohes Maß an Eigeninitiative.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse.\n\nWIE SIE BEI ALCON ERFOLGREICH SEIN KÖNNEN:\n\n• Arbeiten Sie in einem herausfordernden Umfeld mit einem motivierten und qualitätsorientierten Team, das Ihnen dabei hilft, Ihre Ziele zu erreichen und erfolgreich zu sein.\n\n• Schließen Sie sich einem führenden, innovativen Unternehmen im Bereich der Medizintechnik an, das Leben verändert und auf das Sie wirklich stolz sein können.\n\n• Übernehmen Sie eine verantwortungsvolle Position mit Führungsaufgaben und gestalten Sie aktiv den Erfolg Ihres Teams mit.\n\n• Profitieren Sie von gezielter Förderung Ihrer individuellen Weiterentwicklung – inklusive Cross-Training und Perspektiven über den eigenen Aufgabenbereich hinaus.\n\n• Bringen Sie Ihre Ideen ein und wirken Sie an der kontinuierlichen Verbesserung und Optimierung von Prozessen mit.\n\nAlcon Careers\n\"See your impact\" unter https://alcon.com/about-us/career\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker"
+      },
+      "needsRetranslation": true,
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
+      "source": "Alcon Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T22:34:58.643Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Medtech / Cura della vista",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R-2026-48278",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T22:34:58.643Z"
     }
   ]
 }

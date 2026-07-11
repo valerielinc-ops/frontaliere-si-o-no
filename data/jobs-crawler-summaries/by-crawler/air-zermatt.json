@@ -1,16 +1,16 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-07-09T22:34:56.944Z",
-  "total": 4,
+  "generatedAt": "2026-07-10T22:25:54.648Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4814,
-  "avgDurationMs": 4814,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3875,
+  "avgDurationMs": 3875,
   "durationHistory": [
-    4814
+    3875
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-100--571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:34:54.438Z",
+      "crawledAt": "2026-07-10T22:25:52.761Z",
       "firstSeenAt": "2026-07-02T10:30:28.260Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -74,7 +74,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T22:34:54.763Z",
+      "crawledAt": "2026-07-10T22:25:53.003Z",
       "firstSeenAt": "2026-06-29T12:28:01.699Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -85,47 +85,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "air-zermatt-a08ba50768a4",
-      "slug": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
-      "company": "Air Zermatt AG",
-      "companyKey": "air-zermatt",
-      "companyDomain": "air-zermatt.ch",
-      "title": "Scholarship ATC & Swiss Sherpa Foundation",
-      "location": "Raron",
-      "canton": "VS",
-      "addressLocality": "Raron",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3942",
-      "category": "general",
-      "sector": "Aviazione / Servizi di soccorso",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "url": "https://www.air-zermatt.ch/en/service/vacancies/scholarship-atc-amp-swiss-sherpa-foundation-442",
-      "applyUrl": "https://www.air-zermatt.ch/en/service/vacancies/scholarship-atc-amp-swiss-sherpa-foundation-442",
-      "source": "Air Zermatt Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-09T12:29:17.810Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-09T12:29:17.810Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
+  "removedJobs": [
     {
       "id": "air-zermatt-a88db8fd4ebd",
       "slug": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
@@ -156,7 +116,8 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T12:29:16.735Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -165,5 +126,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

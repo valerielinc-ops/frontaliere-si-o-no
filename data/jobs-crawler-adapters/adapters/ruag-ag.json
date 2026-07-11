@@ -36,12 +36,11 @@
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-east/c99ccd4e-01b2-4069-8107-74f4247c4f93",
     "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-governance/dbc78305-e271-4052-9d9c-9d411ccc27f0",
     "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c",
-    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f",
-    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926",
-    "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322"
+    "https://jobs.ruag.ch/offene-stellen/communication-systems-engineer/a2517b91-9812-4de0-86fb-e99437441d62",
+    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-09T22:33:38.484Z",
+  "updatedAt": "2026-07-10T22:38:52.256Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
       "location": "Altdorf",
@@ -199,23 +198,17 @@
       "company": "RUAG AG",
       "postedDate": "2026-07-08"
     },
+    "https://jobs.ruag.ch/offene-stellen/communication-systems-engineer/a2517b91-9812-4de0-86fb-e99437441d62": {
+      "location": "Dübendorf ZH",
+      "canton": "ZH",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-10"
+    },
     "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f": {
       "location": "Wangen",
       "canton": "",
       "company": "RUAG AG",
       "postedDate": "2026-07-09"
-    },
-    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-04-24"
-    },
-    "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322": {
-      "location": "Alpnach",
-      "canton": "OW",
-      "company": "RUAG AG",
-      "postedDate": "2026-04-23"
     }
   }
 }

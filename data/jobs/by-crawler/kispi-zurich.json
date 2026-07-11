@@ -1,7 +1,72 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-07-10T10:49:51.414Z",
+  "assembledAt": "2026-07-10T22:06:18.009Z",
   "jobs": [
+    {
+      "id": "kispi-zurich-4e83e14e0e49",
+      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Berufsbildnerin Pflege (m/w)",
+      "titleByLocale": {
+        "de": "Berufsbildnerin Pflege (m/w)",
+        "it": "Berufsbildnerin Pflege (m/w)",
+        "en": "Berufsbildnerin Pflege (m/w)",
+        "fr": "Berufsbildnerin Pflege (m/w)"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T22:06:15.814Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T22:06:15.814Z"
+    },
     {
       "id": "kispi-zurich-047d6fb14fc5",
       "slug": "segreteria-medica-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
@@ -34,7 +99,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:49.439Z",
+      "crawledAt": "2026-07-10T22:06:14.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +185,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:48.489Z",
+      "crawledAt": "2026-07-10T22:06:13.640Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +264,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:47.547Z",
+      "crawledAt": "2026-07-10T22:06:12.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -246,83 +311,6 @@
       }
     },
     {
-      "id": "kispi-zurich-3b7718ce689a",
-      "slug": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "de": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "fr": "gestionnaire-de-projets-scientifiques-et-de-donnees-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Scientific Project & Data Managerin (w/m) 50-100%",
-      "titleByLocale": {
-        "it": "Scientific Project & Data Manager (f/m) 50-100%",
-        "en": "Scientific Project & Data Managerin (w/m) 50-100%",
-        "de": "Scientific Project & Data Managerin (w/m) 50-100%",
-        "fr": "Gestionnaire de projets scientifiques et de données (f/m) 50-100 %"
-      },
-      "description": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Scientific Project & Data Manager (f/m) 50-100% presso il Kinderspital Zürich Eleonorenstiftung di Zurigo (8032, ZH), Svizzera.\n• Tipo: Tempo parziale\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Scientific Project & Data Manager (f/m) 50-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: Part-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "de": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Directeur scientifique de projet et de données (f/m) 50-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:46.627Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
-        "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-          "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "fr": [
-          "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T13:37:41.987Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kispi-zurich-31f27e1b98de",
       "slug": "fellow-m-w-100-kispi-zurich-zurich",
       "slugByLocale": {
@@ -354,7 +342,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:45.680Z",
+      "crawledAt": "2026-07-10T22:06:11.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,7 +405,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3705/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:44.773Z",
+      "crawledAt": "2026-07-10T22:06:10.490Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -468,12 +456,12 @@
     },
     {
       "id": "kispi-zurich-6d5ed87e38d9",
-      "slug": "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
+      "slug": "segretario-medico-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
-        "en": "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
+        "it": "segretario-medico-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "medical-secretary-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "arztsekretarin-m-w-100-kispi-zurich-zurich",
-        "fr": "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
+        "fr": "secretaire-medical-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -498,7 +486,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3683/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:43.835Z",
+      "crawledAt": "2026-07-10T22:06:09.548Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -516,11 +504,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        "arztsekretarin-m-w-100-kispi-zurich-zurich",
+        "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
+        "segretario-medico-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-m-w-100-kispi-zurich-zurich"
+          "arztsekretarin-m-w-100-kispi-zurich-zurich",
+          "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
+          "segretario-medico-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
+        ],
+        "fr": [
+          "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
         ]
       },
       "firstSeenAt": "2026-07-02T22:45:36.070Z",
@@ -569,7 +567,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:42.891Z",
+      "crawledAt": "2026-07-10T22:06:08.624Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -654,7 +652,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3706/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:41.951Z",
+      "crawledAt": "2026-07-10T22:06:07.716Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -713,18 +711,18 @@
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
-      "title": "MPA / Disposition",
+      "title": "MPA / Disposition 100%",
       "titleByLocale": {
         "it": "MPA/disposizione",
         "en": "MPA/disposition",
-        "de": "MPA / Disposition",
+        "de": "MPA / Disposition 100%",
         "fr": "MPA/disposition"
       },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 09.07.2026 Fachbereiche Endokrinologie und Stoffwechsel Deine Aufgaben\n• Mit deiner zeitgerechten und zuverlässigen Termindisposition trägst du einen wichtigen Teil zur Patientenversorgung bei.",
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 10.07.2026 Fachbereiche Endokrinologie und Stoffwechsel Deine Aufgaben\n• Mit deiner zeitgerechten und zuverlässigen Termindisposition trägst du einen wichtigen Teil zur Patientenversorgung bei.",
       "descriptionByLocale": {
         "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 09.07.2026 Facoltà Endocrinologia e Metabolismo I tuoi compiti\n• Con la pianificazione tempestiva e affidabile, si dà un contributo importante alla cura del paziente.",
         "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 09.07.2026 Faculties Endocrinology and Metabolism Your tasks\n• With your timely and reliable scheduling, you make an important contribution to patient care.",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 09.07.2026 Fachbereiche Endokrinologie und Stoffwechsel Deine Aufgaben\n• Mit deiner zeitgerechten und zuverlässigen Termindisposition trägst du einen wichtigen Teil zur Patientenversorgung bei.",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 10.07.2026 Fachbereiche Endokrinologie und Stoffwechsel Deine Aufgaben\n• Mit deiner zeitgerechten und zuverlässigen Termindisposition trägst du einen wichtigen Teil zur Patientenversorgung bei.",
         "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 09.07.2026 Facultés Endocrinologie et métabolisme Vos tâches\n• Avec votre horaire opportun et fiable, vous contribuez grandement aux soins aux patients."
       },
       "needsRetranslation": false,
@@ -733,7 +731,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3707/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T10:49:40.944Z",
+      "crawledAt": "2026-07-10T22:06:06.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -741,7 +739,7 @@
       "postalCode": "8032",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -752,11 +750,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-disposition-kispi-zurich-zurich",
+        "mpa-disposition-100-kispi-zurich-zurich",
         "mpa-disposizione-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-disposition-kispi-zurich-zurich",
+          "mpa-disposition-100-kispi-zurich-zurich",
           "mpa-disposizione-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
@@ -775,37 +775,37 @@
       }
     },
     {
-      "id": "kispi-zurich-4ecc69e02da7",
-      "slug": "responsabile-mass-spectrometry-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+      "id": "kispi-zurich-3b7718ce689a",
+      "slug": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "responsabile-mass-spectrometry-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "head-of-mass-spectrometry-m-f-100-kispi-zurich-zurich",
-        "de": "head-of-mass-spectrometry-m-f-100-kispi-zurich-zurich",
-        "fr": "responsable-mass-spectrometry-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
+        "it": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
+        "de": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
+        "fr": "gestionnaire-de-projets-scientifiques-et-de-donnees-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
-      "title": "Head of Mass Spectrometry (m/f) 100%",
+      "title": "Scientific Project & Data Managerin (w/m) 50-100%",
       "titleByLocale": {
-        "it": "Capo della Spettrometria di Massa (m/f) al 100%",
-        "en": "Head of Mass Spectrometry (m/f) 100%",
-        "de": "Leiter Mass Spectrometry (m/f) 100%",
-        "fr": "Chef de spectrométrie de masse (m/f) à 100 %"
+        "it": "Scientific Project & Data Manager (f/m) 50-100%",
+        "en": "Scientific Project & Data Managerin (w/m) 50-100%",
+        "de": "Scientific Project & Data Managerin (w/m) 50-100%",
+        "fr": "Gestionnaire de projets scientifiques et de données (f/m) 50-100 %"
       },
-      "description": "Head of Mass Spectrometry (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "description": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
       "descriptionByLocale": {
-        "it": "Capo della Spettrometria di Massa (m/f) al 100% presso la Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n• Tipo: a tempo pieno\n• A tempo fisso: a tempo determinato\n• Sede: Zurigo (ZH)\n• Domanda tramite il portale carriera Umantis dell'Ospedale Universitario Pediatrico di Zurigo (Kispi)",
-        "en": "Head of Mass Spectrometry (m/f) 100% at Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Switzerland.\n• Type: full-time\n• Fixed-term: fixed-term\n• Location: Zurich (ZH)\n• Application via the Umantis career portal of University Children's Hospital Zurich (Kispi)",
-        "de": "Head of Mass Spectrometry (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Chef de spectrométrie de masse (m/f) à 100 % à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type : temps plein\n• Durée fixe : durée déterminée\n• Lieu : Zurich (ZH)\n• Candidature via le portail carrières Umantis de l'Hôpital universitaire pour enfants de Zurich (Kispi)"
+        "it": "Scientific Project & Data Manager (f/m) 50-100% presso il Kinderspital Zürich Eleonorenstiftung di Zurigo (8032, ZH), Svizzera.\n• Tipo: Tempo parziale\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Scientific Project & Data Manager (f/m) 50-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: Part-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "de": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Directeur scientifique de projet et de données (f/m) 50-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3696/Description/1",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:13.111Z",
+      "crawledAt": "2026-07-10T12:09:57.976Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -813,27 +813,28 @@
       "postalCode": "8032",
       "category": "Sanità / Ospedali",
       "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3696/Application/CheckLogin/1",
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-mass-spectrometry-m-f-100-kispi-zurich-zurich"
+        "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
+        "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-mass-spectrometry-m-f-100-kispi-zurich-zurich"
+          "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich"
         ],
         "fr": [
-          "head-of-mass-spectrometry-m-f-100-kispi-zurich-zurich"
+          "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:04:15.325Z",
+      "firstSeenAt": "2026-06-29T13:37:41.987Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -843,70 +844,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
-    },
-    {
-      "id": "kispi-zurich-694fe7f1768f",
-      "slug": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
-      "slugByLocale": {
-        "it": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
-        "en": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
-        "de": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
-        "fr": "spectrometriste-de-masse-du-personnel-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Staff Mass Spectrometrist (m/f) 100%",
-      "titleByLocale": {
-        "it": "Staff Mass Spectrometrist (m/f) 100%",
-        "en": "Staff Mass Spectrometrist (m/f) 100%.",
-        "de": "Staff Mass Spectrometrist (m/f) 100%",
-        "fr": "Mass Spectrométriste (m/f) à temps plein"
-      },
-      "description": "Staff Mass Spectrometrist (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Spettrometrista di massa (m/f) al 100% presso l'Ospedale Pediatrico Zurich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n• Tipo: a tempo pieno\n• A tempo fisso: a tempo determinato\n• Sede: Zurigo (ZH)\n• Domanda tramite il portale carriera Umantis dell'Ospedale Universitario Pediatrico di Zurigo (Kispi)",
-        "en": "Staff Mass Spectrometrist (m/f) 100% at Children's Hospital Zurich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: full-time\n• Fixed-term: fixed-term\n• Location: Zurich (ZH)\n• Application via the Umantis career portal of University Children's Hospital Zurich (Kispi)",
-        "de": "Staff Mass Spectrometrist (m/f) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Spectrométriste de masse du personnel (m/f) à 100 % à l'Hôpital pour enfants Zurich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type : temps plein\n• Durée fixe : durée déterminée\n• Lieu : Zurich (ZH)\n• Candidature via le portail carrières Umantis de l'Hôpital universitaire pour enfants de Zurich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3697/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:15:10.671Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3697/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:04:14.425Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },

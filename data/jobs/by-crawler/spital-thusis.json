@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-07-10T12:05:42.122Z",
+  "assembledAt": "2026-07-10T22:44:56.046Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:39.632Z",
+      "crawledAt": "2026-07-10T22:44:53.848Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -124,7 +124,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:38.887Z",
+      "crawledAt": "2026-07-10T22:44:53.118Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -203,7 +203,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Chirurgie-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:37.736Z",
+      "crawledAt": "2026-07-10T22:44:51.897Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -297,7 +297,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:37.098Z",
+      "crawledAt": "2026-07-10T22:44:51.166Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -394,7 +394,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Pflegehilfe-SPITEX-50-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:36.457Z",
+      "crawledAt": "2026-07-10T22:44:50.511Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -493,7 +493,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:35.817Z",
+      "crawledAt": "2026-07-10T22:44:49.855Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -584,7 +584,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-80-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:35.149Z",
+      "crawledAt": "2026-07-10T22:44:49.183Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -674,7 +674,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:34.504Z",
+      "crawledAt": "2026-07-10T22:44:48.556Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -694,16 +694,18 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:24:28.951Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
+        "dipl-professionista-hf-80-100-spital-thusis-thusis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-80-100-spital-thusis-ch"
+          "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
+          "dipl-professionista-hf-80-100-spital-thusis-thusis"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-80-100-spital-thusis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:28.951Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -749,7 +751,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:33.863Z",
+      "crawledAt": "2026-07-10T22:44:47.912Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -845,7 +847,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Kauffrau-Kaufmann-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:33.224Z",
+      "crawledAt": "2026-07-10T22:44:47.285Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -939,7 +941,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:32.590Z",
+      "crawledAt": "2026-07-10T22:44:46.636Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1042,7 +1044,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:31.903Z",
+      "crawledAt": "2026-07-10T22:44:45.993Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1145,7 +1147,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildung-Transportsanitaeter-in-FA-2027/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:31.264Z",
+      "crawledAt": "2026-07-10T22:44:45.353Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1182,10 +1184,10 @@
           "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch",
           "training-transport-emt-fa-2027-spital-thusis-thusis"
         ],
-        "fr": [
+        "en": [
           "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
         ],
-        "en": [
+        "fr": [
           "ausbildung-transportsanitater-in-fa-2027-spital-thusis-ch"
         ]
       },
@@ -1236,7 +1238,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:30.518Z",
+      "crawledAt": "2026-07-10T22:44:44.589Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1303,7 +1305,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:29.767Z",
+      "crawledAt": "2026-07-10T22:44:43.961Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1323,16 +1325,18 @@
       "pensumMin": 40,
       "pensumMax": 80,
       "pensum": "40 - 80%",
-      "firstSeenAt": "2026-07-08T22:24:24.411Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
+        "dipl-professionista-hf-spitex-40-80-spital-thusis-thusis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch"
+          "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
+          "dipl-professionista-hf-spitex-40-80-spital-thusis-thusis"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch"
-      ],
+      "firstSeenAt": "2026-07-08T22:24:24.411Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -1378,7 +1382,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:29.106Z",
+      "crawledAt": "2026-07-10T22:44:43.330Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1461,7 +1465,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:28.348Z",
+      "crawledAt": "2026-07-10T22:44:42.565Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1554,7 +1558,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:27.629Z",
+      "crawledAt": "2026-07-10T22:44:41.853Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",

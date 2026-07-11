@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-09T22:23:57.876Z",
-  "total": 82,
+  "generatedAt": "2026-07-10T22:04:00.745Z",
+  "total": 79,
   "newCount": 3,
-  "updatedCount": 76,
-  "removedCount": 3,
-  "unchangedCount": 3,
-  "durationMs": 42980,
-  "avgDurationMs": 42980,
+  "updatedCount": 75,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 50259,
+  "avgDurationMs": 50259,
   "durationHistory": [
-    42980
+    50259
   ],
   "newJobs": [
     {
@@ -144,11 +144,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-09T12:13:07.375Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -1174,125 +1174,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Multi-Asset-Execution-Specialist--Zrich--100---f-m-d-_r-18924-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Multi-Asset-Execution-Specialist--Zrich--100---f-m-d-_r-18924-1",
-      "title": "Multi-Asset Execution Specialist, Zürich, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "multi-asset-execution-specialist-zurich-100-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-06-30",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-30T11:55:02.267Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Incoming-Mail-60---f-m-d-_r-18365",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Incoming-Mail-60---f-m-d-_r-18365",
-      "title": "Incoming Mail 60% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "incoming-mail-60-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-06-25",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "PART_TIME",
-      "sourceLang": "de",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Legal-Structured-Products-Documentation-Specialist--80-100--_r-18414-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Legal-Structured-Products-Documentation-Specialist--80-100--_r-18414-2",
-      "title": "Legal Structured Products Documentation Specialist (80-100%)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "legal-structured-products-documentation-specialist-80-100-julius-baer",
-      "category": "legal",
-      "datePosted": "2026-05-13",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 85000,
-      "salaryMax": 145000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operation-Specialist-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18988-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operation-Specialist-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18988-1",
       "title": "Operation Specialist - Cash Management 100% (f/m/d) - (Contract through our external payroll partner with immediate start for 12 months with possible extension)",
@@ -1322,7 +1203,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1361,7 +1242,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1369,11 +1250,13 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Business-Auditor---Global-Products---Solutions-with-focus-on-Trading--Product-Sales-and-Execution-Activities---Group-Internal-Audit-100---f-m-d-_r-18786-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Business-Auditor---Global-Products---Solutions-with-focus-on-Trading--Product-Sales-and-Execution-Activities---Group-Internal-Audit-100---f-m-d-_r-18786-2",
-      "title": "Senior Business Auditor – Global Products & Solutions with focus on Trading, Product Sales and Execution Activities - Group Internal Audit 100% (f/m/d)",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Reporting---Regulatory-Reporting-Specialist-100---f-m-d-_r-17232-1",
+      "title": "Junior Regulatory Reporting Specialist - 100% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -1384,9 +1267,9 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "senior-business-auditor-global-products-solutions-with-focus-on-trading-product-sales-and-execution-activities-group-internal-audit-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-06-26",
+      "slug": "junior-regulatory-reporting-specialist-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-06-24",
       "source": "julius-baer-workday-crawler",
       "employmentType": "FULL_TIME",
       "sourceLang": "en",
@@ -1397,14 +1280,14 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 14
       }

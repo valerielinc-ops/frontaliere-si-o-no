@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-10T12:05:45.957Z",
+  "generatedAt": "2026-07-10T22:51:03.694Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18575,
-  "avgDurationMs": 18575,
+  "unchangedCount": 0,
+  "durationMs": 19215,
+  "avgDurationMs": 19215,
   "durationHistory": [
-    18575
+    19215
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -72,11 +72,11 @@
         "canton": "NE",
         "location": "Boudry"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T22:57:28.302Z",
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -119,10 +119,7 @@
         "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
       "applyUrl": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
@@ -150,17 +147,15 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 15
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
