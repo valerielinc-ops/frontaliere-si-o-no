@@ -540,9 +540,9 @@
     },
     {
       "id": "bachem-2756505e16dc",
-      "slug": "lab-technician-r-d-a-100-bachem-bubendorf",
+      "slug": "tecnico-di-laboratorio-r-d-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lab-technician-r-d-a-100-bachem-bubendorf",
+        "it": "tecnico-di-laboratorio-r-d-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-a-100-bachem-bubendorf",
         "de": "lab-technician-r-d-a-100-bachem-bubendorf",
         "fr": "lab-technicien-r-d-a-100-bachem-ag-bubendorf"
@@ -598,7 +598,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-r-d-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-r-d-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-54bba795343a",
@@ -6905,10 +6913,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
-      ]
+      }
     },
     {
       "id": "bachem-88078a47fe53",

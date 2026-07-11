@@ -500,7 +500,6 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "de": [
-          "assist-in-akutgeriatrie-kantonsspital-aarau-ksa-aarau",
           "assistent-in-akutgeriatrie-ksa-ch"
         ],
         "it": [
@@ -511,8 +510,7 @@
         ]
       },
       "previousSlugs": [
-        "assistent-in-akutgeriatrie-ksa-ch",
-        "assist-in-akutgeriatrie-kantonsspital-aarau-ksa-aarau"
+        "assistent-in-akutgeriatrie-ksa-ch"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -2261,8 +2259,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -5769,8 +5766,8 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "en": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "fr": "fachexpertin-fachexperte-pflege-ksa-ch-2"
+        "en": "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5827,13 +5824,8 @@
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "previousSlugsByLocale": {
         "it": [],
-        "de": [],
-        "en": [],
-        "fr": []
+        "de": []
       },
-      "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-ksa-ch"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -6037,7 +6029,6 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-radiologiefachmann-kantonsspital-aarau-ksa-aarau",
           "dipl-radiologiefachperson-ksa-ch"
         ],
         "it": [
@@ -6047,7 +6038,6 @@
       },
       "previousSlugs": [
         "dipl-radiologiefachperson-ksa-ch",
-        "dipl-radiologiefachmann-kantonsspital-aarau-ksa-aarau",
         "dipl-radiologiefachperson-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6195,8 +6185,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6345,8 +6334,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6496,8 +6484,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -6649,8 +6636,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -7538,8 +7524,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -8300,7 +8285,7 @@
       "id": "ksa-c124b4a1ad14",
       "slug": "responsabile-ict-support-onsite-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "de": "leiter-in-ict-support-onsite-ksa-ch",
+        "de": "vor-ort-letter-in-ikt-unterstutzung-kantonsspital-aarau-ksa-aarau",
         "it": "responsabile-ict-support-onsite-kantonsspital-aarau-ksa-aarau",
         "en": "leiter-in-ict-support-onsite-ksa-ch",
         "fr": "leiter-in-ict-support-onsite-ksa-ch"
@@ -8346,6 +8331,9 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-ict-support-onsite-ksa-ch"
+        ],
+        "de": [
           "leiter-in-ict-support-onsite-ksa-ch"
         ]
       },
@@ -8499,8 +8487,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "fachexpertin-fachexperte-pflege-ksa-ch-3",
-        "fachexpertin-fachexperte-pflege-ksa-ch-4"
+        "fachexpertin-fachexperte-pflege-ksa-ch-3"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,

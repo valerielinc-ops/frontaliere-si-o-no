@@ -1228,11 +1228,11 @@
     },
     {
       "id": "zfv-unternehmungen-32985f8a8005",
-      "slug": "chef-de-service-zfv-unternehmungen-zurich",
+      "slug": "chef-di-sala-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "chef-de-service-zfv-unternehmungen-zurich",
-        "it": "chef-de-service-zfv-unternehmungen-zurich",
-        "en": "chef-de-service-zfv-unternehmungen-zurich",
+        "it": "chef-di-sala-zfv-unternehmungen-zurich",
+        "en": "head-of-service-zfv-unternehmungen-zurich",
         "fr": "chef-de-service-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
@@ -1288,7 +1288,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:06:21.882Z"
+      "firstSeenAt": "2026-07-10T22:06:21.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-service-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "chef-de-service-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-service-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-852148900a20",
