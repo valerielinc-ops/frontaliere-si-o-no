@@ -8362,6 +8362,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Border teacher school Ticino salary requirements',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'The new Italian-Swiss convention of 9 December 1976 avoids double taxation with the tax credit (EC framework of 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'A teaching scene in Ticino with the city in the background.',
+    'blog.article.samarate-licenziamenti-2026.title': 'Samarate, Former Deltapav, Fires a Third of Workforce',
+    'blog.article.samarate-licenziamenti-2026.excerpt': 'The collective procedure provides for nine redundancies among employees, while there are no reductions among workers.',
+    'blog.article.samarate-licenziamenti-2026.imageAlt': 'Image of a street in Samarate with people in the distance',
 };
 
 export default blogMetaEn;

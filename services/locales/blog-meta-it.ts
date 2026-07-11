@@ -8363,6 +8363,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontaliere insegnante scuola ticino stipendio requisiti',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Una scena di insegnamento in Ticino con la città sullo sfondo.',
+    'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ex Deltapav, licenzia un terzo della forza lavoro',
+    'blog.article.samarate-licenziamenti-2026.excerpt': 'La procedura collettiva prevede nove esuberi tra gli impiegati, mentre non sono previste riduzioni tra gli operai.',
+    'blog.article.samarate-licenziamenti-2026.imageAlt': 'Immagine di una strada di Samarate con persone in lontananza',
 };
 
 export default blogMetaIt;

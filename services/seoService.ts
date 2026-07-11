@@ -4442,6 +4442,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aprire-conto-banca-svizzera-residenti': { name: 'Aprire un conto bancario in Svizzera da', path: '/articoli-svizzera/aprire-conto-banca-svizzera-residenti/', parent: 'blog' },
     'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': { name: 'Frontaliere insegnante scuola ticino', path: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino', parent: 'blog' },
     'blog-imparare-svizzero-tedesco-corsi-e-app': { name: 'Imparare lo svizzero tedesco', path: '/articoli-svizzera/imparare-svizzero-tedesco-corsi-e-app/', parent: 'blog' },
+    'blog-samarate-licenziamenti-2026': { name: 'Samarate', path: '/articoli-frontaliere/samarate-licenziamenti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
