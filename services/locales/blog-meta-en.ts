@@ -8332,6 +8332,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Physiotherapist Job in Ticino: Diploma Recognition, Salary, and Qualification Process',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'For borderline physiotherapists, the recognition of the diploma and the qualification to work in Ticino are fundamental. But how does the enabling process work and what does the G permit mean?',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'A frontal worker physiotherapist gazes at the view of Lake Lugano while taking the sunset.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Works as a cook in Ticino border catering: salary, hours and sector CCL',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Salary, hours, sector CCL and G permit for border chefs in Ticino catering.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'A cross-border chef in a Lugano restaurant, with a view of the lake.',
 };
 
 export default blogMetaEn;

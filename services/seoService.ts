@@ -4424,6 +4424,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-centrali-nucleari-scarpa-voglia-di-costruire': { name: 'Costruzione di centrali nucleari', path: '/articoli-svizzera/centrali-nucleari-scarpa-voglia-di-costruire/', parent: 'blog' },
     'blog-frontaliere-fisioterapista-ticino-stipendio-requisiti': { name: 'Lavorare come fisioterapista in Ticino da', path: '/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-farmacista-ticino-stipendio-requisiti': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontaliere-farmacista-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-cuoco-ristorazione-ticino-stipendio-permesso': { name: 'Lavorare come cuoco nella ristorazione', path: '/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

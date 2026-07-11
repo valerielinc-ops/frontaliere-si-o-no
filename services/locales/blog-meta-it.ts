@@ -8333,6 +8333,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione e cosa significa il permesso G?',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'Un fisioterapista frontaliero si affaccia sulla vista del Lago di Lugano mentre prende il tramonto.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Lavora come cuoco in ristorazione ticinese da frontaliere: stipendio, orari e CCL di settore',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Stipendio, orari, CCL di settore e permesso G per i cuochi frontalieri nella ristorazione ticinese.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'Un frontaliere cuoco in un ristorante di Lugano, con la vista sul lago.',
 };
 
 export default blogMetaIt;

@@ -8331,6 +8331,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Fisioterapia in Ticino: Diploma, Stipendio e Abilitazione',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'Für Grenzgänger als Physiotherapeuten sind die Anerkennung des Diploms und die Arbeitserlaubnis im Tessin von grundlegender Bedeutung. Aber wie funktioniert das Habilitationsverfahren und was bedeutet die G-Berechtigung?',
     'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgängerlicher Physiotherapeut schaut auf die Aussicht auf den Luganersee während der Sonnenuntergang.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Grenzgängerkoch in der Tessiner Gastronomie: Gehalt, Arbeitszeiten und Branchen-GAV',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Gehalt, Arbeitszeiten, Branchen-GAV und G-Genehmigung für Grenzköche in der Tessiner Gastronomie.',
+    'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'Ein Frontalier-Koch in einem Restaurant in Lugano, mit Blick auf den See.',
 };
 
 export default blogMetaDe;

@@ -25037,6 +25037,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-cuoco-ristorazione-ticino-stipendio-permesso',
+ category: 'pratico',
+ date: '2026-07-11T06:58:45.282Z',
+ image: '/images/blog/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
