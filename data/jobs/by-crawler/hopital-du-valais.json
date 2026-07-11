@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-07-11T11:14:50.861Z",
+  "assembledAt": "2026-07-11T22:22:12.831Z",
   "jobs": [
     {
       "id": "hopital-du-valais-79a54ad7b54b",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:48.043Z",
+      "crawledAt": "2026-07-11T22:22:10.529Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:33.795Z",
+      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "currency": "CHF",
@@ -93,7 +94,7 @@
       "title": "Pflegefachperson 80-100%, Chirurgie / Urologie 5 West",
       "titleByLocale": {
         "it": "Infermiera 80-100%, Chirurgia / Urologia 5 Ovest",
-        "en": "Nurse 80-100%, Surgery / Urology 5 West",
+        "en": "Pflegefachperson 80-100%, Chirurgie / Urologie 5 West",
         "de": "Pflegefachperson 80-100%, Chirurgie / Urologie 5 West",
         "fr": "Infirmière 80-100 %, Chirurgie / Urologie 5 Ouest"
       },
@@ -120,7 +121,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:47.675Z",
+      "crawledAt": "2026-07-11T22:22:10.190Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -142,6 +143,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:37:50.418Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -199,7 +201,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:47.295Z",
+      "crawledAt": "2026-07-11T22:22:09.846Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -275,7 +277,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:46.924Z",
+      "crawledAt": "2026-07-11T22:22:09.503Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -329,7 +331,7 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Fachpsychologe/in Ambulatorium 80-100%",
       "titleByLocale": {
-        "it": "Specialista psicologo ad Ambulatorium 80-100 %",
+        "it": "Fachpsychologe/in Ambulatorium 80-100%",
         "en": "Psychologist/in Ambulatorium 80-100 %",
         "de": "Fachpsychologe/in Ambulatorium 80-100%",
         "fr": "Psychologue/en ambulatoire 80-100 %"
@@ -357,7 +359,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:46.539Z",
+      "crawledAt": "2026-07-11T22:22:09.165Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -376,6 +378,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -406,7 +409,7 @@
       "title": "Pflegefachperson 50%-100% (Psychogeriatrie)",
       "titleByLocale": {
         "it": "Infermieristica professionale 50%-100% (psicogeria)",
-        "en": "Nursing professional 50%-100% (psychogeriatry)",
+        "en": "Pflegefachperson 50%-100% (Psychogeriatrie)",
         "de": "Pflegefachperson 50%-100% (Psychogeriatrie)",
         "fr": "Professionnels des soins infirmiers 50% à 100% (psychogérie)"
       },
@@ -433,7 +436,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:46.168Z",
+      "crawledAt": "2026-07-11T22:22:08.825Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -457,6 +460,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:36:37.068Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -514,7 +518,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:45.760Z",
+      "crawledAt": "2026-07-11T22:22:08.485Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -533,6 +537,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -590,7 +595,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:45.392Z",
+      "crawledAt": "2026-07-11T22:22:08.142Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -615,6 +620,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:29.209Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -672,7 +678,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:45.017Z",
+      "crawledAt": "2026-07-11T22:22:07.736Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -727,7 +733,7 @@
       "title": "Ergotherapeut/in 80-100%",
       "titleByLocale": {
         "it": "Terapista/in 80-100 %",
-        "en": "Occupational therapist/in 80-100 %",
+        "en": "Ergotherapeut/in 80-100%",
         "de": "Ergotherapeut/in 80-100%",
         "fr": "Ergothérapie/en 80-100 %"
       },
@@ -754,7 +760,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:44.650Z",
+      "crawledAt": "2026-07-11T22:22:07.396Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -787,6 +793,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:28:14.611Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -844,7 +851,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:44.275Z",
+      "crawledAt": "2026-07-11T22:22:07.033Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -882,7 +889,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "hopital-du-valais-e43935c58911",
@@ -926,7 +934,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:43.884Z",
+      "crawledAt": "2026-07-11T22:22:06.675Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -1002,7 +1010,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e5eadda8971103d0e7ce346e2153af5f/ATSANN0004706/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:43.518Z",
+      "crawledAt": "2026-07-11T22:22:06.329Z",
       "_hvsMeta": {
         "number": "ATSANN0004706",
         "sysId": "e5eadda8971103d0e7ce346e2153af5f",
@@ -1056,7 +1064,7 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
       "titleByLocale": {
-        "it": "Professionista 80 - 100%, IMC (Intermediate Care)",
+        "it": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
         "en": "Career 80 - 100%, IMC (Intermediate Care)",
         "de": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
         "fr": "Carrière 80 - 100%, IMC (Intermediate Care)"
@@ -1084,7 +1092,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:43.148Z",
+      "crawledAt": "2026-07-11T22:22:05.969Z",
       "_hvsMeta": {
         "number": "ATSANN0004704",
         "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
@@ -1093,6 +1101,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:19.092Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1150,7 +1159,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:42.777Z",
+      "crawledAt": "2026-07-11T22:22:05.627Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -1229,7 +1238,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f34f54769759cf10316bb0b71153af7d/ATSANN0004712/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:42.410Z",
+      "crawledAt": "2026-07-11T22:22:05.262Z",
       "_hvsMeta": {
         "number": "ATSANN0004712",
         "sysId": "f34f54769759cf10316bb0b71153af7d",
@@ -1313,7 +1322,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/27feeadb8399cf5417a39d20ceaad302/ATSANN0004717/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:42.043Z",
+      "crawledAt": "2026-07-11T22:22:04.900Z",
       "_hvsMeta": {
         "number": "ATSANN0004717",
         "sysId": "27feeadb8399cf5417a39d20ceaad302",
@@ -1338,6 +1347,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:48:17.299Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1395,7 +1405,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/aa75fed7839dcf5417a39d20ceaad37b/ATSANN0004718/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:41.676Z",
+      "crawledAt": "2026-07-11T22:22:04.555Z",
       "_hvsMeta": {
         "number": "ATSANN0004718",
         "sysId": "aa75fed7839dcf5417a39d20ceaad37b",
@@ -1449,7 +1459,7 @@
       "titleByLocale": {
         "it": "Supporto IT 100%",
         "en": "IT Support 100%",
-        "de": "IT Support 100%",
+        "de": "IT Supporter 100%",
         "fr": "IT Supporter 100%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nIT Supporter 100%\n\nPour le service Informatique, unité Support IT\n\nVous aimez le contact client et offrir un support de qualité ?\n\nN’hésitez plus et rejoignez notre équipe de support en participant à la satisfaction de nos utilisateurs !\n\nMission:\n• Fournir un service de support par téléphone et sur le terrain aux utilisateurs ;\n\n• Résoudre les demandes de support du 1 er niveau selon les SLA ;\n\n• Contribuer à la satisfaction durable des clients ;\n\n• Faire le lien entre le support de 2 ème et 3 ème niveau ;\n\n• Participer aux mises en production de divers projets IT ;\n\n• Contribuer à la maintenance du parc informatique de l’Hôpital du Valais ;\n\n• Créer et mettre à jour la documentation pour les utilisateurs ;\n\n• Former et coacher les utilisateurs sur les systèmes et applications.\n\nProfil:\n• CFC d’informaticien-ne ou médiamaticien-ne ou formation jugée équivalente ;\n\n• 2-3 ans d'expérience dans un poste similaire ou dans un Callcenter ;\n\n• Connaissances des solutions Microsoft ;\n\n• Connaissances de ITIL, Atlassian Confluence, Service-Now un plus ;\n\n• Bonne capacité de communication et d’écoute ;\n\n• Capable à travailler dans un environnement hautement dynamique ;\n\n• Sens de la collaboration marqué et force-vive ;\n\n• De langue maternelle allemande avec de très bonnes connaissances du français et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
@@ -1475,7 +1485,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/77a63b1b9715c750316bb0b71153af9c/ATSANN0004719/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:41.303Z",
+      "crawledAt": "2026-07-11T22:22:04.198Z",
       "_hvsMeta": {
         "number": "ATSANN0004719",
         "sysId": "77a63b1b9715c750316bb0b71153af9c",
@@ -1497,6 +1507,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:49:35.418Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1554,7 +1565,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:40.897Z",
+      "crawledAt": "2026-07-11T22:22:03.827Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -1636,7 +1647,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bcbf89b38715cf54dbd6ebd30cbb35e7/ATSANN0004734/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:40.530Z",
+      "crawledAt": "2026-07-11T22:22:03.481Z",
       "_hvsMeta": {
         "number": "ATSANN0004734",
         "sysId": "bcbf89b38715cf54dbd6ebd30cbb35e7",
@@ -1718,7 +1729,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/120f40fb87918f54dbd6ebd30cbb3507/ATSANN0004723/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:40.162Z",
+      "crawledAt": "2026-07-11T22:22:03.135Z",
       "_hvsMeta": {
         "number": "ATSANN0004723",
         "sysId": "120f40fb87918f54dbd6ebd30cbb3507",
@@ -1800,7 +1811,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:39.731Z",
+      "crawledAt": "2026-07-11T22:22:02.794Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -1880,7 +1891,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ae48b36797d54b50316bb0b71153af4c/ATSANN0004720/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:39.363Z",
+      "crawledAt": "2026-07-11T22:22:02.452Z",
       "_hvsMeta": {
         "number": "ATSANN0004720",
         "sysId": "ae48b36797d54b50316bb0b71153af4c",
@@ -1962,7 +1973,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/04ad00fc83edc31017a39d20ceaad3a2/ATSANN0004736/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:38.992Z",
+      "crawledAt": "2026-07-11T22:22:02.111Z",
       "_hvsMeta": {
         "number": "ATSANN0004736",
         "sysId": "04ad00fc83edc31017a39d20ceaad3a2",
@@ -2044,7 +2055,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbda91cd97290790316bb0b71153af29/ATSANN0004739/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:38.619Z",
+      "crawledAt": "2026-07-11T22:22:01.765Z",
       "_hvsMeta": {
         "number": "ATSANN0004739",
         "sysId": "dbda91cd97290790316bb0b71153af29",
@@ -2069,6 +2080,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:37:35.140Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -2126,7 +2138,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c5efbd5187258350dbd6ebd30cbb356b/ATSANN0004741/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:38.253Z",
+      "crawledAt": "2026-07-11T22:22:01.425Z",
       "_hvsMeta": {
         "number": "ATSANN0004741",
         "sysId": "c5efbd5187258350dbd6ebd30cbb356b",
@@ -2151,6 +2163,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:12:59.908Z",
+      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "currency": "CHF",
@@ -2181,7 +2194,7 @@
       "title": "Pflegefachperson 80%, Akutabteilung PZO",
       "titleByLocale": {
         "it": "Infermiera 80%, unità di cura acuta PZO",
-        "en": "Nurse 80%, acute department PZO",
+        "en": "Pflegefachperson 80%, Akutabteilung PZO",
         "de": "Pflegefachperson 80%, Akutabteilung PZO",
         "fr": "Infirmière 80 %, service aigu"
       },
@@ -2208,7 +2221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/609bbf6597618b54e7ce346e2153afe7/ATSANN0004746/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:37.851Z",
+      "crawledAt": "2026-07-11T22:22:01.087Z",
       "_hvsMeta": {
         "number": "ATSANN0004746",
         "sysId": "609bbf6597618b54e7ce346e2153afe7",
@@ -2233,6 +2246,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T22:56:13.434Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -2290,7 +2304,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/55e80f6997a54b54e7ce346e2153afd7/ATSANN0004743/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:37.483Z",
+      "crawledAt": "2026-07-11T22:22:00.732Z",
       "_hvsMeta": {
         "number": "ATSANN0004743",
         "sysId": "55e80f6997a54b54e7ce346e2153afd7",
@@ -2331,7 +2345,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "hopital-du-valais-81810de17c4a",
@@ -2348,7 +2363,7 @@
       "title": "Pflegefachperson 80-100%, Medizin 3 Ost",
       "titleByLocale": {
         "it": "Infermiera 80-100%, Medicina 3 Est",
-        "en": "Nurse 80-100%, Medicine 3 East",
+        "en": "Pflegefachperson 80-100%, Medizin 3 Ost",
         "de": "Pflegefachperson 80-100%, Medizin 3 Ost",
         "fr": "Infirmière 80-100%, Médecine 3 Est"
       },
@@ -2375,7 +2390,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4c6a473e87218b90dbd6ebd30cbb35ea/ATSANN0004748/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:37.116Z",
+      "crawledAt": "2026-07-11T22:22:00.387Z",
       "_hvsMeta": {
         "number": "ATSANN0004748",
         "sysId": "4c6a473e87218b90dbd6ebd30cbb35ea",
@@ -2400,6 +2415,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:16:07.554Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2430,7 +2446,7 @@
       "title": "Aktivierungsfachperson 50-100%",
       "titleByLocale": {
         "it": "Professionista di attivazione 50-100 %",
-        "en": "Activation professional 50-100 %",
+        "en": "Aktivierungsfachperson 50-100%",
         "de": "Aktivierungsfachperson 50-100%",
         "fr": "Activation professionnelle 50-100 %"
       },
@@ -2457,7 +2473,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/30701d028769cf50dbd6ebd30cbb3544/ATSANN0004747/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:36.739Z",
+      "crawledAt": "2026-07-11T22:22:00.048Z",
       "_hvsMeta": {
         "number": "ATSANN0004747",
         "sysId": "30701d028769cf50dbd6ebd30cbb3544",
@@ -2482,6 +2498,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T22:52:21.556Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2539,7 +2556,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6dfe0cf83690b5017a39d20ceaad3bf/ATSANN0004751/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:36.373Z",
+      "crawledAt": "2026-07-11T22:21:59.711Z",
       "_hvsMeta": {
         "number": "ATSANN0004751",
         "sysId": "c6dfe0cf83690b5017a39d20ceaad3bf",
@@ -2572,6 +2589,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:16:18.024Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -2629,7 +2647,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/08ed2bfa47edcb18339c9146736d4392/ATSANN0004750/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:36.006Z",
+      "crawledAt": "2026-07-11T22:21:59.370Z",
       "_hvsMeta": {
         "number": "ATSANN0004750",
         "sysId": "08ed2bfa47edcb18339c9146736d4392",
@@ -2713,7 +2731,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e912149f97218310316bb0b71153afba/ATSANN0004752/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:35.639Z",
+      "crawledAt": "2026-07-11T22:21:59.031Z",
       "_hvsMeta": {
         "number": "ATSANN0004752",
         "sysId": "e912149f97218310316bb0b71153afba",
@@ -2795,7 +2813,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/635414d397a18310316bb0b71153af26/ATSANN0004753/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:35.271Z",
+      "crawledAt": "2026-07-11T22:21:58.692Z",
       "_hvsMeta": {
         "number": "ATSANN0004753",
         "sysId": "635414d397a18310316bb0b71153af26",
@@ -2879,7 +2897,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0acce9a787a90f10dbd6ebd30cbb35d0/ATSANN0004756/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:34.907Z",
+      "crawledAt": "2026-07-11T22:21:58.351Z",
       "_hvsMeta": {
         "number": "ATSANN0004756",
         "sysId": "0acce9a787a90f10dbd6ebd30cbb35d0",
@@ -2917,7 +2935,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "hopital-du-valais-cde87991c2f5",
@@ -2961,7 +2980,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b01935af87654f10dbd6ebd30cbb35ab/ATSANN0004760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:34.540Z",
+      "crawledAt": "2026-07-11T22:21:58.013Z",
       "_hvsMeta": {
         "number": "ATSANN0004760",
         "sysId": "b01935af87654f10dbd6ebd30cbb35ab",
@@ -3016,7 +3035,7 @@
       "title": "Pflegefachperson Tagesklinik Erwachsene 100%",
       "titleByLocale": {
         "it": "Infermiera giorno clinica adulti 100%",
-        "en": "Nurse day clinic adults 100%",
+        "en": "Pflegefachperson Tagesklinik Erwachsene 100%",
         "de": "Pflegefachperson Tagesklinik Erwachsene 100%",
         "fr": "Clinique de jour pour infirmières adultes 100%"
       },
@@ -3043,7 +3062,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7ab0f9af47a58710339c9146736d43f0/ATSANN0004759/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:34.152Z",
+      "crawledAt": "2026-07-11T22:21:57.671Z",
       "_hvsMeta": {
         "number": "ATSANN0004759",
         "sysId": "7ab0f9af47a58710339c9146736d43f0",
@@ -3068,6 +3087,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T11:57:40.252Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3125,7 +3145,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45437f3397ad4710e7ce346e2153afa2/ATSANN0004767/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:33.784Z",
+      "crawledAt": "2026-07-11T22:21:57.306Z",
       "_hvsMeta": {
         "number": "ATSANN0004767",
         "sysId": "45437f3397ad4710e7ce346e2153afa2",
@@ -3207,7 +3227,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e1df6a3797e98310e7ce346e2153af69/ATSANN0004762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:33.417Z",
+      "crawledAt": "2026-07-11T22:21:56.965Z",
       "_hvsMeta": {
         "number": "ATSANN0004762",
         "sysId": "e1df6a3797e98310e7ce346e2153af69",
@@ -3291,7 +3311,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d55e6e3b4765c310339c9146736d437c/ATSANN0004761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:33.048Z",
+      "crawledAt": "2026-07-11T22:21:56.604Z",
       "_hvsMeta": {
         "number": "ATSANN0004761",
         "sysId": "d55e6e3b4765c310339c9146736d437c",
@@ -3315,6 +3335,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:22:27.719Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3372,7 +3393,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:32.646Z",
+      "crawledAt": "2026-07-11T22:21:56.262Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -3455,7 +3476,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1b083eb39761c310e7ce346e2153af3f/ATSANN0004763/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:32.276Z",
+      "crawledAt": "2026-07-11T22:21:55.920Z",
       "_hvsMeta": {
         "number": "ATSANN0004763",
         "sysId": "1b083eb39761c310e7ce346e2153af3f",
@@ -3541,7 +3562,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1158fab74769c310339c9146736d430b/ATSANN0004764/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:31.876Z",
+      "crawledAt": "2026-07-11T22:21:55.580Z",
       "_hvsMeta": {
         "number": "ATSANN0004764",
         "sysId": "1158fab74769c310339c9146736d430b",
@@ -3623,7 +3644,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3b0079a387ad0f10dbd6ebd30cbb3580/ATSANN0004757/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:31.510Z",
+      "crawledAt": "2026-07-11T22:21:55.239Z",
       "_hvsMeta": {
         "number": "ATSANN0004757",
         "sysId": "3b0079a387ad0f10dbd6ebd30cbb3580",
@@ -3705,7 +3726,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e41945549775cb10e7ce346e2153af23/ATSANN0004773/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:31.142Z",
+      "crawledAt": "2026-07-11T22:21:54.895Z",
       "_hvsMeta": {
         "number": "ATSANN0004773",
         "sysId": "e41945549775cb10e7ce346e2153af23",
@@ -3734,6 +3755,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:07:38.987Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -3791,7 +3813,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f794cd9c97f1cb10e7ce346e2153af37/ATSANN0004772/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:30.774Z",
+      "crawledAt": "2026-07-11T22:21:54.554Z",
       "_hvsMeta": {
         "number": "ATSANN0004772",
         "sysId": "f794cd9c97f1cb10e7ce346e2153af37",
@@ -3873,7 +3895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d228f4509731cb10e7ce346e2153afec/ATSANN0004768/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:30.406Z",
+      "crawledAt": "2026-07-11T22:21:54.213Z",
       "_hvsMeta": {
         "number": "ATSANN0004768",
         "sysId": "d228f4509731cb10e7ce346e2153afec",
@@ -3955,7 +3977,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/924c34dc9771cb10e7ce346e2153afd5/ATSANN0004770/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:30.035Z",
+      "crawledAt": "2026-07-11T22:21:53.858Z",
       "_hvsMeta": {
         "number": "ATSANN0004770",
         "sysId": "924c34dc9771cb10e7ce346e2153afd5",
@@ -4011,7 +4033,7 @@
       "titleByLocale": {
         "it": "Security Ingegnere à 100%",
         "en": "Security Engineer 100%",
-        "de": "Security Engineer 100%",
+        "de": "Security Engineer à 100%",
         "fr": "Security Ingénieur à 100%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nSecurity Engineer à 100%\n\npour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Assurer la protection des actifs numériques de l’institution, à la gestion de la sécurité informatique ainsi qu’aux projets innovants impliquant des composantes ICT ;\n\n• participer à l’exploitation de notre SOC, au traitement des évènements de sécurité et à l’optimisation de règles de détection (DaC) ;\n\n• intervenir au sein de notre CSIRT pour gérer les incidents, développer et maintenir les playbooks et runbooks ;\n\n• assurer la veille sur les vulnérabilités, analyser leur impact sur l’environnement interne et coordonner leur remédiation avec les différentes équipes IT et métiers ;\n\n• suivre les événements de sécurité et produire des rapports de sécurité et tableaux de bords associés ;\n\n• définir, maintenir et faire évoluer les KPI de sécurité ;\n\n• procéder à des missions d’audit de sécurité et réaliser des investigations forensiques ;\n\n• suivre l’évolution technologique et les tendances en cybersécurité afin de contribuer à l’innovation des services ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation d’ingénieur HES/EPF ou formation jugée équivalente ;\n\n• 3-5 ans d’expérience dans un poste similaire ;\n\n• compréhension approfondie des systèmes d'information dans des environnements Windows et Linux ;\n\n• solide expertise en sécurité des systèmes dans des environnements IT et OT ;\n\n• bonnes connaissances de plusieurs langages de script et de programmation ;\n\n• familier avec les notions liées au Threat Modeling , et les framework MITRE, NIST, etc. ;\n\n• connaissances approfondies de la stack Microsoft et des solutions XDR, SIEM, NDR et des concepts SOAR ;\n\n• sensibilité DevOps et bonnes connaissances des environnements d’automatisation ;\n\n• compétences de hacker (white hat) et certifications SC-200, GIAC, OSCP, CEH un avantage ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
@@ -4037,7 +4059,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf0d470197f14750e7ce346e2153af1f/ATSANN0004774/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:29.668Z",
+      "crawledAt": "2026-07-11T22:21:53.519Z",
       "_hvsMeta": {
         "number": "ATSANN0004774",
         "sysId": "bf0d470197f14750e7ce346e2153af1f",
@@ -4046,6 +4068,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-29T13:13:13.714Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -4077,7 +4100,7 @@
       "titleByLocale": {
         "it": "System Ingegnere à 100%",
         "en": "100% System Engineer",
-        "de": "System Engineer 100%",
+        "de": "System Engineer à 100%",
         "fr": "System Ingénieur à 100%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nSystem Engineer à 100%\n\npour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants impliquant des composantes ICT ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et des meilleures pratiques en cybersécurité afin de contribuer à l’innovation des services ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation d’ingénieur ES/HES/EPF ou formation jugée équivalente ;\n\n• 2-3 ans d’expérience dans un poste similaire ;\n\n• solide expertise du socle technologique Microsoft et son écosystème hybride ;\n\n• connaissances dans la gestion des infrastructures Datacenter, de la virtualisation avec les technologies VMware et des plateformes de stockage ;\n\n• bonnes compétences en matière d'ingénierie et de troubleshooting ;\n\n• forte sensibilité DevOps (CI/CD) et bonnes connaissances des environnements d’automatisation (Ansible et/ou Terraform, de préférence) ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
@@ -4103,7 +4126,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e16e0bc997f14750e7ce346e2153af31/ATSANN0004775/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:29.299Z",
+      "crawledAt": "2026-07-11T22:21:53.179Z",
       "_hvsMeta": {
         "number": "ATSANN0004775",
         "sysId": "e16e0bc997f14750e7ce346e2153af31",
@@ -4112,6 +4135,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-29T13:13:13.323Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -4169,7 +4193,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e453909197710750316bb0b71153af5a/ATSANN0004776/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:28.932Z",
+      "crawledAt": "2026-07-11T22:21:52.837Z",
       "_hvsMeta": {
         "number": "ATSANN0004776",
         "sysId": "e453909197710750316bb0b71153af5a",
@@ -4251,7 +4275,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c0ea4a583f5c75017a39d20ceaad35e/ATSANN0004777/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:28.558Z",
+      "crawledAt": "2026-07-11T22:21:52.487Z",
       "_hvsMeta": {
         "number": "ATSANN0004777",
         "sysId": "1c0ea4a583f5c75017a39d20ceaad35e",
@@ -4335,7 +4359,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:28.189Z",
+      "crawledAt": "2026-07-11T22:21:52.145Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -4427,7 +4451,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/534ba2ca83b1871017a39d20ceaad39e/ATSANN0004779/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:27.796Z",
+      "crawledAt": "2026-07-11T22:21:51.804Z",
       "_hvsMeta": {
         "number": "ATSANN0004779",
         "sysId": "534ba2ca83b1871017a39d20ceaad39e",
@@ -4436,6 +4460,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-07-02T11:31:18.736Z",
+      "needsRetranslation": true,
       "salaryMin": 62700,
       "salaryMax": 110100,
       "currency": "CHF",
@@ -4493,7 +4518,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f00735f8740f654dbd6ebd30cbb3595/ATSANN0004328/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:27.403Z",
+      "crawledAt": "2026-07-11T22:21:51.463Z",
       "_hvsMeta": {
         "number": "ATSANN0004328",
         "sysId": "4f00735f8740f654dbd6ebd30cbb3595",
@@ -4577,7 +4602,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/20ac7cee83350f1017a39d20ceaad3d4/ATSANN0004789/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:26.669Z",
+      "crawledAt": "2026-07-11T22:21:50.711Z",
       "_hvsMeta": {
         "number": "ATSANN0004789",
         "sysId": "20ac7cee83350f1017a39d20ceaad3d4",
@@ -4653,7 +4678,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/89ba08ae97718710e7ce346e2153af8e/ATSANN0004786/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:26.290Z",
+      "crawledAt": "2026-07-11T22:21:50.369Z",
       "_hvsMeta": {
         "number": "ATSANN0004786",
         "sysId": "89ba08ae97718710e7ce346e2153af8e",
@@ -4737,7 +4762,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/885003db87f94fd0dbd6ebd30cbb3584/ATSANN0004790/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:25.921Z",
+      "crawledAt": "2026-07-11T22:21:50.026Z",
       "_hvsMeta": {
         "number": "ATSANN0004790",
         "sysId": "885003db87f94fd0dbd6ebd30cbb3584",
@@ -4819,7 +4844,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4baa1cb347f94310339c9146736d430d/ATSANN0004794/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:14:25.554Z",
+      "crawledAt": "2026-07-11T22:21:49.431Z",
       "_hvsMeta": {
         "number": "ATSANN0004794",
         "sysId": "4baa1cb347f94310339c9146736d430d",
@@ -4885,7 +4910,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/34a310a787b10314dbd6ebd30cbb355b/ATSANN0004791/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:25.187Z",
+      "crawledAt": "2026-07-11T22:21:49.078Z",
       "_hvsMeta": {
         "number": "ATSANN0004791",
         "sysId": "34a310a787b10314dbd6ebd30cbb355b",
@@ -4967,7 +4992,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/baf1a250478ec710339c9146736d435a/ATSANN0004796/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T11:14:24.813Z",
+      "crawledAt": "2026-07-11T22:21:48.714Z",
       "_hvsMeta": {
         "number": "ATSANN0004796",
         "sysId": "baf1a250478ec710339c9146736d435a",
@@ -5006,162 +5031,6 @@
         }
       },
       "addressRegion": "VS"
-    },
-    {
-      "id": "hopital-du-valais-269eac877d08",
-      "slug": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
-        "en": "network-engineer-administrator-80-90-hopital-du-valais-sion",
-        "de": "network-engineer-administrator-80-90-hopital-du-valais-sion",
-        "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Network Engineer/Administrator 80% - 90%",
-      "titleByLocale": {
-        "it": "Ingegnere di rete/Amministratore 80% - 90%",
-        "en": "Network Engineer/Administrator 80% - 90%",
-        "de": "Network Ingenieur/Administrator 80% - 90%",
-        "fr": "Network Ingénieur/Administrator 80% - 90%"
-      },
-      "description": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Vallese sta cercando un: Ingegnere di rete/Amministratore 80% - 90% CDD di 18 mesi per servizi informatici, unità operativa Voi svolgete un ruolo essenziale nella modernizzazione e nella sicurezza delle infrastrutture IT, accompagnando progetti innovativi ad alto impatto umano e tecnologico. Pronto a rispondere a varie sfide tecniche e collaborare con team appassionati? Unisciti a noi presto! Missione:\n• Partecipare alla gestione e allo sviluppo delle infrastrutture IT, nonché progetti innovativi per nuovi ospedali e centri di calcolo;\n• implementare soluzioni efficienti, sicure e altamente disponibili;\n• garantire la sicurezza operativa dei sistemi;\n• monitoraggio degli sviluppi tecnologici e partecipazione all'innovazione dei servizi;\n• partecipare al servizio di supporto Livello 2 e 3;\n• attività automatizzate e orchestrate (infrastrutture come codice);\n• collaborare a progetti relativi al reparto IT e agli scambi. Profilo:\n• Formazione ES/HES in informatica o telecomunicazioni;\n• 1-2 anni di esperienza in una posizione simile;\n• eccellenti competenze nella gestione della rete informatica, compresi i progetti di migrazione e il funzionamento dell'infrastruttura LAN e W-LAN;\n• buona esperienza nella sostituzione fisica delle attrezzature e nel coordinamento dei lavori telematici (Layer1) con gli stakeholder;\n• padroneggiare i protocolli (L2-L7) e gli standard in vigore e una piattaforma NAC;\n• la conoscenza del sistema Linux, la scrittura e il mantenimento di Ansible playbook;\n• patente di guida categoria B o equivalente;\n• can-do, rigoroso e integrità;\n• buone capacità analitiche e organizzative;\n• Lingua madre francese con buona conoscenza della seconda lingua e inglese. Offerta: Un ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for a: Network Engineer/Administrator 80% - 90% 18-month CDD for Computer Services, Operations Unit You play an essential role in the modernisation and security of IT infrastructures, while accompanying innovative projects with high human and technological impact. Ready to meet various technical challenges and collaborate with passionate teams? Join us soon! Mission:\n• Participate in the management and development of IT infrastructures, as well as innovative projects for new hospitals and computing centres;\n• implementing efficient, safe and highly available solutions;\n• ensuring the operational security of systems;\n• monitoring technological developments and participating in service innovation;\n• participating in the Level 2 and 3 support service;\n• automate and orchestrate activities (infrastructure as a code);\n• collaborate on projects related to the IT department and the trades. Profile:\n• ES/HES training in computer or telecommunications;\n• 1-2 years of experience in a similar position;\n• excellent skills in computer network management, including migration projects and the operation of LAN and W-LAN infrastructure;\n• good experience in physical replacement of equipment and coordination of telematics work (Layer1) with stakeholders;\n• mastering the protocols (L2-L7) and the standards in force and a NAC platform;\n• knowledge of the Linux system as well as writing and maintaining Ansible playbook;\n• driving licence category B or equivalent;\n• can-do, rigorous and integrity;\n• good analytical and organizational skills;\n• French mother tongue with good knowledge of the second language and English. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Das Wallis Hospital sucht nach: Network Engineer/Administrator 80% - 90% 18-monatige CDD für Computer Services, Operations Unit Sie spielen eine wesentliche Rolle bei der Modernisierung und Sicherheit von IT-Infrastrukturen und begleiten innovative Projekte mit hoher menschlicher und technologischer Wirkung. Bereit, verschiedene technische Herausforderungen zu erfüllen und mit leidenschaftlichen Teams zusammenzuarbeiten? Kommen Sie bald zu uns! Mission:\n• Erwarten Sie die Verwaltung und Entwicklung von IT-Infrastrukturen sowie innovative Projekte für neue Krankenhäuser und Rechenzentren;\n• die Umsetzung effizienter, sicherer und hochverfügbarer Lösungen;\n• Gewährleistung der Betriebssicherheit der Systeme;\n• Überwachung technologischer Entwicklungen und Beteiligung an der Innovation im Dienste;\n• Teilnahme am Support-Service Level 2 und 3;\n• automatisieren und orchestrieren (Infrastruktur als Code);\n• Zusammenarbeit bei Projekten im Zusammenhang mit der IT-Abteilung und dem Handel. Profil:\n• ES/HES-Ausbildung in Computer oder Telekommunikation;\n• 1-2 Jahre Erfahrung in einer ähnlichen Position;\n• hervorragende Fähigkeiten in der Verwaltung von Computernetzwerken, einschließlich Migrationsprojekten und dem Betrieb von LAN- und W-LAN-Infrastruktur;\n• gute Erfahrung beim physischen Austausch von Geräten und der Koordinierung der Telematikarbeit (Layer1) mit Interessenvertretern;\n• die Protokolle (L2-L7) und die geltenden Normen und eine NAC-Plattform zu beherrschen;\n• Kenntnisse des Linux-Systems sowie Schreiben und Aufrechterhalten von ansible playbook;\n• Führerscheinkategorie B oder gleichwertig;\n• can-do, rigorose und Integrität;\n• gute analytische und organisatorische Fähigkeiten;\n• Französische Muttersprache mit gutem Wissen über die zweite Sprache und Englisch. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "technology",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 90%",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:31:50.267Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004699",
-        "sysId": "73f1ff408315cbd017a39d20ceaad318",
-        "societe": "DG & Centre de Services",
-        "famille": "Informatique",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "network-engineer-administrator-80-90-hopital-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "network-engineer-administrator-80-90-hopital-du-valais-sion"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:51:57.681Z",
-      "salaryMin": 54500,
-      "salaryMax": 82400,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54500,
-          "maxValue": 82400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-72a944c5d139",
-      "slug": "collaboratore-di-supporto-del-laboratorio-15-60-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "collaboratore-di-supporto-del-laboratorio-15-60-hopital-du-valais-sion",
-        "en": "collaborator-of-laboratory-support-15-60-hopital-du-valais-sion",
-        "de": "koordinator-fur-laborunterstutzung-15-60-hopital-du-valais-sion",
-        "fr": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Collaborateur-rice du soutien laboratoires (15%-60%)",
-      "titleByLocale": {
-        "it": "Collaboratore di supporto di laboratorio (15%-60%)",
-        "en": "Laboratory Support Collaborator (15%-60%)",
-        "de": "Laborunterstützungsmitarbeiter (15%-60%)",
-        "fr": "Collaborateur-rice du soutien laboratoire (15%-60%)"
-      },
-      "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nCollaborateur-rice du soutien laboratoires (15%-60%)\n\nMission:\nVous êtes en charge de l’enregistrement des demandes d’analyses médicales en provenance aussi bien des secteurs hospitaliers que des cabinets médicaux. Vous êtes également amené-e-s à effectuer des tests rapides pour le laboratoire. L’horaire de travail est situé, en semaine, entre 16h30 et 21h30 (voir 23h00 exceptionnellement) et, le week-end et les fériés, entre 13h00 et 21h30 (voir 23h00 exceptionnellement).\n\nProfil:\nVous êtes étudiant-e dans une HES du domaine de la santé ou avez achevé votre formation de secondaire II. Vous faites preuve de dynamisme et d’esprit d’équipe. Vous êtes consciencieux-se et à l’aise avec les outils informatiques.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Vallese sta cercando l'Istituto Centrale degli Ospedali\n\nCollaboratore di supporto di laboratorio (15%-60%)\n\nMissione:\nLei è responsabile della registrazione delle domande di analisi mediche sia dall'ospedale che dagli uffici medici. È inoltre necessario eseguire test rapidi per il laboratorio. Le ore di lavoro sono comprese tra le 16.30 e le 21.30 nei giorni feriali (vedi 11.00 eccezionalmente) e tra le 11.00 e le 9.30 nei fine settimana e nei giorni festivi (vedi 11.00 eccezionalmente).\n\nProfilo:\nSei uno studente in una salute HES o hai completato il tuo corso secondario II. Lei mostra dinamismo e spirito di squadra. Sei coscienzioso e confortevole con strumenti per computer.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "L,Hôpital du Valais is looking for a laboratory support co-ordinator for the Central Hospital Institute (15%-610) Mission: You are in charge of the registration of requests for medical analyses from both the hospital and medical offices. You are also required to carry out rapid tests for the laboratory. L, working hours are, on weekdays, between 4.30 and 9.30 pm (see exceptionally 11.00 pm) and, on weekends and holidays, between 1.00 and 9.30 pm (see exceptionally 11.00 pm).\n• Profile: You are a student in a HES in the field of health or have completed your secondary II training. You are dynamic and d, spirit of, team. You are conscientious and comfortable with the computer tools. Offer: A stimulating and diverse environment with the possibility to make use of your knowledge and experience; attractive conditions of employment; opportunities for further training and further training. Find here all the advantages for our collaborators.",
-        "de": "L,Hôpital du Valais sucht einen Labor-Support-Mit-Beauftragten für das Zentralkrankenhaus (15%-610) Mission: Sie sind für die Registrierung von Anträgen auf medizinische Analysen sowohl von der Klinik als auch von der medizinischen Praxis zuständig. Sie sind auch verpflichtet, Schnelltests für das Labor durchzuführen. L, Arbeitszeiten sind, an Wochentagen, zwischen 16.30 und 9.30 Uhr (siehe ausnahmsweise 11.00 Uhr) und, an Wochenenden und Feiertagen, zwischen 1.00 und 9.30 Uhr (siehe ausnahmsweise 11.00 Uhr). Profil: Sie sind Studentin im HES im Gesundheitsbereich oder haben Ihre Sekundär-II-Ausbildung abgeschlossen. Sie sind dynamisch und d, Geist des Teams. Sie sind gewissenhaft und komfortabel mit den Computer-Tools. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Arbeitsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e Collaborateur-rice du soutien laboratoires (15%-60%) Mission: Vous êtes en charge de l’enregistrement des demandes d’analyses médicales en provenance aussi bien des secteurs hospitaliers que des cabinets médicaux. Vous êtes également amené-e-s à effectuer des tests rapides pour le laboratoire. L’horaire de travail est situé, en semaine, entre 16h30 et 21h30 (voir 23h00 exceptionnellement) et, le week-end et les fériés, entre 13h00 et 21h30 (voir 23h00 exceptionnellement). Profil: Vous êtes étudiant-e dans une HES du domaine de la santé ou avez achevé votre formation de secondaire II. Vous faites preuve de dynamisme et d’esprit d’équipe. Vous êtes consciencieux-se et à l’aise avec les outils informatiques. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "logistics",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "15 - 60%",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3141cffb87e98310dbd6ebd30cbb3589/ATSANN0004765/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3141cffb87e98310dbd6ebd30cbb3589/ATSANN0004765/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:31:38.171Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004765",
-        "sysId": "3141cffb87e98310dbd6ebd30cbb3589",
-        "societe": "Institut central des hôpitaux",
-        "famille": "Médico-technique",
-        "site": "SION"
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratore-di-supporto-di-laboratorio-15-60-hopital-du-valais-sion",
-          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
-        ],
-        "de": [
-          "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratore-di-supporto-di-laboratorio-15-60-hopital-du-valais-sion",
-        "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion",
-        "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
-      ],
-      "firstSeenAt": "2026-06-25T22:32:35.542Z",
-      "salaryMin": 36300,
-      "salaryMax": 54900,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36300,
-          "maxValue": 54900,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
     }
   ]
 }
