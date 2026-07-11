@@ -4419,6 +4419,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavorare-fisioterapista-ticino-frontalieri-requisiti': { name: 'Requisiti e procedure per fisioterapisti', path: '/articoli-frontaliere/lavorare-fisioterapista-ticino-frontalieri-requisiti', parent: 'blog' },
     'blog-offerte-fielmann-svizzera': { name: 'Offerte Fielmann', path: '/articoli-svizzera/offerte-fielmann-svizzera/', parent: 'blog' },
     'blog-traffico-dogana-ponte-tresa-guida': { name: 'Dogana Ponte Tresa', path: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida', parent: 'blog' },
+    'blog-axa-manno-lavoro-frontaliere': { name: 'Lavoro AXA Manno', path: '/articoli-svizzera/axa-manno-lavoro-frontaliere/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

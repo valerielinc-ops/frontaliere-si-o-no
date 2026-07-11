@@ -341,6 +341,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'prezzi-pizza-italia-implicazioni': { it: 'prezzi-pizza-italia-implicazioni', en: 'pizza-prices-italy-analysis', de: 'pizzapreise-italien-analyse', fr: 'prix-pizza-italie-analyse' },
  'autovelox-ticino-introiti-frontalieri': { it: 'autovelox-ticino-introiti-frontalieri', en: 'ticino-speed-cameras-revenue', de: 'tessin-blitzer-einnahmen', fr: 'tessin-radars-recettes' },
  'offerte-fielmann-svizzera': { it: 'offerte-fielmann-svizzera', en: 'fielmann-offers-switzerland', de: 'fielmann-angebote-schweiz', fr: 'offres-fielmann-suisse' },
+ 'axa-manno-lavoro-frontaliere': { it: 'axa-manno-lavoro-frontaliere', en: 'axa-manno-cross-border-jobs', de: 'axa-manno-grenzgaenger-jobs', fr: 'axa-manno-emplois-frontaliers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

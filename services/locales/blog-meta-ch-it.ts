@@ -955,6 +955,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.offerte-fielmann-svizzera.title': 'Offerte Fielmann in Svizzera: cosa sapere',
     'blog.article.offerte-fielmann-svizzera.excerpt': 'Analisi delle proposte commerciali di Fielmann in Svizzera per chi cerca soluzioni ottiche e il relativo impatto sul costo della vita quotidiana.',
     'blog.article.offerte-fielmann-svizzera.imageAlt': 'Interno di un negozio di ottica in Svizzera',
+    'blog.article.axa-manno-lavoro-frontaliere.title': 'Lavorare in AXA Svizzera a Manno: guida per frontalieri',
+    'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Dettagli sull\'impiego a Manno, il permesso G, la tassazione 2024 e i contributi sociali per i lavoratori frontalieri in Ticino.',
+    'blog.article.axa-manno-lavoro-frontaliere.imageAlt': 'Edificio moderno a Manno, Canton Ticino, sede di AXA Svizzera',
 };
 
 export default blogMetaChIt;
