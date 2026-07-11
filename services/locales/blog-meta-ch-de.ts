@@ -973,6 +973,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esportazione-zampe-di-maiale.title': 'Schweizer Export-Scherz nach China',
     'blog.article.esportazione-zampe-di-maiale.excerpt': 'Historisch niedrige Preise und steigende Versandkosten untergraben die Gewinne der Schweizer Schweinefleischexporteure',
     'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Bild einer Szene des Schweinefleischexports nach China',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Familienadoption und Pflege in grenzartiger Gemeinschaft: italienischer und schweizerische Stellen',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'Das Adoptions- oder Pflegeverfahren für eine Grenzfamilie wird durch die Neue Grenzgängervereinbarung geregelt, die am 23. Dezember 2020 unterzeichnet wurde und seit dem 1. Januar 2024 in Kraft ist.',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Ein Vater mit Grenzgebietsstatus wartet ungeduldig auf die Geburt seines Kindes in einem Schweizer Krankenhaus.',
 };
 
 export default blogMetaChDe;

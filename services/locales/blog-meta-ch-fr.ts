@@ -973,6 +973,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esportazione-zampe-di-maiale.title': 'Comment le pari suisse sur l\'exportation de pattes de porc en Chine s\'est brisé',
     'blog.article.esportazione-zampe-di-maiale.excerpt': 'Les prix historiquement bas et les augmentations des frais d\'expédition érodent les profits des exportateurs de viande porcine de Suisse',
     'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Image d\'une scène d\'exportation de porc en Chine',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Adoption et placement pour une famille frontalierre : organismes compétents en Italie et en Suisse',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'La procédure d\'adoption ou de placement pour une famille frontalière est régie par le nouvel accord frontalier, signé le 23 décembre 2020 et en vigueur depuis le 1er janvier 2024.',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Un père frontalier qui attend avec impatience la naissance de son enfant dans un hôpital suisse.',
 };
 
 export default blogMetaChFr;
