@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-07-10T12:08:07.877Z",
+  "assembledAt": "2026-07-11T10:21:50.025Z",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:08:05.444Z",
+      "crawledAt": "2026-07-11T10:21:48.339Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -81,6 +81,7 @@
           "Compétences linguistiques supplémentaires"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden",
         "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -96,6 +97,152 @@
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:59.544Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "salina-reha-10c29626bdde",
+      "slug": "pflegehilfe-assistent-in-gesundheit-e-soziales-60-salina-rehaklinik-rheinfelden",
+      "slugByLocale": {
+        "de": "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden",
+        "it": "pflegehilfe-assistent-in-gesundheit-e-soziales-60-salina-rehaklinik-rheinfelden",
+        "en": "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden",
+        "fr": "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden"
+      },
+      "company": "Salina Rehaklinik Rheinfelden",
+      "companyKey": "salina-reha",
+      "companyDomain": "salina-reha.ch",
+      "title": "Pflegehilfe / Assistent/-in Gesundheit und Soziales 60%",
+      "titleByLocale": {
+        "de": "Pflegehilfe / Assistent/-in Gesundheit und Soziales 60%",
+        "it": "Pflegehilfe / Assistent/-in Gesundheit e Soziales 60%",
+        "en": "Pflegehilfe / Assistent/-in Gesundheit und Soziales 60%",
+        "fr": "Pflegehilfe / Assistent/-in Gesundheit und Soziales 60%"
+      },
+      "description": "Salina Rehaklinik\n\nPflegehilfe / Assistent/-in Gesundheit und Soziales 60%\n\nper sofort oder nach Vereinbarung\n• Stundenlohn\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n In der Rehaklinik Salina arbeiten Ärztinnen und Ärzte, Therapeutinnen und Therapeuten sowie Pflegepersonal Hand in Hand zusammenarbeiten, um für die Patienten und Patientinnen das Bestmögliche bei Prävention, Diagnostik und Behandlung des Bewegungsapparates zu leisten. Das Tätigkeitsspektrum umfasst stationäre und ambulante Rehabilitation muskuloskelettaler Art, ein breites physiotherapeutisches und komplementärmedizinisches Angebot sowie fachärztliche Diagnostik und Behandlung verschiedenster Disziplinen.\n\nWas Sie erwartet\n\n• Abwechslungsreiche Tätigkeiten durch die interdisziplinäre Zusammenarbeit\n\n• Ein engagiertes, gut eingespieltes Team\n\n• Professionelle und wertschätzende Arbeitsatmosphäre\n\n• Moderne Arbeitsinstrument\n\nWas Sie mitbringen\n\n• Ausbildung im Pflege- oder Betreuungsbereich\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Geduld im Umgang mit anspruchsvoller Kundschaft\n\nInteressiert?\n Jetzt bewerben Helene Ruff freut sich auf Ihre Online-Bewerbung.\n\nHelene Ruff\n Co-Pflegedienstleitung\n+41 61 836 69 57\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+      "descriptionByLocale": {
+        "de": "Salina Rehaklinik\n\nPflegehilfe / Assistent/-in Gesundheit und Soziales 60%\n\nper sofort oder nach Vereinbarung\n• Stundenlohn\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n In der Rehaklinik Salina arbeiten Ärztinnen und Ärzte, Therapeutinnen und Therapeuten sowie Pflegepersonal Hand in Hand zusammenarbeiten, um für die Patienten und Patientinnen das Bestmögliche bei Prävention, Diagnostik und Behandlung des Bewegungsapparates zu leisten. Das Tätigkeitsspektrum umfasst stationäre und ambulante Rehabilitation muskuloskelettaler Art, ein breites physiotherapeutisches und komplementärmedizinisches Angebot sowie fachärztliche Diagnostik und Behandlung verschiedenster Disziplinen.\n\nWas Sie erwartet\n\n• Abwechslungsreiche Tätigkeiten durch die interdisziplinäre Zusammenarbeit\n\n• Ein engagiertes, gut eingespieltes Team\n\n• Professionelle und wertschätzende Arbeitsatmosphäre\n\n• Moderne Arbeitsinstrument\n\nWas Sie mitbringen\n\n• Ausbildung im Pflege- oder Betreuungsbereich\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Geduld im Umgang mit anspruchsvoller Kundschaft\n\nInteressiert?\n Jetzt bewerben Helene Ruff freut sich auf Ihre Online-Bewerbung.\n\nHelene Ruff\n Co-Pflegedienstleitung\n+41 61 836 69 57\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "it": "Salina Rehaklinik\n\nPflegehilfe / Assistent/-in Gesundheit und Soziales 60%\n\nper sofort oder nach Vereinbarung\n• Stundenlohn\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n In der Rehaklinik Salina arbeiten Ärztinnen und Ärzte, Therapeutinnen und Therapeuten sowie Pflegepersonal Hand in Hand zusammenarbeiten, um für die Patienten und Patientinnen das Bestmögliche bei Prävention, Diagnostik und Behandlung des Bewegungsapparates zu leisten. Das Tätigkeitsspektrum umfasst stationäre und ambulante Rehabilitation muskuloskelettaler Art, ein breites physiotherapeutisches und komplementärmedizinisches Angebot sowie fachärztliche Diagnostik und Behandlung verschiedenster Disziplinen.\n\nWas Sie erwartet\n\n• Abwechslungsreiche Tätigkeiten durch die interdisziplinäre Zusammenarbeit\n\n• Ein engagiertes, gut eingespieltes Team\n\n• Professionelle und wertschätzende Arbeitsatmosphäre\n\n• Moderne Arbeitsinstrument\n\nWas Sie mitbringen\n\n• Ausbildung im Pflege- oder Betreuungsbereich\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Geduld im Umgang mit anspruchsvoller Kundschaft\n\nInteressiert?\n Jetzt bewerben Helene Ruff freut sich auf Ihre Online-Bewerbung.\n\nHelene Ruff\n Co-Pflegedienstleitung\n+41 61 836 69 57\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "en": "Salina Rehaklinik\n\nPflegehilfe / Assistent/-in Gesundheit und Soziales 60%\n\nper sofort oder nach Vereinbarung\n• Stundenlohn\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n In der Rehaklinik Salina arbeiten Ärztinnen und Ärzte, Therapeutinnen und Therapeuten sowie Pflegepersonal Hand in Hand zusammenarbeiten, um für die Patienten und Patientinnen das Bestmögliche bei Prävention, Diagnostik und Behandlung des Bewegungsapparates zu leisten. Das Tätigkeitsspektrum umfasst stationäre und ambulante Rehabilitation muskuloskelettaler Art, ein breites physiotherapeutisches und komplementärmedizinisches Angebot sowie fachärztliche Diagnostik und Behandlung verschiedenster Disziplinen.\n\nWas Sie erwartet\n\n• Abwechslungsreiche Tätigkeiten durch die interdisziplinäre Zusammenarbeit\n\n• Ein engagiertes, gut eingespieltes Team\n\n• Professionelle und wertschätzende Arbeitsatmosphäre\n\n• Moderne Arbeitsinstrument\n\nWas Sie mitbringen\n\n• Ausbildung im Pflege- oder Betreuungsbereich\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Geduld im Umgang mit anspruchsvoller Kundschaft\n\nInteressiert?\n Jetzt bewerben Helene Ruff freut sich auf Ihre Online-Bewerbung.\n\nHelene Ruff\n Co-Pflegedienstleitung\n+41 61 836 69 57\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "fr": "Salina Rehaklinik\n\nPflegehilfe / Assistent/-in Gesundheit und Soziales 60%\n\nper sofort oder nach Vereinbarung\n• Stundenlohn\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n In der Rehaklinik Salina arbeiten Ärztinnen und Ärzte, Therapeutinnen und Therapeuten sowie Pflegepersonal Hand in Hand zusammenarbeiten, um für die Patienten und Patientinnen das Bestmögliche bei Prävention, Diagnostik und Behandlung des Bewegungsapparates zu leisten. Das Tätigkeitsspektrum umfasst stationäre und ambulante Rehabilitation muskuloskelettaler Art, ein breites physiotherapeutisches und komplementärmedizinisches Angebot sowie fachärztliche Diagnostik und Behandlung verschiedenster Disziplinen.\n\nWas Sie erwartet\n\n• Abwechslungsreiche Tätigkeiten durch die interdisziplinäre Zusammenarbeit\n\n• Ein engagiertes, gut eingespieltes Team\n\n• Professionelle und wertschätzende Arbeitsatmosphäre\n\n• Moderne Arbeitsinstrument\n\nWas Sie mitbringen\n\n• Ausbildung im Pflege- oder Betreuungsbereich\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Geduld im Umgang mit anspruchsvoller Kundschaft\n\nInteressiert?\n Jetzt bewerben Helene Ruff freut sich auf Ihre Online-Bewerbung.\n\nHelene Ruff\n Co-Pflegedienstleitung\n+41 61 836 69 57\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
+      },
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
+      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-11T10:21:46.519Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-09",
+      "applyUrl": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden"
+      ],
+      "salaryMin": 37200,
+      "salaryMax": 56400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 37200,
+          "maxValue": 56400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-11T10:21:46.519Z"
+    },
+    {
+      "id": "salina-reha-d81274885721",
+      "slug": "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
+      "slugByLocale": {
+        "it": "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "ambulatory-specialist-physician-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
+        "de": "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
+        "fr": "medecin-specialiste-ambulatoire-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
+      },
+      "company": "Salina Rehaklinik Rheinfelden",
+      "companyKey": "salina-reha",
+      "companyDomain": "salina-reha.ch",
+      "title": "Facharzt/Fachärztin ambulant 60-100%",
+      "titleByLocale": {
+        "it": "Medico specialista ambulatoriale 60-100%",
+        "en": "Ambulatory Specialist Physician 60-100%",
+        "de": "Facharzt/Fachärztin ambulant 60-100%",
+        "fr": "Médecin spécialiste ambulatoire 60-100%"
+      },
+      "description": "Salina Rehaklinik\n\nFacharzt/Fachärztin ambulant\n Fachärztehaus\n60-100%\n Nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n\nIhr Team Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n Was Sie erwartet\n\n• Ambulante ärztliche Betreuung und Behandlung von Patienten/innen mit rheumatologischen, orthopädischen und posttraumatischen Erkrankungen des Bewegungsapparates sowie akute und chronische Schmerz- und Rückenpatienten/innen\n\n• Koordination der ärztlichen und rehabilitativ-therapeutischen Massnahmen im Sinne einer ganzheitlichen Dienstleistung in enger Zusammenarbeit mit einem interdisziplinären Behandlungssystem\n\n• •Beherrschung der Co-Morbiditäten, vor allem allgmein-internistischer Art\n\n• Teilnahme an Pikettdienst mit Rufbereitschaft in der Rehaklinik\n\nWas Sie mitbringen\n\n• Abgeschlossene Facharztausbildung FMH oder äquivalent (Rheumatologie, Physikalische Medizin und Rehabilitation, Orthopädie, Allgemeine Innere Medizin)\n\n• Anerkennung zur Tätigkeitsausübung in der Schweiz (falls nicht vorhanden, unterstützen wir Sie gerne dabei)\n\n• Titel und Weiterbildung in SANT-Neuraltherapie oder SSIPM-Interventionelle oder SAMM-Manuelle Medizin, oder Bereitschaft einen solchen zu erwerben von Vorteil\n\n• Kenntnisse in orthopädischer-/muskuloskelettaler Rehabilitation von Vorteil\n\n• Interesse an der Behandlung akuter und chronischer Erkrankungen des Bewegungsapparates\n\n• Ausgeprägte Sozialkompetenz und hohes Engagement\n\n• Selbständige, flexible, zuverlässige und begeisterungsfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nInteressiert?\n Jetzt bewerben Wilfried Schwab freut sich auf Ihre Online-Bewerbung.\n\nWilried Schwab\n Chefarzt Klinik Salina\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+      "descriptionByLocale": {
+        "it": "Salina Rehaklinik Mansioni - Specialista nel campo - ospedale professionale - 60-100 % - Per accordo - Posizione fissa - Rheinfelden Descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupano circa 1000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le competenze e l'esperienza di ogni singolo soggetto al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre concetto un interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e conseguente. Il centro di competenza medico comprende moderne attrezzature di diagnosticasi e terapia con un team competente di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competente di medici specialisti e terapeuti per un'ampia offerta di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il metabolismo del ferro, l'osteoporosi, la chirurgia della colonna vertebrale, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiche dell'apparato scheletrico e alternative, nonché pazienti cronici e acuti con dolori e problemi alla fella - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collaborazione con un sistema di trattamento interdisciplinare - Gestione delle co-morbidità, soprattutto di tipo internistico generale - Partecipazione al servizio di guardia con turno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in contrario caso, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manuale, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Interessi per il trattamento di malattie acute e croniche dell'apparato scheletrico e conseguente - Competenze sociali pronunciate e grande impegno - Personalità autonoma, flessibile, affidabile e appassionatota - Ottima conoscenza del tedesco a parole e a scritto Contatto Interessato?",
+        "en": "Salina Rehaklinik Mansioni - Specialist in the field - Professional hospital - 60-100 % - By agreement - Fixed position - Rheinfelden descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupano about 1'000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le competenze e l'esperienza di ogni singolo contribuiscono al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e muscolare. Il centro di competenza medico comprende modern attrezzature di diagnosticsi e terapia con un team competente di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competente di medici specialisti e terapeuti per un'ampia offeringta di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il metabolismo del ferro, l'osteoporosi, la chirurgia della colonna vertebrale, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiche dell'apparato scheletrico e muscolare, nonché pazienti cronici e acuti con dolori e problemi alla seemeda - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collaborazione con un sistema di trattamento interdisciplinare - Gestione delle co-morbidità, soprattutto di tipo internistico generale - Partecipazione al servizio di guardia con turno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in caso contrario, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manual, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Interest per il trattamento di malattie acute e croniche dell'apparato scheletrico e muscolare - Competenze sociali pronunciate e grande impegno - Personalità autonoma, flessibile, affidabile e appassionata - Ottima conoscenza del tedesco a parole e a scritto Contatto Interessato?",
+        "de": "Salina Rehaklinik\n\nFacharzt/Fachärztin ambulant\nFachärztehaus\n60-100%\nNach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n\nIhr Team Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\nWas Sie erwartet\n\n• Ambulante ärztliche Betreuung und Behandlung von Patienten/innen mit rheumatologischen, orthopädischen und posttraumatischen Erkrankungen des Bewegungsapparates sowie akute und chronische Schmerz- und Rückenpatienten/innen\n\n• Koordination der ärztlichen und rehabilitativ-therapeutischen Massnahmen im Sinne einer ganzheitlichen Dienstleistung in enger Zusammenarbeit mit einem interdisziplinären Behandlungssystem\n\n• •Beherrschung der Co-Morbiditäten, vor allem allgmein-internistischer Art\n\n• Teilnahme an Pikettdienst mit Rufbereitschaft in der Rehaklinik\n\nWas Sie mitbringen\n\n• Abgeschlossene Facharztausbildung FMH oder äquivalent (Rheumatologie, Physikalische Medizin und Rehabilitation, Orthopädie, Allgemeine Innere Medizin)\n\n• Anerkennung zur Tätigkeitsausübung in der Schweiz (falls nicht vorhanden, unterstützen wir Sie gerne dabei)\n\n• Titel und Weiterbildung in SANT-Neuraltherapie oder SSIPM-Interventionelle oder SAMM-Manuelle Medizin, oder Bereitschaft einen solchen zu erwerben von Vorteil\n\n• Kenntnisse in orthopädischer-/muskuloskelettaler Rehabilitation von Vorteil\n\n• Interesse an der Behandlung akuter und chronischer Erkrankungen des Bewegungsapparates\n\n• Ausgeprägte Sozialkompetenz und hohes Engagement\n\n• Selbständige, flexible, zuverlässige und begeisterungsfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nInteressiert?\nJetzt bewerben Wilfried Schwab freut sich auf Ihre Online-Bewerbung.\n\nWilried Schwab\nChefarzt Klinik Salina\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "fr": "Salina Rehaklinik Mansioni Spécialiste sur le terrain - Hôpitaux professionnels - 60-100 % - Par accord - Position fixe - Rheinfelden descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupant environ 1'000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le concurrente e l'esperienza di ogni singolo contribuiscono al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e muscarare. Il centro di compenza medico comprende modern attrezzature di diagnosticsi e terapia con un team competence di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competence di medici specialisti e terapeuti per un'ampia offerata di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il métabolismeo del ferro, l'ostéoporosi, la chirurgia della colonna vertèbre, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiquehe dell'apparato scheletrico e muscarare, nonché pazienti cronici e acuti con dolori e problemi alla semblea - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collabazione con un sistema di trattamento interdisciplinere - Gestione delle co-morbidità, sopratutto di tipo internistico generale - Participazione al servizio di guardia con tourno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in caso contrario, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manuel, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Intérêt par il trattamento di malattie aigüe e circonhe dell'apparato scheletrico e muscolare - Competenze sociali prononce e grande impegno - Personalità autonoma, flessibile, affidabile e appassionata - Ottima conoscenza del tedesco une libération conditionnelle e a scritto Contatto Interessato ?"
+      },
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
+      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-11T10:21:44.539Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-17",
+      "applyUrl": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
+        "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
+          "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-05-20T06:04:07.242Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -186,79 +333,8 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "salina-reha-d81274885721",
-      "slug": "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
-      "slugByLocale": {
-        "it": "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
-        "en": "ambulatory-specialist-physician-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
-        "de": "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
-        "fr": "medecin-specialiste-ambulatoire-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
       },
-      "company": "Salina Rehaklinik Rheinfelden",
-      "companyKey": "salina-reha",
-      "companyDomain": "salina-reha.ch",
-      "title": "Facharzt/Fachärztin ambulant 60-100%",
-      "titleByLocale": {
-        "it": "Medico specialista ambulatoriale 60-100%",
-        "en": "Ambulatory Specialist Physician 60-100%",
-        "de": "Facharzt/Fachärztin ambulant 60-100%",
-        "fr": "Médecin spécialiste ambulatoire 60-100%"
-      },
-      "description": "Salina Rehaklinik\n\nFacharzt/Fachärztin ambulant\n Fachärztehaus\n60-100%\n Nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n\nIhr Team Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n Was Sie erwartet\n\n• Ambulante ärztliche Betreuung und Behandlung von Patienten/innen mit rheumatologischen, orthopädischen und posttraumatischen Erkrankungen des Bewegungsapparates sowie akute und chronische Schmerz- und Rückenpatienten/innen\n\n• Koordination der ärztlichen und rehabilitativ-therapeutischen Massnahmen im Sinne einer ganzheitlichen Dienstleistung in enger Zusammenarbeit mit einem interdisziplinären Behandlungssystem\n\n• •Beherrschung der Co-Morbiditäten, vor allem allgmein-internistischer Art\n\n• Teilnahme an Pikettdienst mit Rufbereitschaft in der Rehaklinik\n\nWas Sie mitbringen\n\n• Abgeschlossene Facharztausbildung FMH oder äquivalent (Rheumatologie, Physikalische Medizin und Rehabilitation, Orthopädie, Allgemeine Innere Medizin)\n\n• Anerkennung zur Tätigkeitsausübung in der Schweiz (falls nicht vorhanden, unterstützen wir Sie gerne dabei)\n\n• Titel und Weiterbildung in SANT-Neuraltherapie oder SSIPM-Interventionelle oder SAMM-Manuelle Medizin, oder Bereitschaft einen solchen zu erwerben von Vorteil\n\n• Kenntnisse in orthopädischer-/muskuloskelettaler Rehabilitation von Vorteil\n\n• Interesse an der Behandlung akuter und chronischer Erkrankungen des Bewegungsapparates\n\n• Ausgeprägte Sozialkompetenz und hohes Engagement\n\n• Selbständige, flexible, zuverlässige und begeisterungsfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nInteressiert?\n Jetzt bewerben Wilfried Schwab freut sich auf Ihre Online-Bewerbung.\n\nWilried Schwab\n Chefarzt Klinik Salina\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-      "descriptionByLocale": {
-        "it": "Salina Rehaklinik Mansioni - Specialista nel campo - ospedale professionale - 60-100 % - Per accordo - Posizione fissa - Rheinfelden Descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupano circa 1000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le competenze e l'esperienza di ogni singolo soggetto al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre concetto un interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e conseguente. Il centro di competenza medico comprende moderne attrezzature di diagnosticasi e terapia con un team competente di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competente di medici specialisti e terapeuti per un'ampia offerta di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il metabolismo del ferro, l'osteoporosi, la chirurgia della colonna vertebrale, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiche dell'apparato scheletrico e alternative, nonché pazienti cronici e acuti con dolori e problemi alla fella - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collaborazione con un sistema di trattamento interdisciplinare - Gestione delle co-morbidità, soprattutto di tipo internistico generale - Partecipazione al servizio di guardia con turno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in contrario caso, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manuale, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Interessi per il trattamento di malattie acute e croniche dell'apparato scheletrico e conseguente - Competenze sociali pronunciate e grande impegno - Personalità autonoma, flessibile, affidabile e appassionatota - Ottima conoscenza del tedesco a parole e a scritto Contatto Interessato?",
-        "en": "Salina Rehaklinik Mansioni - Specialist in the field - Professional hospital - 60-100 % - By agreement - Fixed position - Rheinfelden descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupano about 1'000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le competenze e l'esperienza di ogni singolo contribuiscono al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e muscolare. Il centro di competenza medico comprende modern attrezzature di diagnosticsi e terapia con un team competente di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competente di medici specialisti e terapeuti per un'ampia offeringta di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il metabolismo del ferro, l'osteoporosi, la chirurgia della colonna vertebrale, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiche dell'apparato scheletrico e muscolare, nonché pazienti cronici e acuti con dolori e problemi alla seemeda - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collaborazione con un sistema di trattamento interdisciplinare - Gestione delle co-morbidità, soprattutto di tipo internistico generale - Partecipazione al servizio di guardia con turno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in caso contrario, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manual, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Interest per il trattamento di malattie acute e croniche dell'apparato scheletrico e muscolare - Competenze sociali pronunciate e grande impegno - Personalità autonoma, flessibile, affidabile e appassionata - Ottima conoscenza del tedesco a parole e a scritto Contatto Interessato?",
-        "de": "Salina Rehaklinik\n\nFacharzt/Fachärztin ambulant\nFachärztehaus\n60-100%\nNach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n\nIhr Team Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\nWas Sie erwartet\n\n• Ambulante ärztliche Betreuung und Behandlung von Patienten/innen mit rheumatologischen, orthopädischen und posttraumatischen Erkrankungen des Bewegungsapparates sowie akute und chronische Schmerz- und Rückenpatienten/innen\n\n• Koordination der ärztlichen und rehabilitativ-therapeutischen Massnahmen im Sinne einer ganzheitlichen Dienstleistung in enger Zusammenarbeit mit einem interdisziplinären Behandlungssystem\n\n• •Beherrschung der Co-Morbiditäten, vor allem allgmein-internistischer Art\n\n• Teilnahme an Pikettdienst mit Rufbereitschaft in der Rehaklinik\n\nWas Sie mitbringen\n\n• Abgeschlossene Facharztausbildung FMH oder äquivalent (Rheumatologie, Physikalische Medizin und Rehabilitation, Orthopädie, Allgemeine Innere Medizin)\n\n• Anerkennung zur Tätigkeitsausübung in der Schweiz (falls nicht vorhanden, unterstützen wir Sie gerne dabei)\n\n• Titel und Weiterbildung in SANT-Neuraltherapie oder SSIPM-Interventionelle oder SAMM-Manuelle Medizin, oder Bereitschaft einen solchen zu erwerben von Vorteil\n\n• Kenntnisse in orthopädischer-/muskuloskelettaler Rehabilitation von Vorteil\n\n• Interesse an der Behandlung akuter und chronischer Erkrankungen des Bewegungsapparates\n\n• Ausgeprägte Sozialkompetenz und hohes Engagement\n\n• Selbständige, flexible, zuverlässige und begeisterungsfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nInteressiert?\nJetzt bewerben Wilfried Schwab freut sich auf Ihre Online-Bewerbung.\n\nWilried Schwab\nChefarzt Klinik Salina\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "fr": "Salina Rehaklinik Mansioni Spécialiste sur le terrain - Hôpitaux professionnels - 60-100 % - Par accord - Position fixe - Rheinfelden descrizione La Reha Rheinfelden, la Salina Rehaklinik e la Park-Hotel am Rhein AG occupant environ 1'000 dipendenti. Si lavora in team interdisciplinari per raggiungere la migliore riabilitazione possibile, dove le concurrente e l'esperienza di ogni singolo contribuiscono al successo. La Salina Rehaklinik (Rehaklinik, Fachärzte e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento dell'apparato scheletrico e muscarare. Il centro di compenza medico comprende modern attrezzature di diagnosticsi e terapia con un team competence di medici specialisti, terapeuti e personale infermieristico. Il nostro team Il nostro reparto ambulatoriale nel Fachärztehaus si distingue per un team interdisciplinare competence di medici specialisti e terapeuti per un'ampia offerata di prevenzione, trattamento e assistenza. ireparto ambulatoriale dispone di specialisti per la reumatologia e la medicina fisica, la medicina dello sport, l'ortopedia, il métabolismeo del ferro, l'ostéoporosi, la chirurgia della colonna vertèbre, la terapia del dolore interventiva, la dermatologia Cosa ti aspetta - Assistenza e trattamento ambulatoriale dei pazienti con malattie reumatologiche, ortopediche e post-traumatiquehe dell'apparato scheletrico e muscarare, nonché pazienti cronici e acuti con dolori e problemi alla semblea - Coordinamento delle misure mediche e riabilitative-terapeutiche nel senso di un servizio olistico in collabazione con un sistema di trattamento interdisciplinere - Gestione delle co-morbidità, sopratutto di tipo internistico generale - Participazione al servizio di guardia con tourno di servizio notturno nella Rehaklinik\n• Requisiti - Formazione come medico specialista FMH o equivalente (reumatologia, medicina fisica e riabilitazione, ortopedia, medicina interna generale) - Riconoscimento per l'esercizio dell'attività in Svizzera (in caso contrario, saremo lieti di supportarti) - Titolo e formazione in SANT-Neuraltherapie o SSIPM-Terapia interventiva o SAMM-Medicina manuel, o disponibilità acquis adirne uno - Conoscenze in riabilitazione ortopedica/muscolo-scheletrica, di vantaggio - Intérêt par il trattamento di malattie aigüe e circonhe dell'apparato scheletrico e muscolare - Competenze sociali prononce e grande impegno - Personalità autonoma, flessibile, affidabile e appassionata - Ottima conoscenza del tedesco une libération conditionnelle e a scritto Contatto Interessato ?"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
-      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:08:01.347Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "applyUrl": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
-        "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
-          "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T06:04:07.242Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
