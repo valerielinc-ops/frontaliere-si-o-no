@@ -8379,6 +8379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Grenzgängersteuergutschrift 2026: Berechnung und Erklärung',
     'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Leitfaden zur Steuergutschrift für Grenzgänger 2026: Wie man die Franchise, die IRPEF-Sätze und die Steuererklärung in Italien verwaltet.',
     'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Panoramablick auf Lugano mit dem See und dem Stadtzentrum',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Arbeiten als Mechanikerauto im Tessin: Gehalt, CCL-Industrie, Erlaubnis G',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'An die Quelle für Arbeitseinkommen gesendet: NUR in der Schweiz für Grenzgänger.',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Ein Mechaniker arbeitet in einer Werkstatt in Lugano, Tessin.',
 };
 
 export default blogMetaDe;

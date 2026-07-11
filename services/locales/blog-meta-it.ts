@@ -8381,6 +8381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
     'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Guida operativa al credito d\'imposta per frontalieri 2026: come gestire la franchigia, le aliquote Irpef e la dichiarazione dei redditi in Italia.',
     'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Vista panoramica di Lugano con il lago e il centro città',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Lavorare come meccanico auto in Ticino: stipendio, CCL di settore, permesso G',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Impostato alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
+    'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Un meccanico auto lavora in una officina di Lugano, Ticino.',
 };
 
 export default blogMetaIt;
