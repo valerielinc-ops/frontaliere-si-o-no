@@ -982,6 +982,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-guida.title': 'Leitfaden für den Umzug in die Schweiz als Nicht-Grenzgänger-Italiener',
     'blog.article.trasferirsi-svizzera-guida.excerpt': 'Quellensteuer auf Arbeitseinkommen: NUR in der Schweiz für Grenzgänger einbehalten. Neue Frontalieri-Vereinbarung: unterzeichnet am 23.12.2020, in Kraft seit dem 1. Januar 2024.',
     'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Eine praktische Anleitung für italienische Nicht-Frontaliers, um nach der Schweiz zu ziehen',
+    'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Bankkonto in der Schweiz für Gebietsansässige: Dokumente, Hauptbanken und Kosten',
+    'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'Die notwendigen Dokumente zur Eröffnung eines Bankkontos in der Schweiz als Gebietsansässiger und die wichtigsten Banken, die diesen Service anbieten',
+    'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
 };
 
 export default blogMetaChDe;

@@ -982,6 +982,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-guida.title': 'Guide to moving to Switzerland as a non-boundary Italian',
     'blog.article.trasferirsi-svizzera-guida.excerpt': 'Tax at source on income from work: ONLY withheld in Switzerland for border workers. New Frontier Agreement: signed on 23/12/2020, effective from 1 January 2024.',
     'blog.article.trasferirsi-svizzera-guida.imageAlt': 'A practical guide for Italian non-frontaliers to move to Switzerland',
+    'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Swiss bank account for residents: documents, main banks and costs',
+    'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'The documents necessary to open a bank account in Switzerland as a resident and the main banks that offer this service',
+    'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
 };
 
 export default blogMetaChEn;

@@ -982,6 +982,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-guida.title': 'Guide pour déménager en Suisse en tant qu\'Italien non frontalier',
     'blog.article.trasferirsi-svizzera-guida.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers. Nouvel accord frontalier : signé le 23/12/2020, en vigueur depuis le 1er janvier 2024.',
     'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Une guide pratique pour les Italiens non-frontaliers pour s\'installer en Suisse',
+    'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Conti correnti in Svizzera per residenti: documenti, banche principali e costi',
+    'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'Les documents nécessaires pour ouvrir un compte bancaire en Suisse en tant que résident et les principales banques offrant ce service',
+    'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
 };
 
 export default blogMetaChFr;
