@@ -8350,6 +8350,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-lavori-gallarate-luglio.title': 'Tilo: Gallarate circulation restrictions 11-13 July',
     'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Maintenance work on the Italian Railway Network impacts the S50 connections between Ticino and Malpensa. Here\'s how to travel between July 11th and 13th.',
     'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Tilo train arriving at a station in the Ticino region',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'The real estate market in Ticino: average prices by area, recent trends',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Trends in the real estate market in Ticino, average prices by area, differences between rent and purchase',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Real estate market in Locarno, Ticino',
 };
 
 export default blogMetaEn;

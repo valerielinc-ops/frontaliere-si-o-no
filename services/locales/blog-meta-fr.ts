@@ -8351,6 +8351,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tilo-lavori-gallarate-luglio.title': 'Tile : restrictions de circulation Gallarate 11-13 juillet',
     'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Les travaux de maintenance du réseau ferroviaire italien ont un impact sur les liaisons S50 entre le Tessin et Malpensa. Voici comment voyager entre le 11 et le 13 juillet.',
     'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Train Tilo arrivant dans une gare du canton du Tessin',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'Le marché immobilier au Tessin : prix moyens par zone, tendances récentes',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Tendances du marché immobilier au Tessin, prix moyens par zone, différences entre location et achat',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Marché immobilier à Locarno, Tessin',
 };
 
 export default blogMetaFr;

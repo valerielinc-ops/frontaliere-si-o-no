@@ -4435,6 +4435,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-adozione-affido-procedura-italia-svizzera': { name: 'Procedura di adozione o affido per una', path: '/articoli-svizzera/frontaliere-adozione-affido-procedura-italia-svizzera/', parent: 'blog' },
     'blog-tilo-lavori-gallarate-luglio': { name: 'Trasporti Tilo', path: '/articoli-frontaliere/tilo-lavori-gallarate-luglio', parent: 'blog' },
     'blog-cosa-fare-nel-weekend-in-ticino-attivita-outdoor': { name: 'Cosa fare nel weekend in Ticino', path: '/articoli-svizzera/cosa-fare-nel-weekend-in-ticino-attivita-outdoor/', parent: 'blog' },
+    'blog-mercato-immobiliare-ticino-prezzi-tendenze': { name: 'Mercato immobiliare in Ticino', path: '/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze', parent: 'blog' },
  };
 
  const info = sectionNames[section];
