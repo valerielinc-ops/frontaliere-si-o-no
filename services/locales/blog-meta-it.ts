@@ -8387,6 +8387,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-dei-frontalieri.title': 'Consiglio federale: opporsi alla modifica unilaterale UE sulla disoccupazione dei frontalieri',
     'blog.article.disoccupazione-dei-frontalieri.excerpt': 'La Svizzera potrebbe farsi carico delle indennità di disoccupazione dei frontalieri che hanno perso il lavoro.',
     'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Un frontaliere lavora sul lago di Lugano, in Svizzera.',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Equipollenza titolo di studio italiano in Svizzera: cosa fare',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'I titoli di studio italiani sono equipollenti in Svizzera, ma ci sono procedure da seguire per ottenere il riconoscimento',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
 };
 
 export default blogMetaIt;

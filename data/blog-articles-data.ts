@@ -25199,6 +25199,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'equipollenza-titolo-studio-italiano-svizzera-frontaliere',
+ category: 'fiscale',
+ date: '2026-07-11T23:09:50.319Z',
+ image: '/images/blog/equipollenza-titolo-studio-italiano-svizzera-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
