@@ -77048,7 +77048,8 @@
     "createdAt": "2026-06-24",
     "slugByLocale": {
       "de": "projektmanager-service-grid-automation-80-100-m-w-d-hitachi-energy-baden",
-      "fr": "automatisation-du-reseau-80-100-f-m-d-hitachi-energy-baden-switzerland"
+      "fr": "automatisation-du-reseau-80-100-f-m-d-hitachi-energy-baden-switzerland",
+      "en": "project-manager-service-grid-automation-80-100-f-m-d-hitachi-energy-baden-switzerland"
     }
   },
   "id|hitachienergy.com|jid3-201567": {
@@ -77091,7 +77092,8 @@
     "slugByLocale": {
       "fr": "machine-operateur-80-100-w-m-d-hitachi-energy-zurich",
       "it": "operatore-macchina-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-      "de": "maschinenbediener-80-100-w-m-d-hitachi-energy-zurich"
+      "de": "maschinenbediener-80-100-w-m-d-hitachi-energy-zurich",
+      "en": "machine-operator-80-100-w-m-d-hitachi-energy-zurich-switzerland"
     }
   },
   "id|hitachienergy.com|jid3-201657": {
@@ -299388,7 +299390,10 @@
   "id|coopjobs.ch|ad8bc9a8-2af3-422f-986c-d0bd517435d2": {
     "canonicalSlug": "kochin-koch-m-w-d-coop-genossenschaft-bern",
     "slugByLocale": {
-      "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4"
+      "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
+      "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
+      "en": "cook-cook-f-m-d-coop-genossenschaft-bern",
+      "fr": "cuire-cuire-f-m-d-coop-genossenschaft-bern"
     },
     "createdAt": "2026-07-11",
     "canton": "BE"
@@ -299397,7 +299402,9 @@
     "canonicalSlug": "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern",
     "slugByLocale": {
       "it": "responsabile-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr",
-      "de": "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr"
+      "de": "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr",
+      "en": "head-in-logistics-e-shop-coop-genossenschaft-langenthal",
+      "fr": "chef-dans-logistics-e-shop-coop-genossenschaft-langenthal"
     },
     "createdAt": "2026-07-11",
     "canton": "BE"
@@ -305524,8 +305531,8 @@
   "url|https://apply.refline.ch/514915/2754/pub/4/index.html": {
     "canonicalSlug": "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
     "slugByLocale": {
-      "it": "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
       "de": "strassenwart-in-kanton-gr-ch",
+      "it": "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
       "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
     },
     "createdAt": "2026-07-11",
@@ -305748,7 +305755,8 @@
     "slugByLocale": {
       "it": "carpentiere-pemsa-lugano",
       "en": "carpenters-pemsa-lugano",
-      "fr": "charpentiers-pemsa-lugano"
+      "fr": "charpentiers-pemsa-lugano",
+      "de": "tischler-pemsa-lugano"
     },
     "createdAt": "2026-07-11",
     "canton": "TI"
@@ -305778,7 +305786,8 @@
     "slugByLocale": {
       "it": "giardiniere-pemsa-bellinzona",
       "en": "gardens-pemsa-bellinzona",
-      "fr": "jardins-pemsa-bellinzona"
+      "fr": "jardins-pemsa-bellinzona",
+      "de": "garten-pemsa-bellinzona"
     },
     "createdAt": "2026-07-11",
     "canton": "TI"
@@ -306730,5 +306739,16 @@
     },
     "createdAt": "2026-07-11",
     "canton": "BS"
+  },
+  "id|spitexjobs.ch|j987274": {
+    "canonicalSlug": "infermiera-hf-psichiatria-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee",
+    "slugByLocale": {
+      "it": "infermiera-hf-psichiatria-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee",
+      "en": "dipl-nurse-hf-psychiatry-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee",
+      "de": "dipl-pflegefachperson-hf-psychiatrie-40-60-spitex-ch-herzogenbuchsee",
+      "fr": "dipl-infirmiere-en-psychiatrie-hf-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee"
+    },
+    "createdAt": "2026-07-11",
+    "canton": "BE"
   }
 }
