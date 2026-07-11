@@ -161,6 +161,11 @@ const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Per-user send-time personalization kill switch (issue #3798). Unset in RC
+  // by default — send-schedule.mjs treats absent as 'on'. Set to 'off' in RC
+  // to roll back to immediate sends without touching code or workflows (env
+  // set in a workflow block still wins, per the override rule above).
+  PER_USER_SEND_TIME:             ['PER_USER_SEND_TIME'],
   // Near-duplicate embedding cosine override for create-article.mjs (see
   // scripts/lib/scoring/constants.mjs EMBEDDING_NEAR_DUP_COSINE). Unset in RC
   // by default — code falls back to the built-in 0.86 baseline. Lets a single

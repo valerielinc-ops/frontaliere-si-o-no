@@ -50,6 +50,7 @@ import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
+import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1305,6 +1306,11 @@ async function fetchTargetSubscriber(email) {
 
 async function fetchSubscribers() {
   const subscribers = new Map();
+  // Raw rows feed the site-wide preferred-hour fallback (#3798) — the
+  // projected subscriber objects still carry preferredSendHourUtc/
+  // preferredSendSampleCount, but computeGlobalPreferredHour reads the
+  // Firestore field names directly off the row, so keep the rows around too.
+  const rawRows = [];
 
   try {
     // Fetch ALL subscribers (including pending) — clicking a link auto-confirms them.
@@ -1322,6 +1328,7 @@ async function fetchSubscribers() {
       if (EXCLUDED_STATUSES.has(status)) return;
       // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
       if (row.unsubscribedAt || row.unsubscribed_at) return;
+      rawRows.push(row);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
       // returns the bare address on subscriber.email.
@@ -1334,7 +1341,12 @@ async function fetchSubscribers() {
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
-  return prioritizeSubscribers([...subscribers.values()]);
+  const prioritized = prioritizeSubscribers([...subscribers.values()]);
+  // Attach the site-wide preferred-hour aggregate as a property on the array
+  // (same idiom as pickFeaturedArticle's getArticle.articleId/persistRotation)
+  // so callers that only care about the subscriber list are unaffected.
+  prioritized.globalPreferredHour = computeGlobalPreferredHour(rawRows);
+  return prioritized;
 }
 
 
@@ -1472,6 +1484,13 @@ async function persistDelivery(recipient, messageId, meta) {
       provider: meta.provider || null,
       variant: meta.variant || null,
       subject: meta.subject || null,
+      // Per-user send-time (#3798): scheduled_for is the cascade's
+      // authoritative scheduledFor (null when the provider doesn't support
+      // scheduling, or the run didn't request it) — NOT the requested
+      // scheduledAt, so this reflects what actually happened. sent_at below
+      // stays the moment the API call was made, unchanged.
+      scheduled_for: meta.scheduledFor ?? null,
+      send_time_source: meta.sendTimeSource ?? null,
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -1595,7 +1614,16 @@ async function sendEmailBatch(emails, apiKey, finalizeForProvider) {
   const persistSent = async (item, res) => {
     const variant = item.payload?.tags?.find((t) => t.name === 'variant')?.value || item.meta?.variant;
     const subject = item.payload?.subject || item.meta?.subject;
-    await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider, variant, subject });
+    // res.scheduledFor is the cascade's source of truth for what actually got
+    // scheduled (#3798) — item.meta.sendTimeSource just carries WHY we asked
+    // (personal/global), not whether the provider honored it.
+    await persistDelivery(item.recipient, res.messageId, {
+      ...item.meta,
+      provider: res.provider,
+      variant,
+      subject,
+      scheduledFor: res.scheduledFor ?? null,
+    });
   };
   // Single provider mode: force a specific provider via cascade
   if (IS_SINGLE_PROVIDER) {
@@ -1793,6 +1821,38 @@ function enforceQaGate() {
   }
 }
 
+// ─── Per-user send-time distribution (dry-run/preview reporting, #3798) ─────
+
+/**
+ * Print an immediate/scheduled breakdown for an assembled (not-yet-sent)
+ * batch of cascade email items — no provider call needed, reads only what
+ * Phase 5 already put on each item's payload/meta.
+ */
+function logScheduleDistribution(emailsList) {
+  const bySource = { personal: 0, global: 0 };
+  const byHour = new Array(24).fill(0);
+  let immediate = 0;
+
+  for (const item of emailsList) {
+    const scheduledAt = item.payload?.scheduledAt;
+    if (!scheduledAt) { immediate += 1; continue; }
+    const hour = new Date(scheduledAt).getUTCHours();
+    if (Number.isInteger(hour) && hour >= 0 && hour <= 23) byHour[hour] += 1;
+    const source = item.meta?.sendTimeSource;
+    if (source && bySource[source] !== undefined) bySource[source] += 1;
+  }
+
+  const scheduledTotal = emailsList.length - immediate;
+  console.log(`📅 Scheduled-send distribution: ${immediate} immediate, ${scheduledTotal} scheduled (personal=${bySource.personal}, global=${bySource.global})`);
+  if (scheduledTotal > 0) {
+    const hourLine = byHour
+      .map((count, hour) => (count > 0 ? `${String(hour).padStart(2, '0')}h:${count}` : null))
+      .filter(Boolean)
+      .join(', ');
+    console.log(`   by UTC hour: ${hourLine}`);
+  }
+}
+
 // ─── Main ───────────────────────────────────────────────────
 
 async function main() {
@@ -1930,6 +1990,10 @@ async function main() {
 
   // ── Fetch subscribers ──
   let subscribers;
+  // Per-user send-time (#3798): site-wide fallback hour, populated below only
+  // for a real 'send' run (test/dry-run recipients are single-target and
+  // don't need — nor compute — the site-wide aggregate).
+  let globalPreferredHour = { hourUtc: null, sampleUsers: 0 };
   if (mode === 'test') {
     const targetSubscriber = targetEmail ? await fetchTargetSubscriber(targetEmail) : null;
     subscribers = targetSubscriber ? [targetSubscriber] : [{
@@ -1952,6 +2016,26 @@ async function main() {
   } else {
     subscribers = await fetchSubscribers();
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
+
+    // Per-user send-time (#3798): fetchSubscribers() (only reached in the real
+    // 'send' branch) attached the site-wide preferred-hour aggregate computed
+    // from every subscriber's raw preferred_send_hour_utc. Persist it on
+    // newsletter_subscribers/_meta_ so send-job-alerts.mjs can read the same
+    // global fallback for its own recipients -- real sends only, guarded
+    // explicitly even though this branch is currently the only caller.
+    globalPreferredHour = subscribers.globalPreferredHour || { hourUtc: null, sampleUsers: 0 };
+    if (mode === 'send' && db) {
+      try {
+        await writeMetaDoc({
+          global_preferred_send_hour_utc: globalPreferredHour.hourUtc,
+          global_preferred_send_sample_users: globalPreferredHour.sampleUsers,
+          global_preferred_send_updated_at: new Date(),
+        });
+        console.log(`\ud83d\udd50 Global preferred send hour: ${globalPreferredHour.hourUtc ?? 'n/a'} UTC (${globalPreferredHour.sampleUsers} qualified users)`);
+      } catch (e) {
+        console.warn('\u26a0\ufe0f  Global preferred send hour persist failed:', e?.message);
+      }
+    }
 
     // ── Job-alert cooldown (symmetric to the 36h newsletter cooldown in
     // send-job-alerts.mjs:NEWSLETTER_COOLDOWN_MS): skip subscribers who
@@ -2163,6 +2247,10 @@ async function main() {
   const winners = await resolveWinnersForCampaign(db, campaignId);
   const promotedVariant = winners.global;
 
+  // Per-user send-time (#3798): tally so the dry-run/preview table + the
+  // post-send log can report immediate vs scheduled, broken down by source.
+  const scheduleTally = { immediate: 0, personal: 0, global: 0 };
+
   for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
     // A/B test: deterministic per-subscriber variant (stable for this campaign),
@@ -2199,15 +2287,35 @@ async function main() {
     const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode);
     const sanitizedHtml = sanitizeJobUrls(personalizedHtml, validJobSlugs);
 
+    // Per-user send-time (#3798): resolve this subscriber's effective
+    // preferred hour (personal → global → none) and turn it into a concrete
+    // UTC instant for the cascade's `scheduledAt`. The cascade itself decides
+    // whether the chosen provider actually supports scheduling and returns
+    // the authoritative `scheduledFor` on the send result (see persistSent).
+    let scheduledAt = null;
+    let sendTimeSource = null;
+    if (perUserSendTimeEnabled()) {
+      const resolved = resolveEffectivePreferredHour({
+        subscriberDoc: subscriber,
+        globalHour: globalPreferredHour.hourUtc,
+      });
+      if (resolved.hourUtc !== null) {
+        scheduledAt = computeScheduledSendAt({ preferredHourUtc: resolved.hourUtc, email: subscriber.email });
+        sendTimeSource = resolved.source;
+      }
+    }
+    scheduleTally[sendTimeSource || 'immediate'] += 1;
+
     emails.push({
       recipient: subscriber,
-      meta: { campaignId, subject, variant },
+      meta: { campaignId, subject, variant, sendTimeSource },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],
         subject,
         html: sanitizedHtml,
         headers: buildEmailHeaders(subscriber.email, campaignId),
+        ...(scheduledAt ? { scheduledAt } : {}),
         tags: [
           { name: 'campaign_id', value: campaignId },
           { name: 'subscriber_locale', value: locale },
@@ -2220,6 +2328,8 @@ async function main() {
       },
     });
   }
+
+  console.log(`📅 Per-user send-time: ${scheduleTally.personal + scheduleTally.global} scheduled (personal=${scheduleTally.personal}, global=${scheduleTally.global}), ${scheduleTally.immediate} immediate`);
 
   console.log(`\n🧠 AI stats: ${aiSuccessCount} cohort briefings (${cohorts.size} cohorts), ${aiFallbackCount} fallbacks, ${subjectMap.size} subjects`);
   console.log(`📊 Savings: ${subscribers.length * 2} AI calls → ${aiSuccessCount + aiFallbackCount + subjectMap.size} (${Math.round((1 - (aiSuccessCount + aiFallbackCount + subjectMap.size) / (subscribers.length * 2)) * 100)}% reduction)`);
@@ -2263,6 +2373,7 @@ async function main() {
     console.log(`  to: ${first?.payload?.to?.join(', ') || 'n/a'}`);
     console.log(`  subject: ${first?.payload?.subject || 'n/a'}`);
     console.log(`  matched jobs: ${subscriberData[0]?.matchedJobs?.map((job) => job.slug || job.title).join(', ') || 'none'}`);
+    logScheduleDistribution(cappedEmails);
     if (flushScores) await flushScores();
     return;
   }
@@ -2305,6 +2416,23 @@ async function main() {
   const totalForCampaign = alreadySent.size + sent.length;
   const totalSubscribers = emails.length;
   console.log(`\u2705 Newsletter: ${sent.length} sent, ${failed.length} failed today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
+
+  // Per-user send-time (#3798): the cascade already logs scheduled vs
+  // immediate (logProviderSummary/sendEmailCascade); add the by-source split
+  // here, reading the authoritative res.scheduledFor the cascade returned
+  // (sent[i] === { ...item, ...result }, so .scheduledFor and .meta are both
+  // present directly on each entry).
+  if (sent.length > 0) {
+    const bySource = { personal: 0, global: 0 };
+    let scheduledSentCount = 0;
+    for (const item of sent) {
+      if (!item.scheduledFor) continue;
+      scheduledSentCount += 1;
+      const source = item.meta?.sendTimeSource;
+      if (source && bySource[source] !== undefined) bySource[source] += 1;
+    }
+    console.log(`\ud83d\udcc5 Send-time breakdown: ${sent.length - scheduledSentCount} immediate, ${scheduledSentCount} scheduled (personal=${bySource.personal}, global=${bySource.global})`);
+  }
   if (failed.length > 0) {
     console.log(`\u26a0\ufe0f  ${failed.length} emails failed — they will be retried on the next run.`);
   }
