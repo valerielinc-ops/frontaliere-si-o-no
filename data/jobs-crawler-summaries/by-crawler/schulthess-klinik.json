@@ -1,18 +1,19 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-07-10T22:02:31.672Z",
+  "generatedAt": "2026-07-11T10:20:51.011Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 5,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4832,
-  "avgDurationMs": 4832,
+  "durationMs": 5341,
+  "avgDurationMs": 5341,
   "durationHistory": [
-    4832
+    5341
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schulthess-klinik-244174689799",
       "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
@@ -26,7 +27,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.517Z",
+      "crawledAt": "2026-07-11T10:20:46.458Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2001",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-10T22:02:27.517Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "schulthess-klinik-cf3f14361152",
       "slug": "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
@@ -65,7 +65,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/8b0f195e-8490-4c7c-81a3-22a42e3cbe2c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.531Z",
+      "crawledAt": "2026-07-11T10:20:46.468Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/fachfrau-gesundheit-fachmann-gesundheit/92377ec4-8c79-4909-bf87-ba8267014878",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.536Z",
+      "crawledAt": "2026-07-11T10:20:46.472Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.540Z",
+      "crawledAt": "2026-07-11T10:20:46.473Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/2454b56f-d938-4c76-8cec-98a913c25330",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.544Z",
+      "crawledAt": "2026-07-11T10:20:46.476Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/b875938d-269e-4c26-908f-b9fbff344713",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:27.549Z",
+      "crawledAt": "2026-07-11T10:20:46.481Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,48 +243,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "schulthess-klinik-37ab220e3234",
-      "slug": "mitarbeiterin-collaboratore-trice-room-service-schulthess-klinik-lengghalde-2-zurich",
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Room Service",
-      "location": "Lengghalde 2, Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/a2344639-6389-423c-8a22-07f082b1c437",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T22:15:12.706Z",
-      "addressLocality": "Lengghalde 2, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "Lengghalde 2",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1946",
-      "firstSeenAt": "2026-06-29T14:15:19.085Z",
-      "crawlerMissStreak": 2,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "schulthess-klinik-92b1f7d4e4a2",
@@ -317,7 +276,7 @@
       "firstSeenAt": "2026-06-29T14:15:19.112Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -358,7 +317,7 @@
       "firstSeenAt": "2026-06-10T12:52:28.556Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -399,7 +358,7 @@
       "firstSeenAt": "2026-06-11T13:29:24.763Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
