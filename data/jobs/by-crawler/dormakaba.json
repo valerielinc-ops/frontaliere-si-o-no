@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "dormakaba-11585",
-      "slug": "program-manager-business-applications-m-f-d-dormakaba-ch",
+      "slug": "program-manager-applicazioni-aziendali-m-f-d-dormakaba-rumlang",
       "slugByLocale": {
         "en": "program-manager-business-applications-m-f-d-dormakaba-ch",
-        "it": "program-manager-business-applications-m-f-d-dormakaba-ch",
+        "it": "program-manager-applicazioni-aziendali-m-f-d-dormakaba-rumlang",
         "de": "program-manager-business-applications-m-f-d-dormakaba-ch",
         "fr": "program-manager-business-applications-m-f-d-dormakaba-ch"
       },
@@ -68,12 +68,10 @@
           "program-manager-business-applications-m-f-d-dormakaba-ch"
         ],
         "de": [
-          "programmmanager-geschaftsanwendungen-m-w-d-dormakaba-rumlang",
-          "program-manager-business-applications-m-f-d-dormakaba-ch"
+          "programmmanager-geschaftsanwendungen-m-w-d-dormakaba-rumlang"
         ],
         "fr": [
-          "gestionnaire-de-programme-applications-operationnelles-m-f-d-dormakaba-rumlang",
-          "program-manager-business-applications-m-f-d-dormakaba-ch"
+          "gestionnaire-de-programme-applications-operationnelles-m-f-d-dormakaba-rumlang"
         ]
       },
       "needsRetranslation": true,
@@ -93,10 +91,10 @@
     },
     {
       "id": "dormakaba-11162",
-      "slug": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
+      "slug": "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
-        "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
+        "it": "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
         "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
@@ -143,30 +141,25 @@
         "de": []
       },
       "previousSlugs": [
-        "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
         "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
         "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+        "servicetechniker-in-m-w-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
           "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
           "servicetechniker-in-w-m-d-dormakaba-ch",
           "servicetechniker-in-m-w-d-dormakaba-st-gallen"
         ],
         "en": [
-          "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+          "service-technician-in-f-m-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
-          "technicien-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+          "technicien-in-f-m-d-dormakaba-st-gallen"
         ]
       },
       "needsRetranslation": true,
@@ -259,10 +252,10 @@
     },
     {
       "id": "dormakaba-11245",
-      "slug": "servicetechniker-in-m-w-d-st-gallen-rheintal-dormakaba-st-gallen",
+      "slug": "tecnico-di-assistenza-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch",
-        "it": "servicetechniker-in-m-w-d-st-gallen-rheintal-dormakaba-st-gallen",
+        "it": "tecnico-di-assistenza-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
         "en": "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch",
         "fr": "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch"
       },
@@ -310,7 +303,6 @@
       },
       "previousSlugs": [
         "tecnico-di-assistenza-f-m-d-valle-di-san-gallo-reno-dormakaba-st-gallen",
-        "tecnico-di-assistenza-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "tecnico-in-servizio-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
         "service-technician-in-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
@@ -321,19 +313,16 @@
       "previousSlugsByLocale": {
         "it": [
           "tecnico-di-assistenza-f-m-d-valle-di-san-gallo-reno-dormakaba-st-gallen",
-          "tecnico-di-assistenza-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
           "tecnico-in-servizio-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
           "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch",
           "servicetechniker-in-m-w-d-st-gallen-rheintal-dormakaba-st-gallen"
         ],
         "en": [
-          "service-technician-in-f-m-d-st-gallen-rheintal-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch"
+          "service-technician-in-f-m-d-st-gallen-rheintal-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-in-f-m-d-dormakaba-st-gallen",
-          "technicien-in-f-m-d-dormakaba-st-gallen-627471",
-          "servicetechniker-in-w-m-d-st-gallen-rheintal-dormakaba-ch"
+          "technicien-in-f-m-d-dormakaba-st-gallen-627471"
         ]
       },
       "needsRetranslation": true,
@@ -404,15 +393,13 @@
       "previousSlugs": [
         "specialista-software-remoto-80-100-f-m-d-dormakaba-rumlang",
         "software-specialist-remote-80-100-f-m-d-dormakaba-rumlang",
-        "software-spezialist-remote-80-100-w-m-d-dormakaba-ch",
-        "specialista-software-remote-80-100-f-m-d-dormakaba-rumlang"
+        "software-spezialist-remote-80-100-w-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-software-remoto-80-100-f-m-d-dormakaba-rumlang",
           "software-specialist-remote-80-100-f-m-d-dormakaba-rumlang",
-          "software-spezialist-remote-80-100-w-m-d-dormakaba-ch",
-          "specialista-software-remote-80-100-f-m-d-dormakaba-rumlang"
+          "software-spezialist-remote-80-100-w-m-d-dormakaba-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:35:54.061Z",
@@ -432,10 +419,10 @@
     },
     {
       "id": "dormakaba-11205",
-      "slug": "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch",
+      "slug": "regional-sales-manager-80-100-m-f-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch",
-        "it": "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch",
+        "it": "regional-sales-manager-80-100-m-f-d-dormakaba-le-mont-sur-lausanne",
         "en": "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch",
         "de": "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch"
       },
@@ -485,14 +472,12 @@
         "responsabile-vendite-regionale-80-100-lun-f-d-dormakaba-le-mont-sur-lausanne",
         "regional-sales-officer-80-100-m-f-d-dormakaba-le-mont-sur-lausanne",
         "regional-sales-officer-80-100-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "regional-sales-manager-80-100-m-f-d-dormakaba-le-mont-sur-lausanne",
         "regional-sales-manager-80-100-m-w-d-dormakaba-le-mont-sur-lausanne",
         "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-vendite-regionale-80-100-lun-f-d-dormakaba-le-mont-sur-lausanne",
-          "regional-sales-manager-80-100-m-f-d-dormakaba-le-mont-sur-lausanne",
           "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch"
         ],
         "en": [
@@ -500,8 +485,7 @@
         ],
         "de": [
           "regional-sales-officer-80-100-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "regional-sales-manager-80-100-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "responsable-regional-des-ventes-80-100-m-f-d-dormakaba-ch"
+          "regional-sales-manager-80-100-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
       "needsRetranslation": true,
@@ -521,10 +505,10 @@
     },
     {
       "id": "dormakaba-11232",
-      "slug": "software-projektleiter-80-100-m-w-d-dormakaba-rumlang",
+      "slug": "software-project-manager-80-100-w-m-d-dormakaba-rumlang",
       "slugByLocale": {
         "de": "software-projektleiter-80-100-w-m-d-dormakaba-ch",
-        "it": "software-projektleiter-80-100-m-w-d-dormakaba-rumlang",
+        "it": "software-project-manager-80-100-w-m-d-dormakaba-rumlang",
         "en": "software-projektleiter-80-100-w-m-d-dormakaba-ch",
         "fr": "software-projektleiter-80-100-w-m-d-dormakaba-ch"
       },
@@ -573,7 +557,6 @@
       },
       "previousSlugs": [
         "responsabile-del-progetto-software-80-100-f-m-d-dormakaba-rumlang",
-        "software-project-manager-80-100-w-m-d-dormakaba-rumlang",
         "gestionnaire-de-projet-logiciel-80-100-w-m-j-dormakaba-rumlang",
         "software-projektleiter-80-100-w-m-d-dormakaba-ch",
         "software-projektleiter-80-100-m-w-d-dormakaba-rumlang"
@@ -581,13 +564,11 @@
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-progetto-software-80-100-f-m-d-dormakaba-rumlang",
-          "software-project-manager-80-100-w-m-d-dormakaba-rumlang",
           "software-projektleiter-80-100-w-m-d-dormakaba-ch",
           "software-projektleiter-80-100-m-w-d-dormakaba-rumlang"
         ],
         "fr": [
-          "gestionnaire-de-projet-logiciel-80-100-w-m-j-dormakaba-rumlang",
-          "software-projektleiter-80-100-w-m-d-dormakaba-ch"
+          "gestionnaire-de-projet-logiciel-80-100-w-m-j-dormakaba-rumlang"
         ]
       },
       "needsRetranslation": true,
@@ -665,8 +646,7 @@
           "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
         ],
         "fr": [
-          "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen",
-          "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
+          "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen"
         ]
       },
       "needsRetranslation": true,
@@ -741,17 +721,14 @@
         "werkscontroller-finance-business-partner-80-100-w-m-d-dormakaba-wetzikon",
         "werkscontroller-finanza-business-partner-80-100-w-m-d-dormakaba-wetzikon",
         "factory-controller-finance-business-partner-80-100-f-m-d-dormakaba-wetzikon",
-        "controleur-d-usine-partenaire-financier-80-100-f-m-j-dormakaba-wetzikon",
-        "werkscontroller-finance-business-partner-80-100-w-m-d-dormakaba-ch"
+        "controleur-d-usine-partenaire-financier-80-100-f-m-j-dormakaba-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkscontroller-finanza-business-partner-80-100-w-m-d-dormakaba-wetzikon",
-          "werkscontroller-finance-business-partner-80-100-w-m-d-dormakaba-ch"
+          "werkscontroller-finanza-business-partner-80-100-w-m-d-dormakaba-wetzikon"
         ],
         "en": [
-          "factory-controller-finance-business-partner-80-100-f-m-d-dormakaba-wetzikon",
-          "werkscontroller-finance-business-partner-80-100-w-m-d-dormakaba-ch"
+          "factory-controller-finance-business-partner-80-100-f-m-d-dormakaba-wetzikon"
         ],
         "fr": [
           "controleur-d-usine-partenaire-financier-80-100-f-m-d-dormakaba-wetzikon",

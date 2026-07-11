@@ -952,9 +952,9 @@
         "en": "PostAuto-Fahrer:in",
         "fr": "PostAuto-Fahrer:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "conducente-di-autopostale-a-postauto-laax-gr",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "conducente-di-autopostale-a-postauto-laax-gr",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-laax-gr",
         "fr": "postauto-fahrer-in-post"
@@ -992,7 +992,15 @@
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-11T10:27:25.937Z"
+      "firstSeenAt": "2026-07-11T10:27:25.937Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Teamleaderin-Zustellung-Briefe-und-Pakete-%28Entwicklungsprogramm-im-Distributionsgebiet%29/74284-de_DE",
@@ -1319,9 +1327,9 @@
         "en": "Zusteller:in Pakete",
         "fr": "Zusteller:in Pakete"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
+        "it": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
         "en": "zusteller-in-pakete-post",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
         "fr": "zusteller-in-pakete-post"
@@ -1359,7 +1367,15 @@
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-11T10:27:25.937Z"
+      "firstSeenAt": "2026-07-11T10:27:25.937Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Grosskunden-und-Postfachzustellung-Bern-und-Postparc/74189-de_DE",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-e7fde9e590f4",
-      "slug": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+      "slug": "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-        "it": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-        "en": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-        "fr": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern"
+        "it": "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-11T10:28:47.462Z"
+      "firstSeenAt": "2026-07-11T10:28:47.462Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern"
+      ]
     },
     {
       "id": "upd-36eb0271605f",
-      "slug": "dipl-pflegefachperson-upd-bern",
+      "slug": "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-upd-bern",
-        "it": "dipl-pflegefachperson-upd-bern",
-        "en": "dipl-pflegefachperson-upd-bern",
-        "fr": "dipl-pflegefachperson-upd-bern"
+        "it": "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -128,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-11T10:28:27.259Z"
+      "firstSeenAt": "2026-07-11T10:28:27.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-upd-bern"
+      ]
     },
     {
       "id": "upd-d911ea151626",
