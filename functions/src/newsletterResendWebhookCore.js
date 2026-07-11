@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
+import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -301,6 +302,14 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  );
  }
 
+ // Refresh preferred send hour (#3798) — only open/click carry a time-of-day signal.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(
+ db.collection('newsletter_subscribers').doc(email),
+ admin.firestore.FieldValue,
+ );
+ }
+
  await db.collection('newsletter_subscribers').doc(email).collection('campaign_deliveries').doc(buildDeliveryDocId(email, campaignId)).set({
  email,
  provider: 'resend',
@@ -420,6 +429,13 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  // ── Engagement score ────────────────────────────────────────
  if (type === 'open' || type === 'click' || type === 'send') {
  await refreshEngagementScore(subscriberRef, FieldValue);
+ }
+
+ // ── Preferred send hour (#3798) ──────────────────────────────
+ // job_alert_subscribers/{email} has the same events subcollection shape as
+ // newsletter_subscribers. Only open/click carry a time-of-day signal.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
  }
 
  // ── Per-alert delivery record (subcollection) ───────────────

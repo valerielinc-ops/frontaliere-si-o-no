@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
+import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
@@ -146,6 +147,11 @@ export async function persistMailgunEvent(db, eventData) {
  await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
+ // Refresh preferred send hour (#3798) — only open/click carry a time-of-day signal.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
+
  // Update campaign delivery doc
  const deliveryData = {
  email,
@@ -224,6 +230,12 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+ }
+
+ // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
+ // same events subcollection shape as newsletter_subscribers.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
  }
 
  await subscriberRef.collection('events').add({
