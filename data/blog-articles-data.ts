@@ -25064,6 +25064,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-gravidanza-controlli-sanitari-lamal-cmi',
+ category: 'pratico',
+ date: '2026-07-11T09:16:23.649Z',
+ image: '/images/blog/frontaliere-gravidanza-controlli-sanitari-lamal-cmi.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

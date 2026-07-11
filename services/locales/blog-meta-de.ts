@@ -8340,6 +8340,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Heiraten in der Schweiz: Dokumente, Genehmigungen und steuerliche Auswirkungen',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'Am 1. Januar 2024 tritt die Neue Grenzgängervereinbarung in Kraft. Grenzgänger müssen ein spezielles Formular ausfüllen.',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'Ein Frontalier zieht mit seiner Familie in die Schweiz',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Schwangerschafts-Frontend: KVG- oder MHK-Krankenkasse, Spitalwahl, Unterschiede',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen, müssen sich regelmäßigen Gesundheitskontrollen unterziehen. Aber was passiert, wenn sie ein Kind erwarten?',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Eine italienisch-schweizerische Grenzarbeiterin besucht ein Gesundheitszentrum für regelmäßige Kontrollen.',
 };
 
 export default blogMetaDe;
