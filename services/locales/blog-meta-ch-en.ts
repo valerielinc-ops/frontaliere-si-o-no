@@ -976,6 +976,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Family Foster Care in the Italian-Swiss Border Region: Competent Authorities',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'The adoption or foster care procedure for a frontier family is governed by the New Frontier Agreement, signed on 23 December 2020 and in force from 1 January 2024.',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'A father frontier waiting anxiously for the birth of his child in a Swiss hospital.',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'What to do on the weekend in Ticino: outdoor activities and excursions',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Ideas for the weekend in Ticino: excursions, lakes, villages and outdoor activities',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'A summer scene at Lake Lugano with outdoor activities',
 };
 
 export default blogMetaChEn;

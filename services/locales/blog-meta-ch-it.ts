@@ -976,6 +976,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Adozione e affido per una famiglia frontaliera: enti competenti in Italia e Svizzera',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'La procedura di adozione o affido per una famiglia frontaliera è regolata dal Nuovo Accordo Frontalieri, firmato il 23 dicembre 2020 e in vigore dal 1° gennaio 2024.',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Un padre frontaliero che attende con ansia la nascita del proprio figlio in un ospedale svizzero.',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Cosa fare nel weekend in Ticino: attività all\'aperto e escursioni',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Idee per il weekend in Ticino: escursioni, laghi, borghi e attività all\'aperto',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Una scena estiva al lago di Lugano con attività all\'aperto',
 };
 
 export default blogMetaChIt;
