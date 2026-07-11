@@ -47379,6 +47379,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tilo-lavori-gallarate-luglio': {
+    title: 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
+    description: 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, limitazioni, circolazione, gallarate',
+    ogTitle: 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
+    ogDescription: 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.',
+    canonicalPath: '/articoli-frontaliere/tilo-lavori-gallarate-luglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tilo: limitazioni circolazione Gallarate 11-13 luglio",
+      "description": "Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tilo-lavori-gallarate-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Tilo in transito in una stazione del Canton Ticino"
+      },
+      "datePublished": "2026-07-11T10:09:23+00:00",
+      "dateModified": "2026-07-11T10:09:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-lavori-gallarate-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

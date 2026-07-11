@@ -8348,6 +8348,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Come dimettersi da un lavoro da frontaliere in Svizzera: termini e procedura corretta',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Fatti chiave sulla disdetta del contratto di lavoro per i frontalieri in Svizzera',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Una frontaliere italiana che lavora in Svizzera sta scrivendo una lettera di dimissioni',
+    'blog.article.tilo-lavori-gallarate-luglio.title': 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
+    'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti S50 tra Ticino e Malpensa. Ecco come viaggiare tra l\'11 e il 13 luglio.',
+    'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Treno Tilo in transito in una stazione del Canton Ticino',
 };
 
 export default blogMetaIt;

@@ -8346,6 +8346,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Schweiz: Kündigung eines Grenzgängerjobs: Bedingungen und korrekte Verfahren',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Eckdaten zur Kündigung des Arbeitsvertrages für Grenzgänger in der Schweiz',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Eine italienische Frontalierin, die in der Schweiz arbeitet, schreibt eine Abgangserklärung',
+    'blog.article.tilo-lavori-gallarate-luglio.title': 'Linde: Zirkulationsbeschränkungen Gallarate 11.-13. Juli',
+    'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Wartungsarbeiten am italienischen Eisenbahnnetz wirken sich auf die S50-Verbindungen zwischen Tessin und Malpensa aus. So reisen Sie zwischen dem 11. und 13. Juli.',
+    'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Tilo-Zug in einem Bahnhof im Kanton Tessin',
 };
 
 export default blogMetaDe;
