@@ -25136,6 +25136,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere',
+ category: 'pensione',
+ date: '2026-07-11T19:45:28.113Z',
+ image: '/images/blog/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8364,6 +8364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ehemaliger Deltapav, entlässt ein Drittel der Belegschaft',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'Das Kollektivverfahren sieht neun Entlassungen unter den Angestellten vor, während unter den Arbeitern keine Kürzungen vorgesehen sind.',
     'blog.article.samarate-licenziamenti-2026.imageAlt': 'Bild einer Straße in Samarate mit Menschen in der Ferne',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Für Nicht-Grenzgänger in der Schweiz in Rente gehen',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'Das neue Grenzabkommen von 2024 führt neue Regeln für Grenzgänger ein, die in der Schweiz in Rente gehen wollen.',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'Eine Frau sitzt auf einer Bank mit dem Hintergrund der Stadt Lugano, Schweiz.',
 };
 
 export default blogMetaDe;

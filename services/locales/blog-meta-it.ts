@@ -8366,6 +8366,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ex Deltapav, licenzia un terzo della forza lavoro',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'La procedura collettiva prevede nove esuberi tra gli impiegati, mentre non sono previste riduzioni tra gli operai.',
     'blog.article.samarate-licenziamenti-2026.imageAlt': 'Immagine di una strada di Samarate con persone in lontananza',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera.',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'Una donna siede su una panchina con lo sfondo della città di Lugano, Svizzera.',
 };
 
 export default blogMetaIt;

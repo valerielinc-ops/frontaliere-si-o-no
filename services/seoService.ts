@@ -4444,6 +4444,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imparare-svizzero-tedesco-corsi-e-app': { name: 'Imparare lo svizzero tedesco', path: '/articoli-svizzera/imparare-svizzero-tedesco-corsi-e-app/', parent: 'blog' },
     'blog-samarate-licenziamenti-2026': { name: 'Samarate', path: '/articoli-frontaliere/samarate-licenziamenti-2026', parent: 'blog' },
     'blog-clima-ticino-stagioni': { name: 'Clima del Ticino', path: '/articoli-svizzera/clima-ticino-stagioni/', parent: 'blog' },
+    'blog-pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere': { name: 'Pensionarsi in Svizzera', path: '/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
