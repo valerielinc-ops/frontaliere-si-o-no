@@ -1753,11 +1753,27 @@ async function _persistScoresToFirestore() {
       updatedAt: now,
     };
 
-    // If model is exhausted, persist the reset time (next midnight UTC).
-    // Local CPU fallback is exempt: it has no daily-quota concept, so a
-    // content/timeout failure must never survive past this process — see
-    // the matching restore-path guard above (initScoreStore).
-    if (_exhaustedModels.has(modelId) && !_isLastResortProvider(modelId)) {
+    // If model is exhausted, persist the reset time (next midnight UTC) —
+    // but ONLY for 'quota' exhaustion, which is the one reason that
+    // genuinely lasts until the provider's daily reset. The other breaker
+    // reasons (timeout / content / nonretryable) describe a single call's
+    // outcome in THIS process: a 20-min article generation that timed out,
+    // or two malformed-JSON replies to one big schema prompt, say nothing
+    // about the model serving a different workflow's small prompt right
+    // now. Persisting those used to ban the model for EVERY workflow until
+    // midnight UTC via the shared aggregate doc, silently shrinking the
+    // free-tier pool on thin evidence — a driver of the recurring
+    // "tutti i modelli esauriti" deferrals that zero article production.
+    // In-process the ban still holds for the rest of the run (that's the
+    // circuit-breaker working); it just doesn't outlive the process.
+    // Local CPU fallback is exempt from persistence entirely: it has no
+    // daily-quota concept — see the matching restore-path guard above
+    // (initScoreStore), which likewise assumes persisted = quota.
+    if (
+      _exhaustedModels.has(modelId) &&
+      !_isLastResortProvider(modelId) &&
+      _exhaustReason.get(modelId) === 'quota'
+    ) {
       const tomorrow = new Date();
       tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
       tomorrow.setUTCHours(0, 0, 0, 0);

@@ -24,7 +24,11 @@ describe('git-push-with-retry.sh stale .git/index.lock recovery', () => {
   it('removes .git/index.lock before the first git operation', () => {
     const lockCheckIndex = SCRIPT.indexOf('.git/index.lock');
     const setEIndex = SCRIPT.indexOf('set -euo pipefail');
-    const firstPushIndex = SCRIPT.indexOf('git push origin');
+    // The push carries --no-verify (skips the .githooks/pre-push sibling
+    // gate — data-refresh pushes to main are not pre-PR dev pushes).
+    const firstPushIndex = SCRIPT.search(/\bgit push (--no-verify )?origin\b/);
+
+    expect(firstPushIndex, 'no git push invocation found in git-push-with-retry.sh').toBeGreaterThan(-1);
 
     expect(lockCheckIndex, 'no .git/index.lock handling found in git-push-with-retry.sh').toBeGreaterThan(-1);
     expect(SCRIPT).toMatch(/if \[ -f "\.git\/index\.lock" \]; then[\s\S]*?rm -f "\.git\/index\.lock"/);

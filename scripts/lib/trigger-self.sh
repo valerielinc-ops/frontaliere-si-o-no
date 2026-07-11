@@ -25,6 +25,8 @@
 #                             dispatched run (omitted when empty or "0")
 #   SECTION                 — article section for the dispatched run
 #                             (frontaliere | svizzera; omitted when empty)
+#   URL                     — specific source URL for the dispatched run
+#                             (retries a lost article by URL; omitted when empty)
 #
 # Exit codes:
 #   0  — dispatch sent OR skipped (no token) OR API error (best-effort)
@@ -68,6 +70,7 @@ DELAY="${DELAY_SECONDS:-0}"
 RETRY_COUNT="${RETRY_COUNT:-}"
 NO_CHANGES_STREAK="${NO_CHANGES_STREAK:-}"
 SECTION="${SECTION:-}"
+URL="${URL:-}"
 
 # Optional pre-dispatch sleep (lets the runner unwind, gives the queue room)
 if [ -n "$DELAY" ] && [ "$DELAY" != "0" ]; then
@@ -75,23 +78,26 @@ if [ -n "$DELAY" ] && [ "$DELAY" != "0" ]; then
   sleep "$DELAY"
 fi
 
-echo "🔁 trigger-self.sh: dispatching ${WORKFLOW_FILE} on ${REF} (reason=${REASON}, retry_count=${RETRY_COUNT:-0}, no_changes_streak=${NO_CHANGES_STREAK:-0}, section=${SECTION:-default})"
+echo "🔁 trigger-self.sh: dispatching ${WORKFLOW_FILE} on ${REF} (reason=${REASON}, retry_count=${RETRY_COUNT:-0}, no_changes_streak=${NO_CHANGES_STREAK:-0}, section=${SECTION:-default}, url=${URL:-none})"
 
 PAYLOAD="$(
   DISPATCH_REF_JSON="$REF" \
   RETRY_COUNT_JSON="$RETRY_COUNT" \
   NO_CHANGES_STREAK_JSON="$NO_CHANGES_STREAK" \
   SECTION_JSON="$SECTION" \
+  URL_JSON="$URL" \
   node <<'NODE'
 const trim = (v) => String(v || '').trim();
 const payload = { ref: trim(process.env.DISPATCH_REF_JSON) || 'main' };
 const retry = trim(process.env.RETRY_COUNT_JSON);
 const streak = trim(process.env.NO_CHANGES_STREAK_JSON);
 const section = trim(process.env.SECTION_JSON);
+const url = trim(process.env.URL_JSON);
 const inputs = {};
 if (retry && retry !== '0') inputs.retry_count = retry;
 if (streak && streak !== '0') inputs.no_changes_streak = streak;
 if (section) inputs.section = section;
+if (url) inputs.url = url;
 if (Object.keys(inputs).length > 0) payload.inputs = inputs;
 process.stdout.write(JSON.stringify(payload));
 NODE
