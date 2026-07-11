@@ -12771,6 +12771,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-meccanico-auto-ticino': {
+    title: 'Frontaliere meccanico auto in Ticino: stipendio e regole',
+    description: 'Guida per meccanici frontalieri in Ticino: stipendio, permesso G, tassazione e il nuovo accordo fiscale in vigore dal 1° gennaio 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, meccanico, auto, stipendio, regole',
+    ogTitle: 'Frontaliere meccanico auto in Ticino: stipendio e regole',
+    ogDescription: 'Guida per meccanici frontalieri in Ticino: stipendio, permesso G, tassazione e il nuovo accordo fiscale in vigore dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-svizzera/frontaliere-meccanico-auto-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere meccanico auto in Ticino: stipendio e regole",
+      "description": "Guida per meccanici frontalieri in Ticino: stipendio, permesso G, tassazione e il nuovo accordo fiscale in vigore dal 1° gennaio 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-meccanico-auto-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Meccanico in un'officina in Ticino"
+      },
+      "datePublished": "2026-07-11T19:59:25+00:00",
+      "dateModified": "2026-07-11T19:59:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-meccanico-auto-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

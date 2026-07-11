@@ -991,6 +991,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.clima-ticino-stagioni.title': 'Clima Ticino: stagionalità, temperature e precipitazioni',
     'blog.article.clima-ticino-stagioni.excerpt': 'Il Ticino offre un clima temperato con quattro stagioni chiaramente distinguibili. La temperatura media in estate è di circa 25°C, mentre in inverno è di circa 0°C.',
     'blog.article.clima-ticino-stagioni.imageAlt': 'Lago di Lugano in primavera',
+    'blog.article.frontaliere-meccanico-auto-ticino.title': 'Frontaliere meccanico auto in Ticino: stipendio e regole',
+    'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Guida completa per meccanici frontalieri in Ticino: stipendio, permesso G, tassazione e il nuovo accordo fiscale in vigore dal 1° gennaio 2024.',
+    'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Meccanico in un\'officina in Ticino',
 };
 
 export default blogMetaChIt;

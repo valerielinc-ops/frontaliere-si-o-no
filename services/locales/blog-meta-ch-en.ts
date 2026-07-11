@@ -991,6 +991,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.clima-ticino-stagioni.title': 'Ticino climate: seasonality, temperatures and rainfall',
     'blog.article.clima-ticino-stagioni.excerpt': 'Ticino offers a temperate climate with four clearly distinguishable seasons. The average temperature in summer is about 25°C, while in winter it is about 0°C.',
     'blog.article.clima-ticino-stagioni.imageAlt': 'Lugano Lake in spring',
+    'blog.article.frontaliere-meccanico-auto-ticino.title': 'Car mechanical frontier in Ticino: salary and rules',
+    'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Complete guide for border mechanics in Ticino: salary, G permit, taxation and the new tax agreement in force from 1 January 2024.',
+    'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Mechanic in a workshop in Ticino',
 };
 
 export default blogMetaChEn;
