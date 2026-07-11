@@ -976,6 +976,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Familienadoption und Pflege in grenzartiger Gemeinschaft: italienischer und schweizerische Stellen',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'Das Adoptions- oder Pflegeverfahren für eine Grenzfamilie wird durch die Neue Grenzgängervereinbarung geregelt, die am 23. Dezember 2020 unterzeichnet wurde und seit dem 1. Januar 2024 in Kraft ist.',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Ein Vater mit Grenzgebietsstatus wartet ungeduldig auf die Geburt seines Kindes in einem Schweizer Krankenhaus.',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Aktivitäten am Wochenende im Tessin: Outdoor-Aktivitäten und Ausflüge',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Ideen für das Wochenende im Tessin: Wandern, Seen, Dörfer und Outdoor-Aktivitäten',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Ein Sommerbild am Luganersee mit Freiluftaktivitäten',
 };
 
 export default blogMetaChDe;

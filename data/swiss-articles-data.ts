@@ -2924,6 +2924,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cosa-fare-nel-weekend-in-ticino-attivita-outdoor',
+    category: 'novita',
+    date: '2026-07-11T10:28:27.714Z',
+    image: '/images/blog/cosa-fare-nel-weekend-in-ticino-attivita-outdoor.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

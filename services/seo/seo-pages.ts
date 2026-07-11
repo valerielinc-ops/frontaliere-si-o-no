@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3127,
+ "numberOfItems": 3128,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7802,7 +7802,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3124, "name": "Come la scommessa svizzera sull'esportazione di...", "url": `${BASE_URL}/articoli-frontaliere/esportazione-zampe-di-maiale` },
           { "@type": "ListItem", "position": 3125, "name": "Come dimettersi da un lavoro da frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini` },
           { "@type": "ListItem", "position": 3126, "name": "Adozione e affido per una famiglia frontaliera:...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-adozione-affido-procedura-italia-svizzera` },
-          { "@type": "ListItem", "position": 3127, "name": "Tilo: limitazioni circolazione Gallarate 11-13 ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-lavori-gallarate-luglio` }
+          { "@type": "ListItem", "position": 3127, "name": "Tilo: limitazioni circolazione Gallarate 11-13 ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-lavori-gallarate-luglio` },
+          { "@type": "ListItem", "position": 3128, "name": "Cosa fare nel weekend in Ticino: attività all'a...", "url": `${BASE_URL}/articoli-frontaliere/cosa-fare-nel-weekend-in-ticino-attivita-outdoor` }
  ]
  },
  {

@@ -348,6 +348,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'vivere-oltre-monti-lavorare-grigioni': { it: 'vivere-oltre-monti-lavorare-grigioni', en: 'living-over-the-mountains-working-in-grisons', de: 'leben-uber-berge-erarbeiten-in-grisone', fr: 'vivre-au-dela-des-montagnes-travailler-en-grisons' },
  'esportazione-zampe-di-maiale': { it: 'esportazione-zampe-di-maiale', en: 'pork-exports-to-china', de: 'schweinefleisch-export-in-china', fr: 'exportation-de-porc-en-chine' },
  'frontaliere-adozione-affido-procedura-italia-svizzera': { it: 'frontaliere-adozione-affido-procedura-italia-svizzera', en: 'frontaliere-adozione-affido-procedura-italia-svizzera', de: 'frontaliere-adozione-affido-procedura-italia-schweiz', fr: 'frontaliere-adozione-affido-procedura-italie-suisse' },
+ 'cosa-fare-nel-weekend-in-ticino-attivita-outdoor': { it: 'cosa-fare-nel-weekend-in-ticino-attivita-outdoor', en: 'things-to-do-in-ticino', de: 'was-man-im-ticino-zu-tun-hat', fr: 'choisir-d-activites-a-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

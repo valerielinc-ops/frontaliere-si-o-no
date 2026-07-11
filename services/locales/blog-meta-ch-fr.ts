@@ -976,6 +976,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Adoption et placement pour une famille frontalierre : organismes compétents en Italie et en Suisse',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'La procédure d\'adoption ou de placement pour une famille frontalière est régie par le nouvel accord frontalier, signé le 23 décembre 2020 et en vigueur depuis le 1er janvier 2024.',
     'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Un père frontalier qui attend avec impatience la naissance de son enfant dans un hôpital suisse.',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Que faire le week-end au Tessin : activités de plein air et excursions',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Idées pour le week-end au Tessin : excursions, lacs, villages et activités de plein air',
+    'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Une scène d\'été au lac de Lugano avec des activités en plein air',
 };
 
 export default blogMetaChFr;
