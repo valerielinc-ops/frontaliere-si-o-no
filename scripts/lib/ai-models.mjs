@@ -3313,7 +3313,14 @@ async function _callGeminiRaw(model, messages, opts) {
             _learnSchemaIncompatible(model);
           }
           if (nrc.markExhausted) {
-            markModelExhausted(model);
+            // 'nonretryable', NOT the default 'quota': this is the Gemini twin
+            // of the _callOpenAICompatible non-retryable branch, which already
+            // labels correctly. Left at the default, a 404/unknown-model here
+            // was persisted to the shared Firestore doc until midnight UTC as
+            // if it were a daily quota — exactly the over-persistence #4073
+            // removed (quota-only persist gate in _persistScoresToFirestore).
+            // Review 🔴 on #4073.
+            markModelExhausted(model, 'nonretryable');
             _stats.exhausted++;
           }
           const err = new Error(`[${model}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
