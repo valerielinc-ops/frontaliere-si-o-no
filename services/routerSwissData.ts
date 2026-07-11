@@ -355,6 +355,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'clima-ticino-stagioni': { it: 'clima-ticino-stagioni', en: 'ticino-climate-seasons', de: 'luganer-klima-saison', fr: 'climat-lugano-saison' },
  'frontaliere-meccanico-auto-ticino': { it: 'frontaliere-meccanico-auto-ticino', en: 'cross-border-mechanic-ticino-salary', de: 'grenzgaenger-kfz-mechaniker-tessin-gehalt', fr: 'frontalier-mecanicien-auto-ticino-salaire' },
  'cessione-del-quinto-della-pensione-2026': { it: 'cessione-del-quinto-della-pensione-2026', en: 'cessione-del-quinto-della-pensione-2026-frontalier', de: 'cessione-del-quinto-della-pensione-2026-frontalier', fr: 'cessione-del-quinto-della-pensione-2026-frontalier' },
+ 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti': { it: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', en: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', de: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', fr: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -2987,6 +2987,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-11T20:39:01.276Z',
+    image: '/images/blog/frontaliere-insegnante-scuola-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
