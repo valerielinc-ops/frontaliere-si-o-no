@@ -988,6 +988,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Learning Swiss German: Courses and Apps',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Are you interested in learning Swiss German? Discover the courses and apps that are right for you.',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Swiss German language classes in a school in the canton of Ticino',
+    'blog.article.clima-ticino-stagioni.title': 'Ticino climate: seasonality, temperatures and rainfall',
+    'blog.article.clima-ticino-stagioni.excerpt': 'Ticino offers a temperate climate with four clearly distinguishable seasons. The average temperature in summer is about 25°C, while in winter it is about 0°C.',
+    'blog.article.clima-ticino-stagioni.imageAlt': 'Lugano Lake in spring',
 };
 
 export default blogMetaChEn;

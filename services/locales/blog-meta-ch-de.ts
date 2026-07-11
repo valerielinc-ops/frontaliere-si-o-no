@@ -988,6 +988,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Schweizerdeutsch lernen: Kurse und Apps',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Sind Sie daran interessiert, Schweizerdeutsch zu lernen? Entdecken Sie die Kurse und Apps, die am besten zu Ihnen passen.',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Schweizerdeutsch-Kurse in einer Schule im Kanton Tessin',
+    'blog.article.clima-ticino-stagioni.title': 'Klima Tessin: Saisonalität, Temperaturen und Niederschlag',
+    'blog.article.clima-ticino-stagioni.excerpt': 'Das Tessin bietet ein gemäßigtes Klima mit vier klar unterscheidbaren Jahreszeiten. Die Durchschnittstemperatur liegt im Sommer bei ca. 25°C, im Winter bei ca. 0°C.',
+    'blog.article.clima-ticino-stagioni.imageAlt': 'Luganoer See im Frühling',
 };
 
 export default blogMetaChDe;
