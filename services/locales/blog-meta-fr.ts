@@ -8363,6 +8363,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontalier enseignant école ticino salaire exigences',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nouvelle convention italo-suisse du 9 décembre 1976 évite la double imposition avec le crédit d\'impôt (cadre CE de 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Une scène d\'enseignement au Tessin avec la ville en arrière-plan.',
+    'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ancien Deltapav, licencie un tiers de la main-d\' œuvre',
+    'blog.article.samarate-licenziamenti-2026.excerpt': 'La procédure collective prévoit neuf licenciements parmi les employés, alors qu\'aucune réduction n\'est prévue parmi les ouvriers.',
+    'blog.article.samarate-licenziamenti-2026.imageAlt': 'Image d\'une rue à Samarate avec des personnes à l\'horizon',
 };
 
 export default blogMetaFr;

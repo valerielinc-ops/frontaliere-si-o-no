@@ -8361,6 +8361,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Grenzgänger Lehrer Schule Tessin Gehaltsvoraussetzungen',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'Das neue italienisch-schweizerische Abkommen vom 9. Dezember 1976 vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Ein Lehrer in Ticino mit der Stadt im Hintergrund.',
+    'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ehemaliger Deltapav, entlässt ein Drittel der Belegschaft',
+    'blog.article.samarate-licenziamenti-2026.excerpt': 'Das Kollektivverfahren sieht neun Entlassungen unter den Angestellten vor, während unter den Arbeitern keine Kürzungen vorgesehen sind.',
+    'blog.article.samarate-licenziamenti-2026.imageAlt': 'Bild einer Straße in Samarate mit Menschen in der Ferne',
 };
 
 export default blogMetaDe;
