@@ -187,9 +187,19 @@ function mergeJobs(discoveredJobs) {
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
+  // Intra-run dedup (same class as banca-cler, PR #4056): a source that
+  // publishes the same posting under two keys must not write duplicates.
+  // Key on jobMatchKey and iterate the deduped Map values (last occurrence
+  // wins) instead of the raw discovered list.
+  const discoveredByKey = new Map(discoveredJobs.map((job) => [jobMatchKey(job), job]));
+  const dedupedDiscovered = [...discoveredByKey.values()];
+  if (dedupedDiscovered.length !== discoveredJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  }
+
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
+  const mergedTarget = dedupedDiscovered.map((job) => {
     const prev = existingByKey.get(jobMatchKey(job));
     if (!prev) {
       added += 1;
