@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-07-10T22:38:52.517Z",
+  "generatedAt": "2026-07-11T10:53:02.487Z",
   "total": 28,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 28,
-  "durationMs": 32821,
-  "avgDurationMs": 32821,
+  "durationMs": 37242,
+  "avgDurationMs": 37242,
   "durationHistory": [
-    32821
+    37242
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,6 @@
       "salaryMax": 146000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -79,7 +78,6 @@
       "salaryMax": 146000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,7 +114,6 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -153,7 +150,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-24T12:06:34.961Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -370,7 +366,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-01T12:33:27.158Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -514,7 +509,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-01T23:08:13.002Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -587,7 +581,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -624,7 +617,6 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -661,7 +653,6 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -981,11 +972,11 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T12:22:23.029Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1016,11 +1007,11 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T12:22:23.029Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
