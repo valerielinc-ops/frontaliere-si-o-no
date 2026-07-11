@@ -970,6 +970,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Vivre en Valteline et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Impôts, règlements et différences par rapport au pôle Tessin-Lombardie',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per les rues historiques de Locarno, avec vue sur le lac Majeur.',
+    'blog.article.esportazione-zampe-di-maiale.title': 'Comment le pari suisse sur l\'exportation de pattes de porc en Chine s\'est brisé',
+    'blog.article.esportazione-zampe-di-maiale.excerpt': 'Les prix historiquement bas et les augmentations des frais d\'expédition érodent les profits des exportateurs de viande porcine de Suisse',
+    'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Image d\'une scène d\'exportation de porc en Chine',
 };
 
 export default blogMetaChFr;

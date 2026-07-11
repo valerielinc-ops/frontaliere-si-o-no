@@ -970,6 +970,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore.',
+    'blog.article.esportazione-zampe-di-maiale.title': 'Come la scommessa svizzera sull\'esportazione di zampe di maiale in Cina si è infranta',
+    'blog.article.esportazione-zampe-di-maiale.excerpt': 'I prezzi ai minimi storici e gli aumenti dei costi di spedizione stanno erodendo i profitti di chi esporta carne suina dalla Svizzera',
+    'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Immagine di una scena di esportazione di carne suina in Cina',
 };
 
 export default blogMetaChIt;

@@ -970,6 +970,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Living in Valtellina and working in Graubünden as a border worker',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Taxes, regulations and differences with respect to the Ticino-Lombardy pole',
     'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore.',
+    'blog.article.esportazione-zampe-di-maiale.title': 'How Switzerland\'s bet on pork paw exports to China broke down',
+    'blog.article.esportazione-zampe-di-maiale.excerpt': 'Historical low prices and increases in shipping costs are eroding the profits of those who export pork from Switzerland',
+    'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Image of a scene of pork export to China',
 };
 
 export default blogMetaChEn;
