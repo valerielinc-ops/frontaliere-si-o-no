@@ -1015,6 +1015,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-nuovi-rincari.title': 'Tessin, Preissteigerungen und Händler in der Krise. Die echte Schweiz?',
     'blog.article.ticino-nuovi-rincari.excerpt': 'Erhöhte Preise im Tessin, Grenzgänger, die zum Einkaufen nach Italien reisen.',
     'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: Preise in Evidenz',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Historische Neuerung für Grenzgänger in Tessin: G-Pass verlängert',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Der Nationalrat hat die Maßnahme genehmigt, die die Gültigkeit der Arbeitserlaubnis G auf die gesamte Dauer des Praktikums ausdehnt.',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Spaziergang im Zentrum von Lugano, mit Menschen verschiedenen Alters und Nationalitäten',
 };
 
 export default blogMetaChDe;

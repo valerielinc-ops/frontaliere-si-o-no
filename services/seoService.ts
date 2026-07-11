@@ -4461,6 +4461,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-equipollenza-titolo-studio-italiano-svizzera-frontaliere': { name: 'Equipollenza titolo di studio italiano in', path: '/articoli-frontaliere/equipollenza-titolo-studio-italiano-svizzera-frontaliere', parent: 'blog' },
     'blog-ticino-nuovi-rincari': { name: 'Ticino, nuovi rincari e commercianti in', path: '/articoli-svizzera/ticino-nuovi-rincari/', parent: 'blog' },
     'blog-sia-tredicesima-avs-guadagnarci-due-volte': { name: 'Frontalieri in pensione', path: '/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte', parent: 'blog' },
+    'blog-canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu': { name: 'Canton Ticino, svolta storica per gli', path: '/articoli-svizzera/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

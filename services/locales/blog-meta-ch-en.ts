@@ -1015,6 +1015,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-nuovi-rincari.title': 'Ticino, rising prices and traders in crisis. The real Switzerland?',
     'blog.article.ticino-nuovi-rincari.excerpt': 'Increased prices in Ticino, border crossers who travel to Italy to do their shopping.',
     'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: prices in evidence',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Ticino: G Permit Now More Valuable Than Ever for Frontier Apprentices',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'The National Council approved the measure extending the validity of the work permit G to cover the entire duration of the internship.',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Walk in Lugano city center, with people of different ages and nationalities',
 };
 
 export default blogMetaChEn;

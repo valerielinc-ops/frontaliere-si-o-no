@@ -361,6 +361,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'iscrizione-scuola-figli-frontalieri': { it: 'iscrizione-scuola-figli-frontalieri', en: 'enrolling-children-school-cross-border-workers', de: 'einschulung-kinder-grenzgaenger', fr: 'inscription-ecole-enfants-frontaliers' },
  'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': { it: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', en: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', de: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', fr: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles' },
  'ticino-nuovi-rincari': { it: 'ticino-nuovi-rincari', en: 'ticino-new-price-rises', de: 'ticino-neue-preissteigerungen', fr: 'ticino-nouveaux-augmentations-de-prix' },
+ 'canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu': { it: 'canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu', en: 'canton-ticino-historic-turning-point-g-permits-g-will-be-worth-a-lot-more', de: 'kanton-ticino-geschichtlicher-wendepunkt-g-berechtigungen-g-werden-sehr-wertvoll', fr: 'canton-ticino-tournee-historique-g-permis-g-sera-tres-valable' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
