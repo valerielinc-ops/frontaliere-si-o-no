@@ -1,14 +1,14 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-07-10T13:03:35.404Z",
+  "assembledAt": "2026-07-10T22:03:27.569Z",
   "jobs": [
     {
       "id": "bcvs-eb1d10e603b7",
-      "slug": "specialiste-tresorerie-devises-bcvs-sion",
+      "slug": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "specialiste-tresorerie-devises-bcvs-sion",
-        "en": "specialiste-tresorerie-devises-bcvs-sion",
-        "de": "specialiste-tresorerie-devises-bcvs-sion",
+        "it": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
+        "en": "specialist-treasury-currency-banque-cantonale-du-valais-sion",
+        "de": "fachhandel-wahrung-banque-cantonale-du-valais-sion",
         "fr": "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:32.960Z",
+      "crawledAt": "2026-07-10T22:03:25.162Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,34 +61,34 @@
           "Finalement, vous parachevez vos qualités avec de fortes capacités analytiques."
         ]
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
-        ],
-        "en": [
-          "specialist-treasury-currency-banque-cantonale-du-valais-sion"
-        ],
-        "de": [
-          "fachhandel-wahrung-banque-cantonale-du-valais-sion"
-        ],
-        "fr": [
-          "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
-        ]
-      },
       "previousSlugs": [
-        "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
-        "specialist-treasury-currency-banque-cantonale-du-valais-sion",
-        "fachhandel-wahrung-banque-cantonale-du-valais-sion",
         "investment-specialista-banque-cantonale-du-valais-sion",
         "investment-specialist-banque-cantonale-du-valais-sion",
         "investment-spezialist-banque-cantonale-du-valais-sion",
         "investment-specialist-bcvs-sion",
         "specialista-in-investimenti-banque-cantonale-du-valais-sion",
         "specialiste-en-investissement-banque-cantonale-du-valais-sion",
-        "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
+        "specialiste-tresorerie-devises-bcvs-sion",
+        "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion",
+        "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
+        ],
+        "fr": [
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
+        ],
+        "en": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "de": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ]
+      },
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -133,7 +133,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:32.359Z",
+      "crawledAt": "2026-07-10T22:03:24.745Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -184,7 +184,6 @@
         "gestionnaire-economat-courrier-et-ged-bcvs-sion",
         "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -230,7 +229,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T13:03:31.899Z",
+      "crawledAt": "2026-07-10T22:03:24.236Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -310,7 +309,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-fichier-central-2593",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:31.297Z",
+      "crawledAt": "2026-07-10T22:03:23.719Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -354,7 +353,6 @@
           "gestionnaire-fichier-central-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T10:53:41.259Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -400,7 +398,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2596",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:30.830Z",
+      "crawledAt": "2026-07-10T22:03:23.203Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -446,7 +444,6 @@
           "conseiller-conseillere-bancaire-bcvs-sierre"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T11:12:48.710Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -492,7 +489,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:30.375Z",
+      "crawledAt": "2026-07-10T22:03:22.688Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -539,7 +536,6 @@
           "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:01:18.698Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -585,7 +581,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sales-manager-2600",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T13:03:29.913Z",
+      "crawledAt": "2026-07-10T22:03:22.169Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -631,7 +627,6 @@
           "sales-manager-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:01:18.257Z",
       "salaryMin": 83500,
       "salaryMax": 126500,

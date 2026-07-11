@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suedhang",
-  "assembledAt": "2026-07-10T11:59:52.643Z",
+  "assembledAt": "2026-07-10T22:07:30.102Z",
   "jobs": [
     {
       "id": "suedhang-0ef4fcae567e",
@@ -34,7 +34,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-moebelmontage-und-lager/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:50.833Z",
+      "crawledAt": "2026-07-10T22:07:28.201Z",
       "addressLocality": "Südhang Arbeitsintegration & Handels AG, Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -53,11 +53,12 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
+        "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+        "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-          "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
-        ],
         "it": [
           "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
           "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
@@ -65,15 +66,14 @@
         "en": [
           "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
         ],
+        "de": [
+          "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
+          "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch"
+        ],
         "fr": [
           "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-mobelmontage-und-lager-suedhang-ch",
-        "mitarbeiter-in-mobelmontage-und-lager-klinik-sudhang-sudhang-arbeitsintegration-handels-ag-kirchlindach",
-        "collaboratore-trice-in-mobelmontage-e-magazzino-klinik-sudhang-arbeitsintegration-handels-ag-kirchlindach"
-      ],
       "firstSeenAt": "2026-07-09T12:12:03.525Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -121,7 +121,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r-psycholog-in_ambulatorium_burgdorf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:50.366Z",
+      "crawledAt": "2026-07-10T22:07:27.734Z",
       "addressLocality": "Ambulatorium Burgdorf",
       "postalCode": "3400",
       "addressCountry": "CH",
@@ -140,11 +140,12 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch",
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
+        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
-          "klinische-n-psycholog-in-suedhang-ch"
-        ],
         "it": [
           "klinische-n-psycholog-in-suedhang-ch",
           "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
@@ -152,15 +153,14 @@
         "en": [
           "klinische-n-psycholog-in-suedhang-ch"
         ],
+        "de": [
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
+          "klinische-n-psycholog-in-suedhang-ch"
+        ],
         "fr": [
           "klinische-n-psycholog-in-suedhang-ch"
         ]
       },
-      "previousSlugs": [
-        "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-burgdorf",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf"
-      ],
       "firstSeenAt": "2026-06-05T12:45:52.445Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -208,7 +208,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-burgdorf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:49.887Z",
+      "crawledAt": "2026-07-10T22:07:27.269Z",
       "addressLocality": "Ambulatorium Burgdorf",
       "postalCode": "3400",
       "addressCountry": "CH",
@@ -240,23 +240,23 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
-        ],
-        "it": [
-          "assistenzarztin-assistenzarzt-suedhang-ch-3",
-          "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
-        ]
-      },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch-3",
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
         "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-suedhang-ch-3",
+          "assistenzarztin-assistenzarzt-suedhang-ch",
+          "assistente-medico-klinik-sudhang-ambulatorium-burgdorf"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
+          "assistenzarztin-assistenzarzt-suedhang-ch"
+        ]
+      },
       "firstSeenAt": "2026-05-19T21:02:14.145Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -304,7 +304,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:49.418Z",
+      "crawledAt": "2026-07-10T22:07:26.803Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -351,23 +351,23 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
-        ],
-        "it": [
-          "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
-        ]
-      },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
         "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
         "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-suedhang-ch",
+          "assistenzarztin-assistenzarzt-suedhang-ch-2",
+          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
+          "assistenzarztin-assistenzarzt-suedhang-ch"
+        ]
+      },
       "firstSeenAt": "2026-05-19T21:02:15.199Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -415,7 +415,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:48.944Z",
+      "crawledAt": "2026-07-10T22:07:26.335Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -434,11 +434,13 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch-2",
+        "klinische-n-psycholog-in-suedhang-ch",
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
+        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-          "klinische-n-psycholog-in-suedhang-ch"
-        ],
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
           "klinische-n-psycholog-in-suedhang-ch",
@@ -447,16 +449,14 @@
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
         ],
+        "de": [
+          "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
+          "klinische-n-psycholog-in-suedhang-ch"
+        ],
         "fr": [
           "klinische-n-psycholog-in-suedhang-ch-2"
         ]
       },
-      "previousSlugs": [
-        "klinische-n-psycholog-in-suedhang-ch-2",
-        "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
-      ],
       "firstSeenAt": "2026-06-05T12:45:50.925Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -504,7 +504,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/oberarzt-oberaerztin-ambulatorium-bern/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T11:59:48.476Z",
+      "crawledAt": "2026-07-10T22:07:25.867Z",
       "addressLocality": "Ambulatorium Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -523,11 +523,12 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "oberarztin-oberarzt-suedhang-ch",
+        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
+        "primario-klinik-sudhang-ambulatorium-bern"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
-          "oberarztin-oberarzt-suedhang-ch"
-        ],
         "it": [
           "oberarztin-oberarzt-suedhang-ch",
           "primario-klinik-sudhang-ambulatorium-bern"
@@ -535,15 +536,14 @@
         "en": [
           "oberarztin-oberarzt-suedhang-ch"
         ],
+        "de": [
+          "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
+          "oberarztin-oberarzt-suedhang-ch"
+        ],
         "fr": [
           "oberarztin-oberarzt-suedhang-ch"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-suedhang-ch",
-        "oberarztin-oberarzt-klinik-sudhang-ambulatorium-bern",
-        "primario-klinik-sudhang-ambulatorium-bern"
-      ],
       "firstSeenAt": "2026-06-05T12:45:50.418Z",
       "salaryMin": 94500,
       "salaryMax": 143000,

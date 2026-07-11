@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-meiringen",
-  "assembledAt": "2026-07-10T12:35:44.466Z",
+  "assembledAt": "2026-07-10T22:45:19.913Z",
   "jobs": [
     {
       "id": "privatklinik-meiringen-7ae63225eb4d",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/1d991810344cccb46bd66587de7fb38a/sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich-psychiatrie",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:41.785Z",
+      "crawledAt": "2026-07-10T22:45:17.590Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://my.jobalino.ch/job/82afc20e94a039596241e20d88de6349/sommer-2027-lehrstelle-kauffrau-efz-kaufmann-efz-branche-gesundheit",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:41.352Z",
+      "crawledAt": "2026-07-10T22:45:17.209Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://my.jobalino.ch/job/44cb5ced8861a812cf81f4ae267cdd83/fachaerztin-facharzt-psychiatrie-und-psychotherapie",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:40.913Z",
+      "crawledAt": "2026-07-10T22:45:16.827Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -300,7 +300,7 @@
       "url": "https://my.jobalino.ch/job/035950189120e31370e457a0629fb201/studium-pflege-hf-jaehrlich-im-maerz-und-september",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:40.478Z",
+      "crawledAt": "2026-07-10T22:45:16.447Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "url": "https://my.jobalino.ch/job/453571095a143d4e14101543b66c1a32/praxismodul-wahlpflicht-oder-zusatzmodul-b-fuer-studierende-bachelor-of-science-in-pflege",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:40.040Z",
+      "crawledAt": "2026-07-10T22:45:16.061Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -425,7 +425,7 @@
       "slugByLocale": {
         "it": "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
         "en": "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-        "de": "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+        "de": "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
         "fr": "controleur-80-100-michel-gruppe-ag-meiringen"
       },
       "company": "Privatklinik Meiringen",
@@ -451,7 +451,7 @@
       "url": "https://my.jobalino.ch/job/7c690d2087c39a6ed79450a64dba089b/physiotherapeut-in-hf-fh-bsc-msc",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:39.598Z",
+      "crawledAt": "2026-07-10T22:45:15.677Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -472,6 +472,10 @@
       "contractDuration": "permanent",
       "department": "Therapien",
       "previousSlugsByLocale": {
+        "de": [
+          "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen"
+        ],
         "it": [
           "fisioterapista-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
@@ -480,10 +484,6 @@
         "en": [
           "physiotherapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen"
-        ],
-        "de": [
-          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-          "controllerin-controller-80-100-michel-gruppe-ag-meiringen"
         ]
       },
       "previousSlugs": [
@@ -539,7 +539,7 @@
       "url": "https://my.jobalino.ch/job/86210ca400ffbe80d0e35c01ce0c2d88/dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-fachverantwortliche-r",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:39.162Z",
+      "crawledAt": "2026-07-10T22:45:15.291Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -605,7 +605,7 @@
       "url": "https://my.jobalino.ch/job/9791b7322d221f506716e491e148c9f5/dipl-pflegefachperson-hf-fuer-pflegepool-tiefprozentige-teilzeitpensen-moeglich",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:38.718Z",
+      "crawledAt": "2026-07-10T22:45:14.902Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -719,7 +719,7 @@
       "url": "https://my.jobalino.ch/job/a46b9961d9c3b8d26214482138381941/stv-zentrumsleiter-in-pflege",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:38.271Z",
+      "crawledAt": "2026-07-10T22:45:14.514Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -803,7 +803,7 @@
       "url": "https://my.jobalino.ch/job/3af45a295054705430d0b0a7c91b1b13/assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:35:37.826Z",
+      "crawledAt": "2026-07-10T22:45:14.131Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",

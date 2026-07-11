@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-07-10T12:39:39.973Z",
+  "generatedAt": "2026-07-10T22:39:51.251Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1591,
-  "avgDurationMs": 1591,
+  "durationMs": 1522,
+  "avgDurationMs": 1522,
   "durationHistory": [
-    1591
+    1522
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,6 +37,7 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "goline-d98f0d9c911f",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:46:49.616Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {

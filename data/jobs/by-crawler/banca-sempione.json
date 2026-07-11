@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-07-10T12:24:49.333Z",
+  "assembledAt": "2026-07-10T22:38:32.016Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -52,7 +52,6 @@
           "chef-de-la-banque-du-sempione-branche-milan-banca-del-sempione-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "salaryMin": 87000,
@@ -73,7 +72,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -121,9 +121,9 @@
           "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -160,7 +160,7 @@
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "de": "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "fr": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker"
+        "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Lugano)",
@@ -177,13 +177,13 @@
         "fr": "Global Wealth Management – Private Banker (Lugano) à Banca del Sempione, une banque privée suisse basée à Lugano (Ticino). Le rôle : Dans le cadre de notre équipe Global Wealth Management, nous recherchons un banquier privé avec une vision internationale, capable de gérer des clients ayant des besoins mondiaux et d'offrir des solutions financières personnalisées. La personne que nous recherchons prendra soin de..."
       },
       "previousSlugs": [
-        "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano",
         "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano",
         "global-wealth-management-banca-del-sempione-lugano",
         "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano",
         "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
         "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano",
-        "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano"
+        "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+        "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -198,13 +198,13 @@
           "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano"
         ],
         "fr": [
-          "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano",
-          "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano"
+          "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+          "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -277,9 +277,9 @@
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",

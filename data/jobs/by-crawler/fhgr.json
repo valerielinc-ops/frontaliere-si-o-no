@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-07-10T12:27:33.503Z",
+  "assembledAt": "2026-07-10T22:54:50.692Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:30.757Z",
+      "crawledAt": "2026-07-10T22:54:47.915Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,8 +94,8 @@
         "bauingenieur-in-fachhochschule-graubunden-chur",
         "ingegnere-civile-fachhochschule-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -141,7 +141,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/801/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:29.741Z",
+      "crawledAt": "2026-07-10T22:54:46.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -221,7 +221,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:27:28.704Z",
+      "crawledAt": "2026-07-10T22:54:45.721Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -239,26 +239,26 @@
       "requirementsByLocale": {},
       "department": "Schweizerisches Institut für Informationswissenschaft (SII)",
       "contractDuration": "temporary",
-      "previousSlugs": [
-        "student-assistants-as-coders-fhgr-ch",
-        "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
-        "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "student-assistants-as-coders-fhgr-ch",
-          "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
-        ],
         "de": [
           "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
           "student-assistants-as-coders-fhgr-ch"
+        ],
+        "it": [
+          "student-assistants-as-coders-fhgr-ch",
+          "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
         ],
         "fr": [
           "student-assistants-as-coders-fhgr-ch"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "student-assistants-as-coders-fhgr-ch",
+        "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
+        "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
+      ],
       "firstSeenAt": "2026-07-01T22:12:45.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -304,7 +304,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/800/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:27.663Z",
+      "crawledAt": "2026-07-10T22:54:44.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",

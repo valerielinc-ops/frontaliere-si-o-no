@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-07-10T12:50:48.206Z",
+  "assembledAt": "2026-07-10T22:28:11.558Z",
   "jobs": [
     {
       "id": "sicpa-228c5d013780",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sicpa.com/job/Huechuraba-BI-&-Data-Scientist/1270869301/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:50:43.349Z",
+      "crawledAt": "2026-07-10T22:28:09.236Z",
       "addressLocality": "Huechuraba",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,6 +52,79 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T12:14:27.396Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sicpa-42d2c25d60f8",
+      "slug": "automazione-tecnico-sicpa-sa-prilly",
+      "slugByLocale": {
+        "it": "automazione-tecnico-sicpa-sa-prilly",
+        "en": "automation-technician-sicpa-prilly",
+        "de": "automation-techniker-sicpa-sa-prilly",
+        "fr": "automation-technician-sicpa-prilly"
+      },
+      "company": "SICPA SA",
+      "companyKey": "sicpa",
+      "companyDomain": "sicpa.com",
+      "title": "Automation Technician",
+      "titleByLocale": {
+        "it": "Automazione Tecnico",
+        "en": "Automation Technician",
+        "de": "Automation Techniker",
+        "fr": "Automation Technicien"
+      },
+      "description": "Afin de renforcer notre département Facilities & Services chez SICPA, nous recherchons un(e):\n\nAutomation Technician\n\nROLE:\n\nLa fonction implique d’assurer les activités de maintenance préventive, améliorative et corrective de l’ensemble des installations techniques des sites de Prilly et de Bussigny. La fonction exige un lieu de résidence inférieur à 30 minutes du site de travail.\n\n• Participer au service de piquet.\n\n• Participer au suivi de l’ensemble des projets sur les nouvelles installations et les obsolescences.\n\n• Effectuer des inspections régulières des automates industriels. Effectuer les mises à jour et les backups. Procéder aux changements de batterie.\n\n• Garantir le suivi et la mise à jour de la documentation technique.\n\n• Diagnostiquer et remettre aux conditions de base les pannes ou les dysfonctionnements aux systèmes d’automation. Cela peut inclure le remplacement de pièces défectueuses, le paramétrage de composants et la résolution de problèmes liés à la performance.\n\n• Travailler sur l'optimisation des programmes dans le domaine de la durabilité afin d'assurer une efficacité énergétique maximale et de réduire les coûts d'exploitation.\n\n• Interagir avec les clients pour comprendre leurs besoins, expliquer les problèmes détectés, fournir des conseils sur l'utilisation des système en domotique.\n\n• Assurer la conformité aux normes et réglementations locales, étatiques et fédérales en matière de protection des données et de maintenance des systèmes d’automation.\n\n• Suivre les formations et les mises à jour technologiques pour rester informé des dernières avancées dans le domaine « métier ».\n\n• Respecter les règles HSE.\n\n• Participer aux analyses de risque\n\nPROFIL:\n\n• CFC d’automaticien ou titre équivalent, avec bonne connaissance des techniques du bâtiment CVCS.\n\n• Minimum de 5 ans d'expérience de travail au sein d'un établissement réglementé dans le cadre d'un service professionnel d'installations, d'ingénierie ou d'exploitation en Suisse.\n\n• Expérience avérée dans l’analyse de problèmes pour identifier les causes racines.\n\n•  Bonne connaissance en utilisation d’API (Siemens, SAIA).\n\n• Bonne connaissance en utilisation d’outils AdB, MCR (ex. Honeywell, PCvue).\n\n• Bonne maîtrise des logiciels de bureau O365, MS Office, SharePoint, Share file, SAP S4HANA.\n\n• Titulaire de l’OIBT 15.\n\n• Excellente connaissance des installations technique du bâtiment.\n\n• Aptitude avérée à établir et à gérer des relations à tous les niveaux de l'organisation.\n\n• Excellentes compétences en communication (tant à l'écrit qu'à l'oral).\n\n• Expérience préalable dans des équipes interfonctionnelles avec une bonne gestion des parties prenantes.\n\n• Être titulaire du permis de conduire.\n\n• Maîtrise du français, l’anglais et/ou l’allemand est un atout\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.\n\nApply now »\n\n<button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommun",
+      "descriptionByLocale": {
+        "it": "Per rafforzare il nostro reparto Servizi e Servizi presso SICPA, stiamo cercando un: Automazione Tecnico RUOLO: La funzione consiste nell'assicurare la manutenzione preventiva, migliorata e correttiva di tutti gli impianti tecnici dei siti Prilly e Bussigny. La funzione richiede un luogo di residenza di meno di 30 minuti dal sito di lavoro.\n• Partecipa al servizio picket.\n• Partecipa al monitoraggio di tutti i progetti su nuove installazioni e obsolescenze.\n• Condurre controlli regolari di automatoni industriali. Eseguire aggiornamenti e backup. Fare cambiamenti della batteria.\n• Assicurare il monitoraggio e l'aggiornamento della documentazione tecnica.\n• Diagnosi e ripristino di guasti o malfunzionamenti ai sistemi di automazione alle condizioni di base. Ciò può includere la sostituzione di parti difettose, l'impostazione dei componenti e la risoluzione di problemi legati alle prestazioni.\n• Lavorare sull'ottimizzazione dei programmi nell'area della sostenibilità per garantire la massima efficienza energetica e ridurre i costi operativi.\n• Interazione con i clienti per comprendere le loro esigenze, spiegare i problemi rilevati, fornire consigli sull'uso dei sistemi di automazione domestica.\n• Assicurare il rispetto degli standard e delle normative locali, statali e federali per la protezione dei dati e la manutenzione dei sistemi di automazione.\n• Seguire la formazione tecnologica e gli aggiornamenti per rimanere aggiornati con gli ultimi sviluppi nel campo \"business\".\n• Rispetta le regole HSE.\n• Partecipazione alle analisi dei rischi PROFILE:\n• CFC automatico o equivalente, con una buona conoscenza delle tecniche di costruzione CVCS.\n• Minimo 5 anni di esperienza lavorativa in uno stabilimento regolamentato nell'ambito di una struttura professionale, di ingegneria o di servizio operativo in Svizzera.\n• Esperienza nell'analisi dei problemi per identificare le cause della radice.\n• Buona conoscenza dell'uso di API (Siemens, SAIA).\n• Buona conoscenza dell'uso di AdB, strumenti MCR (ad esempio Honeywell, PCvue).\n• Buon controllo del software desktop O365, MS Office, SharePoint, file Share, SAP S4HANA.\n• Titolare dell'ITTO 15.\n• Ottima conoscenza delle strutture tecniche dell'edificio.\n• Capacità dimostrata di stabilire e gestire le relazioni a tutti i livelli dell'organizzazione.\n• Eccellente capacità di comunicazione (sia per iscritto che per orale).\n• Esperienza prioritaria nei team interfunzionali con una buona gestione degli stakeholder.\n• Sii il titolare della patente.\n• Mastery di francese, inglese e/o tedesco è un bene Unisciti a noi!\n• Il nostro successo deriva dai nostri dipendenti di talento e altamente qualificati.\n• Una politica aziendale rispettosa e una visione a lungo termine sono le chiavi del nostro successo.\n• La diversità a tutti i livelli di un'organizzazione è una forza.\n• Vi offriamo un ruolo emozionante e stimolante, in una società che offre grandi prospettive di carriera e questo in un ambiente unico e assolutamente emozionante. Il tuo caso sarà gestito con la massima discrezione. Richiedi ora » Traduzione:",
+        "en": "To strengthen our Facilities & Services department at SICPA, we are looking for a: Automation Technician ROLE: The function involves ensuring the preventive, improved and corrective maintenance of all technical facilities at the Prilly and Bussigny sites. The function requires a place of residence of less than 30 minutes from the work site.\n• Take part in the picket service.\n• Participate in the monitoring of all projects on new installations and obsolescences.\n• Conduct regular inspections of industrial automatons. Perform updates and backups. Make battery changes.\n• Ensure monitoring and updating of technical documentation.\n• Diagnose and restore faults or malfunctions to automation systems to basic conditions. This may include replacement of defective parts, component setting and the resolution of performance-related problems.\n• Work on program optimization in the area of sustainability to ensure maximum energy efficiency and reduce operating costs.\n• Interaction with clients to understand their needs, explain problems detected, provide advice on the use of home automation systems.\n• Ensure compliance with local, state and federal standards and regulations for data protection and maintenance of automation systems.\n• Follow technological training and updates to keep up to date with the latest developments in the \"business\" field.\n• Respect HSE rules.\n• Participate in risk analyses PROFILE:\n• Automatic CFC or equivalent, with good knowledge of CVCS building techniques.\n• Minimum of 5 years of work experience in a regulated establishment as part of a professional facility, engineering or operating service in Switzerland.\n• Experience in problem analysis to identify root causes.\n• Good knowledge of the use of API (Siemens, SAIA).\n• Good knowledge of the use of AdB, MCR tools (e.g. Honeywell, PCvue).\n• Good control of desktop software O365, MS Office, SharePoint, Share file, SAP S4HANA.\n• Holder of ITTO 15.\n• Excellent knowledge of the building's technical facilities.\n• Demonstrated ability to establish and manage relationships at all levels of the organization.\n• Excellent communication skills (both in writing and oral).\n• Prior experience in cross-functional teams with good stakeholder management.\n• Be a driver's licence holder.\n• Mastery of French, English and/or German is an asset Join us!\n• Our success comes from our talented and highly qualified employees.\n• A respectful corporate policy and a long-term vision are the keys to our success.\n• Diversity at all levels of an organization is a strength.\n• We offer you an exciting and stimulating role, in a company that offers great career prospects and this in a unique and absolutely exciting environment. Your case will be handled with the utmost discretion. Apply now » <button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommon",
+        "de": "Um unsere Abteilung Facilities & Services bei SICPA zu stärken, suchen wir: Automatisierungstechniker ROLLE: Die Funktion besteht darin, die vorbeugende, verbesserte und korrektive Wartung aller technischen Einrichtungen an den Standorten Prilly und Bussigny sicherzustellen. Die Funktion erfordert einen Wohnort von weniger als 30 Minuten vom Arbeitsplatz.\n• Nehmen Sie am Streikpostendienst teil.\n• Beteiligen Sie sich an der Überwachung aller Projekte zu neuen Installationen und Obsoleszenzen.\n• Durchführung regelmäßiger Inspektionen von Industrieautomaten. Führen Sie Updates und Backups durch. Nehmen Sie Batteriewechsel vor.\n• Überwachung und Aktualisierung der technischen Dokumentation.\n• Diagnose und Wiederherstellung von Fehlern oder Fehlfunktionen von Automatisierungssystemen auf Grundbedingungen. Dies kann den Austausch defekter Teile, die Einstellung der Komponenten und die Lösung leistungsbezogener Probleme umfassen.\n• Arbeiten Sie an der Programmoptimierung im Bereich Nachhaltigkeit, um maximale Energieeffizienz zu gewährleisten und Betriebskosten zu senken.\n• Interaktion mit Kunden, um ihre Bedürfnisse zu verstehen, erkannte Probleme zu erklären und Ratschläge zum Einsatz von Hausautomationssystemen zu geben.\n• Gewährleistung der Einhaltung lokaler, staatlicher und bundesstaatlicher Standards und Vorschriften für den Datenschutz und die Wartung von Automatisierungssystemen.\n• Folgen Sie technologischen Schulungen und Updates, um mit den neuesten Entwicklungen im Bereich \"Business\" auf dem Laufenden zu bleiben.\n• HSE-Regeln einhalten.\n• Teilnahme an Risikoanalysen PROFIL:\n• Automatische CFC oder gleichwertig, mit guten Kenntnissen der CVCS-Bautechniken.\n• Mindestens 5 Jahre Berufserfahrung in einer regulierten Einrichtung im Rahmen einer professionellen Einrichtung, eines Ingenieurs oder eines Betriebs in der Schweiz.\n• Erfahrung in der Problemanalyse zur Identifizierung von Ursachen.\n• Gute Kenntnisse über den Einsatz von API (Siemens, SAIA).\n• Gute Kenntnisse der Verwendung von AdB, MCR-Tools (z. B. Honeywell, PCvue).\n• Gute Kontrolle der Desktop-Software O365, MS Office, SharePoint, Share File, SAP S4HANA.\n• Inhaber der ITTO 15.\n• Ausgezeichnete Kenntnisse der technischen Einrichtungen des Gebäudes.\n• Demonstrierte Fähigkeit, Beziehungen auf allen Ebenen der Organisation aufzubauen und zu verwalten.\n• Hervorragende Kommunikationsfähigkeiten (sowohl schriftlich als auch mündlich).\n• Vorkenntnisse in funktionsübergreifenden Teams mit gutem Stakeholder-Management.\n• Seien Sie ein Führerscheininhaber.\n• Beherrschung von Französisch, Englisch und / oder Deutsch ist ein Asset Begleiten Sie uns!\n• Unser Erfolg kommt von unseren talentierten und hochqualifizierten Mitarbeitern.\n• Eine respektvolle Unternehmenspolitik und eine langfristige Vision sind der Schlüssel zu unserem Erfolg.\n• Vielfalt auf allen Ebenen einer Organisation ist eine Stärke.\n• Wir bieten Ihnen eine spannende und anregende Rolle, in einem Unternehmen, das großartige Karriereperspektiven bietet und dies in einem einzigartigen und absolut spannenden Umfeld. Ihr Fall wird mit größter Diskretion behandelt. Jetzt bewerben » <button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Jetzt bewerben\" href=\"/talentcommon",
+        "fr": "Afin de renforcer notre département Facilities & Services chez SICPA, nous recherchons un(e):\n\nAutomation Technician\n\nROLE:\n\nLa fonction implique d’assurer les activités de maintenance préventive, améliorative et corrective de l’ensemble des installations techniques des sites de Prilly et de Bussigny. La fonction exige un lieu de résidence inférieur à 30 minutes du site de travail.\n\n• Participer au service de piquet.\n\n• Participer au suivi de l’ensemble des projets sur les nouvelles installations et les obsolescences.\n\n• Effectuer des inspections régulières des automates industriels. Effectuer les mises à jour et les backups. Procéder aux changements de batterie.\n\n• Garantir le suivi et la mise à jour de la documentation technique.\n\n• Diagnostiquer et remettre aux conditions de base les pannes ou les dysfonctionnements aux systèmes d’automation. Cela peut inclure le remplacement de pièces défectueuses, le paramétrage de composants et la résolution de problèmes liés à la performance.\n\n• Travailler sur l'optimisation des programmes dans le domaine de la durabilité afin d'assurer une efficacité énergétique maximale et de réduire les coûts d'exploitation.\n\n• Interagir avec les clients pour comprendre leurs besoins, expliquer les problèmes détectés, fournir des conseils sur l'utilisation des système en domotique.\n\n• Assurer la conformité aux normes et réglementations locales, étatiques et fédérales en matière de protection des données et de maintenance des systèmes d’automation.\n\n• Suivre les formations et les mises à jour technologiques pour rester informé des dernières avancées dans le domaine « métier ».\n\n• Respecter les règles HSE.\n\n• Participer aux analyses de risque\n\nPROFIL:\n\n• CFC d’automaticien ou titre équivalent, avec bonne connaissance des techniques du bâtiment CVCS.\n\n• Minimum de 5 ans d'expérience de travail au sein d'un établissement réglementé dans le cadre d'un service professionnel d'installations, d'ingénierie ou d'exploitation en Suisse.\n\n• Expérience avérée dans l’analyse de problèmes pour identifier les causes racines.\n\n• Bonne connaissance en utilisation d’API (Siemens, SAIA).\n\n• Bonne connaissance en utilisation d’outils AdB, MCR (ex. Honeywell, PCvue).\n\n• Bonne maîtrise des logiciels de bureau O365, MS Office, SharePoint, Share file, SAP S4HANA.\n\n• Titulaire de l’OIBT 15.\n\n• Excellente connaissance des installations technique du bâtiment.\n\n• Aptitude avérée à établir et à gérer des relations à tous les niveaux de l'organisation.\n\n• Excellentes compétences en communication (tant à l'écrit qu'à l'oral).\n\n• Expérience préalable dans des équipes interfonctionnelles avec une bonne gestion des parties prenantes.\n\n• Être titulaire du permis de conduire.\n\n• Maîtrise du français, l’anglais et/ou l’allemand est un atout\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.\n\nApply now »\n\n<button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommun"
+      },
+      "needsRetranslation": true,
+      "location": "Prilly",
+      "canton": "VD",
+      "url": "https://jobs.sicpa.com/job/Prilly-Automation-Technician/1374083033/",
+      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-10T22:28:08.476Z",
+      "addressLocality": "Prilly",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1008",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1374083033/?locale=en_GB",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automation-technician-sicpa-prilly",
+        "automazione-tecnico-sicpa-sa-prilly"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-technician-sicpa-prilly",
+          "automazione-tecnico-sicpa-sa-prilly"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:00:32.708Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -97,7 +170,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:42.583Z",
+      "crawledAt": "2026-07-10T22:28:07.726Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -145,79 +218,6 @@
       }
     },
     {
-      "id": "sicpa-42d2c25d60f8",
-      "slug": "automazione-tecnico-sicpa-sa-prilly",
-      "slugByLocale": {
-        "it": "automazione-tecnico-sicpa-sa-prilly",
-        "en": "automation-technician-sicpa-prilly",
-        "de": "automation-techniker-sicpa-sa-prilly",
-        "fr": "automation-technician-sicpa-prilly"
-      },
-      "company": "SICPA SA",
-      "companyKey": "sicpa",
-      "companyDomain": "sicpa.com",
-      "title": "Automation Technician",
-      "titleByLocale": {
-        "it": "Automazione Tecnico",
-        "en": "Automation Technician",
-        "de": "Automation Techniker",
-        "fr": "Automation Technicien"
-      },
-      "description": "Afin de renforcer notre département Facilities & Services chez SICPA, nous recherchons un(e):\n\nAutomation Technician\n\nROLE:\n\nLa fonction implique d’assurer les activités de maintenance préventive, améliorative et corrective de l’ensemble des installations techniques des sites de Prilly et de Bussigny. La fonction exige un lieu de résidence inférieur à 30 minutes du site de travail.\n\n• Participer au service de piquet.\n\n• Participer au suivi de l’ensemble des projets sur les nouvelles installations et les obsolescences.\n\n• Effectuer des inspections régulières des automates industriels. Effectuer les mises à jour et les backups. Procéder aux changements de batterie.\n\n• Garantir le suivi et la mise à jour de la documentation technique.\n\n• Diagnostiquer et remettre aux conditions de base les pannes ou les dysfonctionnements aux systèmes d’automation. Cela peut inclure le remplacement de pièces défectueuses, le paramétrage de composants et la résolution de problèmes liés à la performance.\n\n• Travailler sur l'optimisation des programmes dans le domaine de la durabilité afin d'assurer une efficacité énergétique maximale et de réduire les coûts d'exploitation.\n\n• Interagir avec les clients pour comprendre leurs besoins, expliquer les problèmes détectés, fournir des conseils sur l'utilisation des système en domotique.\n\n• Assurer la conformité aux normes et réglementations locales, étatiques et fédérales en matière de protection des données et de maintenance des systèmes d’automation.\n\n• Suivre les formations et les mises à jour technologiques pour rester informé des dernières avancées dans le domaine « métier ».\n\n• Respecter les règles HSE.\n\n• Participer aux analyses de risque\n\nPROFIL:\n\n• CFC d’automaticien ou titre équivalent, avec bonne connaissance des techniques du bâtiment CVCS.\n\n• Minimum de 5 ans d'expérience de travail au sein d'un établissement réglementé dans le cadre d'un service professionnel d'installations, d'ingénierie ou d'exploitation en Suisse.\n\n• Expérience avérée dans l’analyse de problèmes pour identifier les causes racines.\n\n•  Bonne connaissance en utilisation d’API (Siemens, SAIA).\n\n• Bonne connaissance en utilisation d’outils AdB, MCR (ex. Honeywell, PCvue).\n\n• Bonne maîtrise des logiciels de bureau O365, MS Office, SharePoint, Share file, SAP S4HANA.\n\n• Titulaire de l’OIBT 15.\n\n• Excellente connaissance des installations technique du bâtiment.\n\n• Aptitude avérée à établir et à gérer des relations à tous les niveaux de l'organisation.\n\n• Excellentes compétences en communication (tant à l'écrit qu'à l'oral).\n\n• Expérience préalable dans des équipes interfonctionnelles avec une bonne gestion des parties prenantes.\n\n• Être titulaire du permis de conduire.\n\n• Maîtrise du français, l’anglais et/ou l’allemand est un atout\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.\n\nApply now »\n\n<button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommun",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro reparto Servizi e Servizi presso SICPA, stiamo cercando un: Automazione Tecnico RUOLO: La funzione consiste nell'assicurare la manutenzione preventiva, migliorata e correttiva di tutti gli impianti tecnici dei siti Prilly e Bussigny. La funzione richiede un luogo di residenza di meno di 30 minuti dal sito di lavoro.\n• Partecipa al servizio picket.\n• Partecipa al monitoraggio di tutti i progetti su nuove installazioni e obsolescenze.\n• Condurre controlli regolari di automatoni industriali. Eseguire aggiornamenti e backup. Fare cambiamenti della batteria.\n• Assicurare il monitoraggio e l'aggiornamento della documentazione tecnica.\n• Diagnosi e ripristino di guasti o malfunzionamenti ai sistemi di automazione alle condizioni di base. Ciò può includere la sostituzione di parti difettose, l'impostazione dei componenti e la risoluzione di problemi legati alle prestazioni.\n• Lavorare sull'ottimizzazione dei programmi nell'area della sostenibilità per garantire la massima efficienza energetica e ridurre i costi operativi.\n• Interazione con i clienti per comprendere le loro esigenze, spiegare i problemi rilevati, fornire consigli sull'uso dei sistemi di automazione domestica.\n• Assicurare il rispetto degli standard e delle normative locali, statali e federali per la protezione dei dati e la manutenzione dei sistemi di automazione.\n• Seguire la formazione tecnologica e gli aggiornamenti per rimanere aggiornati con gli ultimi sviluppi nel campo \"business\".\n• Rispetta le regole HSE.\n• Partecipazione alle analisi dei rischi PROFILE:\n• CFC automatico o equivalente, con una buona conoscenza delle tecniche di costruzione CVCS.\n• Minimo 5 anni di esperienza lavorativa in uno stabilimento regolamentato nell'ambito di una struttura professionale, di ingegneria o di servizio operativo in Svizzera.\n• Esperienza nell'analisi dei problemi per identificare le cause della radice.\n• Buona conoscenza dell'uso di API (Siemens, SAIA).\n• Buona conoscenza dell'uso di AdB, strumenti MCR (ad esempio Honeywell, PCvue).\n• Buon controllo del software desktop O365, MS Office, SharePoint, file Share, SAP S4HANA.\n• Titolare dell'ITTO 15.\n• Ottima conoscenza delle strutture tecniche dell'edificio.\n• Capacità dimostrata di stabilire e gestire le relazioni a tutti i livelli dell'organizzazione.\n• Eccellente capacità di comunicazione (sia per iscritto che per orale).\n• Esperienza prioritaria nei team interfunzionali con una buona gestione degli stakeholder.\n• Sii il titolare della patente.\n• Mastery di francese, inglese e/o tedesco è un bene Unisciti a noi!\n• Il nostro successo deriva dai nostri dipendenti di talento e altamente qualificati.\n• Una politica aziendale rispettosa e una visione a lungo termine sono le chiavi del nostro successo.\n• La diversità a tutti i livelli di un'organizzazione è una forza.\n• Vi offriamo un ruolo emozionante e stimolante, in una società che offre grandi prospettive di carriera e questo in un ambiente unico e assolutamente emozionante. Il tuo caso sarà gestito con la massima discrezione. Richiedi ora » Traduzione:",
-        "en": "To strengthen our Facilities & Services department at SICPA, we are looking for a: Automation Technician ROLE: The function involves ensuring the preventive, improved and corrective maintenance of all technical facilities at the Prilly and Bussigny sites. The function requires a place of residence of less than 30 minutes from the work site.\n• Take part in the picket service.\n• Participate in the monitoring of all projects on new installations and obsolescences.\n• Conduct regular inspections of industrial automatons. Perform updates and backups. Make battery changes.\n• Ensure monitoring and updating of technical documentation.\n• Diagnose and restore faults or malfunctions to automation systems to basic conditions. This may include replacement of defective parts, component setting and the resolution of performance-related problems.\n• Work on program optimization in the area of sustainability to ensure maximum energy efficiency and reduce operating costs.\n• Interaction with clients to understand their needs, explain problems detected, provide advice on the use of home automation systems.\n• Ensure compliance with local, state and federal standards and regulations for data protection and maintenance of automation systems.\n• Follow technological training and updates to keep up to date with the latest developments in the \"business\" field.\n• Respect HSE rules.\n• Participate in risk analyses PROFILE:\n• Automatic CFC or equivalent, with good knowledge of CVCS building techniques.\n• Minimum of 5 years of work experience in a regulated establishment as part of a professional facility, engineering or operating service in Switzerland.\n• Experience in problem analysis to identify root causes.\n• Good knowledge of the use of API (Siemens, SAIA).\n• Good knowledge of the use of AdB, MCR tools (e.g. Honeywell, PCvue).\n• Good control of desktop software O365, MS Office, SharePoint, Share file, SAP S4HANA.\n• Holder of ITTO 15.\n• Excellent knowledge of the building's technical facilities.\n• Demonstrated ability to establish and manage relationships at all levels of the organization.\n• Excellent communication skills (both in writing and oral).\n• Prior experience in cross-functional teams with good stakeholder management.\n• Be a driver's licence holder.\n• Mastery of French, English and/or German is an asset Join us!\n• Our success comes from our talented and highly qualified employees.\n• A respectful corporate policy and a long-term vision are the keys to our success.\n• Diversity at all levels of an organization is a strength.\n• We offer you an exciting and stimulating role, in a company that offers great career prospects and this in a unique and absolutely exciting environment. Your case will be handled with the utmost discretion. Apply now » <button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommon",
-        "de": "Um unsere Abteilung Facilities & Services bei SICPA zu stärken, suchen wir: Automatisierungstechniker ROLLE: Die Funktion besteht darin, die vorbeugende, verbesserte und korrektive Wartung aller technischen Einrichtungen an den Standorten Prilly und Bussigny sicherzustellen. Die Funktion erfordert einen Wohnort von weniger als 30 Minuten vom Arbeitsplatz.\n• Nehmen Sie am Streikpostendienst teil.\n• Beteiligen Sie sich an der Überwachung aller Projekte zu neuen Installationen und Obsoleszenzen.\n• Durchführung regelmäßiger Inspektionen von Industrieautomaten. Führen Sie Updates und Backups durch. Nehmen Sie Batteriewechsel vor.\n• Überwachung und Aktualisierung der technischen Dokumentation.\n• Diagnose und Wiederherstellung von Fehlern oder Fehlfunktionen von Automatisierungssystemen auf Grundbedingungen. Dies kann den Austausch defekter Teile, die Einstellung der Komponenten und die Lösung leistungsbezogener Probleme umfassen.\n• Arbeiten Sie an der Programmoptimierung im Bereich Nachhaltigkeit, um maximale Energieeffizienz zu gewährleisten und Betriebskosten zu senken.\n• Interaktion mit Kunden, um ihre Bedürfnisse zu verstehen, erkannte Probleme zu erklären und Ratschläge zum Einsatz von Hausautomationssystemen zu geben.\n• Gewährleistung der Einhaltung lokaler, staatlicher und bundesstaatlicher Standards und Vorschriften für den Datenschutz und die Wartung von Automatisierungssystemen.\n• Folgen Sie technologischen Schulungen und Updates, um mit den neuesten Entwicklungen im Bereich \"Business\" auf dem Laufenden zu bleiben.\n• HSE-Regeln einhalten.\n• Teilnahme an Risikoanalysen PROFIL:\n• Automatische CFC oder gleichwertig, mit guten Kenntnissen der CVCS-Bautechniken.\n• Mindestens 5 Jahre Berufserfahrung in einer regulierten Einrichtung im Rahmen einer professionellen Einrichtung, eines Ingenieurs oder eines Betriebs in der Schweiz.\n• Erfahrung in der Problemanalyse zur Identifizierung von Ursachen.\n• Gute Kenntnisse über den Einsatz von API (Siemens, SAIA).\n• Gute Kenntnisse der Verwendung von AdB, MCR-Tools (z. B. Honeywell, PCvue).\n• Gute Kontrolle der Desktop-Software O365, MS Office, SharePoint, Share File, SAP S4HANA.\n• Inhaber der ITTO 15.\n• Ausgezeichnete Kenntnisse der technischen Einrichtungen des Gebäudes.\n• Demonstrierte Fähigkeit, Beziehungen auf allen Ebenen der Organisation aufzubauen und zu verwalten.\n• Hervorragende Kommunikationsfähigkeiten (sowohl schriftlich als auch mündlich).\n• Vorkenntnisse in funktionsübergreifenden Teams mit gutem Stakeholder-Management.\n• Seien Sie ein Führerscheininhaber.\n• Beherrschung von Französisch, Englisch und / oder Deutsch ist ein Asset Begleiten Sie uns!\n• Unser Erfolg kommt von unseren talentierten und hochqualifizierten Mitarbeitern.\n• Eine respektvolle Unternehmenspolitik und eine langfristige Vision sind der Schlüssel zu unserem Erfolg.\n• Vielfalt auf allen Ebenen einer Organisation ist eine Stärke.\n• Wir bieten Ihnen eine spannende und anregende Rolle, in einem Unternehmen, das großartige Karriereperspektiven bietet und dies in einem einzigartigen und absolut spannenden Umfeld. Ihr Fall wird mit größter Diskretion behandelt. Jetzt bewerben » <button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Jetzt bewerben\" href=\"/talentcommon",
-        "fr": "Afin de renforcer notre département Facilities & Services chez SICPA, nous recherchons un(e):\n\nAutomation Technician\n\nROLE:\n\nLa fonction implique d’assurer les activités de maintenance préventive, améliorative et corrective de l’ensemble des installations techniques des sites de Prilly et de Bussigny. La fonction exige un lieu de résidence inférieur à 30 minutes du site de travail.\n\n• Participer au service de piquet.\n\n• Participer au suivi de l’ensemble des projets sur les nouvelles installations et les obsolescences.\n\n• Effectuer des inspections régulières des automates industriels. Effectuer les mises à jour et les backups. Procéder aux changements de batterie.\n\n• Garantir le suivi et la mise à jour de la documentation technique.\n\n• Diagnostiquer et remettre aux conditions de base les pannes ou les dysfonctionnements aux systèmes d’automation. Cela peut inclure le remplacement de pièces défectueuses, le paramétrage de composants et la résolution de problèmes liés à la performance.\n\n• Travailler sur l'optimisation des programmes dans le domaine de la durabilité afin d'assurer une efficacité énergétique maximale et de réduire les coûts d'exploitation.\n\n• Interagir avec les clients pour comprendre leurs besoins, expliquer les problèmes détectés, fournir des conseils sur l'utilisation des système en domotique.\n\n• Assurer la conformité aux normes et réglementations locales, étatiques et fédérales en matière de protection des données et de maintenance des systèmes d’automation.\n\n• Suivre les formations et les mises à jour technologiques pour rester informé des dernières avancées dans le domaine « métier ».\n\n• Respecter les règles HSE.\n\n• Participer aux analyses de risque\n\nPROFIL:\n\n• CFC d’automaticien ou titre équivalent, avec bonne connaissance des techniques du bâtiment CVCS.\n\n• Minimum de 5 ans d'expérience de travail au sein d'un établissement réglementé dans le cadre d'un service professionnel d'installations, d'ingénierie ou d'exploitation en Suisse.\n\n• Expérience avérée dans l’analyse de problèmes pour identifier les causes racines.\n\n• Bonne connaissance en utilisation d’API (Siemens, SAIA).\n\n• Bonne connaissance en utilisation d’outils AdB, MCR (ex. Honeywell, PCvue).\n\n• Bonne maîtrise des logiciels de bureau O365, MS Office, SharePoint, Share file, SAP S4HANA.\n\n• Titulaire de l’OIBT 15.\n\n• Excellente connaissance des installations technique du bâtiment.\n\n• Aptitude avérée à établir et à gérer des relations à tous les niveaux de l'organisation.\n\n• Excellentes compétences en communication (tant à l'écrit qu'à l'oral).\n\n• Expérience préalable dans des équipes interfonctionnelles avec une bonne gestion des parties prenantes.\n\n• Être titulaire du permis de conduire.\n\n• Maîtrise du français, l’anglais et/ou l’allemand est un atout\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.\n\nApply now »\n\n<button class=\"btn btn-primary btn-large btn-lg dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-label=\"Apply now\" href=\"/talentcommun"
-      },
-      "needsRetranslation": true,
-      "location": "Prilly",
-      "canton": "VD",
-      "url": "https://jobs.sicpa.com/job/Prilly-Automation-Technician/1374083033/",
-      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:41.918Z",
-      "addressLocality": "Prilly",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1008",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1374083033/?locale=en_GB",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "automation-technician-sicpa-prilly",
-        "automazione-tecnico-sicpa-sa-prilly"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automation-technician-sicpa-prilly",
-          "automazione-tecnico-sicpa-sa-prilly"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:00:32.708Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sicpa-ee4544be3e45",
       "slug": "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
       "slugByLocale": {
@@ -249,7 +249,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:50:41.237Z",
+      "crawledAt": "2026-07-10T22:28:06.955Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien%28ne%29-de-Laboratoire/1408035333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:40.568Z",
+      "crawledAt": "2026-07-10T22:28:06.181Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:50:39.910Z",
+      "crawledAt": "2026-07-10T22:28:05.402Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -486,7 +486,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Chef-d'%C3%89quipe-Paysagiste/1380543733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:39.251Z",
+      "crawledAt": "2026-07-10T22:28:04.640Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -563,7 +563,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Quality-Systems-&-Tools-Intern-%286-months%29/1408261033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:50:38.523Z",
+      "crawledAt": "2026-07-10T22:28:03.858Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -626,7 +626,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Archiviste-%28CDD-6-mois%29/1407120233/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:37.849Z",
+      "crawledAt": "2026-07-10T22:28:03.081Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -643,26 +643,26 @@
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1407120233/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "archivist-cdd-6-months-sicpa-sa-prilly",
+          "archivist-csd-6-months-sicpa-sa-prilly",
+          "archiviste-cdd-6-mois-sicpa-prilly"
+        ],
+        "it": [
+          "archiviste-cdd-6-mois-sicpa-prilly",
+          "archivista-csd-6-mesi-sicpa-sa-prilly"
+        ],
+        "de": [
+          "archiviste-cdd-6-mois-sicpa-prilly"
+        ]
+      },
       "previousSlugs": [
         "archiviste-cdd-6-mois-sicpa-prilly",
         "archivist-cdd-6-months-sicpa-sa-prilly",
         "archivist-csd-6-months-sicpa-sa-prilly",
         "archivista-csd-6-mesi-sicpa-sa-prilly"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "archiviste-cdd-6-mois-sicpa-prilly",
-          "archivista-csd-6-mesi-sicpa-sa-prilly"
-        ],
-        "en": [
-          "archivist-cdd-6-months-sicpa-sa-prilly",
-          "archivist-csd-6-months-sicpa-sa-prilly",
-          "archiviste-cdd-6-mois-sicpa-prilly"
-        ],
-        "de": [
-          "archiviste-cdd-6-mois-sicpa-prilly"
-        ]
-      },
       "firstSeenAt": "2026-07-04T12:00:36.958Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -709,7 +709,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Ing%C3%A9nieur-Industriel-Automation/1400665633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:37.180Z",
+      "crawledAt": "2026-07-10T22:28:02.267Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -788,7 +788,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:50:36.495Z",
+      "crawledAt": "2026-07-10T22:28:01.484Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
