@@ -351,6 +351,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cosa-fare-nel-weekend-in-ticino-attivita-outdoor': { it: 'cosa-fare-nel-weekend-in-ticino-attivita-outdoor', en: 'things-to-do-in-ticino', de: 'was-man-im-ticino-zu-tun-hat', fr: 'choisir-d-activites-a-ticino' },
  'trasferirsi-svizzera-guida': { it: 'trasferirsi-svizzera-guida', en: 'moving-to-switzerland-from-italy-guide', de: 'schweiz-wechseln-it-gericht', fr: 'se-deplacer-en-suisse-italien' },
  'aprire-conto-banca-svizzera-residenti': { it: 'aprire-conto-banca-svizzera-residenti', en: 'open-bank-account-switzerland-resident', de: 'konten-banken-schweiz-residenten', fr: 'ouvrir-compte-banque-suisse-resident' },
+ 'imparare-svizzero-tedesco-corsi-e-app': { it: 'imparare-svizzero-tedesco-corsi-e-app', en: 'learn-swiss-german', de: 'schweizerdeutsch-lernen', fr: 'apprendre-le-allemand-suisses' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

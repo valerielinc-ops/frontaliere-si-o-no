@@ -985,6 +985,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Conto bancario in Svizzera per residenti: documenti, banche principali e costi',
     'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'I documenti necessari per aprire un conto bancario in Svizzera da residente e le principali banche che offrono questo servizio',
     'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Imparare lo svizzero tedesco: corsi e app',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Sei interessato a imparare lo svizzero tedesco? Scopri i corsi e le app più adatti per te.',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Classi di tedesco svizzero in una scuola del cantone Ticino',
 };
 
 export default blogMetaChIt;

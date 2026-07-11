@@ -985,6 +985,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Swiss bank account for residents: documents, main banks and costs',
     'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'The documents necessary to open a bank account in Switzerland as a resident and the main banks that offer this service',
     'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Learning Swiss German: Courses and Apps',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Are you interested in learning Swiss German? Discover the courses and apps that are right for you.',
+    'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Swiss German language classes in a school in the canton of Ticino',
 };
 
 export default blogMetaChEn;
