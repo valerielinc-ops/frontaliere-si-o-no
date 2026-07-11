@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-qyw1vt",
-      "slug": "magaziner-in-vendita-coop-genossenschaft-basel-stadt-qyw1vt",
+      "slug": "magaziner-in-verkauf-coop-genossenschaft-basel-stadt",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Basel",
@@ -66,11 +66,6 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-basel-stadt"
-        ]
       },
       "previousSlugs": [
         "magaziner-in-verkauf-coop-genossenschaft-basel-stadt"
@@ -248,7 +243,7 @@
     },
     {
       "id": "company-z1mexr",
-      "slug": "responsabile-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr",
+      "slug": "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern",
       "company": "Coop Genossenschaft",
       "title": "Leiter:in Logistik E-Shop",
       "location": "Langenthal",
@@ -308,20 +303,12 @@
         ],
         "fr": [
           "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr"
-        ],
-        "it": [
-          "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern"
         ]
       },
       "previousSlugs": [
         "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern-z1mexr",
         "leiter-in-logistik-e-shop-coop-genossenschaft-langenthal-bern"
-      ],
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Berna",
-        "canton": "BE"
-      }
+      ]
     },
     {
       "id": "company-irdhh4",
@@ -413,7 +400,7 @@
     },
     {
       "id": "company-w2ufkb",
-      "slug": "collaboratore-trice-gastronomie-coop-genossenschaft-worb-bern-w2ufkb",
+      "slug": "mitarbeiter-in-gastronomie-coop-genossenschaft-worb-bern",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Worb",
@@ -476,20 +463,9 @@
           "unitText": "YEAR"
         }
       },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Berna",
-        "canton": "BE"
-      },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-genossenschaft-worb-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-worb-bern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-3ji9m6",
@@ -1322,7 +1298,7 @@
     },
     {
       "id": "company-dwj1w6",
-      "slug": "collaboratore-trice-gastronomie-coop-lyss-bern-dwj1w6",
+      "slug": "mitarbeiter-in-gastronomie-coop-lyss-bern",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Lyss",
@@ -1392,13 +1368,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-lyss-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-lyss-bern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-lffj49",
@@ -2164,7 +2134,7 @@
     },
     {
       "id": "company-shzcg9",
-      "slug": "magaziner-in-vendita-coop-laupen-bern-shzcg9",
+      "slug": "magaziner-in-verkauf-coop-laupen-bern",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Laupen",
@@ -2234,13 +2204,7 @@
       },
       "previousSlugs": [
         "magaziner-in-verkauf-coop-laupen-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-laupen-bern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-wabujg",
@@ -3804,7 +3768,7 @@
     },
     {
       "id": "company-kwi7ck",
-      "slug": "collaboratore-trice-gastronomie-coop-genossenschaft-mels-sankt-gallen-kwi7ck",
+      "slug": "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Mels",
@@ -3870,21 +3834,12 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-genossenschaft-mels-sankt-gallen-kwi7ck"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-genossenschaft-mels-sankt-gallen-kwi7ck",
         "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen"
-      ],
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "San Gallo",
-        "canton": "SG"
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-naj2vo",
@@ -4250,7 +4205,7 @@
     },
     {
       "id": "company-n09rtu",
-      "slug": "risorse-umane-business-partner-80-100-two-spice-ag-dietlikon-n09rtu",
+      "slug": "hr-business-partner-80-100-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "HR Business Partner 80-100%",
       "location": "Dietlikon",
@@ -4269,14 +4224,14 @@
       "crawledAt": "2026-07-10T14:29:33.341Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
-        "fr": "HR Business Partner 80-100%",
+        "fr": "HR Associé d'affaires 80-100 %",
         "it": "Risorse Umane Business Partner 80-100%",
         "de": "Personalwesen Business Partner 80-100%",
         "en": "HR Business Partner 80-100 %"
       },
       "descriptionByLocale": {
         "de": "## HR Business Partner 80-100%\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Two Spice – das sind wir! Ein kreatives und innovatives Gastronomie- und Lifestyle-Unternehmen aus Zürich. Seit 1990 bringen wir frische Ideen auf den Tisch und entwickeln einzigartige Konzepte und Marken, die begeistern. Unsere vielseitigen Betriebe sind an den zentralen Hotspots verschiedener Städte zu Hause und stehen für Qualität, Design und pure Genussmomente.Mittlerweile umfasst die Gastronomiegruppe neun verschiedenen Marken mit insgesamt über 27 Restaurants und Take Out Stores. Dank über 30 Jahren Erfahrung und mit mittlerweile rund 650 Mitarbeitenden zählt das Unternehmen zu einer festen Grösse in der Schweizer Gastro-Szene. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Operative und strategische Beratung der zugeteilten Führungskräfte in sämtlichen personalrelevanten Fragestellungen\n- Steuern des gesamten Rekrutierungsprozesses – von der Personalbedarfsplanung bis zum Vertragsabschluss für Führungskräfte\n- Bereitschaft zur Reisetätigkeit (dezentrale HR-Organisation)\n- Begleitung von Mitarbeitenden und Vorgesetzten in Entwicklungs-, Konflikt-, Rückkehr-, Disziplinar- und Trennungsgesprächen\n- Mitgestaltung und Weiterentwicklung moderner HR-Prozesse und Übernahme von bereichsübergreifenden Projekten sowie Begleitung von Neueröffnungen\n- Unterstützung bei der Personal- und Nachfolgeplanung sowie bei Talent-Management-Prozessen\n- Planung und Durchführung von Schulungen, Workshops und Mitarbeiterevents\n\n## Anforderungen\n- Abgeschlossene Weiterbildung im HR-Bereich (z. B. HR-Fachausweis oder vergleichbare Qualifikation)\n- Mehrjährige Berufserfahrung als HR Business Partner, idealerweise in der Gastronomie\n- Sehr gute Kenntnisse des Schweizer Arbeitsrechts und der HR-Prozesse\n- Hohe Digital- und Datenaffinität, sicherer Umgang mit HR-Tools\n- Starke Beratungskompetenz und souveränes Auftreten gegenüber Führungskräften und Mitarbeitenden\n- Proaktive, selbständige und flexible Persönlichkeit mit hoher Sozialkompetenz\n\n## Was wir bieten\n\n## Deine Ansprechperson\nMarion Heinzle\n, Human Resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
-        "it": "## HR Business Partner 80-100 %\n\nDue Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## Due spezie – siamo noi! Un'azienda creativa e innovativa di gastronomia e lifestyle di Zurigo. Dal 1990 portiamo nuove idee al tavolo e sviluppiamo concetti e marchi unici che ispirano. Le nostre aziende versatili sono a casa nei punti caldi centrali di diverse città e stand per qualità, design e puro piacere. Il gruppo di catering comprende ora nove marchi diversi con un totale di oltre 27 ristoranti e negozi di take-out. Grazie a più di 30 anni di esperienza e con circa 650 dipendenti, l'azienda è un'azienda che si occupa della scena del gastro svizzero. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Consulenza operativa e strategica ai responsabili assegnati su tutte le questioni rilevanti dal personale\n- Controllo dell'intero processo di reclutamento – dalla pianificazione dei requisiti del personale alla contrazione per i dirigenti\n- Prontezza al viaggio (organizzazione HR decentrata)\n- Assistenza dei dipendenti e dei supervisori nei colloqui di sviluppo, conflitto, ritorno, disciplina e separazione\n- Co-design e ulteriore sviluppo dei moderni processi HR e acquisizione di progetti cross-divisionali e supporto per nuove aperture\n- Supporto nella pianificazione del personale e della successione, nonché nei processi di gestione del talento\n- Pianificazione e realizzazione di corsi di formazione, workshop ed eventi dei dipendenti\n\n## Requisiti\n- Formazione HR completata (ad esempio certificato HR o qualifica equivalente)\n- Diversi anni di esperienza professionale come HR Business Partner, idealmente in gastronomia\n- Ottima conoscenza del diritto del lavoro svizzero e dei processi HR\n- Alta affinità digitale e dati, gestione sicura degli strumenti HR\n- Forte competenza di consulenza e atteggiamento sovrano nei confronti dei dirigenti e dei dipendenti\n- Personalità attiva, indipendente e flessibile con elevata competenza sociale\n\n## Cosa offriamo\n\n## La persona di contatto\nMarion Heinzle\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
+        "it": "## HR Business Partner 80-100 %\n\n Due Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## Due spezie – siamo noi! Un'azienda creativa e innovativa di gastronomia e lifestyle di Zurigo. Dal 1990 portiamo nuove idee al tavolo e sviluppiamo concetti e marchi unici che ispirano. Le nostre aziende versatili sono a casa nei punti caldi centrali di diverse città e stand per qualità, design e puro piacere. Il gruppo di catering comprende ora nove marchi diversi con un totale di oltre 27 ristoranti e negozi di take-out. Grazie a più di 30 anni di esperienza e con circa 650 dipendenti, l'azienda è un'azienda che si occupa della scena del gastro svizzero. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Consulenza operativa e strategica ai responsabili assegnati su tutte le questioni rilevanti dal personale\n- Controllo dell'intero processo di reclutamento – dalla pianificazione dei requisiti del personale alla contrazione per i dirigenti\n- Prontezza al viaggio (organizzazione HR decentrata)\n- Assistenza dei dipendenti e dei supervisori nei colloqui di sviluppo, conflitto, ritorno, disciplina e separazione\n- Co-design e ulteriore sviluppo dei moderni processi HR e acquisizione di progetti cross-divisionali e supporto per nuove aperture\n- Supporto nella pianificazione del personale e della successione, nonché nei processi di gestione del talento\n- Pianificazione e realizzazione di corsi di formazione, workshop ed eventi dei dipendenti\n\n## Requisiti\n- Formazione HR completata (ad esempio certificato HR o qualifica equivalente)\n- Diversi anni di esperienza professionale come HR Business Partner, idealmente in gastronomia\n- Ottima conoscenza del diritto del lavoro svizzero e dei processi HR\n- Alta affinità digitale e dati, gestione sicura degli strumenti HR\n- Forte competenza di consulenza e atteggiamento sovrano nei confronti dei dirigenti e dei dipendenti\n- Personalità attiva, indipendente e flessibile con elevata competenza sociale\n\n## Cosa offriamo\n\n## La persona di contatto\nMarion Heinzle\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
         "en": "## HR Business Partner 80-100 %\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Two Spice – that’s us! A creative and innovative gastronomy and lifestyle company from Zurich. Since 1990 we bring fresh ideas to the table and develop unique concepts and brands that inspire. Our versatile businesses are at home in the central hotspots of different cities and stand for quality, design and pure pleasure.The catering group now comprises nine different brands with a total of over 27 restaurants and take-out stores. Thanks to more than 30 years of experience and with around 650 employees, the company is a firm fixture in the Swiss gastro scene. Do you want to be part of our team? Now is your chance!\n\n## Tasks\n- Operational and strategic advice to the assigned managers on all personnel-relevant issues\n- Controlling the entire recruitment process – from personnel requirements planning to contracting for executives\n- Readiness to travel (decentralized HR organization)\n- Assistance of employees and supervisors in development, conflict, return, disciplinary and separation talks\n- Co-design and further development of modern HR processes and takeover of cross-divisional projects as well as support for new openings\n- Support in personnel and succession planning as well as in talent management processes\n- Planning and implementation of training, workshops and employee events\n\n## Requirements\n- HR training completed (e.g. HR certificate or equivalent qualification)\n- Several years of professional experience as an HR Business Partner, ideally in gastronomy\n- Very good knowledge of Swiss labour law and HR processes\n- High digital and data affinity, secure handling of HR tools\n- Strong consulting competence and sovereign attitude towards managers and employees\n- Proactive, independent and flexible personality with high social competence\n\n## What we offer\n\n## Your contact person\nMarion Heinzle\n, Human resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
         "fr": "## HR Associé d'affaires 80-100 %\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Deux épices – c'est nous! Une entreprise créative et innovante de gastronomie et de style de vie de Zurich. Depuis 1990, nous apportons de nouvelles idées à la table et développons des concepts et des marques uniques qui inspirent. Nos entreprises polyvalentes sont à la maison dans les points chauds centraux de différentes villes et sont synonymes de qualité, de design et de plaisir pur. Le groupe traiteur compte désormais neuf marques différentes avec un total de plus de 27 restaurants et magasins à emporter. Grâce à plus de 30 ans d'expérience et avec environ 650 collaborateurs, l'entreprise est une entreprise dans la scène gastronomique suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Conseils opérationnels et stratégiques aux gestionnaires affectés sur toutes les questions relatives au personnel\n- Contrôler l'ensemble du processus de recrutement – de la planification des besoins en personnel à la passation de marchés pour les cadres supérieurs\n- Préparation aux déplacements (organisation décentralisée des RH)\n- Assistance des employés et des superviseurs pour les discussions sur le développement, les conflits, le retour, la discipline et la séparation\n- Co-conception et développement des processus modernes de gestion des ressources humaines et prise en charge des projets interdivisions ainsi que soutien aux nouvelles ouvertures\n- Appui à la planification du personnel et de la relève ainsi qu ' aux processus de gestion des aptitudes\n- Planification et mise en œuvre de la formation, des ateliers et des manifestations des employés\n\n## Exigences\n- Formation en RH terminée (p. ex. certificat en RH ou qualification équivalente)\n- Plusieurs années d'expérience professionnelle en tant que partenaire RH Business, idéalement dans la gastronomie\n- Très bonne connaissance du droit du travail et des processus RH suisses\n- Haute affinité numérique et de données, manipulation sécurisée des outils RH\n- Forte compétence en conseil et attitude souveraine envers les gestionnaires et les employés\n- Personnalité proactive, indépendante et flexible avec une haute compétence sociale\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nMarion Heinzle\nRessources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Dietlikon"
       },
@@ -4304,23 +4259,13 @@
           "unitText": "YEAR"
         }
       },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zurigo",
-        "canton": "ZH"
-      },
       "previousSlugs": [
         "hr-business-partner-80-100-two-spice-ag-dietlikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-business-partner-80-100-two-spice-ag-dietlikon"
-        ]
-      }
+      ]
     },
     {
       "id": "company-8b9vdd",
-      "slug": "addetto-a-alle-vendite-administration-kundendienst-jumbo-division-der-coop-genossenschaft-zurich-8b9vdd",
+      "slug": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-division-der-coop-genossenschaft-zurich",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Mitarbeiter:in Verkauf/Administration/Kundendienst",
       "location": "Zürich",
@@ -4386,22 +4331,11 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-schenkon",
         "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-division-der-coop-genossenschaft-zurich"
-      ],
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zurigo",
-        "canton": "ZH"
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-division-der-coop-genossenschaft-zurich"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-f7uofv",
-      "slug": "responsabile-junior-vendita-engadin-coop-genossenschaft-sankt-moritz-graubunden-f7uofv",
+      "slug": "nachwuchskader-verkauf-engadin-coop-genossenschaft-sankt-moritz-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Nachwuchskader Verkauf Engadin",
       "location": "Sankt Moritz",
@@ -4455,19 +4389,9 @@
           "unitText": "YEAR"
         }
       },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
       "previousSlugs": [
         "nachwuchskader-verkauf-engadin-coop-genossenschaft-sankt-moritz-graubunden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nachwuchskader-verkauf-engadin-coop-genossenschaft-sankt-moritz-graubunden"
-        ]
-      }
+      ]
     },
     {
       "id": "company-pgmp9v",
@@ -5961,7 +5885,7 @@
     },
     {
       "id": "company-9rrqdc",
-      "slug": "addetto-a-alle-vendite-food-6-00-bis-10-00-uhr-samstag-auffuller-in-coop-frick-aargau-9rrqdc",
+      "slug": "mitarbeiter-in-verkauf-food-6-00-bis-10-00-uhr-samstag-auffuller-in-coop-frick-aargau",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Verkauf Food 6:00 bis 10:00 Uhr + Samstag (Auffüller:in)",
       "location": "Frick",
@@ -6032,13 +5956,7 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-food-6-00-bis-10-00-uhr-samstag-auffuller-in-coop-genossenschaft-frick",
         "mitarbeiter-in-verkauf-food-6-00-bis-10-00-uhr-samstag-auffuller-in-coop-frick-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-food-6-00-bis-10-00-uhr-samstag-auffuller-in-coop-frick-aargau"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-cduvgw",
@@ -6887,7 +6805,7 @@
     },
     {
       "id": "company-7rr4z3",
-      "slug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-schenkon-luzern-7rr4z3",
+      "slug": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-schenkon-luzern",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Mitarbeiter:in Verkauf, Administration und Kundendienst",
       "location": "Schenkon",
@@ -6971,13 +6889,7 @@
         "collaborateur-trice-vente-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-freienbach-schwyz-l8dpfj",
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-freienbach-schwyz-l8dpfj",
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-schenkon-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-schenkon-luzern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-c6dwd4",
@@ -7005,15 +6917,16 @@
       "crawledAt": "2026-07-10T14:29:33.341Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
-        "en": "",
-        "it": "Project Manager: in Sponsorship",
-        "fr": "Gestionnaire de projet : en commandite"
+        "en": "Project Manager: in Sponsorship",
+        "it": "Project Manager Sponsoring",
+        "fr": "Responsable de projet Sponsoring",
+        "de": "Project-Manager:in Sponsoring"
       },
       "descriptionByLocale": {
-        "de": "## Project-Manager:in Sponsoring\n\n**Coop Genossenschaft** — Bern, Bern, Svizzera\n\n## Aufgaben\nDu leitest spannende Sponsoringprojekte in den Bereichen Familie & Jugend-liche, Sport und Kultur – von der Planung bis zum erfolgreichen Abschluss – und trägst dabei die Budgetverantwortung.\nDu planst, organisierst und realisierst Corporate- und Public-Veranstaltungen der Coop Verkaufsregion Bern und behältst dabei Termine, Kosten und Quali-tät stets im Blick.\nDu entwickelst gemeinsam mit internen und externen Partnern kreative Sponsoringauftritte und sorgst für deren professionelle Umsetzung vor Ort.\nDu führst Vertragsverhandlungen mit externen Anspruchsgruppen und pflegst eine vertrauensvolle Zusammenarbeit mit unseren Partnern.\nDu verantwortest die Projektdokumentation sowie das Projektcontrolling und übernimmst weitere administrative Aufgaben rund um deine Projekte.\n\n## Anforderungen\nDu verfügst über einen Fachhochschulabschluss oder eine Weiterbildung im Bereich Sponsoring oder Kommunikation.\nDu bringst Berufserfahrung im Sponsoring und/oder Eventmanagement mit.\nDu arbeitest selbstständig, organisiert und zuverlässig und überzeugst mit deiner Flexibilität und deinem ausgeprägten Organisationstalent.\nDu bist verhandlungssicher und bereit, Veranstaltungen auch abends und an Wochenenden zu begleiten.\n- Vergünstigungen: 5-fache Anzahl Superpunkte im Supermarkt\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Unterstützung für externe Aus- und Weiterbildungen\n- Nachhaltigkeit: Engagement für Mensch und Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Gratis Teilnahme an verschiedenen Firmenläufen\n\n## Deine Ansprechperson\nPeter Zenger\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Bern",
-        "it": "## Project Manager: in Sponsorship\n\nCoop Cooperative — Bern, Bern, Svizzera\n\n## Compiti\nCondurre progetti di sponsorizzazione entusiasmanti nei settori della famiglia e della gioventù, dello sport e della cultura – dalla pianificazione al completamento di successo – e portare la responsabilità di bilancio.\nPianifica, organizza e realizza eventi aziendali e pubblici nella regione commerciale Coop di Berna e tieni sempre d'occhio date, costi e qualità.\nInsieme a partner interni ed esterni, svilupperai sponsorizzazioni creative e garantirai la loro implementazione professionale in loco.\nConduci trattative contrattuali con gli stakeholder esterni e mantieni una collaborazione fidata con i nostri partner.\nSiete responsabili della documentazione del progetto e del controllo del progetto e assumete ulteriori compiti amministrativi nei vostri progetti.\n\n## Requisiti\nHai una laurea o un'ulteriore formazione nel campo della sponsorizzazione o della comunicazione.\nPorti esperienza professionale nella sponsorizzazione e/o nella gestione degli eventi.\nLavori in modo indipendente, organizzato e affidabile e convinci con la tua flessibilità e il tuo forte talento organizzativo.\nSei fiducioso di negoziazione e pronto ad accompagnare eventi la sera e nei fine settimana.\n- Perks: 5 volte il numero di punti super nel supermercato\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop\n- Ore lavorative: 5 week-end\n- Formazione: sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: Partecipazione gratuita a varie attività aziendali\n\n## La persona di contatto\nPeter Zenger\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Berna",
-        "en": "## Project Manager: in Sponsorship\n\n**Coop Cooperative** — Bern, Bern, Svizzera\n\n## Tasks\nYou lead exciting sponsorship projects in the areas of family & youth, sports and culture – from planning to successful completion – and carry the budget responsibility.\nYou plan, organize and realize corporate and public events in the Coop sales region of Bern and always keep an eye on dates, costs and quality.\nTogether with internal and external partners, you will develop creative sponsorships and ensure their professional implementation on site.\nYou conduct contract negotiations with external stakeholders and maintain a trusting cooperation with our partners.\nYou are responsible for project documentation and project controlling and take on additional administrative tasks around your projects.\n\n## Requirements\nYou have a university degree or further education in the field of sponsorship or communication.\nYou bring professional experience in sponsoring and/or event management.\nYou work independently, organized and reliable and convince with your flexibility and your strong organizational talent.\nYou are confident of negotiation and ready to accompany events in the evening and on weekends.\n- Perks: 5 times the number of super points in the supermarket\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop\n- Working hours: 5 weeks holidays\n- Training: support for external education and training\n- Sustainability: Commitment to people and animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Free participation in various company runs\n\n## Your contact person\nPeter Zenger\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Bern",
-        "fr": "## Gestionnaire de projet : en commandite\n\n**Coopérative Coop** — Berne, Berne, Svizzera\n\n## Tâche\nVous dirigez des projets de parrainage passionnants dans les domaines de la famille et de la jeunesse, du sport et de la culture – de la planification à la réussite – et vous assumez la responsabilité budgétaire.\nVous planifiez, organisez et réalisez des événements corporatifs et publics dans la région de vente Coop de Berne et gardez toujours un œil sur les dates, les coûts et la qualité.\nAvec des partenaires internes et externes, vous développerez des commandites créatives et assurerez leur mise en oeuvre professionnelle sur le site.\nVous conduisez des négociations contractuelles avec des intervenants externes et maintenez une coopération de confiance avec nos partenaires.\nVous êtes responsable de la documentation du projet et du contrôle du projet, et assumez des tâches administratives supplémentaires autour de vos projets.\n\n## Exigences\nVous avez un diplôme universitaire ou une formation complémentaire dans le domaine du parrainage ou de la communication.\nVous apportez une expérience professionnelle dans le sponsoring et/ou la gestion d'événements.\nVous travaillez de façon indépendante, organisée et fiable et vous convainquez avec votre flexibilité et votre talent organisationnel fort.\nVous êtes confiant dans la négociation et prêt à accompagner les événements le soir et le week-end.\n- Avantages: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé: participation gratuite à diverses activités de l'entreprise\n\n## Votre personne à contacter\nPeter Zenger\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Belgique"
+        "de": "Project-Manager:in Sponsoring\n\nCoop Genossenschaft — Bern, Bern, Svizzera\n\nAufgaben\nDu leitest spannende Sponsoringprojekte in den Bereichen Familie & Jugend-liche, Sport und Kultur – von der Planung bis zum erfolgreichen Abschluss – und trägst dabei die Budgetverantwortung.\nDu planst, organisierst und realisierst Corporate- und Public-Veranstaltungen der Coop Verkaufsregion Bern und behältst dabei Termine, Kosten und Quali-tät stets im Blick.\nDu entwickelst gemeinsam mit internen und externen Partnern kreative Sponsoringauftritte und sorgst für deren professionelle Umsetzung vor Ort.\nDu führst Vertragsverhandlungen mit externen Anspruchsgruppen und pflegst eine vertrauensvolle Zusammenarbeit mit unseren Partnern.\nDu verantwortest die Projektdokumentation sowie das Projektcontrolling und übernimmst weitere administrative Aufgaben rund um deine Projekte.\n\nAnforderungen\nDu verfügst über einen Fachhochschulabschluss oder eine Weiterbildung im Bereich Sponsoring oder Kommunikation.\nDu bringst Berufserfahrung im Sponsoring und/oder Eventmanagement mit.\nDu arbeitest selbstständig, organisiert und zuverlässig und überzeugst mit deiner Flexibilität und deinem ausgeprägten Organisationstalent.\nDu bist verhandlungssicher und bereit, Veranstaltungen auch abends und an Wochenenden zu begleiten.\n- Vergünstigungen: 5-fache Anzahl Superpunkte im Supermarkt\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Unterstützung für externe Aus- und Weiterbildungen\n- Nachhaltigkeit: Engagement für Mensch und Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Gratis Teilnahme an verschiedenen Firmenläufen\n\nDeine Ansprechperson\nPeter Zenger\nHR Marketing\n\nTipo: Part-time\nSede: Bern",
+        "it": "Project Manager:in sponsorizzazione\n\nCoop Società Cooperativa — Berna, Berna, Svizzera\n\nCompiti\nConduci interessanti progetti di sponsorizzazione nei settori della famiglia e dei giovani, dello sport e della cultura, dalla pianificazione fino al completamento con successo, assumendoti la responsabilità del budget.\nPianifichi, organizzi e realizzi eventi aziendali e pubblici nella regione di vendita Coop di Berna, tenendo sempre d'occhio le scadenze, i costi e la qualità.\nSvilupperai sponsorizzazioni creative insieme a partner interni ed esterni e garantirai la loro attuazione professionale sul posto.\nConduci trattative contrattuali con stakeholder esterni e mantieni una collaborazione basata sulla fiducia con i nostri partner.\nSei responsabile della documentazione del progetto e del controlling del progetto e ti assumi ulteriori compiti amministrativi relativi ai tuoi progetti.\n\nRequisiti\nHai un diploma di scuola universitaria professionale o una formazione continua nel campo della sponsorizzazione o della comunicazione.\nHai esperienza professionale nella sponsorizzazione e/o nella gestione di eventi.\nLavori in modo indipendente, organizzato e affidabile e convinci con la tua flessibilità e il tuo spiccato talento organizzativo.\nSei sicuro di negoziare e pronto ad accompagnare gli eventi anche la sera e nei fine settimana.\n- Agevolazioni: 5 volte il numero di superpunti nel supermercato\n- Condizioni di impiego: Cassa pensione: 2/3 versati da Coop\n- Orario di lavoro: 5 settimane di ferie\n-",
+        "en": "Project Manager:in Sponsoring\n\nCoop Cooperative — Berne, Berne, Sizzera\n\nTasks You manage exciting sponsoring projects in the areas of family & youth, sport and culture – from planning to successful completion – and bear the responsibility for budgeting. You plan, organize and implement corporate and public events of the Coop sales region Bern, always keeping an eye on dates, costs and quality. You develop creative sponsoring appearances together with internal and external partners and ensure their professional implementation on site.\n\nYou negotiate with external stakeholders and work with our partners with confidence. You are responsible for project documentation and project controlling and take on further administrative tasks relating to your projects.\n\nRequirements You have a degree in higher education or a further education in the field of sponsoring or communication. You have professional experience in sponsoring and/or event management. You work independently, organized and reliable and convince with your flexibility and your distinctive organizational talent. You are negotiation-proof and ready to accompany events even in the evening and on weekends.\n\n- Discounts: 5-fold Super points in the supermarket - Conditions of employment: Pension fund: 2/3 is paid by Coop - Working time: 5 weeks holidays - Training: Support for external training and further education - Sustainability: Commitment to people and animals and nature with over 400 actions - Communication: internal app for employees - Health: Free participation in various company runs\n\nYour contact Peter Zenger HR Marketing\n\nTipo: Part-time Sede: Berne",
+        "fr": "Gestionnaire de projet :en commandite\n\nCoopérative de coop — Berne, Berne, Sizzera\n\nTâches Vous gérez des projets de parrainage passionnants dans les domaines de la famille et de la jeunesse, du sport et de la culture – de la planification à la réussite – et vous assumez la responsabilité de la budgétisation. Vous planifiez, organisez et implantez des événements corporatifs et publics de la région de vente de Coop Berne, en gardant toujours un œil sur les dates, les coûts et la qualité.\n\nVous négociez avec des intervenants externes et travaillez avec nos partenaires en toute confiance. Vous êtes responsable de la documentation du projet et du contrôle du projet et vous assumez d'autres tâches administratives liées à vos projets.\n\nExigences Vous avez un diplôme en enseignement supérieur ou une formation complémentaire dans le domaine du parrainage ou de la communication. Vous avez une expérience professionnelle dans le sponsoring et/ou la gestion d'événements. Vous travaillez de façon indépendante, organisée et fiable et vous convainquez avec votre flexibilité et votre talent organisationnel distinctif.\n\n- Réductions: 5 points super dans le supermarché - Conditions d'emploi: Caisse de pension: 2/3 est payé par Coop - Temps de travail: 5 semaines de congés - Formation: Soutien à la formation externe et à la formation continue - Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions - Communication: application interne pour les salariés - Santé: Participation gratuite à divers projets d'entreprise\n\nVotre interlocuteur Peter Zenger HR Marketing\n\nTipo: Sede à temps partiel: Berne"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -7045,18 +6958,19 @@
           "project-manager-in-sponsoring-coop-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-bern"
         ],
-        "en": [
-          "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4"
-        ],
         "fr": [
           "project-manager-in-sponsoring-coop-bern-c6dwd4"
+        ],
+        "en": [
+          "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4"
         ]
       },
       "previousSlugs": [
         "project-manager-in-sponsoring-coop-bern-c6dwd4",
         "project-manager-in-sponsoring-coop-bern",
         "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-f4oy7p",
@@ -7310,7 +7224,7 @@
     },
     {
       "id": "company-kpb15t",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-stans-nidwalden-kpb15t",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-stans-nidwalden",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Stans",
@@ -7381,9 +7295,6 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-stans-nidwalden-kpb15t"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-stans-nidwalden"
         ]
       },
       "previousSlugs": [
@@ -7395,8 +7306,7 @@
         "associate-gastronomie-coop-rorschach-sankt-gallen-6cu92g",
         "mitarbeiter-in-gastronomie-coop-rorschach-sankt-gallen",
         "mitarbeiter-in-gastronomie-coop-ristorante-stans-nidwalden"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-ppc360",
@@ -7488,7 +7398,7 @@
     },
     {
       "id": "company-pmj5ay",
-      "slug": "housekeeping-collaboratore-trice-im-stundenlohn-hotel-savoy-bale-hotels-group-bern-pmj5ay",
+      "slug": "housekeeping-mitarbeiter-in-im-stundenlohn-hotel-savoy-bale-hotels-group-bern",
       "company": "BâleHotels",
       "title": "Housekeeping Mitarbeiter:in im Stundenlohn - Hotel Savoy",
       "location": "Bern",
@@ -7549,13 +7459,7 @@
       },
       "previousSlugs": [
         "housekeeping-mitarbeiter-in-im-stundenlohn-hotel-savoy-bale-hotels-group-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "housekeeping-mitarbeiter-in-im-stundenlohn-hotel-savoy-bale-hotels-group-bern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-qxwzy",
@@ -7637,7 +7541,7 @@
     },
     {
       "id": "company-h8lvmx",
-      "slug": "addetto-a-alla-logistica-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-h8lvmx",
+      "slug": "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Mitarbeiter:in Logistik",
       "location": "Würenlingen",
@@ -7700,20 +7604,9 @@
           "unitText": "YEAR"
         }
       },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Argovia",
-        "canton": "AG"
-      },
       "previousSlugs": [
         "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-wc1kpz",
@@ -8381,19 +8274,22 @@
       "crawledAt": "2026-07-10T14:29:33.341Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
-        "fr": "Polydesigner 3D (w/m/d)"
+        "fr": "Polydesigner 3D (p/m/d)",
+        "it": "Polydesigner 3D (w/m/d)",
+        "en": "Polydesigner 3D (w/m/d)",
+        "de": "Polydesigner 3D (w/m/d)"
       },
       "descriptionByLocale": {
-        "de": "## Polydesigner 3D (w/m/d)\n\n**Coop Genossenschaft** — Schaffhausen, Schaffhausen, Svizzera\n\n## Aufgaben\n- Sie haben ein Auge fürs Detail – so stellen Sie die Umsetzung der vorgegebenen Konzepte sicher.\n- Mit Leidenschaft und einer geübten Hand präsentieren Sie unsere Sortimente.\n- Beim Auf- und Abbau von Aktionen sowie Promotionen übernehmen Sie gerne die Verantwortung.\n\n## Anforderungen\n- Abgeschlossene Ausbildung als Dekorationsgestalter:in oder Polydesigner:in 3D? Dann sind Sie bei uns richtig.\n- Sie haben bereits Berufserfahrung, idealerweise in einem Warenhaus. Damit können Sie punkten.\n- Flexibel, belastbar, kundenorientiert – das sind genau Sie.\n- Deutsch können Sie perfekt – schriftlich und mündlich.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schaffhausen",
-        "it": "## Polydesigner 3D (w/m/d)\n\nCoop cooperative — Schaffhausen, Schaffhausen, Svizzera\n\n## Compiti\n- Hai un occhio per i dettagli – in modo da garantire l'attuazione dei concetti dati.\n- Con passione e una mano praticata presentate i nostri assortimento.\n- Quando si impostano e smantellano azioni e promozioni, si è felici di assumersi la responsabilità.\n\n## Requisiti\n- Allenamento completato come designer decorativo:in o polidesigner:in 3D? Allora hai ragione con noi.\n- Hai già esperienza professionale, idealmente in un grande magazzino. Quindi puoi segnare.\n- Flessibile, resiliente, orientato al cliente - che è esattamente voi.\n- Si può parlare tedesco perfettamente – per iscritto e per via orale.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSuzana Jovanovic\nHR Marketing\n\nTipo: Tempo parziale\n# Schaffhausen #",
-        "en": "## Polydesigner 3D (w/m/d)\n\n**Coop cooperative** — Schaffhausen, Schaffhausen, Svizzera\n\n## Tasks\n- You have an eye for detail – so you ensure the implementation of the given concepts.\n- With passion and a practiced hand you present our assortments.\n- When setting up and dismantling actions and promotions, you are happy to take responsibility.\n\n## Requirements\n- Completed training as a decorative designer:in or polydesigner:in 3D? Then you are right with us.\n- You already have professional experience, ideally in a department store. So you can score.\n- Flexible, resilient, customer-oriented – that’s exactly you.\n- You can speak German perfectly – in writing and orally.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSuzana Jovanovic\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schaffhausen",
-        "fr": "## Polydesigner 3D (w/m/d)\n\n**Coopérative de coop** — Schaffhausen, Schaffhausen, Svizzera\n\n## Tâche\n- Vous avez un œil pour les détails – vous assurez donc la mise en œuvre des concepts donnés.\n- Avec passion et une main pratique vous présentez nos assortiments.\n- Lors de la mise en place et du démantèlement des actions et promotions, vous êtes heureux d'assumer vos responsabilités.\n\n## Exigences\n- Formation terminée en tant que concepteur décoratif:in ou polydesigner:in 3D? Alors tu as raison avec nous.\n- Vous avez déjà une expérience professionnelle, idéalement dans un grand magasin. Pour que vous puissiez marquer.\n- Flexible, résistant, orienté client – c'est exactement vous.\n- Vous pouvez parfaitement parler allemand – par écrit et oralement.\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schaffhausen"
+        "de": "Polydesigner 3D (w/m/d)\n\nCoop Genossenschaft — Schaffhausen, Schaffhausen, Svizzera\n\nAufgaben\n- Sie haben ein Auge fürs Detail – so stellen Sie die Umsetzung der vorgegebenen Konzepte sicher.\n- Mit Leidenschaft und einer geübten Hand präsentieren Sie unsere Sortimente.\n- Beim Auf- und Abbau von Aktionen sowie Promotionen übernehmen Sie gerne die Verantwortung.\n\nAnforderungen\n- Abgeschlossene Ausbildung als Dekorationsgestalter:in oder Polydesigner:in 3D? Dann sind Sie bei uns richtig.\n- Sie haben bereits Berufserfahrung, idealerweise in einem Warenhaus. Damit können Sie punkten.\n- Flexibel, belastbar, kundenorientiert – das sind genau Sie.\n- Deutsch können Sie perfekt – schriftlich und mündlich.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSuzana Jovanovic\nHR Marketing\n\nTipo: Part-time\nSede: Schaffhausen",
+        "it": "Polydesigner 3D (f/m/d)\n\nCoop Società Cooperativa — Sciaffusa, Sciaffusa, Svizzera\n\nCompiti\n- Hai un occhio per i dettagli – in questo modo garantisci l'implementazione dei concetti specificati.\n- Con passione e una mano esperta, presenterete i nostri assortimenti.\n- Si assume volentieri la responsabilità per l'allestimento e lo smontaggio di promozioni e promozioni.\n\nRequisiti\n- Formazione completata come decoratore:in o polidesigner:in 3D? Allora sei nel posto giusto.\n- Hai già esperienza professionale, idealmente in un grande magazzino. Per fare centro.\n- Flessibile, resistente, orientato al cliente – siete proprio voi.\n- Conosce perfettamente il tedesco – sia per iscritto che oralmente.\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati più convenienti presso Coop Mobile, sconto per il personale anche per i partner (che vivono nella stessa economia domestica)\n- Condizioni di impiego: Cassa pensioni: 2/3 sono versati da Coop, contratto collettivo di lavoro (CCL), 18 settimane di congedo di maternità e 4 settimane di congedo di paternità retribuite, premi di fedeltà, piano di risparmio presso la Cassa pensioni, regolamentazione flessibile e interessante per una pensione di vecchiaia anticipata a partire dal 58° anno di età\n- Orario di lavoro: 5 settimane di ferie\n- Formazione: oltre 600 corsi di formazione interni, supporto per",
+        "en": "Polydesigner 3D (w/m/d)\n\nCoop Cooperative — Schaffhausen, Schaffhausen, Sizzera\n\nTasks - you have an eye for detail – so you can ensure the implementation of the given concepts. - With passion and an experienced hand you present our assortments. - When you set up and dismantle actions and promotions, you are happy to take over responsibility.\n\nRequirements - Completed training as a decoration designer:in or polydesigner:in 3D? Then you are right with us. - You already have professional experience, ideally in a department store. This allows you to score points. - Flexible, resilient, customer-oriented – that's exactly you. - You can be perfect in German – in writing and orally.\n\n- Discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-paid subscriptions at Coop Mobile, staff discount also for partners:in (living in the same household) - Conditions of employment: pension fund: 2/3 is paid by Coop, total employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty premiums, savings plan at the pension fund, flexible and attractive regulation\n\nfor an early retirement pension from the completed 58.\n\nAge - working time: 5 weeks holidays - further education: over 600 internal training courses, support for external training and further training, talent management with diverse development opportunities - health: update fitness: Fr. 200.– discount on annual subscription\n\nYour contact Suzana Jovanovic HR Marketing\n\nTipo: Part-time Sede: Schaffhausen",
+        "fr": "Polydesigner 3D (w/m/d)\n\nCoop Société Coopérative — Schaffhouse, Schaffhouse, Suisse\n\nTâches\n- Vous avez le souci du détail – vous assurez ainsi la mise en œuvre des concepts prédéfinis.\n- Vous présentez nos gammes avec passion et une main experte.\n- Vous assumez volontiers la responsabilité du montage et du démontage des actions et des promotions.\n\nExigences\n- Formation achevée en tant que décorateur ou polydesigner en 3D ? Alors vous êtes au bon endroit.\n- Vous avez déjà une expérience professionnelle, idéalement dans un grand magasin. Avec lui, vous pouvez marquer des points.\n- Flexible, résilient, orienté client – c'est vous.\n- Vous pouvez parfaitement parler allemand – à l'écrit et à l'oral.\n- Réductions : réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de superpoints au supermarché, jusqu'à 20 % de réduction sur diverses prestations d'assurance, jusqu'à 20 % de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction pour le personnel également pour les partenaires (vivant dans le même ménage)\n- Conditions d'emploi : caisse de pension : 2/3 payés par Coop, convention collective de travail (CCT), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne auprès de la caisse de pension, réglementation flexible et attrayante pour une retraite anticipée à partir de 58 ans révolus\n- Temps de travail : 5 semaines de vacances\n- Formation continue : plus de 600 cours de formation interne, soutien pour"
       },
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
-        "en": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-d9t3yx",
-        "de": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-d9t3yx",
+        "en": "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
+        "de": "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
         "fr": "polydesigner-3d-w-m-d-coop-genossenschaft-schaffhausen"
       },
       "requirementsByLocale": {
@@ -8424,17 +8320,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx"
-        ],
-        "en": [
-          "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx"
-        ],
-        "de": [
-          "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx"
         ]
       },
       "previousSlugs": [
         "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-dtx02j",
@@ -10040,7 +9931,7 @@
     },
     {
       "id": "company-wp5wd3",
-      "slug": "responsabile-service-center-ticino-m-w-d-coop-castione-ticino-wp5wd3",
+      "slug": "responsabile-service-center-ticino-m-w-d-coop-castione-ticino",
       "company": "Coop Genossenschaft",
       "title": "Responsabile Service Center Ticino (f/m/d)",
       "location": "Castione",
@@ -10100,16 +9991,11 @@
       },
       "previousSlugs": [
         "responsabile-service-center-ticino-m-w-d-coop-castione-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-service-center-ticino-m-w-d-coop-castione-ticino"
-        ]
-      }
+      ]
     },
     {
       "id": "company-8r1g8p",
-      "slug": "collaboratore-trice-facility-management-betriebsunterhalt-fust-oberburen-sankt-gallen-8r1g8p",
+      "slug": "mitarbeiter-in-facility-management-betriebsunterhalt-fust-oberburen-sankt-gallen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Mitarbeiter:in Facility Management & Betriebsunterhalt",
       "location": "Oberbüren",
@@ -10170,13 +10056,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-facility-management-betriebsunterhalt-fust-oberburen-sankt-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-facility-management-betriebsunterhalt-fust-oberburen-sankt-gallen"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-5ivxsa",
@@ -10795,7 +10675,7 @@
     },
     {
       "id": "company-cv7yh1",
-      "slug": "collaboratore-trice-intralogistik-bereich-kommissionierung-fust-oberburen-sankt-gallen-cv7yh1",
+      "slug": "mitarbeiter-in-intralogistik-bereich-kommissionierung-fust-oberburen-sankt-gallen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Mitarbeiter:in Intralogistik - Bereich Kommissionierung",
       "location": "Oberbüren",
@@ -10856,13 +10736,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-intralogistik-bereich-kommissionierung-fust-oberburen-sankt-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-intralogistik-bereich-kommissionierung-fust-oberburen-sankt-gallen"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-8r9i90",
@@ -11421,7 +11295,7 @@
     },
     {
       "id": "company-98uu4w",
-      "slug": "collaboratore-trice-gastronomie-coop-aarau-aargau-98uu4w",
+      "slug": "mitarbeiter-in-gastronomie-coop-aarau-aargau",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Aarau",
@@ -11491,13 +11365,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-aarau-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-aarau-aargau"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-pc9f5e",
@@ -11959,7 +11827,7 @@
     },
     {
       "id": "company-jb4wob",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
+      "slug": "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern",
       "company": "Fust | Swiss Household Services AG",
       "title": "Verkaufsberater:in für Elektrohaushalt & Multimedia 80% - 100%",
       "location": "Luzern",
@@ -12024,20 +11892,16 @@
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob"
-        ],
-        "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-o2tf7s",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
       "company": "Fust | Swiss Household Services AG",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona",
@@ -12097,11 +11961,8 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-o2tf7s",
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s"
-        ],
-        "it": [
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-o2tf7s"
         ],
         "de": [
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s"
@@ -12111,14 +11972,14 @@
         ]
       },
       "previousSlugs": [
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s",
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-o2tf7s",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-o2tf7s"
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
       ]
     },
     {
       "id": "company-kvfpg7",
-      "slug": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
+      "slug": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern",
       "company": "Fust | Swiss Household Services AG",
       "title": "Monteur für den Austausch von Kücheneinbaugeräten",
       "location": "Burgdorf",
@@ -12183,16 +12044,12 @@
         ],
         "fr": [
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7"
-        ],
-        "it": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern"
         ]
       },
       "previousSlugs": [
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-fldk2",
@@ -13020,7 +12877,7 @@
     },
     {
       "id": "company-m5jzam",
-      "slug": "stv-rayonleiter-in-brot-e-backwaren-coop-langenthal-bern-m5jzam",
+      "slug": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern",
       "company": "Coop Genossenschaft",
       "title": "Stv. Rayonleiter:in Brot und Backwaren",
       "location": "Langenthal",
@@ -13101,12 +12958,8 @@
         ],
         "fr": [
           "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-m5jzam"
-        ],
-        "it": [
-          "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern"
         ]
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-i1mf8x",
@@ -13370,7 +13223,7 @@
     },
     {
       "id": "company-yyyx74",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-prodega-hinwil-zurich-yyyx74",
+      "slug": "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich",
       "company": "Transgourmet Schweiz AG",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Allrounder 50%",
       "location": "Hinwil",
@@ -13431,16 +13284,11 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich"
-        ]
-      }
+      ]
     },
     {
       "id": "company-86p4a4",
-      "slug": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-lyss-bern-86p4a4",
+      "slug": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Brot und Backwaren)",
       "location": "Lyss",
@@ -13537,12 +13385,8 @@
         ],
         "fr": [
           "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern-86p4a4"
-        ],
-        "it": [
-          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern"
         ]
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-b0jx05",
@@ -13808,19 +13652,20 @@
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
         "de": "Lagerist:in",
-        "fr": "Lageriste:in"
+        "fr": "Assistant de stockage",
+        "it": "Operatore/a di Magazzino",
+        "en": "Warehouse Assistant"
       },
       "descriptionByLocale": {
-        "de": "## Lagerist:in\n\n**Coop Genossenschaft** — Basel, Basel-Stadt, Svizzera\n\n## Aufgaben\n- Der Wareneingang liegt in Ihrer Verantwortung.\n- Engagiert und speditiv laden Sie die Container ab.\n- Sie packen die Ware aus und nehmen Zählungen sowie Qualitätskontrollen vor.\n- Die Einlagerung und Kommissionierung der Ware gehört ebenfalls zur Ihren Aufgaben.\n\n## Anforderungen\n- Sie haben bereits Erfahrung im Logistikbereich? Damit können Sie bei uns punkten.\n- Sie kennen die Branche und besitzen einen Staplerschein.\n- Deutsch können Sie gut – mündlich und schriftlich.\n- Einsatzzeiten? Da sind Sie sehr flexibel.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Ihre Ansprechperson\nPamela Padovano\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Basel",
-        "it": "## Lagerist:in\n\nCoop Cooperative — Basel, Basel City, Svizzera\n\n## Compiti\n- La ricevuta delle merci è vostra responsabilità.\n- Caricamento dedicato e in avanti dei contenitori.\n- Sbloccano le merci e effettuano conteggi e controlli di qualità.\n- Anche la conservazione e la raccolta delle merci fanno parte del vostro compito.\n\n## Requisiti\n- Hai già esperienza nella logistica? Puoi segnare punti con noi.\n- Conoscono l'industria e hanno un carrello elevatore.\n- Si può parlare bene tedesco – per via orale e per iscritto.\n- Tempo di distribuzione? Sei molto flessibile.\n\n## Cosa offriamo\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nPamela Padovano\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Basilea",
-        "en": "## Lagerist:in\n\n**Coop Cooperative** — Basel, Basel City, Svizzera\n\n## Tasks\n- The receipt of goods is your responsibility.\n- Dedicated and forward loading the containers.\n- They unpack the goods and carry out counts and quality controls.\n- The storage and picking of the goods is also part of your task.\n\n## Requirements\n- Do you already have experience in logistics? You can score points with us.\n- They know the industry and have a forklift.\n- You can speak German well – orally and in writing.\n- Time of deployment? You are very flexible.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nPamela Padovano\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Basel",
-        "fr": "## Lageriste:in\n\n**Coopérative Coop** — Bâle, Bâle, Svizzera\n\n## Tâche\n- La réception des marchandises est votre responsabilité.\n- Chargement dédié et avant des conteneurs.\n- Ils déballent les marchandises et effectuent des comptages et des contrôles de qualité.\n- Le stockage et la cueillette des marchandises font également partie de votre tâche.\n\n## Exigences\n- Avez-vous déjà de l'expérience en logistique ? Vous pouvez marquer des points.\n- Ils connaissent l'industrie et ont un chariot élévateur.\n- Vous pouvez bien parler allemand – oralement et par écrit.\n- Heure de déploiement ? Vous êtes très flexible.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nPamela Padovano\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Bâle"
+        "de": "Lagerist:in\n\nCoop Genossenschaft — Basel, Basel-Stadt, Svizzera\n\nAufgaben\n- Der Wareneingang liegt in Ihrer Verantwortung.\n- Engagiert und speditiv laden Sie die Container ab.\n- Sie packen die Ware aus und nehmen Zählungen sowie Qualitätskontrollen vor.\n- Die Einlagerung und Kommissionierung der Ware gehört ebenfalls zur Ihren Aufgaben.\n\nAnforderungen\n- Sie haben bereits Erfahrung im Logistikbereich? Damit können Sie bei uns punkten.\n- Sie kennen die Branche und besitzen einen Staplerschein.\n- Deutsch können Sie gut – mündlich und schriftlich.\n- Einsatzzeiten? Da sind Sie sehr flexibel.\n\nWas wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nIhre Ansprechperson\nPamela Padovano\nHR Marketing\n\nTipo: Part-time\nSede: Basel",
+        "it": "Magazziniere:in\n\nCoop Società Cooperativa — Basilea, Basilea Città, Svizzera\n\nCompiti\n- La ricezione della merce è sotto la vostra responsabilità.\n- Caricare i container con impegno e rapidità.\n- Disimballare la merce ed effettuare conteggi e controlli di qualità.\n- Anche lo stoccaggio e il prelievo della merce fanno parte dei vostri compiti.\n\nRequisiti\n- Ha già esperienza nel settore della logistica? Per guadagnare punti con noi.\n- Conoscete il settore e possedete una licenza per carrelli elevatori.\n- Conosce bene il tedesco – oralmente e per iscritto.\n- Tempi di utilizzo? Siete molto flessibili.\n\nCosa offriamo\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati più convenienti presso Coop Mobile, Reka-Card: Agevolazione in caso di prelievo, sconto per il personale anche per i partner:in (che vivono nella stessa economia domestica), sconto in caso di abbonamento AG\n- Condizioni di impiego: Cassa pensioni: 2/3 sono versati da Coop, contratto collettivo di lavoro (CCL), 18 settimane di congedo di maternità e 4 settimane di congedo di paternità retribuite, premi di fedeltà, piano di risparmio presso la Cassa pensioni, regolamentazione flessibile e interessante per una pensione di vecchiaia anticipata a partire dal 58° anno di età, condizioni di impiego interessanti\n- Orario di lavoro: 5 settimane di ferie\n- Formazione: oltre 600 corsi di formazione interni, supporto",
+        "en": "Stock\n\nCoop Cooperative — Basel, Basel-Stadt, Svizzera\n\nTasks - The receipt of goods is your responsibility. - Committed and freighted, you can load the containers. - You can process the goods and carry out censuses and quality checks. - The storage and picking of the goods is also part of your tasks.\n\nRequirements - You already have experience in logistics? You can score points with us. - You know the industry and have a forklift license. - You can do well in German – orally and in writing. - Operating times? You are very flexible.\n\nWhat we offer - Discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-pay subscriptions at Coop Mobile, Reka card: discount on purchase, staff discount also for partners:in (living in the same household), discount on GA subscription - employment conditions: pension fund: 2/3 is paid by Coop, total work contract (GAV), 18 weeks paid maternity leave and 4 weeks paid by Coop\n\nPaternity leave, loyalty premiums, savings plan at the pension fund, flexible and attractive arrangements for early retirement pension from the completed 58.\n\nAge, attractive employment conditions - working time: 5 weeks holidays - further education: over 600 internal training courses, support for external training and further education, talent management with diverse development opportunities - health: update fitness: Fr. 200.– discount on annual subscription\n\nYour contact Pamela Padovano HR Marketing\n\nTipo: Part-time Sede: Basel",
+        "fr": "Stock\n\nCoopérative de coop — Bâle, Bâle-Stadt, Svizzera\n\nTâches - La réception des marchandises est de votre responsabilité. - Engagée et transportée, vous pouvez charger les conteneurs. - Vous pouvez traiter les marchandises et effectuer des recensements et des contrôles de qualité. - Le stockage et la cueillette des marchandises font également partie de vos tâches.\n\nExigences - Vous avez déjà de l'expérience en logistique? Vous pouvez marquer des points avec nous. - Vous connaissez l'industrie et avez une licence de chariot élévateur. - Vous pouvez faire bien en allemand – oralement et par écrit. - Temps d'exploitation? Vous êtes très flexible.\n\nCe que nous offrons - Rabais: rabais sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de rabais sur les différentes prestations d'assurance, jusqu'à 20% de rabais dans tous les formats du groupe Coop, abonnements mobiles et pré-payés moins chers à Coop Mobile, carte Reka: rabais sur achat, rabais personnel également pour les partenaires:dans (vivant dans le même ménage), rabais sur l'abonnement GA - conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail total (GAV), 18 semaines de congé de maternité payé et 4 semaines payé par Coop\n\nCongé de paternité, primes de fidélité, régime d'épargne à la caisse de retraite, arrangements flexibles et attrayants pour la pension de retraite anticipée, de 58 ans.\n\nÂge, conditions d'emploi attrayantes - temps de travail: 5 semaines de vacances - formation continue: plus de 600 cours de formation interne, soutien à la formation externe et à la formation continue, gestion des talents avec des possibilités de développement diverses - santé: mise à jour de la condition physique: Fr. 200.– réduction sur abonnement annuel\n\nVotre interlocuteur Pamela Padovano HR Marketing\n\nTipo: Sede à temps partiel: Bâle"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "lagerist-in-coop-city-basel-stadt-2z2veo",
-        "en": "lagerist-in-coop-genossenschaft-basel-2z2veo",
-        "de": "lagerist-in-coop-genossenschaft-basel-2z2veo",
+        "en": "lagerist-in-coop-city-basel-stadt-2z2veo",
+        "de": "lagerist-in-coop-city-basel-stadt-2z2veo",
         "fr": "lageriste-in-coop-genossenschaft-basel"
       },
       "requirementsByLocale": {
@@ -13849,15 +13694,11 @@
         }
       },
       "previousSlugsByLocale": {
-        "en": [
-          "lagerist-in-coop-city-basel-stadt-2z2veo",
-          "lagerist-in-coop-genossenschaft-basel-2z2veo"
-        ],
         "fr": [
           "lagerist-in-coop-city-basel-stadt-2z2veo"
         ],
-        "de": [
-          "lagerist-in-coop-city-basel-stadt-2z2veo"
+        "en": [
+          "lagerist-in-coop-genossenschaft-basel-2z2veo"
         ]
       },
       "previousSlugs": [
@@ -14029,7 +13870,7 @@
     },
     {
       "id": "company-ve2xl6",
-      "slug": "zukunftige-fuhrungstalente-vendita-region-stadt-bern-coop-genossenschaft-bern-ve2xl6",
+      "slug": "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "zukünftige Führungstalente Verkauf Region Stadt Bern",
       "location": "Bern",
@@ -14095,18 +13936,7 @@
       "previousSlugs": [
         "zukunftige-fuhrungstalente-vendita-region-stadt-bern-coop-genossenschaft-bern",
         "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-genossenschaft-bern"
-      ],
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Berna",
-        "canton": "BE"
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-genossenschaft-bern"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-9tde5s",
@@ -14366,7 +14196,7 @@
     },
     {
       "id": "company-k9k3co",
-      "slug": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
+      "slug": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt",
       "company": "Coop Genossenschaft",
       "title": "Marketing Assistant Festtagsartikel (w/m/d), 80% - 100%",
       "location": "Basel",
@@ -14390,7 +14220,7 @@
       "crawledAt": "2026-07-10T14:29:33.341Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
-        "en": "Marketing Assistant Festtagsartikel (w/m/d), 80% - 100%",
+        "en": "Marketing Assistant Festive Article (f/m/d), 80% - 100%",
         "de": "Marketing Assistent Festtagsartikel (w/m/d), 80% - 100%",
         "it": "Marketing Assistant Articolo festivo (f/m/d), 80% - 100%",
         "fr": "Assistant marketing Article festif (f/m/d), 80% - 100%"
@@ -14403,9 +14233,9 @@
       },
       "slugByLocale": {
         "it": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
-        "en": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-genossenschaft-basel-k9k3co",
+        "en": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
         "de": "marketing-assistent-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
-        "fr": "assistant-marketing-article-festif-m-w-d-80-100-coop-genossenschaft-basel-k9k3co"
+        "fr": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co"
       },
       "requirementsByLocale": {},
       "addressLocality": "Basel",
@@ -14427,12 +14257,7 @@
       },
       "previousSlugs": [
         "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt"
-        ]
-      }
+      ]
     },
     {
       "id": "company-liau6i",
@@ -14598,7 +14423,7 @@
     },
     {
       "id": "company-kofgag",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-prodega-hinwil-zurich-kofgag",
+      "slug": "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich-2",
       "company": "Transgourmet Schweiz AG",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Allrounder 50%",
       "location": "Hinwil",
@@ -14659,12 +14484,7 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-prodega-hinwil-zurich-2"
-        ]
-      }
+      ]
     },
     {
       "id": "company-rgyyid",
@@ -14740,7 +14560,7 @@
     },
     {
       "id": "company-hc871o",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-prodega-hinwil-zurich-hc871o",
+      "slug": "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-prodega-hinwil-zurich",
       "company": "Transgourmet Schweiz AG",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Allrounder 80-100%",
       "location": "Hinwil",
@@ -14801,12 +14621,7 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-prodega-hinwil-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-prodega-hinwil-zurich"
-        ]
-      }
+      ]
     },
     {
       "id": "company-ibeb1q",
@@ -15174,7 +14989,7 @@
     },
     {
       "id": "company-6cfxlh",
-      "slug": "stv-responsabile-food-coop-city-thun-bern-6cfxlh",
+      "slug": "stv-leiter-in-food-coop-city-thun-bern",
       "company": "Coop Genossenschaft",
       "title": "Stv. Leiter:in Food",
       "location": "Thun",
@@ -15201,16 +15016,16 @@
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
         "de": "Stv. Leiter:in Food",
-        "it": "Stv. Responsabile Food",
-        "fr": "Stv. Leiter: dans la nourriture"
+        "it": "Vice Direttore/a Food",
+        "fr": "Assistant Manager Alimentation",
+        "en": "Assistant Food Manager"
       },
       "descriptionByLocale": {
-        "de": "## Stv. Leiter:in Food\n\n**Coop Genossenschaft** — Thun, Bern, Svizzera\n\n## Aufgaben\n- Gemeinsam mit rund 20 Mitarbeitenden stellen Sie als Stellvertretung der Abteilungsleiter:in Food Trading den Verkaufserfolg Ihrer Abteilung sicher.\n- Ihr Plan: Sie fördern und entwickeln Ihre Mitarbeitenden. So setzt Ihr im Team die Unternehmensstrategie um\n- Sie denken und handeln unternehmerisch. Damit garantieren Sie, dass immer die richtigen Waren im Regal stehen. Und diese auch top aussehen.\n- Ihre täglichen Aufgaben: Sie unterstützen alle Rayons bei den täglichen Arbeiten.\n- Allgemeine administrative Aufgaben gehören bei Ihrer Tätigkeit in unserem erfolgreichen Unternehmen selbstverständlich auch dazu.\n\n## Anforderungen\n- Sie sind zielstrebig, lösungsorientiert und eine gewinnende Verkaufspersönlichkeit – mit Führungserfahrung in einem Warenhaus? Das wäre perfekt.\n- Dank Ihrer Berufsausbildung im Bereich Detailhandel sind Sie fachlich ein Profi.\n- Dass Sie Deutsch schriftlich und mündlich perfekt beherrschen, setzen wir voraus. Mit weiteren Fremdsprachen können Sie bei uns punkten.\n- Mit den gängigen Office-Programmen kennen Sie sich auch aus.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Ihre Ansprechperson\nGina Marinello\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Thun",
-        "it": "## Stv. Leiter:in cibo\n\nCoop Cooperative — Thun, Bern, Svizzera\n\n## Compiti\n- Insieme a circa 20 dipendenti, voi, come vice capo dipartimento, assicurate il successo delle vendite del vostro dipartimento.\n- Il tuo piano: Promuovi e sviluppi i tuoi dipendenti. Come implementare la strategia aziendale nel team\n- Pensano e agiscono in modo imprenditoriale. Ciò garantisce che le merci giuste sono sempre sullo scaffale. E anche loro stanno benissimo.\n- I vostri compiti quotidiani: Supporti tutti i rayon nel loro lavoro quotidiano.\n- I compiti amministrativi generali sono ovviamente inclusi anche nel vostro lavoro nella nostra azienda di successo.\n\n## Requisiti\n- Sei determinato, orientato alla soluzione e una persona di vendita vincente – con esperienza di leadership in un grande magazzino? Sarebbe perfetto.\n- Grazie alla tua formazione professionale nel settore retail, sei un professionista.\n- Presumiamo che si padroneggia il tedesco perfettamente per iscritto e per via orale. Con altre lingue straniere puoi segnare con noi.\n- Hai anche familiarità con i programmi di ufficio comuni.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nGina Marinello\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Thun",
-        "en": "## Stv. Leiter:in Food\n\n**Coop Cooperative** — Thun, Bern, Svizzera\n\n## Tasks\n- Together with around 20 employees, you, as deputy head of department, ensure the sales success of your department.\n- Your plan: You promote and develop your employees. How you implement the corporate strategy in the team\n- They think and act entrepreneurially. This ensures that the right goods are always on the shelf. And they look great too.\n- Your daily tasks: You support all rayons in their daily work.\n- General administrative tasks are of course also included in your work in our successful company.\n\n## Requirements\n- You are determined, solution-oriented and a winning sales person – with leadership experience in a department store? That would be perfect.\n- Thanks to your professional training in the retail sector, you are a professional.\n- We presuppose that you master German perfectly in writing and orally. With other foreign languages you can score with us.\n- You are also familiar with the common office programs.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: Over 600 internal training courses\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nGina Marinello\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Thun",
-        "fr": "## Stv. Leiter: dans la nourriture\n\n**Coopérative de coop** — Thun, Berne, Svizzera\n\n## Tâche\n- Avec une vingtaine d'employés, vous, à titre d'administrateur général du ministère, assurez le succès commercial de votre ministère.\n- Votre plan : Vous faites la promotion et développez vos employés. Comment mettre en œuvre la stratégie d'entreprise dans l'équipe\n- Ils pensent et agissent de manière entrepreneuriale. Cela garantit que les bonnes marchandises sont toujours sur l'étagère. Et ils sont superbes aussi.\n- Vos tâches quotidiennes : Vous soutenez toutes les rayons dans leur travail quotidien.\n- Les tâches administratives générales sont bien sûr également incluses dans votre travail dans notre entreprise réussie.\n\n## Exigences\n- Vous êtes déterminé, orienté vers la solution et un vendeur gagnant – avec une expérience de leadership dans un grand magasin? Ce serait parfait.\n- Grâce à votre formation professionnelle dans le secteur du commerce de détail, vous êtes un professionnel.\n- Nous supposons que vous maîtrisez parfaitement l'allemand par écrit et oralement. Avec d'autres langues étrangères, vous pouvez marquer avec nous.\n- Vous connaissez aussi les programmes de bureau communs.\n- Réductions: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), rabais sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nGina Marinello\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Thun"
+        "de": "Stv. Leiter:in Food\n\nCoop Genossenschaft — Thun, Bern, Svizzera\n\nAufgaben\n- Gemeinsam mit rund 20 Mitarbeitenden stellen Sie als Stellvertretung der Abteilungsleiter:in Food Trading den Verkaufserfolg Ihrer Abteilung sicher.\n- Ihr Plan: Sie fördern und entwickeln Ihre Mitarbeitenden. So setzt Ihr im Team die Unternehmensstrategie um\n- Sie denken und handeln unternehmerisch. Damit garantieren Sie, dass immer die richtigen Waren im Regal stehen. Und diese auch top aussehen.\n- Ihre täglichen Aufgaben: Sie unterstützen alle Rayons bei den täglichen Arbeiten.\n- Allgemeine administrative Aufgaben gehören bei Ihrer Tätigkeit in unserem erfolgreichen Unternehmen selbstverständlich auch dazu.\n\nAnforderungen\n- Sie sind zielstrebig, lösungsorientiert und eine gewinnende Verkaufspersönlichkeit – mit Führungserfahrung in einem Warenhaus? Das wäre perfekt.\n- Dank Ihrer Berufsausbildung im Bereich Detailhandel sind Sie fachlich ein Profi.\n- Dass Sie Deutsch schriftlich und mündlich perfekt beherrschen, setzen wir voraus. Mit weiteren Fremdsprachen können Sie bei uns punkten.\n- Mit den gängigen Office-Programmen kennen Sie sich auch aus.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nIhre Ansprechperson\nGina Marinello\nHR Marketing\n\nTipo: Part-time\nSede: Thun",
+        "it": "Vice Direttore:in Food\n\nCoop Società Cooperativa — Thun, Berna, Svizzera\n\nCompiti\n- Insieme a circa 20 dipendenti, in qualità di rappresentante dei responsabili di reparto:in Food Trading, garantisci il successo delle vendite del tuo reparto.\n- Il vostro piano: promuovete e sviluppate i vostri collaboratori. Come implementare la strategia aziendale nel team\n- Pensano e agiscono in modo imprenditoriale. In questo modo si garantisce che la merce giusta sia sempre sullo scaffale. E anche questi sono fantastici.\n- Le vostre attività quotidiane: supportano tutti i reparti nelle attività quotidiane.\n- Compiti amministrativi generali fanno naturalmente parte del vostro lavoro nella nostra azienda di successo.\n\nRequisiti\n- Sei determinato, orientato alla soluzione e una persona di vendita vincente – con esperienza manageriale in un grande magazzino? Sarebbe perfetto.\n- Grazie alla sua formazione professionale nel settore del commercio al dettaglio, è un professionista.\n- Presupponiamo che lei padroneggi perfettamente il tedesco per iscritto e oralmente. Con noi puoi guadagnare punti con altre lingue straniere.\n- Conoscete anche i comuni programmi per ufficio.\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati più convenienti presso Coop Mobile, sconto per il personale anche per i partner (che vivono nella stessa economia domestica),",
+        "en": "Head of Unit:in Food\n\nCoop Cooperative — Thun, Berne, Sizzera\n\nTasks - Together with around 20 employees, you will ensure your department's sales success as a representative of the department heads:in food trading. - Your plan: You promote and develop your employees. This is how you implement the company strategy in your team - you think and act entrepreneurially. This guarantees that the right goods are always on the shelf. And these also look top. - Your daily tasks: You support all Rayons in their daily work.\n\n- General administrative tasks are of course also part of your work in our successful company.\n\nRequirements - You are determined, solution-oriented and a winning sales person – with management experience in a department store? That would be perfect. - Thanks to your vocational training in retail trade you are a professional. - We assume that you master German in writing and verbally perfectly. You can score points with other foreign languages. - You are also familiar with the usual office programs.\n\n- Discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-paid subscriptions at Coop Mobile, staff discount also for partners:in (living in the same household), discount on GA subscription - Conditions of employment: pension fund: 2/3 is paid by Coop, total employment contract (GAV), 18 weeks of paid maternity leave and 4 weeks of paid paternity leave, loyalty premiums, savings plan at the pension fund,\n\nFlexible and attractive arrangements for early retirement from the completed 58.\n\nAge - working time: 5 weeks holidays - further education: over 600 internal training courses - health: update fitness: Fr. 200.– discount on annual subscription\n\nYour contact person Gina Marinello HR Marketing\n\nTipo: Part-time Sede: Thun",
+        "fr": "Chef d'unité:dans l'alimentation\n\nCoopérative de coop — Thun, Berne, Sizzera\n\nTâches - Avec une vingtaine d'employés, vous assurerez le succès commercial de votre département en tant que représentant des chefs de département:dans le commerce alimentaire. - Votre plan: Vous faites la promotion et développez vos employés. C'est ainsi que vous implémentez la stratégie de votre entreprise dans votre équipe - vous pensez et agissez de manière entrepreneuriale. Cela garantit que les bonnes marchandises sont toujours sur l'étagère. Et ceux-ci aussi look top. - Vos tâches quotidiennes: Vous soutenez tous les Rayons dans leur travail quotidien.\n\n- Les tâches administratives générales font bien sûr partie de votre travail dans notre entreprise.\n\nExigences - Vous êtes déterminé, orienté solution et un gagnant de vente – avec une expérience de gestion dans un grand magasin? Ce serait parfait. - Grâce à votre formation professionnelle dans le commerce de détail vous êtes un professionnel. - Nous supposons que vous maîtrisez l'allemand par écrit et verbalement parfaitement. Vous pouvez marquer des points avec d'autres langues étrangères. - Vous êtes également familier avec les programmes de bureau habituels.\n\n- Rabais sur l'offre de voyage ITS Coop Travel, 5 points de super points dans le supermarché, jusqu'à 20% de rabais sur diverses prestations d'assurance, jusqu'à 20% de rabais sur tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, rabais personnel également pour les partenaires:dans (vivant dans le même ménage), rabais sur l'abonnement GA - Conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail total (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de pension,\n\nDes dispositions souples et attrayantes pour la retraite anticipée par rapport à la retraite achevée 58.\n\nÂge - temps de travail: 5 semaines de vacances - formation continue: plus de 600 cours de formation interne - santé: mise à jour de la condition physique: 200.– réduction sur abonnement annuel\n\nVotre personne de contact Gina Marinello HR Marketing\n\nTipo: Sede à temps partiel: Thun"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "stv-responsabile-food-coop-city-thun-bern-6cfxlh",
         "en": "stv-leiter-in-food-coop-city-thun-bern-6cfxlh",
@@ -15245,16 +15060,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "stv-leiter-in-food-coop-city-thun-bern-6cfxlh"
-        ],
-        "it": [
-          "stv-leiter-in-food-coop-city-thun-bern"
         ]
       },
       "previousSlugs": [
         "stv-leiter-in-food-coop-city-thun-bern-6cfxlh",
         "stv-leiter-in-food-coop-city-thun-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-4576r6",
@@ -15789,7 +15600,7 @@
     },
     {
       "id": "company-fnoi3h",
-      "slug": "responsabile-di-progetto-technik-coop-schafisheim-aargau-fnoi3h",
+      "slug": "projektleiter-in-technik-coop-schafisheim-aargau",
       "company": "Coop Genossenschaft",
       "title": "Projektleiter:in Technik",
       "location": "Schafisheim",
@@ -15850,12 +15661,7 @@
       },
       "previousSlugs": [
         "projektleiter-in-technik-coop-schafisheim-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-technik-coop-schafisheim-aargau"
-        ]
-      }
+      ]
     },
     {
       "id": "company-6ts6u0",
@@ -16211,7 +16017,7 @@
     },
     {
       "id": "company-bg8c4p",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-bg8c4p",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Davos",
@@ -16282,16 +16088,12 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-davos-platz-bg8c4p"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-davos-platz-bg8c4p",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-o4jwis",
@@ -16847,7 +16649,7 @@
     },
     {
       "id": "company-vuhsu",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-worb-bern-0vuhsu",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-worb-bern",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Worb",
@@ -16918,16 +16720,12 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-worb-bern-0vuhsu"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-worb-bern"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-worb-bern-0vuhsu",
         "mitarbeiter-in-gastronomie-coop-ristorante-worb-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-rblgcn",
@@ -18415,7 +18213,7 @@
     },
     {
       "id": "company-zfiwgz",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-arbon-thurgau-zfiwgz",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-arbon-thurgau",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Arbon",
@@ -18486,20 +18284,16 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-arbon-thurgau-zfiwgz"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-arbon-thurgau"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-arbon-thurgau-zfiwgz",
         "mitarbeiter-in-gastronomie-coop-ristorante-arbon-thurgau"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-o3qejn",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-thun-bern-o3qejn",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-thun-bern",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Thun",
@@ -18570,16 +18364,12 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-thun-bern-o3qejn"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-thun-bern"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-thun-bern-o3qejn",
         "mitarbeiter-in-gastronomie-coop-ristorante-thun-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-6i5p4m",
@@ -18661,7 +18451,7 @@
     },
     {
       "id": "company-f8cfj8",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-landquart-graubunden-f8cfj8",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Landquart",
@@ -18732,16 +18522,12 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-gastronomie-coop-ristorante-landquart-graubunden-f8cfj8"
-        ],
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden"
         ]
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-landquart-graubunden-f8cfj8",
         "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-xei3cj",
@@ -18991,7 +18777,7 @@
     },
     {
       "id": "company-6td7ml",
-      "slug": "addetto-a-alla-logistica-100-two-spice-dietlikon-6td7ml",
+      "slug": "mitarbeiter-in-logistik-100-two-spice-dietlikon",
       "company": "Two Spice AG",
       "title": "Mitarbeiter:in Logistik 100%",
       "location": "Dietlikon",
@@ -19022,7 +18808,7 @@
       },
       "descriptionByLocale": {
         "de": "## Mitarbeiter:in Logistik 100%\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Die Yooji's Manufaktur, welche zur Two Spice AG gehört, bietet ein vielseitiges und exquisites Angebot an Sushi, Sashimi und vielem mehr. Die Produktionsstätte der Two Spice Manufaktur befindet sich in Rümlang und beschäftigt über 90 Mitarbeitende. Täglich werden diverse Köstlichkeiten vorgefertigt und mehrmals täglich an die Yooji's Restaurants und Stores geliefert. Auch eigens entwickelte Produkte für unsere japanische Retail Marke ZENBU, werden in der Manufaktur produziert. ZENBU Produkte wie Sushi, Poké, Onigiri und vegane Feinkost werden für Coop produziert und sind schweizweit direkt bei Coop erhältlich. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Entgegennahme und Prüfung sämtlicher Rohwarenlieferungen\n- Fachgerechte Lagerung und Verwaltung aller Lagerbestände\n- Sicherstellung der Verfügbarkeit aller benötigten Rohwaren\n- Verantwortlich für einen reibungslosen Logistikablauf im Bereich Yooji's und Zenbu\n- Mitwirkung bei der Pflege und Instandhaltung der Lagerinfrastruktur\n- Einhaltung aller Hygiene- und Reinigungsstandards\n- Durchführung von Aufräum- und Reinigungsarbeiten\n\n## Anforderungen\n- Abgeschlossene Ausbildung im Bereich Logistik oder vergleichbare Berufserfahrung\n- Mehrjährige Berufspraxis in der Logistik, idealerweise in der Lebensmittelbranche\n- Gute Deutschkenntnisse in Wort und Schrift (Muttersprache von Vorteil)\n- Bereitschaft zu Nacht- und Wochenendeinsätzen\n- Sicher im Umgang mit Lebensmitteln und Hygienestandards\n- Erfahrung mit MS Office, insbesondere Excel\n- Teamfähig, belastbar und effizient\n- Sehr gute organisatorische Fähigkeiten\n- Körperlich fit und einsatzbereit\n\n## Was wir bieten\n\n## Deine Ansprechperson\nPatchaya Greutmann\n, Human Resources\n\n**Tipo:** Full-time\n**Sede:** Dietlikon",
-        "it": "## Dipendenti: in logistica 100%\n\nDue Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## La Manufaktur di Yooji, che fa parte di Two Spice AG, offre una gamma versatile e squisita di sushi, sashimi e molto altro. Il sito di produzione del Two Spice Manufaktur si trova in Rümlang e impiega oltre 90 persone. Varie prelibatezze sono preparate ogni giorno e consegnate ai ristoranti e negozi di Yooji più volte al giorno. Prodotti appositamente sviluppati per il nostro marchio commerciale giapponese ZENBU sono prodotti anche in fabbrica. Prodotti ZENBU come Sushi, Poké, Onigiri e prelibatezze vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Accettazione e verifica di tutte le consegne di materie prime\n- Conservazione corretta e gestione di tutti gli stock\n- Garantire la disponibilità di tutte le materie prime richieste\n- Responsabile per una logistica fluida in Yooji e Zenbu\n- Partecipazione alla manutenzione e manutenzione dell'infrastruttura di stoccaggio\n- Rispetto di tutti gli standard di igiene e pulizia\n- Attuazione del lavoro di pulizia e pulizia\n\n## Requisiti\n- Formazione completa in logistica o esperienza professionale comparabile\n- Diversi anni di pratica professionale nella logistica, idealmente nel settore alimentare\n- Buona conoscenza del tedesco nelle parole e nella scrittura (linguaggio nativo di vantaggio)\n- Prontezza per gli incarichi di notte e di fine settimana\n- Gestione sicura degli standard alimentari e igiene\n- Esperienza con MS Office, in particolare Excel\n- Team-ready, resiliente ed efficiente\n- Molto buone capacità organizzative\n- Fisicamente adatto e pronto per l'uso\n\n## Cosa offriamo\n\n## La persona di contatto\nPatchaya Greutmann\n, Risorse umane\n\nTipo: A tempo pieno\nDietlikon",
+        "it": "## Dipendenti: in logistica 100%\n\n Due Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## La Manufaktur di Yooji, che fa parte di Two Spice AG, offre una gamma versatile e squisita di sushi, sashimi e molto altro. Il sito di produzione del Two Spice Manufaktur si trova in Rümlang e impiega oltre 90 persone. Varie prelibatezze sono preparate ogni giorno e consegnate ai ristoranti e negozi di Yooji più volte al giorno. Prodotti appositamente sviluppati per il nostro marchio commerciale giapponese ZENBU sono prodotti anche in fabbrica. Prodotti ZENBU come Sushi, Poké, Onigiri e prelibatezze vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Accettazione e verifica di tutte le consegne di materie prime\n- Conservazione corretta e gestione di tutti gli stock\n- Garantire la disponibilità di tutte le materie prime richieste\n- Responsabile per una logistica fluida in Yooji e Zenbu\n- Partecipazione alla manutenzione e manutenzione dell'infrastruttura di stoccaggio\n- Rispetto di tutti gli standard di igiene e pulizia\n- Attuazione del lavoro di pulizia e pulizia\n\n## Requisiti\n- Formazione completa in logistica o esperienza professionale comparabile\n- Diversi anni di pratica professionale nella logistica, idealmente nel settore alimentare\n- Buona conoscenza del tedesco nelle parole e nella scrittura (linguaggio nativo di vantaggio)\n- Prontezza per gli incarichi di notte e di fine settimana\n- Gestione sicura degli standard alimentari e igiene\n- Esperienza con MS Office, in particolare Excel\n- Team-ready, resiliente ed efficiente\n- Molto buone capacità organizzative\n- Fisicamente adatto e pronto per l'uso\n\n## Cosa offriamo\n\n## La persona di contatto\nPatchaya Greutmann\n, Risorse umane\n\nTipo: A tempo pieno\nDietlikon",
         "en": "## Employees: in logistics 100%\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji’s Manufaktur, which is part of Two Spice AG, offers a versatile and exquisite range of sushi, sashimi and much more. The production site of the Two Spice Manufaktur is located in Rümlang and employs more than 90 people. Various delicacies are pre-made every day and delivered to Yooji's restaurants and stores several times a day. Specially developed products for our Japanese retail brand ZENBU are also produced in the factory. ZENBU products such as Sushi, Poké, Onigiri and vegan delicacies are produced for Coop and are available directly from Coop throughout Switzerland. Do you want to be part of our team? Now is your chance!\n\n## Tasks\n- Acceptance and verification of all deliveries of raw materials\n- Proper storage and management of all stocks\n- Ensuring the availability of all required raw materials\n- Responsible for smooth logistics in Yooji's and Zenbu\n- Participation in the maintenance and maintenance of storage infrastructure\n- Compliance with all hygiene and cleaning standards\n- Implementation of clean-up and cleaning work\n\n## Requirements\n- Completed training in logistics or comparable professional experience\n- Several years of professional practice in logistics, ideally in the food industry\n- Good knowledge of German in words and writing (native language of advantage)\n- Readiness for night and weekend assignments\n- Safe handling of food and hygiene standards\n- Experience with MS Office, especially Excel\n- Team-ready, resilient and efficient\n- Very good organizational skills\n- Physically fit and ready for use\n\n## What we offer\n\n## Your contact person\nPatchaya Greutmann\n, Human resources\n\n**Tipo:** Full-time\n**Sede:** Dietlikon",
         "fr": "## Employés: en logistique 100%\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 90 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Acceptation et vérification de toutes les livraisons de matières premières\n- Stockage et gestion appropriés de tous les stocks\n- Assurer la disponibilité de toutes les matières premières requises\n- Responsable de la logistique en douceur dans Yooji et Zenbu\n- Participation à l ' entretien et à l ' entretien des infrastructures de stockage\n- Conformité à toutes les normes d'hygiène et de nettoyage\n- Réalisation de travaux de nettoyage et de nettoyage\n\n## Exigences\n- Formation complète en logistique ou expérience professionnelle comparable\n- Plusieurs années de pratique professionnelle en logistique, idéalement dans l'industrie alimentaire\n- Bonne connaissance de l'allemand en mots et en écriture (langue maternelle d'avantage)\n- Préparation aux affectations de nuit et de fin de semaine\n- Manipulation sécuritaire des aliments et des normes d'hygiène\n- Expérience avec MS Office, en particulier Excel\n- Prêt pour l'équipe, résilient et efficace\n- Très bonnes compétences organisationnelles\n- Convient physiquement et prêt à l'emploi\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nPatchaya Greutmann\nRessources humaines\n\n**Tipo:** Temps plein\n**Sede:** Dietlikon"
       },
@@ -19052,13 +18838,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-logistik-100-two-spice-dietlikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-100-two-spice-dietlikon"
-        ]
-      },
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-s1r650",
@@ -19604,7 +19384,7 @@
     },
     {
       "id": "company-oc615m",
-      "slug": "risorse-umane-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
+      "slug": "hr-business-partner-m-w-d-coop-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "HR Business Partner (w/m/d)",
       "location": "Gossau",
@@ -19628,7 +19408,7 @@
       "crawledAt": "2026-07-10T14:29:33.341Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
-        "fr": "HR Business Partner (w/m/d)",
+        "fr": "Partenaire opérationnel RH (f/m/d)",
         "it": "Risorse Umane Business Partner (w/m/d)",
         "de": "Personalwesen Business Partner (w/m/d)",
         "en": "HR Business Partner (f/m/d)"
@@ -19665,12 +19445,7 @@
       },
       "previousSlugs": [
         "hr-business-partner-m-w-d-coop-gossau-sankt-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-business-partner-m-w-d-coop-gossau-sankt-gallen"
-        ]
-      }
+      ]
     },
     {
       "id": "company-wmiitq",
@@ -20225,7 +20000,7 @@
     },
     {
       "id": "company-p4w90f",
-      "slug": "service-e-kassenmitarbeiter-in-two-spice-dietlikon-p4w90f",
+      "slug": "service-und-kassenmitarbeiter-in-two-spice-dietlikon",
       "company": "Two Spice AG",
       "title": "Service- und Kassenmitarbeiter:in",
       "location": "Dietlikon",
@@ -20257,7 +20032,7 @@
       "descriptionByLocale": {
         "de": "## Service- und Kassenmitarbeiter:in\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Two Spice – das sind wir! Ein kreatives und innovatives Gastronomie- und Lifestyle-Unternehmen aus Zürich. Seit 1990 bringen wir frische Ideen auf den Tisch und entwickeln einzigartige Konzepte und Marken, die begeistern. Unsere vielseitigen Betriebe sind an den zentralen Hotspots verschiedener Städte zu Hause und stehen für Qualität, Design und pure Genussmomente.Willkommen im Yooji's, das sich von der vielfältigen Küche Japans inspirieren lässt. Die Sushi Kreationen werden direkt vor den Augen der Gäste zubereitet, unsere Suppen wärmen Herzen und die hausgemachten Mochis lassen sie schmelzen. Tauche ein in die Welt von Yooji's und werde Teil unseres Teams, das mit Leidenschaft und Kreativität die japanische Küche neu definiert. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Zuvorkommende und kompetente Betreuung sowie Beratung der Gäste an der Kasse und an der Servicestation\n- Ausgabe von Speisen und Getränken inkl. Inkasso\n- Aktiver Verkauf mit Zusatzverkäufen sowie Empfehlung unserer Specials\n- Durchführung von Kassenabschlüssen und Tagesabrechnungen\n- Beratung der Gäste zu unserem Angebot sowie Auskunft zu Allergenen\n- Einhaltung und Umsetzung aller Hygienevorschriften (HACCP)\n\n## Anforderungen\n- Mehrjährige Erfahrung im Service oder in der Gastronomie\n- Freundliches, gepflegtes und serviceorientiertes Auftreten\n- Affinität zur Systemgastronomie und Freude an strukturierten Abläufen\n- Belastbarkeit und Ruhe auch bei grossem Gästeaufkommen\n- Bereitschaft zu Schicht-, Wochenend- und Feiertagsdiensten\n- Deutschkenntnisse auf B1-Niveau, weitere Sprachen von Vorteil\n\n## Was wir bieten\n\n## Deine Ansprechperson\nNina Berlinecke\n, Human Resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
         "en": "## Service and cashier employees:in\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Two Spice – that’s us! A creative and innovative gastronomy and lifestyle company from Zurich. Since 1990 we bring fresh ideas to the table and develop unique concepts and brands that inspire. Our versatile establishments are at home in the central hotspots of different cities and represent quality, design and pure pleasure.Welcome to Yooji’s, inspired by the diverse cuisine of Japan. The sushi creations are prepared right before the eyes of the guests, our soups warm hearts and the homemade mochis make them melt. Immerse yourself in the world of Yooji’s and become part of our team that is passionately and creatively redefining Japanese cuisine. Do you want to be part of our team? Now is your chance!\n\n## Tasks\n- Attentive and competent care and advice of guests at the cash desk and at the service station\n- Distribution of food and drinks incl. Debt collection\n- Active sale with additional sales as well as recommendation of our specials\n- Implementation of cash and daily accounts\n- Advising guests on our offer and information on allergens\n- Compliance and implementation of all hygiene regulations (HACCP)\n\n## Requirements\n- Several years of experience in service or gastronomy\n- Friendly, well-groomed and service-oriented appearance\n- Affinity for system gastronomy and enjoyment of structured processes\n- Resilience and tranquility even with large numbers of guests\n- Readiness for shift, weekend and holiday services\n- German skills at B1 level, other languages beneficial\n\n## What we offer\n\n## Your contact person\nNina Berlinecke\n, Human resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
-        "it": "## Servizio e cassiere dipendenti:in\n\nDue Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## Due spezie – siamo noi! Un'azienda creativa e innovativa di gastronomia e lifestyle di Zurigo. Dal 1990 portiamo nuove idee al tavolo e sviluppiamo concetti e marchi unici che ispirano. I nostri stabilimenti versatili sono a casa nei punti caldi centrali di diverse città e rappresentano qualità, design e puro piacere. Benvenuti a Yooji’s, ispirato alla cucina del Giappone. Le creazioni sushi sono preparate proprio davanti agli occhi degli ospiti, le nostre zuppe cuori caldi e il mochis fatto in casa li fanno sciogliere. Immergetevi nel mondo di Yooji e diventate parte del nostro team che ridefinisce con passione e creatività la cucina giapponese. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Attentiva e competente assistenza e consulenza degli ospiti presso la cassa e presso la stazione di servizio\n- Distribuzione di alimenti e bevande incl. Raccolta di debito\n- Vendita attiva con vendite aggiuntive e raccomandazione dei nostri speciali\n- Attuazione dei conti correnti\n- Consultare gli ospiti sulla nostra offerta e informazioni sugli allergeni\n- Compliance e attuazione di tutte le normative igieniche (HACCP)\n\n## Requisiti\n- Diversi anni di esperienza in servizio o gastronomia\n- Amichevole, curato e orientato al servizio\n- Affinità per la gastronomia di sistema e il godimento dei processi strutturati\n- Resilienza e tranquillità anche con un gran numero di ospiti\n- Prontezza per i servizi di spostamento, fine settimana e vacanza\n- Competenze tedesche a livello B1, altre lingue benefiche\n\n## Cosa offriamo\n\n## La persona di contatto\nNina Berlinecke\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
+        "it": "## Servizio e cassiere dipendenti:in\n\n Due Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## Due spezie – siamo noi! Un'azienda creativa e innovativa di gastronomia e lifestyle di Zurigo. Dal 1990 portiamo nuove idee al tavolo e sviluppiamo concetti e marchi unici che ispirano. I nostri stabilimenti versatili sono a casa nei punti caldi centrali di diverse città e rappresentano qualità, design e puro piacere. Benvenuti a Yooji’s, ispirato alla cucina del Giappone. Le creazioni sushi sono preparate proprio davanti agli occhi degli ospiti, le nostre zuppe cuori caldi e il mochis fatto in casa li fanno sciogliere. Immergetevi nel mondo di Yooji e diventate parte del nostro team che ridefinisce con passione e creatività la cucina giapponese. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Attentiva e competente assistenza e consulenza degli ospiti presso la cassa e presso la stazione di servizio\n- Distribuzione di alimenti e bevande incl. Raccolta di debito\n- Vendita attiva con vendite aggiuntive e raccomandazione dei nostri speciali\n- Attuazione dei conti correnti\n- Consultare gli ospiti sulla nostra offerta e informazioni sugli allergeni\n- Compliance e attuazione di tutte le normative igieniche (HACCP)\n\n## Requisiti\n- Diversi anni di esperienza in servizio o gastronomia\n- Amichevole, curato e orientato al servizio\n- Affinità per la gastronomia di sistema e il godimento dei processi strutturati\n- Resilienza e tranquillità anche con un gran numero di ospiti\n- Prontezza per i servizi di spostamento, fine settimana e vacanza\n- Competenze tedesche a livello B1, altre lingue benefiche\n\n## Cosa offriamo\n\n## La persona di contatto\nNina Berlinecke\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
         "fr": "## Employés de service et de caissier: en\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Deux épices – c'est nous! Une entreprise créative et innovante de gastronomie et de style de vie de Zurich. Depuis 1990, nous apportons de nouvelles idées à la table et développons des concepts et des marques uniques qui inspirent. Nos établissements polyvalents sont à la maison dans les points chauds centraux de différentes villes et représentent la qualité, le design et le plaisir pur. Bienvenue à Yoojis, inspiré par la cuisine diversifiée du Japon. Les créations de sushi sont préparées juste devant les yeux des invités, nos soupes cœurs chauds et le mochis fait fondre. Plongez dans le monde des Yoojis et faites partie de notre équipe qui redéfinit avec passion et créativité la cuisine japonaise. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Soins attentifs et compétents et conseils des clients à la caisse et à la station service\n- Distribution d'aliments et de boissons incl. Recouvrement\n- Vente active avec des ventes supplémentaires ainsi que la recommandation de nos spéciaux\n- Exécution de la trésorerie et des comptes quotidiens\n- Conseils aux clients sur notre offre et informations sur les allergènes\n- Conformité et mise en œuvre de toutes les réglementations d'hygiène (HACCP)\n\n## Exigences\n- Plusieurs années d'expérience en service ou en gastronomie\n- Aspect amical, soigné et axé sur le service\n- Affinité pour la gastronomie du système et la jouissance des processus structurés\n- Résilience et tranquillité même avec un grand nombre d'invités\n- Préparation pour les services de poste, de week-end et de vacances\n- Compétences en allemand au niveau B1, autres langues bénéfiques\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nNina Berlinecke\nRessources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Dietlikon"
       },
       "slugByLocale": {
@@ -20290,16 +20065,12 @@
         ],
         "fr": [
           "service-und-kassenmitarbeiter-in-two-spice-dietlikon-p4w90f"
-        ],
-        "it": [
-          "service-und-kassenmitarbeiter-in-two-spice-dietlikon"
         ]
       },
       "previousSlugs": [
         "service-und-kassenmitarbeiter-in-two-spice-dietlikon-p4w90f",
         "service-und-kassenmitarbeiter-in-two-spice-dietlikon"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-vnc2b9",
@@ -20888,7 +20659,7 @@
     },
     {
       "id": "company-6a1ppk",
-      "slug": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk",
+      "slug": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Monteur für den Austausch von Kücheneinbaugeräten",
       "location": "Oberbüren",
@@ -20953,20 +20724,16 @@
         ],
         "fr": [
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk"
-        ],
-        "it": [
-          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-6a1ppk",
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-daijlz",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+      "slug": "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn",
       "company": "Fust | Swiss Household Services AG",
       "title": "Verkaufsberater:in für Elektrohaushalt & Multimedia 80% - 100%",
       "location": "Grenchen",
@@ -21031,16 +20798,12 @@
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
-        ],
-        "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-clzz4f",
@@ -83460,7 +83223,7 @@
     },
     {
       "id": "company-ojyz90",
-      "slug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+      "slug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino",
       "company": "Coop Genossenschaft",
       "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
       "location": "Viganello",
@@ -83525,20 +83288,19 @@
           "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello-41d3d4",
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-6c575t",
           "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
-          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino"
+          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t"
         ],
         "en": [
-          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90"
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90"
         ],
         "de": [
-          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90"
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90"
         ],
         "fr": [
-          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90"
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90"
         ]
       },
       "previousSlugs": [
@@ -83549,10 +83311,10 @@
         "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
         "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
         "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
         "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
         "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
-        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino",
-        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90"
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino"
       ]
     },
     {
@@ -154501,7 +154263,7 @@
     },
     {
       "id": "company-59u1dz",
-      "slug": "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz",
+      "slug": "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Nachwuchsführungskräfte Retail",
       "location": "Mels",
@@ -154560,31 +154322,28 @@
         }
       },
       "previousSlugsByLocale": {
+        "de": [
+          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz"
+        ],
         "en": [
           "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-59u1dz",
-          "junior-retail-manager-coop-genossenschaft-mels-59u1dz",
-          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz"
+          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz",
+          "junior-retail-manager-coop-genossenschaft-mels-59u1dz"
         ],
         "fr": [
           "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-59u1dz",
           "nachwuchsfuhrungskrafte-detail-coop-genossenschaft-mels",
-          "cadre-debutant-dans-la-vente-au-detail-coop-genossenschaft-mels-59u1dz",
-          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz"
-        ],
-        "it": [
-          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen"
-        ],
-        "de": [
-          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz"
+          "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz",
+          "cadre-debutant-dans-la-vente-au-detail-coop-genossenschaft-mels-59u1dz"
         ]
       },
       "previousSlugs": [
+        "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz",
         "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-59u1dz",
         "nachwuchsfuhrungskrafte-detail-coop-genossenschaft-mels",
         "junior-retail-manager-coop-genossenschaft-mels-59u1dz",
         "cadre-debutant-dans-la-vente-au-detail-coop-genossenschaft-mels-59u1dz",
-        "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen",
-        "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen-59u1dz"
+        "nachwuchsfuhrungskrafte-retail-coop-mels-sankt-gallen"
       ]
     },
     {
@@ -163035,6 +162794,112 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "company-obd7h0",
+      "slug": "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Frischprodukte",
+      "location": "Neuhausen am Rheinfall",
+      "canton": "SH",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Aufgaben\n\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nAnforderungen\n\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing",
+      "requirements": [
+        "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
+      ],
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/f6723da6-fa00-4db2-8823-5e6b60609cf6",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Sciaffusa",
+        "canton": "SH"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-06-12T09:55:37.222Z",
+      "firstSeenAt": "2026-06-12T09:55:37.222Z",
+      "titleByLocale": {
+        "de": "Verkäufer:in Frischprodukte",
+        "en": "Fresh produce salesperson",
+        "fr": "Vendeur de produits frais",
+        "it": "Venditore di prodotti freschi"
+      },
+      "descriptionByLocale": {
+        "de": "Aufgaben\n\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nAnforderungen\n\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing",
+        "it": "Compiti - Ami la varietà, per questo servi e consigli i nostri clienti in diversi reparti, sempre in modo amichevole e impegnato. - Grazie al tuo impegno attivo la merce si vende meglio e viene gestita bene. - Inutile dire che rispetti le nostre specifiche, sia in termini di freschezza e qualità, igiene, norme sulla temperatura o data di scadenza. - Anche il tuo lavoro alle casse è vario quando sostieni la squadra.\n• Requisiti - Hai una formazione nel commercio al dettaglio (formazione base) o hai già avuto molta esperienza nelle vendite? Bingo, quindi fai domanda. - Il tuo orario di lavoro è flessibile, ma questo non ti crea problemi. - Parli bene il tedesco, sia in conversazione che sulla carta. - Riduzioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero dei punti super al supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati più convenienti con Coop Mobile, Carta Reka: sconto sull'acquisto, sconto sul Mobility CarSharing, sconto per il personale anche per partner (conviventi), sconto sull'abbonamento GA, riduzioni per manifestazioni culturali, riduzioni per le attività del tempo libero - Condizioni di impiego: rendita fondo: 2/3 versato da Coop, condizioni di lavoro interessanti e parità salariale certificata, premi fedeltà, piano di risparmio presso la cassa pensioni, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito - Orario di lavoro: 5 settimane di ferie, modelli di orario di lavoro flessibili - Formazione continua: oltre 600 corsi di perfezionamento interni, gestione dei talenti con diverse opzioni Opportunità di sviluppo, offerte di formazione e perfezionamento della L-GAV e Coop - Sostenibilità: Impegno per l'uomo, gli animali e la natura con oltre 400 azioni - Comunicazione: app interna per i dipendenti - Salute: aggiornamento fitness: sconto di CHF 200 sull'abbonamento annuale, partecipazione gratuita a diverse corse aziendali, offerte sportive interne all'azienda Il vostro interlocutore Christelle Heitz HR Marketing",
+        "en": "Tasks - You love variety, which is why you serve and advise our customers in various departments - always friendly and committed. - Thanks to your active commitment, the goods sell better and are well managed. - It goes without saying that you adhere to our specifications, be it in terms of freshness and quality, hygiene, temperature regulations or the expiry date. - Your work at the checkouts is also varied when you support the team.\n• Requirements - Are you trained in retail (basic training) or have you already had a lot of experience in sales? Bingo, then apply. - Your working hours are flexible, but that doesn't cause you any problems. - You speak German well, both in conversation and on paper. - Discounts: discount on the ITS Coop Travel travel offer, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions with Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, staff discount also for partners (living in the same household), discount on GA subscription, Discounts for cultural events, discounts for leisure activities - Conditions of employment: Pension fund: 2/3 is paid in by Coop, Attractive employment conditions and certified equal pay, loyalty bonuses, savings plan with the pension fund, collective employment contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave - Working hours: 5 weeks of vacation, flexible working time models - Further training: Over 600 internal further training courses, talent management with a variety of options Development opportunities, training and further education offers from the L-GAV and Coop - Sustainability: Commitment to people, animals and nature with over 400 actions - Communication: internal app for employees - Health: Update fitness: CHF 200 discount on the annual subscription, free participation in various company runs, internal company sports offers Your contact person Christelle Heitz HR Marketing",
+        "fr": "Tâches - Vous aimez la variété, c'est pourquoi vous servez et conseillez nos clients dans différents départements - toujours sympathique et engagé. - Grâce à votre engagement actif, les marchandises se vendent mieux et sont bien gérées. - Il va de soi que vous respectez notre cahier des charges, que ce soit en termes de fraîcheur et de qualité, d'hygiène, de régulation de température ou de date de péremption. - Votre travail en caisse est également varié lorsque vous soutenez l'équipe.\n• Exigences - Êtes-vous formé au commerce de détail (formation de base) ou avez-vous déjà une grande expérience dans la vente ? Bingo, alors postulez. - Vos horaires de travail sont flexibles, mais cela ne vous pose aucun problème. - Vous parlez bien l'allemand, tant dans la conversation que sur papier. - Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points au supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers avec Coop Mobile, carte Reka: réduction à l'achat, réduction sur Mobility CarSharing, réduction pour le personnel également pour les partenaires (habitant dans le même foyer), réduction sur l'abonnement GA, réductions pour les événements culturels, réductions pour les activités de loisirs - Conditions de travail: Caisse de pension: 2/3 sont versés par Coop, Conditions de travail attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne avec la caisse de pension, contrat collectif de travail (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé - Horaires de travail : 5 semaines de vacances, modèles d'horaires de travail flexibles - Formation continue : plus de 600 formations continues internes, gestion des talents avec de nombreuses possibilités Possibilités d'évolution, offres de formation et de perfectionnement de la L-GAV et de Coop - Durabilité : engagement en faveur les gens, les animaux et la nature avec plus de 400 actions - Communication : application interne pour les collaborateurs - Santé : mise à jour fitness : 200 CHF de réduction sur l'abonnement annuel, participation gratuite à diverses courses d'entreprise, offres sportives internes à l'entreprise Votre interlocuteur Christelle Heitz HR Marketing"
+      },
+      "slugByLocale": {
+        "it": "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen-obd7h0",
+        "en": "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall"
+      },
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [
+          "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
+        ],
+        "fr": []
+      },
+      "addressLocality": "Neuhausen am Rheinfall",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "SH",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+          "seller-fresh-products-coop-genossenschaft-neuhausen-am-rheinfall",
+          "seller-fresh-products-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+          "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen-obd7h0",
+          "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen-obd7h0"
+        ],
+        "fr": [
+          "fournisseur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+          "vendeur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall",
+          "vendeur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+          "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen-obd7h0",
+          "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "seller-fresh-products-coop-genossenschaft-neuhausen-am-rheinfall",
+        "seller-fresh-products-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "fournisseur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall",
+        "vendeur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall",
+        "vendeur-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall",
+        "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen-obd7h0",
+        "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
+        "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen"
+      ],
+      "retranslationAttempts": 4,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2143
     }
   ]
 }

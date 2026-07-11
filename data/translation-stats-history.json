@@ -11398,5 +11398,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-11T12:59:48.722Z",
+    "label": "before",
+    "total": 24504,
+    "needsRetranslation": 2632,
+    "suppressed": 113,
+    "incomplete": 211,
+    "complete": 24293,
+    "missingByLocale": {
+      "it": 160,
+      "en": 147,
+      "de": 62,
+      "fr": 145
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 95
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 14
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Canton du Valais",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-11T14:26:40.260Z",
+    "label": "after",
+    "total": 24504,
+    "needsRetranslation": 2365,
+    "suppressed": 113,
+    "incomplete": 200,
+    "complete": 24304,
+    "missingByLocale": {
+      "it": 157,
+      "en": 141,
+      "de": 58,
+      "fr": 143
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 93
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Canton du Valais",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
   }
 ]
