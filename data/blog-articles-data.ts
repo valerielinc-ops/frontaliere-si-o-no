@@ -25190,6 +25190,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-dei-frontalieri',
+ category: 'pratico',
+ date: '2026-07-11T22:33:37.617Z',
+ image: '/images/blog/disoccupazione-dei-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

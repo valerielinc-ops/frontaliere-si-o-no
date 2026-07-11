@@ -8384,6 +8384,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Lavorare come meccanico auto in Ticino: stipendio, CCL di settore, permesso G',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Impostato alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Un meccanico auto lavora in una officina di Lugano, Ticino.',
+    'blog.article.disoccupazione-dei-frontalieri.title': 'Consiglio federale: opporsi alla modifica unilaterale UE sulla disoccupazione dei frontalieri',
+    'blog.article.disoccupazione-dei-frontalieri.excerpt': 'La Svizzera potrebbe farsi carico delle indennità di disoccupazione dei frontalieri che hanno perso il lavoro.',
+    'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Un frontaliere lavora sul lago di Lugano, in Svizzera.',
 };
 
 export default blogMetaIt;
