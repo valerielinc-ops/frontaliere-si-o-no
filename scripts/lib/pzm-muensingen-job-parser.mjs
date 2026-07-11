@@ -22,6 +22,19 @@
  * Canton BE, postal 3110 (Münsingen).
  *
  * Uses the shared Prospective.ch factory.
+ *
+ * 2026-07 merger note: pzmag.ch/karriere now 301-redirects to
+ * upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
+ * Psychiatrisches Zentrum Bern (UPZ)". Every listing on medium 1008606 now
+ * carries a generic `ohws.prospective.ch/public/v1/jobs/{id}` directlink
+ * instead of a `jobs.pzmag.ch` one, so `acceptDirectlinkHosts` below
+ * legitimately filters out 100% of postings (0 is correct, not broken —
+ * see `EMPTY_OK_CRAWLERS` in `scripts/check-crawler-health.mjs`). Former PZM
+ * roles are already covered by `upd-job-parser.mjs` (Umantis tenant 2908),
+ * which now lists the full merged UPZ vacancy set including
+ * Münsingen-located roles. This dedicated crawler is a candidate for
+ * retirement (issue #4080) — deferred because that requires editing
+ * `.github/workflows/crawler-group-10.yml`.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
 
