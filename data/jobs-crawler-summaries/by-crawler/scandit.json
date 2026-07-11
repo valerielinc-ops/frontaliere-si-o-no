@@ -1,16 +1,16 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-07-10T12:05:31.247Z",
-  "total": 4,
+  "generatedAt": "2026-07-11T22:29:07.073Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5010,
-  "avgDurationMs": 5010,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4000,
+  "avgDurationMs": 4000,
   "durationHistory": [
-    5010
+    4000
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7434825",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:05:26.617Z",
+      "crawledAt": "2026-07-11T22:29:03.460Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:05:26.927Z",
+      "crawledAt": "2026-07-11T22:29:03.767Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +94,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:05:27.240Z",
+      "crawledAt": "2026-07-11T22:29:04.070Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,8 +117,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "scandit-ee0dc9424c69",
       "slug": "engineering-manager-piattaforma-scandit-ag-zurich",
@@ -157,5 +156,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
