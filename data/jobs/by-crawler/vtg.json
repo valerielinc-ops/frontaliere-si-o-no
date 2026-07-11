@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-11T10:50:37.807Z",
+  "assembledAt": "2026-07-11T11:06:13.233Z",
   "jobs": [
     {
       "id": "company-rne8bl",
@@ -315,7 +315,8 @@
       },
       "previousSlugs": [
         "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-g1g1m",
@@ -1077,7 +1078,8 @@
         "technicien-de-controle-du-trafic-aerien-support-systemes-de-controle-du-trafic-aerien-sufs-swiss-armed-forces-vtg-bern",
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern",
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-b3kpbb"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-r4w39c",
@@ -1501,7 +1503,8 @@
       "previousSlugs": [
         "logistiker-in-vorortlager-bronschhofen-swiss-armed-forces-vtg-bern",
         "logistiker-in-vorortlager-bronschhofen-swiss-armed-forces-vtg-bern-f1p602"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-go5lac",
@@ -1695,7 +1698,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-jhv13s",
@@ -1893,7 +1897,7 @@
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern",
-        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
         "de": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -1975,7 +1979,7 @@
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
         "de": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
@@ -2232,7 +2236,8 @@
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transportregal-swiss-armed-forces-vtg-bern-4hynmv",
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6okqpl",
@@ -2386,7 +2391,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
           "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
@@ -2405,7 +2409,8 @@
           "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
           "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
-          "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona"
+          "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+          "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -2454,7 +2459,8 @@
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p0hvci",
@@ -2627,7 +2633,8 @@
         "squadre-e-quadri-di-tutti-i-livelli-nel-campo-della-costruzione-alta-bassa-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-4u21rw",
@@ -2815,7 +2822,8 @@
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
         "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ta786n",
@@ -3109,7 +3117,8 @@
         "auftragssteurer-in-bereitstellung-und-betrieb-swiss-armed-forces-vtg-bern-gss3ag",
         "auftragssteurer-in-bereitstellung-e-betrieb-swiss-armed-forces-vtg-bellinzona",
         "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-q6f59r",
@@ -3282,7 +3291,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-1au6lp",
@@ -3364,7 +3374,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
