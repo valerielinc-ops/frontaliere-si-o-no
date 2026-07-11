@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Workflow-scope capability guard: blocks commits that stage .github/workflows/**
+# files in environments that lack the `workflows` token scope (GH_TOKEN / GitHub App).
+#
+# STRUCTURAL fix for the recurring `fix-outcome:blocked-workflows-scope` burn
+# (escalation #3887, bucket 6×/14d). Agents diagnose root causes that require
+# cron/workflow changes, implement the fix, then fail at `git push` because
+# GH_TOKEN (no `workflows` scope) rejects the push. This hook catches staged
+# workflow files at COMMIT TIME — before the push — and gives a clear,
+# actionable message so the agent can apply the capability guard immediately.
+#
+# How it's activated in CI: `npm ci` triggers the `prepare` script
+# (`git config core.hooksPath .githooks`), so any subsequent `git commit`
+# in the issue-fix.yml environment runs this hook automatically.
+#
+# To bypass (humans or CI with a PAT that has `workflows` scope):
+#   git commit --no-verify        (one-off)
+#   WORKFLOWS_COMMIT_OK=1         (env override for a whole CI step)
+set -euo pipefail
+
+# ── Environment detection ────────────────────────────────────────────────────
+# Enforce ONLY inside GitHub Actions runs: `GITHUB_ACTIONS=true` is set by the
+# Actions runner itself and by nothing else, and every Actions workflow in this
+# repo pushes with the GitHub App GITHUB_TOKEN (no `workflows` scope — PATs live
+# in Firebase RC, not in Actions secrets, and no workflow commits workflow
+# files). That covers the whole #3887 class (issue-fix.yml plus the sibling
+# Claude-agent workflows: pr-redflag-fixer, pr-review-loop, post-merge-followup,
+# crawler-data-quality-audit, lessons-harvester).
+#
+# Everything OUTSIDE Actions is a legitimate environment and must NOT be
+# blocked: local clones (human devs with PAT/SSH that has `workflows` scope)
+# and remote/interactive Claude sessions with workflow-capable credentials —
+# `npm install` activates this hook for all of them via `prepare`.
+#
+# WORKFLOWS_COMMIT_OK=1 is the explicit opt-out for a future CI step that
+# checks out with a `workflows`-scoped PAT.
+if [ "${WORKFLOWS_COMMIT_OK:-}" = "1" ]; then
+  exit 0
+fi
+if [ "${GITHUB_ACTIONS:-}" != "true" ]; then
+  exit 0
+fi
+
+STAGED_WORKFLOW_FILES=$(git diff --cached --name-only | grep -E '^\.github/workflows/' || true)
+if [ -z "$STAGED_WORKFLOW_FILES" ]; then
+  exit 0
+fi
+
+echo "" >&2
+echo "🔒 BLOCKED (pre-commit): .github/workflows/** files staged for commit." >&2
+echo "" >&2
+echo "Staged workflow files:" >&2
+echo "$STAGED_WORKFLOW_FILES" | sed 's/^/   /' >&2
+echo "" >&2
+echo "The issue-fix CI environment uses GH_TOKEN (GitHub App — no \`workflows\` scope)." >&2
+echo "Pushing .github/workflows/** files ALWAYS fails here: the push is rejected." >&2
+echo "" >&2
+echo "→ CAPABILITY GUARD (ISSUES.md § \"Pre-condizioni\"):" >&2
+echo "  1. Unstage the workflow files:" >&2
+echo "     git restore --staged .github/workflows/" >&2
+echo "  2. Post on the issue a comment with:" >&2
+echo "     - The proposed diff (what you intended to change)" >&2
+echo "     - The reason: \"blocco scope \`workflows\`: serve PAT abilitato o mano umana\"" >&2
+echo "     - Telemetry marker on its own line: <!-- FIX_OUTCOME: blocked-workflows-scope -->" >&2
+echo "  3. Terminate this run without opening a PR." >&2
+echo "" >&2
+echo "To bypass (human or CI with a PAT that has \`workflows\` scope):" >&2
+echo "  git commit --no-verify   (or WORKFLOWS_COMMIT_OK=1 for a whole CI step)" >&2
+echo "" >&2
+exit 1
