@@ -1,16 +1,16 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-07-11T10:50:13.009Z",
+  "generatedAt": "2026-07-11T22:07:57.734Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19079,
-  "avgDurationMs": 19079,
+  "durationMs": 22143,
+  "avgDurationMs": 22143,
   "durationHistory": [
-    19079
+    22143
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,11 +40,12 @@
       "salaryMax": 140000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 86,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -74,11 +75,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 84,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -108,11 +110,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 88,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -142,11 +145,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 88,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -383,11 +387,12 @@
       "salaryMax": 140000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 86,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -417,11 +422,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T10:45:42.296Z",
-      "_qualityScore": 84,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -451,11 +457,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:30:44.186Z",
-      "_qualityScore": 88,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -485,11 +492,12 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:16:20.161Z",
-      "_qualityScore": 88,
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
