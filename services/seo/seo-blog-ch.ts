@@ -13083,6 +13083,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu': {
+    title: 'Canton Ticino, novità storica per gli apprendisti frontalieri: il permesso G vale più di prima',
+    description: 'Il Consiglio nazionale ha approvato il provvedimento che estende la validità del permesso di lavoro G per coprire l\'intera durata del tirocinio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, novità, storica, apprendisti',
+    ogTitle: 'Canton Ticino, svolta storica per gli apprendisti frontalieri (sono più di 700): il permesso G varrà molto di più',
+    ogDescription: 'Il Consiglio nazionale ha approvato il provvedimento che estende la validità del permesso di lavoro G per coprire l\'intera durata del tirocinio.',
+    canonicalPath: '/articoli-svizzera/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canton Ticino, novità storica per gli apprendisti frontalieri: il permesso G vale più di prima",
+      "description": "Il Consiglio nazionale ha approvato il provvedimento che estende la validità del permesso di lavoro G per coprire l'intera durata del tirocinio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passeggiata in centro Lugano, con persone di diverse età e nazionalità"
+      },
+      "datePublished": "2026-07-11T23:45:28+00:00",
+      "dateModified": "2026-07-11T23:45:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3041,6 +3041,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu',
+    category: 'novita',
+    date: '2026-07-11T23:45:28.952Z',
+    image: '/images/blog/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

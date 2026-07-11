@@ -1015,6 +1015,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-nuovi-rincari.title': 'Tessin, hausses de prix et commerçants en crise. La vraie Suisse ?',
     'blog.article.ticino-nuovi-rincari.excerpt': 'Prix augmentés au Tessin, frontaliers qui se rendent en Italie pour faire leurs courses.',
     'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: prix en évidence',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Canton du Tessin : la nouvelle autorisation G pour les apprentis frontaliers',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Le Conseil national a approuvé la mesure qui prolonge la validité du permis de travail G pour couvrir toute la durée du stage.',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Promenade dans le centre-ville de Lugano, avec des personnes de différentes âges et nationalités',
 };
 
 export default blogMetaChFr;

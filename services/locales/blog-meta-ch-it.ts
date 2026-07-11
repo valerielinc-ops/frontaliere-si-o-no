@@ -1015,6 +1015,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-nuovi-rincari.title': 'Ticino, rincari e commercianti in crisi. La vera Svizzera?',
     'blog.article.ticino-nuovi-rincari.excerpt': 'Prezzi aumentati in Ticino, frontalieri che si recano in Italia per fare la spesa.',
     'blog.article.ticino-nuovi-rincari.imageAlt': 'Locarno: prezzi albanesi in evidenza',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Canton Ticino, novità storica per gli apprendisti frontalieri: il permesso G vale più di prima',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Il Consiglio nazionale ha approvato il provvedimento che estende la validità del permesso di lavoro G per coprire l\'intera durata del tirocinio.',
+    'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Passeggiata in centro Lugano, con persone di diverse età e nazionalità',
 };
 
 export default blogMetaChIt;
