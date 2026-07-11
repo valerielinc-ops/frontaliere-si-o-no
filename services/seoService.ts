@@ -4427,6 +4427,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-cuoco-ristorazione-ticino-stipendio-permesso': { name: 'Lavorare come cuoco nella ristorazione', path: '/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso', parent: 'blog' },
     'blog-assicurazione-vita-privata-svizzera-convienne-frontaliere': { name: 'Assicurazione vita privata svizzera per i', path: '/articoli-svizzera/assicurazione-vita-privata-svizzera-convienne-frontaliere/', parent: 'blog' },
     'blog-assicurazione-vita-privata-svizzera-convienne-frontalieri': { name: 'assicurazione vita privata svizzera', path: '/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri', parent: 'blog' },
+    'blog-vivere-oltre-monti-lavorare-grigioni': { name: 'Frontalieri', path: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

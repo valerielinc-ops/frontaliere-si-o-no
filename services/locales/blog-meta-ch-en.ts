@@ -967,6 +967,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Swiss private life insurance for the border worker: when is it convenient?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Here are the key facts about Swiss private life insurance for border workers: rules, rates, benefits and advantages compared to the third pillar.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Image of a Swiss border worker at work, with a focus on his daily life and activities.',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Living in Valtellina and working in Graubünden as a border worker',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Taxes, regulations and differences with respect to the Ticino-Lombardy pole',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore.',
 };
 
 export default blogMetaChEn;
