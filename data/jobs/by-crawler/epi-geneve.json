@@ -80,8 +80,7 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-43f367a7bcb3",
@@ -161,8 +160,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-d87c3fc6ce44",
@@ -322,8 +320,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-c943e742815e",
@@ -552,7 +549,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:53:33.314Z",
-      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
