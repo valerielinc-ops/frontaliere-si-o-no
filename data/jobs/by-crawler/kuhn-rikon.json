@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-07-10T22:38:07.824Z",
+  "assembledAt": "2026-07-11T11:16:51.246Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:38:06.139Z",
+      "crawledAt": "2026-07-11T11:16:48.347Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -55,11 +55,14 @@
       "externalId": "7ae949ca06781987fbd101ae9e246d6a",
       "hiringOrganizationName": "Kuhn Rikon",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
+        "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
+        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+        "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-        ],
         "it": [
           "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
@@ -68,15 +71,12 @@
         "en": [
           "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        ],
+        "de": [
+          "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
         ]
       },
-      "previousSlugs": [
-        "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-        "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-        "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-        "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
-        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
-      ],
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -123,7 +123,7 @@
       "url": "https://my.jobalino.ch/job/9a9d4a02165c3c3421fd36852f401c9f/consultante-vente-globus-gen-ve-100-h-f",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:38:05.682Z",
+      "crawledAt": "2026-07-11T11:16:47.884Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204",
