@@ -1006,6 +1006,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Frontaliere Ticino : lavoro come parrucchiere o estetista con riconoscimento e permesso G',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'Les dernières mises à jour sur les permis et l\'encadrement des frontaliers dans le secteur de la beauté.',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'Une coiffeuse travaille dans un salon de beauté à Lugano, avec une vue sur le lac.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Inscription école enfants frontaliers : guide et procédures',
+    'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'Les procédures pour l\'éducation des enfants des frontaliers entre l\'Italie et la Suisse : orientation entre les systèmes scolaires, les obligations et la gestion des déplacements.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Bâtiment scolaire moderne en Suisse',
 };
 
 export default blogMetaChFr;

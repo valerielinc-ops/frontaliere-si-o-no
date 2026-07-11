@@ -1006,6 +1006,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Ticino hairdresser or beautician border worker: salary, recognition, and G permit',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'The latest updates on permits and the classification of border workers in the beauty sector.',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'A hairdresser working in a beauty salon in Lugano, with a view of the lake.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Enrolment in border children\'s school: guide and procedures',
+    'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'The procedures for the education of the children of border workers between Italy and Switzerland: orientation between school systems, obligations and management of commuting.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Modern school building in Switzerland',
 };
 
 export default blogMetaChEn;

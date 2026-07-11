@@ -358,6 +358,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-insegnante-scuola-ticino-stipendio-requisiti': { it: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', en: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', de: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti', fr: 'frontaliere-insegnante-scuola-ticino-stipendio-requisiti' },
  'frontaliere-credito-imposta-2026-famiglia-con-figli': { it: 'frontaliere-credito-imposta-2026-famiglia-con-figli', en: 'frontaliere-credito-imposta-2026-famiglia-con-figli', de: 'frontaliere-credito-imposta-2026-famiglia-con-figli', fr: 'frontaliere-credito-imposta-2026-famiglia-con-figli' },
  'frontaliere-parrucchiere-estetista-ticino-permesso-stipendio': { it: 'frontaliere-parrucchiere-estetista-ticino-permesso-stipendio', en: 'frontalier-hairdresser-beauty-salon-ticino-permit-salary', de: 'frontalier-friseur-schonheitsklinik-tessin-permit-lohne', fr: 'frontalier-coiffeur-salon-de-beaute-tessin-permis-salaire' },
+ 'iscrizione-scuola-figli-frontalieri': { it: 'iscrizione-scuola-figli-frontalieri', en: 'enrolling-children-school-cross-border-workers', de: 'einschulung-kinder-grenzgaenger', fr: 'inscription-ecole-enfants-frontaliers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

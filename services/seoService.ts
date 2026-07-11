@@ -4455,6 +4455,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-credito-imposta-frontalieri-2026-guida': { name: 'Credito imposta 2026', path: '/articoli-frontaliere/credito-imposta-frontalieri-2026-guida', parent: 'blog' },
     'blog-frontaliere-parrucchiere-estetista-ticino-permesso-stipendio': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontaliere-parrucchiere-estetista-ticino-permesso-stipendio/', parent: 'blog' },
     'blog-meccanico-auto-ticino-stipendio-permessi': { name: 'Lavorare come meccanico auto in Ticino', path: '/articoli-frontaliere/meccanico-auto-ticino-stipendio-permessi', parent: 'blog' },
+    'blog-iscrizione-scuola-figli-frontalieri': { name: 'Scuola Frontalieri', path: '/articoli-svizzera/iscrizione-scuola-figli-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

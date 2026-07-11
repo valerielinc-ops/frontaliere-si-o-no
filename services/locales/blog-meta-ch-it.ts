@@ -1006,6 +1006,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Lavora come parrucchiere o estetista in Ticino da frontaliere: stipendio, riconoscimento e permesso G',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'Gli ultimi aggiornamenti sui permessi e sull\'inquadramento dei frontalieri nel settore della bellezza.',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'Una parrucchiera frontaliera lavora in una salone di bellezza a Lugano, con vista sul lago.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Iscrizione scuola figli frontalieri: guida e procedure',
+    'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'Le procedure per l\'istruzione dei figli dei frontalieri tra Italia e Svizzera: orientamento tra sistemi scolastici, obblighi e gestione del pendolarismo.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Edificio scolastico moderno in Svizzera',
 };
 
 export default blogMetaChIt;
