@@ -8386,6 +8386,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-dei-frontalieri.title': 'Federal Council opposes EU amendment on border worker unemployment',
     'blog.article.disoccupazione-dei-frontalieri.excerpt': 'Switzerland could take over unemployment benefits for border workers who have lost their jobs.',
     'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'A Swiss-Italian frontier worker on Lake Lugano, Switzerland.',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Equivalence of Italian qualifications in Switzerland: what to do',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Italian qualifications are equivalent in Switzerland, but there are procedures to follow to obtain recognition',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
 };
 
 export default blogMetaEn;

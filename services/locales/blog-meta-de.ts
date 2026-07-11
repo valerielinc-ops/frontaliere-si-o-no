@@ -8385,6 +8385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-dei-frontalieri.title': 'Bundesrat: Einseitige EU-Änderung zur Arbeitslosigkeit von Grenzgängern ablehnen',
     'blog.article.disoccupazione-dei-frontalieri.excerpt': 'Die Schweiz könnte die Arbeitslosenunterstützung für Grenzgänger übernehmen, die ihren Arbeitsplatz verloren haben.',
     'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Ein Frontalier arbeitet auf dem Lugano-See in der Schweiz.',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Gleichwertigkeit italienischer Bildungsabschluss in der Schweiz: was zu tun ist',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Italienische Studienabschlüsse sind in der Schweiz gleichwertig, aber es gibt Verfahren, die befolgt werden müssen, um die Anerkennung zu erhalten',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
 };
 
 export default blogMetaDe;

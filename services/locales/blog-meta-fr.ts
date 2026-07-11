@@ -8387,6 +8387,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-dei-frontalieri.title': 'Consseil fédérales : s\'opposer a l\'UE en matière de chômage frontalier',
     'blog.article.disoccupazione-dei-frontalieri.excerpt': 'La Suisse pourrait prendre en charge les indemnités de chômage des frontaliers qui ont perdu leur emploi.',
     'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Un frontalier travaille sur le lac de Lugano, en Suisse.',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Équivalence diplôme d\'italien en Suisse : que faire',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Les diplômes italiens sont équivalents en Suisse, mais il existe des procédures à suivre pour obtenir la reconnaissance',
+    'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
 };
 
 export default blogMetaFr;

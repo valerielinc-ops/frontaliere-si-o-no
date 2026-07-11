@@ -4458,6 +4458,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iscrizione-scuola-figli-frontalieri': { name: 'Scuola Frontalieri', path: '/articoli-svizzera/iscrizione-scuola-figli-frontalieri/', parent: 'blog' },
     'blog-disoccupazione-dei-frontalieri': { name: 'Disoccupazione dei frontalieri', path: '/articoli-frontaliere/disoccupazione-dei-frontalieri', parent: 'blog' },
     'blog-sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': { name: 'Sulla disoccupazione dei frontalieri si', path: '/articoli-svizzera/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles/', parent: 'blog' },
+    'blog-equipollenza-titolo-studio-italiano-svizzera-frontaliere': { name: 'Equipollenza titolo di studio italiano in', path: '/articoli-frontaliere/equipollenza-titolo-studio-italiano-svizzera-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
