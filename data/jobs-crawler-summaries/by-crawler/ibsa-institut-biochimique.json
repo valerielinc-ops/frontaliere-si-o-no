@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-07-10T22:11:19.748Z",
+  "generatedAt": "2026-07-11T10:29:17.940Z",
   "total": 6,
   "newCount": 6,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12963,
-  "avgDurationMs": 12963,
+  "durationMs": 12917,
+  "avgDurationMs": 12917,
   "durationHistory": [
-    12963
+    12917
   ],
   "newJobs": [
     {
@@ -249,11 +249,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6500",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
