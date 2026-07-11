@@ -14002,6 +14002,80 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spital-thurgau-39f64cefd83d",
+      "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+      "slugByLocale": {
+        "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
+      },
+      "company": "Spital Thurgau (STGAG)",
+      "companyKey": "spital-thurgau",
+      "companyDomain": "stgag.ch",
+      "title": "Dipl. Pflegefachmann/-frau Forensik",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachmann/-frau Forensik",
+        "en": "Dipl. Nursing professional forensics",
+        "it": "Dipl. Infermieristica professionale forense",
+        "fr": "Dipl. Services de médecine légale"
+      },
+      "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
+        "it": "Dipl. Specialista infermieristica forense — Spital Thurgau (STGAG).\n\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.07.2026",
+        "en": "Dipl. Nursing specialist forensics — Spital Thurgau (STGAG).\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (including midwife)\n• Area: Psychiatric Services Thurgau\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.07.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers — Spital Thurgau (STGAG).\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris la sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.07.2026"
+      },
+      "location": "Münsterlingen",
+      "canton": "TG",
+      "url": "https://rekrutierung.stgag.ch/Vacancies/3442/Description/1?lang=ger",
+      "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-10T12:59:15.669Z",
+      "addressLocality": "Münsterlingen",
+      "addressRegion": "TG",
+      "postalCode": "8596",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3442/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Pflege (inkl. Hebamme)",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachmann-frau-forensik-stgag-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T12:59:15.669Z"
     }
   ]
 }
