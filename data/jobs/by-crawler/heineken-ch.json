@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-07-10T12:06:48.461Z",
+  "assembledAt": "2026-07-10T22:46:03.318Z",
   "jobs": [
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:46.836Z",
+      "crawledAt": "2026-07-10T22:46:01.627Z",
       "previousSlugs": [
         "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur"
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:49.171Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -120,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:38.761Z",
+      "crawledAt": "2026-07-10T22:45:53.790Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
         "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
@@ -198,7 +199,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:30.487Z",
+      "crawledAt": "2026-07-10T22:45:45.858Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -276,7 +277,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:22.799Z",
+      "crawledAt": "2026-07-10T22:45:38.847Z",
       "previousSlugs": [
         "truck-driver-heineken-ch-baltschieder",
         "autista-di-camion-heineken-switzerland-baltschieder"
@@ -354,7 +355,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:14.961Z",
+      "crawledAt": "2026-07-10T22:45:30.186Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "autista-cat-c-e-heineken-switzerland-luzern"
@@ -432,7 +433,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:06:06.753Z",
+      "crawledAt": "2026-07-10T22:45:21.882Z",
       "previousSlugs": [
         "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
         "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
@@ -471,7 +472,7 @@
       "slugByLocale": {
         "it": "servizio-clienti-agente-heineken-switzerland-luzern",
         "en": "agent-customer-service-heineken-ch-luzern",
-        "de": "agent-customer-service-heineken-ch-luzern",
+        "de": "mitarbeiter-in-kundenservice-heineken-ch-luzern",
         "fr": "agent-service-clientele-heineken-switzerland-luzern"
       },
       "company": "Heineken Switzerland",
@@ -510,18 +511,18 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:58.936Z",
+      "crawledAt": "2026-07-10T22:45:13.786Z",
       "previousSlugsByLocale": {
+        "de": [
+          "agent-customer-service-heineken-ch-luzern",
+          "mitarbeiter-in-kundenservice-heineken-ch-luzern"
+        ],
         "it": [
           "agent-customer-service-heineken-ch-luzern",
           "mitarbeiter-in-kundenservice-heineken-ch-luzern",
           "servizio-clienti-agente-heineken-switzerland-luzern"
         ],
         "fr": [
-          "agent-customer-service-heineken-ch-luzern"
-        ],
-        "de": [
-          "mitarbeiter-in-kundenservice-heineken-ch-luzern",
           "agent-customer-service-heineken-ch-luzern"
         ]
       },
@@ -531,6 +532,7 @@
         "servizio-clienti-agente-heineken-switzerland-luzern"
       ],
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -591,7 +593,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:50.667Z",
+      "crawledAt": "2026-07-10T22:45:06.458Z",
       "previousSlugs": [
         "logistiker-im-getrankelager-m-w-heineken-ch-davos"
       ],
@@ -607,6 +609,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -628,7 +631,7 @@
       "slugByLocale": {
         "it": "linea-guida-impianto-di-riempimento-m-f-heineken-switzerland-chur",
         "en": "line-guide-filling-plant-m-f-heineken-switzerland-chur",
-        "de": "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
+        "de": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
         "fr": "usine-de-remplissage-du-guide-de-ligne-m-f-heineken-switzerland-chur"
       },
       "company": "Heineken Switzerland",
@@ -667,16 +670,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159426&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:42.938Z",
-      "firstSeenAt": "2026-06-12T22:29:24.985Z",
+      "crawledAt": "2026-07-10T22:44:57.719Z",
       "previousSlugsByLocale": {
+        "de": [
+          "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
+          "linienfuhrer-abfuellerei-m-w-heineken-ch-chur"
+        ],
         "it": [
           "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
           "linea-guida-impianto-di-riempimento-m-f-heineken-switzerland-chur"
-        ],
-        "de": [
-          "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
-          "linienfuehrer-abfuellerei-m-w-heineken-ch-chur"
         ],
         "en": [
           "linienfuhrer-abfuellerei-m-w-heineken-ch-chur"
@@ -690,6 +692,7 @@
         "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
         "linea-guida-impianto-di-riempimento-m-f-heineken-switzerland-chur"
       ],
+      "firstSeenAt": "2026-06-12T22:29:24.985Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -750,7 +753,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:05:35.206Z",
+      "crawledAt": "2026-07-10T22:44:50.727Z",
       "previousSlugs": [
         "agent-customer-support-heineken-ch-winterthur",
         "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
@@ -765,6 +768,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -778,85 +782,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "heineken-ch-55500a0e61dd",
-      "jobReqId": "154479",
-      "slug": "logistician-heineken-switzerland-denges",
-      "slugByLocale": {
-        "it": "logistician-heineken-switzerland-denges",
-        "en": "logisticsian-heineken-switzerland-denges",
-        "de": "logistiker-heineken-switzerland-denges",
-        "fr": "logistician-heineken-ch-denges"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Logistician",
-      "titleByLocale": {
-        "it": "Logistician",
-        "en": "Logisticsian",
-        "de": "Logistiker",
-        "fr": "Logistique"
-      },
-      "description": "Dans cette activité dynamique et variée, tu es responsable des tâches suivantes : Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais Contrôle et remise en stock des retours de marchandises pleines Réception des marchandises et contrôle des entrées de marchandises Participation active aux inventaires Exécution de travaux généraux d’entrepôt En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel Travaux de nettoyage et d’élimination des déchets Garantie de l’ordre et de la propreté dans le dépôt (5S) Afin de mener à bien ces tâches exigeantes, tu réponds aux critères suivants : Formation professionnelle achevée avec succès en tant que logisticien(ne) Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille Permis de conduire catégories C/E souhaité, mais non obligatoire Permis de cariste requis Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage Des connaissances de l’allemand sont un avantage, mais non obligatoires Bonne condition physique et résistance au stress",
-      "descriptionByLocale": {
-        "it": "Mansioni - Preparazione degli ordini in modo che i nostri piloti possano consegnare i clienti correttamente e in tempo - Controllo e stoccaggio dei ritorni di merce completa - Ricevimento delle merci e controllo delle voci delle merci - Partecipazione attiva agli inventari - Lavori generali di magazzino - In caso di necessità, il supporto del conducente durante le consegne a clienti o assistenza in altri depositi in caso di carenza di personale - Pulizia e smaltimento dei rifiuti - Garanzia di ordine e pulizia nel deposito (5S) Obbligo - Formazione professionale completata con successo come logistica - Diversi anni di esperienza professionale nella gestione del magazzino, idealmente in una società più grande - Le categorie di patente C/E desiderate, ma non obbligatorie - Permesso di trasporto richiesto - Metodo di lavoro attento, autonomo e responsabile, con resistenza e perseveranza - Alta flessibilità e disponibilità per gestire i numerosi compiti della vita quotidiana - Esperienza con applicazioni MS Office desiderate, SAP R/3 un vantaggio - La conoscenza tedesca è un vantaggio, ma non obbligatorio - Buona condizione fisica e resistenza allo stress",
-        "en": "Mansioni - Preparation of orders so that our drivers can deliver customers correctly and on time - Control and stocking of full merchandise returns - Receipt of goods and control of goods entries - Active participation in inventories - General works of warehouse - In case of need, driver support during deliveries to customers or assistance in other depots in case of staff shortage - Waste cleaning and disposal - Guarantee of order and cleanliness in the deposit (5S) Required - Vocational training completed successfully as a logisticsian - Several years of professional experience in warehouse management, ideally in a larger company - Driver's licence categories C/E desired, but not mandatory - Carist permit required - Careful, autonomous and responsible method of work, with endurance and perseverance - High flexibility and availability to manage the many tasks of everyday life - Experience with desired MS Office applications, SAP R/3 an advantage - German knowledge is an advantage, but not compulsory - Good physical condition and stress resistance",
-        "de": "In dieser dynamischen und abwechslungsreichen Tätigkeit sind Sie für folgende\n• Aufgaben verantwortlich: Vorbereitung der Bestellungen, damit unsere Fahrer die Kunden korrekt und pünktlich liefern können Kontrolle und Wiederaufstockung voller Warenrücksendungen Erhalt der Waren und Kontrolle der Wareneingänge Aktive Teilnahme an Lagerbeständen Allgemeine Lagerarbeit Bei Bedarf Unterstützung des Fahrers bei Lieferungen an Kunden oder Unterstützung in anderen Depots bei Personalmangel Reinigungs- und Entsorgungsgarantie Ordnung und Sauberkeit im Depot (5S) Um diese anspruchsvollen\n• Aufgaben zu erfüllen, erfüllen Sie die folgenden Kriterien: Berufsausbildung erfolgreich abgeschlossen als Logistiker Mehrjährige Berufserfahrung im Lagermanagement, idealerweise in einem größeren Unternehmen Führerscheinkategorien C/E gewünscht, aber nicht erforderlich Carist-Lizenz erforderlich Sorgfältige, autonome und verantwortungsvolle Arbeitsweise, mit Ausdauer und Ausdauer Große Flexibilität und Verfügbarkeit, um die vielen\n• Aufgaben des täglichen Lebens zu bewältigen Erfahrung mit den gewünschten MS Office Anwendungen, SAP R/3 ein Vorteil Deutschkenntnisse sind ein Vorteil, aber nicht obligatorisch Gute körperliche Verfassung und Belastbarkeit",
-        "fr": "## Mansioni - Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais - Contrôle et remise en stock des retours de marchandises pleines - Réception des marchandises et contrôle des entrées de marchandises - Participation active aux inventaires - Exécution de travaux généraux d’entrepôt - En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel - Travaux de nettoyage et d’élimination des déchets - Garantie de l’ordre et de la propreté dans le dépôt (5S) ##\n• Requisiti - Formation professionnelle achevée avec succès en tant que logisticien(ne) - Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille - Permis de conduire catégories C/E souhaité, mais non obligatoire - Permis de cariste requis - Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance - Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien - Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage - Des connaissances de l’allemand sont un avantage, mais non obligatoires - Bonne condition physique et résistance au stress"
-      },
-      "location": "Denges",
-      "canton": "VD",
-      "addressLocality": "Denges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Denges, VD",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistician?jobid=154479",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-08T22:25:25.704Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "logistik-heineken-switzerland-denges",
-          "logistician-heineken-ch-denges"
-        ],
-        "it": [
-          "logistician-heineken-ch-denges"
-        ],
-        "en": [
-          "logistician-heineken-ch-denges"
-        ]
-      },
-      "previousSlugs": [
-        "logistik-heineken-switzerland-denges",
-        "logistician-heineken-ch-denges"
-      ],
-      "firstSeenAt": "2026-05-13T11:12:42.166Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

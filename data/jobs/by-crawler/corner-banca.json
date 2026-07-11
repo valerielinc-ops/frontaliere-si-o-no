@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-07-10T12:00:30.419Z",
+  "assembledAt": "2026-07-10T22:27:17.490Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:00:27.954Z",
+      "crawledAt": "2026-07-10T22:27:14.143Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -143,7 +144,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.953Z",
+      "crawledAt": "2026-07-10T22:27:14.142Z",
       "previousSlugs": [
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
         "customer-advisor-40-corner-banca-wallisellen",
@@ -159,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.987Z",
+      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "baseSalary": {
@@ -172,6 +174,172 @@
         }
       },
       "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-c2658f3238d4",
+      "slug": "customer-advisor-100-team-lugano-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "customer-advisor-100-team-lugano-corner-banca-lugano",
+        "en": "customer-advisor-100-team-lugano-corner-banca-lugano",
+        "de": "customer-advisor-100-team-lugano-corner-banca-lugano",
+        "fr": "customer-advisor-100-team-lugano-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor 100% Team Lugano",
+      "titleByLocale": {
+        "it": "Customer Consulente 100% Team Lugano",
+        "en": "Customer Advisor 100% Team Lugano",
+        "de": "Customer Berater 100% Team Lugano",
+        "fr": "Customer Conseiller 100% Team Lugano"
+      },
+      "description": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un individuo altamente qualificato per gestire, elaborare e/o inoltrare richieste di clienti e partner, in tedesco, francese, italiano e inglese, su vari argomenti relativi al pagamento delle carte, in conformità con le nostre istruzioni di lavoro. Responsabilità chiave:\n• Rispondi alle chiamate in arrivo e alle richieste di assistenza da parte di clienti e partner commerciali in tedesco, francese, italiano e inglese\n• Ricevi e elabora reclami e problemi relativi a carte di credito, prepagate e di debito\n• Garantire una risoluzione tempestiva e soddisfacente delle preoccupazioni dei clienti per migliorare la soddisfazione e la fedeltà dei clienti\n• Assicurarsi che tutte le interazioni e i processi dei clienti siano conformi agli standard di qualità interna e alle normative legali\n• Proattivamente trovare soluzioni per i reclami dei clienti e aumentare i casi complessi al reparto appropriato\n• Identificare le opportunità di vendita (vendita e upselling) durante le interazioni con i clienti Cosa offriamo?\n• Flessibilità nel lavoro da casa e gestione delle ore di lavoro al fine di garantire un sano equilibrio di vita lavorativa\n• Numerosi vantaggi e incentivi\n• Benessere, attività motivazionali e di team building Per l'apertura del lavoro, stiamo cercando candidati che soddisfano i seguenti requisiti:\n• Sfondo commerciale o turistico\n• Esperienza nel servizio clienti\n• Buona conoscenza del pacchetto Office / uso del PC\n• Buone capacità di comunicazione\n• Lingue: Italiano, Tedesco/Svizzero Tedesco, Francese e Inglese\n• Come primo punto di contatto con i clienti, sono necessarie le seguenti competenze morbide: cortesia, empatia, orientamento del cliente e capacità di lavorare in team\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
+        "de": "Wir suchen eine hochqualifizierte Person, die Kundenanrufe und Partneranfragen in deutscher, französischer, italienischer und englischer Sprache zu verschiedenen Themen im Zusammenhang mit der Kartenzahlung gemäß unseren Arbeitsanweisungen fachkundig bearbeitet, bearbeitet und / oder weiterleitet. Hauptzuständigkeiten:\n• Beantworten Sie eingehende Anrufe und bearbeiten Sie Anfragen von Kunden und Geschäftspartnern in Deutsch, Französisch, Italienisch und Englisch\n• Empfangen und bearbeiten Sie Kundenbeschwerden und Probleme im Zusammenhang mit Kredit-, Prepaid- und Debitkarten\n• Gewährleistung einer rechtzeitigen und zufriedenstellenden Lösung von Kundenanliegen, um die Kundenzufriedenheit und -bindung zu verbessern\n• Sicherstellen, dass alle Kundeninteraktionen und -prozesse den internen Qualitätsstandards und gesetzlichen Vorschriften entsprechen\n• Proaktiv Lösungen für Kundenbeschwerden finden und komplexe Fälle an die zuständige Abteilung eskalieren lassen\n• Identifizieren Sie Verkaufschancen (Verkauf und Upselling) während der Interaktion mit den Kunden Was bieten wir an?\n• Flexibilität bei der Arbeit von zu Hause aus und das Management der Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten\n• Zahlreiche Vorteile und Anreize\n• Wohlbefinden, Motivation und Teambuilding Für die Stellenausschreibung suchen wir Kandidaten, die folgende Voraussetzungen erfüllen:\n• Kommerzieller oder touristischer Hintergrund\n• Erfahrung im Kundenservice\n• Gute Kenntnisse der Office-Paket / PC-Nutzung\n• Gute Kommunikationsfähigkeit\n• Sprachen: Italienisch, Deutsch/Schweizerisches Deutsch, Französisch und Englisch\n• Als erster Kontaktpunkt mit Kunden sind folgende Soft Skills gefragt: Höflichkeit, Empathie, Kundenorientierung und Teamfähigkeit\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Nous recherchons une personne hautement qualifiée pour gérer, traiter et/ou envoyer des appels clients et des demandes de renseignements partenaires, en allemand, français, italien et anglais, sur divers sujets liés au paiement des cartes, conformément à nos instructions de travail. Principales responsabilités :\n• Répondre aux appels entrants et traiter les demandes de clients et de partenaires commerciaux en allemand, français, italien et anglais\n• Recevoir et traiter les plaintes des clients et les problèmes liés aux cartes de crédit, prépayées et de débit\n• Veiller à ce que les préoccupations des clients soient réglées en temps opportun et de façon satisfaisante afin d'accroître la satisfaction et la loyauté des clients\n• Veiller à ce que toutes les interactions et tous les processus clients soient conformes aux normes de qualité internes et aux règlements juridiques\n• Trouver des solutions proactives pour les plaintes des clients et accroître les cas complexes au ministère approprié\n• Identifier les possibilités de vente (vente et vente) pendant les interactions avec les clients Qu'est-ce qu'on offre ?\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n• De nombreux avantages et incitations\n• Activités de bien-être, de motivation et de renforcement des équipes Pour l'ouverture d'emploi, nous recherchons des candidats qui répondent aux exigences suivantes :\n• Contexte commercial ou touristique\n• Expérience du service à la clientèle\n• Bonne connaissance de l'utilisation du paquet Office/ PC\n• Bonnes compétences en communication\n• Langues: italien, allemand/suisse allemand, français et anglais\n• Comme premier point de contact avec les clients, les compétences suivantes sont nécessaires : courtoisie, empathie, orientation client et capacité de travailler en équipe\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Commercial or tourism background",
+        "Experience in customer service",
+        "Good knowledge of Office package/ PC use",
+        "Good communication skills",
+        "Languages: Italian, German/Swiss German, French and English",
+        "As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial or tourism background",
+          "Experience in customer service",
+          "Good knowledge of Office package/ PC use",
+          "Good communication skills",
+          "Languages: Italian, German/Swiss German, French and English",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Commercial or tourism background",
+          "Experience in customer service",
+          "Good knowledge of Office package/ PC use",
+          "Good communication skills",
+          "Languages: Italian, German/Swiss German, French and English",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T22:27:14.139Z",
+      "firstSeenAt": "2026-07-08T22:13:15.987Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-9238ccb59915",
+      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "de": "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
+        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+      "titleByLocale": {
+        "it": "Risk Manager - Asset Liability Management (ALM) e Liquidity Risk",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko",
+        "fr": "Gestionnaire du risque - Gestion de la responsabilité en matière d'actifs (GAP) et risque de liquidité"
+      },
+      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Il candidato selezionato sarà responsabile della gestione dei rischi relativi alla gestione delle responsabilità patrimoniali (ALM) e al rischio di liquidità, assicurando che l'azienda mantiene una solida posizione finanziaria e può navigare efficacemente le sfide del mercato. Responsabilità chiave:\n• Condurre analisi approfondita dei rischi legati al rischio ALM e liquidità, identificare potenziali vulnerabilità e sviluppare strategie di mitigazione\n• Monitorare la posizione di liquidità quotidiana dell'azienda, garantendo il rispetto dei requisiti normativi e interni in linea con il quadro di Basilea e l'ordinanza FINMA\n• Collabora con reparti di tesoreria e finanza per ottimizzare le pratiche di gestione della liquidità, comprese le previsioni del flusso di cassa, la gestione del buffer di liquidità e le strategie di finanziamento / piano di contingenza\n• Valutare e gestire l'esposizione dell'azienda al rischio di tasso di interesse nel libro bancario (IRRBB), sviluppando strategie per mitigare gli impatti negativi sui guadagni e sui capitali\n• Condurre test di stress di liquidità e analisi degli scenari per valutare l’impatto delle condizioni di mercato avverse sulla posizione di liquidità dell’azienda\n• Preparare relazioni dettagliate e accurate sul rischio di liquidità e ALM per la gestione senior, Comitato, Regolatori, fornendo analisi chiare e raccomandazioni\n• Capacità di lavorare sotto pressione in un ambiente dinamico che fissa le priorità e soddisfa le scadenze minime\n• Competenze tecniche: Conoscenze avanzate di rischio ALM e liquidità, strumenti di gestione del rischio dei tassi di interesse e metodologie, tra cui analisi degli scenari e test di stress\n• Competenze analitiche: eccellenti capacità analitiche e attenzione ai dettagli, con la capacità di interpretare e sintetizzare grandi volumi di dati complessi utilizzando conoscenze di programmazione (Phyton, R, SQL)\n• Competenze di comunicazione: Forte capacità di comunicazione scritta e verbale, con la capacità di presentare le informazioni tecniche chiaramente e concisamente agli stakeholder non tecnici\n• Esperienza: Almeno 3 anni di esperienza nella gestione del rischio, con particolare attenzione al rischio di liquidità ALM o al reparto tesoreria\n• Lingue: Italiano / Inglese competenze native / Francese / Tedesco è un plus\n• La certificazione professionale nella gestione del rischio (ad esempio, FRM, PRM) è un plus\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+        "de": "Der ausgewählte Kandidat ist für das Management von Risiken im Zusammenhang mit Asset Liability Management (ALM) und Liquiditätsrisiken verantwortlich und stellt sicher, dass das Unternehmen eine solide Finanzposition beibehält und die Herausforderungen des Marktes effektiv meistern kann. Wichtigste Aufgaben:\n• Durchführung einer eingehenden Analyse der Risiken im Zusammenhang mit ALM und Liquiditätsrisiken, Ermittlung potenzieller Schwachstellen und Entwicklung von Minderungsstrategien\n• Überwachung der täglichen Liquiditätslage des Unternehmens und Gewährleistung der Einhaltung regulatorischer und interner Anforderungen in Übereinstimmung mit dem Basler Rahmenwerk und der FINMA-Verordnung\n• Zusammenarbeit mit Finanz- und Finanzabteilungen zur Optimierung der Liquiditätsmanagementpraktiken, einschließlich Cashflow-Prognose, Liquiditätspuffermanagement und Finanzierungsstrategien / Notfallplan\n• Bewertung und Steuerung des Zinsrisikos des Unternehmens im Bankbuch (IRRBB) und Entwicklung von Strategien zur Minderung nachteiliger Auswirkungen auf Ertrag und Kapital\n• Durchführung von Liquiditätsstresstests und Szenarioanalysen zur Bewertung der Auswirkungen ungünstiger Marktbedingungen auf die Liquiditätslage des Unternehmens\n• Bereiten Sie detaillierte und genaue Berichte über Liquiditätsrisiken und ALM für die Geschäftsleitung, den Ausschuss und die Regulierungsbehörden vor und geben Sie klare Analysen und Empfehlungen\n• Fähigkeit, unter Druck in einem dynamischen Umfeld zu arbeiten, Prioritäten zu setzen und kleine Fristen einzuhalten\n• Technische Fähigkeiten: Fortgeschrittene Kenntnisse über ALM und Liquiditätsrisiken, Instrumente und Methoden für das Zinsrisikomanagement, einschließlich Szenarioanalyse und Stresstests\n• Analytische Fähigkeiten: Ausgezeichnete analytische Fähigkeiten und Liebe zum Detail, mit der Fähigkeit, große Mengen komplexer Daten mit Programmierkenntnissen zu interpretieren und zu synthetisieren (Phyton, R, SQL)\n• Kommunikationsfähigkeiten: Starke schriftliche und mündliche Kommunikationsfähigkeiten, mit der Fähigkeit, technische Informationen klar und prägnant für nicht-technische Stakeholder zu präsentieren\n• Erfahrung: Mindestens 3 Jahre Erfahrung im Risikomanagement, mit besonderem Fokus auf ALM/Liquiditätsrisiko oder Treasury\n• Sprachen: Italienisch / Englisch Muttersprachler / Französisch / Deutsch ist ein Plus\n• Professionelle Zertifizierung im Risikomanagement (z.B. FRM, PRM) ist ein Plus\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Le candidat sélectionné sera responsable de la gestion des risques liés à la gestion des actifs et du risque de liquidité, en veillant à ce que l'entreprise conserve une position financière solide et puisse relever efficacement les défis du marché. Principales responsabilités :\n• Effectuer une analyse approfondie des risques liés à la gestion des terres et au risque de liquidité, identifier les vulnérabilités potentielles et élaborer des stratégies d ' atténuation\n• Surveiller la position de liquidité quotidienne de l'entreprise, en veillant au respect des exigences réglementaires et internes conformément au cadre de Bâle et à l'ordonnance FINMA\n• Collaborer avec les départements de la trésorerie et des finances pour optimiser les pratiques de gestion de la liquidité, y compris la prévision des flux de trésorerie, la gestion des coussins de liquidité et les stratégies de financement/plan d'urgence\n• Évaluer et gérer l'exposition de l'entreprise au risque de taux d'intérêt dans le portefeuille bancaire (IRRBB), en élaborant des stratégies pour atténuer les effets négatifs sur les bénéfices et le capital\n• Effectuer des tests de contraintes de liquidité et des analyses de scénarios pour évaluer l'impact des conditions défavorables du marché sur la position de liquidité de la société\n• Préparer des rapports détaillés et précis sur le risque de liquidité et la GPA à l'intention de la haute direction, du comité et des régulateurs, en fournissant une analyse claire et des recommandations\n• Capacité de travailler sous pression dans un environnement dynamique fixant des priorités et respectant des échéances infimes\n• Compétences techniques: Connaissance avancée du risque de GPA et de liquidité, outils et méthodologies de gestion du risque de taux d'intérêt, y compris l'analyse de scénarios et les tests de stress\n• Compétences analytiques : Excellentes compétences analytiques et attention aux détails, avec la capacité d'interpréter et de synthétiser de grands volumes de données complexes utilisant les connaissances en programmation (Phyton, R, SQL)\n• Compétences en communication : Fortes compétences en communication écrite et verbale, avec la capacité de présenter l'information technique de façon claire et concise aux intervenants non techniques\n• Expérience: Au moins 3 ans d'expérience en gestion des risques, en particulier en matière de gestion des risques/risque de liquidité ou de trésorerie\n• Langues: Italien / Anglais compétence native / Français / Allemand est un plus\n• La certification professionnelle en gestion des risques (p. ex. FRM, PRM) est un plus\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+        "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+        "Languages: Italian / English native proficiency / French / German is a plus",
+        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T22:27:14.138Z",
+      "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH"
     },
@@ -243,8 +411,9 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T12:00:27.952Z",
+      "crawledAt": "2026-07-10T22:27:14.138Z",
       "firstSeenAt": "2026-07-08T22:13:15.986Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -254,91 +423,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-c2658f3238d4",
-      "slug": "customer-advisor-100-team-lugano-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "customer-advisor-100-team-lugano-corner-banca-lugano",
-        "en": "customer-advisor-100-team-lugano-corner-banca-lugano",
-        "de": "customer-advisor-100-team-lugano-corner-banca-lugano",
-        "fr": "customer-advisor-100-team-lugano-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 100% Team Lugano",
-      "titleByLocale": {
-        "it": "Customer Consulente 100% Team Lugano",
-        "en": "Customer Advisor 100% Team Lugano",
-        "de": "Customer Berater 100% Team Lugano",
-        "fr": "Customer Conseiller 100% Team Lugano"
-      },
-      "description": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un individuo altamente qualificato per gestire, elaborare e/o inoltrare richieste di clienti e partner, in tedesco, francese, italiano e inglese, su vari argomenti relativi al pagamento delle carte, in conformità con le nostre istruzioni di lavoro. Responsabilità chiave:\n• Rispondi alle chiamate in arrivo e alle richieste di assistenza da parte di clienti e partner commerciali in tedesco, francese, italiano e inglese\n• Ricevi e elabora reclami e problemi relativi a carte di credito, prepagate e di debito\n• Garantire una risoluzione tempestiva e soddisfacente delle preoccupazioni dei clienti per migliorare la soddisfazione e la fedeltà dei clienti\n• Assicurarsi che tutte le interazioni e i processi dei clienti siano conformi agli standard di qualità interna e alle normative legali\n• Proattivamente trovare soluzioni per i reclami dei clienti e aumentare i casi complessi al reparto appropriato\n• Identificare le opportunità di vendita (vendita e upselling) durante le interazioni con i clienti Cosa offriamo?\n• Flessibilità nel lavoro da casa e gestione delle ore di lavoro al fine di garantire un sano equilibrio di vita lavorativa\n• Numerosi vantaggi e incentivi\n• Benessere, attività motivazionali e di team building Per l'apertura del lavoro, stiamo cercando candidati che soddisfano i seguenti requisiti:\n• Sfondo commerciale o turistico\n• Esperienza nel servizio clienti\n• Buona conoscenza del pacchetto Office / uso del PC\n• Buone capacità di comunicazione\n• Lingue: Italiano, Tedesco/Svizzero Tedesco, Francese e Inglese\n• Come primo punto di contatto con i clienti, sono necessarie le seguenti competenze morbide: cortesia, empatia, orientamento del cliente e capacità di lavorare in team\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team\n\n• Resident in Ticino or willing to relocate",
-        "de": "Wir suchen eine hochqualifizierte Person, die Kundenanrufe und Partneranfragen in deutscher, französischer, italienischer und englischer Sprache zu verschiedenen Themen im Zusammenhang mit der Kartenzahlung gemäß unseren Arbeitsanweisungen fachkundig bearbeitet, bearbeitet und / oder weiterleitet. Hauptzuständigkeiten:\n• Beantworten Sie eingehende Anrufe und bearbeiten Sie Anfragen von Kunden und Geschäftspartnern in Deutsch, Französisch, Italienisch und Englisch\n• Empfangen und bearbeiten Sie Kundenbeschwerden und Probleme im Zusammenhang mit Kredit-, Prepaid- und Debitkarten\n• Gewährleistung einer rechtzeitigen und zufriedenstellenden Lösung von Kundenanliegen, um die Kundenzufriedenheit und -bindung zu verbessern\n• Sicherstellen, dass alle Kundeninteraktionen und -prozesse den internen Qualitätsstandards und gesetzlichen Vorschriften entsprechen\n• Proaktiv Lösungen für Kundenbeschwerden finden und komplexe Fälle an die zuständige Abteilung eskalieren lassen\n• Identifizieren Sie Verkaufschancen (Verkauf und Upselling) während der Interaktion mit den Kunden Was bieten wir an?\n• Flexibilität bei der Arbeit von zu Hause aus und das Management der Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten\n• Zahlreiche Vorteile und Anreize\n• Wohlbefinden, Motivation und Teambuilding Für die Stellenausschreibung suchen wir Kandidaten, die folgende Voraussetzungen erfüllen:\n• Kommerzieller oder touristischer Hintergrund\n• Erfahrung im Kundenservice\n• Gute Kenntnisse der Office-Paket / PC-Nutzung\n• Gute Kommunikationsfähigkeit\n• Sprachen: Italienisch, Deutsch/Schweizerisches Deutsch, Französisch und Englisch\n• Als erster Kontaktpunkt mit Kunden sind folgende Soft Skills gefragt: Höflichkeit, Empathie, Kundenorientierung und Teamfähigkeit\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Nous recherchons une personne hautement qualifiée pour gérer, traiter et/ou envoyer des appels clients et des demandes de renseignements partenaires, en allemand, français, italien et anglais, sur divers sujets liés au paiement des cartes, conformément à nos instructions de travail. Principales responsabilités :\n• Répondre aux appels entrants et traiter les demandes de clients et de partenaires commerciaux en allemand, français, italien et anglais\n• Recevoir et traiter les plaintes des clients et les problèmes liés aux cartes de crédit, prépayées et de débit\n• Veiller à ce que les préoccupations des clients soient réglées en temps opportun et de façon satisfaisante afin d'accroître la satisfaction et la loyauté des clients\n• Veiller à ce que toutes les interactions et tous les processus clients soient conformes aux normes de qualité internes et aux règlements juridiques\n• Trouver des solutions proactives pour les plaintes des clients et accroître les cas complexes au ministère approprié\n• Identifier les possibilités de vente (vente et vente) pendant les interactions avec les clients Qu'est-ce qu'on offre ?\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n• De nombreux avantages et incitations\n• Activités de bien-être, de motivation et de renforcement des équipes Pour l'ouverture d'emploi, nous recherchons des candidats qui répondent aux exigences suivantes :\n• Contexte commercial ou touristique\n• Expérience du service à la clientèle\n• Bonne connaissance de l'utilisation du paquet Office/ PC\n• Bonnes compétences en communication\n• Langues: italien, allemand/suisse allemand, français et anglais\n• Comme premier point de contact avec les clients, les compétences suivantes sont nécessaires : courtoisie, empathie, orientation client et capacité de travailler en équipe\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Commercial or tourism background",
-        "Experience in customer service",
-        "Good knowledge of Office package/ PC use",
-        "Good communication skills",
-        "Languages: Italian, German/Swiss German, French and English",
-        "As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial or tourism background",
-          "Experience in customer service",
-          "Good knowledge of Office package/ PC use",
-          "Good communication skills",
-          "Languages: Italian, German/Swiss German, French and English",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Commercial or tourism background",
-          "Experience in customer service",
-          "Good knowledge of Office package/ PC use",
-          "Good communication skills",
-          "Languages: Italian, German/Swiss German, French and English",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.952Z",
-      "firstSeenAt": "2026-07-08T22:13:15.987Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
           "unitText": "YEAR"
         }
       },
@@ -364,7 +448,7 @@
       "titleByLocale": {
         "it": "Employe Collection Team Zürich",
         "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
+        "de": "Employee Collection Team Zürich",
         "fr": "Équipe de recouvrement des employés Zürich"
       },
       "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
@@ -420,8 +504,9 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.951Z",
+      "crawledAt": "2026-07-10T22:27:14.137Z",
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -435,85 +520,6 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-9238ccb59915",
-      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "de": "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
-        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-      "titleByLocale": {
-        "it": "Risk Manager - Asset Liability Management (ALM) e Liquidity Risk",
-        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-        "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko",
-        "fr": "Gestionnaire du risque - Gestion de la responsabilité en matière d'actifs (GAP) et risque de liquidité"
-      },
-      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Il candidato selezionato sarà responsabile della gestione dei rischi relativi alla gestione delle responsabilità patrimoniali (ALM) e al rischio di liquidità, assicurando che l'azienda mantiene una solida posizione finanziaria e può navigare efficacemente le sfide del mercato. Responsabilità chiave:\n• Condurre analisi approfondita dei rischi legati al rischio ALM e liquidità, identificare potenziali vulnerabilità e sviluppare strategie di mitigazione\n• Monitorare la posizione di liquidità quotidiana dell'azienda, garantendo il rispetto dei requisiti normativi e interni in linea con il quadro di Basilea e l'ordinanza FINMA\n• Collabora con reparti di tesoreria e finanza per ottimizzare le pratiche di gestione della liquidità, comprese le previsioni del flusso di cassa, la gestione del buffer di liquidità e le strategie di finanziamento / piano di contingenza\n• Valutare e gestire l'esposizione dell'azienda al rischio di tasso di interesse nel libro bancario (IRRBB), sviluppando strategie per mitigare gli impatti negativi sui guadagni e sui capitali\n• Condurre test di stress di liquidità e analisi degli scenari per valutare l’impatto delle condizioni di mercato avverse sulla posizione di liquidità dell’azienda\n• Preparare relazioni dettagliate e accurate sul rischio di liquidità e ALM per la gestione senior, Comitato, Regolatori, fornendo analisi chiare e raccomandazioni\n• Capacità di lavorare sotto pressione in un ambiente dinamico che fissa le priorità e soddisfa le scadenze minime\n• Competenze tecniche: Conoscenze avanzate di rischio ALM e liquidità, strumenti di gestione del rischio dei tassi di interesse e metodologie, tra cui analisi degli scenari e test di stress\n• Competenze analitiche: eccellenti capacità analitiche e attenzione ai dettagli, con la capacità di interpretare e sintetizzare grandi volumi di dati complessi utilizzando conoscenze di programmazione (Phyton, R, SQL)\n• Competenze di comunicazione: Forte capacità di comunicazione scritta e verbale, con la capacità di presentare le informazioni tecniche chiaramente e concisamente agli stakeholder non tecnici\n• Esperienza: Almeno 3 anni di esperienza nella gestione del rischio, con particolare attenzione al rischio di liquidità ALM o al reparto tesoreria\n• Lingue: Italiano / Inglese competenze native / Francese / Tedesco è un plus\n• La certificazione professionale nella gestione del rischio (ad esempio, FRM, PRM) è un plus\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
-        "de": "Der ausgewählte Kandidat ist für das Management von Risiken im Zusammenhang mit Asset Liability Management (ALM) und Liquiditätsrisiken verantwortlich und stellt sicher, dass das Unternehmen eine solide Finanzposition beibehält und die Herausforderungen des Marktes effektiv meistern kann. Wichtigste Aufgaben:\n• Durchführung einer eingehenden Analyse der Risiken im Zusammenhang mit ALM und Liquiditätsrisiken, Ermittlung potenzieller Schwachstellen und Entwicklung von Minderungsstrategien\n• Überwachung der täglichen Liquiditätslage des Unternehmens und Gewährleistung der Einhaltung regulatorischer und interner Anforderungen in Übereinstimmung mit dem Basler Rahmenwerk und der FINMA-Verordnung\n• Zusammenarbeit mit Finanz- und Finanzabteilungen zur Optimierung der Liquiditätsmanagementpraktiken, einschließlich Cashflow-Prognose, Liquiditätspuffermanagement und Finanzierungsstrategien / Notfallplan\n• Bewertung und Steuerung des Zinsrisikos des Unternehmens im Bankbuch (IRRBB) und Entwicklung von Strategien zur Minderung nachteiliger Auswirkungen auf Ertrag und Kapital\n• Durchführung von Liquiditätsstresstests und Szenarioanalysen zur Bewertung der Auswirkungen ungünstiger Marktbedingungen auf die Liquiditätslage des Unternehmens\n• Bereiten Sie detaillierte und genaue Berichte über Liquiditätsrisiken und ALM für die Geschäftsleitung, den Ausschuss und die Regulierungsbehörden vor und geben Sie klare Analysen und Empfehlungen\n• Fähigkeit, unter Druck in einem dynamischen Umfeld zu arbeiten, Prioritäten zu setzen und kleine Fristen einzuhalten\n• Technische Fähigkeiten: Fortgeschrittene Kenntnisse über ALM und Liquiditätsrisiken, Instrumente und Methoden für das Zinsrisikomanagement, einschließlich Szenarioanalyse und Stresstests\n• Analytische Fähigkeiten: Ausgezeichnete analytische Fähigkeiten und Liebe zum Detail, mit der Fähigkeit, große Mengen komplexer Daten mit Programmierkenntnissen zu interpretieren und zu synthetisieren (Phyton, R, SQL)\n• Kommunikationsfähigkeiten: Starke schriftliche und mündliche Kommunikationsfähigkeiten, mit der Fähigkeit, technische Informationen klar und prägnant für nicht-technische Stakeholder zu präsentieren\n• Erfahrung: Mindestens 3 Jahre Erfahrung im Risikomanagement, mit besonderem Fokus auf ALM/Liquiditätsrisiko oder Treasury\n• Sprachen: Italienisch / Englisch Muttersprachler / Französisch / Deutsch ist ein Plus\n• Professionelle Zertifizierung im Risikomanagement (z.B. FRM, PRM) ist ein Plus\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Le candidat sélectionné sera responsable de la gestion des risques liés à la gestion des actifs et du risque de liquidité, en veillant à ce que l'entreprise conserve une position financière solide et puisse relever efficacement les défis du marché. Principales responsabilités :\n• Effectuer une analyse approfondie des risques liés à la gestion des terres et au risque de liquidité, identifier les vulnérabilités potentielles et élaborer des stratégies d ' atténuation\n• Surveiller la position de liquidité quotidienne de l'entreprise, en veillant au respect des exigences réglementaires et internes conformément au cadre de Bâle et à l'ordonnance FINMA\n• Collaborer avec les départements de la trésorerie et des finances pour optimiser les pratiques de gestion de la liquidité, y compris la prévision des flux de trésorerie, la gestion des coussins de liquidité et les stratégies de financement/plan d'urgence\n• Évaluer et gérer l'exposition de l'entreprise au risque de taux d'intérêt dans le portefeuille bancaire (IRRBB), en élaborant des stratégies pour atténuer les effets négatifs sur les bénéfices et le capital\n• Effectuer des tests de contraintes de liquidité et des analyses de scénarios pour évaluer l'impact des conditions défavorables du marché sur la position de liquidité de la société\n• Préparer des rapports détaillés et précis sur le risque de liquidité et la GPA à l'intention de la haute direction, du comité et des régulateurs, en fournissant une analyse claire et des recommandations\n• Capacité de travailler sous pression dans un environnement dynamique fixant des priorités et respectant des échéances infimes\n• Compétences techniques: Connaissance avancée du risque de GPA et de liquidité, outils et méthodologies de gestion du risque de taux d'intérêt, y compris l'analyse de scénarios et les tests de stress\n• Compétences analytiques : Excellentes compétences analytiques et attention aux détails, avec la capacité d'interpréter et de synthétiser de grands volumes de données complexes utilisant les connaissances en programmation (Phyton, R, SQL)\n• Compétences en communication : Fortes compétences en communication écrite et verbale, avec la capacité de présenter l'information technique de façon claire et concise aux intervenants non techniques\n• Expérience: Au moins 3 ans d'expérience en gestion des risques, en particulier en matière de gestion des risques/risque de liquidité ou de trésorerie\n• Langues: Italien / Anglais compétence native / Français / Allemand est un plus\n• La certification professionnelle en gestion des risques (p. ex. FRM, PRM) est un plus\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
-        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
-        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
-        "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
-        "Languages: Italian / English native proficiency / French / German is a plus",
-        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.951Z",
-      "firstSeenAt": "2026-07-08T22:13:15.985Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH"
     },
@@ -579,8 +585,9 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.950Z",
+      "crawledAt": "2026-07-10T22:27:14.136Z",
       "firstSeenAt": "2026-07-08T22:13:15.984Z",
+      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "baseSalary": {
@@ -614,7 +621,7 @@
         "it": "Collezione dei dipendenti",
         "en": "Employee Front Office Collection",
         "de": "Mitarbeiter Front Office Collection",
-        "fr": "Collecte auprès des employés"
+        "fr": "Employee Front Office Collection"
       },
       "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
       "descriptionByLocale": {
@@ -658,7 +665,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.950Z",
+      "crawledAt": "2026-07-10T22:27:14.136Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "collezione-dei-dipendenti-corner-banca-wallisellen"
@@ -673,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.984Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -755,8 +763,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.949Z",
+      "crawledAt": "2026-07-10T22:27:14.135Z",
       "firstSeenAt": "2026-07-08T22:13:15.983Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -837,7 +846,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.948Z",
+      "crawledAt": "2026-07-10T22:27:14.134Z",
       "previousSlugs": [
         "legal-collection-case-manager-corner-banca-wallisellen",
         "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
@@ -852,6 +861,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.982Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -930,8 +940,9 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.947Z",
+      "crawledAt": "2026-07-10T22:27:14.133Z",
       "firstSeenAt": "2026-07-08T22:13:15.981Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -953,7 +964,7 @@
       "slug": "customer-analytics-officer-corner-banca-wallisellen",
       "slugByLocale": {
         "it": "customer-analytics-officer-corner-banca-wallisellen",
-        "en": "customer-analytics-officer-corner-banca-lugano",
+        "en": "customer-analytics-officer-corner-banca-wallisellen",
         "de": "customer-analytics-officer-corner-banca-wallisellen",
         "fr": "specialiste-de-l-analyse-des-clients-corner-banca-wallisellen"
       },
@@ -1022,8 +1033,17 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.945Z",
+      "crawledAt": "2026-07-10T22:27:14.131Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "customer-analytics-officer-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "customer-analytics-officer-corner-banca-lugano"
+      ],
       "firstSeenAt": "2026-07-08T22:13:15.980Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "baseSalary": {
@@ -1038,15 +1058,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "en": [
-          "customer-analytics-officer-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "customer-analytics-officer-corner-banca-lugano"
-      ]
+      "country": "CH"
     },
     {
       "id": "corner-banca-31e07dd63549",
@@ -1124,7 +1136,7 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.944Z",
+      "crawledAt": "2026-07-10T22:27:14.130Z",
       "previousSlugs": [
         "marketing-project-manager-corner-banca-lugano",
         "responsabile-del-progetto-di-marketing-corner-banca-lugano"
@@ -1142,6 +1154,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.977Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1224,8 +1237,9 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.937Z",
+      "crawledAt": "2026-07-10T22:27:14.126Z",
       "firstSeenAt": "2026-07-08T22:13:15.975Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -1308,8 +1322,9 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.936Z",
+      "crawledAt": "2026-07-10T22:27:14.121Z",
       "firstSeenAt": "2026-07-08T22:13:15.973Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -1378,7 +1393,7 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.934Z",
+      "crawledAt": "2026-07-10T22:27:14.120Z",
       "previousSlugs": [
         "sales-e-solutions-ecash-employee-corner-banca-lugano",
         "vendite-solutions-ecash-dipendente-corner-banca-lugano"
@@ -1393,6 +1408,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.971Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1479,7 +1495,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.933Z",
+      "crawledAt": "2026-07-10T22:27:14.115Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano",
         "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
@@ -1494,6 +1510,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.970Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1529,7 +1546,7 @@
         "it": "Gestione delle controversie dei lavoratori",
         "en": "Employee Consumer Dispute Management",
         "de": "Mitarbeiter Consumer Dispute Management",
-        "fr": "Gestion des litiges avec les consommateurs"
+        "fr": "Employee Consumer Dispute Management"
       },
       "description": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
       "descriptionByLocale": {
@@ -1573,7 +1590,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:00:27.932Z",
+      "crawledAt": "2026-07-10T22:27:14.113Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-corner-banca-wallisellen",
         "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
@@ -1588,6 +1605,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.968Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {

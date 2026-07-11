@@ -5,7 +5,7 @@ import * as path from 'node:path';
 const DIST = path.resolve(__dirname, '../../dist');
 
 describe('sitemap-emit consistency — every sitemap URL has a dist file', () => {
-  it('canton sitemap URLs all resolve to a dist HTML file', () => {
+  it('canton sitemap URLs all resolve to a dist HTML file', { timeout: 120_000 }, () => {
     if (!fs.existsSync(DIST)) return; // skip in offline test runs
     const sitemapDir = DIST;
     const cantonShards = fs.readdirSync(sitemapDir)

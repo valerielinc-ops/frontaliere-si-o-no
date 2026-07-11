@@ -4,7 +4,10 @@
  *
  * Source: https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere
  *
- * Pimcore CMS. Job listings are card items with:
+ * Pimcore CMS. The static careers page no longer embeds the job cards —
+ * they're loaded client-side via the "Alle" tab's AJAX endpoint
+ * (/de/career-tab?tab=1&team=), which returns JSON `{ html, success }`
+ * whose `html` field contains the actual listing markup:
  *   .card-item__body containing:
  *     .card-item__top-title  — department
  *     h3.card-item__title > a.stretch-link__link — job title + link
@@ -26,7 +29,9 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
 const BASE_URL = 'https://www.matterhornparadise.ch';
-const CAREERS_URL = 'https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere';
+// "Alle" tab of https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere —
+// returns every open job (Jobs + Lehrstellen) in one JSON payload.
+const CAREERS_TAB_URL = 'https://www.matterhornparadise.ch/de/career-tab?tab=1&team=';
 const HQ = getCompanyDefaults('zermatt-bergbahnen');
 
 export const ZERMATT_BERGBAHNEN_KEY = 'zermatt-bergbahnen';
@@ -77,6 +82,23 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 /* ── HTML Parsing ─────────────────────────────────────────── */
+
+/**
+ * Extract the listing markup from the "Alle" tab AJAX response.
+ * The endpoint returns JSON `{ html, success }`; if the response isn't
+ * JSON (site reverts to serving the fragment directly), fall back to
+ * treating the raw response as HTML.
+ */
+function extractListingHtml(raw = '') {
+  if (!raw) return '';
+  try {
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.html === 'string') return parsed.html;
+  } catch {
+    // Not JSON — assume it's already HTML.
+  }
+  return raw;
+}
 
 /**
  * Parse the Zermatt Bergbahnen careers listing page.
@@ -220,7 +242,7 @@ function inferEmploymentType(title = '', tags = []) {
  * Fetch all Zermatt Bergbahnen jobs. Returns ParsedJob[] (source locale only).
  */
 export async function fetchAllZermattBergbahnenJobs() {
-  console.log(`  Fetching Zermatt Bergbahnen jobs from ${CAREERS_URL}`);
+  console.log(`  Fetching Zermatt Bergbahnen jobs from ${CAREERS_TAB_URL}`);
 
   // SSL may have issues — set env var to allow self-signed certs
   const origTls = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
@@ -228,9 +250,10 @@ export async function fetchAllZermattBergbahnenJobs() {
 
   let html = '';
   try {
-    html = await fetchHtml(CAREERS_URL, { timeoutMs: 25000 });
+    const raw = await fetchHtml(CAREERS_TAB_URL, { timeoutMs: 25000 });
+    html = extractListingHtml(raw);
   } catch (err) {
-    console.warn(`  Failed to fetch ${CAREERS_URL}: ${err.message}`);
+    console.warn(`  Failed to fetch ${CAREERS_TAB_URL}: ${err.message}`);
     return [];
   } finally {
     // Restore original TLS setting

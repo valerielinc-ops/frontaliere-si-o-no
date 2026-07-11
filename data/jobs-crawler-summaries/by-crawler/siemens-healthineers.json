@@ -1,16 +1,16 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-07-10T12:22:13.402Z",
+  "generatedAt": "2026-07-10T22:22:07.880Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7049,
-  "avgDurationMs": 7049,
+  "durationMs": 7040,
+  "avgDurationMs": 7040,
   "durationHistory": [
-    7049
+    7040
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-System-Quality-Engineer_R-27475-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:22:08.512Z",
+      "crawledAt": "2026-07-10T22:22:03.113Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:22:09.471Z",
+      "crawledAt": "2026-07-10T22:22:03.983Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/PAO-H/Sr-Manager--Process-Engineering_R-27995",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T12:22:10.317Z",
+      "crawledAt": "2026-07-10T22:22:04.838Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
   "unchangedJobs": [
     {
       "id": "siemens-healthineers-50bb33ddba45",
-      "slug": "network-engineer-cloud-operations-siemens-healthineers-ch",
+      "slug": "network-ingegnere-cloud-operations-siemens-healthineers-zurich",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -158,7 +158,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "firstSeenAt": "2026-07-08T22:12:21.504Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -169,7 +169,7 @@
     },
     {
       "id": "siemens-healthineers-a24e9f9d057e",
-      "slug": "senior-scientific-software-engineer-siemens-healthineers-ch",
+      "slug": "senior-scientific-software-ingegnere-siemens-healthineers-dwl-t",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -197,7 +197,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "firstSeenAt": "2026-07-08T22:12:19.917Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
