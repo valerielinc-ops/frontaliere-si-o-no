@@ -4418,6 +4418,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pizza-price-italy-implications': { name: 'Prezzi pizza Italia', path: '/articoli-frontaliere/pizza-price-italy-implications', parent: 'blog' },
     'blog-lavorare-fisioterapista-ticino-frontalieri-requisiti': { name: 'Requisiti e procedure per fisioterapisti', path: '/articoli-frontaliere/lavorare-fisioterapista-ticino-frontalieri-requisiti', parent: 'blog' },
     'blog-offerte-fielmann-svizzera': { name: 'Offerte Fielmann', path: '/articoli-svizzera/offerte-fielmann-svizzera/', parent: 'blog' },
+    'blog-traffico-dogana-ponte-tresa-guida': { name: 'Dogana Ponte Tresa', path: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida', parent: 'blog' },
  };
 
  const info = sectionNames[section];

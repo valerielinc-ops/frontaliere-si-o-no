@@ -47067,6 +47067,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-dogana-ponte-tresa-guida': {
+    title: 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
+    description: 'Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, ponte, tresa, orari',
+    ogTitle: 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
+    ogDescription: 'Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code.',
+    canonicalPath: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogana Ponte Tresa: orari, attese e consigli per frontalieri",
+      "description": "Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-dogana-ponte-tresa-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico al valico di Ponte Tresa"
+      },
+      "datePublished": "2026-07-11T05:15:02+00:00",
+      "dateModified": "2026-07-11T05:15:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-dogana-ponte-tresa-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

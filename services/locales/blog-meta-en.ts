@@ -8323,6 +8323,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Physiotherapist in Ticino: Diploma Recognition, Requirements, and Procedures',
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'The requirements to work as a physiotherapist in Ticino, for border workers, are described below.',
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'View of Lugano with surrounding hills.',
+    'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Customs Ponte Tresa: timetables, waits and advice for border guards',
+    'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Practical guide to the Ponte Tresa crossing: critical time slots, management of controls and documents necessary for border workers in transit.',
+    'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Traffic at Ponte Tresa border crossing',
 };
 
 export default blogMetaEn;
