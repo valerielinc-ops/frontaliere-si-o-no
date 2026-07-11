@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-07-11T11:00:53.432Z",
+  "assembledAt": "2026-07-11T22:07:59.690Z",
   "jobs": [
     {
       "id": "gkb-9e2b39176c23",
@@ -17,7 +17,7 @@
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
         "it": "Responsabile Controllo e Governance IT (100%)",
-        "en": "IT Controlling and Governance Manager (100%)",
+        "en": "IT-Controlling und Governance Manager (100%)",
         "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "Gestionnaire du contrôle et de la gouvernance de la TI (100%)"
       },
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:50.772Z",
+      "crawledAt": "2026-07-11T22:07:57.371Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -73,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -118,7 +119,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:49.918Z",
+      "crawledAt": "2026-07-11T22:07:56.516Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -202,7 +203,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:49.171Z",
+      "crawledAt": "2026-07-11T22:07:55.484Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -288,7 +289,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1940/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:48.442Z",
+      "crawledAt": "2026-07-11T22:07:54.443Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -308,26 +309,26 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur"
-        ],
-        "it": [
-          "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
-          "senior-product-manager-in-finance-60-100-graubundner-kantonalbank-chur"
-        ],
-        "fr": [
-          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
-        ],
-        "en": [
-          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
-        ]
-      },
       "previousSlugs": [
         "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
         "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur",
         "senior-product-manager-in-finance-60-100-graubundner-kantonalbank-chur"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
+          "senior-product-manager-in-finance-60-100-graubundner-kantonalbank-chur"
+        ],
+        "en": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        ],
+        "de": [
+          "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur"
+        ],
+        "fr": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-11T12:41:08.360Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -374,7 +375,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1944/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:47.689Z",
+      "crawledAt": "2026-07-11T22:07:53.421Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -458,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:47.025Z",
+      "crawledAt": "2026-07-11T22:07:52.391Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -481,15 +482,19 @@
       "previousSlugsByLocale": {
         "de": [
           "immobilienbewirtschafter-in-100-graubundner-kantonalbank-chur",
-          "immobilienbewirtschafter-in-100-gkb-ch"
+          "immobilienbewirtschafter-in-100-gkb-ch",
+          "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf"
         ],
         "it": [
-          "immobilienbewirtschafter-in-100-gkb-ch"
+          "immobilienbewirtschafter-in-100-gkb-ch",
+          "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-in-100-graubundner-kantonalbank-chur",
-        "immobilienbewirtschafter-in-100-gkb-ch"
+        "immobilienbewirtschafter-in-100-gkb-ch",
+        "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-06-15T14:43:08.034Z",
       "salaryMin": 79000,
@@ -537,7 +542,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:46.362Z",
+      "crawledAt": "2026-07-11T22:07:51.508Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -624,7 +629,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:45.616Z",
+      "crawledAt": "2026-07-11T22:07:50.623Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -660,6 +665,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -705,7 +711,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:44.964Z",
+      "crawledAt": "2026-07-11T22:07:49.771Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -726,17 +732,21 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
-        "it": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
-        ],
         "de": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+          "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal"
+        ],
+        "it": [
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+          "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
-      "firstSeenAt": "2026-07-09T22:31:04.939Z",
       "previousSlugs": [
-        "fachleiter-in-client-lifecycle-management-80-100-gkb-ch"
+        "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
+        "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+        "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
       ],
+      "firstSeenAt": "2026-07-09T22:31:04.939Z",
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -782,7 +792,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T11:00:44.192Z",
+      "crawledAt": "2026-07-11T22:07:48.734Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -816,6 +826,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
