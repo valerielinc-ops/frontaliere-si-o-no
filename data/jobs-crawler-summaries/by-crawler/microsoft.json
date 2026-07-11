@@ -1,18 +1,19 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-10T22:15:25.348Z",
+  "generatedAt": "2026-07-11T10:26:18.802Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9183,
-  "avgDurationMs": 9183,
+  "durationMs": 8902,
+  "avgDurationMs": 8902,
   "durationHistory": [
-    9183
+    8902
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200042696",
       "slug": "commercial-skilling-manager-microsoft-zurich",
@@ -25,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556926129",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:15:23.133Z",
+      "crawledAt": "2026-07-11T10:26:17.047Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -39,16 +40,15 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556926129",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-10T22:15:23.133Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "microsoft-200042292",
       "slug": "data-center-project-manager-microsoft-geneva",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:15:23.136Z",
+      "crawledAt": "2026-07-11T10:26:17.049Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "salaryMax": 94000,
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
