@@ -8336,6 +8336,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Cucinier en restauration italienne en Frontière: salaire, horaires et CCL du secteur',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Salaire, horaires, CCT de secteur et permis G pour les cuisiniers frontaliers de la restauration tessinoise.',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'Un cuisinier frontalier dans un restaurant de Lugano, avec vue sur le lac.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'L\'assurance vie privée suisse convient-elle aux frontaliers ?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'La frontière tessinoise doit connaître les avantages et les inconvénients de l\'assurance vie privée suisse.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'Un frontaliere qui est dans une situation similaire pourrait chercher à comprendre comment fonctionne l\'assurance vie privée suisse.',
 };
 
 export default blogMetaFr;

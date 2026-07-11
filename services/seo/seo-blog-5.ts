@@ -47223,6 +47223,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-vita-privata-svizzera-convienne-frontalieri': {
+    title: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    description: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, vita, privata, conviene',
+    ogTitle: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    ogDescription: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera.',
+    canonicalPath: '/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'assicurazione vita privata svizzera conviene ai frontaliere?",
+      "description": "La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-vita-privata-svizzera-convienne-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che si trova in una situazione simile potrebbe cercare di capire come funziona l'assicurazione vita privata svizzera."
+      },
+      "datePublished": "2026-07-11T07:39:43+00:00",
+      "dateModified": "2026-07-11T07:39:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
