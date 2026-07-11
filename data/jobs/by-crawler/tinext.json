@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tinext",
-  "assembledAt": "2026-07-10T22:28:21.699Z",
+  "assembledAt": "2026-07-11T11:10:49.850Z",
   "jobs": [
     {
       "title": "Security & Network Engineer",
@@ -61,12 +61,12 @@
       "postalCode": "6500",
       "firstSeenAt": "2026-04-28T11:44:39.710Z",
       "previousSlugsByLocale": {
+        "it": [
+          "security-network-engineer-tinext-lugano-secnetsys"
+        ],
         "fr": [
           "security-network-engineer-tinext-lugano-secnetsys",
           "security-network-ingenieur-tinext-sa-morbio"
-        ],
-        "it": [
-          "security-network-engineer-tinext-lugano-secnetsys"
         ],
         "de": [
           "security-network-engineer-tinext-lugano-secnetsys"
@@ -141,7 +141,8 @@
       },
       "previousSlugs": [
         "pouvoir-executif-tinext-sa-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
