@@ -25145,6 +25145,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontalieri-busta-paga-svizzera-2026',
+ category: 'pratico',
+ date: '2026-07-11T20:13:41.734Z',
+ image: '/images/blog/frontalieri-busta-paga-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
