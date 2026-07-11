@@ -8389,6 +8389,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Equivalence of Italian qualifications in Switzerland: what to do',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Italian qualifications are equivalent in Switzerland, but there are procedures to follow to obtain recognition',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Yes to the thirteenth AHV: cross-border commuters\' pension with double allowance',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'Switzerland has approved the measure that could benefit retired cross-border commuters.',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier in Ticino',
 };
 
 export default blogMetaEn;

@@ -8388,6 +8388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Gleichwertigkeit italienischer Bildungsabschluss in der Schweiz: was zu tun ist',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'Italienische Studienabschlüsse sind in der Schweiz gleichwertig, aber es gibt Verfahren, die befolgt werden müssen, um die Anerkennung zu erhalten',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Ja zum dreizehnten AVS: Rente für Grenzgänger mit Doppelzulage',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'Die Schweiz hat die Maßnahme genehmigt, die pensionierten grenzüberschreitenden Pendlern zugutekommen könnte.',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier in Tessin',
 };
 
 export default blogMetaDe;

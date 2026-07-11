@@ -47925,6 +47925,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sia-tredicesima-avs-guadagnarci-due-volte': {
+    title: 'Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità',
+    description: 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alla, tredicesima, pensione, doppia',
+    ogTitle: 'Sì alla tredicesima AVS: i frontalieri in pensione potrebbero guadagnarci due volte',
+    ogDescription: 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione.',
+    canonicalPath: '/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità",
+      "description": "La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sia-tredicesima-avs-guadagnarci-due-volte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino"
+      },
+      "datePublished": "2026-07-11T23:36:34+00:00",
+      "dateModified": "2026-07-11T23:36:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

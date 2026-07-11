@@ -8390,6 +8390,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.title': 'Equipollenza titolo di studio italiano in Svizzera: cosa fare',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.excerpt': 'I titoli di studio italiani sono equipollenti in Svizzera, ma ci sono procedure da seguire per ottenere il riconoscimento',
     'blog.article.equipollenza-titolo-studio-italiano-svizzera-frontaliere.imageAlt': 'Frontalieri in attesa di varcare il confine italo-svizzero',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione.',
+    'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaIt;
