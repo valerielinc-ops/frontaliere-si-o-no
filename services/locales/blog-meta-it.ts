@@ -8351,6 +8351,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-lavori-gallarate-luglio.title': 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
     'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti S50 tra Ticino e Malpensa. Ecco come viaggiare tra l\'11 e il 13 luglio.',
     'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Treno Tilo in transito in una stazione del Canton Ticino',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Tendenze del mercato immobiliare in Ticino, prezzi medi per zona, differenze tra affitto e acquisto',
+    'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Mercato immobiliare a Locarno, Ticino',
 };
 
 export default blogMetaIt;
