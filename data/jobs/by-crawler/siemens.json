@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-07-10T22:05:24.187Z",
+  "assembledAt": "2026-07-11T10:23:21.269Z",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -33,7 +33,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:05:21.322Z",
+      "crawledAt": "2026-07-11T10:23:19.175Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diploma-thesis-siemens-schweiz-siemens-zug"
+        "diploma-thesis-siemens-schweiz-siemens-zug",
+        "tesi-di-laurea-siemens-schweiz-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diploma-thesis-siemens-schweiz-siemens-zug"
+          "diploma-thesis-siemens-schweiz-siemens-zug",
+          "tesi-di-laurea-siemens-schweiz-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:56.475Z",
@@ -106,7 +108,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511948",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:05:15.561Z",
+      "crawledAt": "2026-07-11T10:23:14.211Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -127,11 +129,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan"
+        "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan",
+        "tecnico-senior-di-controllo-accessi-80-100-f-m-d-siemens-plan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan"
+          "technicien-senior-en-controle-d-acces-80-100-f-h-d-siemens-plan",
+          "tecnico-senior-di-controllo-accessi-80-100-f-m-d-siemens-plan"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:47.545Z",
@@ -179,7 +183,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501565",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:05:06.612Z",
+      "crawledAt": "2026-07-11T10:23:07.417Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -200,11 +204,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens",
+        "project-manager-quadro-elettrico-a-bassa-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens"
+          "chef-de-projet-tableau-electrique-dans-la-basse-tension-80-100-f-h-d-siemens-renens",
+          "project-manager-quadro-elettrico-a-bassa-tensione-80-100-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:38.468Z",
@@ -219,7 +225,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-f5aff5ab3357",
@@ -252,7 +259,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/495789",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:05:03.685Z",
+      "crawledAt": "2026-07-11T10:23:05.051Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -281,6 +288,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:36.245Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -325,7 +333,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501581",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:05:00.965Z",
+      "crawledAt": "2026-07-11T10:23:02.864Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -346,11 +354,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens",
+        "project-manager-rotaie-di-alimentazione-a-bassa-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens"
+          "chef-de-projet-rails-d-energie-basse-tension-80-100-f-h-d-siemens-renens",
+          "project-manager-rotaie-di-alimentazione-a-bassa-tensione-80-100-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:34.110Z",
@@ -365,7 +375,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-a3eb7b804682",
@@ -398,7 +409,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502608",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:58.381Z",
+      "crawledAt": "2026-07-11T10:23:00.481Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -419,14 +430,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-test-engineer-in-building-technologies-80-100-siemens-zug"
+        "system-test-engineer-in-building-technologies-80-100-siemens-zug",
+        "ingegnere-di-test-di-sistema-nelle-tecnologie-edilizie-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-test-engineer-in-building-technologies-80-100-siemens-zug"
+          "system-test-engineer-in-building-technologies-80-100-siemens-zug",
+          "ingegnere-di-test-di-sistema-nelle-tecnologie-edilizie-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:31.940Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -471,7 +485,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/496729",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:55.714Z",
+      "crawledAt": "2026-07-11T10:22:58.150Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -492,14 +506,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-in-mittelspannung-80-100-siemens-zuerich"
+        "ingenieur-in-mittelspannung-80-100-siemens-zuerich",
+        "ingegnere-medio-tensione-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-in-mittelspannung-80-100-siemens-zuerich"
+          "ingenieur-in-mittelspannung-80-100-siemens-zuerich",
+          "ingegnere-medio-tensione-80-100-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:29.615Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -544,7 +561,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502611",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:52.910Z",
+      "crawledAt": "2026-07-11T10:22:55.655Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -565,11 +582,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug"
+        "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug",
+        "ingegnere-del-software-per-il-sistema-antincendio-iot-di-nuova-generazione-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug"
+          "software-engineer-for-next-generation-iot-fire-system-80-100-siemens-zug",
+          "ingegnere-del-software-per-il-sistema-antincendio-iot-di-nuova-generazione-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:27.441Z",
@@ -584,7 +603,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-d194227e116d",
@@ -617,7 +637,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502805",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:50.339Z",
+      "crawledAt": "2026-07-11T10:22:53.293Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -638,11 +658,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich"
+        "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich",
+        "disegnatore-elettrico-media-tensione-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich"
+          "elektrozeichner-in-mittelspannung-80-100-siemens-zuerich",
+          "disegnatore-elettrico-media-tensione-80-100-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:25.131Z",
@@ -690,7 +712,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:47.694Z",
+      "crawledAt": "2026-07-11T10:22:51.075Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -711,11 +733,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-trainer-fire-safety-systems-80-100-siemens-zug"
+        "technical-trainer-fire-safety-systems-80-100-siemens-zug",
+        "sistemi-di-sicurezza-antincendio-per-trainer-tecnico-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-trainer-fire-safety-systems-80-100-siemens-zug"
+          "technical-trainer-fire-safety-systems-80-100-siemens-zug",
+          "sistemi-di-sicurezza-antincendio-per-trainer-tecnico-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:20.732Z",
@@ -763,7 +787,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505172",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:44.135Z",
+      "crawledAt": "2026-07-11T10:22:48.938Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -784,14 +808,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automation-robotics-systems-engineer-80-100-siemens-zug"
+        "automation-robotics-systems-engineer-80-100-siemens-zug",
+        "ingegnere-di-sistemi-di-automazione-e-robotica-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automation-robotics-systems-engineer-80-100-siemens-zug"
+          "automation-robotics-systems-engineer-80-100-siemens-zug",
+          "ingegnere-di-sistemi-di-automazione-e-robotica-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:18.632Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -836,7 +863,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505367",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:41.564Z",
+      "crawledAt": "2026-07-11T10:22:46.582Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -857,11 +884,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+          "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich"
         ],
         "en": [
           "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
@@ -915,7 +944,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:38.797Z",
+      "crawledAt": "2026-07-11T10:22:43.981Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -936,14 +965,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-ot-system-engineer-80-100-siemens-zug"
+        "it-ot-system-engineer-80-100-siemens-zug",
+        "ingegnere-di-sistema-it-ot-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-ot-system-engineer-80-100-siemens-zug"
+          "it-ot-system-engineer-80-100-siemens-zug",
+          "ingegnere-di-sistema-it-ot-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:14.096Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -988,7 +1020,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508461",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:36.396Z",
+      "crawledAt": "2026-07-11T10:22:41.515Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1009,11 +1041,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf"
+        "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf",
+        "ses-80-100-responsabile-di-progetto-sicurezza-dei-servizi-f-m-d-siemens-corminboeuf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf"
+          "responsable-de-projet-securite-service-au-ses-80-100-f-h-d-siemens-corminboeuf",
+          "ses-80-100-responsabile-di-progetto-sicurezza-dei-servizi-f-m-d-siemens-corminboeuf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:04.467Z",
@@ -1061,7 +1095,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508713",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:33.609Z",
+      "crawledAt": "2026-07-11T10:22:39.326Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1082,11 +1116,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+        "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
+        "tecnico-di-sistema-nei-sistemi-di-controllo-80-100-zurich-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
+          "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil",
+          "tecnico-di-sistema-nei-sistemi-di-controllo-80-100-zurich-siemens-volketswil"
         ],
         "en": [
           "systemtechniker-in-leitsysteme-80-100-zurich-siemens-volketswil"
@@ -1140,7 +1176,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509175",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:30.948Z",
+      "crawledAt": "2026-07-11T10:22:36.985Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -1219,7 +1255,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509377",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:28.313Z",
+      "crawledAt": "2026-07-11T10:22:34.695Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1284,7 +1320,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509387",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:25.658Z",
+      "crawledAt": "2026-07-11T10:22:32.266Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1305,17 +1341,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
+        "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich",
+        "supporto-alle-vendite-technischer-niederspannungsprodukte-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
+          "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich",
+          "supporto-alle-vendite-technischer-niederspannungsprodukte-80-100-siemens-zuerich"
         ],
         "en": [
           "technischer-sales-support-niederspannungsprodukte-80-100-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:55.408Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1360,7 +1399,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509879",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:22.944Z",
+      "crawledAt": "2026-07-11T10:22:29.867Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1381,11 +1420,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens"
+        "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens",
+        "ingegnere-vendite-automazione-edilizia-mcr-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens"
+          "ingenieur-commercial-automatisme-du-batiment-mcr-80-100-f-h-d-siemens-renens",
+          "ingegnere-vendite-automazione-edilizia-mcr-80-100-f-m-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:53.136Z",
@@ -1433,7 +1474,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509164",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:20.073Z",
+      "crawledAt": "2026-07-11T10:22:27.534Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1454,14 +1495,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich"
+        "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich",
+        "teamleiter-nelle-vendite-tecniche-portfolio-gruppe-automation-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich"
+          "teamleiter-in-technical-sales-portfolio-gruppe-automation-80-100-siemens-zuerich",
+          "teamleiter-nelle-vendite-tecniche-portfolio-gruppe-automation-80-100-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:48.702Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1506,7 +1550,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508738",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:17.459Z",
+      "crawledAt": "2026-07-11T10:22:25.412Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1527,11 +1571,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug"
+        "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug",
+        "assistente-infrastruttura-del-laboratorio-di-esame-studente-lavoratore-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug"
+          "test-lab-infrastructure-assistant-working-student-40-60-siemens-zug",
+          "assistente-infrastruttura-del-laboratorio-di-esame-studente-lavoratore-40-60-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:42.095Z",
@@ -1579,7 +1625,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510207",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:14.812Z",
+      "crawledAt": "2026-07-11T10:22:23.066Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1600,11 +1646,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens"
+        "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens",
+        "ingegnere-commerciale-sft-80-100-rilevamento-incendi-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens"
+          "ingenieur-de-vente-detection-incendie-sft-80-100-f-h-d-siemens-renens",
+          "ingegnere-commerciale-sft-80-100-rilevamento-incendi-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:39.757Z",
@@ -1652,7 +1700,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510486",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:12.172Z",
+      "crawledAt": "2026-07-11T10:22:20.509Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1673,14 +1721,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug"
+        "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug",
+        "senior-release-manager-dispositivi-iot-sul-campo-per-l-automazione-edilizia-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug"
+          "senior-release-manager-iot-field-devices-for-the-building-automation-80-100-siemens-zug",
+          "senior-release-manager-dispositivi-iot-sul-campo-per-l-automazione-edilizia-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:35.193Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1725,7 +1776,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497748",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:04:09.442Z",
+      "crawledAt": "2026-07-11T10:22:18.037Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1746,14 +1797,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug"
+        "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug",
+        "product-manager-strategia-api-e-interoperabilita-della-piattaforma-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug"
+          "product-manager-api-strategy-platform-interoperability-80-100-siemens-zug",
+          "product-manager-strategia-api-e-interoperabilita-della-piattaforma-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:30.785Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1798,7 +1852,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510769",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:06.697Z",
+      "crawledAt": "2026-07-11T10:22:15.501Z",
       "addressLocality": "Lucerne",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1819,14 +1873,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne"
+        "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne",
+        "project-manager-sistemi-di-sicurezza-80-100-siemens-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne"
+          "projektleiter-in-sicherheitssysteme-80-100-siemens-lucerne",
+          "project-manager-sistemi-di-sicurezza-80-100-siemens-lucerne"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:28.414Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1871,7 +1928,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510962",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:03.981Z",
+      "crawledAt": "2026-07-11T10:22:12.902Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1892,11 +1949,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+          "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil"
         ],
         "en": [
           "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
@@ -1950,7 +2009,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509065",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:04:01.149Z",
+      "crawledAt": "2026-07-11T10:22:10.596Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1971,11 +2030,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-projekte-building-security-80-100-siemens-volketswil"
+        "teamleiter-in-projekte-building-security-80-100-siemens-volketswil",
+        "progetti-di-team-leader-building-security-80-100-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-projekte-building-security-80-100-siemens-volketswil"
+          "teamleiter-in-projekte-building-security-80-100-siemens-volketswil",
+          "progetti-di-team-leader-building-security-80-100-siemens-volketswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:21.645Z",
@@ -2023,7 +2084,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510807",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:58.495Z",
+      "crawledAt": "2026-07-11T10:22:08.256Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2044,14 +2105,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-traffic-management-systems-80-100-siemens-bern"
+        "solution-engineer-traffic-management-systems-80-100-siemens-bern",
+        "solution-engineer-sistemi-di-gestione-del-traffico-80-100-siemens-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-engineer-traffic-management-systems-80-100-siemens-bern"
+          "solution-engineer-traffic-management-systems-80-100-siemens-bern",
+          "solution-engineer-sistemi-di-gestione-del-traffico-80-100-siemens-bern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:19.284Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2096,7 +2160,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511150",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:55.805Z",
+      "crawledAt": "2026-07-11T10:22:05.882Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2117,11 +2181,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug"
+        "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug",
+        "eccellenza-nella-gestione-del-prodotto-plm-lead-si-buildings-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug"
+          "product-management-excellence-plm-lead-si-buildings-80-100-siemens-zug",
+          "eccellenza-nella-gestione-del-prodotto-plm-lead-si-buildings-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:17.084Z",
@@ -2169,7 +2235,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511115",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:53.131Z",
+      "crawledAt": "2026-07-11T10:22:03.559Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2190,14 +2256,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pmc-project-quality-manager-siemens-wallisellen"
+        "pmc-project-quality-manager-siemens-wallisellen",
+        "pmc-e-responsabile-della-qualita-del-progetto-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pmc-project-quality-manager-siemens-wallisellen"
+          "pmc-project-quality-manager-siemens-wallisellen",
+          "pmc-e-responsabile-della-qualita-del-progetto-siemens-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:14.756Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2242,7 +2311,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511112",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:50.484Z",
+      "crawledAt": "2026-07-11T10:22:01.158Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2263,11 +2332,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich"
+        "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
+        "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich"
+          "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
+          "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:12.255Z",
@@ -2315,7 +2386,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511101",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:48.109Z",
+      "crawledAt": "2026-07-11T10:21:58.615Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2336,11 +2407,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens"
+        "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens",
+        "team-lead-capo-dipartimento-ingegneria-di-sistema-controllo-dei-treni-70-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens"
+          "teamlead-dienststellenleitung-system-engineering-zugsbeeinflussung-70-100-siemens",
+          "team-lead-capo-dipartimento-ingegneria-di-sistema-controllo-dei-treni-70-100-siemens-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:09.896Z",
@@ -2388,7 +2461,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497618",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:45.460Z",
+      "crawledAt": "2026-07-11T10:21:56.095Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2409,11 +2482,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+        "projektleitung-software-entwicklung-80-100-siemens-wallisellen",
+        "sviluppo-del-software-di-progettazione-80-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
+          "projektleitung-software-entwicklung-80-100-siemens-wallisellen",
+          "sviluppo-del-software-di-progettazione-80-100-siemens-wallisellen"
         ],
         "en": [
           "projektleitung-software-entwicklung-80-100-siemens-wallisellen"
@@ -2423,6 +2498,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:07.622Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2467,7 +2543,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/499867",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:42.735Z",
+      "crawledAt": "2026-07-11T10:21:53.697Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2488,6 +2564,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:51:05.174Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2532,7 +2609,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511324",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:40.113Z",
+      "crawledAt": "2026-07-11T10:21:51.357Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2553,11 +2630,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens"
+        "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens",
+        "ingegnere-vendite-bassa-corrente-installazione-knx-iot-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens"
+          "ingenieur-comercial-courant-faible-installation-knx-iot-80-100-f-h-d-siemens-renens",
+          "ingegnere-vendite-bassa-corrente-installazione-knx-iot-80-100-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:02.869Z",
@@ -2605,7 +2684,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511183",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:37.429Z",
+      "crawledAt": "2026-07-11T10:21:49.135Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2626,17 +2705,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-data-product-owner-80-100-siemens-zug"
+        "lead-data-product-owner-80-100-siemens-zug",
+        "titolare-del-prodotto-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-data-product-owner-80-100-siemens-zug"
+          "lead-data-product-owner-80-100-siemens-zug",
+          "titolare-del-prodotto-80-100-siemens-zug"
         ],
         "fr": [
           "lead-data-product-owner-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:58.507Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2681,7 +2763,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/491193",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:34.758Z",
+      "crawledAt": "2026-07-11T10:21:46.585Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2702,14 +2784,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-ot-infrastruktur-100-siemens-wallisellen"
+        "solution-engineer-ot-infrastruktur-100-siemens-wallisellen",
+        "ingegnere-soluzioni-ot-infrastruktur-100-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-engineer-ot-infrastruktur-100-siemens-wallisellen"
+          "solution-engineer-ot-infrastruktur-100-siemens-wallisellen",
+          "ingegnere-soluzioni-ot-infrastruktur-100-siemens-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:53.964Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2754,7 +2839,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510436",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:32.425Z",
+      "crawledAt": "2026-07-11T10:21:44.230Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2775,14 +2860,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens"
+        "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens",
+        "technical-account-manager-per-macchine-utensili-cnc-80-100-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens"
+          "technical-account-manager-pour-machines-outils-cnc-80-100-siemens-renens",
+          "technical-account-manager-per-macchine-utensili-cnc-80-100-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:51.094Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2827,7 +2915,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511958",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:29.819Z",
+      "crawledAt": "2026-07-11T10:21:41.816Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -2848,11 +2936,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion"
+        "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion",
+        "tecnico-del-servizio-di-rilevamento-incendi-80-100-f-m-d-siemens-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion"
+          "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-sion",
+          "tecnico-del-servizio-di-rilevamento-incendi-80-100-f-m-d-siemens-sion"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:48.953Z",
@@ -2900,7 +2990,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512016",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:27.088Z",
+      "crawledAt": "2026-07-11T10:21:39.508Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2921,14 +3011,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+        "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens",
+        "responsabile-del-progetto-a-media-tensione-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens"
+          "chef-de-projet-moyenne-tension-80-100-f-h-d-siemens-renens",
+          "responsabile-del-progetto-a-media-tensione-80-100-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:46.662Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2973,7 +3066,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511973",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:23.771Z",
+      "crawledAt": "2026-07-11T10:21:37.222Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2994,14 +3087,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens"
+        "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens",
+        "tecnico-dei-servizi-di-sicurezza-specializzato-in-videosorveglianza-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens"
+          "technicien-de-service-securite-specialiste-en-videosurveillance-80-100-f-h-d-siemens",
+          "tecnico-dei-servizi-di-sicurezza-specializzato-in-videosorveglianza-80-100-f-m-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:44.455Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3046,7 +3142,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511974",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:21.005Z",
+      "crawledAt": "2026-07-11T10:21:34.698Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3067,14 +3163,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens"
+        "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens",
+        "responsabile-progetto-commerciale-fin-supporto-ops-80-100-f-h-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens"
+          "commercial-project-manager-fin-ops-support-80-100-f-h-d-siemens-renens",
+          "responsabile-progetto-commerciale-fin-supporto-ops-80-100-f-h-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:42.129Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3119,7 +3218,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511788",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:18.274Z",
+      "crawledAt": "2026-07-11T10:21:32.039Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3140,11 +3239,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug"
+        "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug",
+        "studente-lavoratore-scrittura-tecnica-tecnologia-edilizia-data-center-40-60-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug"
+          "werkstudent-in-technische-redaktion-gebaudetechnik-rechenzentren-40-60-siemens-zug",
+          "studente-lavoratore-scrittura-tecnica-tecnologia-edilizia-data-center-40-60-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:39.858Z",
@@ -3192,7 +3293,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:15.355Z",
+      "crawledAt": "2026-07-11T10:21:29.527Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3213,11 +3314,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-specification-prescription-lead-80-100-siemens-zug"
+        "global-specification-prescription-lead-80-100-siemens-zug",
+        "specifica-globale-e-lead-per-prescrizioni-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-specification-prescription-lead-80-100-siemens-zug"
+          "global-specification-prescription-lead-80-100-siemens-zug",
+          "specifica-globale-e-lead-per-prescrizioni-80-100-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:37.562Z",
@@ -3265,7 +3368,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502648",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:12.629Z",
+      "crawledAt": "2026-07-11T10:21:27.372Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3286,11 +3389,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+        "tecnica-di-protezione-e-controllo-dell-ingegnere-di-servizio-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+          "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+          "tecnica-di-protezione-e-controllo-dell-ingegnere-di-servizio-80-100-siemens-zuerich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:35.370Z",
@@ -3338,7 +3443,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508781",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:09.770Z",
+      "crawledAt": "2026-07-11T10:21:25.068Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3359,14 +3464,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-sales-support-professional-80-100-siemens-ostermundigen"
+        "technical-sales-support-professional-80-100-siemens-ostermundigen",
+        "professionista-tecnico-del-supporto-alle-vendite-80-100-siemens-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-sales-support-professional-80-100-siemens-ostermundigen"
+          "technical-sales-support-professional-80-100-siemens-ostermundigen",
+          "professionista-tecnico-del-supporto-alle-vendite-80-100-siemens-ostermundigen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:33.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3411,7 +3519,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508719",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:04.103Z",
+      "crawledAt": "2026-07-11T10:21:19.908Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3432,11 +3540,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach"
+        "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach",
+        "ingegnere-vendite-hvac-e-automazione-edilizia-80-100-siemens-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach"
+          "verkaufsingenieur-in-hlk-und-gebaudeautomation-80-100-siemens-reinach",
+          "ingegnere-vendite-hvac-e-automazione-edilizia-80-100-siemens-reinach"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:28.641Z",
@@ -3484,7 +3594,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:01.389Z",
+      "crawledAt": "2026-07-11T10:21:17.709Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -3505,14 +3615,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau"
+        "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau",
+        "impiegato-vendite-automazione-edilizia-hvac-80-100-siemens-gossau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau"
+          "sachbearbeiter-in-verkauf-innendienst-gebaudeautomation-hlk-80-100-siemens-gossau",
+          "impiegato-vendite-automazione-edilizia-hvac-80-100-siemens-gossau"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:26.475Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3557,7 +3670,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512480",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:58.516Z",
+      "crawledAt": "2026-07-11T10:21:15.364Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3579,11 +3692,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "systemtechniker-in-raumautomation-80-100-siemens-root"
+          "systemtechniker-in-raumautomation-80-100-siemens-root",
+          "systemtechniker-in-raumautomation-80-100-siemens-reinach"
         ],
         "it": [
           "systemtechniker-in-raumautomation-80-100-siemens-reinach",
-          "systemtechniker-in-raumautomation-80-100-siemens-root"
+          "systemtechniker-in-raumautomation-80-100-siemens-root",
+          "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach"
         ],
         "en": [
           "systemtechniker-in-raumautomation-80-100-siemens-reinach"
@@ -3595,7 +3710,8 @@
       "previousSlugs": [
         "systemtechniker-in-raumautomation-80-100-siemens-reinach",
         "systemtechniker-in-raumautomation-80-100-siemens-root",
-        "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-root"
+        "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-root",
+        "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach"
       ],
       "firstSeenAt": "2026-07-04T11:50:24.272Z",
       "salaryMin": 69500,
@@ -3642,7 +3758,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:02:55.709Z",
+      "crawledAt": "2026-07-11T10:21:12.749Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3663,11 +3779,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens"
+        "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens",
+        "ingegnere-di-progetto-hv-mv-protection-automation-80-100-f-m-d-siemens-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens"
+          "ingenieur-de-projet-protection-et-automatisation-ht-mt-80-100-f-h-d-siemens-renens",
+          "ingegnere-di-progetto-hv-mv-protection-automation-80-100-f-m-d-siemens-renens"
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:22.014Z",
@@ -3715,7 +3833,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512853",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:50.744Z",
+      "crawledAt": "2026-07-11T10:21:08.322Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3740,12 +3858,14 @@
         "systemtechniker-in-raumautomation-80-100-siemens-root",
         "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach",
         "system-technician-in-room-automation-80-100-siemens-reinach",
-        "technicien-systeme-dans-l-automatisation-des-locaux-80-100-siemens-reinach"
+        "technicien-systeme-dans-l-automatisation-des-locaux-80-100-siemens-reinach",
+        "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach-5c427d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach",
-          "systemtechniker-in-raumautomation-80-100-siemens-reinach"
+          "systemtechniker-in-raumautomation-80-100-siemens-reinach",
+          "tecnico-di-sistema-in-automazione-ambiente-80-100-siemens-reinach-5c427d"
         ],
         "en": [
           "system-technician-in-room-automation-80-100-siemens-reinach",
@@ -3801,7 +3921,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511652",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:48.022Z",
+      "crawledAt": "2026-07-11T10:21:05.712Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3822,11 +3942,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-line-release-manager-fire-safety-80-100-siemens-zug"
+        "product-line-release-manager-fire-safety-80-100-siemens-zug",
+        "linea-di-prodotto-gestione-di-rilascio-di-sicurezza-antincendio-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-line-release-manager-fire-safety-80-100-siemens-zug"
+          "product-line-release-manager-fire-safety-80-100-siemens-zug",
+          "linea-di-prodotto-gestione-di-rilascio-di-sicurezza-antincendio-80-100-siemens-zug"
         ],
         "de": [
           "product-line-release-manager-fire-safety-80-100-siemens-zug"
@@ -3880,7 +4002,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512924",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:44.787Z",
+      "crawledAt": "2026-07-11T10:21:03.424Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3901,6 +4023,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:12:17.936Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3945,7 +4068,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513042",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:41.001Z",
+      "crawledAt": "2026-07-11T10:21:01.039Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3966,11 +4089,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-service-verkauf-fokus-digitalisierung-80-100-siemens-ostermundigen"
+        "mitarbeiter-in-service-verkauf-fokus-digitalisierung-80-100-siemens-ostermundigen",
+        "collaboratore-trice-service-vendita-fokus-digitalisierung-80-100-siemens-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-service-verkauf-fokus-digitalisierung-80-100-siemens-ostermundigen"
+          "mitarbeiter-in-service-verkauf-fokus-digitalisierung-80-100-siemens-ostermundigen",
+          "collaboratore-trice-service-vendita-fokus-digitalisierung-80-100-siemens-ostermundigen"
         ],
         "en": [
           "mitarbeiter-in-service-verkauf-fokus-digitalisierung-80-100-siemens-ostermundigen"
@@ -4024,7 +4149,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513089",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:38.091Z",
+      "crawledAt": "2026-07-11T10:20:58.455Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4089,7 +4214,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508721",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:35.205Z",
+      "crawledAt": "2026-07-11T10:20:55.895Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4110,11 +4235,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-portfolio-manager-siemens-si-b-80-100-siemens-zug"
+        "strategic-portfolio-manager-siemens-si-b-80-100-siemens-zug",
+        "responsabile-portfolio-strategico-siemens-si-b-80-100-siemens-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-portfolio-manager-siemens-si-b-80-100-siemens-zug"
+          "strategic-portfolio-manager-siemens-si-b-80-100-siemens-zug",
+          "responsabile-portfolio-strategico-siemens-si-b-80-100-siemens-zug"
         ],
         "de": [
           "strategic-portfolio-manager-siemens-si-b-80-100-siemens-zug"
@@ -4168,7 +4295,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508564",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:32.272Z",
+      "crawledAt": "2026-07-11T10:20:53.332Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4189,6 +4316,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T11:57:52.209Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4206,9 +4334,9 @@
       "id": "siemens-15d37d67073a",
       "slug": "project-quality-coordinator-quality-manager-in-projects-siemens-wallisellen",
       "slugByLocale": {
-        "de": "project-quality-coordinator-quality-manager-in-projects-siemens-wallisellen",
         "it": "project-quality-coordinator-quality-manager-in-projects-siemens-wallisellen",
         "en": "project-quality-coordinator-quality-manager-in-projects-siemens-wallisellen",
+        "de": "project-quality-coordinator-quality-manager-in-projects-siemens-wallisellen",
         "fr": "project-qualite-coordinateur-qualite-manager-in-projects-siemens-wallisellen"
       },
       "company": "Siemens",
@@ -4216,16 +4344,16 @@
       "companyDomain": "siemens.com",
       "title": "Project Quality Coordinator / Quality Manager in Projects",
       "titleByLocale": {
-        "de": "Project Qualität Koordinator / Qualität Manager in Projects",
-        "en": "Project Quality Coordinator / Quality Manager in Projects",
         "it": "Project Quality Coordinatore / Quality Manager in Projects",
+        "en": "Project Quality Coordinator / Quality Manager in Projects",
+        "de": "Project Qualität Koordinator / Qualität Manager in Projects",
         "fr": "Project Qualité Coordinateur / Qualité Manager in Projects"
       },
       "description": "Create a better #TomorrowWithUs Willst du gemeinsam mit uns die Zukunft der Bahnwelt mitgestalten? Wir bei Siemens Mobility sind der führende Anbieter im Bereich der Mobilität und erweitern ständig unser innovatives Portfolio, das Schienenfahrzeuge, Bahnautomatisierung, Elektrifizierungslösungen, komplette Bahnsysteme und begleitende Dienstleistungen umfasst. Mit rund 750 Fachmitarbeitenden in der Schweiz und 39 600 Mitarbeitenden weltweit gestalten wir Mobilität mit Leidenschaft und sind unserer Zeit einen Schritt voraus. Du bist die treibende Kraft für Qualität und kontinuierliche Verbesserung in allen Projektphasen innerhalb unseres Bereichs der Projektabwicklung für Rail Infrastructure. Gleichzeitig schätzt du die Vielfalt des Projektgeschäfts und unterstützt bei Bedarf auch angrenzende Aufgaben in der Projektkoordination. Mit deiner Hands-on-Mentalität bringst du dich dort ein, wo das Projektteam Unterstützung benötigt, und entwickelst dich kontinuierlich in neue Themenfelder weiter. Dein neues Aufgabenfeld\n• Erstellung und Weiterentwicklung projektspezifischer Qualitätspläne, Definition von Qualitätszielen sowie Überwachung der Zielerreichung anhand relevanter KPIs\n• Sicherstellung der Einhaltung von Siemens-Qualitätsstandards, Branchenvorschriften und vertraglichen Anforderungen während des gesamten Projektlebenszyklus\n• Begleitung von Meilensteinprozessen, Moderation von Quality Gates sowie Durchführung von Root-Cause-Analysen und Umsetzung von Korrektur- und Vorbeugemassnahmen (CAPA)\n• Identifizierung qualitätsbezogener Risiken und Entwicklung geeigneter Massnahmen zur Risikominderung\n• Planung und Durchführung von Projektaudits, Assessments und Reviews sowie Aufbereitung und Kommunikation der Ergebnisse an Projektleitung, Management und Kunden\n• Enge Zusammenarbeit mit Projektmanagement-, Engineering-, Operations- und Supplier-Quality-Teams zur Sicherstellung des geforderten Qualitätsniveaus\n• Übernahme weiterer projektbezogener Koordinations- und Supportaufgaben im PMO-, Dokumentenmanagement-, Scheduling- oder Projektsteuerungsumfeld sowie aktive Mitgestaltung von Projekten über die klassische QMiP-Rolle hinaus Deine Talente und Erfahrungen\n• Höhere Ausbildung im Bereich Engineering, Qualitätsmanagement oder technische Berufslehre kombiniert mit einer relevanten Weiterbildung im Bereich Quality\n• Fundierte Erfahrung in der Projektplanung, -abwicklung und/oder Projektleitung zwingend erforderlich\n• Kenntnisse relevanter Normen (z. B. ISO 10005/10006) und QM-Methoden\n• Sehr gute organisatorische Fähigkeiten, selbständige Arbeitsweise, Durchsetzungsvermögen und die Fähigkeit, proaktiv Verbesserungen voranzutreiben\n• Interesse an übergreifenden Projektmanagement-Themen sowie die Bereitschaft, bei Bedarf zusätzliche Aufgaben im Projektumfeld zu übernehmen\n• Offenheit, sich in neue Fachgebiete und Methoden einzuarbeiten; Erfahrung in PMO-, Scheduling- oder Dokumentenmanagement-Aufgaben ist von Vorteil, aber keine Voraussetzung\n• Fliessende Deutsch- und Englischkenntnisse, Französisch von Vorteil Du profitierst von\n• einer offenen und flexiblen Arbeitskultur bei einem der führenden Unternehmen im Bereich der Mobilität in der Schweiz\n• einer 40-Stunden-Woche bei einem 100%-Pensum\n• mindestens 5 Wochen Ferien\n• einem Arbeitsplatz am Puls der Bahntechnik\n• diversen Mitarbeitervergünstigungen und Weiterbildungsmöglichkeiten\n• einem hybriden Arbeitsmodell: ausgewogene Work-Life-Balance und mehr Autonomie Unser Team und Standort Du möchtest Informationen über unsere Kultur, unsere Werte, Diversity und andere wichtige Themen? Erfahre hier, weshalb Siemens jedes Jahr zu einem der beliebtesten Arbeitgeber der Schweiz gewählt wird, und gewinne schon heute einen Einblick in dein neues Arbeitsumfeld: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interessiert? Bewirb dich noch heute mit deinem CV online auf unserer Bewerbungsplattform (Button «BEWERBEN»). Bewerbungen nehmen wir ausschliesslich über unsere Bewerbungsplattform entgegen. Für diese Stelle werden ausschliesslich Direktbewerbungen berücksichtigt. Antworten zu den häufigsten Fragen sowie ein Kontaktformular findest du unter siemens.ch/contact-hr . Wir freuen uns auf deine vollständige Bewerbung. Information für Personalvermittlungen: Siemens nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Wir danken für Ihr Verständnis.",
       "descriptionByLocale": {
-        "de": "Create a better #TomorrowWithUs Willst du gemeinsam mit uns die Zukunft der Bahnwelt mitgestalten? Wir bei Siemens Mobility sind der führende Anbieter im Bereich der Mobilität und erweitern ständig unser innovatives Portfolio, das Schienenfahrzeuge, Bahnautomatisierung, Elektrifizierungslösungen, komplette Bahnsysteme und begleitende Dienstleistungen umfasst. Mit rund 750 Fachmitarbeitenden in der Schweiz und 39 600 Mitarbeitenden weltweit gestalten wir Mobilität mit Leidenschaft und sind unserer Zeit einen Schritt voraus. Du bist die treibende Kraft für Qualität und kontinuierliche Verbesserung in allen Projektphasen innerhalb unseres Bereichs der Projektabwicklung für Rail Infrastructure. Gleichzeitig schätzt du die Vielfalt des Projektgeschäfts und unterstützt bei Bedarf auch angrenzende Aufgaben in der Projektkoordination. Mit deiner Hands-on-Mentalität bringst du dich dort ein, wo das Projektteam Unterstützung benötigt, und entwickelst dich kontinuierlich in neue Themenfelder weiter. Dein neues Aufgabenfeld\n• Erstellung und Weiterentwicklung projektspezifischer Qualitätspläne, Definition von Qualitätszielen sowie Überwachung der Zielerreichung anhand relevanter KPIs\n• Sicherstellung der Einhaltung von Siemens-Qualitätsstandards, Branchenvorschriften und vertraglichen Anforderungen während des gesamten Projektlebenszyklus\n• Begleitung von Meilensteinprozessen, Moderation von Quality Gates sowie Durchführung von Root-Cause-Analysen und Umsetzung von Korrektur- und Vorbeugemassnahmen (CAPA)\n• Identifizierung qualitätsbezogener Risiken und Entwicklung geeigneter Massnahmen zur Risikominderung\n• Planung und Durchführung von Projektaudits, Assessments und Reviews sowie Aufbereitung und Kommunikation der Ergebnisse an Projektleitung, Management und Kunden\n• Enge Zusammenarbeit mit Projektmanagement-, Engineering-, Operations- und Supplier-Quality-Teams zur Sicherstellung des geforderten Qualitätsniveaus\n• Übernahme weiterer projektbezogener Koordinations- und Supportaufgaben im PMO-, Dokumentenmanagement-, Scheduling- oder Projektsteuerungsumfeld sowie aktive Mitgestaltung von Projekten über die klassische QMiP-Rolle hinaus Deine Talente und Erfahrungen\n• Höhere Ausbildung im Bereich Engineering, Qualitätsmanagement oder technische Berufslehre kombiniert mit einer relevanten Weiterbildung im Bereich Quality\n• Fundierte Erfahrung in der Projektplanung, -abwicklung und/oder Projektleitung zwingend erforderlich\n• Kenntnisse relevanter Normen (z. B. ISO 10005/10006) und QM-Methoden\n• Sehr gute organisatorische Fähigkeiten, selbständige Arbeitsweise, Durchsetzungsvermögen und die Fähigkeit, proaktiv Verbesserungen voranzutreiben\n• Interesse an übergreifenden Projektmanagement-Themen sowie die Bereitschaft, bei Bedarf zusätzliche Aufgaben im Projektumfeld zu übernehmen\n• Offenheit, sich in neue Fachgebiete und Methoden einzuarbeiten; Erfahrung in PMO-, Scheduling- oder Dokumentenmanagement-Aufgaben ist von Vorteil, aber keine Voraussetzung\n• Fliessende Deutsch- und Englischkenntnisse, Französisch von Vorteil Du profitierst von\n• einer offenen und flexiblen Arbeitskultur bei einem der führenden Unternehmen im Bereich der Mobilität in der Schweiz\n• einer 40-Stunden-Woche bei einem 100%-Pensum\n• mindestens 5 Wochen Ferien\n• einem Arbeitsplatz am Puls der Bahntechnik\n• diversen Mitarbeitervergünstigungen und Weiterbildungsmöglichkeiten\n• einem hybriden Arbeitsmodell: ausgewogene Work-Life-Balance und mehr Autonomie Unser Team und Standort Du möchtest Informationen über unsere Kultur, unsere Werte, Diversity und andere wichtige Themen? Erfahre hier, weshalb Siemens jedes Jahr zu einem der beliebtesten Arbeitgeber der Schweiz gewählt wird, und gewinne schon heute einen Einblick in dein neues Arbeitsumfeld: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interessiert? Bewirb dich noch heute mit deinem CV online auf unserer Bewerbungsplattform (Button «BEWERBEN»). Bewerbungen nehmen wir ausschliesslich über unsere Bewerbungsplattform entgegen. Für diese Stelle werden ausschliesslich Direktbewerbungen berücksichtigt. Antworten zu den häufigsten Fragen sowie ein Kontaktformular findest du unter siemens.ch/contact-hr . Wir freuen uns auf deine vollständige Bewerbung. Information für Personalvermittlungen: Siemens nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Wir danken für Ihr Verständnis.",
         "it": "Crea un #Tomorrow Better WithUs Vuoi contribuire a plasmare il futuro del mondo ferroviario insieme a noi? In Siemens Mobility siamo il fornitore leader della mobilità, ampliando costantemente il nostro portafoglio innovativo, che comprende veicoli ferroviari, automazione ferroviaria, soluzioni di elettrificazione, sistemi ferroviari completi e servizi di accompagnamento. Con circa 750 dipendenti specializzati in Svizzera e 39 600 dipendenti in tutto il mondo, formiamo la mobilità con passione e siamo un passo avanti rispetto al nostro tempo. Sei la forza trainante per la qualità e il miglioramento continuo in tutte le fasi del progetto all'interno della nostra area di esecuzione del progetto per Rail Infrastructure. Allo stesso tempo, si apprezza la diversità del business del progetto e, se necessario, anche sostenere i compiti adiacenti nel coordinamento del progetto. Con la tua mentalità pratica, ti impegni dove il team di progetto ha bisogno di supporto e si sviluppi continuamente in nuovi argomenti. Il tuo nuovo ruolo\n• Preparazione e sviluppo di piani di qualità specifici per il progetto, definizione di obiettivi di qualità e monitoraggio del raggiungimento degli obiettivi basati su KPI rilevanti\n• Garantire il rispetto degli standard di qualità Siemens, delle normative industriali e dei requisiti contrattuali in tutto il ciclo di vita del progetto\n• Accompagnamento di processi di pietra miliare, moderazione dei cancelli di qualità, nonché implementazione di analisi delle cause di radice e attuazione di misure correttive e preventive (CAPA)\n• Identificazione dei rischi legati alla qualità e sviluppo di adeguate misure di mitigazione del rischio\n• Pianificazione e realizzazione di audit di progetto, valutazioni e recensioni, nonché preparazione e comunicazione dei risultati alla gestione del progetto, gestione e clienti\n• Una stretta collaborazione con team di gestione del progetto, ingegneria, operazioni e qualità dei fornitori per garantire il livello di qualità richiesto\n• Assumendo ulteriori compiti di coordinamento e di supporto legati al progetto nel PMO, nella gestione dei documenti, nella pianificazione o nell'ambiente di project management, nonché partecipando attivamente a progetti oltre il classico ruolo QMiP\n• Istruzione superiore in ingegneria, gestione della qualità o insegnamento professionale tecnico combinato con formazione rilevante in qualità\n• L'esperienza sonora nella progettazione, nell'esecuzione e/o nella gestione del progetto è assolutamente necessaria\n• Conoscenza degli standard rilevanti (es. ISO 10005/10006) e metodi QM\n• Competenze organizzative molto buone, lavoro autonomo, assertività e capacità di migliorare proattivamente\n• Interessi nell'elevazione di argomenti di gestione del progetto e la volontà di assumere ulteriori compiti nell'ambiente di progetto, se necessario\n• apertura a familiarizzare con nuove aree di competenza e metodi; L'esperienza in PMO, la pianificazione o la gestione dei documenti è un vantaggio, ma non un requisito\n• Conoscenza fluida di tedesco e inglese, francese di vantaggio\n• una cultura di lavoro aperta e flessibile in una delle aziende leader nel campo della mobilità in Svizzera\n• una settimana di 40 ore su un costo del 100%\n• almeno 5 settimane di vacanze\n• un posto di lavoro al polso della tecnologia ferroviaria\n• Vari vantaggi e opportunità di formazione dei dipendenti\n• un modello di lavoro ibrido: bilanciamento della vita lavorativa e maggiore autonomia Il nostro team e la posizione Vuoi informazioni sulla nostra cultura, i nostri valori, la diversità e altri argomenti importanti? Scopri perché Siemens è votato uno dei datori di lavoro più popolari in Svizzera ogni anno e ottenere una panoramica sul tuo nuovo ambiente di lavoro oggi: Siemens Mobility CV Siemens Mobility come datore di lavoro Video Siemens Mobility Interested? Applicare online oggi con il CV sulla nostra piattaforma di applicazione (pulsante \"COMPETITION\"). Accettiamo applicazioni esclusivamente attraverso la nostra piattaforma di applicazione. Per questa posizione, vengono considerate solo applicazioni dirette. Risposte alle domande più comuni e un modulo di contatto può essere trovato a siemens.ch/contact-hr. Attendiamo con ansia la vostra applicazione completa. Informazioni per le agenzie di reclutamento: Siemens non accetta richieste da agenzie di reclutamento per questa posizione. Grazie per la vostra comprensione.",
         "en": "Create a better #TomorrowWithUs Want to help shape the future of the railway world together with us? At Siemens Mobility, we are the leading provider of mobility, constantly expanding our innovative portfolio, which includes rail vehicles, rail automation, electrification solutions, complete rail systems and accompanying services. With around 750 specialist employees in Switzerland and 39 600 employees worldwide, we shape mobility with passion and are one step ahead of our time. You are the driving force for quality and continuous improvement in all project phases within our area of project execution for Rail Infrastructure. At the same time, you appreciate the diversity of the project business and, if necessary, also support adjacent tasks in project coordination. With your hands-on mentality, you get involved where the project team needs support and continuously develop into new topics. Your new role\n• Preparation and further development of project-specific quality plans, definition of quality goals and monitoring of goal achievement based on relevant KPIs\n• Ensuring compliance with Siemens quality standards, industry regulations and contractual requirements throughout the project lifecycle\n• Accompaniment of milestone processes, moderation of quality gates as well as implementation of root cause analyses and implementation of corrective and preventive measures (CAPA)\n• Identification of quality-related risks and development of appropriate risk mitigation measures\n• Planning and implementation of project audits, assessments and reviews as well as preparation and communication of the results to project management, management and customers\n• Close cooperation with project management, engineering, operations and supplier quality teams to ensure the required level of quality\n• Assuming further project-related coordination and support tasks in the PMO, document management, scheduling or project management environment as well as actively participating in projects beyond the classic QMiP role\n• Higher education in engineering, quality management or technical vocational teaching combined with relevant training in quality\n• Sound experience in project planning, execution and/or project management is absolutely necessary\n• Knowledge of relevant standards (e.g. ISO 10005/10006) and QM methods\n• Very good organizational skills, self-employment, assertiveness and the ability to proactively drive improvement\n• Interest in overarching project management topics as well as the willingness to take on additional tasks in the project environment if necessary\n• openness to becoming familiar with new areas of expertise and methods; Experience in PMO, scheduling or document management tasks is an advantage, but not a requirement\n• Fluent knowledge of German and English, French of advantage You benefit from\n• an open and flexible working culture at one of the leading companies in the field of mobility in Switzerland\n• a 40-hour week on a 100% fee\n• at least 5 weeks of holidays\n• a workplace at the pulse of railway technology\n• Various employee benefits and training opportunities\n• a hybrid working model: balanced work-life balance and more autonomy Our team and location You want information about our culture, our values, diversity and other important topics? Find out why Siemens is voted one of the most popular employers in Switzerland every year and get an insight into your new working environment today: Siemens Mobility CV Siemens Mobility as an employer Video Siemens Mobility Interested? Apply online today with your CV on our application platform (button \"COMPETITION\"). We accept applications exclusively through our application platform. For this position, only direct applications are considered. Answers to the most common questions and a contact form can be found at siemens.ch/contact-hr. We look forward to your full application. Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
+        "de": "Create a better #TomorrowWithUs Willst du gemeinsam mit uns die Zukunft der Bahnwelt mitgestalten? Wir bei Siemens Mobility sind der führende Anbieter im Bereich der Mobilität und erweitern ständig unser innovatives Portfolio, das Schienenfahrzeuge, Bahnautomatisierung, Elektrifizierungslösungen, komplette Bahnsysteme und begleitende Dienstleistungen umfasst. Mit rund 750 Fachmitarbeitenden in der Schweiz und 39 600 Mitarbeitenden weltweit gestalten wir Mobilität mit Leidenschaft und sind unserer Zeit einen Schritt voraus. Du bist die treibende Kraft für Qualität und kontinuierliche Verbesserung in allen Projektphasen innerhalb unseres Bereichs der Projektabwicklung für Rail Infrastructure. Gleichzeitig schätzt du die Vielfalt des Projektgeschäfts und unterstützt bei Bedarf auch angrenzende Aufgaben in der Projektkoordination. Mit deiner Hands-on-Mentalität bringst du dich dort ein, wo das Projektteam Unterstützung benötigt, und entwickelst dich kontinuierlich in neue Themenfelder weiter. Dein neues Aufgabenfeld\n• Erstellung und Weiterentwicklung projektspezifischer Qualitätspläne, Definition von Qualitätszielen sowie Überwachung der Zielerreichung anhand relevanter KPIs\n• Sicherstellung der Einhaltung von Siemens-Qualitätsstandards, Branchenvorschriften und vertraglichen Anforderungen während des gesamten Projektlebenszyklus\n• Begleitung von Meilensteinprozessen, Moderation von Quality Gates sowie Durchführung von Root-Cause-Analysen und Umsetzung von Korrektur- und Vorbeugemassnahmen (CAPA)\n• Identifizierung qualitätsbezogener Risiken und Entwicklung geeigneter Massnahmen zur Risikominderung\n• Planung und Durchführung von Projektaudits, Assessments und Reviews sowie Aufbereitung und Kommunikation der Ergebnisse an Projektleitung, Management und Kunden\n• Enge Zusammenarbeit mit Projektmanagement-, Engineering-, Operations- und Supplier-Quality-Teams zur Sicherstellung des geforderten Qualitätsniveaus\n• Übernahme weiterer projektbezogener Koordinations- und Supportaufgaben im PMO-, Dokumentenmanagement-, Scheduling- oder Projektsteuerungsumfeld sowie aktive Mitgestaltung von Projekten über die klassische QMiP-Rolle hinaus Deine Talente und Erfahrungen\n• Höhere Ausbildung im Bereich Engineering, Qualitätsmanagement oder technische Berufslehre kombiniert mit einer relevanten Weiterbildung im Bereich Quality\n• Fundierte Erfahrung in der Projektplanung, -abwicklung und/oder Projektleitung zwingend erforderlich\n• Kenntnisse relevanter Normen (z. B. ISO 10005/10006) und QM-Methoden\n• Sehr gute organisatorische Fähigkeiten, selbständige Arbeitsweise, Durchsetzungsvermögen und die Fähigkeit, proaktiv Verbesserungen voranzutreiben\n• Interesse an übergreifenden Projektmanagement-Themen sowie die Bereitschaft, bei Bedarf zusätzliche Aufgaben im Projektumfeld zu übernehmen\n• Offenheit, sich in neue Fachgebiete und Methoden einzuarbeiten; Erfahrung in PMO-, Scheduling- oder Dokumentenmanagement-Aufgaben ist von Vorteil, aber keine Voraussetzung\n• Fliessende Deutsch- und Englischkenntnisse, Französisch von Vorteil Du profitierst von\n• einer offenen und flexiblen Arbeitskultur bei einem der führenden Unternehmen im Bereich der Mobilität in der Schweiz\n• einer 40-Stunden-Woche bei einem 100%-Pensum\n• mindestens 5 Wochen Ferien\n• einem Arbeitsplatz am Puls der Bahntechnik\n• diversen Mitarbeitervergünstigungen und Weiterbildungsmöglichkeiten\n• einem hybriden Arbeitsmodell: ausgewogene Work-Life-Balance und mehr Autonomie Unser Team und Standort Du möchtest Informationen über unsere Kultur, unsere Werte, Diversity und andere wichtige Themen? Erfahre hier, weshalb Siemens jedes Jahr zu einem der beliebtesten Arbeitgeber der Schweiz gewählt wird, und gewinne schon heute einen Einblick in dein neues Arbeitsumfeld: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interessiert? Bewirb dich noch heute mit deinem CV online auf unserer Bewerbungsplattform (Button «BEWERBEN»). Bewerbungen nehmen wir ausschliesslich über unsere Bewerbungsplattform entgegen. Für diese Stelle werden ausschliesslich Direktbewerbungen berücksichtigt. Antworten zu den häufigsten Fragen sowie ein Kontaktformular findest du unter siemens.ch/contact-hr . Wir freuen uns auf deine vollständige Bewerbung. Information für Personalvermittlungen: Siemens nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Wir danken für Ihr Verständnis.",
         "fr": "Créer un meilleur #DemainWithUs Vous voulez aider à façonner l'avenir du monde ferroviaire avec nous ? Chez Siemens Mobility, nous sommes le premier fournisseur de mobilité, en élargissant constamment notre portefeuille innovant, qui comprend les véhicules ferroviaires, l'automatisation ferroviaire, les solutions d'électrification, les systèmes ferroviaires complets et les services d'accompagnement. Avec environ 750 employés spécialisés en Suisse et 39 600 employés dans le monde entier, nous façonnons la mobilité avec passion et sommes à un pas de notre temps. Vous êtes le moteur de la qualité et de l'amélioration continue de toutes les phases de projet dans notre domaine d'exécution de projet pour Infrastructure ferroviaire. Dans le même temps, vous appréciez la diversité des activités du projet et, si nécessaire, soutenez également les tâches adjacentes de coordination du projet. Avec votre mentalité pratique, vous vous impliquez là où l'équipe de projet a besoin d'aide et se développe continuellement en de nouveaux sujets. Votre nouveau rôle\n• Élaboration et mise au point de plans de qualité spécifiques aux projets, définition des objectifs de qualité et suivi de la réalisation des objectifs sur la base des indicateurs de performance pertinents\n• Assurer le respect des normes de qualité Siemens, des réglementations industrielles et des exigences contractuelles tout au long du cycle de vie du projet\n• Accompagnement des processus d'étape, modération des barrières de qualité ainsi que mise en œuvre d'analyses des causes profondes et mise en œuvre de mesures correctives et préventives (CAPA)\n• Identification des risques liés à la qualité et élaboration de mesures d'atténuation des risques appropriées\n• Planification et mise en œuvre des audits, évaluations et examens des projets ainsi que préparation et communication des résultats à la gestion, à la gestion et aux clients\n• Coopération étroite avec les équipes de gestion de projet, d'ingénierie, d'exploitation et de qualité des fournisseurs pour assurer le niveau de qualité requis\n• En assumant d'autres tâches de coordination et de soutien liées au projet dans le cadre du BGP, de gestion de documents, de planification ou de gestion de projet, et en participant activement à des projets dépassant le rôle classique du PQM\n• Enseignement supérieur en ingénierie, gestion de la qualité ou enseignement professionnel technique combiné à une formation pertinente en qualité\n• Une bonne expérience en planification, exécution et/ou gestion de projet est absolument nécessaire\n• Connaissance des normes pertinentes (par exemple ISO 10005/10006) et des méthodes QM\n• Très bonnes compétences organisationnelles, travail indépendant, assurance et capacité à favoriser l'amélioration proactive\n• Intérêt pour les thèmes généraux de gestion de projet ainsi que la volonté d'assumer des tâches supplémentaires dans l'environnement du projet si nécessaire\n• ouverture à se familiariser avec de nouveaux domaines d'expertise et de méthodes; L'expérience dans les tâches de BGP, de planification ou de gestion de documents est un avantage, mais pas une exigence\n• Connaissance de l'allemand et de l'anglais, français d'avantage\n• une culture du travail ouverte et flexible dans l'une des plus grandes entreprises du domaine de la mobilité en Suisse\n• une semaine de 40 heures avec des frais de 100 %\n• au moins 5 semaines de vacances\n• un lieu de travail à l'impulsion de la technologie ferroviaire\n• Divers avantages sociaux et possibilités de formation\n• un modèle de travail hybride: équilibre travail-vie personnelle et plus d'autonomie Notre équipe et notre emplacement Vous voulez des informations sur notre culture, nos valeurs, notre diversité et d'autres sujets importants? Découvrez pourquoi Siemens est élu l'un des employeurs les plus populaires de Suisse chaque année et découvrez votre nouvel environnement de travail aujourd'hui : Siemens Mobility CV Siemens Mobility en tant qu'employeur Vidéo Siemens Mobility Intéressé ? Postuler en ligne aujourd'hui avec votre CV sur notre plateforme d'application (bouton \"COMPETITION\"). Nous acceptons les applications exclusivement via notre plateforme d'application. Pour ce poste, seules les demandes directes sont prises en considération. Les réponses aux questions les plus courantes et un formulaire de contact peuvent être trouvés à siemens.ch/contact-hr. Nous attendons avec impatience votre candidature complète. Informations pour les agences de recrutement: Siemens n'accepte pas les candidatures des agences de recrutement pour ce poste. Merci de votre compréhension."
       },
       "location": "Wallisellen",
@@ -4233,7 +4361,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/486145",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:02:29.226Z",
+      "crawledAt": "2026-07-11T10:20:50.758Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -4252,9 +4380,9 @@
       "jobReqId": "486145",
       "hiringOrganizationName": "Siemens Mobility AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-10T22:02:29.226Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4266,32 +4394,31 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T22:02:29.226Z"
+      }
     },
     {
       "id": "siemens-e33f34a1bbab",
       "slug": "team-lead-project-management-rail-infrastructure-siemens-bern",
       "slugByLocale": {
-        "en": "team-lead-project-management-rail-infrastructure-siemens-bern",
         "it": "team-lead-project-management-rail-infrastructure-siemens-bern",
-        "de": "team-lead-project-management-rail-infrastructure-siemens-bern",
-        "fr": "team-lead-project-management-rail-infrastructure-siemens-bern"
+        "en": "team-lead-project-management-rail-infrastructure-siemens-bern",
+        "de": "teamleiter-project-management-rail-infrastructure-siemens-bern",
+        "fr": "chef-d-equipe-project-management-rail-infrastructure-siemens-bern"
       },
       "company": "Siemens",
       "companyKey": "siemens",
       "companyDomain": "siemens.com",
       "title": "Team Lead Project Management Rail Infrastructure",
       "titleByLocale": {
-        "en": "Team Lead Project Management Rail Infrastructure",
         "it": "Capo Team Project Management Rail Infrastructure",
+        "en": "Team Lead Project Management Rail Infrastructure",
         "de": "Teamleiter Project Management Rail Infrastructure",
         "fr": "Chef d'équipe Project Management Rail Infrastructure"
       },
       "description": "Create a better #TomorrowWithUs Would you like to help shape the future of rail transportation with us? At Siemens Mobility, we are a leading provider in the mobility sector and continuously expand our innovative portfolio, which includes rolling stock, rail automation, electrification solutions, complete rail systems, and related services. With around 750 employees in Switzerland and 39,600 employees worldwide, we are passionate about shaping the future of mobility and staying one step ahead of our time. As Team Lead Project Management Rail Infrastructure, you will combine leadership responsibilities with hands-on project delivery. In this role, you will lead, develop, and empower a team of Project Managers while continuing to manage selected complex rail infrastructure projects yourself. You will play a key role in driving project excellence, fostering collaboration, and ensuring the successful delivery of strategic customer projects. You are an inspiring leader with a strong project management background, capable of balancing people development, business priorities, and operational execution in a versatile and interesting environment. Your responsibilities\n• Lead, coach, and develop a team of approximately 12 Project Managers, fostering a high-performance culture built on collaboration, accountability, continuous learning, and employee engagement.\n• Provide guidance and support throughout the project lifecycle, ensuring consistent application of project management standards, methodologies, and best practices across the organization.\n• Take ownership of selected complex rail infrastructure projects, ensuring successful delivery with respect to scope, schedule, budget, quality, safety, and customer satisfaction.\n• Build and maintain strong relationships with customers, railway operators, suppliers, contractors, and internal stakeholders, acting as a trusted partner and escalation point when required.\n• Drive proactive risk, opportunity, contract, and claim management while ensuring effective project governance, transparency, and compliance with contractual and regulatory requirements.\n• Monitor project portfolio performance, resource utilization, financial results, and delivery quality, implementing improvement measures to enhance operational excellence and business performance.\n• Contribute to the strategic development of the Project Management organization by strengthening capabilities, promoting knowledge sharing, and supporting talent growth within the team. Your profile\n• Higher education in Engineering (Master) or a related technical discipline.\n• 10+ years of project management experience in rail infrastructure or large-scale infrastructure projects, including responsibility for complex customer projects.\n• Several years of experience in leading, coaching, or developing project teams and professionals.\n• IPMA Level B certification (IPMA Level A or equivalent is an advantage).\n• Experience in international project environments; experience with software-intensive projects is a plus.\n• Strong leadership, stakeholder management, negotiation, and communication skills, with the ability to influence across all organizational levels.\n• Entrepreneurial mindset, high level of ownership, and the ability to balance strategic priorities with hands-on execution.\n• Fluent in German and English; French and/or Italian are an advantage. You benefit from:\n• an open and flexible work culture at one of Switzerland’s leading mobility companies\n• a 40-hour work week for a full-time (100%) position\n• at least 5 weeks of annual vacation\n• a workplace at the forefront of rail technology\n• various employee benefits and professional development opportunities\n• a hybrid working model that supports a healthy work-life balance and greater autonomy Our Team and Location Would you like to learn more about our culture, values, diversity, and other important topics? Discover why Siemens is consistently ranked among Switzerland’s most attractive employers and get an insight into your future working environment today: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interested? Apply online today with your CV via our application platform (click the “APPLY” button). Please note that we only accept applications submitted through our application platform. For this position, only direct applications will be considered. You can find answers to frequently asked questions as well as a contact form at siemens.ch/contact-hr. We look forward to receiving your complete application. Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
       "descriptionByLocale": {
-        "en": "Create a better #TomorrowWithUs Would you like to help shape the future of rail transportation with us? At Siemens Mobility, we are a leading provider in the mobility sector and continuously expand our innovative portfolio, which includes rolling stock, rail automation, electrification solutions, complete rail systems, and related services. With around 750 employees in Switzerland and 39,600 employees worldwide, we are passionate about shaping the future of mobility and staying one step ahead of our time. As Team Lead Project Management Rail Infrastructure, you will combine leadership responsibilities with hands-on project delivery. In this role, you will lead, develop, and empower a team of Project Managers while continuing to manage selected complex rail infrastructure projects yourself. You will play a key role in driving project excellence, fostering collaboration, and ensuring the successful delivery of strategic customer projects. You are an inspiring leader with a strong project management background, capable of balancing people development, business priorities, and operational execution in a versatile and interesting environment. Your responsibilities\n• Lead, coach, and develop a team of approximately 12 Project Managers, fostering a high-performance culture built on collaboration, accountability, continuous learning, and employee engagement.\n• Provide guidance and support throughout the project lifecycle, ensuring consistent application of project management standards, methodologies, and best practices across the organization.\n• Take ownership of selected complex rail infrastructure projects, ensuring successful delivery with respect to scope, schedule, budget, quality, safety, and customer satisfaction.\n• Build and maintain strong relationships with customers, railway operators, suppliers, contractors, and internal stakeholders, acting as a trusted partner and escalation point when required.\n• Drive proactive risk, opportunity, contract, and claim management while ensuring effective project governance, transparency, and compliance with contractual and regulatory requirements.\n• Monitor project portfolio performance, resource utilization, financial results, and delivery quality, implementing improvement measures to enhance operational excellence and business performance.\n• Contribute to the strategic development of the Project Management organization by strengthening capabilities, promoting knowledge sharing, and supporting talent growth within the team. Your profile\n• Higher education in Engineering (Master) or a related technical discipline.\n• 10+ years of project management experience in rail infrastructure or large-scale infrastructure projects, including responsibility for complex customer projects.\n• Several years of experience in leading, coaching, or developing project teams and professionals.\n• IPMA Level B certification (IPMA Level A or equivalent is an advantage).\n• Experience in international project environments; experience with software-intensive projects is a plus.\n• Strong leadership, stakeholder management, negotiation, and communication skills, with the ability to influence across all organizational levels.\n• Entrepreneurial mindset, high level of ownership, and the ability to balance strategic priorities with hands-on execution.\n• Fluent in German and English; French and/or Italian are an advantage. You benefit from:\n• an open and flexible work culture at one of Switzerland’s leading mobility companies\n• a 40-hour work week for a full-time (100%) position\n• at least 5 weeks of annual vacation\n• a workplace at the forefront of rail technology\n• various employee benefits and professional development opportunities\n• a hybrid working model that supports a healthy work-life balance and greater autonomy Our Team and Location Would you like to learn more about our culture, values, diversity, and other important topics? Discover why Siemens is consistently ranked among Switzerland’s most attractive employers and get an insight into your future working environment today: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interested? Apply online today with your CV via our application platform (click the “APPLY” button). Please note that we only accept applications submitted through our application platform. For this position, only direct applications will be considered. You can find answers to frequently asked questions as well as a contact form at siemens.ch/contact-hr. We look forward to receiving your complete application. Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
         "it": "Crea un #Tomorrow Better WithUs Vuoi contribuire a plasmare il futuro del trasporto ferroviario con noi? In Siemens Mobility, siamo un fornitore leader nel settore della mobilità e espandiamo continuamente il nostro portafoglio innovativo, che comprende rolling stock, automazione ferroviaria, soluzioni di elettrificazione, sistemi ferroviari completi e servizi correlati. Con circa 750 dipendenti in Svizzera e 39.600 dipendenti in tutto il mondo, siamo appassionati di modellare il futuro della mobilità e rimanere un passo avanti rispetto al nostro tempo. Come Team Lead Project Management Rail Infrastructure, si unirà responsabilità di leadership con consegna di progetti hands-on. In questo ruolo, si porterà, sviluppare e potenziare un team di Project Manager, continuando a gestire progetti infrastrutturali complessi selezionati da soli. Si svolgerà un ruolo chiave nella guida dell'eccellenza del progetto, promuovendo la collaborazione e garantendo la consegna di progetti strategici per i clienti. Sei un leader ispiratore con un forte background di project management, in grado di bilanciare lo sviluppo delle persone, le priorità aziendali e l'esecuzione operativa in un ambiente versatile e interessante. Le tue responsabilità\n• Guidare, allenare e sviluppare un team di circa 12 Project Manager, promuovendo una cultura ad alte prestazioni costruita su collaborazione, responsabilità, apprendimento continuo e coinvolgimento dei dipendenti.\n• Fornire assistenza e assistenza in tutto il ciclo di vita del progetto, assicurando l'applicazione coerente di standard di gestione del progetto, metodologie e migliori pratiche in tutta l'organizzazione.\n• Assumere la proprietà di progetti di infrastrutture ferroviarie complesse selezionati, garantendo una consegna di successo rispetto a portata di mano, programma, budget, qualità, sicurezza e soddisfazione del cliente.\n• Costruire e mantenere forti relazioni con clienti, operatori ferroviari, fornitori, appaltatori e stakeholder interni, agendo come partner affidabile e punto di escalation quando necessario.\n• Guidare il rischio proattivo, l'opportunità, il contratto e la gestione del reclamo, garantendo al contempo una governance efficace del progetto, la trasparenza e il rispetto dei requisiti contrattuali e normativi.\n• Monitorare le prestazioni del portafoglio di progetti, l'utilizzo delle risorse, i risultati finanziari e la qualità della consegna, implementare misure di miglioramento per migliorare l'eccellenza operativa e le prestazioni aziendali.\n• Contribuisci allo sviluppo strategico dell'organizzazione Project Management rafforzando le capacità, promuovendo la condivisione delle conoscenze e sostenendo la crescita dei talenti all'interno del team. Il tuo profilo\n• Istruzione superiore in Ingegneria (Master) o una disciplina tecnica correlata.\n• 10+ anni di esperienza nella gestione dei progetti in infrastrutture ferroviarie o in progetti infrastrutturali su larga scala, compresa la responsabilità per progetti di clienti complessi.\n• Diversi anni di esperienza nel leader, coaching, o nello sviluppo di team di progetto e professionisti.\n• Certificazione IPMA Livello B (livello IPMA A o equivalente è un vantaggio).\n• Esperienza in ambienti di progetto internazionali; l'esperienza con i progetti ad alta intensità software è un vantaggio.\n• Forte leadership, gestione degli stakeholder, negoziazione e capacità di comunicazione, con la capacità di influenzare tutti i livelli organizzativi.\n• Mindset imprenditoriale, alto livello di proprietà, e la capacità di bilanciare le priorità strategiche con esecuzione pratica.\n• Fluente in tedesco e inglese; francese e/o italiano sono un vantaggio. Lei beneficia di:\n• una cultura del lavoro aperta e flessibile presso una delle principali società di mobilità della Svizzera\n• una settimana lavorativa di 40 ore per una posizione a tempo pieno (100%)\n• almeno 5 settimane di vacanza annuale\n• un posto di lavoro all'avanguardia della tecnologia ferroviaria\n• vari benefici per i dipendenti e opportunità di sviluppo professionale\n• un modello di lavoro ibrido che supporta un sano equilibrio di vita lavorativa e una maggiore autonomia Il nostro team e la nostra posizione Volete saperne di più sulla nostra cultura, valori, diversità e altri argomenti importanti? Scoprite perché Siemens è costantemente classificata tra i datori di lavoro più attraenti della Svizzera e scoprite oggi il vostro futuro ambiente di lavoro: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interested? Applicare online oggi con il CV tramite la nostra piattaforma di applicazione (cliccare sul pulsante “APPLY”). Si prega di notare che accettiamo solo le applicazioni presentate attraverso la nostra piattaforma di applicazione. Per questa posizione, saranno prese in considerazione solo applicazioni dirette. È possibile trovare risposte a domande frequenti e un modulo di contatto a siemens.ch/contact-hr. Non vediamo l'ora di ricevere l'applicazione completa. Informazioni per le agenzie di reclutamento: Siemens non accetta richieste da agenzie di reclutamento per questa posizione. Grazie per la vostra comprensione.",
+        "en": "Create a better #TomorrowWithUs Would you like to help shape the future of rail transportation with us? At Siemens Mobility, we are a leading provider in the mobility sector and continuously expand our innovative portfolio, which includes rolling stock, rail automation, electrification solutions, complete rail systems, and related services. With around 750 employees in Switzerland and 39,600 employees worldwide, we are passionate about shaping the future of mobility and staying one step ahead of our time. As Team Lead Project Management Rail Infrastructure, you will combine leadership responsibilities with hands-on project delivery. In this role, you will lead, develop, and empower a team of Project Managers while continuing to manage selected complex rail infrastructure projects yourself. You will play a key role in driving project excellence, fostering collaboration, and ensuring the successful delivery of strategic customer projects. You are an inspiring leader with a strong project management background, capable of balancing people development, business priorities, and operational execution in a versatile and interesting environment. Your responsibilities\n• Lead, coach, and develop a team of approximately 12 Project Managers, fostering a high-performance culture built on collaboration, accountability, continuous learning, and employee engagement.\n• Provide guidance and support throughout the project lifecycle, ensuring consistent application of project management standards, methodologies, and best practices across the organization.\n• Take ownership of selected complex rail infrastructure projects, ensuring successful delivery with respect to scope, schedule, budget, quality, safety, and customer satisfaction.\n• Build and maintain strong relationships with customers, railway operators, suppliers, contractors, and internal stakeholders, acting as a trusted partner and escalation point when required.\n• Drive proactive risk, opportunity, contract, and claim management while ensuring effective project governance, transparency, and compliance with contractual and regulatory requirements.\n• Monitor project portfolio performance, resource utilization, financial results, and delivery quality, implementing improvement measures to enhance operational excellence and business performance.\n• Contribute to the strategic development of the Project Management organization by strengthening capabilities, promoting knowledge sharing, and supporting talent growth within the team. Your profile\n• Higher education in Engineering (Master) or a related technical discipline.\n• 10+ years of project management experience in rail infrastructure or large-scale infrastructure projects, including responsibility for complex customer projects.\n• Several years of experience in leading, coaching, or developing project teams and professionals.\n• IPMA Level B certification (IPMA Level A or equivalent is an advantage).\n• Experience in international project environments; experience with software-intensive projects is a plus.\n• Strong leadership, stakeholder management, negotiation, and communication skills, with the ability to influence across all organizational levels.\n• Entrepreneurial mindset, high level of ownership, and the ability to balance strategic priorities with hands-on execution.\n• Fluent in German and English; French and/or Italian are an advantage. You benefit from:\n• an open and flexible work culture at one of Switzerland’s leading mobility companies\n• a 40-hour work week for a full-time (100%) position\n• at least 5 weeks of annual vacation\n• a workplace at the forefront of rail technology\n• various employee benefits and professional development opportunities\n• a hybrid working model that supports a healthy work-life balance and greater autonomy Our Team and Location Would you like to learn more about our culture, values, diversity, and other important topics? Discover why Siemens is consistently ranked among Switzerland’s most attractive employers and get an insight into your future working environment today: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interested? Apply online today with your CV via our application platform (click the “APPLY” button). Please note that we only accept applications submitted through our application platform. For this position, only direct applications will be considered. You can find answers to frequently asked questions as well as a contact form at siemens.ch/contact-hr. We look forward to receiving your complete application. Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
         "de": "Erstellen Sie ein besseres #TomorrowWithUs Möchten Sie mit uns die Zukunft des Schienenverkehrs mitgestalten? Bei Siemens Mobility sind wir ein führender Anbieter im Mobilitätsbereich und erweitern kontinuierlich unser innovatives Portfolio, das Rollmaterial, Bahnautomation, Elektrifizierungslösungen, komplette Bahnsysteme und damit verbundene Services umfasst. Mit rund 750 Mitarbeitern in der Schweiz und 39.600 Mitarbeitern weltweit gestalten wir leidenschaftlich die Zukunft der Mobilität und bleiben unserer Zeit einen Schritt voraus. Als Team Lead Project Management Rail Infrastructure kombinieren Sie Führungsaufgaben mit praktischer Projektabwicklung. In dieser Funktion leiten, entwickeln und stärken Sie ein Team von Projektmanagern, während Sie ausgewählte komplexe Schieneninfrastrukturprojekte selbst verwalten. Sie spielen eine Schlüsselrolle bei der Förderung von Projektexzellenz, der Förderung der Zusammenarbeit und der erfolgreichen Umsetzung strategischer Kundenprojekte. Sie sind eine inspirierende Führungskraft mit einem starken Projektmanagement-Hintergrund, der in der Lage ist, die Entwicklung von Mitarbeitern, Geschäftsprioritäten und die operative Ausführung in einem vielseitigen und interessanten Umfeld in Einklang zu bringen. Ihre Verantwortung\n• Führen, coachen und entwickeln Sie ein Team von etwa 12 Projektmanagern und fördern Sie eine Hochleistungskultur, die auf Zusammenarbeit, Rechenschaftspflicht, kontinuierlichem Lernen und Mitarbeiterengagement basiert.\n• Bereitstellung von Anleitung und Unterstützung während des gesamten Projektlebenszyklus und Gewährleistung einer einheitlichen Anwendung von Projektmanagementstandards, -methoden und -best Practices im gesamten Unternehmen.\n• Übernehmen Sie ausgewählte komplexe Schieneninfrastrukturprojekte und gewährleisten Sie eine erfolgreiche Lieferung in Bezug auf Umfang, Zeitplan, Budget, Qualität, Sicherheit und Kundenzufriedenheit.\n• Aufbau und Pflege starker Beziehungen zu Kunden, Eisenbahnbetreibern, Lieferanten, Auftragnehmern und internen Stakeholdern, die bei Bedarf als vertrauenswürdiger Partner und Eskalationspunkt fungieren.\n• Förderung eines proaktiven Risiko-, Chancen-, Vertrags- und Anspruchsmanagements bei gleichzeitiger Gewährleistung einer effektiven Projektsteuerung, Transparenz und Einhaltung vertraglicher und regulatorischer Anforderungen.\n• Überwachen Sie die Performance des Projektportfolios, die Ressourcenauslastung, die Finanzergebnisse und die Lieferqualität und implementieren Sie Verbesserungsmaßnahmen zur Verbesserung der operativen Exzellenz und der Geschäftsleistung.\n• Tragen Sie zur strategischen Entwicklung der Projektmanagementorganisation bei, indem Sie Fähigkeiten stärken, den Wissensaustausch fördern und das Talentwachstum im Team unterstützen. Dein Profil\n• Hochschulbildung in Ingenieurwissenschaften (Master) oder einer verwandten technischen Disziplin.\n• 10+ Jahre Projektmanagement-Erfahrung in Schieneninfrastruktur oder großen Infrastrukturprojekten, einschließlich der Verantwortung für komplexe Kundenprojekte.\n• Mehrjährige Erfahrung im Führen, Coaching oder Entwickeln von Projektteams und Profis.\n• IPMA Level B Zertifizierung (IPMA Level A oder gleichwertig ist ein Vorteil).\n• Erfahrung in internationalen Projektumgebungen; Erfahrung mit softwareintensiven Projekten ist ein Plus.\n• Starke Führungs-, Stakeholder-Management-, Verhandlungs- und Kommunikationsfähigkeiten mit der Fähigkeit, Einfluss auf allen organisatorischen Ebenen.\n• Unternehmerische Denkweise, ein hohes Maß an Eigenverantwortung und die Fähigkeit, strategische Prioritäten mit praktischer Umsetzung in Einklang zu bringen.\n• Fließend Deutsch und Englisch; Französisch und/oder Italienisch sind von Vorteil. Sie profitieren von:\n• eine offene und flexible Arbeitskultur bei einem der führenden Mobilitätsunternehmen der Schweiz\n• eine 40-Stunden-Woche für eine Vollzeitstelle (100%)\n• mindestens 5 Wochen Jahresurlaub\n• Ein Arbeitsplatz an der Spitze der Bahntechnik\n• Verschiedene Mitarbeiterleistungen und berufliche Entwicklungsmöglichkeiten\n• ein hybrides Arbeitsmodell, das eine gesunde Work-Life-Balance und mehr Autonomie unterstützt Unser Team und Standort Möchten Sie mehr über unsere Kultur, Werte, Vielfalt und andere wichtige Themen erfahren? Erfahren Sie, warum Siemens konsequent zu den attraktivsten Arbeitgebern der Schweiz zählt und erhalten Sie schon heute einen Einblick in Ihr zukünftiges Arbeitsumfeld: Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Interessiert? Bewerben Sie sich noch heute online mit Ihrem Lebenslauf über unsere Anwendungsplattform (klicken Sie auf den Button „APPLY). Bitte beachten Sie, dass wir nur Bewerbungen annehmen, die über unsere Bewerbungsplattform eingereicht werden. Für diese Position werden nur direkte Anwendungen berücksichtigt. Antworten auf häufig gestellte Fragen sowie ein Kontaktformular finden Sie unter siemens.ch/contact-hr. Wir freuen uns auf Ihre vollständige Bewerbung. Informationen für Personalvermittler: Siemens nimmt keine Bewerbungen von Personalvermittlern für diese Position entgegen. Vielen Dank für Ihr Verständnis.",
         "fr": "Créer un meilleur #Demain WithUs Voulez-vous aider à façonner l'avenir du transport ferroviaire avec nous? Chez Siemens Mobility, nous sommes un fournisseur de premier plan dans le secteur de la mobilité et nous développons en permanence notre portefeuille innovant, qui comprend du matériel roulant, l'automatisation ferroviaire, des solutions d'électrification, des systèmes ferroviaires complets et des services connexes. Avec environ 750 employés en Suisse et 39 600 employés dans le monde entier, nous sommes passionnés par l'avenir de la mobilité et nous restons à un pas de plus. En tant que chef d'équipe responsable de la gestion de projet Infrastructure ferroviaire, vous combinerez les responsabilités de leadership et la prestation pratique des projets. Dans ce rôle, vous dirigerez, développerez et autonomiserez une équipe de gestionnaires de projets tout en continuant à gérer vous-même certains projets d'infrastructure ferroviaire complexes. Vous jouerez un rôle clé en favorisant l'excellence des projets, en favorisant la collaboration et en assurant la réussite des projets stratégiques des clients. Vous êtes un leader inspirant avec une solide expérience de gestion de projet, capable d'équilibrer le développement des personnes, les priorités d'affaires et l'exécution opérationnelle dans un environnement polyvalent et intéressant. Vos responsabilités\n• Diriger, encadrer et former une équipe d'environ 12 gestionnaires de projets, en favorisant une culture de haute performance fondée sur la collaboration, la responsabilisation, l'apprentissage continu et l'engagement des employés.\n• Fournir des conseils et un soutien tout au long du cycle de vie du projet, en assurant l'application uniforme des normes, des méthodes et des pratiques exemplaires de gestion du projet dans l'ensemble de l'organisation.\n• S'approprier certains projets complexes d'infrastructure ferroviaire, en assurant une prestation réussie en ce qui concerne la portée, le calendrier, le budget, la qualité, la sécurité et la satisfaction de la clientèle.\n• Établir et maintenir des relations solides avec les clients, les exploitants ferroviaires, les fournisseurs, les entrepreneurs et les intervenants internes, en agissant comme un partenaire de confiance et un point d'escalade au besoin.\n• Diriger la gestion proactive des risques, des possibilités, des contrats et des réclamations tout en assurant une gouvernance efficace du projet, la transparence et le respect des exigences contractuelles et réglementaires.\n• Surveiller le rendement du portefeuille de projets, l'utilisation des ressources, les résultats financiers et la qualité de la prestation, en mettant en oeuvre des mesures d'amélioration pour améliorer l'excellence opérationnelle et le rendement opérationnel.\n• Contribuer au développement stratégique de l'organisation de gestion de projet en renforçant les capacités, en favorisant le partage des connaissances et en appuyant la croissance des talents au sein de l'équipe. Votre profil\n• Enseignement supérieur en génie (Master) ou une discipline technique connexe.\n• 10 ans et plus d'expérience en gestion de projets dans les infrastructures ferroviaires ou les grands projets d'infrastructure, y compris la responsabilité de projets clients complexes.\n• Plusieurs années d'expérience dans la direction, le coaching ou le développement d'équipes de projet et de professionnels.\n• Certification IPMA de niveau B (IPMA de niveau A ou équivalent est un avantage).\n• Expérience dans des environnements de projets internationaux; expérience avec des projets à forte intensité de logiciels est un plus.\n• Des compétences solides en leadership, en gestion des intervenants, en négociation et en communication, avec la capacité d'influencer tous les niveaux organisationnels.\n• L'esprit d'entreprise, le haut niveau de propriété et la capacité d'équilibrer les priorités stratégiques avec l'exécution pratique.\n• Le français et/ou l'italien sont un avantage. Vous bénéficiez de:\n• une culture du travail ouverte et flexible dans l'une des grandes entreprises suisses de mobilité\n• une semaine de travail de 40 heures pour un poste à temps plein (100 %)\n• au moins 5 semaines de vacances annuelles\n• un lieu de travail à la pointe de la technologie ferroviaire\n• divers avantages sociaux et possibilités de perfectionnement professionnel\n• un modèle de travail hybride qui favorise un équilibre sain entre le travail et la vie personnelle et une plus grande autonomie Notre équipe et lieu Vous souhaitez en apprendre davantage sur notre culture, nos valeurs, notre diversité et d'autres sujets importants? Découvrez pourquoi Siemens est régulièrement classé parmi les employeurs les plus attrayants en Suisse et découvrez votre futur environnement de travail aujourd'hui : Siemens Mobility CV Siemens Mobility als Arbeitgeber Video Siemens Mobility Intéressé ? Postulez en ligne dès aujourd'hui avec votre CV via notre plateforme d'application (cliquez sur le bouton \"APPLY\"). Veuillez noter que nous n'acceptons que les demandes soumises par le biais de notre plateforme d'applications. Pour ce poste, seules les demandes directes seront prises en considération. Vous pouvez trouver des réponses aux questions fréquemment posées ainsi qu'un formulaire de contact à siemens.ch/contact-hr. Nous avons hâte de recevoir votre demande complète. Informations pour les agences de recrutement: Siemens n'accepte pas les candidatures des agences de recrutement pour ce poste. Merci de votre compréhension."
       },
@@ -4300,7 +4427,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/503079",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:26.308Z",
+      "crawledAt": "2026-07-11T10:20:48.180Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -4319,9 +4446,8 @@
       "jobReqId": "503079",
       "hiringOrganizationName": "Siemens Mobility AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-10T22:02:26.308Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4333,8 +4459,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T22:02:26.308Z"
+      }
     }
   ]
 }
