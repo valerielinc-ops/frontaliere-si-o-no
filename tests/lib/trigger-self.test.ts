@@ -84,4 +84,53 @@ describe('scripts/lib/trigger-self.sh', () => {
     });
     expect(githubOutput).toMatch(/self_trigger_reason=no_changes/);
   });
+
+  // Payload construction (lost-article auto-retry): stub `curl` in PATH so the
+  // dispatch never leaves the machine; the stub captures its argv (incl. the
+  // -d payload) and prints 204 so the script takes the success branch.
+  function runWithCurlStub(env = {}) {
+    const tmp = mkdtempSync(join(tmpdir(), 'trigger-self-curl-'));
+    const capture = join(tmp, 'curl-args');
+    const stub = join(tmp, 'curl');
+    execFileSync('bash', [
+      '-c',
+      `printf '%s\\n' '#!/usr/bin/env bash' 'printf "%s\\n" "$@" > "${capture}"' 'echo 204' > "${stub}" && chmod +x "${stub}"`,
+    ]);
+    const outFile = join(tmp, 'output');
+    execFileSync('bash', ['-c', `: > "${outFile}"`]);
+    const stdout = execFileSync('bash', [SCRIPT], {
+      env: {
+        PATH: `${tmp}:${process.env.PATH}`,
+        GITHUB_OUTPUT: outFile,
+        GITHUB_PAT: 'fake-token',
+        WORKFLOW_FILE: 'generate-article.yml',
+        ...env,
+      },
+      encoding: 'utf8',
+      timeout: 5000,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    const args = readFileSync(capture, 'utf8');
+    const payload = args.split('\n')[args.split('\n').indexOf('-d') + 1] ?? '';
+    return { stdout, payload };
+  }
+
+  it('includes inputs.url and inputs.section in the dispatch payload when set (lost-article retry)', () => {
+    const { payload } = runWithCurlStub({
+      URL: 'https://example.com/notizia-frontalieri',
+      SECTION: 'svizzera',
+      RETRY_COUNT: '2',
+    });
+    const parsed = JSON.parse(payload);
+    expect(parsed.inputs.url).toBe('https://example.com/notizia-frontalieri');
+    expect(parsed.inputs.section).toBe('svizzera');
+    expect(parsed.inputs.retry_count).toBe('2');
+  });
+
+  it('omits inputs.url from the payload when URL is empty (normal advance)', () => {
+    const { payload } = runWithCurlStub({ URL: '', SECTION: 'frontaliere' });
+    const parsed = JSON.parse(payload);
+    expect(parsed.inputs?.url).toBeUndefined();
+    expect(parsed.inputs.section).toBe('frontaliere');
+  });
 });

@@ -1,7 +1,9 @@
 /**
  * Closes review ❓s left open by the slug-pin PRs:
- *  1. fingerprintJob URL→registry-key derivation (id|umantis.com|<id>) — the
- *     mapping the harden/merge pins rely on, previously only assumed.
+ *  1. fingerprintJob URL→registry-key derivation
+ *     (id|recruitingapp-<tenant>.umantis.com|<id> — per-tenant full host since
+ *     the 2026-07-11 cross-tenant collision fix) — the mapping the
+ *     harden/merge pins rely on, previously only assumed.
  *  2. registerJobSlug does NOT enforce GLOBAL per-locale slug uniqueness across
  *     fingerprints — it is per-fingerprint immutable only. Documents that
  *     cross-job per-locale uniqueness is a downstream concern (usedSlugs in
@@ -17,18 +19,28 @@ import {
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('fingerprintJob → registry key', () => {
-  it('derives id|umantis.com|<id> from a umantis vacancy URL', () => {
+  // Umantis vacancy ids are PER-TENANT sequences: since the cross-tenant
+  // collision fix (extractJobIdentityFromUrl keys on the FULL
+  // recruitingapp-<tenant>.umantis.com host, mirroring the Workday rule and
+  // mergeUrlKey Rule U), two employers sharing a vacancy number no longer
+  // collapse onto one registry entry.
+  it('derives id|recruitingapp-<tenant>.umantis.com|<id> from a umantis vacancy URL', () => {
     const fp = fingerprintJob({
       url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1',
     });
-    expect(fp).toBe('id|umantis.com|3164');
+    expect(fp).toBe('id|recruitingapp-2908.umantis.com|3164');
   });
 
-  it('is stable across the subdomain / trailing path of the same vacancy', () => {
+  it('is stable across the trailing path of the same vacancy, distinct across tenants', () => {
     const a = fingerprintJob({ url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1' });
-    const b = fingerprintJob({ url: 'https://recruitingapp-9999.umantis.com/Vacancies/3164/Application' });
+    const b = fingerprintJob({ url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Application' });
+    const otherTenant = fingerprintJob({ url: 'https://recruitingapp-9999.umantis.com/Vacancies/3164/Application' });
     expect(a).toBe(b);
-    expect(a).toBe('id|umantis.com|3164');
+    expect(a).toBe('id|recruitingapp-2908.umantis.com|3164');
+    // Same vacancy NUMBER on a different tenant is a DIFFERENT job — the exact
+    // cross-tenant collision (GKB vs KSA) the full-host keying exists to prevent.
+    expect(otherTenant).toBe('id|recruitingapp-9999.umantis.com|3164');
+    expect(otherTenant).not.toBe(a);
   });
 
   it('falls back to a tl| signature when the URL has no extractable identity', () => {
@@ -52,7 +64,7 @@ describe('fingerprintJob → registry key', () => {
 
   it('still keys a plain numeric vacancy id (no UUID present) by that number', () => {
     expect(fingerprintJob({ url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1' }))
-      .toBe('id|umantis.com|3164');
+      .toBe('id|recruitingapp-2908.umantis.com|3164');
     expect(fingerprintJob({ url: 'https://example.com/jobs/123456' }))
       .toBe('id|example.com|123456');
   });
@@ -118,7 +130,7 @@ describe('registerJobSlug', () => {
     };
     registerJobSlug(job, registry);
     registerJobSlug({ ...job, slug: 'second-slug', slugByLocale: { it: 'second-slug', en: 'second-en' } }, registry);
-    expect((registry['id|umantis.com|100'] as { canonicalSlug: string }).canonicalSlug).toBe('first-slug');
+    expect((registry['id|recruitingapp-1.umantis.com|100'] as { canonicalSlug: string }).canonicalSlug).toBe('first-slug');
   });
 
   it('does NOT enforce global per-locale uniqueness across fingerprints', () => {
@@ -129,8 +141,8 @@ describe('registerJobSlug', () => {
     // Both are registered; the duplicate en slug is NOT rejected at registration.
     // (Cross-job per-locale uniqueness is enforced downstream, not here.)
     expect(Object.keys(registry)).toHaveLength(2);
-    expect((registry['id|umantis.com|100'] as { slugByLocale: Record<string, string> }).slugByLocale.en).toBe('shared-en');
-    expect((registry['id|umantis.com|200'] as { slugByLocale: Record<string, string> }).slugByLocale.en).toBe('shared-en');
+    expect((registry['id|recruitingapp-1.umantis.com|100'] as { slugByLocale: Record<string, string> }).slugByLocale.en).toBe('shared-en');
+    expect((registry['id|recruitingapp-1.umantis.com|200'] as { slugByLocale: Record<string, string> }).slugByLocale.en).toBe('shared-en');
   });
 });
 

@@ -435,6 +435,31 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     expect(new Date(persisted['gpt-4o'].exhaustedUntil as string).getTime()).toBeGreaterThan(Date.now());
   });
 
+  // Sibling of the local/fallback guard, generalized to remote models: only
+  // 'quota' exhaustion genuinely lasts until the provider's daily reset, so
+  // only it may be persisted (and shared with every other workflow via the
+  // aggregate doc). A timeout on one 20-min article prompt or two
+  // malformed-JSON replies must ban the model for THIS process only —
+  // persisting those was silently shrinking the shared free-tier pool until
+  // midnight UTC on thin evidence, feeding the recurring "tutti i modelli
+  // esauriti" deferrals that zero article production.
+  it('write path: only quota exhaustion persists — timeout/content bans on remote models stay in-process', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    mod.markModelExhausted(mod.AI_MODELS.GPT4O, 'timeout');
+    mod.markModelExhausted(mod.AI_MODELS.GPT4O_MINI, 'content');
+    mod.markModelExhausted(mod.AI_MODELS.GEMINI_FLASH, 'quota');
+    await mod.flushScores();
+
+    const key = (id: string) => id.replace(/\//g, '__');
+    const persisted = store._all.models as Record<string, { exhaustedUntil: string | null }>;
+    expect(persisted[key(mod.AI_MODELS.GPT4O)].exhaustedUntil).toBeNull();
+    expect(persisted[key(mod.AI_MODELS.GPT4O_MINI)].exhaustedUntil).toBeNull();
+    expect(persisted[key(mod.AI_MODELS.GEMINI_FLASH)].exhaustedUntil).not.toBeNull();
+  });
+
   it('restore path: a pre-existing persisted ban on local/fallback is never restored on process restart; the same ban on a remote model is', async () => {
     const tomorrow = new Date();
     tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
