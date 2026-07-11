@@ -8324,6 +8324,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Lavora come Fisioterapista in Ticino: riconoscimento del diploma, requisiti e procedure',
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'I requisiti per lavorare come fisioterapista in Ticino, per i frontalieri, sono descritti di seguito.',
     'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'Vista di Lugano con le colline circostanti.',
+    'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
+    'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Guida pratica al valico di Ponte Tresa: fasce orarie critiche, gestione dei controlli e documenti necessari per i lavoratori frontalieri in transito.',
+    'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Traffico al valico di Ponte Tresa',
 };
 
 export default blogMetaIt;

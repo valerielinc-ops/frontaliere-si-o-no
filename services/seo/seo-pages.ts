@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3111,
+ "numberOfItems": 3112,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7786,7 +7786,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3108, "name": "Autovelox ticinesi: introiti decuplicati, 60% s...", "url": `${BASE_URL}/articoli-frontaliere/autovelox-ticino-introiti-frontalieri` },
           { "@type": "ListItem", "position": 3109, "name": "Prezzi pizza in Italia: cosa cambia per i front...", "url": `${BASE_URL}/articoli-frontaliere/pizza-price-italy-implications` },
           { "@type": "ListItem", "position": 3110, "name": "Lavora come Fisioterapista in Ticino: riconosci...", "url": `${BASE_URL}/articoli-frontaliere/lavorare-fisioterapista-ticino-frontalieri-requisiti` },
-          { "@type": "ListItem", "position": 3111, "name": "Offerte Fielmann in Svizzera: cosa sapere", "url": `${BASE_URL}/articoli-frontaliere/offerte-fielmann-svizzera` }
+          { "@type": "ListItem", "position": 3111, "name": "Offerte Fielmann in Svizzera: cosa sapere", "url": `${BASE_URL}/articoli-frontaliere/offerte-fielmann-svizzera` },
+          { "@type": "ListItem", "position": 3112, "name": "Dogana Ponte Tresa: orari, attese e consigli pe...", "url": `${BASE_URL}/articoli-frontaliere/traffico-dogana-ponte-tresa-guida` }
  ]
  },
  {
