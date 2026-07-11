@@ -8327,6 +8327,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
     'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Guida pratica al valico di Ponte Tresa: fasce orarie critiche, gestione dei controlli e documenti necessari per i lavoratori frontalieri in transito.',
     'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Traffico al valico di Ponte Tresa',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Nuovo accordo fiscale per frontalieri: cosa cambia e cosa fare',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri in transito',
 };
 
 export default blogMetaIt;

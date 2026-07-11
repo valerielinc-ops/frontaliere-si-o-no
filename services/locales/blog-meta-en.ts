@@ -8326,6 +8326,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Customs Ponte Tresa: timetables, waits and advice for border guards',
     'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Practical guide to the Ponte Tresa crossing: critical time slots, management of controls and documents necessary for border workers in transit.',
     'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Traffic at Ponte Tresa border crossing',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Living in Valtellina and working in Graubünden as a border worker',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'New tax agreement for frontier workers: what changes and what to do',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri in transit',
 };
 
 export default blogMetaEn;

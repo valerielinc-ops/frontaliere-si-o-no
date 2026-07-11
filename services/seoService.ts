@@ -4420,6 +4420,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-offerte-fielmann-svizzera': { name: 'Offerte Fielmann', path: '/articoli-svizzera/offerte-fielmann-svizzera/', parent: 'blog' },
     'blog-traffico-dogana-ponte-tresa-guida': { name: 'Dogana Ponte Tresa', path: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida', parent: 'blog' },
     'blog-axa-manno-lavoro-frontaliere': { name: 'Lavoro AXA Manno', path: '/articoli-svizzera/axa-manno-lavoro-frontaliere/', parent: 'blog' },
+    'blog-vivere-valtellina-lavorare-grigioni-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
