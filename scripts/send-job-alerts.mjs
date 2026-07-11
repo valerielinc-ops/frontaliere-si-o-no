@@ -1041,10 +1041,29 @@ async function sendBatch(emails) {
 
   const result = await sendEmailCascade(cascadeEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
   logProviderSummary();
+
+  // Per-user send-time observability (#3798 follow-up): the cascade returns
+  // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
+  // ...result }, see sendEmailCascade in email-cascade.mjs) — a provider may
+  // not honor the requested scheduledAt, so this is what actually happened,
+  // not just what was requested. Capture it here, keyed by recipient email, so
+  // the post-send Firestore writes in main() can persist it (last_scheduled_for
+  // / last_send_time_source) instead of silently discarding it.
+  const scheduleOutcomes = new Map();
+  for (const item of result.sent) {
+    const email = (item.recipient?.email || '').toLowerCase();
+    if (!email) continue;
+    scheduleOutcomes.set(email, {
+      scheduledFor: item.scheduledFor ?? null,
+      sendTimeSource: item.meta?.sendTimeSource ?? item.sendTimeSource ?? null,
+    });
+  }
+
   return {
     sent: result.sent.length,
     failed: result.failed.length,
     failedItems: result.failed,
+    scheduleOutcomes,
   };
 }
 
@@ -1518,7 +1537,11 @@ async function main() {
     // jobAlertProfiles/subscriberProfiles.
     let scheduledAt = null;
     let sendTimeSource = null;
-    if (perUserSendTimeEnabled()) {
+    // TARGET_EMAIL/ALLOWED_EMAILS set means this is an operator verification
+    // run against specific recipient(s) (parallel to send-newsletter.mjs's
+    // --test --target-email) — it must arrive immediately so the operator can
+    // confirm the send works, not get deferred to the preferred hour.
+    if (!ALLOWED_EMAILS && perUserSendTimeEnabled()) {
       const emailKey = alert.email.toLowerCase();
       const resolved = resolveEffectivePreferredHour({
         subscriberDoc: jobAlertProfiles.get(emailKey) || null,
@@ -1558,6 +1581,11 @@ async function main() {
 
   // 4. Send emails
   let failedEmailSet = new Set();
+  // Per-user send-time observability (#3798 follow-up): populated by sendBatch
+  // from the cascade's authoritative per-recipient outcome; read below when
+  // mirroring last_sent_at onto job_alert_subscribers/{email}. Stays empty on
+  // DRY_RUN (nothing sent) — the batch.set below already guards on sentEmails.
+  let scheduleOutcomes = new Map();
   if (DRY_RUN) {
     console.log('   🔵 DRY RUN — not sending emails');
     logScheduleDistribution(emailsToSend);
@@ -1567,6 +1595,7 @@ async function main() {
     failedEmailSet = new Set(
       result.failedItems.map((item) => (item.recipient?.email || '').toLowerCase()).filter(Boolean),
     );
+    scheduleOutcomes = result.scheduleOutcomes || new Map();
 
     // 4b. Enqueue failed emails for retry on the next run
     if (result.failed > 0) {
@@ -1606,8 +1635,16 @@ async function main() {
     )];
     if (sentEmails.length > 0) {
       await commitInChunks(db, sentEmails, (batch, email) => {
+        // Per-user send-time observability (#3798 follow-up): mirror what the
+        // cascade actually decided for this recipient (scheduleOutcomes, built
+        // in sendBatch from the cascade's authoritative per-item result) — null
+        // when scheduling wasn't requested/resolved for this send, not just
+        // when the map lookup misses.
+        const outcome = scheduleOutcomes.get(email) || null;
         batch.set(db.collection('job_alert_subscribers').doc(email), {
           last_sent_at: FieldValue.serverTimestamp(),
+          last_scheduled_for: outcome?.scheduledFor ?? null,
+          last_send_time_source: outcome?.sendTimeSource ?? null,
         }, { merge: true });
       });
       console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);

@@ -149,6 +149,8 @@ subscriber.
 | `newsletter_subscribers/_meta_` | `global_preferred_send_updated_at` | Last global-aggregate refresh timestamp |
 | `newsletter_subscribers/{email}/campaign_deliveries/{id}` | `scheduled_for` | ISO timestamp actually scheduled provider-side, or `null` (immediate/no-scheduling-provider) |
 | `newsletter_subscribers/{email}/campaign_deliveries/{id}` | `send_time_source` | `'personal'` \| `'global'` \| absent (pre-feature or immediate, no preference resolved) |
+| `job_alert_subscribers/{email}` | `last_scheduled_for` | ISO timestamp the cascade actually scheduled for the most recent job-alert send, or `null` (immediate/no-scheduling-provider/verification run) |
+| `job_alert_subscribers/{email}` | `last_send_time_source` | `'personal'` \| `'fallback-doc'` \| `'global'` \| `null` for the most recent job-alert send |
 
 ## Rollback / kill switch
 

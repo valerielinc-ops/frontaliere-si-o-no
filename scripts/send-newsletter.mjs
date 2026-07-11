@@ -1549,6 +1549,14 @@ async function sendEmailBatchResend(emails, apiKey) {
 
   const sent = [];
   const failed = [];
+  // Resend's /emails/batch endpoint does not support scheduled send at all
+  // ("attachments and scheduled_at fields are not supported yet" per Resend's
+  // own batch docs) — and even the key we build (`scheduledAt`, camelCase) is
+  // not what the single-send endpoint expects either (`scheduled_at`). Posting
+  // it here is silently ignored by Resend, so strip it before building the
+  // batch body and warn once per run if we dropped it, so operators know these
+  // went out immediately instead of at the per-user preferred hour (#3798).
+  let scheduledDroppedCount = 0;
 
   for (const batch of batches) {
     let res;
@@ -1556,7 +1564,11 @@ async function sendEmailBatchResend(emails, apiKey) {
       res = await fetch(RESEND_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify(batch.map((e) => e.payload)),
+        body: JSON.stringify(batch.map((e) => {
+          const { scheduledAt, ...rest } = e.payload;
+          if (scheduledAt) scheduledDroppedCount += 1;
+          return rest;
+        })),
       });
     } catch (netErr) {
       console.error(`\u274c Network error: ${netErr.message}`);
@@ -1601,6 +1613,10 @@ async function sendEmailBatchResend(emails, apiKey) {
     }
 
     console.log(`\u2705 Batch: ${batch.length} sent (${sent.length} confirmed so far)`);
+  }
+
+  if (scheduledDroppedCount > 0) {
+    console.warn(`\u26a0\ufe0f  provider=resend legacy batch path does not support scheduled send \u2014 ${scheduledDroppedCount} emails sent immediately`);
   }
 
   return { sent, failed };
@@ -2294,7 +2310,13 @@ async function main() {
     // the authoritative `scheduledFor` on the send result (see persistSent).
     let scheduledAt = null;
     let sendTimeSource = null;
-    if (perUserSendTimeEnabled()) {
+    // --test (mode==='test') is an operator verification send to a single
+    // --target-email — it must land immediately so the operator can confirm
+    // it works, not get deferred to some subscriber's preferred hour. Only
+    // 'send' resolves scheduling for the real cascade; 'dry-run' also runs
+    // this block (never sent) purely so its report can print the distribution
+    // that a real 'send' run would produce — see logScheduleDistribution below.
+    if ((mode === 'send' || mode === 'dry-run') && perUserSendTimeEnabled()) {
       const resolved = resolveEffectivePreferredHour({
         subscriberDoc: subscriber,
         globalHour: globalPreferredHour.hourUtc,
