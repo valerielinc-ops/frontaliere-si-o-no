@@ -2090,7 +2090,7 @@
       "slug": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "it": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
-        "en": "termineur-en-habillage-horloger-richemont-le-sentier",
+        "en": "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "de": "finisher-im-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "fr": "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
       },
@@ -2135,8 +2135,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
-          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier"
+          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
+          "termineur-en-habillage-horloger-richemont-le-sentier"
         ],
         "it": [
           "termineur-en-habillage-horloger-richemont-le-sentier"
@@ -2147,7 +2147,6 @@
       },
       "previousSlugs": [
         "termineur-en-habillage-horloger-richemont-le-sentier",
-        "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.724Z",
@@ -6517,7 +6516,7 @@
         "it": "responsabile-boutique-cartier-st-moritz",
         "en": "boutique-manager-cartier-st-moritz",
         "de": "boutique-manager-richemont-st-moritz",
-        "fr": "boutique-manager-richemont-st-moritz"
+        "fr": "directeur-de-la-boutique-cartier-st-moritz"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -6582,8 +6581,8 @@
       "previousSlugsByLocale": {
         "fr": [
           "manager-de-boutique-cartier-st-moritz",
-          "directeur-de-la-boutique-cartier-st-moritz",
-          "gestionnaire-de-boutiques-cartier-st-moritz"
+          "gestionnaire-de-boutiques-cartier-st-moritz",
+          "boutique-manager-richemont-st-moritz"
         ],
         "it": [
           "responsabile-negozio-cartier-st-moritz",
@@ -6600,7 +6599,6 @@
         "manager-cartier-st-moritz",
         "manager-de-boutique-cartier-st-moritz",
         "boutique-manager-richemont-st-moritz",
-        "directeur-de-la-boutique-cartier-st-moritz",
         "gestionnaire-de-boutiques-cartier-st-moritz"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.685Z",
@@ -7033,7 +7031,7 @@
       "slug": "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle",
       "slugByLocale": {
         "it": "hr-project-manager-h-f-cdm-cartier-manufacture-le-locle",
-        "en": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
+        "en": "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
         "de": "hr-projektmanager-h-f-cdm-cartier-manufacture-le-locle",
         "fr": "charge-de-projets-rh-h-f-cdm-cartier-manufacture-le-locle"
       },
@@ -7078,7 +7076,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "hr-project-manager-h-f-hom-cartier-manufacture-le-locle"
+          "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
         ],
         "it": [
           "hr-project-manager-h-f-hom-cartier-manufacture-le-locle",
@@ -8381,7 +8379,7 @@
         "it": "europa-fp-a-controller-richemont-meyrin",
         "en": "europe-fp-a-controller-richemont-meyrin",
         "de": "europe-fp-a-controller-richemont-meyrin",
-        "fr": "europe-fp-a-controller-richemont-meyrin"
+        "fr": "controleur-europeen-des-pc-a-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8424,15 +8422,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-europeen-des-pc-a-richemont-meyrin"
+          "europe-fp-a-controller-richemont-meyrin"
         ],
         "it": [
           "europe-fp-a-controller-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "europe-fp-a-controller-richemont-meyrin",
-        "controleur-europeen-des-pc-a-richemont-meyrin"
+        "europe-fp-a-controller-richemont-meyrin"
       ],
       "firstSeenAt": "2026-07-09T22:34:40.443Z",
       "salaryMin": 60500,
@@ -9568,7 +9565,7 @@
       "slug": "tecnico-qualita-h-f-x-cartier-manufacture-le-locle",
       "slugByLocale": {
         "it": "tecnico-qualita-h-f-x-cartier-manufacture-le-locle",
-        "en": "technicien-qualite-h-f-x-richemont-le-locle",
+        "en": "quality-technician-h-f-x-cartier-manufacture-le-locle",
         "de": "qualitatsfachkraft-w-m-x-cartier-manufacture-le-locle",
         "fr": "technicien-qualite-h-f-x-cartier-manufacture-le-locle"
       },
@@ -9613,7 +9610,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "quality-technician-h-f-x-cartier-manufacture-le-locle"
+          "technicien-qualite-h-f-x-richemont-le-locle"
         ],
         "it": [
           "technicien-qualite-h-f-x-richemont-le-locle"
@@ -9623,8 +9620,7 @@
         ]
       },
       "previousSlugs": [
-        "technicien-qualite-h-f-x-richemont-le-locle",
-        "quality-technician-h-f-x-cartier-manufacture-le-locle"
+        "technicien-qualite-h-f-x-richemont-le-locle"
       ],
       "firstSeenAt": "2026-06-12T23:14:09.115Z",
       "salaryMin": 60500,
@@ -11898,7 +11894,7 @@
         "it": "vic-produzione-lounge-sales-operations-manager-jaeger-lecoultre-le-sentier",
         "en": "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier",
         "de": "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier",
-        "fr": "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier"
+        "fr": "vic-manufacture-lounge-directeur-des-ventes-et-des-operations-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -11941,15 +11937,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "vic-manufacture-lounge-directeur-des-ventes-et-des-operations-jaeger-lecoultre-le-sentier"
+          "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier"
         ],
         "it": [
           "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier"
         ]
       },
       "previousSlugs": [
-        "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier",
-        "vic-manufacture-lounge-directeur-des-ventes-et-des-operations-jaeger-lecoultre-le-sentier"
+        "vic-manufacture-lounge-sales-operations-manager-richemont-le-sentier"
       ],
       "firstSeenAt": "2026-07-03T23:30:36.703Z",
       "salaryMin": 83500,
@@ -12187,7 +12182,7 @@
         "it": "controllore-delle-operazioni-senior-h-f-van-cleef-arpels-geneva",
         "en": "senior-operations-controller-h-f-van-cleef-arpels-geneva",
         "de": "leitender-betriebsleiter-h-f-van-cleef-arpels-geneva",
-        "fr": "senior-operations-controller-h-f-richemont-geneva"
+        "fr": "controleur-principal-des-operations-h-f-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -12230,7 +12225,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-principal-des-operations-h-f-van-cleef-arpels-geneva"
+          "senior-operations-controller-h-f-richemont-geneva"
         ],
         "it": [
           "senior-operations-controller-h-f-richemont-geneva"
@@ -12240,8 +12235,7 @@
         ]
       },
       "previousSlugs": [
-        "senior-operations-controller-h-f-richemont-geneva",
-        "controleur-principal-des-operations-h-f-van-cleef-arpels-geneva"
+        "senior-operations-controller-h-f-richemont-geneva"
       ],
       "firstSeenAt": "2026-07-08T22:18:19.035Z",
       "salaryMin": 83500,
@@ -12487,9 +12481,9 @@
     },
     {
       "id": "richemont-97afd78fa509",
-      "slug": "chef-de-produits-richemont-buttes",
+      "slug": "capo-dei-prodotti-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-produits-richemont-buttes",
+        "it": "capo-dei-prodotti-valfleurier-buttes",
         "en": "head-of-products-valfleurier-buttes",
         "de": "kopf-der-produkte-valfleurier-buttes",
         "fr": "chef-de-produits-richemont-buttes"
@@ -12535,11 +12529,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "capo-dei-prodotti-valfleurier-buttes"
+          "chef-de-produits-richemont-buttes"
         ]
       },
       "previousSlugs": [
-        "capo-dei-prodotti-valfleurier-buttes"
+        "chef-de-produits-richemont-buttes"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.793Z",
       "salaryMin": 83500,
@@ -12762,7 +12756,7 @@
         "it": "vendite-associate-m-f-van-cleef-arpels-geneva",
         "en": "sales-associate-m-f-van-cleef-arpels-geneva",
         "de": "vertriebsmitarbeiter-m-f-van-cleef-arpels-geneva",
-        "fr": "sales-associate-m-f-richemont-geneva"
+        "fr": "associe-commercial-m-f-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -12805,7 +12799,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "associe-commercial-m-f-van-cleef-arpels-geneva"
+          "sales-associate-m-f-richemont-geneva"
         ],
         "it": [
           "sales-associate-m-f-richemont-geneva"
@@ -12823,8 +12817,7 @@
         "addetto-alle-vendite-vhernier-geneva",
         "conseiller-de-vente-vhernier-geneva",
         "associe-de-vente-vhernier-geneva",
-        "sales-associate-m-f-richemont-geneva",
-        "associe-commercial-m-f-van-cleef-arpels-geneva"
+        "sales-associate-m-f-richemont-geneva"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.764Z",
       "salaryMin": 60500,
@@ -14026,7 +14019,7 @@
       "slug": "leader-del-progetto-per-l-ambiente-e-la-sostenibilita-h-f-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "leader-del-progetto-per-l-ambiente-e-la-sostenibilita-h-f-cartier-manufacture-le-cret-du-locle",
-        "en": "chef-de-projet-environnement-et-durabilite-h-f-richemont-le-cret-du-locle",
+        "en": "environment-and-sustainability-project-leader-h-f-cartier-manufacture-le-cret-du-locle",
         "de": "projektleiter-umwelt-und-nachhaltigkeit-h-f-cartier-manufacture-le-cret-du-locle",
         "fr": "chef-de-projet-environnement-et-durabilite-h-f-cartier-manufacture-le-cret-du-locle"
       },
@@ -14071,7 +14064,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "environment-and-sustainability-project-leader-h-f-cartier-manufacture-le-cret-du-locle"
+          "chef-de-projet-environnement-et-durabilite-h-f-richemont-le-cret-du-locle"
         ],
         "it": [
           "chef-de-projet-environnement-et-durabilite-h-f-richemont-le-cret-du-locle"
@@ -14081,8 +14074,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-projet-environnement-et-durabilite-h-f-richemont-le-cret-du-locle",
-        "environment-and-sustainability-project-leader-h-f-cartier-manufacture-le-cret-du-locle"
+        "chef-de-projet-environnement-et-durabilite-h-f-richemont-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-07-06T15:08:20.937Z",
       "salaryMin": 60500,
@@ -14759,7 +14751,7 @@
       "slug": "eccellenza-operativa-del-leader-del-progetto-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "eccellenza-operativa-del-leader-del-progetto-cartier-manufacture-le-cret-du-locle",
-        "en": "chef-de-projet-excellence-operationnelle-richemont-le-cret-du-locle",
+        "en": "project-leader-operational-excellence-cartier-manufacture-le-cret-du-locle",
         "de": "projektleiter-operational-excellence-cartier-manufacture-le-cret-du-locle",
         "fr": "chef-de-projet-excellence-operationnelle-cartier-manufacture-le-cret-du-locle"
       },
@@ -14804,7 +14796,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "project-leader-operational-excellence-cartier-manufacture-le-cret-du-locle"
+          "chef-de-projet-excellence-operationnelle-richemont-le-cret-du-locle"
         ],
         "it": [
           "chef-de-projet-excellence-operationnelle-richemont-le-cret-du-locle"
@@ -14814,8 +14806,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-projet-excellence-operationnelle-richemont-le-cret-du-locle",
-        "project-leader-operational-excellence-cartier-manufacture-le-cret-du-locle"
+        "chef-de-projet-excellence-operationnelle-richemont-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-07-10T22:13:53.391Z",
       "salaryMin": 60500,

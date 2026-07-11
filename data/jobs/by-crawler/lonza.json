@@ -72,8 +72,8 @@
       "slugByLocale": {
         "de": "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch",
         "it": "anlagen-e-apparatebau-rohrbau-cfc-80-100-m-w-d-lonza-ch",
-        "en": "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch",
-        "fr": "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch"
+        "en": "plant-and-equipment-building-pipe-construction-efz-80-100-m-f-d-lonza-ch",
+        "fr": "construction-d-installations-et-d-equipements-pour-la-construction-de-tuyaux-efz-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -117,6 +117,12 @@
       "jobReqId": "R77115",
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch"
         ]
       },
@@ -348,7 +354,7 @@
         "en": "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch",
         "it": "responsabile-produzione-dsp-80-100-m-f-g-lonza-ch",
         "de": "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch",
-        "fr": "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch"
+        "fr": "gestionnaire-fabrication-dsp-80-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -407,6 +413,9 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -415,10 +424,10 @@
     },
     {
       "id": "lonza-e6013bc7eaba",
-      "slug": "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch",
+      "slug": "controllo-della-qualita-degli-scienziati-tecnologia-qualificazione-degli-strumenti-m-f-d-80-100-lonza-ch",
       "slugByLocale": {
         "en": "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch",
-        "it": "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch",
+        "it": "controllo-della-qualita-degli-scienziati-tecnologia-qualificazione-degli-strumenti-m-f-d-80-100-lonza-ch",
         "de": "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch",
         "fr": "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch"
       },
@@ -475,14 +484,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-11T10:39:57.904Z"
+      "firstSeenAt": "2026-07-11T10:39:57.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-quality-control-technology-instrument-qualification-m-f-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-129783d2119b",
-      "slug": "laboratory-associate-commercial-quality-control-80-100-lonza-ch",
+      "slug": "controllo-di-qualita-commerciale-associato-del-laboratorio-80-100-lonza-ch",
       "slugByLocale": {
         "en": "laboratory-associate-commercial-quality-control-80-100-lonza-ch",
-        "it": "laboratory-associate-commercial-quality-control-80-100-lonza-ch",
+        "it": "controllo-di-qualita-commerciale-associato-del-laboratorio-80-100-lonza-ch",
         "de": "laboratory-associate-commercial-quality-control-80-100-lonza-ch",
         "fr": "laboratory-associate-commercial-quality-control-80-100-lonza-ch"
       },
@@ -539,7 +556,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-11T10:39:57.267Z"
+      "firstSeenAt": "2026-07-11T10:39:57.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-associate-commercial-quality-control-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-associate-commercial-quality-control-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-19e836de3d2f",
@@ -547,8 +572,8 @@
       "slugByLocale": {
         "en": "qc-project-manager-lonza-ch",
         "it": "qc-project-manager-lonza-ch",
-        "de": "qc-project-manager-lonza-ch",
-        "fr": "qc-project-manager-lonza-ch"
+        "de": "qc-projektmanager-lonza-ch",
+        "fr": "qc-gestionnaire-de-projet-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -611,8 +636,8 @@
       "slugByLocale": {
         "de": "praktikant-in-qc-mikrobiologie-80-100-lonza-ch",
         "it": "tirocinante-in-microbiologia-qc-80-100-lonza-ch",
-        "en": "praktikant-in-qc-mikrobiologie-80-100-lonza-ch",
-        "fr": "praktikant-in-qc-mikrobiologie-80-100-lonza-ch"
+        "en": "intern-in-qc-microbiology-80-100-lonza-ch",
+        "fr": "stagiaire-en-microbiologie-qc-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -671,6 +696,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-qc-mikrobiologie-80-100-lonza-ch"
+        ],
+        "en": [
+          "praktikant-in-qc-mikrobiologie-80-100-lonza-ch"
+        ],
+        "fr": [
+          "praktikant-in-qc-mikrobiologie-80-100-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -683,8 +714,8 @@
       "slugByLocale": {
         "en": "internship-ibex-process-development-downstream-80-100-lonza-ch",
         "it": "internship-ibex-process-development-downstream-80-100-lonza-ch",
-        "de": "internship-ibex-process-development-downstream-80-100-lonza-ch",
-        "fr": "internship-ibex-process-development-downstream-80-100-lonza-ch"
+        "de": "praktikum-ibex-prozessentwicklung-downstream-80-100-lonza-ch",
+        "fr": "stages-ibex-elaboration-de-processus-en-aval-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -748,7 +779,7 @@
         "de": "deputy-head-site-protection-rescue-80-100-m-w-d-lonza-ch",
         "it": "deputy-head-site-protection-rescue-80-100-m-w-d-lonza-ch",
         "en": "deputy-head-site-protection-rescue-80-100-m-w-d-lonza-ch",
-        "fr": "deputy-head-site-protection-rescue-80-100-m-w-d-lonza-ch"
+        "fr": "administrateur-general-protection-et-sauvetage-du-site-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -811,8 +842,8 @@
       "slugByLocale": {
         "de": "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch",
         "it": "tesi-di-laurea-stage-nel-settore-della-protezione-ambientale-focus-sul-trattamento-delle-acque-reflue-e-sulla",
-        "en": "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch",
-        "fr": "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch"
+        "en": "bachelor-thesis-internship-in-the-field-of-environmental-protection-focus-on-wastewater-treatment-nitrification-m-f-d",
+        "fr": "these-de-baccalaureat-stage-dans-le-domaine-de-la-protection-de-l-environnement-accent-sur-le-traitement-et-la"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -871,6 +902,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "bachelorarbeit-praktikum-im-bereich-umweltschutz-schwerpunkt-abwasserbehandlung-nitrifikation-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -884,7 +921,7 @@
         "en": "senior-process-expert-visual-inspection-80-100-lonza-ch",
         "it": "esperto-di-processo-senior-ispezione-visiva-80-100-lonza-ch",
         "de": "senior-process-expert-visual-inspection-80-100-lonza-ch",
-        "fr": "senior-process-expert-visual-inspection-80-100-lonza-ch"
+        "fr": "expert-principal-en-processus-inspection-visuelle-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -943,6 +980,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-process-expert-visual-inspection-80-100-lonza-ch"
+        ],
+        "fr": [
+          "senior-process-expert-visual-inspection-80-100-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -951,10 +991,10 @@
     },
     {
       "id": "lonza-5326f523e38e",
-      "slug": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
+      "slug": "microbiologia-qc-m-f-d-60-lonza-ch",
       "slugByLocale": {
         "de": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
-        "it": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
+        "it": "microbiologia-qc-m-f-d-60-lonza-ch",
         "en": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
         "fr": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
       },
@@ -1011,14 +1051,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-11T10:39:52.742Z"
+      "firstSeenAt": "2026-07-11T10:39:52.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6be0022535f2",
-      "slug": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
+      "slug": "progetto-di-crescita-del-dps-tecnico-di-automazione-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "de": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
-        "it": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
+        "it": "progetto-di-crescita-del-dps-tecnico-di-automazione-80-100-m-f-d-lonza-ch",
         "en": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
         "fr": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
       },
@@ -1075,7 +1123,15 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-07-11T10:39:52.120Z"
+      "firstSeenAt": "2026-07-11T10:39:52.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-ef45300109de",
@@ -1083,8 +1139,8 @@
       "slugByLocale": {
         "en": "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch",
         "it": "stage-nel-reparto-lonza-visp-msat-mammiferi-80-100-lonza-ch",
-        "de": "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch",
-        "fr": "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch"
+        "de": "praktikum-in-der-abteilung-saugetiere-lonza-visp-msat-80-100-lonza-ch",
+        "fr": "stage-dans-le-departement-msat-de-lonza-viege-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1142,6 +1198,12 @@
       "firstSeenAt": "2026-07-11T10:39:51.519Z",
       "previousSlugsByLocale": {
         "it": [
+          "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch"
+        ],
+        "de": [
+          "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch"
+        ],
+        "fr": [
           "internship-in-the-lonza-visp-msat-mammalian-department-80-100-lonza-ch"
         ]
       },
@@ -1283,8 +1345,8 @@
       "slugByLocale": {
         "de": "automatiker-80-100-m-w-d-lonza-ch",
         "it": "operatore-automatico-80-100-m-f-d-lonza-ch",
-        "en": "automatiker-80-100-m-w-d-lonza-ch",
-        "fr": "automatiker-80-100-m-w-d-lonza-ch"
+        "en": "automatic-80-100-m-f-d-lonza-ch",
+        "fr": "automatique-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1342,6 +1404,12 @@
       "firstSeenAt": "2026-07-11T10:39:48.737Z",
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "automatiker-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "automatiker-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -10518,8 +10586,8 @@
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
         "it": "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-ch",
-        "en": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
-        "fr": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        "en": "plant-and-apparatus-manufacturer-rohrbau-efz-80-100-m-w-d-lonza-ch",
+        "fr": "fabricant-d-installations-et-d-appareils-rohrbau-efz-80-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10563,6 +10631,12 @@
       "jobReqId": "R74597",
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
         ]
       },

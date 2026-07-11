@@ -1892,8 +1892,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "it": "primario-psychiatrische-dienste-graubunden-ilanz",
-        "en": "oberarztin-oberarzt-pdgr-ch",
-        "fr": "oberarztin-oberarzt-pdgr-ch"
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1956,6 +1956,12 @@
       "firstSeenAt": "2026-07-11T11:06:03.797Z",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-pdgr-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdgr-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-pdgr-ch"
         ]
       },

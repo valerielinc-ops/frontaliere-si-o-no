@@ -1519,9 +1519,9 @@
       },
       "slugByLocale": {
         "it": "meccanico-f-m-d-80-100-agie-charmilles-sa-biel-bienne",
-        "en": "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne",
+        "en": "mechanic-f-m-d-80-100-agie-charmilles-sa-biel-bienne",
         "de": "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne",
-        "fr": "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne"
+        "fr": "mecanicien-f-m-d-80-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-bf685f649b6c",
       "salaryMin": 77000,
@@ -1540,6 +1540,12 @@
       "firstSeenAt": "2026-07-11T11:28:00.657Z",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "mechaniker-w-m-d-80-100-agie-charmilles-biel-bienne"
         ]
       },
@@ -1783,8 +1789,8 @@
       },
       "slugByLocale": {
         "it": "logistica-100-agie-charmilles-sa-meyrin",
-        "en": "logisticien-100-agie-charmilles-meyrin",
-        "de": "logisticien-100-agie-charmilles-meyrin",
+        "en": "logistician-100-agie-charmilles-sa-meyrin",
+        "de": "logistiker-100-agie-charmilles-sa-meyrin",
         "fr": "logisticien-100-agie-charmilles-meyrin"
       },
       "id": "agie-charmilles-9dedd702f702",
@@ -1804,6 +1810,12 @@
       "firstSeenAt": "2026-07-11T11:28:00.657Z",
       "previousSlugsByLocale": {
         "it": [
+          "logisticien-100-agie-charmilles-meyrin"
+        ],
+        "en": [
+          "logisticien-100-agie-charmilles-meyrin"
+        ],
+        "de": [
           "logisticien-100-agie-charmilles-meyrin"
         ]
       },

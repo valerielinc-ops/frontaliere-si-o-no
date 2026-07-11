@@ -945,9 +945,9 @@
       "slug": "conducente-di-autopostale-a-postauto-laax-gr",
       "slugByLocale": {
         "it": "conducente-di-autopostale-a-postauto-laax-gr",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-laax-gr",
         "de": "postauto-fahrer-in-postauto-laax-gr",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-laax-gr"
       },
       "sourceLang": "de",
       "department": "",
@@ -984,6 +984,12 @@
       "firstSeenAt": "2026-07-11T10:27:25.937Z",
       "previousSlugsByLocale": {
         "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "en": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -1315,9 +1321,9 @@
       "slug": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
       "slugByLocale": {
         "it": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
-        "en": "zusteller-in-pakete-post",
+        "en": "delivery-in-packages-die-schweizerische-post-sirnach-3f8ac4",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-sirnach-3f8ac4"
       },
       "sourceLang": "de",
       "department": "",
@@ -1354,6 +1360,12 @@
       "firstSeenAt": "2026-07-11T10:27:25.937Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-pakete-post"
         ]
       },
