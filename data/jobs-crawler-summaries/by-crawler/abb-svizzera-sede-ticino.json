@@ -1,21 +1,22 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-07-10T23:23:05.113Z",
+  "generatedAt": "2026-07-11T11:15:49.492Z",
   "total": 43,
-  "newCount": 2,
-  "updatedCount": 12,
+  "newCount": 0,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 29,
-  "durationMs": 67762,
-  "avgDurationMs": 67762,
+  "durationMs": 67168,
+  "avgDurationMs": 67168,
   "durationHistory": [
-    67762
+    67168
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-w9bnpj",
-      "slug": "group-social-media-manager-abb-svizzera-sede-ticino-zurich",
+      "slug": "group-social-media-manager-abb-svizzera-sede-ticino-zurich-w9bnpj",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Group Social Media Manager",
       "location": "Zurich",
@@ -36,20 +37,26 @@
       "companyDomain": "abb.ch",
       "crawledAt": "2026-07-10T23:23:02.570Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 53,
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-vd8ijg",
-      "slug": "global-mobile-e-power-systems-manager-motion-traction-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+      "slug": "global-mobile-e-power-systems-manager-motion-traction-abb-svizzera-sede-ticino-untersiggenthal-aargau-vd8ijg",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Global Mobile e-Power Systems Manager – Motion Traction",
       "location": "Untersiggenthal, Aargau",
@@ -73,16 +80,20 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 53,
+      "salaryMin": 99500,
+      "salaryMax": 151000,
+      "addressLocality": "Untersiggenthal, Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-r9rrxv",
       "slug": "business-market-intelligence-analista-abb-svizzera-sede-ticino-zurich-r9rrxv",
@@ -527,11 +538,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
       "needsRetranslation": true,
-      "_qualityScore": 76,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 19,
+        "translation": 23,
         "completeness": 22
       }
     },
