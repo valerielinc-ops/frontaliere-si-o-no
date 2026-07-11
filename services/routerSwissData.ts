@@ -350,6 +350,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-adozione-affido-procedura-italia-svizzera': { it: 'frontaliere-adozione-affido-procedura-italia-svizzera', en: 'frontaliere-adozione-affido-procedura-italia-svizzera', de: 'frontaliere-adozione-affido-procedura-italia-schweiz', fr: 'frontaliere-adozione-affido-procedura-italie-suisse' },
  'cosa-fare-nel-weekend-in-ticino-attivita-outdoor': { it: 'cosa-fare-nel-weekend-in-ticino-attivita-outdoor', en: 'things-to-do-in-ticino', de: 'was-man-im-ticino-zu-tun-hat', fr: 'choisir-d-activites-a-ticino' },
  'trasferirsi-svizzera-guida': { it: 'trasferirsi-svizzera-guida', en: 'moving-to-switzerland-from-italy-guide', de: 'schweiz-wechseln-it-gericht', fr: 'se-deplacer-en-suisse-italien' },
+ 'aprire-conto-banca-svizzera-residenti': { it: 'aprire-conto-banca-svizzera-residenti', en: 'open-bank-account-switzerland-resident', de: 'konten-banken-schweiz-residenten', fr: 'ouvrir-compte-banque-suisse-resident' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -2942,6 +2942,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-conto-banca-svizzera-residenti',
+    category: 'fiscale',
+    date: '2026-07-11T18:29:36.301Z',
+    image: '/images/blog/aprire-conto-banca-svizzera-residenti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
