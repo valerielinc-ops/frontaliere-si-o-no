@@ -1,16 +1,16 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-07-10T22:22:07.880Z",
-  "total": 5,
+  "generatedAt": "2026-07-11T10:57:29.120Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 7040,
-  "avgDurationMs": 7040,
+  "updatedCount": 2,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 5580,
+  "avgDurationMs": 5580,
   "durationHistory": [
-    7040
+    5580
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-System-Quality-Engineer_R-27475-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:22:03.113Z",
+      "crawledAt": "2026-07-11T10:57:25.558Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:22:03.983Z",
+      "crawledAt": "2026-07-11T10:57:26.424Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,47 +87,9 @@
         "translation": 25,
         "completeness": 14
       }
-    },
-    {
-      "id": "siemens-healthineers-94787ee46d4e",
-      "slug": "sr-manager-process-engineering-siemens-healthineers-ch",
-      "company": "Siemens Healthineers",
-      "companyKey": "siemens-healthineers",
-      "companyDomain": "siemens-healthineers.com",
-      "title": "Sr Manager, Process Engineering",
-      "needsRetranslation": false,
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/PAO-H/Sr-Manager--Process-Engineering_R-27995",
-      "source": "Siemens Healthineers Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:22:04.838Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Medicale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/PAO-H/Sr-Manager--Process-Engineering_R-27995",
-      "jobReqId": "R-27995",
-      "firstSeenAt": "2026-07-08T22:12:20.704Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "siemens-healthineers-50bb33ddba45",
       "slug": "network-ingegnere-cloud-operations-siemens-healthineers-zurich",
@@ -202,6 +164,48 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "siemens-healthineers-94787ee46d4e",
+      "slug": "sr-manager-ingegneria-dei-processi-siemens-healthineers-zurich",
+      "company": "Siemens Healthineers",
+      "companyKey": "siemens-healthineers",
+      "companyDomain": "siemens-healthineers.com",
+      "title": "Sr Manager, Process Engineering",
+      "needsRetranslation": false,
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/PAO-H/Sr-Manager--Process-Engineering_R-27995",
+      "source": "Siemens Healthineers Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-10T22:22:04.838Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Medicale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/PAO-H/Sr-Manager--Process-Engineering_R-27995",
+      "jobReqId": "R-27995",
+      "firstSeenAt": "2026-07-08T22:12:20.704Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 19
       }
