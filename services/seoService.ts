@@ -4437,6 +4437,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cosa-fare-nel-weekend-in-ticino-attivita-outdoor': { name: 'Cosa fare nel weekend in Ticino', path: '/articoli-svizzera/cosa-fare-nel-weekend-in-ticino-attivita-outdoor/', parent: 'blog' },
     'blog-mercato-immobiliare-ticino-prezzi-tendenze': { name: 'Mercato immobiliare in Ticino', path: '/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze', parent: 'blog' },
     'blog-lavoro-parrucchiere-estetista-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere', parent: 'blog' },
+    'blog-trasferirsi-svizzera-guida': { name: 'Guida per trasferirsi in Svizzera', path: '/articoli-svizzera/trasferirsi-svizzera-guida/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

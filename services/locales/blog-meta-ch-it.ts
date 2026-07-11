@@ -979,6 +979,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Cosa fare nel weekend in Ticino: attività all\'aperto e escursioni',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Idee per il weekend in Ticino: escursioni, laghi, borghi e attività all\'aperto',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Una scena estiva al lago di Lugano con attività all\'aperto',
+    'blog.article.trasferirsi-svizzera-guida.title': 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
+    'blog.article.trasferirsi-svizzera-guida.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio 2024.',
+    'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Una guida pratica per trasferirsi in Svizzera come italiano non frontaliere',
 };
 
 export default blogMetaChIt;
