@@ -46,7 +46,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { registryPinnedLocaleSlug, normalizeSpace } from './lib/dedicated-crawler-common.mjs';
+import { pruneSourceCopySlots } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -71,32 +71,15 @@ export function cleanRegistrySourceCopies(registry) {
   for (const [fp, entry] of Object.entries(registry)) {
     stats.entriesScanned += 1;
     if (!entry || typeof entry !== 'object') continue;
-    const byLocale = entry.slugByLocale;
-    if (!byLocale || typeof byLocale !== 'object') continue;
+    if (!entry.slugByLocale || typeof entry.slugByLocale !== 'object') continue;
 
-    const canonical = normalizeSpace(String(entry.canonicalSlug || ''));
-    const removedLocales = [];
-    let ambiguousHere = 0;
+    // Registry entries carry no sourceLang → always the unknown-source rule
+    // (registryPinnedLocaleSlug's cross-locale-duplicate branch).
+    const { removedLocales, ambiguousSlots } = pruneSourceCopySlots(entry, entry.canonicalSlug, null);
 
-    for (const [locale, rawValue] of Object.entries(byLocale)) {
-      const value = normalizeSpace(String(rawValue || ''));
-      if (!value) continue;
-      // Reuse the guard verbatim: under unknown sourceLang a non-null return
-      // means the slot is unique across locales → a real (pinnable) slug.
-      if (registryPinnedLocaleSlug(entry, locale, null) !== null) continue;
-      // Cross-locale identical copy. Unambiguously poisoned only when it is
-      // the frozen raw canonical/master slug; anything else could be a legit
-      // source slot or coincidentally-identical real translations → skip.
-      if (canonical && value === canonical) {
-        removedLocales.push(locale);
-      } else {
-        ambiguousHere += 1;
-      }
-    }
-
-    if (ambiguousHere > 0) {
+    if (ambiguousSlots > 0) {
       stats.ambiguousEntriesSkipped += 1;
-      stats.ambiguousSlotsSkipped += ambiguousHere;
+      stats.ambiguousSlotsSkipped += ambiguousSlots;
     }
     if (removedLocales.length === 0) continue;
 
@@ -108,9 +91,6 @@ export function cleanRegistrySourceCopies(registry) {
         canonicalSlug: entry.canonicalSlug,
         removedLocales,
       });
-    }
-    for (const locale of removedLocales) {
-      delete byLocale[locale];
     }
   }
 

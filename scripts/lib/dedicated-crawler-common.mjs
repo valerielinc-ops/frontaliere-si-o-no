@@ -5303,6 +5303,53 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
   return regLoc;
 }
 
+/**
+ * Prune `slugByLocale` slots that are unpinnable copies of the canonical
+ * slug — shared core of the registry (clean-registry-source-copies.mjs) and
+ * expired-slice (clean-expired-slice-source-copies.mjs) bonifica scripts.
+ * Both scan a different on-disk shape (registry entry vs. job object) for
+ * the SAME frozen-pre-translation pattern, so the removal decision lives
+ * here once instead of being copy-pasted.
+ *
+ * A locale slot is removed only when BOTH hold:
+ *   1. registryPinnedLocaleSlug refuses to pin it (suspected cross-locale
+ *      copy under the given sourceLang, or unknown-source duplicate rule);
+ *   2. its value equals `canonicalValue` — the frozen raw-source-slug
+ *      pattern. A duplicate whose value differs from canonical is AMBIGUOUS
+ *      (could be a legit source slot, or two real translations that
+ *      coincide) and is left untouched, only counted.
+ *
+ * Mutates `entryLike.slugByLocale` in place (deletes removed slots) and
+ * never touches `canonicalValue` itself or any other field.
+ *
+ * @param {object} entryLike object carrying `.slugByLocale` (registry entry or job)
+ * @param {string} canonicalValue immutable/master slug to compare copies against
+ * @param {string|null} sourceLang passed through to registryPinnedLocaleSlug
+ * @returns {{removedLocales: string[], ambiguousSlots: number}}
+ */
+export function pruneSourceCopySlots(entryLike, canonicalValue, sourceLang) {
+  const byLocale = entryLike?.slugByLocale;
+  if (!byLocale || typeof byLocale !== 'object') return { removedLocales: [], ambiguousSlots: 0 };
+
+  const canonical = normalizeSpace(String(canonicalValue || ''));
+  const removedLocales = [];
+  let ambiguousSlots = 0;
+
+  for (const [locale, rawValue] of Object.entries(byLocale)) {
+    const value = normalizeSpace(String(rawValue || ''));
+    if (!value) continue;
+    if (registryPinnedLocaleSlug(entryLike, locale, sourceLang) !== null) continue;
+    if (canonical && value === canonical) {
+      removedLocales.push(locale);
+    } else {
+      ambiguousSlots += 1;
+    }
+  }
+
+  for (const locale of removedLocales) delete byLocale[locale];
+  return { removedLocales, ambiguousSlots };
+}
+
 export function registerJobSlug(job, registry) {
   const fp = fingerprintJob(job);
   if (!fp || fp.startsWith('tl|')) return;
