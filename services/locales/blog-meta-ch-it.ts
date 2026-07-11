@@ -1003,6 +1003,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Credito d\'imposta per frontalieri: calcolo, limiti e dichiarazione italiana',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera.',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'Una famiglia con figli frontalieri in Svizzera, con la vista sul lago di Lugano.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Lavora come parrucchiere o estetista in Ticino da frontaliere: stipendio, riconoscimento e permesso G',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'Gli ultimi aggiornamenti sui permessi e sull\'inquadramento dei frontalieri nel settore della bellezza.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'Una parrucchiera frontaliera lavora in una salone di bellezza a Lugano, con vista sul lago.',
 };
 
 export default blogMetaChIt;

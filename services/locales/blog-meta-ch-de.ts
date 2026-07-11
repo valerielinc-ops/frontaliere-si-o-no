@@ -1003,6 +1003,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.title': 'Steuergutschrift für Grenzgänger: Berechnung, Grenzen und italienische Erklärung',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.excerpt': 'Festlegung der Steuergutschrift für Familien mit Grenzgängern in der Schweiz.',
     'blog.article.frontaliere-credito-imposta-2026-famiglia-con-figli.imageAlt': 'Eine Familie mit Kindern Frontalierern in der Schweiz, mit Blick auf den Luganer See.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Friseur oder Kosmetikerin an der Grenze: Gehalt, Anerkennung und G-Vermerk',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'Die neuesten Updates zu den Genehmigungen und der Einstufung von Grenzgängern im Schönheitssektor.',
+    'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'Eine Friseurin arbeitet in einem Friseurgeschäft in Lugano, mit Blick auf den See.',
 };
 
 export default blogMetaChDe;
