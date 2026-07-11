@@ -8342,6 +8342,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Sposarsi in Svizzera: documenti, permessi e impatto fiscale-prevenziale',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'Il 1° gennaio 2024, entra in vigore il Nuovo Accordo Frontalieri. I frontalieri devono riempire un modulo speciale.',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'Un frontaliere si trasferisce in Svizzera con la sua famiglia',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontaliere gravidanza: copertura LAMal o CMI, scelta ospedale, differenze pratiche',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Le frontaliere che lavorano in Svizzera e risiedono in Italia devono sottoporsi a controlli sanitari periodici. Ma cosa accade se si aspettano un figlio?',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Una frontaliere che lavora in Svizzera e risiede in Italia si reca presso un centro sanitario per sottoporsi a controlli periodici.',
 };
 
 export default blogMetaIt;

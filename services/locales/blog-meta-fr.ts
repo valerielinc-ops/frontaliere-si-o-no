@@ -8342,6 +8342,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Se marier en Suisse : documents, permis et impact fiscal-préventionnel',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'Le 1er janvier 2024, le nouvel accord frontalier entre en vigueur. Les frontaliers doivent remplir un formulaire spécial.',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'Un frontalière s\'installe en Suisse avec sa famille',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontiere maternita : choix LAMal ou CMI, choix d\'hopital, difference pratiques',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Les gardes-frontières qui travaillent en Suisse et résident en Italie doivent se soumettre à des contrôles sanitaires périodiques. Mais que se passe-t-il s\'ils attendent un enfant ?',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Une frontalière qui travaille en Suisse et réside en Italie se rend dans un centre de santé pour des examens périodiques.',
 };
 
 export default blogMetaFr;

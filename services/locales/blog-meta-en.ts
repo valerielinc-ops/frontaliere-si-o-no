@@ -8341,6 +8341,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Getting married in Switzerland: documents, permits and tax-preventive impact',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'On 1 January 2024, the New Frontier Agreement enters into force. Frontier workers must fill out a special form.',
     'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'A frontaliere moving to Switzerland with his family',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontier Pregnancy Coverage, Hospital Choice, and Practical Differences',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Border workers working in Switzerland and residing in Italy must undergo regular health checks. But what if they expect a child?',
+    'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'A Swiss-Italian border worker visiting a health center for routine check-ups.',
 };
 
 export default blogMetaEn;
