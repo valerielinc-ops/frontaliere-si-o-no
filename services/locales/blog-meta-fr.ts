@@ -8372,6 +8372,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Analyse complète de la paie suisse 2026 pour les frontaliers',
     'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'La nouvelle loi sur les retenues et cotisations pour les frontaliers en Suisse',
     'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'Une personne travaillant en Suisse et résidant en Italie, avec le lac de Lugano en arrière-plan.',
+    'blog.article.italia-zona-economica-speciale.title': 'Italie, une zone économique spéciale à proximité de la frontière',
+    'blog.article.italia-zona-economica-speciale.excerpt': 'La Suisse et l\'Italie ont signé un accord pour créer une zone économique spéciale le long de la frontière.',
+    'blog.article.italia-zona-economica-speciale.imageAlt': 'Un travailleur frontalier entre la Suisse et l\'Italie',
 };
 
 export default blogMetaFr;
