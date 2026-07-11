@@ -8321,6 +8321,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pizza-price-italy-implications.title': 'Prezzi pizza in Italia: cosa cambia per i frontalieri',
     'blog.article.pizza-price-italy-implications.excerpt': 'L\'aumento del costo della vita in Italia si riflette anche sui prezzi della pizza, un elemento chiave della spesa per molti frontalieri ticinesi.',
     'blog.article.pizza-price-italy-implications.imageAlt': 'Prezzo pizza a Napoli, Italia: implicazioni per i frontalieri ticinesi',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Lavora come Fisioterapista in Ticino: riconoscimento del diploma, requisiti e procedure',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'I requisiti per lavorare come fisioterapista in Ticino, per i frontalieri, sono descritti di seguito.',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'Vista di Lugano con le colline circostanti.',
 };
 
 export default blogMetaIt;

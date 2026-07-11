@@ -8319,6 +8319,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pizza-price-italy-implications.title': 'Pizzapreise in Italien: Was sich für Grenzgänger ändert',
     'blog.article.pizza-price-italy-implications.excerpt': 'Die steigenden Lebenshaltungskosten in Italien spiegeln sich auch in den Pizzapreisen wider, die für viele Tessiner Grenzgänger ein wichtiger Kostenfaktor sind.',
     'blog.article.pizza-price-italy-implications.imageAlt': 'Pizzapreis in Neapel, Italien: Auswirkungen für Grenzgänger im Tessin',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Fisioterapia in Ticino: Diploma, Requisiti e Procedure',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Physiotherapeut im Tessin, für Grenzgänger, sind nachfolgend beschrieben.',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'Lugano mit den umliegenden Hügeln.',
 };
 
 export default blogMetaDe;

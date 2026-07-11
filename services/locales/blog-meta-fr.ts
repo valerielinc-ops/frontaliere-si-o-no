@@ -8321,6 +8321,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pizza-price-italy-implications.title': 'Prix des pizzas en Italie : ce qui change pour les frontaliers',
     'blog.article.pizza-price-italy-implications.excerpt': 'L\'augmentation du coût de la vie en Italie se reflète également dans les prix de la pizza, un élément clé des dépenses de nombreux frontaliers tessinois.',
     'blog.article.pizza-price-italy-implications.imageAlt': 'Prix de la pizza à Naples, Italie : implications pour les travailleurs transfrontaliers tessinois',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.title': 'Fisioterapista in Ticino: riconoscimento del diploma, requisiti e procedure',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.excerpt': 'Les exigences pour travailler en tant que physiothérapeute au Tessin, pour les frontaliers, sont décrites ci-dessous.',
+    'blog.article.lavorare-fisioterapista-ticino-frontalieri-requisiti.imageAlt': 'Vue de Lugano avec les collines environnantes.',
 };
 
 export default blogMetaFr;
