@@ -2888,6 +2888,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assicurazione-vita-privata-svizzera-convienne-frontaliere',
+    category: 'pratico',
+    date: '2026-07-11T07:24:36.430Z',
+    image: '/images/blog/assicurazione-vita-privata-svizzera-convienne-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

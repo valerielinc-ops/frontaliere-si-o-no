@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3118,
+ "numberOfItems": 3119,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7793,7 +7793,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3115, "name": "Di più aziende elettriche, scarsa voglia di cos...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-scarpa-voglia-di-costruire` },
           { "@type": "ListItem", "position": 3116, "name": "Lavora come fisioterapista in Ticino: riconosci...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3117, "name": "Lavora come farmacista in Ticino da frontaliere...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-farmacista-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3118, "name": "Lavora come cuoco in ristorazione ticinese da f...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso` }
+          { "@type": "ListItem", "position": 3118, "name": "Lavora come cuoco in ristorazione ticinese da f...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso` },
+          { "@type": "ListItem", "position": 3119, "name": "Assicurazione vita privata svizzera per il fron...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontaliere` }
  ]
  },
  {
