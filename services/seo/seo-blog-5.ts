@@ -47262,6 +47262,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferimento-residenza-svizzera-frontaliere': {
+    title: 'Sposarsi in Svizzera: documenti, permessi e impatto fiscale-prevenziale',
+    description: 'Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sposarsi, documenti, permessi, impatto',
+    ogTitle: 'Trasferirsi a vivere in Svizzera dopo anni da frontaliere',
+    ogDescription: 'Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale.',
+    canonicalPath: '/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sposarsi in Svizzera: documenti, permessi e impatto fiscale-prevenziale",
+      "description": "Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferimento-residenza-svizzera-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si trasferisce in Svizzera con la sua famiglia"
+      },
+      "datePublished": "2026-07-11T08:08:37+00:00",
+      "dateModified": "2026-07-11T08:08:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

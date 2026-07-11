@@ -8338,6 +8338,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'Is Swiss private life insurance suitable for border workers?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'The Ticino frontier needs to know the advantages and disadvantages of Swiss private life insurance.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'A frontaliere who is in a similar situation might look into how the Swiss private life insurance works.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.title': 'Getting married in Switzerland: documents, permits and tax-preventive impact',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.excerpt': 'On 1 January 2024, the New Frontier Agreement enters into force. Frontier workers must fill out a special form.',
+    'blog.article.trasferimento-residenza-svizzera-frontaliere.imageAlt': 'A frontaliere moving to Switzerland with his family',
 };
 
 export default blogMetaEn;

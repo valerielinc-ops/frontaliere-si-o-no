@@ -4428,6 +4428,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assicurazione-vita-privata-svizzera-convienne-frontaliere': { name: 'Assicurazione vita privata svizzera per i', path: '/articoli-svizzera/assicurazione-vita-privata-svizzera-convienne-frontaliere/', parent: 'blog' },
     'blog-assicurazione-vita-privata-svizzera-convienne-frontalieri': { name: 'assicurazione vita privata svizzera', path: '/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri', parent: 'blog' },
     'blog-vivere-oltre-monti-lavorare-grigioni': { name: 'Frontalieri', path: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/', parent: 'blog' },
+    'blog-trasferimento-residenza-svizzera-frontaliere': { name: 'Trasferimento residenza Svizzera', path: '/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
