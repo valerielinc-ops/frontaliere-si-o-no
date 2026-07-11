@@ -9,7 +9,7 @@
         "fr": "spare-parts-stock-employee-h-f-omega-biel-bienne",
         "it": "spare-parts-stock-employee-h-f-omega-biel-bienne",
         "en": "spare-parts-stock-employee-h-f-omega-biel-bienne",
-        "de": "spare-parts-stock-employee-h-f-omega-biel-bienne"
+        "de": "arbeitsparteien-h-f-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -83,12 +83,12 @@
     },
     {
       "id": "omega-32494",
-      "slug": "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+      "slug": "kitchen-h-f-temporario-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "it": "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
-        "en": "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "de": "cuisinier-h-f-temporaire-omega-biel-bienne"
+        "it": "kitchen-h-f-temporario-omega-sa-biel-bienne",
+        "en": "kitchen-h-f-temporary-omega-sa-biel-bienne",
+        "de": "kitchen-h-f-vorschriften-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -148,11 +148,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "cuisinier-h-f-temporaire-omega-biel-bienne",
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "cuisinier-h-f-temporaire-omega-biel-bienne"
+        ],
+        "de": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "cuisinier-h-f-temporaire-omega-biel-bienne"
+        "cuisinier-h-f-temporaire-omega-biel-bienne",
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -170,12 +178,12 @@
     },
     {
       "id": "omega-32497",
-      "slug": "designer-h-f-omega-biel-bienne",
+      "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "designer-h-f-omega-biel-bienne",
-        "it": "designer-h-f-omega-biel-bienne",
-        "en": "designer-h-f-omega-biel-bienne",
-        "de": "designer-h-f-omega-biel-bienne"
+        "it": "designato-h-f-omega-sa-biel-bienne",
+        "en": "designate-h-f-omega-sa-biel-bienne",
+        "de": "bezeichnung-h-f-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -253,14 +261,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T13:31:25.778Z"
+      "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "designer-h-f-omega-biel-bienne"
+        ],
+        "en": [
+          "designer-h-f-omega-biel-bienne"
+        ],
+        "de": [
+          "designer-h-f-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "designer-h-f-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-32500",
-      "slug": "international-crm-manager-m-w-omega-biel-bienne",
+      "slug": "manager-m-w-omega-sa-biel-bienne",
       "slugByLocale": {
         "en": "international-crm-manager-m-w-omega-biel-bienne",
-        "it": "international-crm-manager-m-w-omega-biel-bienne",
+        "it": "manager-m-w-omega-sa-biel-bienne",
         "de": "international-crm-manager-m-w-omega-biel-bienne",
         "fr": "international-crm-manager-m-w-omega-biel-bienne"
       },
@@ -344,7 +366,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T13:31:04.444Z"
+      "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "international-crm-manager-m-w-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "international-crm-manager-m-w-omega-biel-bienne"
+      ]
     }
   ]
 }

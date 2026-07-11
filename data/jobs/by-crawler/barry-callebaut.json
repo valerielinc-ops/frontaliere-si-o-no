@@ -134,12 +134,12 @@
     },
     {
       "id": "barry-callebaut-95c74076082f",
-      "slug": "forest-risk-monitoring-manager-barry-callebaut-ch",
+      "slug": "gestione-del-rischio-forestale-e-monitoraggio-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "forest-risk-monitoring-manager-barry-callebaut-ch",
-        "it": "forest-risk-monitoring-manager-barry-callebaut-ch",
+        "it": "gestione-del-rischio-forestale-e-monitoraggio-barry-callebaut-zurich",
         "de": "forest-risk-monitoring-manager-barry-callebaut-ch",
-        "fr": "forest-risk-monitoring-manager-barry-callebaut-ch"
+        "fr": "gestionnaire-du-risque-forestier-et-de-la-surveillance-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -193,7 +193,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T13:28:30.806Z"
+      "firstSeenAt": "2026-07-10T13:28:30.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forest-risk-monitoring-manager-barry-callebaut-ch"
+        ],
+        "fr": [
+          "forest-risk-monitoring-manager-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "forest-risk-monitoring-manager-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-f859fe4257d1",
@@ -367,13 +378,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-manager-packaging-barry-callebaut-ch",
-        "categoria-manager-packaging-barry-callebaut-zurich"
+        "category-manager-packaging-barry-callebaut-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-manager-packaging-barry-callebaut-ch",
-          "categoria-manager-packaging-barry-callebaut-zurich"
+          "category-manager-packaging-barry-callebaut-ch"
         ],
         "de": [
           "category-manager-packaging-barry-callebaut-ch"

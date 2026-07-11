@@ -111,8 +111,8 @@
       "slugByLocale": {
         "fr": "representant-technique-du-batiment-sanitaire-a-100-f-h-d-bms-building-ch",
         "it": "representant-technique-du-batiment-sanitaire-a-100-f-h-d-bms-building-ch",
-        "en": "representant-technique-du-batiment-sanitaire-a-100-f-h-d-bms-building-ch",
-        "de": "representant-technique-du-batiment-sanitaire-a-100-f-h-d-bms-building-ch"
+        "en": "100-building-sanitary-technical-representative-f-h-d-bms-building-materials-yverdon-les-bains",
+        "de": "100-gebaude-sanitar-technischer-vertreter-f-h-d-bms-building-materials-yverdon-les-bains"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -204,9 +204,9 @@
       "slug": "consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili",
       "slugByLocale": {
         "it": "consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili",
-        "en": "consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili",
-        "de": "consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili",
-        "fr": "consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili"
+        "en": "internal-consultant-carpentry-and-lattonery-with-responsibility-purchases-building-materials-100-f-m-d-bms-building",
+        "de": "interner-berater-tischlerei-und-lattonerie-mit-verantwortung-kauft-baumaterialien-100-w-m-d-bms-building-materials",
+        "fr": "consultant-interne-menuiserie-et-lattonnerie-avec-responsabilite-achete-des-materiaux-de-construction-100-f-m-j-bms"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -303,8 +303,8 @@
       "slugByLocale": {
         "de": "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch",
         "it": "fachberatung-ausstellung-sanitar-e-platten-m-w-d-100-bms-building-materials-bern",
-        "en": "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch",
-        "fr": "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
+        "en": "specialist-consulting-exhibition-sanitary-and-plates-f-m-d-100-bms-building-materials-bern",
+        "fr": "sanitaire-et-assiettes-d-exposition-specialisee-conseil-f-m-d-100-bms-building-materials-bern"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -383,6 +383,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
         ]
       },
       "previousSlugs": [
@@ -409,8 +415,8 @@
       "slugByLocale": {
         "fr": "technicien-cuisines-a-100-f-h-d-bms-building-ch",
         "it": "technicien-cuisines-a-100-f-h-d-bms-building-ch",
-        "en": "technicien-cuisines-a-100-f-h-d-bms-building-ch",
-        "de": "technicien-cuisines-a-100-f-h-d-bms-building-ch"
+        "en": "100-kitchen-technician-f-h-d-bms-building-materials-etoy",
+        "de": "100-kuchentechniker-w-h-d-bms-building-materials-etoy"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -609,8 +615,8 @@
       "slugByLocale": {
         "de": "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch",
         "it": "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch"
+        "en": "customer-service-shop-sanitary-with-springer-function-f-m-d-100-bms-building-materials-cham",
+        "fr": "service-clientele-shop-sanitaire-avec-fonction-springer-f-m-d-100-bms-building-materials-cham"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -819,12 +825,12 @@
     },
     {
       "id": "bms-building-929994d53f60",
-      "slug": "standortleitung-w-m-d-100-bms-building-ch",
+      "slug": "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon",
       "slugByLocale": {
         "de": "standortleitung-w-m-d-100-bms-building-ch",
-        "it": "standortleitung-w-m-d-100-bms-building-ch",
-        "en": "standortleitung-w-m-d-100-bms-building-ch",
-        "fr": "standortleitung-w-m-d-100-bms-building-ch"
+        "it": "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon",
+        "en": "site-management-f-m-d-100-bms-building-materials-schmerikon",
+        "fr": "gestion-du-site-f-m-d-100-bms-building-materials-schmerikon"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -925,7 +931,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-07-10T12:58:28.237Z"
+      "firstSeenAt": "2026-07-10T12:58:28.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "standortleitung-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "standortleitung-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "standortleitung-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "standortleitung-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-eec4489a2714",
@@ -1034,7 +1054,7 @@
         "de": "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
         "it": "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
         "en": "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
-        "fr": "project-manager-digitalisation-w-m-d-80-100-bms-building-ch"
+        "fr": "gestionnaire-de-projet-digitalisation-f-m-d-80-100-bms-building-materials-bern"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1149,12 +1169,12 @@
     },
     {
       "id": "bms-building-e4c93c84b028",
-      "slug": "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
+      "slug": "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
-        "it": "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
-        "en": "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
-        "fr": "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+        "it": "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern",
+        "en": "product-master-data-f-m-d-80-100-bms-building-materials-bern",
+        "fr": "donnees-de-base-du-produit-f-m-d-80-100-bms-building-materials-bern"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1239,7 +1259,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-10T12:58:24.764Z"
+      "firstSeenAt": "2026-07-10T12:58:24.764Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-3fa14fcf3d4a",
@@ -1247,8 +1281,8 @@
       "slugByLocale": {
         "de": "logistik-mit-springerfunktion-w-m-d-100-bms-building-ch",
         "it": "logistik-mit-springerfunktion-w-m-d-100-bms-building-ch",
-        "en": "logistik-mit-springerfunktion-w-m-d-100-bms-building-ch",
-        "fr": "logistik-mit-springerfunktion-w-m-d-100-bms-building-ch"
+        "en": "logistics-with-springer-function-w-m-d-100-bms-building-materials-cham",
+        "fr": "logistique-avec-fonction-springer-w-m-d-100-bms-building-materials-cham"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1341,12 +1375,12 @@
     },
     {
       "id": "bms-building-42165e69ba0d",
-      "slug": "logistik-w-m-d-100-bms-building-ch",
+      "slug": "logistica-f-m-d-100-bms-building-materials-sargans",
       "slugByLocale": {
         "de": "logistik-w-m-d-100-bms-building-ch",
-        "it": "logistik-w-m-d-100-bms-building-ch",
-        "en": "logistik-w-m-d-100-bms-building-ch",
-        "fr": "logistik-w-m-d-100-bms-building-ch"
+        "it": "logistica-f-m-d-100-bms-building-materials-sargans",
+        "en": "logistics-f-m-d-100-bms-building-materials-sargans",
+        "fr": "logistique-f-m-j-100-bms-building-materials-sargans"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1431,7 +1465,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-07-10T12:58:22.735Z"
+      "firstSeenAt": "2026-07-10T12:58:22.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistik-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "logistik-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "logistik-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistik-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-d59731c4cfb4",
@@ -1537,12 +1585,12 @@
     },
     {
       "id": "bms-building-129a41acc4bd",
-      "slug": "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+      "slug": "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein",
       "slugByLocale": {
         "de": "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "it": "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        "it": "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein",
+        "en": "customer-service-in-the-construction-shop-f-m-d-100-bms-building-materials-schluein",
+        "fr": "service-a-la-clientele-dans-l-atelier-de-construction-f-m-d-100-bms-building-materials-schluein"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1635,7 +1683,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-10T12:58:20.666Z"
+      "firstSeenAt": "2026-07-10T12:58:20.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-6aa5b2a709b2",
@@ -1754,7 +1816,7 @@
         "de": "functional-application-manager-ai-w-m-d-100-bms-building-ch",
         "it": "functional-application-manager-ai-w-m-d-100-bms-building-ch",
         "en": "functional-application-manager-ai-w-m-d-100-bms-building-ch",
-        "fr": "functional-application-manager-ai-w-m-d-100-bms-building-ch"
+        "fr": "gestionnaire-d-application-fonctionnelle-ai-f-m-d-100-bms-building-materials-buchs"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1851,8 +1913,8 @@
       "slugByLocale": {
         "fr": "conseiller-de-vente-interne-cuisines-a-100-f-h-d-bms-building-ch",
         "it": "conseiller-de-vente-interne-cuisines-a-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-interne-cuisines-a-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-interne-cuisines-a-100-f-h-d-bms-building-ch"
+        "en": "internal-sales-advisor-100-kitchens-f-h-d-bms-building-materials-villeneuve",
+        "de": "internal-sales-advisor-100-kuchen-w-h-d-bms-building-materials-villeneuve"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1943,12 +2005,12 @@
     },
     {
       "id": "bms-building-3f9df3f1271b",
-      "slug": "logistik-w-m-d-80-100-bms-building-ch",
+      "slug": "logistica-f-m-d-80-100-bms-building-materials-grenchen",
       "slugByLocale": {
         "de": "logistik-w-m-d-80-100-bms-building-ch",
-        "it": "logistik-w-m-d-80-100-bms-building-ch",
-        "en": "logistik-w-m-d-80-100-bms-building-ch",
-        "fr": "logistik-w-m-d-80-100-bms-building-ch"
+        "it": "logistica-f-m-d-80-100-bms-building-materials-grenchen",
+        "en": "logistics-f-m-d-80-100-bms-building-materials-grenchen",
+        "fr": "logistique-f-m-j-80-100-bms-building-materials-grenchen"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -2033,16 +2095,30 @@
         }
       },
       "addressRegion": "SO",
-      "firstSeenAt": "2026-07-10T12:58:16.087Z"
+      "firstSeenAt": "2026-07-10T12:58:16.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistik-w-m-d-80-100-bms-building-ch"
+        ],
+        "en": [
+          "logistik-w-m-d-80-100-bms-building-ch"
+        ],
+        "fr": [
+          "logistik-w-m-d-80-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistik-w-m-d-80-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-b554a2082b79",
-      "slug": "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
+      "slug": "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
       "slugByLocale": {
         "de": "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
-        "it": "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
-        "en": "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
-        "fr": "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+        "it": "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
+        "en": "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris",
+        "fr": "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -2139,16 +2215,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-10T12:58:15.087Z"
+      "firstSeenAt": "2026-07-10T12:58:15.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-e4e4ae8aac71",
-      "slug": "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
+      "slug": "servizio-clienti-servizio-sanitario-f-m-d-100-bms-building-materials-zurich",
       "slugByLocale": {
         "de": "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-        "it": "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+        "it": "servizio-clienti-servizio-sanitario-f-m-d-100-bms-building-materials-zurich",
+        "en": "customer-service-field-service-sanitary-f-m-d-100-bms-building-materials-zurich",
+        "fr": "service-a-la-clientele-service-sanitaire-f-m-d-100-bms-building-materials-zurich"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -2241,7 +2331,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-10T12:58:14.055Z"
+      "firstSeenAt": "2026-07-10T12:58:14.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-e83f2b94965f",
@@ -2355,8 +2459,8 @@
       "slugByLocale": {
         "fr": "conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f-h-d-bms",
         "it": "conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f-h-d-bms",
-        "en": "conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f-h-d-bms",
-        "de": "conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f-h-d-bms"
+        "en": "sales-advisor-shop-sanitary-building-technology-tools-100-f-h-d-bms-building-materials-lausanne",
+        "de": "verkaufsberater-shop-sanitar-bautechnik-werkzeuge-100-w-h-d-bms-building-materials-lausanne"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -2457,7 +2561,7 @@
       "slugByLocale": {
         "fr": "assistant-mecanique-avec-permis-pl-a-100-f-h-d-bms-building-ch",
         "it": "assistant-mecanique-avec-permis-pl-a-100-f-h-d-bms-building-ch",
-        "en": "assistant-mecanique-avec-permis-pl-a-100-f-h-d-bms-building-ch",
+        "en": "mechanical-assistant-with-100-pl-licence-f-h-d-bms-building-materials-bulle",
         "de": "assistant-mecanique-avec-permis-pl-a-100-f-h-d-bms-building-ch"
       },
       "company": "BMS Building Materials",
@@ -2659,12 +2763,12 @@
     },
     {
       "id": "bms-building-5dbd85e4ff8e",
-      "slug": "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
+      "slug": "coordinatore-consulente-di-vendita-interna-holz-f-m-d-100-bms-building-materials-chur",
       "slugByLocale": {
         "de": "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
-        "it": "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
-        "en": "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch",
-        "fr": "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+        "it": "coordinatore-consulente-di-vendita-interna-holz-f-m-d-100-bms-building-materials-chur",
+        "en": "coordinator-internal-sales-consultant-holz-f-m-d-100-bms-building-materials-chur",
+        "fr": "coordinateur-consultant-interne-en-ventes-holz-f-m-j-100-bms-building-materials-chur"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -2751,7 +2855,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-10T12:58:08.662Z"
+      "firstSeenAt": "2026-07-10T12:58:08.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-interner-verkaufsberater-holz-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-1d192109743d",
@@ -2863,8 +2981,8 @@
       "slugByLocale": {
         "fr": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
         "it": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        "en": "internal-sales-advisor-wood-100-f-h-d-bms-building-materials-bulle",
+        "de": "interner-verkaufsberater-wood-100-w-h-d-bms-building-materials-bulle"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -3161,12 +3279,12 @@
     },
     {
       "id": "bms-building-653b6fdc4bd4",
-      "slug": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
+      "slug": "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-bern",
       "slugByLocale": {
         "de": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "it": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        "it": "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-bern",
+        "en": "customer-service-richner-shop-sanitary-f-m-d-100-bms-building-materials-bern",
+        "fr": "service-a-la-clientele-richner-shop-sanitaire-f-m-d-100-bms-building-materials-bern"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -3255,7 +3373,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-10T12:58:01.879Z"
+      "firstSeenAt": "2026-07-10T12:58:01.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-b7d449f002a8",
