@@ -39,8 +39,8 @@
       },
       "slugByLocale": {
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "en": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "en": "drywall-installer-plasterer-pemsa-bellinzona",
+        "de": "trockenbauer-gipsarbeiten-pemsa-bellinzona",
         "fr": "cartongesista-gessatore-pemsa-bellinzona"
       },
       "id": "pemsa-7a1b89a652a2",
@@ -97,7 +97,7 @@
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
         "en": "gardens-pemsa-bellinzona",
-        "de": "giardiniere-pemsa-bellinzona",
+        "de": "garten-pemsa-bellinzona",
         "fr": "jardins-pemsa-bellinzona"
       },
       "id": "pemsa-47996a874e16",
@@ -114,15 +114,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "garten-pemsa-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "garten-pemsa-bellinzona"
-      ]
+      "firstSeenAt": "2026-07-10T22:10:40.030Z"
     },
     {
       "title": "Idraulico",
@@ -281,7 +273,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -298,14 +290,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-sigirino"
-      ],
       "needsRetranslation": true
     },
     {
@@ -584,7 +568,7 @@
       "slugByLocale": {
         "it": "carpentiere-pemsa-lugano",
         "en": "carpenters-pemsa-lugano",
-        "de": "carpentiere-pemsa-lugano",
+        "de": "schreiner-pemsa-lugano",
         "fr": "charpentiers-pemsa-lugano"
       },
       "id": "pemsa-47dc8d1246d3",
@@ -2150,7 +2134,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -2168,14 +2152,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -13439,7 +13415,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -13456,14 +13432,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T12:06:39.828Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-torricella"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-torricella"
-      ],
       "needsRetranslation": true
     },
     {

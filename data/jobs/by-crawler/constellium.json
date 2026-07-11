@@ -51,14 +51,12 @@
       "crawledAt": "2026-07-11T10:53:38.145Z",
       "previousSlugs": [
         "betriebsschlosser-in-tagesarbeit-constellium-ch",
-        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-        "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsschlosser-in-tagesarbeit-constellium-ch",
-          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-          "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
         ],
         "en": [
           "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
@@ -130,13 +128,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-11T10:53:37.331Z",
       "previousSlugs": [
-        "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg"
+        "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-          "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg"
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
         ],
         "en": [
           "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
@@ -162,9 +158,9 @@
     },
     {
       "id": "constellium-b65f5831ff69",
-      "slug": "master-planner-100-constellium-ch",
+      "slug": "pianificatore-maestro-al-100-constellium-valais-sierre",
       "slugByLocale": {
-        "it": "master-planner-100-constellium-ch",
+        "it": "pianificatore-maestro-al-100-constellium-valais-sierre",
         "en": "master-planner-100-constellium-ch",
         "de": "masterplaner-100-constellium-valais-sierre",
         "fr": "master-planner-100-constellium-ch"
@@ -221,7 +217,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "master-planner-100-constellium-ch"
+        ]
+      },
+      "previousSlugs": [
+        "master-planner-100-constellium-ch"
+      ]
     }
   ]
 }
