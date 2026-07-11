@@ -8329,6 +8329,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Living in Valtellina and working in Graubünden as a border worker',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'New tax agreement for frontier workers: what changes and what to do',
     'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri in transit',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.title': 'Physiotherapist Job in Ticino: Diploma Recognition, Salary, and Qualification Process',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.excerpt': 'For borderline physiotherapists, the recognition of the diploma and the qualification to work in Ticino are fundamental. But how does the enabling process work and what does the G permit mean?',
+    'blog.article.frontaliere-fisioterapista-ticino-stipendio-requisiti.imageAlt': 'A frontal worker physiotherapist gazes at the view of Lake Lugano while taking the sunset.',
 };
 
 export default blogMetaEn;
