@@ -1,16 +1,16 @@
 {
   "key": "klinik-schloss-mammern",
   "label": "Klinik Schloss Mammern",
-  "generatedAt": "2026-07-11T10:52:40.559Z",
-  "total": 12,
-  "newCount": 2,
-  "updatedCount": 9,
+  "generatedAt": "2026-07-11T22:32:21.531Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 20891,
-  "avgDurationMs": 20891,
+  "unchangedCount": 0,
+  "durationMs": 24875,
+  "avgDurationMs": 24875,
   "durationHistory": [
-    20891
+    24875
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:52:23.062Z",
+      "crawledAt": "2026-07-11T22:32:02.084Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "klinik-schloss-mammern-915efad9d896",
       "slug": "fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40-10-flexibel-nach",
@@ -56,13 +58,13 @@
       "companyKey": "klinik-schloss-mammern",
       "companyDomain": "klinik-schloss-mammern.ch",
       "title": "Fachperson Betreuung Fachrichtung Kinderbetreuung als Springer/-in 40%+10% flexibel nach Bedarf",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Mammern",
       "canton": "TG",
       "url": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40+10-flexibel-nach-bedarf/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:24.654Z",
+      "crawledAt": "2026-07-11T22:32:04.064Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-07-11",
       "applyUrl": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40+10-flexibel-nach-bedarf/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-11T10:52:24.654Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-schloss-mammern-cb3db7f3e8ce",
       "slug": "medizinische-r-masseur-in-80-100-klinik-schloss-mammern-mammern",
@@ -100,7 +101,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:26.221Z",
+      "crawledAt": "2026-07-11T22:32:05.712Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -137,7 +138,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-orthopaedie-und-traumatologie-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:37.274Z",
+      "crawledAt": "2026-07-11T22:32:17.330Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -174,7 +175,7 @@
       "url": "https://ksm-jobs.ch/job/teamleitung-floristik-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:35.674Z",
+      "crawledAt": "2026-07-11T22:32:15.663Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -211,7 +212,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:32.510Z",
+      "crawledAt": "2026-07-11T22:32:12.395Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:27.757Z",
+      "crawledAt": "2026-07-11T22:32:07.354Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -285,7 +286,7 @@
       "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:29.296Z",
+      "crawledAt": "2026-07-11T22:32:09.026Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -322,7 +323,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-als-fachfrau-fachmann-gesundheit-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:30.889Z",
+      "crawledAt": "2026-07-11T22:32:10.649Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -359,7 +360,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-pneumologie-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:34.090Z",
+      "crawledAt": "2026-07-11T22:32:14.047Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -396,7 +397,7 @@
       "url": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-30-40/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:52:38.885Z",
+      "crawledAt": "2026-07-11T22:32:19.197Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -422,45 +423,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "klinik-schloss-mammern-e0636f69e7f0",
-      "slug": "consulente-alimentare-50-100-klinik-schloss-mammern-mammern",
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Ernährungsberater/in 50% – 100%",
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/ernaehrungsberater-in-50-100/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-09T12:11:21.897Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://ksm-jobs.ch/job/ernaehrungsberater-in-50-100/",
-      "firstSeenAt": "2026-05-19T13:03:43.332Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
