@@ -8347,6 +8347,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'How to resign from a border job in Switzerland: terms and correct procedure',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Key facts about the termination of the employment contract for border workers in Switzerland',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'A Swiss-Italian cross-border worker writing a resignation letter',
+    'blog.article.tilo-lavori-gallarate-luglio.title': 'Tilo: Gallarate circulation restrictions 11-13 July',
+    'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Maintenance work on the Italian Railway Network impacts the S50 connections between Ticino and Malpensa. Here\'s how to travel between July 11th and 13th.',
+    'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Tilo train arriving at a station in the Ticino region',
 };
 
 export default blogMetaEn;

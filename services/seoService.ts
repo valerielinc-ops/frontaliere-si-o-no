@@ -4433,6 +4433,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-esportazione-zampe-di-maiale': { name: 'Esportazione di carne suina', path: '/articoli-svizzera/esportazione-zampe-di-maiale/', parent: 'blog' },
     'blog-frontaliere-disdetta-contratto-lavoro-dimissioni-termini': { name: 'Come dimettersi da un lavoro da frontali', path: '/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini', parent: 'blog' },
     'blog-frontaliere-adozione-affido-procedura-italia-svizzera': { name: 'Procedura di adozione o affido per una', path: '/articoli-svizzera/frontaliere-adozione-affido-procedura-italia-svizzera/', parent: 'blog' },
+    'blog-tilo-lavori-gallarate-luglio': { name: 'Trasporti Tilo', path: '/articoli-frontaliere/tilo-lavori-gallarate-luglio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

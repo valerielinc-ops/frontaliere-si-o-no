@@ -8348,6 +8348,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Comment se désinscrire d\'un travail de frontalier en Suisse : termini et procède correctes',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Faits clés sur la résiliation du contrat de travail pour les frontaliers en Suisse',
     'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Une travailleuse frontalière italienne qui travaille en Suisse est en train d\'écrire une lettre de démission',
+    'blog.article.tilo-lavori-gallarate-luglio.title': 'Tile : restrictions de circulation Gallarate 11-13 juillet',
+    'blog.article.tilo-lavori-gallarate-luglio.excerpt': 'Les travaux de maintenance du réseau ferroviaire italien ont un impact sur les liaisons S50 entre le Tessin et Malpensa. Voici comment voyager entre le 11 et le 13 juillet.',
+    'blog.article.tilo-lavori-gallarate-luglio.imageAlt': 'Train Tilo arrivant dans une gare du canton du Tessin',
 };
 
 export default blogMetaFr;
