@@ -1009,6 +1009,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Enrolment in border children\'s school: guide and procedures',
     'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'The procedures for the education of the children of border workers between Italy and Switzerland: orientation between school systems, obligations and management of commuting.',
     'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Modern school building in Switzerland',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.title': 'Unemployment of frontiersmen opens a new front with Brussels',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.excerpt': 'The new social security agreement could have a significant impact on border workers',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.imageAlt': 'Frontalieri in Switzerland',
 };
 
 export default blogMetaChEn;

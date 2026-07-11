@@ -359,6 +359,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-credito-imposta-2026-famiglia-con-figli': { it: 'frontaliere-credito-imposta-2026-famiglia-con-figli', en: 'frontaliere-credito-imposta-2026-famiglia-con-figli', de: 'frontaliere-credito-imposta-2026-famiglia-con-figli', fr: 'frontaliere-credito-imposta-2026-famiglia-con-figli' },
  'frontaliere-parrucchiere-estetista-ticino-permesso-stipendio': { it: 'frontaliere-parrucchiere-estetista-ticino-permesso-stipendio', en: 'frontalier-hairdresser-beauty-salon-ticino-permit-salary', de: 'frontalier-friseur-schonheitsklinik-tessin-permit-lohne', fr: 'frontalier-coiffeur-salon-de-beaute-tessin-permis-salaire' },
  'iscrizione-scuola-figli-frontalieri': { it: 'iscrizione-scuola-figli-frontalieri', en: 'enrolling-children-school-cross-border-workers', de: 'einschulung-kinder-grenzgaenger', fr: 'inscription-ecole-enfants-frontaliers' },
+ 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': { it: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', en: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', de: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', fr: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
