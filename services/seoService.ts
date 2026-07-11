@@ -4421,6 +4421,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-dogana-ponte-tresa-guida': { name: 'Dogana Ponte Tresa', path: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida', parent: 'blog' },
     'blog-axa-manno-lavoro-frontaliere': { name: 'Lavoro AXA Manno', path: '/articoli-svizzera/axa-manno-lavoro-frontaliere/', parent: 'blog' },
     'blog-vivere-valtellina-lavorare-grigioni-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere', parent: 'blog' },
+    'blog-centrali-nucleari-scarpa-voglia-di-costruire': { name: 'Costruzione di centrali nucleari', path: '/articoli-svizzera/centrali-nucleari-scarpa-voglia-di-costruire/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

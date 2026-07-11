@@ -958,6 +958,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.axa-manno-lavoro-frontaliere.title': 'Lavorare in AXA Svizzera a Manno: guida per frontalieri',
     'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Dettagli sull\'impiego a Manno, il permesso G, la tassazione 2024 e i contributi sociali per i lavoratori frontalieri in Ticino.',
     'blog.article.axa-manno-lavoro-frontaliere.imageAlt': 'Edificio moderno a Manno, Canton Ticino, sede di AXA Svizzera',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'Di più aziende elettriche, scarsa voglia di costruire centrali nucleari',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'I gruppi energetici svizzeri accolgono con favore la revoca del divieto di costruzione di centrali nucleari decisa a Berna.',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
 };
 
 export default blogMetaChIt;

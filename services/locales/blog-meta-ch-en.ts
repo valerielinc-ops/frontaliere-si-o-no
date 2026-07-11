@@ -958,6 +958,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.axa-manno-lavoro-frontaliere.title': 'Working at AXA Switzerland in Manno: a guide for border workers',
     'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Details on employment in Manno, G permit, 2024 taxation and social contributions for frontier workers in Ticino.',
     'blog.article.axa-manno-lavoro-frontaliere.imageAlt': 'Modern office building in Manno, Canton Ticino, home to AXA Switzerland',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'More power companies, little desire to build nuclear power plants',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'Swiss energy groups welcome the lifting of the ban on the construction of nuclear power plants in Bern.',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
 };
 
 export default blogMetaChEn;
