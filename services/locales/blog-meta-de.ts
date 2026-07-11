@@ -8376,6 +8376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Frontaliers in Tessin: Haarfriseur, Kosmetikerin oder Grenzbesetzer?',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Grenzgänger, Friseure und Kosmetiker im Tessin: G-Bewilligung, Gehalt, berufliche Anerkennung und Möglichkeiten in der Branche.',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Ein Grenzgänger Friseur in einem Salon in Lugano, mit einem Kunden, der auf dem Friseurstuhl sitzt.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Grenzgängersteuergutschrift 2026: Berechnung und Erklärung',
+    'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Leitfaden zur Steuergutschrift für Grenzgänger 2026: Wie man die Franchise, die IRPEF-Sätze und die Steuererklärung in Italien verwaltet.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Panoramablick auf Lugano mit dem See und dem Stadtzentrum',
 };
 
 export default blogMetaDe;

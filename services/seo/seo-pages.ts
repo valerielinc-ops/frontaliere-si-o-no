@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3145,
+ "numberOfItems": 3146,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7820,7 +7820,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3142, "name": "Italia, una zona economica speciale a ridosso d...", "url": `${BASE_URL}/articoli-frontaliere/italia-zona-economica-speciale` },
           { "@type": "ListItem", "position": 3143, "name": "Frontaliere insegnante scuola Ticino stipendio ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-insegnante-scuola-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3144, "name": "Lavora come parrucchiere o estetista in Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio` },
-          { "@type": "ListItem", "position": 3145, "name": "Credito d'imposta per frontalieri: calcolo, lim...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-credito-imposta-2026-famiglia-con-figli` }
+          { "@type": "ListItem", "position": 3145, "name": "Credito d'imposta per frontalieri: calcolo, lim...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-credito-imposta-2026-famiglia-con-figli` },
+          { "@type": "ListItem", "position": 3146, "name": "Credito d'imposta frontalieri 2026: calcolo e d...", "url": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontalieri-2026-guida` }
  ]
  },
  {

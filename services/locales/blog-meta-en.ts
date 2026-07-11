@@ -8377,6 +8377,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Work as a hairdresser or beautician in Ticino as a border worker: opportunities, permit, and salary',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Border hairdressers and beauticians in Ticino: G permit, salary, professional recognition and opportunities in the sector.',
     'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'A cross-border hairdresser in a salon in Lugano, with a client seated in the barber\'s chair.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.title': 'Border tax credit 2026: calculation and declaration',
+    'blog.article.credito-imposta-frontalieri-2026-guida.excerpt': 'Operating guide to the tax credit for border workers 2026: how to manage the deductible, the IRPEF rates and the tax return in Italy.',
+    'blog.article.credito-imposta-frontalieri-2026-guida.imageAlt': 'Panoramic view of Lugano with the lake and city center',
 };
 
 export default blogMetaEn;
