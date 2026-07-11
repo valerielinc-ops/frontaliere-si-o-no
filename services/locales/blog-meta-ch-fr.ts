@@ -991,6 +991,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.clima-ticino-stagioni.title': 'Climat Tessin : saisonnalité, températures et précipitations',
     'blog.article.clima-ticino-stagioni.excerpt': 'Le Tessin offre un climat tempéré avec quatre saisons clairement distinctes. La température moyenne en été est d\'environ 25 °C, tandis qu\'en hiver, elle est d\'environ 0 °C.',
     'blog.article.clima-ticino-stagioni.imageAlt': 'Lac de Lugano au printemps',
+    'blog.article.frontaliere-meccanico-auto-ticino.title': 'Frontière mécanique automobile au Tessin : salaire et règles',
+    'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Guide complet pour les mécaniciens frontaliers au Tessin : salaire, permis G, fiscalité et le nouvel accord fiscal en vigueur depuis le 1er janvier 2024.',
+    'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Mécanicien dans un atelier au Tessin',
 };
 
 export default blogMetaChFr;

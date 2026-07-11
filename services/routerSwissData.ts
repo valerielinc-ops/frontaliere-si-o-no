@@ -353,6 +353,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'aprire-conto-banca-svizzera-residenti': { it: 'aprire-conto-banca-svizzera-residenti', en: 'open-bank-account-switzerland-resident', de: 'konten-banken-schweiz-residenten', fr: 'ouvrir-compte-banque-suisse-resident' },
  'imparare-svizzero-tedesco-corsi-e-app': { it: 'imparare-svizzero-tedesco-corsi-e-app', en: 'learn-swiss-german', de: 'schweizerdeutsch-lernen', fr: 'apprendre-le-allemand-suisses' },
  'clima-ticino-stagioni': { it: 'clima-ticino-stagioni', en: 'ticino-climate-seasons', de: 'luganer-klima-saison', fr: 'climat-lugano-saison' },
+ 'frontaliere-meccanico-auto-ticino': { it: 'frontaliere-meccanico-auto-ticino', en: 'cross-border-mechanic-ticino-salary', de: 'grenzgaenger-kfz-mechaniker-tessin-gehalt', fr: 'frontalier-mecanicien-auto-ticino-salaire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
