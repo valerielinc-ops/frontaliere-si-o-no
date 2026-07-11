@@ -1,11 +1,38 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Mock only `fetchHtml` from the shared template — everything else
+// (slugify, stripHtml, normalizeSpace) stays real since the parser imports
+// them directly and they're pure/deterministic.
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+vi.mock('@/scripts/lib/crawler-template.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchHtml };
+});
+
 import {
   ZERMATT_BERGBAHNEN_KEY,
   ZERMATT_BERGBAHNEN_COMPANY_NAME,
   isZermattBergbahnenJob,
   isTrustedDomain,
+  fetchAllZermattBergbahnenJobs,
 } from '../scripts/lib/zermatt-bergbahnen-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const LISTING_CARD = `
+  <section class="card-item stretch-link">
+    <div class="card-item__body">
+      <div class="card-item__top-title">IT und Telekommunikation</div>
+      <h3 class="card-item__title">
+        <a href="/de/ueber-uns/job-und-karriere/informatiker/in_job_3001250" class="stretch-link__link">Informatiker/in</a>
+      </h3>
+      <div class="card-item__tag-list">
+        <span class="card-item__tag-list-item">Vollzeit</span>
+        <span class="card-item__tag-list-item">Unbefristet</span>
+        <span class="card-item__tag-list-item">Jobs</span>
+      </div>
+    </div>
+  </section>
+`;
 
 describe('Zermatt Bergbahnen crawler parser', () => {
   // ── Constants ──
@@ -124,6 +151,44 @@ describe('Zermatt Bergbahnen crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── fetchAllZermattBergbahnenJobs (network mocked via fetchHtml) ──
+  // Regression for #3900: the careers page stopped embedding job cards and
+  // now loads them client-side via the "Alle" tab AJAX endpoint, which
+  // returns JSON `{ html, success }` instead of raw HTML.
+  describe('fetchAllZermattBergbahnenJobs', () => {
+    it('parses jobs from the AJAX tab JSON payload', async () => {
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
+        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
+
+      const jobs = await fetchAllZermattBergbahnenJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Informatiker/in');
+      expect(jobs[0].url).toBe('https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/informatiker/in_job_3001250');
+      expect(jobs[0].companyKey).toBe(ZERMATT_BERGBAHNEN_KEY);
+    });
+
+    it('falls back to treating the response as raw HTML if it is not JSON', async () => {
+      fetchHtml
+        .mockResolvedValueOnce(`<ul>${LISTING_CARD}</ul>`)
+        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
+
+      const jobs = await fetchAllZermattBergbahnenJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Informatiker/in');
+    });
+
+    it('returns an empty array when the tab payload has no job cards', async () => {
+      fetchHtml.mockResolvedValueOnce(JSON.stringify({ html: '<ul></ul>', success: true }));
+
+      const jobs = await fetchAllZermattBergbahnenJobs();
+
+      expect(jobs).toEqual([]);
     });
   });
 });
