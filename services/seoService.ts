@@ -4440,6 +4440,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferirsi-svizzera-guida': { name: 'Guida per trasferirsi in Svizzera', path: '/articoli-svizzera/trasferirsi-svizzera-guida/', parent: 'blog' },
     'blog-mercato-del-lavoro-ticino-settori-in-crescita': { name: 'Mercato del lavoro ticinese', path: '/articoli-frontaliere/mercato-del-lavoro-ticino-settori-in-crescita', parent: 'blog' },
     'blog-aprire-conto-banca-svizzera-residenti': { name: 'Aprire un conto bancario in Svizzera da', path: '/articoli-svizzera/aprire-conto-banca-svizzera-residenti/', parent: 'blog' },
+    'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': { name: 'Frontaliere insegnante scuola ticino', path: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8360,6 +8360,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Settori in crescita: profughi ricercati, prospettive per chi cerca lavoro in Ticino',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Panorama di Lugano con edifici moderni e lago',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Una scena di insegnamento in Ticino con la città sullo sfondo.',
 };
 
 export default blogMetaIt;

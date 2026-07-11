@@ -8358,6 +8358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Arbeitsmarkt: Gesuchte Flüchtlinge und Perspektiven für Arbeitssuchende im Tessin',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Der Tessiner Arbeitsmarkt befindet sich in einer Wachstumsphase, in der Branchen wie Technologie und Gesundheitswesen qualifizierte Fachkräfte erfordern.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Luganos Stadtansicht mit modernen Gebäuden und See',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Grenzgänger Lehrer Schule Tessin Gehaltsvoraussetzungen',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'Das neue italienisch-schweizerische Abkommen vom 9. Dezember 1976 vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Ein Lehrer in Ticino mit der Stadt im Hintergrund.',
 };
 
 export default blogMetaDe;

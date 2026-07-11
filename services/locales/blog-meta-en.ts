@@ -8359,6 +8359,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Growing sectors: wanted refugees, prospects for job seekers in Ticino',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'The Ticino labour market is going through a period of growth, with sectors such as technology and healthcare requiring skilled professionals.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Lugano cityscape with modern buildings and lake',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Border teacher school Ticino salary requirements',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'The new Italian-Swiss convention of 9 December 1976 avoids double taxation with the tax credit (EC framework of 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'A teaching scene in Ticino with the city in the background.',
 };
 
 export default blogMetaEn;

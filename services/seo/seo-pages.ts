@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3133,
+ "numberOfItems": 3134,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7808,7 +7808,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3130, "name": "Frontaliere parrucchiere ed estetista in Ticino", "url": `${BASE_URL}/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere` },
           { "@type": "ListItem", "position": 3131, "name": "Guida per trasferirsi in Svizzera da italiano n...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-svizzera-guida` },
           { "@type": "ListItem", "position": 3132, "name": "Settori in crescita: profughi ricercati, prospe...", "url": `${BASE_URL}/articoli-frontaliere/mercato-del-lavoro-ticino-settori-in-crescita` },
-          { "@type": "ListItem", "position": 3133, "name": "Conto bancario in Svizzera per residenti: docum...", "url": `${BASE_URL}/articoli-frontaliere/aprire-conto-banca-svizzera-residenti` }
+          { "@type": "ListItem", "position": 3133, "name": "Conto bancario in Svizzera per residenti: docum...", "url": `${BASE_URL}/articoli-frontaliere/aprire-conto-banca-svizzera-residenti` },
+          { "@type": "ListItem", "position": 3134, "name": "Frontaliere insegnante scuola ticino stipendio ...", "url": `${BASE_URL}/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino` }
  ]
  },
  {

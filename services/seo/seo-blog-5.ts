@@ -47535,6 +47535,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
+    title: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
+    ogTitle: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere insegnante scuola ticino stipendio requisiti",
+      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/insegnanti-frontalieri-stipendio-requisiti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di insegnamento in Ticino con la città sullo sfondo."
+      },
+      "datePublished": "2026-07-11T18:41:23+00:00",
+      "dateModified": "2026-07-11T18:41:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
