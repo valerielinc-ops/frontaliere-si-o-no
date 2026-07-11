@@ -13005,6 +13005,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': {
+    title: 'Sulla disoccupazione dei frontalieri si apre un nuovo fronte con Bruxelles',
+    description: 'Il nuovo accordo sulla sicurezza sociale potrebbe avere un impatto significativo sui frontalieri, ma i dettagli sono ancora poco chiari. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sulla, disoccupazione, apre, nuovo',
+    ogTitle: 'Sulla disoccupazione dei frontalieri si apre un nuovo fronte con Bruxelles',
+    ogDescription: 'Il nuovo accordo sulla sicurezza sociale potrebbe avere un impatto significativo sui frontalieri',
+    canonicalPath: '/articoli-svizzera/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sulla disoccupazione dei frontalieri si apre un nuovo fronte con Bruxelles",
+      "description": "Il nuovo accordo sulla sicurezza sociale potrebbe avere un impatto significativo sui frontalieri, ma i dettagli sono ancora poco chiari. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Svizzera"
+      },
+      "datePublished": "2026-07-11T22:45:39+00:00",
+      "dateModified": "2026-07-11T22:45:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

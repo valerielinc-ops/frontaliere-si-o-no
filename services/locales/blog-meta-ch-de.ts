@@ -1009,6 +1009,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Anmeldung zur Schule für Grenzgänger-Kinder: Anleitung und Verfahren',
     'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'Die Verfahren für die Ausbildung von Kindern von Grenzgängern zwischen Italien und der Schweiz: Orientierung zwischen Schulsystemen, Verpflichtungen und Verwaltung des Pendelverkehrs.',
     'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Modernes Schulgebäude in der Schweiz',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.title': 'Arbeitslosigkeit an der Grenze - Brüssel steuert ein neues Kapitel ein',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.excerpt': 'Das neue Abkommen über die soziale Sicherheit könnte erhebliche Auswirkungen auf die Grenzgänger haben',
+    'blog.article.sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.imageAlt': 'Frontalieri in der Schweiz',
 };
 
 export default blogMetaChDe;

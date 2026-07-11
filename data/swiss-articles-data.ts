@@ -3023,6 +3023,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles',
+    category: 'novita',
+    date: '2026-07-11T22:45:39.052Z',
+    image: '/images/blog/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

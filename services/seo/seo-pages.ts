@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3150,
+ "numberOfItems": 3151,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7825,7 +7825,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3147, "name": "Lavora come parrucchiere o estetista in Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-parrucchiere-estetista-ticino-permesso-stipendio` },
           { "@type": "ListItem", "position": 3148, "name": "Lavorare come meccanico auto in Ticino: stipend...", "url": `${BASE_URL}/articoli-frontaliere/meccanico-auto-ticino-stipendio-permessi` },
           { "@type": "ListItem", "position": 3149, "name": "Iscrizione scuola figli frontalieri: guida e pr...", "url": `${BASE_URL}/articoli-frontaliere/iscrizione-scuola-figli-frontalieri` },
-          { "@type": "ListItem", "position": 3150, "name": "Consiglio federale: opporsi alla modifica unila...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-dei-frontalieri` }
+          { "@type": "ListItem", "position": 3150, "name": "Consiglio federale: opporsi alla modifica unila...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-dei-frontalieri` },
+          { "@type": "ListItem", "position": 3151, "name": "Sulla disoccupazione dei frontalieri si apre un...", "url": `${BASE_URL}/articoli-frontaliere/sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles` }
  ]
  },
  {
