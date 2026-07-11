@@ -196,6 +196,24 @@ const EMPTY_OK_CRAWLERS = new Set([
   // #1245 as fragile/per-tenant.
   'paraplegie',
   'upd',
+  // Psychiatriezentrum Münsingen (PZM, Prospective medium 1008606): the
+  // public career site (pzmag.ch/karriere) now 301-redirects to
+  // upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
+  // Psychiatrisches Zentrum Bern (UPZ)" (verified live 2026-07-11). The
+  // shared Prospective API is still live (71 postings on medium 1008606),
+  // but every listing's `links.directlink` now resolves to the generic
+  // `ohws.prospective.ch/public/v1/jobs/{id}` job-direct format instead of
+  // the `jobs.pzmag.ch` host this parser's `acceptDirectlinkHosts`
+  // allowlist requires — so 0 is the correct, permanent output for this
+  // companyKey, not a selector break. The former PZM roles (verified: e.g.
+  // "Dipl. Pflegefachperson im Nachtdienst ICM", Hunzigenallee 1
+  // Münsingen) are already surfaced by the sibling `upd` crawler above
+  // (Umantis tenant 2908), which now lists the full merged UPZ vacancy set
+  // including Münsingen-located roles — so no coverage is lost. Retiring
+  // the dedicated crawler (removing it from `.github/workflows/
+  // crawler-group-10.yml`) is the complete follow-up but out of reach for
+  // the automated fixer (no `workflows` push scope); tracked in #4080.
+  'pzm-muensingen',
   // Würth International (Chur, GR): the careers listing
   // (https://www.wurth-international.com/web/en/wurthinternational/jobs_career/jobs/Jobs.php)
   // returns HTTP 200 with its unchanged structure but currently shows "Keine
