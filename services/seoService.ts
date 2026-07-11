@@ -4438,6 +4438,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercato-immobiliare-ticino-prezzi-tendenze': { name: 'Mercato immobiliare in Ticino', path: '/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze', parent: 'blog' },
     'blog-lavoro-parrucchiere-estetista-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere', parent: 'blog' },
     'blog-trasferirsi-svizzera-guida': { name: 'Guida per trasferirsi in Svizzera', path: '/articoli-svizzera/trasferirsi-svizzera-guida/', parent: 'blog' },
+    'blog-mercato-del-lavoro-ticino-settori-in-crescita': { name: 'Mercato del lavoro ticinese', path: '/articoli-frontaliere/mercato-del-lavoro-ticino-settori-in-crescita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

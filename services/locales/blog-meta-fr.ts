@@ -8357,6 +8357,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Coiffeur frontalier et esthéticienne au Tessin',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Guide opérationnel pour les coiffeurs et les esthéticiennes frontaliers : salaire, permis G, impôt à la source et gestion de la prévoyance entre la Suisse et l\'Italie.',
     'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Salon de coiffure à Lugano avec vue sur le lac',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.title': 'Emprunts croissantes : recherche de travailleurs, perspectives pour les demandeurs d\'emploi en Ticino',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Le marché du travail tessinois connaît une période de croissance, avec des secteurs tels que la technologie et la santé qui nécessitent des professionnels qualifiés.',
+    'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Paysage de Lugano avec des immeubles modernes et un lac',
 };
 
 export default blogMetaFr;
