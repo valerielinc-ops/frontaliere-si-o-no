@@ -979,6 +979,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'What to do on the weekend in Ticino: outdoor activities and excursions',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Ideas for the weekend in Ticino: excursions, lakes, villages and outdoor activities',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'A summer scene at Lake Lugano with outdoor activities',
+    'blog.article.trasferirsi-svizzera-guida.title': 'Guide to moving to Switzerland as a non-boundary Italian',
+    'blog.article.trasferirsi-svizzera-guida.excerpt': 'Tax at source on income from work: ONLY withheld in Switzerland for border workers. New Frontier Agreement: signed on 23/12/2020, effective from 1 January 2024.',
+    'blog.article.trasferirsi-svizzera-guida.imageAlt': 'A practical guide for Italian non-frontaliers to move to Switzerland',
 };
 
 export default blogMetaChEn;

@@ -979,6 +979,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Aktivitäten am Wochenende im Tessin: Outdoor-Aktivitäten und Ausflüge',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Ideen für das Wochenende im Tessin: Wandern, Seen, Dörfer und Outdoor-Aktivitäten',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Ein Sommerbild am Luganersee mit Freiluftaktivitäten',
+    'blog.article.trasferirsi-svizzera-guida.title': 'Leitfaden für den Umzug in die Schweiz als Nicht-Grenzgänger-Italiener',
+    'blog.article.trasferirsi-svizzera-guida.excerpt': 'Quellensteuer auf Arbeitseinkommen: NUR in der Schweiz für Grenzgänger einbehalten. Neue Frontalieri-Vereinbarung: unterzeichnet am 23.12.2020, in Kraft seit dem 1. Januar 2024.',
+    'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Eine praktische Anleitung für italienische Nicht-Frontaliers, um nach der Schweiz zu ziehen',
 };
 
 export default blogMetaChDe;

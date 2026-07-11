@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3130,
+ "numberOfItems": 3131,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7805,7 +7805,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3127, "name": "Tilo: limitazioni circolazione Gallarate 11-13 ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-lavori-gallarate-luglio` },
           { "@type": "ListItem", "position": 3128, "name": "Cosa fare nel weekend in Ticino: attività all'a...", "url": `${BASE_URL}/articoli-frontaliere/cosa-fare-nel-weekend-in-ticino-attivita-outdoor` },
           { "@type": "ListItem", "position": 3129, "name": "Il mercato immobiliare in Ticino: prezzi medi p...", "url": `${BASE_URL}/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze` },
-          { "@type": "ListItem", "position": 3130, "name": "Frontaliere parrucchiere ed estetista in Ticino", "url": `${BASE_URL}/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere` }
+          { "@type": "ListItem", "position": 3130, "name": "Frontaliere parrucchiere ed estetista in Ticino", "url": `${BASE_URL}/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere` },
+          { "@type": "ListItem", "position": 3131, "name": "Guida per trasferirsi in Svizzera da italiano n...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-svizzera-guida` }
  ]
  },
  {

@@ -12615,6 +12615,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-svizzera-guida': {
+    title: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
+    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, imposta, alla',
+    ogTitle: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
+    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    canonicalPath: '/articoli-svizzera/trasferirsi-svizzera-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida per trasferirsi in Svizzera da italiano non frontaliere",
+      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-svizzera-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una guida pratica per trasferirsi in Svizzera come italiano non frontaliere"
+      },
+      "datePublished": "2026-07-11T17:44:30+00:00",
+      "dateModified": "2026-07-11T17:44:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasferirsi-svizzera-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -979,6 +979,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.title': 'Que faire le week-end au Tessin : activités de plein air et excursions',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.excerpt': 'Idées pour le week-end au Tessin : excursions, lacs, villages et activités de plein air',
     'blog.article.cosa-fare-nel-weekend-in-ticino-attivita-outdoor.imageAlt': 'Une scène d\'été au lac de Lugano avec des activités en plein air',
+    'blog.article.trasferirsi-svizzera-guida.title': 'Guide pour déménager en Suisse en tant qu\'Italien non frontalier',
+    'blog.article.trasferirsi-svizzera-guida.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers. Nouvel accord frontalier : signé le 23/12/2020, en vigueur depuis le 1er janvier 2024.',
+    'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Une guide pratique pour les Italiens non-frontaliers pour s\'installer en Suisse',
 };
 
 export default blogMetaChFr;
