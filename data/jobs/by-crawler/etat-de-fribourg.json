@@ -5447,10 +5447,10 @@
     },
     {
       "id": "etat-de-fribourg-26b0bc1d0cd8",
-      "slug": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+      "slug": "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "it": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+        "it": "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg",
         "en": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
         "de": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
       },
@@ -5512,7 +5512,15 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-10T23:09:18.633Z"
+      "firstSeenAt": "2026-07-10T23:09:18.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-ae10a535902e",

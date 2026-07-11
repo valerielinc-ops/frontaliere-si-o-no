@@ -145,12 +145,12 @@
     },
     {
       "id": "holcim-178cabf6bf04",
-      "slug": "machiniste-polyvalent-biere-holcim-ch",
+      "slug": "macchinista-multiuso-birra-holcim-group-biere",
       "slugByLocale": {
         "fr": "machiniste-polyvalent-biere-holcim-ch",
-        "it": "machiniste-polyvalent-biere-holcim-ch",
-        "en": "machiniste-polyvalent-biere-holcim-ch",
-        "de": "machiniste-polyvalent-biere-holcim-ch"
+        "it": "macchinista-multiuso-birra-holcim-group-biere",
+        "en": "multipurpose-machinist-beer-holcim-group-biere",
+        "de": "mehrzweck-maschinist-bier-holcim-group-biere"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -204,7 +204,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:55:02.432Z"
+      "firstSeenAt": "2026-07-10T22:55:02.432Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-polyvalent-biere-holcim-ch"
+        ],
+        "en": [
+          "machiniste-polyvalent-biere-holcim-ch"
+        ],
+        "de": [
+          "machiniste-polyvalent-biere-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "machiniste-polyvalent-biere-holcim-ch"
+      ]
     },
     {
       "id": "holcim-1abb0f826975",
@@ -1472,12 +1486,12 @@
     },
     {
       "id": "holcim-1ed8359e8d8a",
-      "slug": "baumaschinenfuhrer-in-holcim-group-untervaz",
+      "slug": "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee",
       "slugByLocale": {
         "de": "baumaschinenfuhrer-in-holcim-ch",
-        "it": "baumaschinenfuhrer-in-holcim-group-untervaz",
-        "en": "baumaschinenfuhrer-in-holcim-group-untervaz",
-        "fr": "baumaschinenfuhrer-in-holcim-group-untervaz"
+        "it": "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee",
+        "en": "construction-machinery-operator-in-holcim-group-untervaz-f583ee",
+        "fr": "operateur-de-machines-de-construction-en-holcim-group-untervaz-f583ee"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1522,12 +1536,20 @@
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch-2",
-          "baumaschinenfuhrer-in-holcim-ch"
+          "baumaschinenfuhrer-in-holcim-ch",
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
+        ],
+        "en": [
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
         ]
       },
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch-2",
-        "baumaschinenfuhrer-in-holcim-ch"
+        "baumaschinenfuhrer-in-holcim-ch",
+        "baumaschinenfuhrer-in-holcim-group-untervaz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

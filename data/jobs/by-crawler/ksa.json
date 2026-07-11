@@ -7,7 +7,7 @@
       "slug": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
-        "en": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-nurse-nurse-night-service-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-nachtdienst-ksa-ch",
         "fr": "infermiere-specializzato-nel-servizio-notturno-kantonsspital-aarau-ksa-aarau"
       },
@@ -362,9 +362,9 @@
       "slug": "fachperson-per-neurophysiologische-diagnostik-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "fachperson-per-neurophysiologische-diagnostik-kantonsspital-aarau-ksa-aarau",
-        "en": "fachperson-fur-neurophysiologische-diagnostik-ksa-ch",
+        "en": "neurophysiological-diagnostics-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "fachperson-fur-neurophysiologische-diagnostik-ksa-ch",
-        "fr": "fachperson-fur-neurophysiologische-diagnostik-ksa-ch"
+        "fr": "specialiste-du-diagnostic-neurophysiologique-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -411,6 +411,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-fur-neurophysiologische-diagnostik-ksa-ch"
+        ],
+        "en": [
+          "fachperson-fur-neurophysiologische-diagnostik-ksa-ch"
+        ],
+        "fr": [
           "fachperson-fur-neurophysiologische-diagnostik-ksa-ch"
         ]
       },
@@ -567,7 +573,7 @@
       "slug": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
-        "en": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
+        "en": "study-radiology-specialist-hf-kantonsspital-aarau-ksa-aarau",
         "de": "studium-radiologiefachperson-hf-ksa-ch",
         "fr": "etude-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
       },
@@ -635,12 +641,12 @@
     },
     {
       "id": "ksa-1150b9473d2c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+      "slug": "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "it": "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
+        "fr": "dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -696,7 +702,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:54:17.460Z"
+      "firstSeenAt": "2026-07-10T22:54:17.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ]
     },
     {
       "id": "ksa-fdd20d71aa74",
@@ -991,7 +1011,7 @@
       "slug": "med-praxisassistent-in-notfall-ksa-ch",
       "slugByLocale": {
         "it": "med-praxisassistent-in-notfall-ksa-ch",
-        "en": "med-praxisassistent-in-notfall-ksa-ch",
+        "en": "med-practical-assistant-emergency-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-notfall-ksa-ch",
         "fr": "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau"
       },
@@ -3773,8 +3793,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-with-ndk-monitoring-care-kantonsspital-aarau-ksa-aarau-00ae1a",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-soins-de-surveillance-ndk"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4065,10 +4085,10 @@
     },
     {
       "id": "ksa-1d4aff4dae80",
-      "slug": "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau",
+      "slug": "specialista-in-contabilita-finanziaria-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau",
-        "en": "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau",
+        "it": "specialista-in-contabilita-finanziaria-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-in-financial-accounting-kantonsspital-aarau-ksa-aarau",
         "de": "fachspezialist-in-finanzbuchhaltung-ksa-ch",
         "fr": "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau"
       },
@@ -4113,11 +4133,16 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "fachspezialist-in-finanzbuchhaltung-ksa-ch"
+        "fachspezialist-in-finanzbuchhaltung-ksa-ch",
+        "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-finanzbuchhaltung-ksa-ch"
+          "fachspezialist-in-finanzbuchhaltung-ksa-ch",
+          "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "fachspezialist-in-finanzbuchhaltung-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -4139,9 +4164,9 @@
       "slug": "dipl-expertin-experte-intensivpflege-ksa-ch",
       "slugByLocale": {
         "it": "dipl-expertin-experte-intensivpflege-ksa-ch",
-        "en": "dipl-expertin-experte-intensivpflege-ksa-ch",
+        "en": "dipl-expert-expert-intensive-care-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-expertin-experten-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-expertin-experte-intensivpflege-ksa-ch"
+        "fr": "dipl-expert-expert-soins-intensifs-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4199,12 +4224,12 @@
     },
     {
       "id": "ksa-d02488d26787",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch",
+        "it": "dipl-expert-expert-anesthesia-care-nds-hf-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch",
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4258,7 +4283,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
+      ]
     },
     {
       "id": "ksa-5b477c32c30d",
@@ -4564,9 +4600,9 @@
       "slug": "chefarztin-chefarzt-angiologie-ksa-ch",
       "slugByLocale": {
         "it": "chefarztin-chefarzt-angiologie-ksa-ch",
-        "en": "chefarztin-chefarzt-angiologie-ksa-ch",
+        "en": "chief-physician-chief-physician-angiology-kantonsspital-aarau-ksa-aarau",
         "de": "chefarztin-chefarzt-angiologie-ksa-ch",
-        "fr": "chefarztin-chefarzt-angiologie-ksa-ch"
+        "fr": "medecin-en-chef-medecin-en-chef-angiologie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5049,9 +5085,9 @@
     },
     {
       "id": "ksa-a12ffcf3c070",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch",
+      "slug": "dipl-infermiera-infermiera-specialista-dialisi-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch",
+        "it": "dipl-infermiera-infermiera-specialista-dialisi-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-pflegefachfrau-pflegefachmann-dialysis-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch"
@@ -5108,7 +5144,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-ksa-ch"
+      ]
     },
     {
       "id": "ksa-da90026a91b5",
@@ -5186,10 +5230,10 @@
     },
     {
       "id": "ksa-beab4c7b3e53",
-      "slug": "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau",
+      "slug": "conti-specializzati-in-azienda-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau",
-        "en": "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau",
+        "it": "conti-specializzati-in-azienda-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-in-company-accounts-kantonsspital-aarau-ksa-aarau",
         "de": "fachspezialist-in-betriebsbuchhaltung-ksa-ch",
         "fr": "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau"
       },
@@ -5234,11 +5278,16 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "fachspezialist-in-betriebsbuchhaltung-ksa-ch"
+        "fachspezialist-in-betriebsbuchhaltung-ksa-ch",
+        "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-betriebsbuchhaltung-ksa-ch"
+          "fachspezialist-in-betriebsbuchhaltung-ksa-ch",
+          "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "fachspezialist-in-betriebsbuchhaltung-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -6055,7 +6104,7 @@
       "slug": "dipl-fisioterapie-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "dipl-fisioterapie-in-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-physiotherapeut-in-ksa-ch",
         "fr": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -6100,11 +6149,15 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-physiotherapeut-in-ksa-ch"
+        "dipl-physiotherapeut-in-ksa-ch",
+        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-ksa-ch"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -6860,10 +6913,10 @@
     },
     {
       "id": "ksa-cb08f60d8635",
-      "slug": "dipl-hebamme-ksa-ch",
+      "slug": "dipl-mutua-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-hebamme-ksa-ch",
-        "en": "dipl-hebamme-ksa-ch",
+        "it": "dipl-mutua-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-midwife-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-hebamme-ksa-ch",
         "fr": "dipl-hebamme-kantonsspital-aarau-ksa-aarau"
       },
@@ -6919,7 +6972,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-ksa-ch"
+        ],
+        "en": [
+          "dipl-hebamme-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-ksa-ch"
+      ]
     },
     {
       "id": "ksa-a83440f6b2be",
@@ -7521,10 +7585,10 @@
     },
     {
       "id": "ksa-d31f95d2346f",
-      "slug": "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+      "slug": "servizio-notturno-continuo-dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "en": "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "it": "servizio-notturno-continuo-dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+        "en": "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "fr": "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       },
@@ -7580,16 +7644,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "en": [
+          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ]
     },
     {
       "id": "ksa-8d4a075e55a5",
-      "slug": "pflegeexpertin-pflegeexperte-ksa-ch",
+      "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "pflegeexpertin-pflegeexperte-ksa-ch",
+        "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
-        "fr": "pflegeexpertin-pflegeexperte-ksa-ch"
+        "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7643,7 +7718,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-ksa-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-ksa-ch"
+      ]
     },
     {
       "id": "ksa-d4cac2401a08",
@@ -8005,10 +8091,10 @@
     },
     {
       "id": "ksa-7c0bbde0f88d",
-      "slug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
+        "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
         "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -8054,12 +8140,17 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinkfe",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",

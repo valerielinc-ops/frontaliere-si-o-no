@@ -5150,8 +5150,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch"
+        "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5197,6 +5197,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch"
         ]
       },
