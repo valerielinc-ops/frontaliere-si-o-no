@@ -4,10 +4,21 @@ import {
   JUMBO_COMPANY_NAME,
   isJumboJob,
   isTrustedDomain,
+  htmlToMarkdown,
 } from '../scripts/lib/jumbo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('JUMBO crawler parser', () => {
+  // ── htmlToMarkdown ──
+  describe('htmlToMarkdown', () => {
+    it('preserves newlines between adjacent list items (regression: a \\s-based per-line trim glued lines together)', () => {
+      const html = '<ul><li>Erste Anforderung</li><li>Zweite Anforderung</li></ul>';
+      const lines = htmlToMarkdown(html).split('\n').map((l) => l.trim()).filter(Boolean);
+      expect(lines).toContain('• Erste Anforderung');
+      expect(lines).toContain('• Zweite Anforderung');
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(JUMBO_KEY).toBe('jumbo');

@@ -132,7 +132,7 @@ const API_LIMIT = 100;
 /**
  * Convert HTML fragments from szas fields to plain text.
  */
-function htmlToMarkdown(html = '') {
+export function htmlToMarkdown(html = '') {
   if (!html || !html.trim()) return '';
   return html
     .replace(/<br\s*\/?>/gi, '\n')
@@ -148,8 +148,13 @@ function htmlToMarkdown(html = '') {
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&nbsp;/g, ' ')
+    // Per-line trim of HORIZONTAL whitespace only — `\s` would also consume
+    // the newlines themselves and glue adjacent lines together, breaking
+    // requirements/description line-splitting (same class fixed in omega,
+    // PR #3943).
+    .replace(/[ \t]+$/gm, '')
+    .replace(/^[ \t]+/gm, '')
     .replace(/\n{3,}/g, '\n\n')
-    .replace(/^\s+|\s+$/gm, '')
     .trim();
 }
 
