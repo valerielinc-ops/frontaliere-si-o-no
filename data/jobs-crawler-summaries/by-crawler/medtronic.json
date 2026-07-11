@@ -1,16 +1,16 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-07-11T10:42:54.514Z",
-  "total": 10,
+  "generatedAt": "2026-07-11T21:53:33.430Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9950,
-  "avgDurationMs": 9950,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 7875,
+  "avgDurationMs": 7875,
   "durationHistory": [
-    9950
+    7875
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Senior-Technical-Consultant-Manager---m-f-d-_R70585-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:42:46.326Z",
+      "crawledAt": "2026-07-11T21:53:27.054Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Market-Developer-Specialist--m-w-d-_R69334-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:42:47.022Z",
+      "crawledAt": "2026-07-11T21:53:27.732Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Minneapolis-Minnesota-United-States-of-America/Strategic-Sourcing-Program-Manager-Electronic-Assemblies_R68333-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:42:47.847Z",
+      "crawledAt": "2026-07-11T21:53:28.547Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Quality-Technician-II_R64998-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:42:48.604Z",
+      "crawledAt": "2026-07-11T21:53:29.134Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative--m-w-d----Patient-Monitoring---Digital-Health_R69063-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:42:50.266Z",
+      "crawledAt": "2026-07-11T21:53:30.332Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:42:50.912Z",
+      "crawledAt": "2026-07-11T21:53:30.908Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Cardiac-Rhythm-management--m-w-d-_R65639-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T10:42:51.679Z",
+      "crawledAt": "2026-07-11T21:53:31.500Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Service-Specialist--m-w-d-_R58182-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T10:42:49.431Z",
+      "crawledAt": "2026-07-11T21:53:29.728Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "medtronic-3b01ce924f2e",
       "slug": "rappresentante-delle-vendite-ii-medtronic-tolochenaz-bbd4e7",
@@ -351,7 +350,9 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "medtronic-5972be559673",
       "slug": "responsabile-del-programma-di-ingegneria-senior-medtronic-tolochenaz",
@@ -382,7 +383,7 @@
       "firstSeenAt": "2026-06-26T22:24:02.851Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
