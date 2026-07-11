@@ -8337,6 +8337,13 @@ async function main() {
       // past its deadline — the direct-source pool + evergreen safety net still
       // produce an article. (_buildDiscoveryPool has its own per-fetch timeouts
       // too; this is the belt to that suspenders.)
+      if (slotKind === 'proven' && evidenceForDiscovery && wallBudgetExceeded()) {
+        // Observability: make the budget-skip visible (the removed dead branch
+        // used to log its own skip); silence here would hide why no Google-News
+        // candidates entered the pool on a budget-tight run.
+        console.error('GOOGLE_NEWS_INJECT skipped=wall_budget_exceeded');
+        RUN_REPORT.notes.push('Google-News injection skipped: wall budget exceeded before pool build');
+      }
       if (slotKind === 'proven' && evidenceForDiscovery && !wallBudgetExceeded()) {
         try {
           _provenHeadlinesForDiscovery = headlines.slice();

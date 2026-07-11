@@ -56,7 +56,9 @@ function validateRealUrl(url) {
   if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
   const host = u.hostname.toLowerCase();
   if (!host.includes('.')) return null;
-  if (host === 'news.google.com' || host.endsWith('.google.com')) return null;
+  // Reject bare IPs — a real publisher article URL always has a domain host.
+  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(host) || host.includes(':')) return null;
+  if (host === 'google.com' || host === 'news.google.com' || host.endsWith('.google.com')) return null;
   return u.toString();
 }
 
