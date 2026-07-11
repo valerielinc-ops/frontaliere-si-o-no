@@ -964,6 +964,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Grenzganger-Apotheker in Ticino: Anerkennung, Gehalt und Ausbildungsverfahren',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Anerkennung des Titels des Apothekers für Grenzgänger, Gehalt, Habilitationsverfahren und G-Bewilligung.',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Eine Apothekerin arbeitet in einem Labor in Lugano',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Schweizer Privatlebenversicherung für Grenzgänger: Wann lohnt es sich?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Die wichtigsten Fakten zur Schweizer Privatlebensversicherung für Grenzgänger: Regeln, Zinssätze, Vorteile und Vorteile gegenüber der dritten Säule.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Bild eines Grenzgängers, der in der Schweiz arbeitet, mit einem Fokus auf sein tägliches Leben und Aktivitäten.',
 };
 
 export default blogMetaChDe;

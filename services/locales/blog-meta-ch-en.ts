@@ -964,6 +964,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Pharmacy Job in Ticino as a Border Worker: Recognition, Salary, and Qualification Process',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Recognition of the title of pharmacist for border workers, salary, qualification process and G permit.',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'A pharmacist working in a laboratory in Lugano',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Swiss private life insurance for the border worker: when is it convenient?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Here are the key facts about Swiss private life insurance for border workers: rules, rates, benefits and advantages compared to the third pillar.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Image of a Swiss border worker at work, with a focus on his daily life and activities.',
 };
 
 export default blogMetaChEn;

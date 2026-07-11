@@ -964,6 +964,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Lavora come farmacista in Ticino da frontaliere: riconoscimento, stipendio e iter di abilitazione',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Riconoscimento del titolo di farmacista per i frontalieri, stipendio, iter di abilitazione e permesso G.',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Una farmacista frontaliera lavora in un laboratorio farmaceutico a Lugano',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Assicurazione vita privata svizzera per il frontaliere: quando conviene?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Ecco i fatti chiave sull\'assicurazione vita privata svizzera per i frontaliere: regole, tassi, benefici e vantaggi rispetto al terzo pilastro.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora in Svizzera, con un focus sulla sua vita e sulle attività quotidiane.',
 };
 
 export default blogMetaChIt;

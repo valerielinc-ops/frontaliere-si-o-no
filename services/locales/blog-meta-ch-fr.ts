@@ -964,6 +964,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Pharmacie fronティアres en Ticino : reconnaissance, salaire et chemin d\'habilitation',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Reconnaissance du titre de pharmacien pour les frontaliers, salaire, procédure d\'habilitation et permis G.',
     'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Une pharmacienne travaille dans un laboratoire à Lugano',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Assurance vie privée suisse pour le frontalier : quand cela convient-il ?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Voici les faits clés sur l\'assurance vie privée suisse pour les frontaliers : règles, taux, avantages et avantages par rapport au troisième pilier.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Image d\'un travailleur frontalier en Suisse, avec un focus sur sa vie quotidienne et ses activités.',
 };
 
 export default blogMetaChFr;
