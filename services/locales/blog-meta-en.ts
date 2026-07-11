@@ -8365,6 +8365,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, Former Deltapav, Fires a Third of Workforce',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'The collective procedure provides for nine redundancies among employees, while there are no reductions among workers.',
     'blog.article.samarate-licenziamenti-2026.imageAlt': 'Image of a street in Samarate with people in the distance',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Retire in Switzerland for those who move non-frontier',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'The new border agreement of 2024 introduces new rules for border workers wishing to retire in Switzerland.',
+    'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'A woman sits on a bench with the background of the city of Lugano, Switzerland.',
 };
 
 export default blogMetaEn;

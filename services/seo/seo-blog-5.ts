@@ -47613,6 +47613,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere': {
+    title: 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
+    description: 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionarsi, trasferisce, nuovo, accordo',
+    ogTitle: 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
+    ogDescription: 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionarsi in Svizzera per chi si trasferisce non frontaliere",
+      "description": "Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna siede su una panchina con lo sfondo della città di Lugano, Svizzera."
+      },
+      "datePublished": "2026-07-11T19:45:28+00:00",
+      "dateModified": "2026-07-11T19:45:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

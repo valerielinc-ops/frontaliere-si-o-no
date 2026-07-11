@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3137,
+ "numberOfItems": 3138,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7812,7 +7812,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3134, "name": "Frontaliere insegnante scuola ticino stipendio ...", "url": `${BASE_URL}/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino` },
           { "@type": "ListItem", "position": 3135, "name": "Imparare lo svizzero tedesco: corsi e app", "url": `${BASE_URL}/articoli-frontaliere/imparare-svizzero-tedesco-corsi-e-app` },
           { "@type": "ListItem", "position": 3136, "name": "Samarate, ex Deltapav, licenzia un terzo della ...", "url": `${BASE_URL}/articoli-frontaliere/samarate-licenziamenti-2026` },
-          { "@type": "ListItem", "position": 3137, "name": "Clima Ticino: stagionalità, temperature e preci...", "url": `${BASE_URL}/articoli-frontaliere/clima-ticino-stagioni` }
+          { "@type": "ListItem", "position": 3137, "name": "Clima Ticino: stagionalità, temperature e preci...", "url": `${BASE_URL}/articoli-frontaliere/clima-ticino-stagioni` },
+          { "@type": "ListItem", "position": 3138, "name": "Pensionarsi in Svizzera per chi si trasferisce ...", "url": `${BASE_URL}/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere` }
  ]
  },
  {
