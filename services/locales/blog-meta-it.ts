@@ -8369,6 +8369,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera.',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'Una donna siede su una panchina con lo sfondo della città di Lugano, Svizzera.',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Analisi completa della busta paga svizzera 2026 per i frontalieri',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'La nuova legge sulle trattenute e contributi per i frontalieri in Svizzera',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'Una persona che lavora in Svizzera e risiede in Italia, con il lago di Lugano in background.',
 };
 
 export default blogMetaIt;

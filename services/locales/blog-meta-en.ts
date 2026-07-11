@@ -8368,6 +8368,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Retire in Switzerland for those who move non-frontier',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'The new border agreement of 2024 introduces new rules for border workers wishing to retire in Switzerland.',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'A woman sits on a bench with the background of the city of Lugano, Switzerland.',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Full analysis of the 2026 Swiss payroll for border workers',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'The new law on deductions and contributions for border workers in Switzerland',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'A person working in Switzerland and living in Italy, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

@@ -8367,6 +8367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.title': 'Für Nicht-Grenzgänger in der Schweiz in Rente gehen',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.excerpt': 'Das neue Grenzabkommen von 2024 führt neue Regeln für Grenzgänger ein, die in der Schweiz in Rente gehen wollen.',
     'blog.article.pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.imageAlt': 'Eine Frau sitzt auf einer Bank mit dem Hintergrund der Stadt Lugano, Schweiz.',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Vollständige Analyse der Schweizer Lohnabrechnung 2026 für Grenzgänger',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'Das neue Einbehaltungs- und Beitragsgesetz für Grenzgänger in der Schweiz',
+    'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'Eine Person, die in der Schweiz arbeitet und in Italien lebt, mit dem Luganer See im Hintergrund.',
 };
 
 export default blogMetaDe;
