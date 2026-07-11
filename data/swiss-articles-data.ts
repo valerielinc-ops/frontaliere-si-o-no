@@ -2852,6 +2852,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'offerte-fielmann-svizzera',
+    category: 'pratico',
+    date: '2026-07-11T04:54:48.918Z',
+    image: '/images/blog/offerte-fielmann-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

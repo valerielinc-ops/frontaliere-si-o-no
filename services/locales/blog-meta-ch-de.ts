@@ -952,6 +952,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Tessiner Blitzer: Einnahmen verzehnfacht, 60% sind Italiener',
     'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Die Straßensanktionen im Tessin verzeichnen einen deutlichen Anstieg der Einnahmen: 60% der bestraften Fahrer sind in Italien ansässig.',
     'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Blitzer-Anlage an einer Tessiner Straße',
+    'blog.article.offerte-fielmann-svizzera.title': 'Fielmann-Angebote in der Schweiz: Was Sie wissen sollten',
+    'blog.article.offerte-fielmann-svizzera.excerpt': 'Analyse der Geschäftsvorschläge von Fielmann in der Schweiz für diejenigen, die nach optischen Lösungen und deren Auswirkungen auf die Kosten des täglichen Lebens suchen.',
+    'blog.article.offerte-fielmann-svizzera.imageAlt': 'Innenansicht eines Optikergeschäfts in der Schweiz',
 };
 
 export default blogMetaChDe;

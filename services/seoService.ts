@@ -4417,6 +4417,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-autovelox-ticino-introiti-frontalieri': { name: 'Autovelox Ticino', path: '/articoli-svizzera/autovelox-ticino-introiti-frontalieri/', parent: 'blog' },
     'blog-pizza-price-italy-implications': { name: 'Prezzi pizza Italia', path: '/articoli-frontaliere/pizza-price-italy-implications', parent: 'blog' },
     'blog-lavorare-fisioterapista-ticino-frontalieri-requisiti': { name: 'Requisiti e procedure per fisioterapisti', path: '/articoli-frontaliere/lavorare-fisioterapista-ticino-frontalieri-requisiti', parent: 'blog' },
+    'blog-offerte-fielmann-svizzera': { name: 'Offerte Fielmann', path: '/articoli-svizzera/offerte-fielmann-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
