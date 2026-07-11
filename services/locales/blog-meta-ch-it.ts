@@ -952,6 +952,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Autovelox ticinesi: introiti decuplicati, 60% sono italiani',
     'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Le sanzioni stradali in Ticino registrano un netto incremento degli introiti: il 60% dei conducenti multati risulta residente in Italia.',
     'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Postazione autovelox su una strada ticinese',
+    'blog.article.offerte-fielmann-svizzera.title': 'Offerte Fielmann in Svizzera: cosa sapere',
+    'blog.article.offerte-fielmann-svizzera.excerpt': 'Analisi delle proposte commerciali di Fielmann in Svizzera per chi cerca soluzioni ottiche e il relativo impatto sul costo della vita quotidiana.',
+    'blog.article.offerte-fielmann-svizzera.imageAlt': 'Interno di un negozio di ottica in Svizzera',
 };
 
 export default blogMetaChIt;

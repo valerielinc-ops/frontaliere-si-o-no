@@ -952,6 +952,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Ticino speed cameras: tenfold revenue, 60% are Italian',
     'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Traffic fines in Ticino show a clear increase in revenues: 60% of the drivers fined are resident in Italy.',
     'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Speed camera installation on a Ticino road',
+    'blog.article.offerte-fielmann-svizzera.title': 'Fielmann offers in Switzerland: what to know',
+    'blog.article.offerte-fielmann-svizzera.excerpt': 'Analysis of Fielmann\'s business proposals in Switzerland for those looking for optical solutions and their impact on the cost of daily living.',
+    'blog.article.offerte-fielmann-svizzera.imageAlt': 'Interior of an optical store in Switzerland',
 };
 
 export default blogMetaChEn;

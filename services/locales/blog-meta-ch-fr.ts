@@ -952,6 +952,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Radars tessinois : revenus décuplés, 60 % sont italiens',
     'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Les sanctions routières au Tessin enregistrent une nette augmentation des revenus : 60 % des conducteurs sanctionnés résident en Italie.',
     'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Radar de contrôle de vitesse sur une route tessinoise',
+    'blog.article.offerte-fielmann-svizzera.title': 'Offres Fielmann en Suisse : ce qu\'il faut savoir',
+    'blog.article.offerte-fielmann-svizzera.excerpt': 'Analyse des propositions commerciales de Fielmann en Suisse pour ceux qui recherchent des solutions optiques et leur impact sur le coût de la vie quotidienne.',
+    'blog.article.offerte-fielmann-svizzera.imageAlt': 'Intérieur d\'un magasin d\'optique en Suisse',
 };
 
 export default blogMetaChFr;
