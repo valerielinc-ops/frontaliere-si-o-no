@@ -967,6 +967,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Assurance vie privée suisse pour le frontalier : quand cela convient-il ?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Voici les faits clés sur l\'assurance vie privée suisse pour les frontaliers : règles, taux, avantages et avantages par rapport au troisième pilier.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Image d\'un travailleur frontalier en Suisse, avec un focus sur sa vie quotidienne et ses activités.',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Vivre en Valteline et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Impôts, règlements et différences par rapport au pôle Tessin-Lombardie',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per les rues historiques de Locarno, avec vue sur le lac Majeur.',
 };
 
 export default blogMetaChFr;

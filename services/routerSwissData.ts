@@ -345,6 +345,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'centrali-nucleari-scarpa-voglia-di-costruire': { it: 'centrali-nucleari-scarpa-voglia-di-costruire', en: 'nuclear-plants-scarce-will-to-build', de: 'kernkraftwerke-schlechte-stimmung-zu-bauen', fr: 'centrales-nucleaires-peu-de-volonte-de-construire' },
  'frontaliere-farmacista-ticino-stipendio-requisiti': { it: 'frontaliere-farmacista-ticino-stipendio-requisiti', en: 'frontaliere-pharmacist-ticino-salary-requirements', de: 'frontaliere-apotheker-ticino-salario-anforderungen', fr: 'frontaliere-pharmaciennes-ticino-salaire-conditions' },
  'assicurazione-vita-privata-svizzera-convienne-frontaliere': { it: 'assicurazione-vita-privata-svizzera-convienne-frontaliere', en: 'swiss-private-life-insurance-for-border-workers', de: 'schweizer-private-lebensversicherung-fur-grenzganger', fr: 'assurance-vie-privee-suisse-pour-travailleurs-frontaliers' },
+ 'vivere-oltre-monti-lavorare-grigioni': { it: 'vivere-oltre-monti-lavorare-grigioni', en: 'living-over-the-mountains-working-in-grisons', de: 'leben-uber-berge-erarbeiten-in-grisone', fr: 'vivre-au-dela-des-montagnes-travailler-en-grisons' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

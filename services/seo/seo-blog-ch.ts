@@ -12459,6 +12459,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-oltre-monti-lavorare-grigioni': {
+    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    description: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
+    ogTitle: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    ogDescription: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia',
+    canonicalPath: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "description": "Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-oltre-monti-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore."
+      },
+      "datePublished": "2026-07-11T07:52:34+00:00",
+      "dateModified": "2026-07-11T07:52:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

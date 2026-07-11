@@ -967,6 +967,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.title': 'Schweizer Privatlebenversicherung für Grenzgänger: Wann lohnt es sich?',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.excerpt': 'Die wichtigsten Fakten zur Schweizer Privatlebensversicherung für Grenzgänger: Regeln, Zinssätze, Vorteile und Vorteile gegenüber der dritten Säule.',
     'blog.article.assicurazione-vita-privata-svizzera-convienne-frontaliere.imageAlt': 'Bild eines Grenzgängers, der in der Schweiz arbeitet, mit einem Fokus auf sein tägliches Leben und Aktivitäten.',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.title': 'Wohnen im Veltlin und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.excerpt': 'Steuern, Vorschriften und Unterschiede zum Pol Tessin-Lombardei',
+    'blog.article.vivere-oltre-monti-lavorare-grigioni.imageAlt': 'Passeggiata per le strade storiche di Locarno, con vista sul lago Maggiore.',
 };
 
 export default blogMetaChDe;

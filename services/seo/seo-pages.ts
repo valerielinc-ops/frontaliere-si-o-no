@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3120,
+ "numberOfItems": 3121,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7795,7 +7795,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3117, "name": "Lavora come farmacista in Ticino da frontaliere...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-farmacista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3118, "name": "Lavora come cuoco in ristorazione ticinese da f...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso` },
           { "@type": "ListItem", "position": 3119, "name": "Assicurazione vita privata svizzera per il fron...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontaliere` },
-          { "@type": "ListItem", "position": 3120, "name": "L'assicurazione vita privata svizzera conviene ...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri` }
+          { "@type": "ListItem", "position": 3120, "name": "L'assicurazione vita privata svizzera conviene ...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri` },
+          { "@type": "ListItem", "position": 3121, "name": "Vivere in Valtellina e lavorare nei Grigioni da...", "url": `${BASE_URL}/articoli-frontaliere/vivere-oltre-monti-lavorare-grigioni` }
  ]
  },
  {
