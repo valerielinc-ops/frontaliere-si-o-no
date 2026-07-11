@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-07-10T13:26:41.324Z",
+  "assembledAt": "2026-07-10T23:05:48.239Z",
   "jobs": [
     {
       "id": "ricola-2c30adc9413a",
@@ -34,7 +34,7 @@
       "url": "https://career.ricola.com/Vacancies/1048/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T13:26:39.845Z",
+      "crawledAt": "2026-07-10T23:05:46.554Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -114,7 +114,7 @@
       "url": "https://career.ricola.com/Vacancies/1057/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T13:26:39.432Z",
+      "crawledAt": "2026-07-10T23:05:46.189Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -178,7 +178,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T13:26:39.002Z",
+      "crawledAt": "2026-07-10T23:05:45.779Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -196,10 +196,14 @@
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-09T12:27:34.476Z",
+      "previousSlugs": [
+        "head-of-health-safety-80-ricola-ch",
+        "responsabile-health-safety-80-ricola-laufen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-health-safety-80-ricola-ch"
+          "head-of-health-safety-80-ricola-ch",
+          "responsabile-health-safety-80-ricola-laufen"
         ],
         "de": [
           "head-of-health-safety-80-ricola-ch"
@@ -208,9 +212,7 @@
           "head-of-health-safety-80-ricola-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-health-safety-80-ricola-ch"
-      ],
+      "firstSeenAt": "2026-07-09T12:27:34.476Z",
       "salaryMin": 68400,
       "salaryMax": 103600,
       "baseSalary": {
