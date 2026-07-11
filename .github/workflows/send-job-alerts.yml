@@ -2,7 +2,16 @@ name: Send Job Alert Emails
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    # Daily 01:47 UTC — slot chosen from a real-run audit (3.5 days, July 2026):
+    # 01:00-04:00 UTC is the quietest concurrency window across GitHub Actions
+    # runs (~4 concurrent jobs observed vs a ~22-job peak at 12:00 UTC). The
+    # previous 05:00 UTC slot collided with real translate-pending runs
+    # observed spanning 04:51→07:01 UTC and 05:11→09:47 UTC. :47 avoids the
+    # :00/:15/:30/:45 minute marks GitHub Actions cron deprioritizes under load
+    # (silent skips). job-alerts typically finishes in 3-10 min, leaving wide
+    # margin before send-newsletter at 03:33 UTC (unchanged, confirmed by the
+    # same audit). Issue #3798.
+    - cron: '47 1 * * *'
   workflow_dispatch:
     inputs:
       target_email:
