@@ -8374,6 +8374,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-zona-economica-speciale.title': 'Italy, a special economic zone close to the border',
     'blog.article.italia-zona-economica-speciale.excerpt': 'Switzerland and Italy have signed an agreement to create a special economic zone along the border.',
     'blog.article.italia-zona-economica-speciale.imageAlt': 'A Swiss-Italian border worker',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Work as a hairdresser or beautician in Ticino as a border worker: opportunities, permit, and salary',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Border hairdressers and beauticians in Ticino: G permit, salary, professional recognition and opportunities in the sector.',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'A cross-border hairdresser in a salon in Lugano, with a client seated in the barber\'s chair.',
 };
 
 export default blogMetaEn;
