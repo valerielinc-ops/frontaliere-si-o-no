@@ -8325,6 +8325,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Zoll Ponte Tresa: Öffnungszeiten, Wartezeiten und Tipps für Grenzgänger',
     'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Praktischer Leitfaden für den Übergang von Ponte Tresa: kritische Zeitfenster, Verwaltung der Kontrollen und notwendige Dokumente für Grenzgänger auf der Durchreise.',
     'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Verkehr am Grenzübergang Ponte Tresa',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Wohnen im Veltlin und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Neue Steuervereinbarung für Grenzgänger: Was sich ändert und was zu tun ist',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalier in Transit',
 };
 
 export default blogMetaDe;

@@ -8327,6 +8327,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-dogana-ponte-tresa-guida.title': 'Douane Ponte Tresa : horaires, attentes et conseils pour les frontaliers',
     'blog.article.traffico-dogana-ponte-tresa-guida.excerpt': 'Guide pratique au passage de Ponte Tresa : créneaux horaires critiques, gestion des contrôles et documents nécessaires pour les travailleurs frontaliers en transit.',
     'blog.article.traffico-dogana-ponte-tresa-guida.imageAlt': 'Trafic au poste frontière de Ponte Tresa',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.title': 'Vivre en Valteline et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.excerpt': 'Nouvel accord fiscal pour les frontaliers : ce qui change et ce qu\'il faut faire',
+    'blog.article.vivere-valtellina-lavorare-grigioni-frontaliere.imageAlt': 'Frontalier en transit',
 };
 
 export default blogMetaFr;

@@ -47106,6 +47106,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valtellina-lavorare-grigioni-frontaliere': {
+    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    description: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l\'imposta alla fonte in',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
+    ogTitle: 'Nuovo accordo fiscale per frontalieri',
+    ogDescription: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "description": "Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l'imposta alla fonte in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valtellina-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in transito"
+      },
+      "datePublished": "2026-07-11T05:50:16+00:00",
+      "dateModified": "2026-07-11T05:50:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
