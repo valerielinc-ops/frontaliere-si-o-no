@@ -8353,6 +8353,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'The real estate market in Ticino: average prices by area, recent trends',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Trends in the real estate market in Ticino, average prices by area, differences between rent and purchase',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Real estate market in Locarno, Ticino',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Border hairdresser and beautician in Ticino',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Operating guide for hairdressers and border beauticians: salary, G permit, tax at source and social security management between Switzerland and Italy.',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Hair salon in Lugano with lake view',
 };
 
 export default blogMetaEn;
