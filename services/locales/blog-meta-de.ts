@@ -8334,6 +8334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Grenzgängerkoch in der Tessiner Gastronomie: Gehalt, Arbeitszeiten und Branchen-GAV',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Gehalt, Arbeitszeiten, Branchen-GAV und G-Genehmigung für Grenzköche in der Tessiner Gastronomie.',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'Ein Frontalier-Koch in einem Restaurant in Lugano, mit Blick auf den See.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'Lohnt sich die Schweizer Privatlebensversicherung für Grenzgänger?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'Die Tessiner Grenze muss die Vor- und Nachteile der schweizerischen Privatlebensversicherung kennen.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'Ein Frontalier, der in einer ähnlichen Situation ist, könnte sich für die Funktion der Schweizer privaten Lebensversicherung interessieren.',
 };
 
 export default blogMetaDe;

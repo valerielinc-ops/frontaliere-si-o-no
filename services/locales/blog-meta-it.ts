@@ -8336,6 +8336,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Lavora come cuoco in ristorazione ticinese da frontaliere: stipendio, orari e CCL di settore',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Stipendio, orari, CCL di settore e permesso G per i cuochi frontalieri nella ristorazione ticinese.',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'Un frontaliere cuoco in un ristorante di Lugano, con la vista sul lago.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'Una frontaliere che si trova in una situazione simile potrebbe cercare di capire come funziona l\'assicurazione vita privata svizzera.',
 };
 
 export default blogMetaIt;

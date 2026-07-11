@@ -8335,6 +8335,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.title': 'Works as a cook in Ticino border catering: salary, hours and sector CCL',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.excerpt': 'Salary, hours, sector CCL and G permit for border chefs in Ticino catering.',
     'blog.article.frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.imageAlt': 'A cross-border chef in a Lugano restaurant, with a view of the lake.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.title': 'Is Swiss private life insurance suitable for border workers?',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.excerpt': 'The Ticino frontier needs to know the advantages and disadvantages of Swiss private life insurance.',
+    'blog.article.assicurazione-vita-privata-svizzera-convienne-frontalieri.imageAlt': 'A frontaliere who is in a similar situation might look into how the Swiss private life insurance works.',
 };
 
 export default blogMetaEn;
