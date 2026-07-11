@@ -99,23 +99,23 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      # ── Claude CLI Haiku fallback (opt-in) ──────────────────────────────
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
       # Absolute last resort, reached only after every free-tier model AND the
       # local/ollama fallback above have failed (scripts/lib/ai-models.mjs
       # AI_MODELS.CLAUDE_CLI_HAIKU, pinned below local/* by sortChainByScore).
       # Zero marginal cost: auth is CLAUDE_CODE_OAUTH_TOKEN (same Max-plan
       # subscription token already used by pr-review-loop.yml/issue-fix.yml),
-      # never ANTHROPIC_API_KEY. Two equivalent switches — either enables it:
-      #   • Remote Config flag ENABLE_HAIKU_ARTICLE_FALLBACK=1 (loaded into
-      #     $GITHUB_ENV by load-rc-env.mjs above), or
-      #   • repo variable ENABLE_HAIKU_ARTICLE_FALLBACK=1 (Settings → Secrets
-      #     and variables → Actions → Variables — no Firebase access needed).
-      # With both unset, getApiKeyForProvider(PROVIDER.CLAUDE_CLI) returns ''
-      # and the model is never offered — identical to today. The $GITHUB_ENV
-      # export below normalizes the repo-var path so ai-models.mjs sees the
-      # flag in process.env either way.
+      # never ANTHROPIC_API_KEY — which is why this is now enabled BY DEFAULT
+      # (owner request 2026-07-11: the recurring free-pool exhaustion deferrals
+      # must never zero production again). Kill-switch: set the repo variable
+      # ENABLE_HAIKU_ARTICLE_FALLBACK=0 (Settings → Secrets and variables →
+      # Actions → Variables) or the Remote Config flag to '0' — either
+      # disables the setup below, ai-models.mjs then never offers the model
+      # (getApiKeyForProvider(PROVIDER.CLAUDE_CLI) returns ''). The
+      # $GITHUB_ENV export normalizes the flag for ai-models.mjs's
+      # isClaudeCliFallbackEnabled regardless of which source enabled it.
       - name: Setup Claude CLI Haiku fallback
-        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK == '1' || vars.ENABLE_HAIKU_ARTICLE_FALLBACK == '1'
+        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK != '0' && vars.ENABLE_HAIKU_ARTICLE_FALLBACK != '0'
         run: |
           npm install -g @anthropic-ai/claude-code
           echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
