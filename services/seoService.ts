@@ -4423,6 +4423,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-valtellina-lavorare-grigioni-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere', parent: 'blog' },
     'blog-centrali-nucleari-scarpa-voglia-di-costruire': { name: 'Costruzione di centrali nucleari', path: '/articoli-svizzera/centrali-nucleari-scarpa-voglia-di-costruire/', parent: 'blog' },
     'blog-frontaliere-fisioterapista-ticino-stipendio-requisiti': { name: 'Lavorare come fisioterapista in Ticino da', path: '/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontaliere-farmacista-ticino-stipendio-requisiti': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontaliere-farmacista-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

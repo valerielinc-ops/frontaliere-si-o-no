@@ -961,6 +961,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'Di più aziende elettriche, scarsa voglia di costruire centrali nucleari',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'I gruppi energetici svizzeri accolgono con favore la revoca del divieto di costruzione di centrali nucleari decisa a Berna.',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Lavora come farmacista in Ticino da frontaliere: riconoscimento, stipendio e iter di abilitazione',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Riconoscimento del titolo di farmacista per i frontalieri, stipendio, iter di abilitazione e permesso G.',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Una farmacista frontaliera lavora in un laboratorio farmaceutico a Lugano',
 };
 
 export default blogMetaChIt;

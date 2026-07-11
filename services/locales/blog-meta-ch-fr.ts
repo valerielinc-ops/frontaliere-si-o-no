@@ -961,6 +961,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'Plus d\'entreprises électriques, manque d\'envie de construire des centrales nucléaires',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'Les groupes énergétiques suisses se félicitent de la levée de l\'interdiction de construire des centrales nucléaires décidée à Berne.',
     'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.title': 'Pharmacie fronティアres en Ticino : reconnaissance, salaire et chemin d\'habilitation',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.excerpt': 'Reconnaissance du titre de pharmacien pour les frontaliers, salaire, procédure d\'habilitation et permis G.',
+    'blog.article.frontaliere-farmacista-ticino-stipendio-requisiti.imageAlt': 'Une pharmacienne travaille dans un laboratoire à Lugano',
 };
 
 export default blogMetaChFr;
