@@ -8375,6 +8375,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-zona-economica-speciale.title': 'Italie, une zone économique spéciale à proximité de la frontière',
     'blog.article.italia-zona-economica-speciale.excerpt': 'La Suisse et l\'Italie ont signé un accord pour créer une zone économique spéciale le long de la frontière.',
     'blog.article.italia-zona-economica-speciale.imageAlt': 'Un travailleur frontalier entre la Suisse et l\'Italie',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Frontaliers en Suisse: coiffure et esthétique',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Coiffeurs frontaliers et esthéticiennes au Tessin : permis G, salaire, reconnaissance professionnelle et opportunités dans le secteur.',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Un frontalier coiffeur dans un salon à Lugano, avec un client assis sur le fauteuil de coiffure.',
 };
 
 export default blogMetaFr;

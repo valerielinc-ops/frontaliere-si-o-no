@@ -4450,6 +4450,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cessione-del-quinto-della-pensione-2026': { name: 'Cessione del quinto della pensione', path: '/articoli-svizzera/cessione-del-quinto-della-pensione-2026/', parent: 'blog' },
     'blog-italia-zona-economica-speciale': { name: 'Zona economica speciale', path: '/articoli-frontaliere/italia-zona-economica-speciale', parent: 'blog' },
     'blog-frontaliere-insegnante-scuola-ticino-stipendio-requisiti': { name: 'Frontaliere insegnante scuola Ticino', path: '/articoli-svizzera/frontaliere-insegnante-scuola-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio': { name: 'Frontalieri parrucchieri e estetisti in', path: '/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

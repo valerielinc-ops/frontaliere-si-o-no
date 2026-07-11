@@ -8375,6 +8375,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-zona-economica-speciale.title': 'Italia, una zona economica speciale a ridosso del confine',
     'blog.article.italia-zona-economica-speciale.excerpt': 'La Svizzera e l\'Italia hanno firmato un accordo per creare una zona economica speciale lungo il confine.',
     'blog.article.italia-zona-economica-speciale.imageAlt': 'Un frontaliere che lavora in Svizzera e risiede in Italia',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Lavora come parrucchiere o estetista in Ticino da frontaliere: permesso, stipendio e opportunità',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio, riconoscimento professionale e opportunità nel settore.',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Un frontaliere parrucchiere in un negozio di Lugano, con un cliente seduto sulla sedia da taglio.',
 };
 
 export default blogMetaIt;

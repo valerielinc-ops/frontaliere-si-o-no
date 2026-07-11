@@ -8373,6 +8373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-zona-economica-speciale.title': 'Italien, eine Sonderwirtschaftszone in Grenznähe',
     'blog.article.italia-zona-economica-speciale.excerpt': 'Die Schweiz und Italien haben ein Abkommen zur Schaffung einer Sonderwirtschaftszone entlang der Grenze unterzeichnet.',
     'blog.article.italia-zona-economica-speciale.imageAlt': 'Ein Grenzgänger zwischen der Schweiz und Italien',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.title': 'Frontaliers in Tessin: Haarfriseur, Kosmetikerin oder Grenzbesetzer?',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.excerpt': 'Grenzgänger, Friseure und Kosmetiker im Tessin: G-Bewilligung, Gehalt, berufliche Anerkennung und Möglichkeiten in der Branche.',
+    'blog.article.frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.imageAlt': 'Ein Grenzgänger Friseur in einem Salon in Lugano, mit einem Kunden, der auf dem Friseurstuhl sitzt.',
 };
 
 export default blogMetaDe;
