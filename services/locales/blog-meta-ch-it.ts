@@ -973,6 +973,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esportazione-zampe-di-maiale.title': 'Come la scommessa svizzera sull\'esportazione di zampe di maiale in Cina si è infranta',
     'blog.article.esportazione-zampe-di-maiale.excerpt': 'I prezzi ai minimi storici e gli aumenti dei costi di spedizione stanno erodendo i profitti di chi esporta carne suina dalla Svizzera',
     'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Immagine di una scena di esportazione di carne suina in Cina',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Adozione e affido per una famiglia frontaliera: enti competenti in Italia e Svizzera',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'La procedura di adozione o affido per una famiglia frontaliera è regolata dal Nuovo Accordo Frontalieri, firmato il 23 dicembre 2020 e in vigore dal 1° gennaio 2024.',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'Un padre frontaliero che attende con ansia la nascita del proprio figlio in un ospedale svizzero.',
 };
 
 export default blogMetaChIt;

@@ -973,6 +973,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esportazione-zampe-di-maiale.title': 'How Switzerland\'s bet on pork paw exports to China broke down',
     'blog.article.esportazione-zampe-di-maiale.excerpt': 'Historical low prices and increases in shipping costs are eroding the profits of those who export pork from Switzerland',
     'blog.article.esportazione-zampe-di-maiale.imageAlt': 'Image of a scene of pork export to China',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.title': 'Family Foster Care in the Italian-Swiss Border Region: Competent Authorities',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.excerpt': 'The adoption or foster care procedure for a frontier family is governed by the New Frontier Agreement, signed on 23 December 2020 and in force from 1 January 2024.',
+    'blog.article.frontaliere-adozione-affido-procedura-italia-svizzera.imageAlt': 'A father frontier waiting anxiously for the birth of his child in a Swiss hospital.',
 };
 
 export default blogMetaChEn;
