@@ -8344,6 +8344,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontier Pregnancy Coverage, Hospital Choice, and Practical Differences',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Border workers working in Switzerland and residing in Italy must undergo regular health checks. But what if they expect a child?',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'A Swiss-Italian border worker visiting a health center for routine check-ups.',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'How to resign from a border job in Switzerland: terms and correct procedure',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Key facts about the termination of the employment contract for border workers in Switzerland',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'A Swiss-Italian cross-border worker writing a resignation letter',
 };
 
 export default blogMetaEn;

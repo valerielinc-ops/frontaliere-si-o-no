@@ -8343,6 +8343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Schwangerschafts-Frontend: KVG- oder MHK-Krankenkasse, Spitalwahl, Unterschiede',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen, müssen sich regelmäßigen Gesundheitskontrollen unterziehen. Aber was passiert, wenn sie ein Kind erwarten?',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Eine italienisch-schweizerische Grenzarbeiterin besucht ein Gesundheitszentrum für regelmäßige Kontrollen.',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Schweiz: Kündigung eines Grenzgängerjobs: Bedingungen und korrekte Verfahren',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Eckdaten zur Kündigung des Arbeitsvertrages für Grenzgänger in der Schweiz',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Eine italienische Frontalierin, die in der Schweiz arbeitet, schreibt eine Abgangserklärung',
 };
 
 export default blogMetaDe;
