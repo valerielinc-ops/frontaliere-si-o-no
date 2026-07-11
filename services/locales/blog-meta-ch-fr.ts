@@ -994,6 +994,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-meccanico-auto-ticino.title': 'Frontière mécanique automobile au Tessin : salaire et règles',
     'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Guide complet pour les mécaniciens frontaliers au Tessin : salaire, permis G, fiscalité et le nouvel accord fiscal en vigueur depuis le 1er janvier 2024.',
     'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Mécanicien dans un atelier au Tessin',
+    'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Cession du cinquième de la retraite : les changements avec la nouvelle convention INPS',
+    'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'La nouvelle convention INPS pour la cession du cinquième de la pension introduit quelques nouveautés procédurales.',
+    'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier avec prêt',
 };
 
 export default blogMetaChFr;

@@ -994,6 +994,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-meccanico-auto-ticino.title': 'Automechanischer Grenzgänger im Tessin: Gehalt und Regeln',
     'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Vollständiger Leitfaden für Grenzmechaniker im Tessin: Gehalt, G-Bewilligung, Besteuerung und das neue Steuerabkommen, das am 1. Januar 2024 in Kraft getreten ist.',
     'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Mechaniker in einer Werkstatt im Tessin',
+    'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Fünftelsrente-Neues INPS-Konzept: Was ändert sich?',
+    'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'Die neue INPS-Vereinbarung für die Abtretung des Fünftels der Rente führt einige Verfahrensneuheiten ein.',
+    'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier mit Kredit',
 };
 
 export default blogMetaChDe;

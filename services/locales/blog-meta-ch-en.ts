@@ -994,6 +994,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-meccanico-auto-ticino.title': 'Car mechanical frontier in Ticino: salary and rules',
     'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Complete guide for border mechanics in Ticino: salary, G permit, taxation and the new tax agreement in force from 1 January 2024.',
     'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Mechanic in a workshop in Ticino',
+    'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Transfer of the fifth of the pension: what changes with the new INPS convention',
+    'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'The new INPS agreement for the transfer of the fifth of the pension introduces some procedural innovations.',
+    'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontalier with loan',
 };
 
 export default blogMetaChEn;

@@ -994,6 +994,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-meccanico-auto-ticino.title': 'Frontaliere meccanico auto in Ticino: stipendio e regole',
     'blog.article.frontaliere-meccanico-auto-ticino.excerpt': 'Guida completa per meccanici frontalieri in Ticino: stipendio, permesso G, tassazione e il nuovo accordo fiscale in vigore dal 1° gennaio 2024.',
     'blog.article.frontaliere-meccanico-auto-ticino.imageAlt': 'Meccanico in un\'officina in Ticino',
+    'blog.article.cessione-del-quinto-della-pensione-2026.title': 'Cessione del quinto della pensione: cosa cambia con la nuova convenzione INPS',
+    'blog.article.cessione-del-quinto-della-pensione-2026.excerpt': 'La nuova convenzione INPS per la cessione del quinto della pensione introduce alcune novità procedurali.',
+    'blog.article.cessione-del-quinto-della-pensione-2026.imageAlt': 'frontaliere con finanziamento estinguibile',
 };
 
 export default blogMetaChIt;

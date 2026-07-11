@@ -1,0 +1,40 @@
+{
+  "id": "cessione-del-quinto-della-pensione-2026",
+  "slug": "cessione-del-quinto-della-pensione-2026",
+  "publishedAt": "2026-07-11T20:21:53.998Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "fiscoetasse.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.071100080069453,
+    "confidence": 0.8,
+    "finalScore": 4.056880064055562,
+    "topK": [
+      {
+        "slug": "divorzio-cassa-pensioni",
+        "cosine": 0.8451833466782421
+      },
+      {
+        "slug": "progetto-prossimita-locarno-2026",
+        "cosine": 0.8387061847451722
+      },
+      {
+        "slug": "votazioni-federali-14-giugno-2026",
+        "cosine": 0.838456356184721
+      },
+      {
+        "slug": "divario-irpef-pensionati-2026",
+        "cosine": 0.8373483740273521
+      },
+      {
+        "slug": "nuova-riforma-avs-2024-frontalieri",
+        "cosine": 0.8364543906693434
+      }
+    ],
+    "score": 4.056880064055562,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}
