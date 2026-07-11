@@ -8383,6 +8383,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Working as a mechanic car in Ticino: salary, CCL industry, permit G',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Withholding tax on earned income: ONLY withheld in Switzerland for cross-border commuters.',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'A mechanic working in a workshop in Lugano, Ticino.',
+    'blog.article.disoccupazione-dei-frontalieri.title': 'Federal Council opposes EU amendment on border worker unemployment',
+    'blog.article.disoccupazione-dei-frontalieri.excerpt': 'Switzerland could take over unemployment benefits for border workers who have lost their jobs.',
+    'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'A Swiss-Italian frontier worker on Lake Lugano, Switzerland.',
 };
 
 export default blogMetaEn;

@@ -8384,6 +8384,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Meccanico auto in Ticino: retribuzione, CCL e patente G',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'Envoyé à la source sur le revenu de travail: détenu en Suisse uniquement pour les travailleurs frontaliers.',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Un mécanicien travaille dans un atelier de Lugano, Tessin.',
+    'blog.article.disoccupazione-dei-frontalieri.title': 'Consseil fédérales : s\'opposer a l\'UE en matière de chômage frontalier',
+    'blog.article.disoccupazione-dei-frontalieri.excerpt': 'La Suisse pourrait prendre en charge les indemnités de chômage des frontaliers qui ont perdu leur emploi.',
+    'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Un frontalier travaille sur le lac de Lugano, en Suisse.',
 };
 
 export default blogMetaFr;

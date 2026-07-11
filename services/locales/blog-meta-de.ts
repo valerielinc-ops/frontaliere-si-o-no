@@ -8382,6 +8382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.meccanico-auto-ticino-stipendio-permessi.title': 'Arbeiten als Mechanikerauto im Tessin: Gehalt, CCL-Industrie, Erlaubnis G',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.excerpt': 'An die Quelle für Arbeitseinkommen gesendet: NUR in der Schweiz für Grenzgänger.',
     'blog.article.meccanico-auto-ticino-stipendio-permessi.imageAlt': 'Ein Mechaniker arbeitet in einer Werkstatt in Lugano, Tessin.',
+    'blog.article.disoccupazione-dei-frontalieri.title': 'Bundesrat: Einseitige EU-Änderung zur Arbeitslosigkeit von Grenzgängern ablehnen',
+    'blog.article.disoccupazione-dei-frontalieri.excerpt': 'Die Schweiz könnte die Arbeitslosenunterstützung für Grenzgänger übernehmen, die ihren Arbeitsplatz verloren haben.',
+    'blog.article.disoccupazione-dei-frontalieri.imageAlt': 'Ein Frontalier arbeitet auf dem Lugano-See in der Schweiz.',
 };
 
 export default blogMetaDe;
