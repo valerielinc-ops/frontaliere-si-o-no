@@ -113,7 +113,7 @@
       "slugByLocale": {
         "it": "mercato-del-vino-lucerne-80-sunrise-communications-ag-luzern",
         "en": "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
-        "de": "vertriebsmitarbeiter-lutern-weinmarkt-80-sunrise-communications-ag-luzern",
+        "de": "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
         "fr": "agent-de-vente-lutern-weinmarkt-80-sunrise-communications-ag-luzern"
       },
       "id": "sunrise-sede-ticino-298606bf57dd",
@@ -140,7 +140,8 @@
         ],
         "de": [
           "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
-          "sales-agent-luzern-weinmarkt-80-sunrise-luzern"
+          "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
+          "vertriebsmitarbeiter-lutern-weinmarkt-80-sunrise-communications-ag-luzern"
         ],
         "en": [
           "sales-agent-lucerne-wine-market-80-sunrise-communications-ag-luzern"
@@ -155,7 +156,8 @@
         "agent-de-vente-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
         "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
         "sales-agent-lucerne-wine-market-80-sunrise-communications-ag-luzern",
-        "sales-agent-luzern-weinmarkt-80-sunrise-luzern"
+        "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
+        "vertriebsmitarbeiter-lutern-weinmarkt-80-sunrise-communications-ag-luzern"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -200,7 +202,7 @@
       "slugByLocale": {
         "it": "agente-di-vendita-uster-60-100-sunrise-communications-ag-uster",
         "en": "sales-agent-uster-60-100-sunrise-uster",
-        "de": "vertriebsmitarbeiter-uster-60-100-sunrise-communications-ag-uster",
+        "de": "sales-agent-uster-60-100-sunrise-uster",
         "fr": "agent-de-vente-uster-60-100-sunrise-communications-ag-uster"
       },
       "id": "sunrise-sede-ticino-1930c1091435",
@@ -226,14 +228,16 @@
           "sales-agent-uster-60-100-sunrise-uster"
         ],
         "de": [
-          "sales-agent-uster-60-100-sunrise-uster"
+          "sales-agent-uster-60-100-sunrise-uster",
+          "vertriebsmitarbeiter-uster-60-100-sunrise-communications-ag-uster"
         ],
         "fr": [
           "sales-agent-uster-60-100-sunrise-uster"
         ]
       },
       "previousSlugs": [
-        "sales-agent-uster-60-100-sunrise-uster"
+        "sales-agent-uster-60-100-sunrise-uster",
+        "vertriebsmitarbeiter-uster-60-100-sunrise-communications-ag-uster"
       ]
     },
     {
@@ -275,7 +279,7 @@
       "slugByLocale": {
         "it": "agente-commerciale-zurigo-flagshipstore-60-100-sunrise-communications-ag-zurich",
         "en": "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich",
-        "de": "vertriebsmitarbeiter-zurich-126shipstore-60-100-sunrise-communications-ag-zurich",
+        "de": "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich",
         "fr": "agent-de-vente-zurich-126shipstore-60-100-sunrise-communications-ag-zurich"
       },
       "id": "sunrise-sede-ticino-362dab43896c",
@@ -296,7 +300,8 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsvertreter-zurich-flagshipstore-60-100-sunrise-communications-ag-zurich",
-          "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich"
+          "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich",
+          "vertriebsmitarbeiter-zurich-126shipstore-60-100-sunrise-communications-ag-zurich"
         ],
         "fr": [
           "agent-commercial-zurich-flagshipstore-60-100-sunrise-communications-ag-zurich",
@@ -309,7 +314,8 @@
       "previousSlugs": [
         "verkaufsvertreter-zurich-flagshipstore-60-100-sunrise-communications-ag-zurich",
         "agent-commercial-zurich-flagshipstore-60-100-sunrise-communications-ag-zurich",
-        "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich"
+        "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich",
+        "vertriebsmitarbeiter-zurich-126shipstore-60-100-sunrise-communications-ag-zurich"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -644,7 +650,7 @@
       "slugByLocale": {
         "it": "agente-di-vendita-rapperswil-60-100-sunrise-communications-ag-rapperswil",
         "en": "sales-agent-rapperswil-60-100-sunrise-rapperswil",
-        "de": "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil",
+        "de": "sales-agent-rapperswil-60-100-sunrise-rapperswil",
         "fr": "agent-de-vente-rapperswil-60-100-sunrise-communications-ag-rapperswil"
       },
       "id": "sunrise-sede-ticino-ddeea618a1f9",
@@ -671,12 +677,14 @@
           "sales-agent-rapperswil-60-100-sunrise-rapperswil"
         ],
         "de": [
-          "sales-agent-rapperswil-60-100-sunrise-rapperswil"
+          "sales-agent-rapperswil-60-100-sunrise-rapperswil",
+          "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil"
         ]
       },
       "previousSlugs": [
         "vendeur-rapperswil-60-100-sunrise-communications-ag-rapperswil",
-        "sales-agent-rapperswil-60-100-sunrise-rapperswil"
+        "sales-agent-rapperswil-60-100-sunrise-rapperswil",
+        "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -874,7 +882,7 @@
       "slugByLocale": {
         "it": "agente-commerciale-zurigo-shopville-60-100-sunrise-communications-ag-zurich",
         "en": "sales-agent-zurich-shopville-60-100-sunrise-zurich",
-        "de": "vertriebsmitarbeiter-zurich-shopville-60-100-sunrise-communications-ag-zurich",
+        "de": "sales-agent-zurich-shopville-60-100-sunrise-zurich",
         "fr": "agent-de-vente-zurich-shopville-60-100-sunrise-communications-ag-zurich"
       },
       "id": "sunrise-sede-ticino-84063fda9118",
@@ -895,7 +903,8 @@
       "previousSlugsByLocale": {
         "de": [
           "vertriebsvertreter-zurich-shopville-60-100-sunrise-communications-ag-zurich",
-          "sales-agent-zurich-shopville-60-100-sunrise-zurich"
+          "sales-agent-zurich-shopville-60-100-sunrise-zurich",
+          "vertriebsmitarbeiter-zurich-shopville-60-100-sunrise-communications-ag-zurich"
         ],
         "it": [
           "sales-agent-zurich-shopville-60-100-sunrise-zurich"
@@ -906,7 +915,8 @@
       },
       "previousSlugs": [
         "vertriebsvertreter-zurich-shopville-60-100-sunrise-communications-ag-zurich",
-        "sales-agent-zurich-shopville-60-100-sunrise-zurich"
+        "sales-agent-zurich-shopville-60-100-sunrise-zurich",
+        "vertriebsmitarbeiter-zurich-shopville-60-100-sunrise-communications-ag-zurich"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -1089,7 +1099,7 @@
       "slugByLocale": {
         "it": "agente-di-vendita-ebikon-mall-svizzera-60-100-sunrise-communications-ag-ebikon",
         "en": "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon",
-        "de": "sales-agent-ebikon-mall-schweiz-60-100-sunrise-communications-ag-ebikon",
+        "de": "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon",
         "fr": "agent-commercial-ebikon-mall-de-suisse-60-100-sunrise-communications-ag-ebikon"
       },
       "id": "sunrise-sede-ticino-619b020761a8",
@@ -1110,7 +1120,8 @@
       "previousSlugsByLocale": {
         "de": [
           "vertriebsagent-ebikon-mall-der-schweiz-60-100-sunrise-communications-ag-ebikon",
-          "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon"
+          "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon",
+          "sales-agent-ebikon-mall-schweiz-60-100-sunrise-communications-ag-ebikon"
         ],
         "fr": [
           "agent-de-vente-ebikon-mall-of-switzerland-60-100-sunrise-communications-ag-ebikon",
@@ -1123,7 +1134,8 @@
       "previousSlugs": [
         "vertriebsagent-ebikon-mall-der-schweiz-60-100-sunrise-communications-ag-ebikon",
         "agent-de-vente-ebikon-mall-of-switzerland-60-100-sunrise-communications-ag-ebikon",
-        "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon"
+        "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon",
+        "sales-agent-ebikon-mall-schweiz-60-100-sunrise-communications-ag-ebikon"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -1337,7 +1349,9 @@
       },
       "previousSlugs": [
         "sales-agent-st-gallen-flagship-60-100-sunrise-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "OTT Platforms Specialist - full stack Engineer 80-100%",
@@ -1612,7 +1626,9 @@
       "previousSlugs": [
         "finance-business-partner-cto-50-sunrise-zurich",
         "finance-business-partner-cto-50-sunrise-communications-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Marketing Retention Manager 80-100%",
