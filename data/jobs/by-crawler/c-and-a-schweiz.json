@@ -3157,7 +3157,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-sales-assistant-servizio-c-a-schweiz-biel-bienne"
+        ],
+        "de": [
+          "ch-sales-assistent-service-c-a-schweiz-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "ch-sales-assistant-servizio-c-a-schweiz-biel-bienne",
+        "ch-sales-assistent-service-c-a-schweiz-biel-bienne"
+      ]
     },
     {
       "id": "c-and-a-schweiz-9d8323194d31",
