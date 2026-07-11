@@ -16,6 +16,7 @@
  */
 
 import { PREFERRED_SEND_MIN_EVENTS, circularMeanToHour } from '../../functions/src/lib/preferredSendHour.js';
+import { fnv1a32Mod } from './fnv1a.mjs';
 
 // ── Kill switch (Fase 4 rollback) ────────────────────────────
 // PER_USER_SEND_TIME=off|0|false disables per-user scheduling; everything
@@ -32,20 +33,13 @@ function isValidHour(hourUtc) {
   return Number.isInteger(hourUtc) && hourUtc >= 0 && hourUtc <= 23;
 }
 
-// Tiny deterministic string hash (FNV-1a, 32-bit) — no dependency needed for
-// a jitter value. Same email always yields the same minute, so re-running the
-// send script never reshuffles a subscriber's slot, but different subscribers
-// spread out across the hour instead of all landing on :00 (which would just
-// recreate the "everyone gets it at the top of the hour" burst this feature
-// exists to avoid).
-function fnv1aHash(str) {
-  let hash = 0x811c9dc5;
-  for (let i = 0; i < str.length; i += 1) {
-    hash ^= str.charCodeAt(i);
-    hash = Math.imul(hash, 0x01000193);
-  }
-  return hash >>> 0;
-}
+// Deterministic per-email minute jitter, via the shared FNV-1a util
+// (scripts/lib/fnv1a.mjs, AGENTS.md #6 — was a hand-copied hash here). Same
+// email always yields the same minute, so re-running the send script never
+// reshuffles a subscriber's slot, but different subscribers spread out across
+// the hour instead of all landing on :00 (which would just recreate the
+// "everyone gets it at the top of the hour" burst this feature exists to
+// avoid).
 
 /**
  * Resolve the concrete UTC instant a given subscriber's email should be
@@ -74,7 +68,7 @@ function fnv1aHash(str) {
 export function computeScheduledSendAt({ preferredHourUtc, email, now = new Date(), minLeadMs = 15 * 60 * 1000 }) {
   if (!isValidHour(preferredHourUtc)) return null;
 
-  const minute = fnv1aHash(String(email || '')) % 60;
+  const minute = fnv1a32Mod(String(email || ''), 60);
 
   const candidate = new Date(Date.UTC(
     now.getUTCFullYear(),

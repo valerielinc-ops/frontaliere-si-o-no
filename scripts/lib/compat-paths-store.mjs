@@ -34,6 +34,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fnv1a32Mod } from './fnv1a.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -52,15 +53,14 @@ export const COMPAT_SHARD_COUNT = 16;
 
 const SHARD_RE = /^part-\d+\.json$/;
 
-/** Deterministic shard index for a path (FNV-1a hash, 32-bit, % count). */
+/**
+ * Deterministic shard index for a path (FNV-1a hash, 32-bit, % count).
+ * Delegates to the shared `scripts/lib/fnv1a.mjs` (AGENTS.md #6) — the exact
+ * same algorithm as before, so the shard assignment is byte-identical and no
+ * path gets redistributed (see this file's docblock).
+ */
 export function compatShardIndex(p, count = COMPAT_SHARD_COUNT) {
-  const s = String(p);
-  let h = 0x811c9dc5;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 0x01000193);
-  }
-  return (h >>> 0) % count;
+  return fnv1a32Mod(String(p), count);
 }
 
 /** Absolute path of shard `i`. */

@@ -1056,6 +1056,9 @@ const RESPONSE_CACHE_MAX = 500;
 // crypto is only ever dynamic-imported. For ≤500 deterministic entries the
 // collision probability is negligible, and the key includes the full opts so a
 // collision would still require an identical prompt+model+params tuple.
+// NOT a duplicate of scripts/lib/fnv1a.mjs's `fnv1a32` (AGENTS.md #6 dedup):
+// this is a different shift-based mixing step with no static import, kept
+// separate on purpose for the Firebase Functions constraint above.
 function _fnv1aHex(str) {
   let h = 0x811c9dc5;
   for (let i = 0; i < str.length; i++) {
