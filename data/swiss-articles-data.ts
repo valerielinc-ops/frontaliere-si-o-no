@@ -2861,6 +2861,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'axa-manno-lavoro-frontaliere',
+    category: 'pratico',
+    date: '2026-07-11T05:34:19.005Z',
+    image: '/images/blog/axa-manno-lavoro-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -955,6 +955,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.offerte-fielmann-svizzera.title': 'Fielmann offers in Switzerland: what to know',
     'blog.article.offerte-fielmann-svizzera.excerpt': 'Analysis of Fielmann\'s business proposals in Switzerland for those looking for optical solutions and their impact on the cost of daily living.',
     'blog.article.offerte-fielmann-svizzera.imageAlt': 'Interior of an optical store in Switzerland',
+    'blog.article.axa-manno-lavoro-frontaliere.title': 'Working at AXA Switzerland in Manno: a guide for border workers',
+    'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Details on employment in Manno, G permit, 2024 taxation and social contributions for frontier workers in Ticino.',
+    'blog.article.axa-manno-lavoro-frontaliere.imageAlt': 'Modern office building in Manno, Canton Ticino, home to AXA Switzerland',
 };
 
 export default blogMetaChEn;
