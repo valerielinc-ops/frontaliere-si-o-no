@@ -25073,6 +25073,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontaliere-disdetta-contratto-lavoro-dimissioni-termini',
+ category: 'fiscale',
+ date: '2026-07-11T09:44:15.212Z',
+ image: '/images/blog/frontaliere-disdetta-contratto-lavoro-dimissioni-termini.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

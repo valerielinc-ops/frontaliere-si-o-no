@@ -4431,6 +4431,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferimento-residenza-svizzera-frontaliere': { name: 'Trasferimento residenza Svizzera', path: '/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere', parent: 'blog' },
     'blog-frontaliere-gravidanza-controlli-sanitari-lamal-cmi': { name: 'Frontaliere gravidanza', path: '/articoli-frontaliere/frontaliere-gravidanza-controlli-sanitari-lamal-cmi', parent: 'blog' },
     'blog-esportazione-zampe-di-maiale': { name: 'Esportazione di carne suina', path: '/articoli-svizzera/esportazione-zampe-di-maiale/', parent: 'blog' },
+    'blog-frontaliere-disdetta-contratto-lavoro-dimissioni-termini': { name: 'Come dimettersi da un lavoro da frontali', path: '/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini', parent: 'blog' },
  };
 
  const info = sectionNames[section];

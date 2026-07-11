@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3124,
+ "numberOfItems": 3125,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7799,7 +7799,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3121, "name": "Vivere in Valtellina e lavorare nei Grigioni da...", "url": `${BASE_URL}/articoli-frontaliere/vivere-oltre-monti-lavorare-grigioni` },
           { "@type": "ListItem", "position": 3122, "name": "Sposarsi in Svizzera: documenti, permessi e imp...", "url": `${BASE_URL}/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere` },
           { "@type": "ListItem", "position": 3123, "name": "Frontaliere gravidanza: copertura LAMal o CMI, ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-gravidanza-controlli-sanitari-lamal-cmi` },
-          { "@type": "ListItem", "position": 3124, "name": "Come la scommessa svizzera sull'esportazione di...", "url": `${BASE_URL}/articoli-frontaliere/esportazione-zampe-di-maiale` }
+          { "@type": "ListItem", "position": 3124, "name": "Come la scommessa svizzera sull'esportazione di...", "url": `${BASE_URL}/articoli-frontaliere/esportazione-zampe-di-maiale` },
+          { "@type": "ListItem", "position": 3125, "name": "Come dimettersi da un lavoro da frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini` }
  ]
  },
  {

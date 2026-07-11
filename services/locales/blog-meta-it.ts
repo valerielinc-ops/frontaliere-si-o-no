@@ -8345,6 +8345,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontaliere gravidanza: copertura LAMal o CMI, scelta ospedale, differenze pratiche',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Le frontaliere che lavorano in Svizzera e risiedono in Italia devono sottoporsi a controlli sanitari periodici. Ma cosa accade se si aspettano un figlio?',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Una frontaliere che lavora in Svizzera e risiede in Italia si reca presso un centro sanitario per sottoporsi a controlli periodici.',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Come dimettersi da un lavoro da frontaliere in Svizzera: termini e procedura corretta',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Fatti chiave sulla disdetta del contratto di lavoro per i frontalieri in Svizzera',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Una frontaliere italiana che lavora in Svizzera sta scrivendo una lettera di dimissioni',
 };
 
 export default blogMetaIt;

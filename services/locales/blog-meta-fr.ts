@@ -8345,6 +8345,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.title': 'Frontiere maternita : choix LAMal ou CMI, choix d\'hopital, difference pratiques',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.excerpt': 'Les gardes-frontières qui travaillent en Suisse et résident en Italie doivent se soumettre à des contrôles sanitaires périodiques. Mais que se passe-t-il s\'ils attendent un enfant ?',
     'blog.article.frontaliere-gravidanza-controlli-sanitari-lamal-cmi.imageAlt': 'Une frontalière qui travaille en Suisse et réside en Italie se rend dans un centre de santé pour des examens périodiques.',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.title': 'Comment se désinscrire d\'un travail de frontalier en Suisse : termini et procède correctes',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.excerpt': 'Faits clés sur la résiliation du contrat de travail pour les frontaliers en Suisse',
+    'blog.article.frontaliere-disdetta-contratto-lavoro-dimissioni-termini.imageAlt': 'Une travailleuse frontalière italienne qui travaille en Suisse est en train d\'écrire une lettre de démission',
 };
 
 export default blogMetaFr;
