@@ -8352,6 +8352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'Der Immobilienmarkt im Tessin: Durchschnittspreise pro Zone, aktuelle Trends',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Immobilienmarkttrends im Tessin, Durchschnittspreise pro Zone, Unterschiede zwischen Miete und Kauf',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Immobilienmarkt in Locarno, Tessin',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Friseur und Kosmetikerin im Tessin',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Leitfaden für Friseure und Grenzkosmetiker: Gehalt, G-Bewilligung, Quellensteuer und Vorsorgeverwaltung zwischen der Schweiz und Italien.',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Friseursalon in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;

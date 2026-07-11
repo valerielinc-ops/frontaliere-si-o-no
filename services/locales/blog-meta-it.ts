@@ -8354,6 +8354,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.title': 'Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.excerpt': 'Tendenze del mercato immobiliare in Ticino, prezzi medi per zona, differenze tra affitto e acquisto',
     'blog.article.mercato-immobiliare-ticino-prezzi-tendenze.imageAlt': 'Mercato immobiliare a Locarno, Ticino',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.title': 'Frontaliere parrucchiere ed estetista in Ticino',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.excerpt': 'Guida operativa per parrucchieri ed estetisti frontalieri: stipendio, permesso G, imposta alla fonte e gestione previdenziale tra Svizzera e Italia.',
+    'blog.article.lavoro-parrucchiere-estetista-frontaliere.imageAlt': 'Salone di parrucchiere a Lugano con vista lago',
 };
 
 export default blogMetaIt;
