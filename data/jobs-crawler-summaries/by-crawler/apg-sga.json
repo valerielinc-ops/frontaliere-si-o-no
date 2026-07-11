@@ -1,16 +1,16 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-07-10T23:10:29.705Z",
+  "generatedAt": "2026-07-11T11:41:10.438Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6872,
-  "avgDurationMs": 6872,
+  "durationMs": 5462,
+  "avgDurationMs": 5462,
   "durationHistory": [
-    6872
+    5462
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-direktkunden-zuerich/eupki7cjsnxtt5mjbuvy48rrftetxlnla1p32ttj7cb14mhzhkhfnlir6jsa2wuc",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T23:10:28.304Z",
+      "crawledAt": "2026-07-11T11:41:08.732Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,46 +52,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "apg-sga-ed9af0d4db71",
-      "slug": "jobs-e-karriere-apg-sga-lugano",
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Jobs und Karriere",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-06T13:01:28.983Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://www.apgsga.ch/de/ueber-uns/offene-stellen-karriere/",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-07-06T13:01:28.983Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
