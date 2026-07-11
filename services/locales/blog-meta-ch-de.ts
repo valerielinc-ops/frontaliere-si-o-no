@@ -958,6 +958,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.axa-manno-lavoro-frontaliere.title': 'Arbeiten bei der AXA Schweiz in Manno: Leitfaden für Grenzgänger',
     'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Details zur Beschäftigung in Manno, der Bewilligung G, der Besteuerung 2024 und den Sozialbeiträgen für Grenzgänger im Tessin.',
     'blog.article.axa-manno-lavoro-frontaliere.imageAlt': 'Modernes Bürogebäude in Manno, Kanton Tessin, Sitz von AXA Schweiz',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.title': 'Mehr Elektrizitätswerke, wenig Lust auf den Bau von Kernkraftwerken',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.excerpt': 'Die Schweizer Energiekonzerne begrüssen die Aufhebung des in Bern beschlossenen Kernkraftwerksverbots.',
+    'blog.article.centrali-nucleari-scarpa-voglia-di-costruire.imageAlt': 'Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR',
 };
 
 export default blogMetaChDe;

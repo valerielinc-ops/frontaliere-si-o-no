@@ -12342,6 +12342,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centrali-nucleari-scarpa-voglia-di-costruire': {
+    title: 'Di più aziende elettriche, scarsa voglia di costruire centrali nucleari',
+    description: 'I gruppi energetici svizzeri accolgono con favore la revoca del divieto di costruzione di centrali nucleari decisa a Berna. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, elettriche, scarsa, voglia',
+    ogTitle: 'Di più aziende elettriche, scarsa voglia di costruire centrali nucleari',
+    ogDescription: 'I gruppi energetici svizzeri accolgono con favore la revoca del divieto di costruzione di centrali nucleari decisa a Berna.',
+    canonicalPath: '/articoli-svizzera/centrali-nucleari-scarpa-voglia-di-costruire/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più aziende elettriche, scarsa voglia di costruire centrali nucleari",
+      "description": "I gruppi energetici svizzeri accolgono con favore la revoca del divieto di costruzione di centrali nucleari decisa a Berna. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrali-nucleari-scarpa-voglia-di-costruire.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena della Svizzera nazionale con un impianto nucleare in secondo piano, fotorealistica, DSLR"
+      },
+      "datePublished": "2026-07-11T05:59:05+00:00",
+      "dateModified": "2026-07-11T05:59:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centrali-nucleari-scarpa-voglia-di-costruire/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
