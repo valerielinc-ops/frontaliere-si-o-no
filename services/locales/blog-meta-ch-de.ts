@@ -1006,6 +1006,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.title': 'Friseur oder Kosmetikerin an der Grenze: Gehalt, Anerkennung und G-Vermerk',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.excerpt': 'Die neuesten Updates zu den Genehmigungen und der Einstufung von Grenzgängern im Schönheitssektor.',
     'blog.article.frontaliere-parrucchiere-estetista-ticino-permesso-stipendio.imageAlt': 'Eine Friseurin arbeitet in einem Friseurgeschäft in Lugano, mit Blick auf den See.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.title': 'Anmeldung zur Schule für Grenzgänger-Kinder: Anleitung und Verfahren',
+    'blog.article.iscrizione-scuola-figli-frontalieri.excerpt': 'Die Verfahren für die Ausbildung von Kindern von Grenzgängern zwischen Italien und der Schweiz: Orientierung zwischen Schulsystemen, Verpflichtungen und Verwaltung des Pendelverkehrs.',
+    'blog.article.iscrizione-scuola-figli-frontalieri.imageAlt': 'Modernes Schulgebäude in der Schweiz',
 };
 
 export default blogMetaChDe;

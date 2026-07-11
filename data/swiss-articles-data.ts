@@ -3014,6 +3014,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iscrizione-scuola-figli-frontalieri',
+    category: 'pratico',
+    date: '2026-07-11T22:01:58.801Z',
+    image: '/images/blog/iscrizione-scuola-figli-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

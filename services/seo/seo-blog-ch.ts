@@ -12966,6 +12966,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iscrizione-scuola-figli-frontalieri': {
+    title: 'Iscrizione scuola figli frontalieri: guida e procedure',
+    description: 'Guida pratica per l\'iscrizione dei figli a scuola per frontalieri tra Italia e Svizzera: procedure, normativa fiscale e gestione del pendolarismo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iscrizione, scuola, figli, procedure',
+    ogTitle: 'Iscrizione scuola figli frontalieri: guida e procedure',
+    ogDescription: 'Guida pratica per l\'iscrizione dei figli a scuola per frontalieri tra Italia e Svizzera: procedure, normativa fiscale e gestione del pendolarismo.',
+    canonicalPath: '/articoli-svizzera/iscrizione-scuola-figli-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iscrizione scuola figli frontalieri: guida e procedure",
+      "description": "Guida pratica per l'iscrizione dei figli a scuola per frontalieri tra Italia e Svizzera: procedure, normativa fiscale e gestione del pendolarismo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iscrizione-scuola-figli-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio scolastico moderno in Svizzera"
+      },
+      "datePublished": "2026-07-11T22:01:58+00:00",
+      "dateModified": "2026-07-11T22:01:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iscrizione-scuola-figli-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
