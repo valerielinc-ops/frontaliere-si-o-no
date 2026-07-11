@@ -8371,6 +8371,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Full analysis of the 2026 Swiss payroll for border workers',
     'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'The new law on deductions and contributions for border workers in Switzerland',
     'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'A person working in Switzerland and living in Italy, with Lake Lugano in the background.',
+    'blog.article.italia-zona-economica-speciale.title': 'Italy, a special economic zone close to the border',
+    'blog.article.italia-zona-economica-speciale.excerpt': 'Switzerland and Italy have signed an agreement to create a special economic zone along the border.',
+    'blog.article.italia-zona-economica-speciale.imageAlt': 'A Swiss-Italian border worker',
 };
 
 export default blogMetaEn;

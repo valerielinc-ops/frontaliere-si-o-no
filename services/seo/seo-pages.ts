@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3141,
+ "numberOfItems": 3142,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7816,7 +7816,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3138, "name": "Pensionarsi in Svizzera per chi si trasferisce ...", "url": `${BASE_URL}/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere` },
           { "@type": "ListItem", "position": 3139, "name": "Frontaliere meccanico auto in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-meccanico-auto-ticino` },
           { "@type": "ListItem", "position": 3140, "name": "Analisi completa della busta paga svizzera 2026...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-busta-paga-svizzera-2026` },
-          { "@type": "ListItem", "position": 3141, "name": "Cessione del quinto della pensione: cosa cambia...", "url": `${BASE_URL}/articoli-frontaliere/cessione-del-quinto-della-pensione-2026` }
+          { "@type": "ListItem", "position": 3141, "name": "Cessione del quinto della pensione: cosa cambia...", "url": `${BASE_URL}/articoli-frontaliere/cessione-del-quinto-della-pensione-2026` },
+          { "@type": "ListItem", "position": 3142, "name": "Italia, una zona economica speciale a ridosso d...", "url": `${BASE_URL}/articoli-frontaliere/italia-zona-economica-speciale` }
  ]
  },
  {

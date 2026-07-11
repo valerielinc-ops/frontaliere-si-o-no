@@ -8370,6 +8370,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-svizzera-2026.title': 'Vollständige Analyse der Schweizer Lohnabrechnung 2026 für Grenzgänger',
     'blog.article.frontalieri-busta-paga-svizzera-2026.excerpt': 'Das neue Einbehaltungs- und Beitragsgesetz für Grenzgänger in der Schweiz',
     'blog.article.frontalieri-busta-paga-svizzera-2026.imageAlt': 'Eine Person, die in der Schweiz arbeitet und in Italien lebt, mit dem Luganer See im Hintergrund.',
+    'blog.article.italia-zona-economica-speciale.title': 'Italien, eine Sonderwirtschaftszone in Grenznähe',
+    'blog.article.italia-zona-economica-speciale.excerpt': 'Die Schweiz und Italien haben ein Abkommen zur Schaffung einer Sonderwirtschaftszone entlang der Grenze unterzeichnet.',
+    'blog.article.italia-zona-economica-speciale.imageAlt': 'Ein Grenzgänger zwischen der Schweiz und Italien',
 };
 
 export default blogMetaDe;
