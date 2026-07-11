@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-07-11T10:25:29.541Z",
+  "generatedAt": "2026-07-11T22:26:09.296Z",
   "total": 9,
-  "newCount": 0,
-  "updatedCount": 2,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 1217,
-  "avgDurationMs": 1217,
+  "durationMs": 1300,
+  "avgDurationMs": 1300,
   "durationHistory": [
-    1217
+    1300
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Collaboratore/trice scientifico/a",
+      "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
+      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18882",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "6210 Sursee",
+      "addressLocality": "Sursee",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-07",
+      "validThrough": "2026-07-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Collaboratore/trice scientifico/a",
@@ -41,41 +72,6 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:29:44.097Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Collaboratore/trice scientifico/a",
-      "slug": "collaboratore-trice-scientifico-a-agroscope-sursee",
-      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/f31c4c91-97a4-4386-a13a-805633042491",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18882",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "6210 Sursee",
-      "addressLocality": "Sursee",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-07",
-      "validThrough": "2026-07-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-195f010a8391",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-10T13:10:35.873Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
