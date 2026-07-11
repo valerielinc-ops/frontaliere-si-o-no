@@ -3450,7 +3450,7 @@
         "it": "cameriere-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-zurich-ch",
         "en": "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch",
         "de": "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch",
-        "fr": "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch"
+        "fr": "garcon-restaurant-k2-restaurant-decontracte-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3494,6 +3494,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch"
+        ],
+        "fr": [
           "waiter-gasterestaurant-k2-casual-restaurant-80-100-swiss-re-ch"
         ]
       },
@@ -6822,7 +6825,7 @@
         "it": "gestione-delle-operazioni-mgmt-di-terze-parti-swiss-re-bratislava-sk",
         "en": "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch",
         "de": "dritter-mgmt-operations-manager-swiss-re-bratislava-sk",
-        "fr": "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
+        "fr": "gestionnaire-des-operations-de-la-tierce-partie-role-temporaire-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -6869,6 +6872,9 @@
           "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
         ],
         "de": [
+          "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
+        ],
+        "fr": [
           "third-party-mgmt-operations-manager-temporary-role-swiss-re-ch"
         ]
       },
@@ -6965,7 +6971,7 @@
         "it": "auditor-senior-p-c-current-swiss-re-armonk-ny-us",
         "en": "senior-auditor-p-c-actuary-swiss-re-ch",
         "de": "senior-auditor-p-c-current-swiss-re-armonk-ny-us",
-        "fr": "senior-auditor-p-c-actuary-swiss-re-ch"
+        "fr": "verificateur-principal-actuaire-p-c-swiss-re-armonk-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -7009,6 +7015,9 @@
           "senior-auditor-p-c-current-swiss-re-armonk-ny-us"
         ],
         "it": [
+          "senior-auditor-p-c-actuary-swiss-re-ch"
+        ],
+        "fr": [
           "senior-auditor-p-c-actuary-swiss-re-ch"
         ]
       },
@@ -9040,7 +9049,7 @@
         "it": "attuario-senior-hybrid-m-e-x-d-80-100-swiss-re-zurich-ch",
         "en": "senior-actuary-hybrid-m-f-x-d-80-100-swiss-re-ch",
         "de": "senior-actuary-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "senior-actuary-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "fr": "actuaire-principal-hybrid-m-f-x-j-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9082,6 +9091,9 @@
       "firstSeenAt": "2026-07-08T11:23:36.976Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-actuary-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "fr": [
           "senior-actuary-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
@@ -9479,7 +9491,7 @@
         "it": "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-milano-it",
         "en": "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch",
         "de": "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-milano-it",
-        "fr": "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
+        "fr": "gestionnaire-principal-de-clients-et-actuaire-hybrid-m-f-x-d-swiss-re-milano-it"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9526,6 +9538,9 @@
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
         ],
         "de": [
+          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
+        ],
+        "fr": [
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
         ]
       },
@@ -9757,7 +9772,7 @@
         "it": "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-zurich-ch",
         "en": "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2",
         "de": "senior-l-h-client-manager-current-hybrid-m-e-x-d-swiss-re-zurich-ch",
-        "fr": "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
+        "fr": "gestionnaire-principal-de-clients-et-actuaire-hybrid-m-f-x-d-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -9807,6 +9822,9 @@
         ],
         "de": [
           "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch-2"
+        ],
+        "fr": [
+          "senior-l-h-client-manager-actuary-hybrid-m-f-x-d-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:34.555Z",
@@ -11546,7 +11564,7 @@
         "it": "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-munich-de",
         "en": "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss",
         "de": "sales-engage-content-producer-manager-hybrid-m-w-x-d-1-jahres-vertrag-swiss-re-munich-de",
-        "fr": "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
+        "fr": "producteur-et-gestionnaire-de-contenu-d-activation-des-ventes-hybrid-m-f-x-d-contrat-temporaire-d-un-an-swiss-re-munich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11596,6 +11614,9 @@
         ],
         "de": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
+        ],
+        "fr": [
+          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:26.984Z",
@@ -11620,7 +11641,7 @@
         "it": "operativo-resilience-manager-hybrid-configurato-swiss-re-madrid-es",
         "en": "operational-resilience-manager-hybrid-set-up-swiss-re-ch",
         "de": "operational-resilience-manager-hybrid-eingerichtet-swiss-re-madrid-es",
-        "fr": "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
+        "fr": "gestionnaire-de-resilience-operationnelle-hybrid-mis-en-place-swiss-re-madrid-es"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11664,6 +11685,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
+        ],
+        "fr": [
           "operational-resilience-manager-hybrid-set-up-swiss-re-ch"
         ]
       },
@@ -11979,7 +12003,7 @@
         "it": "produttore-manager-hybrid-m-f-x-d-contratto-temporaneo-di-1-anno-swiss-re-london-gb",
         "en": "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2",
         "de": "sales-engage-content-producer-manager-hybrid-m-w-x-d-1-jahres-vertrag-swiss-re-london-gb",
-        "fr": "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
+        "fr": "producteur-et-gestionnaire-de-contenu-d-activation-des-ventes-hybrid-m-f-x-d-contrat-temporaire-d-un-an-swiss-re-london"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -12029,6 +12053,9 @@
         ],
         "de": [
           "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss-2"
+        ],
+        "fr": [
+          "sales-enablement-content-producer-manager-hybrid-m-f-x-d-1-year-temporary-contract-swiss"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:26.681Z",
@@ -13353,7 +13380,7 @@
         "it": "senior-customer-success-manager-hybrid-m-f-d-x-80-100-swiss-re-ch",
         "en": "senior-customer-success-manager-hybrid-m-f-d-x-80-100-swiss-re-ch",
         "de": "senior-customer-success-manager-hybrid-m-f-d-x-80-100-swiss-re-ch",
-        "fr": "senior-customer-success-manager-hybrid-m-f-d-x-80-100-swiss-re-ch"
+        "fr": "gestionnaire-principal-du-succes-client-hybrid-m-f-d-x-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -15725,7 +15752,7 @@
         "it": "auditor-senior-pratiche-professionali-swiss-re-bratislava-sk",
         "en": "senior-auditor-professional-practices-swiss-re-ch",
         "de": "senior-auditor-professional-practices-swiss-re-ch",
-        "fr": "senior-auditor-professional-practices-swiss-re-ch"
+        "fr": "pratiques-professionnelles-du-verificateur-principal-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -15769,6 +15796,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-auditor-professional-practices-swiss-re-ch"
+        ],
+        "fr": [
           "senior-auditor-professional-practices-swiss-re-ch"
         ]
       },
@@ -18149,7 +18179,7 @@
         "it": "werkstudent-life-health-germania-m-e-x-d-swiss-re-munich-de",
         "en": "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch",
         "de": "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch",
-        "fr": "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch"
+        "fr": "etudiante-active-vie-et-sante-allemagne-m-f-x-d-swiss-re-munich-de"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18193,6 +18223,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch"
+        ],
+        "fr": [
           "werkstudent-life-health-germany-m-f-x-d-swiss-re-ch"
         ]
       },
@@ -18796,7 +18829,7 @@
         "it": "ingegneria-e-costruzioni-swiss-re-paris-fr",
         "en": "underwriter-engineering-construction-swiss-re-ch",
         "de": "underwriter-engineering-construction-swiss-re-ch",
-        "fr": "underwriter-engineering-construction-swiss-re-ch"
+        "fr": "ingenierie-et-construction-swiss-re-paris-fr"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18840,6 +18873,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "underwriter-engineering-construction-swiss-re-ch"
+        ],
+        "fr": [
           "underwriter-engineering-construction-swiss-re-ch"
         ]
       },

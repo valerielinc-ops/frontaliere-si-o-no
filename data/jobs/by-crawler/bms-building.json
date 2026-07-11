@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-b3b773b4166e",
-      "slug": "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+      "slug": "gestione-del-team-nel-cantiere-f-m-d-100-bms-building-materials-gebenstorf",
       "slugByLocale": {
         "de": "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "it": "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "en": "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "fr": "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        "it": "gestione-del-team-nel-cantiere-f-m-d-100-bms-building-materials-gebenstorf",
+        "en": "team-management-in-the-construction-shop-f-m-d-100-bms-building-materials-gebenstorf",
+        "fr": "gestion-d-equipe-dans-l-atelier-de-construction-f-m-d-100-bms-building-materials-gebenstorf"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -102,7 +102,21 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-07-10T22:29:16.175Z"
+      "firstSeenAt": "2026-07-10T22:29:16.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-d9d65951eb1e",

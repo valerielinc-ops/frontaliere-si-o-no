@@ -483,12 +483,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-endingen",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-endingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -522,7 +522,18 @@
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T22:10:28.360Z"
+      "firstSeenAt": "2026-07-10T22:10:28.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/74216-de_DE",
@@ -624,12 +635,12 @@
         "en": "Property manager:in",
         "fr": "Directeur immobilier:in"
       },
-      "slug": "immobilienbewirtschafter-in-post",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-b58bbb",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-post",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-b58bbb",
+        "en": "property-manager-in-die-schweizerische-post-zurich-b58bbb",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        "fr": "directeur-immobilier-in-die-schweizerische-post-zurich"
       },
       "sourceLang": "de",
       "department": "",
@@ -663,7 +674,22 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T22:10:28.360Z"
+      "firstSeenAt": "2026-07-10T22:10:28.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-post"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-post",
+        "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74241-de_DE",
@@ -1138,12 +1164,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-sirnach-441087",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-sirnach-441087",
+        "en": "delivery-in-packages-die-schweizerische-post-sirnach-441087",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-sirnach-441087"
       },
       "sourceLang": "de",
       "department": "",
@@ -1177,7 +1203,21 @@
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-10T22:10:28.360Z"
+      "firstSeenAt": "2026-07-10T22:10:28.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Grosskunden-und-Postfachzustellung-Bern-und-Postparc/74189-de_DE",

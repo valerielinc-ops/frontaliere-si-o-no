@@ -145,13 +145,11 @@
       "jobReqId": "R-2026-47026",
       "previousSlugs": [
         "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch",
-        "gebietsverkaufsleiter-m-w-d-medizinprodukte-augenheilkunde-schweiz-alcon-fribourg",
-        "territory-sales-manager-m-f-d-dispositivi-medici-oftalmologia-svizzera-alcon-fribourg"
+        "gebietsverkaufsleiter-m-w-d-medizinprodukte-augenheilkunde-schweiz-alcon-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch",
-          "territory-sales-manager-m-f-d-dispositivi-medici-oftalmologia-svizzera-alcon-fribourg"
+          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch"
         ],
         "de": [
           "gebietsverkaufsleiter-m-w-d-medizinprodukte-augenheilkunde-schweiz-alcon-fribourg"
@@ -221,13 +219,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-48088",
       "previousSlugs": [
-        "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-        "sr-associate-m-f-d-dispositivi-medici-lingua-tedesca-e-inglese-alcon-schaffhausen"
+        "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-          "sr-associate-m-f-d-dispositivi-medici-lingua-tedesca-e-inglese-alcon-schaffhausen"
+          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
         ],
         "de": [
           "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
@@ -300,14 +296,12 @@
       "jobReqId": "R-2026-48146",
       "previousSlugs": [
         "senior-associate-regulatory-affairs-strategy-alcon-ch",
-        "strategia-per-gli-affari-regolamentari-associati-senior-alcon-fribourg",
-        "strategia-per-gli-affari-regolatori-senior-associate-alcon-fribourg"
+        "strategia-per-gli-affari-regolamentari-associati-senior-alcon-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-regulatory-affairs-strategy-alcon-ch",
-          "strategia-per-gli-affari-regolamentari-associati-senior-alcon-fribourg",
-          "strategia-per-gli-affari-regolatori-senior-associate-alcon-fribourg"
+          "strategia-per-gli-affari-regolamentari-associati-senior-alcon-fribourg"
         ],
         "de": [
           "senior-associate-regulatory-affairs-strategy-alcon-ch"
@@ -379,13 +373,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-48005",
       "previousSlugs": [
-        "director-corporate-strategy-business-development-alcon-ch",
-        "direttore-corporate-strategy-business-development-alcon-geneva"
+        "director-corporate-strategy-business-development-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-corporate-strategy-business-development-alcon-ch",
-          "direttore-corporate-strategy-business-development-alcon-geneva"
+          "director-corporate-strategy-business-development-alcon-ch"
         ],
         "de": [
           "director-corporate-strategy-business-development-alcon-ch"
@@ -455,13 +447,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-46854",
       "previousSlugs": [
-        "international-accounting-and-reporting-director-alcon-ch",
-        "international-accounting-and-reporting-direttore-alcon-fribourg"
+        "international-accounting-and-reporting-director-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-accounting-and-reporting-director-alcon-ch",
-          "international-accounting-and-reporting-direttore-alcon-fribourg"
+          "international-accounting-and-reporting-director-alcon-ch"
         ],
         "de": [
           "international-accounting-and-reporting-director-alcon-ch"
@@ -486,12 +476,12 @@
     },
     {
       "id": "alcon-9ebeaed89713",
-      "slug": "senior-manager-materials-management-m-w-d-alcon-ch",
+      "slug": "gestione-dei-materiali-senior-manager-m-f-d-alcon-schaffhausen",
       "slugByLocale": {
         "de": "senior-manager-materials-management-m-w-d-alcon-ch",
-        "it": "senior-manager-materials-management-m-w-d-alcon-ch",
+        "it": "gestione-dei-materiali-senior-manager-m-f-d-alcon-schaffhausen",
         "en": "senior-manager-materials-management-m-w-d-alcon-ch",
-        "fr": "senior-manager-materials-management-m-w-d-alcon-ch"
+        "fr": "gestionnaire-principal-gestion-du-materiel-m-f-d-alcon-schaffhausen"
       },
       "company": "Alcon",
       "companyKey": "alcon",
@@ -546,7 +536,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:34:58.643Z"
+      "firstSeenAt": "2026-07-10T22:34:58.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-materials-management-m-w-d-alcon-ch"
+        ],
+        "fr": [
+          "senior-manager-materials-management-m-w-d-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-materials-management-m-w-d-alcon-ch"
+      ]
     }
   ]
 }

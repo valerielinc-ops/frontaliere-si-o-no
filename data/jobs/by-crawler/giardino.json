@@ -165,7 +165,7 @@
         "it": "addetto-alle-pulizie-giardino-group-ascona",
         "en": "housekeeping-waiting-giardino-group-ascona",
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "fr": "employe-de-menage-giardino-group-ascona"
+        "fr": "agent-de-menage-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -225,18 +225,16 @@
         ]
       },
       "previousSlugs": [
-        "agent-de-menage-giardino-group-ascona",
         "housekeeping-attendant-giardino-group-ascona",
-        "addetto-alle-pulizie-giardino-group-ascona"
+        "employe-de-menage-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeping-attendant-giardino-group-ascona",
-          "addetto-alle-pulizie-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona"
         ],
         "fr": [
-          "agent-de-menage-giardino-group-ascona",
-          "housekeeping-attendant-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona",
+          "employe-de-menage-giardino-group-ascona"
         ]
       },
       "firstSeenAt": "2026-06-19T21:49:01.621Z",

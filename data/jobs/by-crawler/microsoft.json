@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-center-project-manager-microsoft-geneva",
-        "responsabile-del-progetto-data-center-microsoft-geneva"
+        "data-center-project-manager-microsoft-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-center-project-manager-microsoft-geneva",
-          "responsabile-del-progetto-data-center-microsoft-geneva"
+          "data-center-project-manager-microsoft-geneva"
         ]
       },
       "firstSeenAt": "2026-07-02T22:19:09.547Z",
@@ -75,12 +73,12 @@
     },
     {
       "id": "microsoft-200042696",
-      "slug": "commercial-skilling-manager-microsoft-zurich",
+      "slug": "responsabile-commerciale-delle-competenze-microsoft-zurich",
       "slugByLocale": {
         "en": "commercial-skilling-manager-microsoft-zurich",
-        "it": "commercial-skilling-manager-microsoft-zurich",
+        "it": "responsabile-commerciale-delle-competenze-microsoft-zurich",
         "de": "commercial-skilling-manager-microsoft-zurich",
-        "fr": "commercial-skilling-manager-microsoft-zurich"
+        "fr": "gestionnaire-des-competences-commerciales-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -136,7 +134,18 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-07-10T22:15:23.133Z"
+      "firstSeenAt": "2026-07-10T22:15:23.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-skilling-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "commercial-skilling-manager-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-skilling-manager-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200005606",
@@ -186,13 +195,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-sciences-internship-microsoft-zurich",
-        "tirocinio-in-scienze-applicate-microsoft-zurich"
+        "applied-sciences-internship-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-sciences-internship-microsoft-zurich",
-          "tirocinio-in-scienze-applicate-microsoft-zurich"
+          "applied-sciences-internship-microsoft-zurich"
         ],
         "de": [
           "applied-sciences-internship-microsoft-zurich"

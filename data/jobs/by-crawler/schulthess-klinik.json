@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
-        "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich"
+        "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
-          "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich"
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
         ],
         "en": [
           "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
@@ -203,13 +201,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "radiologiefachperson-schulthess-klinik-zurich",
-        "specialista-della-radiologia-schulthess-klinik-zurich"
+        "radiologiefachperson-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-schulthess-klinik-zurich",
-          "specialista-della-radiologia-schulthess-klinik-zurich"
+          "radiologiefachperson-schulthess-klinik-zurich"
         ],
         "en": [
           "radiologiefachperson-schulthess-klinik-zurich"
@@ -283,13 +279,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-gesundheit-fachmann-gesundheit-schulthess-klinik-lengghalde-2-zurich",
-        "salute-professionale-salute-professionale-schulthess-klinik-lengghalde-2-zurich"
+        "fachfrau-gesundheit-fachmann-gesundheit-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-gesundheit-fachmann-gesundheit-schulthess-klinik-lengghalde-2-zurich",
-          "salute-professionale-salute-professionale-schulthess-klinik-lengghalde-2-zurich"
+          "fachfrau-gesundheit-fachmann-gesundheit-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "fachfrau-gesundheit-fachmann-gesundheit-schulthess-klinik-lengghalde-2-zurich"
@@ -392,12 +386,12 @@
     },
     {
       "id": "schulthess-klinik-244174689799",
-      "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-        "it": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "en": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+        "it": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich-1ca49d",
+        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-1ca49d"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -443,11 +437,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

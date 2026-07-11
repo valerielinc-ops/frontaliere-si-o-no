@@ -8030,12 +8030,12 @@
     },
     {
       "id": "kssg-c38603e6b351",
-      "slug": "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-60-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-60-100-kssg-ch",
-        "fr": "dipl-pflegefachfrau-mann-60-100-kssg-ch"
+        "it": "dipl-infermieristica-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-nursing-professional-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-professionnels-des-soins-infirmiers-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8080,11 +8080,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-60-100-kssg-ch",
+          "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-60-100-kssg-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-60-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-60-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-60-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
