@@ -1060,6 +1060,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Italienische Pauschalregelung Vereinbarkeit von schweizerischem Einkommen',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Ist die italienische Pauschalregelung mit dem schweizerischen Arbeitseinkommen vereinbar? Erfahren Sie, wie es funktioniert und was es für Grenzgänger bedeutet',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Eine Szene von Arbeit in der Schweiz mit Grenzarbeitern',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'AHV- und BVG-Rentenabgabenkodex: Neu für Grenzgänger',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Spezieller Abgabenkodex für AHV- und BVG-Renteneinbehalte aus der Schweiz eingeführt: Was ändert sich für Grenzgänger?',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Gebäude der Bundessteuerverwaltung in Bern',
 };
 
 export default blogMetaChDe;

@@ -1060,6 +1060,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Regime forfettario italiano compatibilità reddito svizzero',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Il regime forfettario italiano è compatibile con il reddito da lavoro svizzero? Scopri come funziona e cosa significa per i frontalieri',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Una scena di lavoro in Svizzera con frontalieri',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'Codice tributo rendite AVS e LPP: novità per i frontalieri',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introdotto un codice tributo specifico per le ritenute sulle rendite AVS e LPP dalla Svizzera: cosa cambia per i lavoratori frontalieri.',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Edificio dell\'amministrazione federale delle contribuzioni a Berna',
 };
 
 export default blogMetaChIt;

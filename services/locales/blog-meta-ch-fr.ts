@@ -1060,6 +1060,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Régime forfaitaire italien compatibilité revenu suisse',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Le régime forfaitaire italien est-il compatible avec le revenu du travail suisse ? Découvrez comment cela fonctionne et ce que cela signifie pour les frontaliers',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Une scène de travail en Suisse avec les travailleurs frontaliers',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'Code de l\'impôt sur les rentes AVS et LPP : nouveauté pour les frontaliers',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introduit un code fiscal spécifique pour les retenues sur les rentes AVS et LPP de Suisse : ce qui change pour les travailleurs frontaliers.',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Bâtiment de l\'administration fédérale des contributions à Berne',
 };
 
 export default blogMetaChFr;

@@ -1060,6 +1060,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Italian flat-rate scheme Swiss income compatibility',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Is the Italian flat-rate scheme compatible with Swiss employment income? Find out how it works and what it means for border crossers',
     'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'A scene of work in Switzerland with frontier workers',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'AVS and LPP income tax code: new for frontier workers',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introduced a specific tax code for withholdings on AVS and LPP annuities from Switzerland: what changes for frontier workers.',
+    'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Federal tax administration building in Bern',
 };
 
 export default blogMetaChEn;
