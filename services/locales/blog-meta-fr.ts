@@ -8450,6 +8450,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Changement de canton de travail pour frontalier Tessin Grisons : ce qui change',
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nouvel accord frontalier : changement de canton de travail pour frontalier Tessin Grisons',
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontalier dans la vallée de la Verzasca avec vue sur le lac',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine: copertura e procedure',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Les frontaliers qui se rendent au travail en Suisse en traversant la frontière avec l\'Italie doivent savoir comment procéder en cas d\'accident.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un travailleur frontalier qui se rend au travail en Suisse en traversant la frontière avec l\'Italie.',
 };
 
 export default blogMetaFr;

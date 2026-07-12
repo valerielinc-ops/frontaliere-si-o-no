@@ -8450,6 +8450,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Cambio cantone di lavoro per frontaliere Ticino Grigioni: cosa cambia',
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nuovo Accordo Frontalieri: cambio cantone di lavoro per frontaliere Ticino Grigioni',
     'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontaliere in valle Verzasca con vista sul lago',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un frontaliere che si reca al lavoro in Svizzera attraversando il confine con l\'Italia.',
 };
 
 export default blogMetaIt;

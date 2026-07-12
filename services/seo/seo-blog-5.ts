@@ -48705,6 +48705,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-in-iter-confine-assicurazione-frontaliere': {
+    title: 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
+    description: 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortunio, itinere, confine, copertura',
+    ogTitle: 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
+    ogDescription: 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
+    canonicalPath: '/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure",
+      "description": "I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortunio-in-iter-confine-assicurazione-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che si reca al lavoro in Svizzera attraversando il confine con l'Italia."
+      },
+      "datePublished": "2026-07-12T17:57:04+00:00",
+      "dateModified": "2026-07-12T17:57:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
