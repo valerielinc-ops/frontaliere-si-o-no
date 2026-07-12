@@ -1,11 +1,26 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   BELIMO_KEY,
   BELIMO_COMPANY_NAME,
   isBelimoJob,
   isTrustedDomain,
+  parseBelimoDetailPage,
+  isSwissJobUrlCandidate,
+  extractJobReqId,
+  detectEmploymentType,
+  DETAIL_FETCH_DELAY_MS,
+  MAX_DETAIL_FETCHES,
 } from '../scripts/lib/belimo-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function loadFixture(name: string): string {
+  return fs.readFileSync(path.join(__dirname, 'fixtures', name), 'utf-8');
+}
 
 describe('Belimo crawler parser', () => {
   // ── Constants ──
@@ -59,6 +74,120 @@ describe('Belimo crawler parser', () => {
     });
   });
 
+  // ── Sitemap URL helpers (SuccessFactors CSB, jobsredirect.belimo.com) ──
+  describe('isSwissJobUrlCandidate', () => {
+    it('keeps Swiss slugs (4-digit postal tail)', () => {
+      expect(
+        isSwissJobUrlCandidate(
+          'https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-%28100%29-Z%C3%BCri-8340/1164972655/'
+        )
+      ).toBe(true);
+    });
+
+    it('drops US slugs (5-digit ZIP tail)', () => {
+      expect(
+        isSwissJobUrlCandidate(
+          'https://jobsredirect.belimo.com/job/Danbury-Assembler-1-CT-06810/1163819155/'
+        )
+      ).toBe(false);
+    });
+
+    it('keeps slugs without a postal tail (detail-page microdata decides)', () => {
+      expect(
+        isSwissJobUrlCandidate('https://jobsredirect.belimo.com/job/Somewhere-Engineer/123456/')
+      ).toBe(true);
+    });
+
+    it('rejects non-job and invalid URLs', () => {
+      expect(isSwissJobUrlCandidate('https://jobsredirect.belimo.com/search/')).toBe(false);
+      expect(isSwissJobUrlCandidate('not-a-url')).toBe(false);
+      expect(isSwissJobUrlCandidate('')).toBe(false);
+    });
+  });
+
+  describe('extractJobReqId', () => {
+    it('extracts the requisition id from a CSB detail URL', () => {
+      expect(
+        extractJobReqId(
+          'https://jobsredirect.belimo.com/job/Hinwil-Working-Student-IPX-%2840%29-Zuri-8340/1164972755/'
+        )
+      ).toBe('1164972755');
+    });
+
+    it('returns empty string when the URL is not a detail page', () => {
+      expect(extractJobReqId('https://jobsredirect.belimo.com/search/')).toBe('');
+    });
+  });
+
+  // ── detectEmploymentType (title-driven, no explicit CSB field) ──
+  describe('detectEmploymentType', () => {
+    it('detects part-time from a sub-100% workload suffix', () => {
+      expect(detectEmploymentType('Working Student IPX (40%)')).toBe('PART_TIME');
+    });
+
+    it('treats an 80-100% range as full-time', () => {
+      expect(detectEmploymentType('Production Engineer (80-100%)')).toBe('FULL_TIME');
+    });
+
+    it('detects temporary roles', () => {
+      expect(detectEmploymentType('Montagemitarbeiter:in (temporär)')).toBe('TEMPORARY');
+      expect(detectEmploymentType('Ferienaushilfe in der Fertigung')).toBe('TEMPORARY');
+    });
+
+    it('defaults to full-time', () => {
+      expect(detectEmploymentType('HSE Manager')).toBe('FULL_TIME');
+    });
+  });
+
+  // ── Detail-page parser (fixture recalcated from live markup, 2026-07-11) ──
+  describe('parseBelimoDetailPage', () => {
+    const html = loadFixture('belimo-csb-detail-instandhaltung.html');
+
+    it('extracts the title from the itemprop="title" h1', () => {
+      const parsed = parseBelimoDetailPage(html);
+      expect(parsed).not.toBeNull();
+      expect(parsed!.title).toBe('Instandhaltungsfachmann/-frau (100%)');
+    });
+
+    it('extracts the address microdata (CH gate inputs)', () => {
+      const parsed = parseBelimoDetailPage(html)!;
+      expect(parsed.city).toBe('Hinwil');
+      expect(parsed.postalCode).toBe('8340');
+      expect(parsed.country).toBe('CH');
+    });
+
+    it('expands the truncated CSB region label to Zürich', () => {
+      const parsed = parseBelimoDetailPage(html)!;
+      expect(parsed.region).toBe('Zürich');
+    });
+
+    it('normalizes datePosted to ISO (shared SF date parser)', () => {
+      const parsed = parseBelimoDetailPage(html)!;
+      expect(parsed.postedDate).toBe('2026-06-23');
+    });
+
+    it('captures the jobdescription body without the apply chrome', () => {
+      const parsed = parseBelimoDetailPage(html)!;
+      const text = stripHtml(parsed.descriptionHtml);
+      expect(text.length).toBeGreaterThan(500);
+      expect(text).toContain('Instandhaltung');
+      expect(parsed.descriptionHtml).not.toMatch(/applylink|dialogApply|<script/i);
+    });
+
+    it('returns null for empty and job-less pages', () => {
+      expect(parseBelimoDetailPage('')).toBeNull();
+      expect(parseBelimoDetailPage('<html><body><h2>The desired job cannot be found</h2></body></html>')).toBeNull();
+    });
+  });
+
+  // ── Detail-fetch budget constants ──
+  describe('detail fetch budget', () => {
+    it('exposes a sane delay and cap', () => {
+      expect(DETAIL_FETCH_DELAY_MS).toBeGreaterThanOrEqual(100);
+      expect(MAX_DETAIL_FETCHES).toBeGreaterThanOrEqual(100);
+    });
+  });
+
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
@@ -95,8 +224,8 @@ describe('Belimo crawler parser', () => {
       descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Hinwil',
       canton: 'ZH',
-      url: 'https://www.belimo.com/us/en_US/jobs/test',
-      source: 'Belimo Dedicated Parser (custom job-listing widget)',
+      url: 'https://jobsredirect.belimo.com/job/Hinwil-Test-Position-Z%C3%BCri-8340/1234567890/',
+      source: 'Belimo Dedicated Parser (SuccessFactors Career Site Builder)',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──

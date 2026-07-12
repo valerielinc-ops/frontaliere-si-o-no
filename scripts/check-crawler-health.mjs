@@ -338,6 +338,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   'vir-biotechnology',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
+  // BENTELER (Jobs2Web tenant career.benteler.jobs): 143 postings live but
+  // zero attributed to a Switzerland jobLocation (all DE/US/MX/PT/ES/BR/CZ/CN/
+  // AT/SA — verified 2026-07-11 enumerating every jobLocation). The group has
+  // active CH entities (Zefix: Zug/Baar) but currently no CH openings; parser
+  // healthy (issue #3893), re-arms when a Swiss role is posted.
+  'benteler',
+  // Franklin University Switzerland (Sorengo/Lugano, TI): the fus.edu
+  // job-opportunities page (Drupal accordions) currently lists ACADEMIC
+  // POSITIONS = "no open positions" and one ADMINISTRATIVE role whose Location
+  // is a US home-office/remote post (Chicago), correctly filtered out-of-scope
+  // by the parser's SWISS_LOCATION_RE. Verified live 2026-07-11: HTTP 200,
+  // parser healthy, zero CH openings is the genuine state (audit #3797).
+  'franklin-university',
   // Privatklinik Siloah (Swiss Medical Network): the SmartRecruiters tenant
   // API (companies/SwissMedicalNetwork1/postings) currently lists 80 CH
   // postings with ZERO attributed to the Siloah department — verified

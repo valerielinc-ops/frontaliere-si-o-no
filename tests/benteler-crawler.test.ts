@@ -1,11 +1,20 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   BENTELER_KEY,
   BENTELER_COMPANY_NAME,
   isBentelerJob,
   isTrustedDomain,
+  isSwissLocation,
+  parseSearchPage,
+  parseJobDetailHtml,
 } from '../scripts/lib/benteler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const FIXTURES = path.join(__dirname, '__fixtures__');
+const listingHtml = readFileSync(path.join(FIXTURES, 'benteler-listing.html'), 'utf8');
+const detailHtml = readFileSync(path.join(FIXTURES, 'benteler-detail.html'), 'utf8');
 
 describe('Benteler crawler parser', () => {
   // ── Constants ──
@@ -77,6 +86,121 @@ describe('Benteler crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── isSwissLocation (Jobs2Web "City, Region, CC" strings) ──
+  describe('isSwissLocation', () => {
+    it('accepts a CH country code', () => {
+      expect(isSwissLocation('Rothrist, AG, CH')).toBe(true);
+      expect(isSwissLocation('Zug, ZG, CH')).toBe(true);
+    });
+
+    it('rejects foreign region codes colliding with Swiss cantons', () => {
+      // "NW" = Nordrhein-Westfalen here, not Nidwalden.
+      expect(isSwissLocation('Paderborn, NW, DE')).toBe(false);
+      expect(isSwissLocation('Warburg, NW, DE')).toBe(false);
+    });
+
+    it('rejects two-part foreign locations', () => {
+      expect(isSwissLocation('Salzburg, AT')).toBe(false);
+      expect(isSwissLocation('Palmela, PT')).toBe(false);
+    });
+
+    it('accepts explicit country names', () => {
+      expect(isSwissLocation('Rothrist, Switzerland')).toBe(true);
+    });
+
+    it('rejects empty input', () => {
+      expect(isSwissLocation('')).toBe(false);
+    });
+  });
+
+  // ── parseSearchPage (fixture recalcated from live markup, 2026-07-11) ──
+  describe('parseSearchPage', () => {
+    const { rows, total } = parseSearchPage(listingHtml);
+
+    it('extracts every data-row', () => {
+      expect(rows).toHaveLength(3);
+      expect(total).toBe(3);
+    });
+
+    it('extracts title, href and location text', () => {
+      expect(rows[0]).toMatchObject({
+        title: 'Electrician',
+        href: '/job/Holland-Electrician-MI/1159663301/',
+        locationText: 'Holland, MI, US',
+        hasMoreLocations: false,
+      });
+      expect(rows[2]).toMatchObject({
+        title: 'Quality Engineer',
+        href: '/job/Rothrist-Quality-Engineer-AG/9999999901/',
+        locationText: 'Rothrist, AG, CH',
+      });
+    });
+
+    it('extracts the visible location on multi-location ("+1 more…") rows and flags them', () => {
+      // Regression: the old regex required "…</span>" right after the text, so
+      // multi-location rows (text followed by <small>+1 more&hellip;</small>)
+      // yielded locationText: '' and could never be classified.
+      expect(rows[1]).toMatchObject({
+        title: 'Ausbildung zum Mechatroniker (m/w/d) - Start 2027',
+        locationText: 'Warburg, NW, DE',
+        hasMoreLocations: true,
+      });
+    });
+
+    it('returns no rows on empty input', () => {
+      expect(parseSearchPage('')).toEqual({ rows: [], total: 0 });
+    });
+  });
+
+  // ── parseJobDetailHtml (fixture recalcated from live markup, 2026-07-11) ──
+  describe('parseJobDetailHtml', () => {
+    const detail = parseJobDetailHtml(detailHtml, 'https://career.benteler.jobs/job/x/1395036133/');
+
+    it('parses every PostalAddress block even though the tenant emits no postalCode', () => {
+      // Regression: the old strict locality→region→postalCode→country regex
+      // never matched on this tenant (postalCode itemprop absent).
+      expect(detail.addresses).toHaveLength(2);
+      expect(detail.addresses[0]).toEqual({
+        addressLocality: 'Lichtenau-Kleinenberg',
+        addressRegion: 'NW',
+        postalCode: '',
+        addressCountry: 'DE',
+      });
+      expect(detail.addressLocality).toBe('Lichtenau-Kleinenberg');
+    });
+
+    it('parses the Java-style datePosted', () => {
+      expect(detail.postedDate).toBe('2026-06-17');
+    });
+
+    it('extracts the jobdescription block up to the job-location marker', () => {
+      expect(detail.descriptionHtml).toContain('BENTELER Automotive');
+      expect(detail.descriptionHtml).toContain('Ausbildung zum Mechatroniker');
+      expect(detail.descriptionHtml).not.toContain('job-location');
+    });
+
+    it('prefers the Swiss address on multi-location postings', () => {
+      const chDetail = parseJobDetailHtml(
+        detailHtml.replace(
+          '<meta itemprop="addressLocality" content="Warburg"><meta itemprop="addressRegion" content="NW"><meta itemprop="addressCountry" content="DE">',
+          '<meta itemprop="addressLocality" content="Rothrist"><meta itemprop="addressRegion" content="AG"><meta itemprop="addressCountry" content="CH">',
+        ),
+        'https://career.benteler.jobs/job/x/1/',
+      );
+      expect(chDetail.addresses).toHaveLength(2);
+      expect(chDetail.addressLocality).toBe('Rothrist');
+      expect(chDetail.addressRegion).toBe('AG');
+      expect(chDetail.addressCountry).toBe('CH');
+    });
+
+    it('returns empty fields on empty input', () => {
+      const empty = parseJobDetailHtml('', 'https://career.benteler.jobs/');
+      expect(empty.addresses).toEqual([]);
+      expect(empty.postedDate).toBe('');
+      expect(empty.descriptionHtml).toBe('');
     });
   });
 
