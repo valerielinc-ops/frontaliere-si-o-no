@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3174,
+ "numberOfItems": 3175,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7849,7 +7849,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3171, "name": "Spesa fronteggine: prezzi svizzeri e italiani", "url": `${BASE_URL}/articoli-frontaliere/spesa-alimentare-svizzera-italia-convieni-frontaliere` },
           { "@type": "ListItem", "position": 3172, "name": "Conto PostFinance carta di credito frontaliere", "url": `${BASE_URL}/articoli-frontaliere/conto-postfinance-carta-credito-frontaliere` },
           { "@type": "ListItem", "position": 3173, "name": "Lavoro in Svizzera, vita in provincia: numeri, ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-sondaggio` },
-          { "@type": "ListItem", "position": 3174, "name": "Vignetta autostradale svizzera 2026: costo per ...", "url": `${BASE_URL}/articoli-frontaliere/vignetta-autostradale-svizzera-2026-costo-frontaliere` }
+          { "@type": "ListItem", "position": 3174, "name": "Vignetta autostradale svizzera 2026: costo per ...", "url": `${BASE_URL}/articoli-frontaliere/vignetta-autostradale-svizzera-2026-costo-frontaliere` },
+          { "@type": "ListItem", "position": 3175, "name": "La naturalizzazione svizzera dopo anni da front...", "url": `${BASE_URL}/articoli-frontaliere/naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti` }
  ]
  },
  {

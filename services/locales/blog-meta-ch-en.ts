@@ -1042,6 +1042,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-sondaggio.title': 'Work in Switzerland, life in Ticino: Routes and Agreements for 32,000 Frontier Workers',
     'blog.article.frontalieri-ticino-sondaggio.excerpt': 'VareseNews survey: 46 out of 649 border workers in the province of Varese work in Switzerland, with an increase of 21% in the last 10 years.',
     'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri waiting for the train at Lugano',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'Swiss naturalization after years as a border worker: requirements',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'To obtain Swiss citizenship after years of working as a border worker, you must meet the requirements established by Swiss law.',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'A frontier worker who finds himself in a similar situation may seek Swiss citizenship after years of working as a frontier worker.',
 };
 
 export default blogMetaChEn;

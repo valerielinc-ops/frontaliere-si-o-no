@@ -4481,6 +4481,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-conto-postfinance-carta-credito-frontaliere': { name: 'Conto PostFinance carta di credito', path: '/articoli-frontaliere/conto-postfinance-carta-credito-frontaliere', parent: 'blog' },
     'blog-frontalieri-ticino-sondaggio': { name: 'Lavorare in Svizzera, vivere in provincia', path: '/articoli-svizzera/frontalieri-ticino-sondaggio/', parent: 'blog' },
     'blog-vignetta-autostradale-svizzera-2026-costo-frontaliere': { name: 'Vignetta autostradale svizzera 2026', path: '/articoli-frontaliere/vignetta-autostradale-svizzera-2026-costo-frontaliere', parent: 'blog' },
+    'blog-naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti': { name: 'Naturalizzazione svizzera', path: '/articoli-svizzera/naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

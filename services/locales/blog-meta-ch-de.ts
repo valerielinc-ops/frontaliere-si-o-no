@@ -1042,6 +1042,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-sondaggio.title': 'Arbeit in der Schweiz, Leben in der Provinz: Zahlen, Wege und Vereinbarungen für 32.000 Grenzpendler',
     'blog.article.frontalieri-ticino-sondaggio.excerpt': 'Umfrage VareseNews: 46 von 649 Grenzgängern der Provinz Varese arbeiten in der Schweiz, ein Anstieg von 21% in den letzten 10 Jahren.',
     'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri im Bahnhof Lugano',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'Schweizer Einbürgerung nach Jahren als Grenzgänger: Voraussetzungen',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'Um nach Jahren als Grenzgänger die Schweizer Staatsbürgerschaft zu erhalten, müssen Sie die Anforderungen des Schweizer Gesetzes erfüllen.',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'Ein Grenzgänger, der sich in einer ähnlichen Situation befindet, kann nach Jahren der Arbeit als Grenzgänger versuchen, die Schweizer Staatsbürgerschaft zu erwerben.',
 };
 
 export default blogMetaChDe;

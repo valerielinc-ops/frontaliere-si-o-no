@@ -1042,6 +1042,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-sondaggio.title': 'Lavoro in Svizzera, vita in provincia: numeri, percorsi e accordi per 32mila frontalieri',
     'blog.article.frontalieri-ticino-sondaggio.excerpt': 'Sondaggio VareseNews: 46 frontaliere su 649 della provincia di Varese lavorano in Svizzera, con un aumento del 21% negli ultimi 10 anni.',
     'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri in attesa del treno a Lugano',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'La naturalizzazione svizzera dopo anni da frontaliere: requisiti',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'Per ottenere la cittadinanza svizzera dopo anni di lavoro come frontaliere, è necessario soddisfare i requisiti stabiliti dalla legge svizzera.',
+    'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'Un frontaliere che si trova in una situazione simile potrebbe cercare di ottenere la cittadinanza svizzera dopo anni di lavoro come frontaliere.',
 };
 
 export default blogMetaChIt;
