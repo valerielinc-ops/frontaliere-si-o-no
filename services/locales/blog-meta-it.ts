@@ -8417,6 +8417,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera.title': 'Partita IVA frontaliere: guida al lavoro autonomo in Svizzera',
     'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Scopri come gestire l\'attività autonoma in Svizzera da frontaliere: requisiti, fiscalità e previdenza nel rispetto delle norme vigenti.',
     'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Scrivania professionale con vista sul Lago di Lugano',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri.',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
 };
 
 export default blogMetaIt;

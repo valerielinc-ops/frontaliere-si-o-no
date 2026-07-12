@@ -4476,6 +4476,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costi-riforma-sulla-disoccupazione-dei-frontalieri': { name: 'La riforma sulla disoccupazione dei', path: '/articoli-frontaliere/costi-riforma-sulla-disoccupazione-dei-frontalieri', parent: 'blog' },
     'blog-terziario-una-svolta-per-chiasso': { name: 'Terziario, una svolta per Chiasso?', path: '/articoli-svizzera/terziario-una-svolta-per-chiasso/', parent: 'blog' },
     'blog-partita-iva-frontaliere-svizzera': { name: 'Partita IVA frontaliere', path: '/articoli-frontaliere/partita-iva-frontaliere-svizzera', parent: 'blog' },
+    'blog-frontaliere-over-55-ricollocamento-cambio-lavoro': { name: 'Cambiare lavoro da frontaliere dopo i 55', path: '/articoli-frontaliere/frontaliere-over-55-ricollocamento-cambio-lavoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

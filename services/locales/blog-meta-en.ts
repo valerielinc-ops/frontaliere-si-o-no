@@ -8416,6 +8416,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera.title': 'Border VAT number: guide to self-employment in Switzerland',
     'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Learn how to manage self-employment in Switzerland as a border worker: requirements, taxation and social security in compliance with current regulations.',
     'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Professional desk with a view of Lake Lugano',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Retirement job change after 55: second pillar, pension impacts',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Border workers over 55 can change jobs without losing the benefits of the second pillar, thanks to the New Border Agreement.',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
 };
 
 export default blogMetaEn;

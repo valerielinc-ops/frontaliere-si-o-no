@@ -48276,6 +48276,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-over-55-ricollocamento-cambio-lavoro': {
+    title: 'Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione',
+    description: 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambia, lavoro, dopo, anni',
+    ogTitle: 'Cambiare lavoro da frontaliere dopo i 55 anni: ricollocamento, tutele, impatto su secondo pilastro e pensione',
+    ogDescription: 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-over-55-ricollocamento-cambio-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione",
+      "description": "I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-over-55-ricollocamento-cambio-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri ticinesi con il permesso G che lavorano in Svizzera"
+      },
+      "datePublished": "2026-07-12T10:25:32+00:00",
+      "dateModified": "2026-07-12T10:25:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-over-55-ricollocamento-cambio-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
