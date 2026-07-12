@@ -4473,6 +4473,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sviluppatore-informatico-ticino-frontaliere': { name: 'Frontaliere informatico Ticino', path: '/articoli-svizzera/sviluppatore-informatico-ticino-frontaliere/', parent: 'blog' },
     'blog-frontaliere-ticino-permessi-g': { name: 'Permessi G per frontaliere', path: '/articoli-frontaliere/frontaliere-ticino-permessi-g', parent: 'blog' },
     'blog-frontaliere-magazziniere-logistica-ticino': { name: 'Frontaliere logistica', path: '/articoli-svizzera/frontaliere-magazziniere-logistica-ticino/', parent: 'blog' },
+    'blog-costi-riforma-sulla-disoccupazione-dei-frontalieri': { name: 'La riforma sulla disoccupazione dei', path: '/articoli-frontaliere/costi-riforma-sulla-disoccupazione-dei-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8411,6 +8411,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-permessi-g.title': 'Frontaliere Ticino: Permessi G e lavoro autonomo in Svizzera',
     'blog.article.frontaliere-ticino-permessi-g.excerpt': 'La Svizzera ha un sistema di permessi G per i frontalieri che desiderano lavorare in Svizzera. Ma cosa sono questi permessi e come si ottengono?',
     'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'Un frontaliere siede al banco di un ufficio di registrazione, con un foglio di permesso G in mano.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Riforma disoccupazione frontalieri: 900 mln all\'anno',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'La Svizzera potrebbe subire costi aggiuntivi per la riforma sulla disoccupazione dei frontalieri.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Un frontaliere in attesa al valico di Chiasso.',
 };
 
 export default blogMetaIt;

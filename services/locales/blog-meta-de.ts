@@ -8409,6 +8409,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-permessi-g.title': 'Grenzgänger Tessin: G-Genehmigungen und Selbstständigkeit in der Schweiz',
     'blog.article.frontaliere-ticino-permessi-g.excerpt': 'Die Schweiz verfügt über ein G-Bewilligungssystem für Grenzgänger, die in der Schweiz arbeiten möchten. Aber was sind diese Genehmigungen und wie bekommt man sie?',
     'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'Ein Frontaliere sitzt an einem Registrierungsbüro-Tisch, hält ein Pergament von G-Permit in der Hand.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Reform der Grenzarbeitslosigkeit: 900 Mio. pro Jahr',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'Die Schweiz könnte durch die Reform der Grenzarbeitslosigkeit zusätzliche Kosten erleiden.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Ein Frontalier wartet am Grenzübergang Chiasso.',
 };
 
 export default blogMetaDe;
