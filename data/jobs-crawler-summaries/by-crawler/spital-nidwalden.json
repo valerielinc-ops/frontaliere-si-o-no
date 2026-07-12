@@ -1,16 +1,16 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-07-12T11:05:57.027Z",
+  "generatedAt": "2026-07-12T21:53:47.720Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4427,
-  "avgDurationMs": 4427,
+  "durationMs": 4983,
+  "avgDurationMs": 4983,
   "durationHistory": [
-    4427
+    4983
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T11:05:54.952Z",
+      "crawledAt": "2026-07-12T21:53:44.908Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T11:05:54.954Z",
+      "crawledAt": "2026-07-12T21:53:44.912Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/physiotherapeut-in/60097e2e-40bf-4f3c-a0c3-07b11d74bb07",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T11:05:54.956Z",
+      "crawledAt": "2026-07-12T21:53:44.913Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -129,47 +129,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spital-nidwalden-cc4f8ff29231",
-      "slug": "stage-per-diploma-expert-in-nursing-emergency-nds-hf-per-diploma-expert-in-nursing-emergency-nds-hf-con-inizio-nel",
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "Ausbildungsplatz zur Dipl. Expertin Notfallpflege NDS HF / zum Dipl. Experten Notfallpflege NDS HF mit Ausbildungsstart im Februar 2027",
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-februar-2027/525dca63-272f-4d19-bb7b-888a859a8016",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:27:28.007Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-12",
-      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019d71b5d8560d59&j=jobexchange",
-      "firstSeenAt": "2026-05-26T14:04:35.880Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
