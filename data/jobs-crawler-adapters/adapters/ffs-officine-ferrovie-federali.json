@@ -10,7 +10,10 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-accounting-debitoren-zahlungsverarbeitung/e4a68d6d-1bb1-469b-a5c3-cfc50c7ce039",
     "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/fdfc7019-dc07-470d-8358-5654c7f0c0b1",
+    "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-verkehrswegbauer-in-in-der-jochmontage-im-bahntechnikcenter/da94a629-2581-4d60-8377-dccf745f85a0",
+    "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-strategisches-pricing/25e10625-e2b5-447a-9f9e-2f02e0b4b5a4",
     "https://jobs.sbb.ch/v2/offene-stellen/risk-management-spezialist-in/3b693bc3-ecd7-488b-9cef-28f1acc99125",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-einkauf/aabaa8c5-c405-4235-b6c2-113a28f452ce",
     "https://jobs.sbb.ch/v2/offene-stellen/projekt-und-bewilligungsmanager-in-telecom-frmcs-ran-rollout/4ef683d4-bfce-45ae-bbc7-90907a93dbe8",
@@ -108,9 +111,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau-vorarbeiter-in-bern/1c6d635e-bb00-4959-98bf-e6453ab409cf",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-spezialist-in-bahnrettung/3740a546-bb55-4e36-a9be-f1a0360f39f3",
-    "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/df8859ee-3653-4c44-ad12-6952f189f60c",
-    "https://jobs.sbb.ch/v2/offene-stellen/bim-experte-in-bauausfuehrung/eadd6cb5-fa41-4f2f-b231-5c72cab16768",
-    "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-genie-civil/cced7caf-0a1e-47d5-a65d-c8b26fc8a808",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierlokfuehrer-in-rangierleiter-in-kat-a40/7db3ce4e-0d41-40b9-a121-4596055d6949",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/2074e508-4c61-43c8-89ea-975556cf6c0f",
     "https://jobs.sbb.ch/v2/offene-stellen/zugbegleiter-in-mit-ausbildung/9e89b512-6191-4c64-baf5-a823a1027454",
@@ -160,5 +160,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-12T10:47:37.234Z"
+  "updatedAt": "2026-07-12T22:04:32.645Z"
 }
