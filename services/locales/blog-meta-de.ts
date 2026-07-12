@@ -8391,6 +8391,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Ja zum dreizehnten AVS: Rente für Grenzgänger mit Doppelzulage',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'Die Schweiz hat die Maßnahme genehmigt, die pensionierten grenzüberschreitenden Pendlern zugutekommen könnte.',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier in Tessin',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Verdienstausfallentschädigung: Langzeitkrankheit für den Grenzgänger',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'Das neue Gesetz sieht eine Übergangsregelung für alte Grenzgänger und eine Franchise für neue Grenzgänger vor.',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Bild eines Grenzgängers, der gesundheitliche Probleme erleidet',
 };
 
 export default blogMetaDe;

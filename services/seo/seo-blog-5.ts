@@ -47964,6 +47964,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indennita-perdita-guadagno-malattia-lunga-frontaliere': {
+    title: 'Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere',
+    description: 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, perdita, guadagno, malattia',
+    ogTitle: 'Indennità di perdita di guadagno malattia lunga frontaliere',
+    ogDescription: 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere",
+      "description": "La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-perdita-guadagno-malattia-lunga-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che si trova in una situazione di salute precaria"
+      },
+      "datePublished": "2026-07-12T00:09:11+00:00",
+      "dateModified": "2026-07-12T00:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8392,6 +8392,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Yes to the thirteenth AHV: cross-border commuters\' pension with double allowance',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'Switzerland has approved the measure that could benefit retired cross-border commuters.',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier in Ticino',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Loss of earnings allowance: long term illness for the border worker',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'The new law provides for a transitional regime for old frontier workers and a deductible for new frontier workers.',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Image of a cross-border worker facing health issues',
 };
 
 export default blogMetaEn;

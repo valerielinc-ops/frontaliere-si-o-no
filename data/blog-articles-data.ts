@@ -25217,6 +25217,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'indennita-perdita-guadagno-malattia-lunga-frontaliere',
+ category: 'fiscale',
+ date: '2026-07-12T00:09:10.969Z',
+ image: '/images/blog/indennita-perdita-guadagno-malattia-lunga-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

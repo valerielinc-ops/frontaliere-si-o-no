@@ -8393,6 +8393,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Tredicesima AVS: pensione per frontalieri con doppia indennità',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'La Suisse a approuvé la mesure qui pourrait bénéficier aux pensionnaires transfrontaliers.',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalier dans le Tessin',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Indemnité de perte de gain : maladie de longue durée pour le frontalier',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'La nouvelle loi prévoit un régime transitoire pour les anciens frontaliers et une franchise pour les nouveaux frontaliers.',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Image d\'un travailleur frontalier confronté à des problèmes de santé',
 };
 
 export default blogMetaFr;
