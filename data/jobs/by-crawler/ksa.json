@@ -8719,6 +8719,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ksa-7eb8e4857a92",
+      "slug": "fachexpertin-fachexperte-pflege-ksa-ch-4",
+      "slugByLocale": {
+        "de": "fachexpertin-fachexperte-pflege-ksa-ch",
+        "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
+        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b"
+      },
+      "company": "Kantonsspital Aarau (KSA)",
+      "companyKey": "ksa",
+      "companyDomain": "ksa.ch",
+      "title": "Fachexpertin / Fachexperte Pflege",
+      "titleByLocale": {
+        "de": "Fachexpertin / Fachexperte Pflege",
+        "it": "Esperto in cure infermieristiche",
+        "en": "Specialist / specialist care",
+        "fr": "Spécialiste / soins spécialisés"
+      },
+      "description": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau",
+      "descriptionByLocale": {
+        "de": "Fachexpertin / Fachexperte Pflege — Kantonsspital Aarau (KSA), Aarau"
+      },
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://recruitingapp-122706.umantis.com/Vacancies/5533/Application/CheckLogin/1",
+      "source": "KSA Dedicated Parser (Umantis tenant 122706)",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-10T12:11:07.792Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "postalCode": "5001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://recruitingapp-122706.umantis.com/Vacancies/5533/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Pilot ohne Motivationsbrief",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-ksa-ch",
+          "fachexpertin-fachexperte-pflege-ksa-ch-3"
+        ],
+        "en": [
+          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-ksa-ch",
+        "specialist-specialist-care-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fachexpertin-fachexperte-pflege-ksa-ch-3",
+        "fachexpertin-fachexperte-pflege-ksa-ch-4"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-10T12:11:07.792Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 68
     }
   ]
 }
