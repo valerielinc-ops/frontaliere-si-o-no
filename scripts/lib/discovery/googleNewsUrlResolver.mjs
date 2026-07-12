@@ -81,13 +81,32 @@ function extractToken(gnUrl) {
   return m ? m[1] : null;
 }
 
-function abortableFetch(fetchImpl, url, init, timeoutMs) {
+/**
+ * Fetch a URL and read its body text under ONE AbortController deadline.
+ *
+ * CRITICAL (hotfix 2026-07-12, run 29202963318 hung 2h42m): the previous
+ * helper timed out only the fetch() (up to response headers) and returned the
+ * Response, so the caller's separate `await res.text()` ran with NO timeout.
+ * When news.google.com sent headers but then stalled the body, `.text()` hung
+ * forever — and the article generator's wall-clock budget can't interrupt a
+ * single in-flight await, so the whole run sat in "Generate article" until the
+ * 6h job timeout, blocking the concurrency-1 chain. Reading the body inside the
+ * same abort scope means a stalled body aborts at `timeoutMs` too. Returns the
+ * body text, or null on any non-ok/abort/error (caller falls back cleanly).
+ */
+async function fetchText(fetchImpl, url, init, timeoutMs) {
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), timeoutMs);
   if (t && typeof t.unref === 'function') t.unref();
-  return Promise.resolve(fetchImpl(url, { ...init, signal: ac.signal })).finally(
-    () => clearTimeout(t),
-  );
+  try {
+    const res = await fetchImpl(url, { ...init, signal: ac.signal });
+    if (!res || res.ok === false) return null;
+    return await res.text();
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(t);
+  }
 }
 
 /**
@@ -119,14 +138,13 @@ export function decodeOfflineBase64(token) {
  */
 async function decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs) {
   // Step 1 — scrape signature + timestamp from the wrapper HTML.
-  const r1 = await abortableFetch(
+  const html = await fetchText(
     fetchImpl,
     gnUrl,
     { headers: { 'User-Agent': USER_AGENT } },
     timeoutMs,
   );
-  if (!r1 || r1.ok === false) return null;
-  const html = await r1.text();
+  if (!html) return null;
   const sg = html.match(/data-n-a-sg="([^"]+)"/);
   const ts = html.match(/data-n-a-ts="([^"]+)"/);
   if (!sg || !ts) return null;
@@ -157,7 +175,7 @@ async function decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs) {
     'f.req=' +
     encodeURIComponent(JSON.stringify([[['Fbv4je', inner, null, 'generic']]]));
 
-  const r2 = await abortableFetch(
+  const raw = await fetchText(
     fetchImpl,
     BATCHEXECUTE_URL,
     {
@@ -170,8 +188,7 @@ async function decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs) {
     },
     timeoutMs,
   );
-  if (!r2 || r2.ok === false) return null;
-  const raw = await r2.text();
+  if (!raw) return null;
   // The RPC payload is JSON-inside-JSON: forward slashes may arrive plain or
   // escaped as \/ (and unicode-escaped as /). Normalise BEFORE matching
   // so the URL regex captures the whole path either way.
@@ -207,7 +224,18 @@ export async function decodeGoogleNewsUrl(gnUrl, opts = {}) {
   resolved = decodeOfflineBase64(token);
   if (!resolved) {
     try {
-      resolved = await decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs);
+      // Belt-and-suspenders total deadline: fetchText already bounds each
+      // request+body, but a fetchImpl that ignores the abort signal could
+      // still stall. Race the whole two-request decode against a hard cap so
+      // decodeGoogleNewsUrl can NEVER hang the caller (article generator).
+      const hardCapMs = timeoutMs * 2 + 5000;
+      resolved = await Promise.race([
+        decodeViaBatchExecute(gnUrl, token, fetchImpl, timeoutMs),
+        new Promise((res) => {
+          const t = setTimeout(() => res(null), hardCapMs);
+          if (t && typeof t.unref === 'function') t.unref();
+        }),
+      ]);
     } catch {
       resolved = null;
     }

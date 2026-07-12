@@ -571,12 +571,13 @@ async function callApi(url, body = null) {
     };
     if (body) opts.body = JSON.stringify(body);
     const res = await fetch(url, opts);
-    clearTimeout(timer);
+    // clearTimeout in \`finally\` AFTER res.json() reads the body — keep the
+    // abort armed during the body read so a server that stalls the body aborts
+    // at timeoutMs instead of hanging the crawler forever (PR #4118).
     if (!res.ok) throw new Error(\`HTTP \${res.status} from API\`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

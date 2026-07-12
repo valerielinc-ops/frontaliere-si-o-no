@@ -84,14 +84,16 @@ function detectExperienceLevel(title = '') {
 
 async function fetchJson(url) {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
+  // clearTimeout in `finally` (after res.json() reads the body) so a stalled
+  // body aborts at timeoutMs instead of hanging (PR #4118 / review sibling).
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'application/json' } });
-    clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
     return await res.json();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
+  finally { clearTimeout(timer); }
 }
 
 /**

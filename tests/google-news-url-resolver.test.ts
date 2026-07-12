@@ -103,6 +103,25 @@ describe('decodeGoogleNewsUrl', () => {
     expect(await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl })).toBeNull();
   });
 
+  it('does NOT hang when the response body stalls — aborts at timeout → null (hotfix 2026-07-12)', async () => {
+    // Regression for run 29202963318 (hung 2h42m): headers arrive OK but the
+    // body never completes. fetchText reads the body under the same abort
+    // scope, so it aborts at timeoutMs instead of hanging forever.
+    const opaqueUrl = 'https://news.google.com/rss/articles/CBMiwAFAU_yqLMstall?oc=5';
+    const fetchImpl = vi.fn(async (_url: string, init: any) => ({
+      ok: true,
+      // body that never resolves on its own — only the abort signal ends it
+      text: () => new Promise((_res, rej) => {
+        init.signal.addEventListener('abort', () => rej(new Error('aborted')));
+      }),
+    }));
+    const started = Date.now();
+    const out = await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl, timeoutMs: 50 });
+    expect(out).toBeNull();
+    // Completed promptly (abort fired) — nowhere near a hang.
+    expect(Date.now() - started).toBeLessThan(2000);
+  });
+
   it('rejects a malformed batchexecute URL via validateRealUrl (host with no dot)', async () => {
     // The regex DOES match `https://localhost/foo` (valid chars), so this
     // reaches validateRealUrl — which rejects it because the host has no dot
