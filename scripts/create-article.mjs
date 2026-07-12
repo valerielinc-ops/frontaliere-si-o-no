@@ -4827,7 +4827,12 @@ Rispondi SOLO con JSON valido, senza markdown.` },
               content: `Riformula il seguente titolo in italiano per il sito Frontaliere Ticino.\n\nTITOLO ATTUALE (${firstCap.originalLength} caratteri, troppo lungo):\n${itContent.title}\n\nVINCOLI OBBLIGATORI:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere il suffisso " | Frontaliere Ticino" (verrà aggiunto automaticamente).\n- Mantieni la keyword principale e il significato.\n- Stile giornalistico, niente clickbait.\n\nRispondi con JSON: {"title": "..."}`,
             },
           ],
-          { model: forceModel || GH_MODEL_HEAVY, temperature: 0.3, maxTokens: 200, jsonMode: true, timeout: 30_000 },
+          // Title reformulation is a short, low-stakes rewrite to ≤60 chars whose
+          // length floor is guaranteed by the deterministic capBlogTitle() below
+          // (and the try/catch falls back to the hard cap on any failure), so a
+          // premium GPT-4o call here is wasted quota — GPT-4o-mini reformulates a
+          // one-line title to a length target just as well. forceModel still wins.
+          { model: forceModel || GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 200, jsonMode: true, timeout: 30_000 },
         );
         const retryParsed = JSON.parse(repairLlmJson(retryRaw));
         if (retryParsed?.title && typeof retryParsed.title === 'string') {
