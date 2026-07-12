@@ -8396,6 +8396,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Indemnité de perte de gain : maladie de longue durée pour le frontalier',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'La nouvelle loi prévoit un régime transitoire pour les anciens frontaliers et une franchise pour les nouveaux frontaliers.',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Image d\'un travailleur frontalier confronté à des problèmes de santé',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Renouvellement et modifications du permis de frontalier : Tessin',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'Il est nécessaire de demander le renouvellement du permis 14 jours avant l\'expiration et de communiquer toute modification des données indiquées sur le permis dans les 14 jours suivant le changement',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Une frontalière qui pourrait devoir renouveler son permis',
 };
 
 export default blogMetaFr;

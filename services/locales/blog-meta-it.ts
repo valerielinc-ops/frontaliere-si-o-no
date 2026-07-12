@@ -8396,6 +8396,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri.',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Immagine di un frontaliere che si trova in una situazione di salute precaria',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Rinnovo e modifiche al permesso per frontalieri: Repubblica e Cantone Ticino',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'È necessario richiedere il rinnovo del permesso 14 giorni prima della scadenza e comunicare eventuali modifiche dei dati indicati sul permesso entro 14 giorni dal cambiamento',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Una frontaliere che si trova in una situazione simile potrebbe dover rinnovare il proprio permesso',
 };
 
 export default blogMetaIt;

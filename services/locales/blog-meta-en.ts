@@ -8395,6 +8395,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Loss of earnings allowance: long term illness for the border worker',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'The new law provides for a transitional regime for old frontier workers and a deductible for new frontier workers.',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Image of a cross-border worker facing health issues',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Ticino Permit Renewal and Changes',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'It is necessary to request the renewal of the permit 14 days before the expiry date and communicate any changes in the data indicated on the permit within 14 days of the change',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'A frontalier who might need to renew their permit',
 };
 
 export default blogMetaEn;

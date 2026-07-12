@@ -8394,6 +8394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Verdienstausfallentschädigung: Langzeitkrankheit für den Grenzgänger',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'Das neue Gesetz sieht eine Übergangsregelung für alte Grenzgänger und eine Franchise für neue Grenzgänger vor.',
     'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Bild eines Grenzgängers, der gesundheitliche Probleme erleidet',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Verlängerung und Änderung der Grenzgängerbewilligung: Republik und Kanton Tessin',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'Es ist notwendig, die Erneuerung der Genehmigung 14 Tage vor Ablauf zu beantragen und alle Änderungen der in der Genehmigung angegebenen Daten innerhalb von 14 Tagen nach der Änderung mitzuteilen',
+    'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Eine Frontalierin, die ihren Aufenthalt verlängern möchte',
 };
 
 export default blogMetaDe;
