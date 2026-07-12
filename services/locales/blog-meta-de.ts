@@ -8418,6 +8418,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Grenzgänger ab 55 Jahren wechseln: Auswirkungen auf die zweite Säule und Rente',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Grenzgänger über 55 können dank der neuen Grenzgängervereinbarung den Arbeitsplatz wechseln, ohne die Vorteile der zweiten Säule zu verlieren.',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'PostFinance-Konto Kreditkarte Borderline',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'Das PostFinance-Konto ist eine beliebte Banklösung bei Grenzgängern.',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere, der ein PostFinance-Konto eröffnen könnte, um seine Finanzen zu verwalten.',
 };
 
 export default blogMetaDe;

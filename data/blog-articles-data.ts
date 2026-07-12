@@ -25298,6 +25298,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'conto-postfinance-carta-credito-frontaliere',
+ category: 'pratico',
+ date: '2026-07-12T12:31:00.217Z',
+ image: '/images/blog/conto-postfinance-carta-credito-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
