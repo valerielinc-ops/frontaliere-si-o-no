@@ -8405,6 +8405,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-telelavoro.title': 'Frontalieri: è entrata in vigore l\'intesa sul telelavoro',
     'blog.article.frontalieri-telelavoro.excerpt': 'I frontalieri possono lavorare da casa fino al 25% del tempo di lavoro annuale',
     'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': 'Frontalieri da remoto al 50% senza impatto su contributi e pensioni',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'Il Nuovo Accordo Frontalieri prevede l\'esenzione dall\'imposta alla fonte per i frontalieri che lavorano da remoto al 50%.',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'Un frontaliere lavora da remoto in un ufficio nel Canton Ticino.',
 };
 
 export default blogMetaIt;

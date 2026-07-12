@@ -8404,6 +8404,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-telelavoro.title': 'Frontier workers: the agreement on teleworking has come into force',
     'blog.article.frontalieri-telelavoro.excerpt': 'Border workers can work from home up to 25% of their annual working time',
     'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': '50% remote border guards with no impact on contributions and pensions',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'The New Frontier Agreement provides for exemption from tax at source for frontier workers who work remotely at 50%.',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'A remote worker in the Canton Ticino office.',
 };
 
 export default blogMetaEn;
