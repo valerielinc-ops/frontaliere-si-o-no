@@ -1,16 +1,16 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-07-11T21:49:44.357Z",
-  "total": 4,
+  "generatedAt": "2026-07-12T10:41:55.682Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17120,
-  "avgDurationMs": 17120,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 15197,
+  "avgDurationMs": 15197,
   "durationHistory": [
-    17120
+    15197
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:40.648Z",
+      "crawledAt": "2026-07-12T10:41:52.365Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:42.671Z",
+      "crawledAt": "2026-07-12T10:41:54.021Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:37.735Z",
+      "crawledAt": "2026-07-12T10:41:50.006Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -126,8 +126,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "salina-reha-9cd91f4572c9",
       "slug": "assistenza-assistente-salute-60-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -168,5 +167,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
