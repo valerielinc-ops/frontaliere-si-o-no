@@ -8456,6 +8456,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Congedo per lutto o malattia familiare: i diritti del frontaliere tra Svizzera e Italia',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Durata, retribuzione e procedure per i permessi in caso di lutto o malattia di un familiare quando lavori in Ticino. Differenze con le regole italiane.',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Documento ufficiale svizzero su congedo familiare in ufficio ticinese',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Lavoro da remoto in terzo paese: fiscalità per frontalieri',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Vacanza e smart working all\'estero per i frontalieri: implicazioni fiscali, coperture assicurative LAMal e obblighi di comunicazione al datore.',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Lago di Lugano con sfondo alpino, rappresentazione del lavoro da remoto frontaliero',
 };
 
 export default blogMetaIt;

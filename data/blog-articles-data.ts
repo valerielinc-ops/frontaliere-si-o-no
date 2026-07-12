@@ -25406,6 +25406,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-remoto-terzo-paese-frontaliere-fiscalita',
+ category: 'fiscale',
+ date: '2026-07-12T23:36:58.995Z',
+ image: '/images/blog/lavoro-remoto-terzo-paese-frontaliere-fiscalita.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
