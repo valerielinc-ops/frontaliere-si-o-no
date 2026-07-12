@@ -383,7 +383,7 @@
         "it": "manager-corporate-tax-80-100-pwc-zug",
         "en": "manager-corporate-tax-80-100-pwc-zug",
         "de": "manager-corporate-tax-80-100-pwc-zug",
-        "fr": "manager-corporate-tax-80-100-pwc-zug"
+        "fr": "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne"
       },
       "id": "pwc-a814f960a57b",
       "salaryMin": 96000,
@@ -406,25 +406,20 @@
         "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug",
         "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne",
         "manager-corporate-tax-80-100-pwc-lucerne",
-        "manager-imposta-sulle-societa-80-100-pwc-switzerland-zug",
         "manager-corporate-tax-80-100-pwc-switzerland-lucerne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "manager-corporate-tax-80-100-pwc-zug",
           "manager-corporate-tax-80-100-pwc-lucerne",
           "manager-corporate-tax-80-100-pwc-switzerland-lucerne"
         ],
         "fr": [
           "manager-corporate-tax-80-100-pwc-zug",
-          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug",
-          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne"
+          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug"
         ],
         "it": [
-          "manager-corporate-tax-80-100-pwc-zug",
           "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne",
-          "manager-corporate-tax-80-100-pwc-lucerne",
-          "manager-imposta-sulle-societa-80-100-pwc-switzerland-zug"
+          "manager-corporate-tax-80-100-pwc-lucerne"
         ],
         "de": [
           "manager-corporate-tax-80-100-pwc-lucerne"
@@ -470,7 +465,7 @@
         "it": "manager-corporate-tax-80-100-pwc-zug",
         "en": "manager-corporate-tax-80-100-pwc-zug",
         "de": "manager-corporate-tax-80-100-pwc-zug",
-        "fr": "manager-corporate-tax-80-100-pwc-zug"
+        "fr": "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug"
       },
       "id": "pwc-a814f960a57b",
       "salaryMin": 96000,
@@ -499,8 +494,7 @@
           "manager-corporate-tax-80-100-pwc-lucerne"
         ],
         "fr": [
-          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne",
-          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug"
+          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne"
         ],
         "de": [
           "manager-corporate-tax-80-100-pwc-lucerne"
@@ -691,7 +685,7 @@
         "it": "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
         "en": "senior-associate-tax-accounting-pwc-luzern",
         "de": "senior-associate-tax-accounting-pwc-luzern",
-        "fr": "senior-associate-tax-accounting-pwc-luzern"
+        "fr": "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich"
       },
       "id": "pwc-378fe9f673e4",
       "salaryMin": 101500,
@@ -720,8 +714,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "senior-associate-tax-accounting-pwc-luzern",
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern",
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich"
+          "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern"
         ],
         "it": [
           "senior-associate-tax-accounting-pwc-luzern",
@@ -730,7 +723,6 @@
           "senior-associate-tax-accounting-pwc-zurich"
         ],
         "en": [
-          "senior-associate-tax-accounting-pwc-luzern",
           "senior-associate-tax-accounting-pwc-switzerland-zurich"
         ]
       }
@@ -774,7 +766,7 @@
         "it": "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
         "en": "senior-associate-tax-accounting-pwc-luzern",
         "de": "senior-associate-tax-accounting-pwc-luzern",
-        "fr": "senior-associate-tax-accounting-pwc-luzern"
+        "fr": "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern"
       },
       "id": "pwc-378fe9f673e4",
       "salaryMin": 96000,
@@ -804,7 +796,7 @@
         ],
         "fr": [
           "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich",
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern"
+          "senior-associate-tax-accounting-pwc-luzern"
         ]
       },
       "previousSlugs": [
@@ -853,9 +845,9 @@
       },
       "slugByLocale": {
         "it": "addetto-junior-in-contabilita-70-100-pwc-switzerland-zurich",
-        "en": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-zurich",
+        "en": "junior-clerk-in-accounting-70-100-pwc-switzerland-zurich",
         "de": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-zurich",
-        "fr": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-zurich"
+        "fr": "commis-junior-en-comptabilite-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-1e34c2ed1616",
       "salaryMin": 62000,
@@ -882,14 +874,16 @@
         ],
         "en": [
           "personnel-in-accounting-70-100-pwc-switzerland-basel",
-          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
+          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
+          "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-zurich"
         ],
         "de": [
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
         ],
         "fr": [
           "personnel-en-comptabilite-70-100-pwc-switzerland-basel",
-          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
+          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
+          "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-zurich"
         ]
       },
       "previousSlugs": [
@@ -939,9 +933,9 @@
       },
       "slugByLocale": {
         "it": "addetto-junior-in-contabilita-70-100-pwc-switzerland-bern",
-        "en": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern",
+        "en": "junior-clerk-in-accounting-70-100-pwc-switzerland-bern",
         "de": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern",
-        "fr": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern"
+        "fr": "commis-junior-en-comptabilite-70-100-pwc-switzerland-bern"
       },
       "id": "pwc-1e34c2ed1616",
       "salaryMin": 57500,
@@ -965,13 +959,12 @@
           "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
           "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern",
-          "junior-impiegato-in-contabilita-70-100-pwc-switzerland-bern",
-          "addetto-junior-in-contabilita-70-100-pwc-switzerland-bern"
+          "junior-impiegato-in-contabilita-70-100-pwc-switzerland-bern"
         ],
         "en": [
           "personnel-in-accounting-70-100-pwc-switzerland-basel",
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
-          "junior-clerk-in-accounting-70-100-pwc-switzerland-bern"
+          "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern"
         ],
         "de": [
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
@@ -979,7 +972,7 @@
         "fr": [
           "personnel-en-comptabilite-70-100-pwc-switzerland-basel",
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
-          "commis-junior-en-comptabilite-70-100-pwc-switzerland-bern"
+          "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern"
         ]
       },
       "previousSlugs": [
@@ -990,10 +983,7 @@
         "personale-in-contabilita-70-100-pwc-switzerland-basel",
         "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
         "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-bern",
-        "junior-impiegato-in-contabilita-70-100-pwc-switzerland-bern",
-        "junior-clerk-in-accounting-70-100-pwc-switzerland-bern",
-        "commis-junior-en-comptabilite-70-100-pwc-switzerland-bern",
-        "addetto-junior-in-contabilita-70-100-pwc-switzerland-bern"
+        "junior-impiegato-in-contabilita-70-100-pwc-switzerland-bern"
       ]
     },
     {
@@ -1183,9 +1173,9 @@
       },
       "slugByLocale": {
         "it": "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+        "fr": "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 73500,
@@ -1210,24 +1200,20 @@
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
         ],
         "en": [
-          "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern"
         ],
         "fr": [
           "programmes-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
-          "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern"
         ],
         "de": [
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich"
         ]
@@ -1240,7 +1226,6 @@
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern"
@@ -1283,9 +1268,9 @@
       },
       "slugByLocale": {
         "it": "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-bern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+        "fr": "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-bern"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 68500,
@@ -1312,8 +1297,7 @@
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
           "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
-          "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-bern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
         ],
         "en": [
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
@@ -1324,7 +1308,6 @@
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
         ],
@@ -1349,8 +1332,7 @@
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
-        "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-bern"
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
       ]
     },
     {
@@ -1390,9 +1372,9 @@
       },
       "slugByLocale": {
         "it": "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-basel",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+        "fr": "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-basel"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 62000,
@@ -1419,8 +1401,7 @@
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
           "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel",
-          "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-basel"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel"
         ],
         "en": [
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
@@ -1431,7 +1412,6 @@
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel"
         ],
@@ -1456,8 +1436,7 @@
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel",
-        "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-basel"
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel"
       ]
     },
     {
@@ -1497,9 +1476,9 @@
       },
       "slugByLocale": {
         "it": "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+        "fr": "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 69500,
@@ -1528,26 +1507,24 @@
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
         ],
         "en": [
-          "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
         ],
         "fr": [
-          "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern",
           "programmes-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
         ]
       },
       "previousSlugs": [
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "young-talent-programs-limited-revisions-70-100-pwc-switzerland-luzern",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
-        "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
@@ -2521,9 +2498,9 @@
       },
       "slugByLocale": {
         "it": "associate-accesso-alla-carriera-consulenza-fiscale-80-100-pwc-switzerland-zug",
-        "en": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "en": "associate-career-entry-tax-consulting-80-100-pwc-switzerland-luzern",
         "de": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-        "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
+        "fr": "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern"
       },
       "id": "pwc-7f6ee3851b03",
       "salaryMin": 69500,
@@ -2550,12 +2527,10 @@
           "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern",
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
           "associate-accesso-alla-carriera-consulenza-fiscale-80-100-pwc-switzerland-luzern",
-          "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
-          "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug"
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
         ],
         "en": [
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-          "associate-career-entry-tax-consulting-80-100-pwc-switzerland-luzern",
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern"
         ],
@@ -2565,7 +2540,6 @@
         ],
         "fr": [
           "associe-debut-de-carriere-en-conseil-fiscal-80-100-pwc-switzerland-zug",
-          "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern",
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
           "associate-conseils-fiscaux-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-zug"
         ]
@@ -2580,7 +2554,6 @@
         "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern",
         "associate-accesso-alla-carriera-consulenza-fiscale-80-100-pwc-switzerland-luzern",
         "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
-        "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
         "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern",
         "associate-conseils-fiscaux-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-zug"
       ]
@@ -2622,9 +2595,9 @@
       },
       "slugByLocale": {
         "it": "associate-accesso-alla-carriera-consulenza-fiscale-80-100-pwc-switzerland-zug",
-        "en": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "en": "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
         "de": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-        "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
+        "fr": "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-zug"
       },
       "id": "pwc-7f6ee3851b03",
       "salaryMin": 69500,
@@ -2658,12 +2631,14 @@
         "en": [
           "associate-career-entry-tax-consulting-80-100-pwc-switzerland-luzern",
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
-          "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern"
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern",
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
         ],
         "fr": [
           "associate-conseils-fiscaux-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-zug",
           "associe-debut-de-carriere-en-conseil-fiscal-80-100-pwc-switzerland-zug",
-          "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern"
+          "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern",
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
         ],
         "de": [
           "associate-berufseinstieg-steuerberatung-80-100-pwc-switzerland-zug",
@@ -2815,7 +2790,6 @@
       "firstSeenAt": "2026-06-04T15:37:24.047Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
@@ -2828,34 +2802,24 @@
           "audit-career-start-in-the-trade-industries-services-sector-autumn-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
-          "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
+          "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut"
         ],
         "en": [
-          "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen-e26rhp",
           "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-st-gallen",
-          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
+          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen"
         ],
         "de": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
+          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
         ],
         "fr": [
-          "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
+          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-        "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
-        "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
         "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
@@ -2868,8 +2832,7 @@
         "audit-career-start-in-the-trade-industries-services-sector-autumn-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
-        "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
+        "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut"
       ]
     },
     {
@@ -2930,7 +2893,6 @@
       "firstSeenAt": "2026-06-04T15:37:24.047Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
@@ -2944,34 +2906,24 @@
           "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-basel"
+          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
         ],
         "en": [
-          "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen-e26rhp",
           "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-st-gallen",
-          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-basel"
+          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen"
         ],
         "de": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-basel"
+          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
         ],
         "fr": [
-          "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-basel"
+          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-        "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
-        "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
         "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
@@ -2985,8 +2937,7 @@
         "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-basel"
+        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
       ]
     },
     {
@@ -3047,7 +2998,6 @@
       "firstSeenAt": "2026-06-04T15:37:24.047Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
           "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen",
@@ -3060,32 +3010,20 @@
           "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
           "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
+          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
         ],
         "en": [
-          "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
           "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen-e26rhp",
           "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-st-gallen",
-          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
-        ],
-        "de": [
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
+          "karrierebeginn-audit-trade-industries-services-ab-herbst-2026-pwc-switzerland-st-gallen"
         ],
         "fr": [
-          "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
           "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
-          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen",
-          "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
+          "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zug",
-        "career-start-audit-trade-industries-services-from-autumn-2026-pwc-switzerland-zug",
-        "debut-de-carriere-verification-commerce-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-zug",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
         "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen",
@@ -3098,8 +3036,7 @@
         "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-dans-le-secteur-trade-industries-services-automne-2026-pwc-switzerland-lugano-iuyeut",
         "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-lugano-iuyeut",
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
+        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
       ]
     },
     {
@@ -5512,7 +5449,7 @@
         "it": "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern",
         "en": "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
         "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
-        "fr": "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+        "fr": "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich"
       },
       "id": "pwc-698955b8020d",
       "salaryMin": 101500,
@@ -5611,7 +5548,7 @@
         "it": "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern",
         "en": "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
         "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
-        "fr": "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+        "fr": "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern"
       },
       "id": "pwc-698955b8020d",
       "salaryMin": 94500,
@@ -5647,8 +5584,8 @@
           "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
           "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich",
           "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
-          "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
-          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
+          "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern"
         ],
         "en": [
           "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich"
@@ -7407,13 +7344,12 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
       ],
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -7444,7 +7380,7 @@
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
@@ -8087,7 +8023,7 @@
         "it": "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "en": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
-        "fr": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
+        "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich"
       },
       "id": "pwc-a72cc4506abb",
       "salaryMin": 73500,
@@ -8110,7 +8046,6 @@
           "audit-career-start-in-financial-services-fall-2026-pwc-switzerland-st-gallen",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
           "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
-          "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
           "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich-r55tbe",
           "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
@@ -8118,11 +8053,9 @@
           "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
           "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
-          "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen"
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
         ],
         "en": [
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
           "audit-career-start-in-financial-services-fall-2026-pwc-switzerland-st-gallen",
           "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-zurich",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
@@ -8130,11 +8063,9 @@
         ],
         "de": [
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-zurich"
         ],
         "fr": [
-          "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
           "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen"
@@ -8146,7 +8077,6 @@
         "audit-career-start-in-financial-services-fall-2026-pwc-switzerland-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
-        "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich-r55tbe",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
@@ -8154,7 +8084,6 @@
         "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
-        "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-zurich",
         "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen"
       ]
@@ -8198,7 +8127,7 @@
         "it": "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "en": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
-        "fr": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
+        "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen"
       },
       "id": "pwc-a72cc4506abb",
       "salaryMin": 57500,
@@ -8242,16 +8171,15 @@
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe"
         ],
         "fr": [
-          "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen",
           "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
         ]
       },
       "previousSlugs": [
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-zurich",
-        "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen",
         "audit-career-start-in-financial-services-fall-2026-pwc-switzerland-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
@@ -8504,7 +8432,7 @@
         "it": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "de": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
-        "fr": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
+        "fr": "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich"
       },
       "id": "pwc-82014fee6d7e",
       "salaryMin": 113000,
@@ -8523,7 +8451,6 @@
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugsByLocale": {
         "it": [
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-geneve",
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
           "manager-senior-manager-cybertechnologie-und-transformation-pwc-switzerland-geneve",
@@ -8537,16 +8464,13 @@
           "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich",
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
           "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-zurich",
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
-          "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve"
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich"
         ],
         "en": [
           "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich"
         ],
         "de": [
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cybertechnologie-und-transformation-pwc-switzerland-geneve",
           "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
@@ -8555,7 +8479,7 @@
         "fr": [
           "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve",
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
-          "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich"
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
         ]
       },
       "previousSlugs": [
@@ -8573,8 +8497,7 @@
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-zurich",
         "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich",
         "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-zurich",
-        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
-        "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve"
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich"
       ]
     },
     {
@@ -8616,7 +8539,7 @@
         "it": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "de": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
-        "fr": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
+        "fr": "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
       },
       "id": "pwc-82014fee6d7e",
       "salaryMin": 92500,
@@ -8663,8 +8586,7 @@
         ],
         "fr": [
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
-          "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve",
-          "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
+          "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve"
         ]
       },
       "previousSlugs": [
