@@ -25370,6 +25370,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sconto-ticino-ticket',
+ category: 'pratico',
+ date: '2026-07-12T16:22:51.095Z',
+ image: '/images/blog/sconto-ticino-ticket.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
