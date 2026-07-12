@@ -48744,6 +48744,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-lutto-malattia-frontaliere-svizzera': {
+    title: 'Congedo per lutto o malattia familiare: i diritti del frontaliere tra Svizzera e Italia',
+    description: 'Durata, retribuzione e procedure per congedi familiari quando lavori in Ticino. Differenze con l\'Italia e come tutelarsi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, lutto, malattia, familiare',
+    ogTitle: 'Congedo lutto/malattia familiare per frontalieri in Svizzera: guida pratica',
+    ogDescription: 'Tutto sui diritti dei frontalieri in caso di lutto o malattia di un familiare: durata, retribuzione e differenze Italia-Svizzera.',
+    canonicalPath: '/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo per lutto o malattia familiare: i diritti del frontaliere tra Svizzera e Italia",
+      "description": "Durata, retribuzione e procedure per congedi familiari quando lavori in Ticino. Differenze con l'Italia e come tutelarsi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-lutto-malattia-frontaliere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento ufficiale svizzero su congedo familiare in ufficio ticinese"
+      },
+      "datePublished": "2026-07-12T22:46:33+00:00",
+      "dateModified": "2026-07-12T22:46:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

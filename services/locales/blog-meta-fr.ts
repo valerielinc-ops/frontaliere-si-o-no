@@ -8453,6 +8453,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine: copertura e procedure',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Les frontaliers qui se rendent au travail en Suisse en traversant la frontière avec l\'Italie doivent savoir comment procéder en cas d\'accident.',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un travailleur frontalier qui se rend au travail en Suisse en traversant la frontière avec l\'Italie.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Congé pour maladie ou deuil : droits du frontaliers entre Suisse et Italie',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Durée, rémunération et procédures pour les congés en cas de deuil ou de maladie d\'un membre de la famille lorsque vous travaillez au Tessin. Différences avec les règles italiennes.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Document officiel suisse sur le congé familial dans un bureau tessinois',
 };
 
 export default blogMetaFr;

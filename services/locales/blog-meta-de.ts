@@ -8451,6 +8451,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Grenzgänger-Unfall auf dem Weg an die Grenze: UVG-Deckung und Verfahren',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Grenzgänger, die über die Grenze nach Italien zur Arbeit in die Schweiz reisen, müssen wissen, wie sie im Falle eines Unfalls vorgehen müssen.',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Ein Pendler, der arbeitet in der Schweiz und den Grenzübergang mit Italien nutzt.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Rechtsanspruch Grenzübergänger: Trauer- oder Familienkrankheitsurlaub in der Schweiz und Italien',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Dauer, Vergütung und Bewilligungsverfahren bei Trauer oder Krankheit eines Angehörigen während der Arbeit im Tessin. Unterschiede zu den italienischen Regeln.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Schweizerisches offizielles Dokument zum Familienurlaub in einem Tessiner Büro',
 };
 
 export default blogMetaDe;

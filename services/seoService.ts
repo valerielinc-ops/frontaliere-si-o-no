@@ -4498,6 +4498,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cambio-cantone-di-lavoro-frontaliere-ticino-grigioni': { name: 'Cambio cantone di lavoro', path: '/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni', parent: 'blog' },
     'blog-frontalieri-ticino-calano': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-calano/', parent: 'blog' },
     'blog-infortunio-in-iter-confine-assicurazione-frontaliere': { name: 'Infortunio in itinere al confine per il', path: '/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere', parent: 'blog' },
+    'blog-congedo-lutto-malattia-frontaliere-svizzera': { name: 'Congedo familiare', path: '/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

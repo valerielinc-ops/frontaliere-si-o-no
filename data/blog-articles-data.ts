@@ -25397,6 +25397,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'congedo-lutto-malattia-frontaliere-svizzera',
+ category: 'pratico',
+ date: '2026-07-12T22:46:32.974Z',
+ image: '/images/blog/congedo-lutto-malattia-frontaliere-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
