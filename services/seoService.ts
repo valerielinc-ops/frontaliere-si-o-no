@@ -4497,6 +4497,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sconto-ticino-ticket': { name: 'Finanziamento Ticino Ticket', path: '/articoli-frontaliere/sconto-ticino-ticket', parent: 'blog' },
     'blog-cambio-cantone-di-lavoro-frontaliere-ticino-grigioni': { name: 'Cambio cantone di lavoro', path: '/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni', parent: 'blog' },
     'blog-frontalieri-ticino-calano': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-calano/', parent: 'blog' },
+    'blog-infortunio-in-iter-confine-assicurazione-frontaliere': { name: 'Infortunio in itinere al confine per il', path: '/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
