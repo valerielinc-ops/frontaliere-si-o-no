@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-07-12T10:40:43.911Z",
+  "assembledAt": "2026-07-12T22:02:29.120Z",
   "jobs": [
     {
       "id": "givaudan-9f646df7d79d",
@@ -33,7 +33,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119206EXTERNALENGLOBAL/global-process-safety-manager",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:42.215Z",
+      "crawledAt": "2026-07-12T22:02:26.876Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:02:42.711Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -108,7 +109,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118901EXTERNALENGLOBAL/specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:41.795Z",
+      "crawledAt": "2026-07-12T22:02:26.629Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -147,7 +148,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-dc49024d2d45",
@@ -180,7 +182,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117704EXTERNALENGLOBAL/automation-engineer-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:41.344Z",
+      "crawledAt": "2026-07-12T22:02:26.403Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -213,6 +215,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -257,7 +260,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119281EXTERNALENGLOBAL/ingenieur-methodes-maintenance-stage-6-mois-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:41.083Z",
+      "crawledAt": "2026-07-12T22:02:26.137Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -286,7 +289,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-ecb702208324",
@@ -303,7 +307,7 @@
       "title": "Quality Control Technician 50% (m/w/d)",
       "titleByLocale": {
         "it": "Controllo qualità Tecnico 50% (m/f/d)",
-        "en": "Quality Control Technician 50% (m/f/d)",
+        "en": "Quality Control Technician 50% (m/w/d)",
         "de": "Qualität Control Techniker 50% (m/w/d)",
         "fr": "Qualité Control Technicien 50% (m/w/d)"
       },
@@ -319,7 +323,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119323EXTERNALENGLOBAL/quality-control-technician-50-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:40:40.847Z",
+      "crawledAt": "2026-07-12T22:02:25.641Z",
       "addressLocality": "Bischofszell",
       "postalCode": "",
       "addressRegion": "TG",
@@ -352,6 +356,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T11:58:10.483Z",
+      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -380,7 +385,7 @@
       "title": "Quality Control Technician (m/w/d)",
       "titleByLocale": {
         "it": "Tecnologia di controllo qualità (m/f/d)",
-        "en": "Quality Control Technician (m/f/d)",
+        "en": "Quality Control Technician (m/w/d)",
         "de": "Qualität Control Techniker (m/w/d)",
         "fr": "Qualité Control Technicien (m/w/d)"
       },
@@ -396,7 +401,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119321EXTERNALENGLOBAL/quality-control-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:40:40.633Z",
+      "crawledAt": "2026-07-12T22:02:25.161Z",
       "addressLocality": "Bischofszell",
       "postalCode": "",
       "addressRegion": "TG",
@@ -429,6 +434,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T11:58:10.965Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -473,7 +479,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119124EXTERNALENGLOBAL/superviseur-en-production-ingredients-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:40.297Z",
+      "crawledAt": "2026-07-12T22:02:24.800Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -535,7 +541,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:39.977Z",
+      "crawledAt": "2026-07-12T22:02:24.326Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -609,7 +615,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118688EXTERNALENGLOBAL/ehs-specialist-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:39.747Z",
+      "crawledAt": "2026-07-12T22:02:23.877Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -669,10 +675,10 @@
         "de": "Global Leiter Strategic Supply",
         "fr": "Global Responsable Strategic Supply"
       },
-      "description": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness, humility, and a spirit of adventure, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn from our 79 production sites worldwide, known for their best-in-class processes and procedures. There’s many to learn from, with high-performing leaders and caring colleagues to explore ideas and ambitions with. Every day, your energy, your personality, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n## Global Head of Strategic Supply – Your future position?\n\nJoin Givaudan Fragrance & Beauty Operations and take a pivotal role in shaping how our division builds end-to-end supply resilience, agility, and strategic advantage. As **Global Head of Strategic Supply**, you will lead the global design and execution of inventory management and raw material supply strategies, alongside the coordination of the S&OP process that connects supply, demand, and business objectives across all regions.\n\nReporting directly to the **Global Head of Supply Chain**, you act as the architect and driving force behind the strategic supply framework that supports our growth ambitions, operational excellence, and customer satisfaction while contributing to optimize working capital and cash flow.\n\nYou will lead a diverse global team and serve as a critical link between Regional Supply Chain, Regional Supply, GBS and Procurement - ensuring that priorities and processes deliver maximum value to the business. This role offers the opportunity to influence global strategy, drive transformation, and inspire collaboration across our worldwide network.\n\n**Flexible location the position can be based at any of our F&B Operations sites in Europe.**\n\n## Your key responsibilities\n\n## Strategic Leadership & Governance\n\n- Define and maintain the global inventory and raw material supply strategies in collaboration with Procurement, ensuring alignment with cash flow targets, service levels, and sustainability objectives.\n- Provide strategic supply inputs to the Global Operations business plans and contribute to the multiyear Supply Chain Strategy for the division.\n- Govern and evolve the global **Sales & Operations Planning (S&OP)** process to ensure visibility, standardization, and actionability across compounding and ingredient networks.\n- Establish global supply governance parameters, ownership structures, and performance metrics to drive discipline and efficiency in all regions.\n\n## Cross Functional Influence & Improvement\n\n- Partner with Procurement on raw material supply risk management, allocation steering, and supplier collaboration for critical inputs.\n- Enable operational transformation initiatives — including digital planning, network optimization, and footprint alignment — ensuring measurable performance improvements.\n- Drive continuous improvement at enterprise scale, embedding data driven decision making through advanced analytics and system integration (SAP, BI/BO, etc.).\n- Facilitate knowledge sharing and best‑practice transfer across planning teams globally, ensuring coherence and leverage of capabilities.\n- Help design the Global Supply Roadmap in collaboration with the divisional supply functions and Solution Excellence organization.\n\n## People & Organizational Development\n\n- Lead, coach, and empower the global Strategic Supply team, fostering high performance, innovation, and collaboration.\n- Shape talent succession and capability building in partnership with HR and Operations leadership, building the next generation of supply chain leaders.\n- Champion inclusion, agility, and engagement as core elements of how the global planning community operates.\n\n## You?\n\nYou are visionary leader who combines strategic insight with precise execution — able to connect global priorities with local realities, foster collaboration across functions, and continually raise the bar for supply performance. Success will depend on your ability to align operational strategy with business value while cultivating trust, engagement, and innovation throughout the Givaudan network.\n\n## Your profile includes\n\n- Master’s degree in Science, Engineering, Supply Chain, Operations Management, or equivalent; MBA preferred.\n- 15–20 years of end-to-end Supply Chain or Planning experience across international operations; experience in Procurement integration and complex transformation programs.\n- Minimum 8–12 years in leadership roles with proven success in managing global teams and influencing executive stakeholders.\n- Strong systems and analytics capability (SAP, BI/BO, advanced planning tools).\n- Continuous improvement exposure (Six Sigma Black Belt or similar) and APICS certification desired.\n- Fluent English; other languages advantageous.\n- Skilled in cross-cultural collaboration, decision quality, and strategic communication.\n- Excellent command of Microsoft Office and business analytics platforms.\n\n## Our benefits\n\nAttractive package with benefitsExcellent opportunities for progressive learning and developmentA creative team environment that will inspire you.\n\n## PLEASE APPLY WITH ENGLISH CV.\n\n#LI-hybrid\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+      "description": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness, humility, and a spirit of adventure, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn from our 79 production sites worldwide, known for their best-in-class processes and procedures. There’s many to learn from, with high-performing leaders and caring colleagues to explore ideas and ambitions with. Every day, your energy, your personality, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n## Global Head of Strategic Supply – Your future position?\n\nJoin Givaudan Fragrance & Beauty Operations and take a pivotal role in shaping how our division builds end-to-end supply resilience, agility, and strategic advantage. As **Global Head of Strategic Supply**, you will lead the global design and execution of inventory management and raw material supply strategies, alongside the coordination of the S&OP process that connects supply, demand, and business objectives across all regions.\n\nReporting directly to the **Global Head of Supply Chain**, you act as the architect and driving force behind the strategic supply framework that supports our growth ambitions, operational excellence, and customer satisfaction while contributing to optimize working capital and cash flow.\n\nYou will lead a diverse global team and serve as a critical link between Regional Supply Chain, Regional Supply, GBS and Procurement - ensuring that priorities and processes deliver maximum value to the business. This role offers the opportunity to influence global strategy, drive transformation, and inspire collaboration across our worldwide network.\n\n**Flexible location: the position can be based at any of our F&B Operations sites in Europe.**\n\n## Your key responsibilities:\n\n## Strategic Leadership & Governance\n\n- Define and maintain the global inventory and raw material supply strategies in collaboration with Procurement, ensuring alignment with cash flow targets, service levels, and sustainability objectives.\n- Provide strategic supply inputs to the Global Operations business plans and contribute to the multiyear Supply Chain Strategy for the division.\n- Govern and evolve the global **Sales & Operations Planning (S&OP)** process to ensure visibility, standardization, and actionability across compounding and ingredient networks.\n- Establish global supply governance parameters, ownership structures, and performance metrics to drive discipline and efficiency in all regions.\n\n## Cross Functional Influence & Improvement\n\n- Partner with Procurement on raw material supply risk management, allocation steering, and supplier collaboration for critical inputs.\n- Enable operational transformation initiatives — including digital planning, network optimization, and footprint alignment — ensuring measurable performance improvements.\n- Drive continuous improvement at enterprise scale, embedding data driven decision making through advanced analytics and system integration (SAP, BI/BO, etc.).\n- Facilitate knowledge sharing and best‑practice transfer across planning teams globally, ensuring coherence and leverage of capabilities.\n- Help design the Global Supply Roadmap in collaboration with the divisional supply functions and Solution Excellence organization.\n\n## People & Organizational Development\n\n- Lead, coach, and empower the global Strategic Supply team, fostering high performance, innovation, and collaboration.\n- Shape talent succession and capability building in partnership with HR and Operations leadership, building the next generation of supply chain leaders.\n- Champion inclusion, agility, and engagement as core elements of how the global planning community operates.\n\n## You?\n\nYou are visionary leader who combines strategic insight with precise execution — able to connect global priorities with local realities, foster collaboration across functions, and continually raise the bar for supply performance. Success will depend on your ability to align operational strategy with business value while cultivating trust, engagement, and innovation throughout the Givaudan network.\n\n## Your profile includes:\n\n- Master’s degree in Science, Engineering, Supply Chain, Operations Management, or equivalent; MBA preferred.\n- 15–20 years of end-to-end Supply Chain or Planning experience across international operations; experience in Procurement integration and complex transformation programs.\n- Minimum 8–12 years in leadership roles with proven success in managing global teams and influencing executive stakeholders.\n- Strong systems and analytics capability (SAP, BI/BO, advanced planning tools).\n- Continuous improvement exposure (Six Sigma Black Belt or similar) and APICS certification desired.\n- Fluent English; other languages advantageous.\n- Skilled in cross-cultural collaboration, decision quality, and strategic communication.\n- Excellent command of Microsoft Office and business analytics platforms.\n\n## Our benefits:\n\nAttractive package with benefitsExcellent opportunities for progressive learning and developmentA creative team environment that will inspire you.\n\n## PLEASE APPLY WITH ENGLISH CV.\n\n#LI-hybrid\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
       "descriptionByLocale": {
         "it": "Unisciti a noi e celebra la bellezza dell'esperienza umana. Crea per una vita più felice e più sana, con amore per la natura. Insieme, con gentilezza, umiltà e spirito di avventura, forniamo innovazioni alimentari, artigianato fragranze ispirate e sviluppiamo soluzioni di bellezza e benessere. C'è molto da imparare dai nostri 79 siti di produzione in tutto il mondo, noto per i loro processi e procedure di migliore classe. Ci sono molti da imparare, con leader altamente performanti e colleghi attenti a esplorare idee e ambizioni con. Ogni giorno, la vostra energia, la vostra personalità e la vostra determinazione plasmano il nostro futuro, facendo una differenza positiva su miliardi di persone. Ogni essenza di voi arricchisce il nostro mondo. Siamo Givaudan. Umano per natura. ## Global Head of Strategic Supply – La tua futura posizione? Unisciti a Givaudan Fragrance & Beauty Operations e prendi un ruolo fondamentale nella definizione di come la nostra divisione costruisce resilienza, agilità e vantaggio strategico end-to-end. Come **Global Head of Strategic Supply**, guiderai la progettazione globale e l'esecuzione delle strategie di gestione dell'inventario e dell'offerta di materie prime, insieme al coordinamento del processo S&OP che collega gli obiettivi di offerta, domanda e business in tutte le regioni. Segnalando direttamente al **Global Head of Supply Chain**, tu agisci come l'architetto e la forza trainante dietro il quadro di fornitura strategico che supporta le nostre ambizioni di crescita, l'eccellenza operativa e la soddisfazione del cliente, contribuendo a ottimizzare il capitale di lavoro e il flusso di cassa. Potrai guidare un team globale diversificato e servire come un collegamento critico tra Regional Supply Chain, Regional Supply, GBS e Procurement - assicurando che le priorità e i processi di fornire il massimo valore al business. Questo ruolo offre l'opportunità di influenzare la strategia globale, guidare la trasformazione e ispirare la collaborazione attraverso la nostra rete mondiale. ** Posizione flessibile la posizione può essere basata in uno dei nostri siti F&B Operations in Europa.** ## Le tue responsabilità chiave ## Leadership strategica e governance - Definire e mantenere l'inventario globale e le strategie di approvvigionamento di materie prime in collaborazione con Procurement, garantendo l'allineamento con obiettivi di cash flow, livelli di servizio e obiettivi di sostenibilità. - Fornire input strategici di approvvigionamento ai piani aziendali Global Operations e contribuire alla strategia pluriennale Supply Chain per la divisione. - Governare ed evolvere il processo globale **Sales & Operations Planning (S&OP)** per garantire la visibilità, la standardizzazione e l'agibilità attraverso le reti di composti e ingredienti. - Stabilire parametri globali di governance dell'offerta, strutture di proprietà e metriche di performance per guidare la disciplina e l'efficienza in tutte le regioni. ## Influenza funzionale trasversale e miglioramento - Partner con Procurement sulla gestione del rischio di approvvigionamento delle materie prime, lo sterzo di allocazione e la collaborazione dei fornitori per gli input critici. - Abilitare le iniziative di trasformazione operativa, tra cui la pianificazione digitale, l'ottimizzazione della rete e l'allineamento delle impronte, garantendo miglioramenti misurabili delle prestazioni. - Promuovere un miglioramento continuo a livello aziendale, incorporando il processo decisionale guidato dai dati attraverso analisi avanzate e integrazione di sistema (SAP, BI/BO, ecc.). - Facilita la condivisione della conoscenza e il trasferimento best-practice tra i team di pianificazione a livello globale, garantendo coerenza e leva delle capacità. - Aiuta a progettare la Global Supply Roadmap in collaborazione con le funzioni di fornitura divisione e l'organizzazione Solution Excellence. ## Persone & Sviluppo organizzativo - Guida, coach e potenzia il team globale di fornitura strategica, promuovendo alte prestazioni, innovazione e collaborazione. - Forma la successione di talenti e la costruzione di capacità in collaborazione con la leadership HR e Operazioni, costruendo la prossima generazione di leader della supply chain. - inclusione campione, agilità e impegno come elementi fondamentali di come la comunità di pianificazione globale opera. ## Tu? Sei leader visionario che combina la comprensione strategica con l'esecuzione precisa — in grado di collegare le priorità globali con le realtà locali, promuovere la collaborazione tra le funzioni, e aumentare continuamente la barra per le prestazioni di fornitura. Il successo dipenderà dalla tua capacità di allineare la strategia operativa con il valore aziendale, coltivando fiducia, impegno e innovazione in tutta la rete Givaudan. ## Il tuo profilo include - Laurea magistrale in Scienze, Ingegneria, Supply Chain, Gestione Operazioni, o equivalente; MBA ha preferito. - 15-20 anni di esperienza end-to-end Supply Chain o Planning nelle operazioni internazionali; esperienza nell'integrazione di appalti e programmi di trasformazione complessi. - Minimo 8–12 anni di ruoli di leadership con successo dimostrato nella gestione di team globali e influenzando gli stakeholder esecutivi. - Sistemi e funzionalità di analisi forti (SAP, BI/BO, strumenti di pianificazione avanzati). - Esposizione continua di miglioramento (Six Sigma Black Belt o simile) e certificazione APICS desiderato. - Inglese fluente; altre lingue vantaggiose. - Abilitato in collaborazione interculturale, qualità delle decisioni e comunicazione strategica. - Comando eccellente di Microsoft Office e piattaforme di analisi aziendale. ## I nostri vantaggi Pacchetto attraente con beneficiOttima opportunità per l'apprendimento progressivo e lo sviluppoUn ambiente di team creativo che vi ispirerà. ## Perdonate la domanda con il CV inglese. #LI-hybrid # A Givaudan, si contribuisce a piacevoli esperienze di gusto e profumo che toccano la vita delle persone. Apprezziamo le diverse prospettive che provengono da diverse culture, sfondi ed esperienze. Tutti — indipendentemente dalla razza, dall'identità di genere, dall'orientamento sessuale, dall'età, dalla disabilità, dalla cultura, dalla religione o da qualsiasi circostanza personale — sono accolti calorosamente a Givaudan, un luogo dove tutti amiamo essere e crescere. Ogni essenza di voi arricchisce il nostro mondo. Unisciti a noi per fare la differenza insieme.",
-        "en": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness, humility, and a spirit of adventure, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn from our 79 production sites worldwide, known for their best-in-class processes and procedures. There’s many to learn from, with high-performing leaders and caring colleagues to explore ideas and ambitions with. Every day, your energy, your personality, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n## Global Head of Strategic Supply – Your future position?\n\nJoin Givaudan Fragrance & Beauty Operations and take a pivotal role in shaping how our division builds end-to-end supply resilience, agility, and strategic advantage. As **Global Head of Strategic Supply**, you will lead the global design and execution of inventory management and raw material supply strategies, alongside the coordination of the S&OP process that connects supply, demand, and business objectives across all regions.\n\nReporting directly to the **Global Head of Supply Chain**, you act as the architect and driving force behind the strategic supply framework that supports our growth ambitions, operational excellence, and customer satisfaction while contributing to optimize working capital and cash flow.\n\nYou will lead a diverse global team and serve as a critical link between Regional Supply Chain, Regional Supply, GBS and Procurement - ensuring that priorities and processes deliver maximum value to the business. This role offers the opportunity to influence global strategy, drive transformation, and inspire collaboration across our worldwide network.\n\n**Flexible location the position can be based at any of our F&B Operations sites in Europe.**\n\n## Your key responsibilities\n\n## Strategic Leadership & Governance\n\n- Define and maintain the global inventory and raw material supply strategies in collaboration with Procurement, ensuring alignment with cash flow targets, service levels, and sustainability objectives.\n- Provide strategic supply inputs to the Global Operations business plans and contribute to the multiyear Supply Chain Strategy for the division.\n- Govern and evolve the global **Sales & Operations Planning (S&OP)** process to ensure visibility, standardization, and actionability across compounding and ingredient networks.\n- Establish global supply governance parameters, ownership structures, and performance metrics to drive discipline and efficiency in all regions.\n\n## Cross Functional Influence & Improvement\n\n- Partner with Procurement on raw material supply risk management, allocation steering, and supplier collaboration for critical inputs.\n- Enable operational transformation initiatives — including digital planning, network optimization, and footprint alignment — ensuring measurable performance improvements.\n- Drive continuous improvement at enterprise scale, embedding data driven decision making through advanced analytics and system integration (SAP, BI/BO, etc.).\n- Facilitate knowledge sharing and best‑practice transfer across planning teams globally, ensuring coherence and leverage of capabilities.\n- Help design the Global Supply Roadmap in collaboration with the divisional supply functions and Solution Excellence organization.\n\n## People & Organizational Development\n\n- Lead, coach, and empower the global Strategic Supply team, fostering high performance, innovation, and collaboration.\n- Shape talent succession and capability building in partnership with HR and Operations leadership, building the next generation of supply chain leaders.\n- Champion inclusion, agility, and engagement as core elements of how the global planning community operates.\n\n## You?\n\nYou are visionary leader who combines strategic insight with precise execution — able to connect global priorities with local realities, foster collaboration across functions, and continually raise the bar for supply performance. Success will depend on your ability to align operational strategy with business value while cultivating trust, engagement, and innovation throughout the Givaudan network.\n\n## Your profile includes\n\n- Master’s degree in Science, Engineering, Supply Chain, Operations Management, or equivalent; MBA preferred.\n- 15–20 years of end-to-end Supply Chain or Planning experience across international operations; experience in Procurement integration and complex transformation programs.\n- Minimum 8–12 years in leadership roles with proven success in managing global teams and influencing executive stakeholders.\n- Strong systems and analytics capability (SAP, BI/BO, advanced planning tools).\n- Continuous improvement exposure (Six Sigma Black Belt or similar) and APICS certification desired.\n- Fluent English; other languages advantageous.\n- Skilled in cross-cultural collaboration, decision quality, and strategic communication.\n- Excellent command of Microsoft Office and business analytics platforms.\n\n## Our benefits\n\nAttractive package with benefitsExcellent opportunities for progressive learning and developmentA creative team environment that will inspire you.\n\n## PLEASE APPLY WITH ENGLISH CV.\n\n#LI-hybrid\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "en": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness, humility, and a spirit of adventure, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn from our 79 production sites worldwide, known for their best-in-class processes and procedures. There’s many to learn from, with high-performing leaders and caring colleagues to explore ideas and ambitions with. Every day, your energy, your personality, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n## Global Head of Strategic Supply – Your future position?\n\nJoin Givaudan Fragrance & Beauty Operations and take a pivotal role in shaping how our division builds end-to-end supply resilience, agility, and strategic advantage. As **Global Head of Strategic Supply**, you will lead the global design and execution of inventory management and raw material supply strategies, alongside the coordination of the S&OP process that connects supply, demand, and business objectives across all regions.\n\nReporting directly to the **Global Head of Supply Chain**, you act as the architect and driving force behind the strategic supply framework that supports our growth ambitions, operational excellence, and customer satisfaction while contributing to optimize working capital and cash flow.\n\nYou will lead a diverse global team and serve as a critical link between Regional Supply Chain, Regional Supply, GBS and Procurement - ensuring that priorities and processes deliver maximum value to the business. This role offers the opportunity to influence global strategy, drive transformation, and inspire collaboration across our worldwide network.\n\n**Flexible location: the position can be based at any of our F&B Operations sites in Europe.**\n\n## Your key responsibilities:\n\n## Strategic Leadership & Governance\n\n- Define and maintain the global inventory and raw material supply strategies in collaboration with Procurement, ensuring alignment with cash flow targets, service levels, and sustainability objectives.\n- Provide strategic supply inputs to the Global Operations business plans and contribute to the multiyear Supply Chain Strategy for the division.\n- Govern and evolve the global **Sales & Operations Planning (S&OP)** process to ensure visibility, standardization, and actionability across compounding and ingredient networks.\n- Establish global supply governance parameters, ownership structures, and performance metrics to drive discipline and efficiency in all regions.\n\n## Cross Functional Influence & Improvement\n\n- Partner with Procurement on raw material supply risk management, allocation steering, and supplier collaboration for critical inputs.\n- Enable operational transformation initiatives — including digital planning, network optimization, and footprint alignment — ensuring measurable performance improvements.\n- Drive continuous improvement at enterprise scale, embedding data driven decision making through advanced analytics and system integration (SAP, BI/BO, etc.).\n- Facilitate knowledge sharing and best‑practice transfer across planning teams globally, ensuring coherence and leverage of capabilities.\n- Help design the Global Supply Roadmap in collaboration with the divisional supply functions and Solution Excellence organization.\n\n## People & Organizational Development\n\n- Lead, coach, and empower the global Strategic Supply team, fostering high performance, innovation, and collaboration.\n- Shape talent succession and capability building in partnership with HR and Operations leadership, building the next generation of supply chain leaders.\n- Champion inclusion, agility, and engagement as core elements of how the global planning community operates.\n\n## You?\n\nYou are visionary leader who combines strategic insight with precise execution — able to connect global priorities with local realities, foster collaboration across functions, and continually raise the bar for supply performance. Success will depend on your ability to align operational strategy with business value while cultivating trust, engagement, and innovation throughout the Givaudan network.\n\n## Your profile includes:\n\n- Master’s degree in Science, Engineering, Supply Chain, Operations Management, or equivalent; MBA preferred.\n- 15–20 years of end-to-end Supply Chain or Planning experience across international operations; experience in Procurement integration and complex transformation programs.\n- Minimum 8–12 years in leadership roles with proven success in managing global teams and influencing executive stakeholders.\n- Strong systems and analytics capability (SAP, BI/BO, advanced planning tools).\n- Continuous improvement exposure (Six Sigma Black Belt or similar) and APICS certification desired.\n- Fluent English; other languages advantageous.\n- Skilled in cross-cultural collaboration, decision quality, and strategic communication.\n- Excellent command of Microsoft Office and business analytics platforms.\n\n## Our benefits:\n\nAttractive package with benefitsExcellent opportunities for progressive learning and developmentA creative team environment that will inspire you.\n\n## PLEASE APPLY WITH ENGLISH CV.\n\n#LI-hybrid\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
         "de": "Begleiten Sie uns und feiern Sie die Schönheit der menschlichen Erfahrung. Schaffen Sie ein glücklicheres, gesünderes Leben mit Liebe zur Natur. Gemeinsam mit Freundlichkeit, Demut und Abenteuergeist liefern wir Lebensmittelinnovationen, Craft inspirierte Düfte und entwickeln Schönheit und Wohlbefinden Lösungen. Es gibt viel zu lernen von unseren 79 Produktionsstätten weltweit, die für ihre erstklassigen Prozesse und Verfahren bekannt sind. Es gibt viele zu lernen, mit leistungsstarken Führungskräften und fürsorglichen Kollegen, um Ideen und Ambitionen zu erkunden. Jeden Tag werden Ihre Energie, Ihre Persönlichkeit und Ihre Entschlossenheit unsere Zukunft prägen und Milliarden von Menschen einen positiven Unterschied machen. Jede Essenz von dir bereichert unsere Welt. Wir sind Givaudan. Menschlich von Natur aus. ## Global Head of Strategic Supply – Ihre zukünftige Position? Treten Sie Givaudan Fragrance & Beauty Operations bei und übernehmen Sie eine zentrale Rolle bei der Gestaltung unserer Division, die Widerstandsfähigkeit, Agilität und strategische Vorteile durchgängig schafft. Als **Global Head of Strategic Supply** leiten Sie die globale Gestaltung und Durchführung von Bestandsmanagement- und Rohstoffversorgungsstrategien sowie die Koordination des S&OP-Prozesses, der Angebot, Nachfrage und Geschäftsziele in allen Regionen verbindet. Wenn Sie direkt an den **Global Head of Supply Chain** berichten, agieren Sie als Architekt und treibende Kraft hinter dem strategischen Versorgungsrahmen, der unsere Wachstumsziele, operative Exzellenz und Kundenzufriedenheit unterstützt und gleichzeitig zur Optimierung von Betriebskapital und Cashflow beiträgt. Sie führen ein vielfältiges globales Team und sind ein wichtiges Bindeglied zwischen regionaler Lieferkette, regionaler Versorgung, GBS und Beschaffung - und stellen sicher, dass Prioritäten und Prozesse dem Unternehmen einen maximalen Mehrwert bieten. Diese Rolle bietet die Möglichkeit, die globale Strategie zu beeinflussen, die Transformation voranzutreiben und die Zusammenarbeit in unserem weltweiten Netzwerk zu fördern. **Flexibler Standort Die Position kann an jedem unserer F&B-Standorte in Europa ansässig sein.** ## Ihre wichtigsten Verantwortlichkeiten ## Strategische Führung und Governance - Definieren und pflegen Sie die globalen Inventar- und Rohstoffversorgungsstrategien in Zusammenarbeit mit der Beschaffung und gewährleisten Sie die Ausrichtung auf die Cashflow-Ziele, Serviceniveaus und Nachhaltigkeitsziele. - Bereitstellung strategischer Lieferinformationen für die Global Operations Businesspläne und Beitrag zur mehrjährigen Supply Chain Strategie für die Division. - Leiten und entwickeln Sie den globalen **Sales & Operations Planning (S&OP)**-Prozess, um Sichtbarkeit, Standardisierung und Umsetzbarkeit in Compounding- und Zutatennetzwerken sicherzustellen. - Etablieren Sie globale Parameter, Eigentümerstrukturen und Leistungskennzahlen, um Disziplin und Effizienz in allen Regionen zu fördern. ## Cross Functional Influence & Verbesserung - Partnerschaft mit der Beschaffung für das Risikomanagement der Rohstoffversorgung, die Steuerung der Allokation und die Zusammenarbeit der Lieferanten für kritische Inputs. - Aktivieren Sie betriebliche Transformationsinitiativen – einschließlich digitaler Planung, Netzwerkoptimierung und Ausrichtung des Footprints – und sorgen Sie für messbare Leistungsverbesserungen. - Steigern Sie kontinuierliche Verbesserungen auf Unternehmensebene, indem Sie datengesteuerte Entscheidungsfindung durch fortschrittliche Analysen und Systemintegration (SAP, BI / BO usw.) integrieren. - Erleichterung des Wissensaustauschs und des Transfers bewährter Verfahren zwischen Planungsteams weltweit, um Kohärenz und die Nutzung von Fähigkeiten zu gewährleisten. - Mitgestalten der Global Supply Roadmap in Zusammenarbeit mit den Divisional Supply Funktionen und der Solution Excellence Organisation. ## Menschen & Organisationsentwicklung - Führen, coachen und stärken Sie das globale Strategic Supply-Team und fördern Sie hohe Leistung, Innovation und Zusammenarbeit. - Gestalten Sie die Nachfolge von Talenten und den Aufbau von Fähigkeiten in Partnerschaft mit der Führung von HR und Operations und bauen Sie die nächste Generation von Supply Chain Leadern auf. - Champion-Inklusion, Agilität und Engagement als Kernelemente der Funktionsweise der globalen Planungsgemeinschaft. ## Sie? Sie sind eine visionäre Führungskraft, die strategische Erkenntnisse mit präziser Ausführung kombiniert - in der Lage, globale Prioritäten mit lokalen Realitäten zu verbinden, die Zusammenarbeit über Funktionen hinweg zu fördern und die Messlatte für die Versorgungsleistung kontinuierlich zu erhöhen. Der Erfolg hängt von Ihrer Fähigkeit ab, die operative Strategie mit dem Geschäftswert in Einklang zu bringen und gleichzeitig Vertrauen, Engagement und Innovation im gesamten Givaudan-Netzwerk zu fördern. ##\n• Ihr Profil umfasst - Master-Abschluss in Science, Engineering, Supply Chain, Operations Management oder gleichwertig; MBA bevorzugt. - 15-20 Jahre End-to-End Supply Chain- oder Planungserfahrung in internationalen Operationen; Erfahrung in der Beschaffungsintegration und komplexen Transformationsprogrammen. - Mindestens 8-12 Jahre in Führungspositionen mit nachgewiesenem Erfolg bei der Verwaltung globaler Teams und der Beeinflussung von Führungskräften. - Starke Systeme und Analysefähigkeiten (SAP, BI/BO, fortgeschrittene Planungstools). - Kontinuierliche Verbesserung der Exposition (Six Sigma Black Belt oder ähnlich) und APICS-Zertifizierung gewünscht. - fließendes Englisch; andere Sprachen vorteilhaft. - Kompetenz in interkultureller Zusammenarbeit, Entscheidungsqualität und strategischer Kommunikation. - Ausgezeichnete Beherrschung von Microsoft Office und Business Analytics Plattformen. ## Unsere Vorteile Attraktives Paket mit VorteilenExzellente Möglichkeiten für progressives Lernen und EntwicklungEine kreative Teamumgebung, die Sie inspirieren wird. ## BITTE MIT DEM ENGLISCHEN Lebenslauf ANWENDET. #LI-Hybrid Bei Givaudan tragen Sie zu herrlichen Geschmacks- und Dufterlebnissen bei, die das Leben der Menschen berühren. Wir schätzen die unterschiedlichen Perspektiven, die aus verschiedenen Kulturen, Hintergründen und Erfahrungen kommen. Jeder - unabhängig von Rasse, Geschlechtsidentität, sexueller Orientierung, Alter, Behinderung, Kultur, Religion oder persönlichen Umständen - wird in Givaudan herzlich willkommen geheißen, einem Ort, an dem wir alle gerne sind und wachsen. Jede Essenz von dir bereichert unsere Welt. Machen Sie gemeinsam mit uns einen Unterschied.",
         "fr": "Rejoignez-nous et célébrez la beauté de l'expérience humaine. Créer pour des vies plus heureuses et plus saines, avec amour pour la nature. Ensemble, avec bonté, humilité et esprit d'aventure, nous livrons des innovations alimentaires, des parfums inspirés de l'artisanat et développons des solutions de beauté et de bien-être. Il y a beaucoup à apprendre de nos 79 sites de production dans le monde entier, connus pour leurs procédés et procédures les plus performants. Il ya beaucoup d'apprendre de, avec des dirigeants très performants et des collègues bienveillants pour explorer des idées et des ambitions avec. Chaque jour, votre énergie, votre personnalité et votre détermination façonneront notre avenir, faisant une différence positive sur des milliards de personnes. Chaque essence de vous enrichit notre monde. Nous sommes Givaudan. De nature humaine. ## Global Head of Strategic Supply – Votre position future? Rejoignez Givaudan Fragrance & Beauty Operations et prenez un rôle central dans la façon dont notre division construit de bout en bout la résilience de l'approvisionnement, l'agilité et l'avantage stratégique. En tant que responsable mondial de l'approvisionnement stratégique**, vous dirigerez la conception et l'exécution à l'échelle mondiale des stratégies de gestion des stocks et d'approvisionnement en matières premières, ainsi que la coordination du processus S&OP qui relie l'offre, la demande et les objectifs commerciaux dans toutes les régions. Relevant directement du **Global Head of Supply Chain**, vous êtes l'architecte et le moteur du cadre stratégique d'approvisionnement qui soutient nos ambitions de croissance, l'excellence opérationnelle et la satisfaction des clients tout en contribuant à optimiser le fonds de roulement et les flux de trésorerie. Vous dirigerez une équipe mondiale diversifiée et servirez de lien essentiel entre la chaîne d'approvisionnement régionale, l'approvisionnement régional, le SGB et l'approvisionnement, en veillant à ce que les priorités et les processus offrent une valeur maximale à l'entreprise. Ce rôle offre l'occasion d'influencer la stratégie mondiale, de stimuler la transformation et d'inspirer la collaboration dans notre réseau mondial. **Situation flexible, la position peut être basée sur n'importe lequel de nos sites d'opérations F&B en Europe.** ## Vos principales responsabilités ## Leadership stratégique et gouvernance - Définir et maintenir les stratégies globales d'inventaire et d'approvisionnement en matières premières en collaboration avec Approvisionnement, en assurant l'alignement sur les objectifs de trésorerie, les niveaux de service et les objectifs de durabilité. - Fournir des apports stratégiques aux plans d'activités des Opérations mondiales et contribuer à la Stratégie pluriannuelle de la chaîne d'approvisionnement de la division. - Gouvernance et évolution du processus mondial de planification des ventes et des opérations (S&OP)** pour assurer la visibilité, la normalisation et la capacité d'action dans les réseaux composés et ingrédients. - Établir des paramètres de gouvernance de l'approvisionnement à l'échelle mondiale, des structures de propriété et des paramètres de performance pour stimuler la discipline et l'efficacité dans toutes les régions. ## Influence et amélioration fonctionnelles croisées - Partenariat avec Approvisionnement en matière de gestion des risques liés à l'approvisionnement en matières premières, direction de l'attribution et collaboration des fournisseurs pour les intrants essentiels. - Permettre des initiatives de transformation opérationnelle - y compris la planification numérique, l'optimisation du réseau et l'alignement de l'empreinte - en assurant des améliorations mesurables des performances. - Diriger l'amélioration continue à l'échelle de l'entreprise, en intégrant la prise de décision axée sur les données par l'analyse avancée et l'intégration du système (SAP, BI/BO, etc.). - Faciliter le partage des connaissances et le transfert des meilleures pratiques entre les équipes de planification à l'échelle mondiale, en assurant la cohérence et l'effet de levier des capacités. - Aider à concevoir la Carte routière mondiale de l'approvisionnement en collaboration avec les fonctions d'approvisionnement de la division et l'organisation Solution Excellence. ## Personnes & Développement organisationnel - Diriger, coacher et responsabiliser l'équipe mondiale d'approvisionnement stratégique, en favorisant la haute performance, l'innovation et la collaboration. - Former la relève des talents et le renforcement des capacités en partenariat avec le leadership des RH et des opérations, en créant la prochaine génération de leaders de la chaîne d'approvisionnement. - Faire de l'inclusion, de l'agilité et de l'engagement un élément central du fonctionnement de la communauté de planification mondiale. ## Toi ? Vous êtes un leader visionnaire qui combine une vision stratégique et une exécution précise – capable de relier les priorités mondiales aux réalités locales, de favoriser la collaboration entre les fonctions et d'augmenter continuellement la barre pour la performance de l'offre. Le succès dépendra de votre capacité à aligner votre stratégie opérationnelle sur la valeur opérationnelle tout en cultivant la confiance, l'engagement et l'innovation dans tout le réseau Givaudan. ##\n• Votre profil comprend - Maîtrise en sciences, génie, chaîne d'approvisionnement, gestion des opérations, ou équivalent; MBA préféré. - 15 à 20 ans d'expérience de bout en bout en matière de chaîne d'approvisionnement ou de planification dans l'ensemble des opérations internationales; expérience en matière d'intégration des achats et de programmes de transformation complexes. - Au moins 8 à 12 ans dans les rôles de leadership avec succès prouvé dans la gestion d'équipes mondiales et influencer les intervenants exécutifs. - Forte capacité de systèmes et d'analyse (SAP, BI/BO, outils de planification avancés). - Exposition à l'amélioration continue (Six Sigma Black Belt ou similaire) et certification APICS souhaitée. - Anglais fluent; autres langues avantageuses. - Compétence en collaboration interculturelle, qualité des décisions et communication stratégique. - Excellente maîtrise des plateformes Microsoft Office et d'analyse d'affaires. ## Nos avantages Un ensemble attrayant avec des avantagesExcellentes opportunités d'apprentissage et de développement progressifUn environnement d'équipe créative qui vous inspirera. ## S'il vous plaît appliquer avec le CV ENGLISH. #L-hybride Chez Givaudan, vous contribuez à de délicieuses expériences de goût et de parfum qui touchent les vies des gens. Nous apprécions les différentes perspectives qui proviennent de diverses cultures, milieux et expériences. Chacun, indépendamment de sa race, de son identité de genre, de son orientation sexuelle, de son âge, de son handicap, de sa culture, de sa religion ou de toute autre situation personnelle, est chaleureusement accueilli à Givaudan, un endroit où nous aimons tous être et grandir. Chaque essence de vous enrichit notre monde. Rejoignez-nous pour faire la différence ensemble."
       },
@@ -681,7 +687,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119178EXTERNALENGLOBAL/global-head-of-strategic-supply",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:39.056Z",
+      "crawledAt": "2026-07-12T22:02:23.607Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -759,7 +765,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:40:38.692Z",
+      "crawledAt": "2026-07-12T22:02:23.268Z",
       "addressLocality": "Volketswil",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -837,7 +843,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:38.333Z",
+      "crawledAt": "2026-07-12T22:02:22.787Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -896,6 +902,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -940,7 +947,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:37.996Z",
+      "crawledAt": "2026-07-12T22:02:22.446Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -974,6 +981,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1018,7 +1026,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:37.693Z",
+      "crawledAt": "2026-07-12T22:02:22.142Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1090,7 +1098,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T10:40:37.448Z",
+      "crawledAt": "2026-07-12T22:02:21.838Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1119,7 +1127,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-783dd874b6b8",
@@ -1136,7 +1145,7 @@
       "title": "Quality Assurance & Sample Technician (m/w/d)",
       "titleByLocale": {
         "it": "Garanzia di qualità & campione tecnico (m/f/d)",
-        "en": "Quality Assurance & Sample Technician (m/f/d)",
+        "en": "Quality Assurance & Sample Technician (m/w/d)",
         "de": "Qualität Assurance & Sample Techniker (m/w/d)",
         "fr": "Technicien en assurance de la qualité et échantillon (m/f/d)"
       },
@@ -1152,7 +1161,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:40:37.198Z",
+      "crawledAt": "2026-07-12T22:02:21.581Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -1191,6 +1200,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:40:09.062Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1235,7 +1245,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119129EXTERNALENGLOBAL/head-of-fragrance-ingredients-business-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:36.950Z",
+      "crawledAt": "2026-07-12T22:02:21.228Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1313,7 +1323,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119042EXTERNALENGLOBAL/patent-attorney-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:36.641Z",
+      "crawledAt": "2026-07-12T22:02:20.939Z",
       "addressLocality": "Zug",
       "postalCode": "",
       "addressRegion": "ZG",
@@ -1391,7 +1401,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118780EXTERNALENGLOBAL/environmental-lab-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:40:36.284Z",
+      "crawledAt": "2026-07-12T22:02:20.552Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1463,7 +1473,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118971EXTERNALENGLOBAL/betriebsmechaniker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:40:36.023Z",
+      "crawledAt": "2026-07-12T22:02:20.221Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -1491,6 +1501,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
