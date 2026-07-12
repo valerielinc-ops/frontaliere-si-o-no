@@ -8407,6 +8407,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': '50% remote border guards with no impact on contributions and pensions',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'The New Frontier Agreement provides for exemption from tax at source for frontier workers who work remotely at 50%.',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'A remote worker in the Canton Ticino office.',
+    'blog.article.frontaliere-ticino-permessi-g.title': 'Ticino Borders: G Permits and Self-Employment in Switzerland',
+    'blog.article.frontaliere-ticino-permessi-g.excerpt': 'Switzerland has a system of G permits for border workers who wish to work in Switzerland. But what are these permits and how do you get them?',
+    'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'A frontiere sits at a registration office desk, holding a permit G form.',
 };
 
 export default blogMetaEn;
