@@ -152,7 +152,12 @@ function parseSearchPage(html = '') {
   for (const block of blocks) {
     const titleM = block.match(/class="jobTitle-link">([^<]*)</);
     const hrefM = block.match(/href="([^"]+)"\s*class="jobTitle-link"/);
-    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*<\/span>/);
+    // Stop at the first tag, NOT at </span>: multi-location rows append
+    // `<small class="nobr">+N more&hellip;</small>` inside the span, so a
+    // strict `</span>` boundary yields locationText='' for them (same
+    // Jobs2Web-tenant antipattern fixed for benteler in #3893 — live row
+    // "Master Planner 100%", Sierre + 1 more, verified 2026-07-11).
+    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*</);
     const facM = block.match(/class="jobFacility">([^<]*)</);
     if (!titleM || !hrefM) continue;
     rows.push({

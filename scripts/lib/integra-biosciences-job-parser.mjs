@@ -8,12 +8,19 @@
  * The listing page uses a Drupal Views table with columns:
  *   Title (linked to detail page), Business Area, Country.
  *
- * Filter: ?field_job_country_value=CH for Swiss jobs only.
+ * We fetch the UNFILTERED global open-positions page and select Swiss rows
+ * client-side by the Country column (value "Switzerland"). The Drupal Views
+ * exposed country filter uses full country names ("Switzerland", "United
+ * States", …) submitted via AJAX, so a naive `?field_job_country_value=CH`
+ * query param was invalid and silently ignored (the old "CH" scaffold value).
  *
  * Detail pages at /global/en/careers/{slug} contain full job descriptions.
  *
- * Cloudflare challenge may block automated requests. The crawler handles
- * 403 responses gracefully and logs a warning when blocked.
+ * Cloudflare serves a hard HTTP 403 "Just a moment…" challenge to datacenter
+ * egress IPs (GitHub Actions), so a direct fetch always returns 0 — this is
+ * why the crawler never produced a job (lastSuccessfulRunAt=null). We route
+ * the request through the shared Jina Reader clean-IP proxy on a 403 /
+ * challenge body, exactly like the jobup/cambiavalute IP-reputation class.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllIntegraBiosciencesJobs()  — Fetch and parse all jobs
@@ -32,6 +39,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -40,11 +48,11 @@ export const INTEGRA_BIOSCIENCES_COMPANY_NAME = 'INTEGRA Biosciences';
 export const INTEGRA_BIOSCIENCES_COMPANY_DOMAIN = 'integra-biosciences.com';
 
 /**
- * Career page URL — global/en shows all locations.
- * Append ?field_job_country_value=CH to filter Swiss positions only.
+ * Career page URL — global/en shows all locations. Swiss rows are selected
+ * client-side by the Country column (the exposed Drupal Views filter uses full
+ * country names and AJAX submission, so a query-string filter is unreliable).
  */
 const CAREER_URL = 'https://www.integra-biosciences.com/global/en/careers/open-positions';
-const CAREER_URL_CH = `${CAREER_URL}?field_job_country_value=CH`;
 
 const BASE_URL = 'https://www.integra-biosciences.com';
 
@@ -180,16 +188,22 @@ export function inferEmploymentType(title = '') {
 /* ── HTML Parsing — Listing Page ──────────────────────────── */
 
 /**
- * Fetch the listing page HTML.
- * Uses the CH-filtered URL to get only Swiss positions.
+ * Fetch a page's HTML, trying a direct browser-shaped request first and
+ * transparently falling back to the Jina Reader clean-IP proxy when Cloudflare
+ * serves its "Just a moment…" 403 challenge to the datacenter egress IP.
+ *
+ * Returns the real page HTML on success, or '' when neither path yields a
+ * usable page (the caller then gracefully returns 0 jobs — the source is
+ * preserved, never a hard failure).
  */
-async function fetchListingPage() {
+async function fetchHtmlWithJinaFallback(url, { label = 'page' } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+  let blocked = false;
   try {
-    const res = await fetch(CAREER_URL_CH, {
+    const res = await fetch(url, {
       signal: controller.signal,
       headers: {
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -205,22 +219,43 @@ async function fetchListingPage() {
     });
     clearTimeout(timer);
 
-    if (res.status === 403) {
-      console.warn('⚠️ Cloudflare challenge blocked the request (HTTP 403).');
-      console.warn('   The crawler will return 0 jobs. This is expected when CF is active.');
-      return '';
+    if (res.status === 403 || res.status === 429 || res.status === 503) {
+      blocked = true;
+    } else if (!res.ok) {
+      throw new Error(`HTTP ${res.status} from ${label}`);
+    } else {
+      const html = await res.text();
+      // A CF challenge can also arrive on a 200 body — treat it as blocked.
+      if (looksLikeAntiBotChallenge(html)) blocked = true;
+      else return html;
     }
-
-    if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
-    return await res.text();
   } catch (err) {
     clearTimeout(timer);
     if (err.name === 'AbortError') {
-      console.warn('⚠️ Request timed out.');
-      return '';
+      console.warn(`⚠️ Direct request to ${label} timed out — trying Jina proxy.`);
+      blocked = true;
+    } else {
+      // Network-level failure: still worth a clean-IP proxy attempt.
+      console.warn(`⚠️ Direct request to ${label} failed (${err.message}) — trying Jina proxy.`);
+      blocked = true;
     }
-    throw err;
   }
+
+  if (!blocked) return '';
+
+  console.warn(`⚠️ Cloudflare blocked ${label} from this IP — routing through Jina clean-IP proxy.`);
+  const viaJina = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+  if (viaJina != null && !looksLikeAntiBotChallenge(viaJina)) return viaJina;
+
+  console.warn(`⚠️ Jina proxy could not retrieve ${label} either — returning empty (0 jobs, source preserved).`);
+  return '';
+}
+
+/**
+ * Fetch the global open-positions listing page HTML.
+ */
+async function fetchListingPage() {
+  return fetchHtmlWithJinaFallback(CAREER_URL, { label: 'listing page' });
 }
 
 /**
@@ -304,35 +339,10 @@ export function parseListingTable(html = '') {
 
 /**
  * Fetch a job detail page and extract the full description.
+ * Uses the same Cloudflare-aware Jina fallback as the listing page.
  */
 async function fetchDetailPageHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'en-US,en;q=0.9,de-CH;q=0.8',
-      },
-    });
-    clearTimeout(timer);
-
-    if (res.status === 403) {
-      console.warn(`  ⚠️ Cloudflare blocked detail page: ${url}`);
-      return '';
-    }
-
-    if (!res.ok) throw new Error(`HTTP ${res.status} from detail page: ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    if (err.name === 'AbortError') return '';
-    throw err;
-  }
+  return fetchHtmlWithJinaFallback(url, { label: `detail page ${url}` });
 }
 
 /**
@@ -415,14 +425,14 @@ export function parseDetailPage(html = '') {
  */
 export async function fetchAllIntegraBiosciencesJobs() {
   console.log(`🔍 Fetching INTEGRA Biosciences jobs`);
-  console.log(`   Source: ${CAREER_URL_CH}`);
-  console.log(`   Note: Site is behind Cloudflare — 403 responses are expected.\n`);
+  console.log(`   Source: ${CAREER_URL}`);
+  console.log(`   Note: Site is behind Cloudflare — direct fetch falls back to the Jina clean-IP proxy.\n`);
 
   const listingHtml = await fetchListingPage();
   const cards = parseListingTable(listingHtml);
 
   if (!cards || cards.length === 0) {
-    console.warn('⚠️ No job cards found. Cloudflare may be blocking the request.');
+    console.warn('⚠️ No job cards found (no open positions, or the source could not be retrieved).');
     return [];
   }
 
