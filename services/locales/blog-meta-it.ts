@@ -8402,6 +8402,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Conversione patente di guida in Svizzera per frontalieri: guida pratica, costi, validità',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'Il nuovo Accordo Frontalieri firmato il 23/12/2020 prevede la possibilità di convertire la patente di guida italiana in svizzera per i frontalieri.',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'Una scena di un frontaliere che si reca al traffico di Locarno per cambiare la patente di guida italiana in svizzera.',
+    'blog.article.frontalieri-telelavoro.title': 'Frontalieri: è entrata in vigore l\'intesa sul telelavoro',
+    'blog.article.frontalieri-telelavoro.excerpt': 'I frontalieri possono lavorare da casa fino al 25% del tempo di lavoro annuale',
+    'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaIt;

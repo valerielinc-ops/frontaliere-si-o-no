@@ -8401,6 +8401,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Driving License Conversion in Switzerland for Border Workers: Guide, Costs, Validity',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'The new Frontier Agreement signed on 23/12/2020 provides for the possibility of converting the Italian driving licence into Swiss for border workers.',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'A scene of a cross-border worker going to the traffic of Locarno to change their Italian driving license to Swiss.',
+    'blog.article.frontalieri-telelavoro.title': 'Frontier workers: the agreement on teleworking has come into force',
+    'blog.article.frontalieri-telelavoro.excerpt': 'Border workers can work from home up to 25% of their annual working time',
+    'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaEn;
