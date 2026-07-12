@@ -8432,6 +8432,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Actualités douanières en Suisse : valeurs, déclaration et conséquences sur le front',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Avec l\'entrée en vigueur du Nouvel Accord frontalier, les règles pour les achats en Suisse ont changé. Découvrez les nouvelles limites de franchise de douane, la déclaration nécessaire et les conséquences du dépassement.',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Un travailleur frontalier attend le moment de faire des achats en Suisse.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Enseignants frontaliers : pas d\'irrégularités',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'Le Conseil d\'État a répondu à une question de Lorenzo Quadri, affirmant qu\'il n\'y a pas d\'irrégularité dans le fait que des enseignants frontaliers soient entrés en service avant d\'obtenir le permis de travail.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'Un enseignant dans une école du Canton du Tessin.',
 };
 
 export default blogMetaFr;

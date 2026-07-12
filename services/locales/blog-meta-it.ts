@@ -8432,6 +8432,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Limiti doganali in Svizzera: aggiornamento dei valori, dichiarazione e conseguenze per il fronte',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Con l\'entrata in vigore del Nuovo Accordo Frontalieri, sono cambiate le regole per gli acquisti in Svizzera. Scopri i nuovi limiti di franchigia doganale, la dichiarazione necessaria e le conseguenze del superamento.',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Un frontaliere in attesa di fare shopping in Svizzera.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Docenti frontalieri: nessuna irregolarità',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'Il Consiglio di Stato ha risposto a un\'interrogazione di Lorenzo Quadri, affermando che non vi è irregolarità nel fatto che docenti frontalieri siano entrati in servizio prima di ottenere il permesso di lavoro.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'Un docente frontaliero insegna in una scuola del Cantone Ticino.',
 };
 
 export default blogMetaIt;
