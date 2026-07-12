@@ -364,6 +364,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // genuinely has no open Swiss postings on this ATS right now. Parser is
   // healthy and will pick up real jobs the moment any CH ones are published.
   'kone',
+  // Clariant AG (SuccessFactors Jobs2Web, careers.clariant.com): verified
+  // live 2026-07-12 — the `/search/?locationsearch=switzerland` filtered
+  // listing returns "no open positions matching switzerland", and the
+  // markup/selectors this parser targets (`data-row`, `jobTitle-link`,
+  // `colLocation`, `colDepartment`) are unchanged and still correctly parse
+  // the 20 rows on the unfiltered `/search/` page. Walked all 110 currently
+  // open postings across all 6 result pages: none is Switzerland-located
+  // (Airoli IN, Burgkirchen/Gersthofen/Moosburg/Heufeld DE, Shanghai CN,
+  // Louisville/Quincy/Albuquerque US, etc.) — Clariant genuinely has 0 open
+  // Swiss roles right now, not a selector break. Parser is healthy and
+  // re-arms when a CH listing (historically filed under "Pratteln, CH")
+  // reappears. Same legitimately-empty regional-filter case as
+  // manor/bracco/fnz.
+  'clariant',
 ]);
 
 /** Read JSON file, return null on any error. */
