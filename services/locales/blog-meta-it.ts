@@ -8393,6 +8393,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.title': 'Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.excerpt': 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione.',
     'blog.article.sia-tredicesima-avs-guadagnarci-due-volte.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.title': 'Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.excerpt': 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri.',
+    'blog.article.indennita-perdita-guadagno-malattia-lunga-frontaliere.imageAlt': 'Immagine di un frontaliere che si trova in una situazione di salute precaria',
 };
 
 export default blogMetaIt;
