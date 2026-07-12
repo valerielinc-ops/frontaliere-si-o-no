@@ -378,6 +378,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'regime-forfettario-italiano-compatibilita-reddito-svizzero': { it: 'regime-forfettario-italiano-compatibilita-reddito-svizzero', en: 'italian-forfettario-regime-compatibility-swiss-income', de: 'italienisches-furfettari-regime-vertraeglichkeit-schweizerisches-einkommen', fr: 'regime-furfettari-italien-vertraeglichkeit-revenu-suisse' },
  'codice-tributo-ritenute-rendite-avs-lpp': { it: 'codice-tributo-ritenute-rendite-avs-lpp', en: 'tax-code-withholding-avs-lpp-pensions-switzerland', de: 'steuercode-abzuege-avs-lpp-renten-schweiz', fr: 'code-imposition-retenues-rentes-avs-lpp-suisse' },
  'frontalieri-ticino-calano': { it: 'frontalieri-ticino-calano', en: 'frontaliers-ticino-decrease', de: 'frontaliers-lugano-abnehmen', fr: 'frontaliers-lugano-decroissance' },
+ 'frontalieri-disoccupati-urc-ticino': { it: 'frontalieri-disoccupati-urc-ticino', en: 'frontalieri-unemployed-urc-ticino-registration', de: 'grenzgaenger-arbeitslos-urc-tessin-anmeldung', fr: 'frontaliers-chomeurs-urc-tessin-inscription' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

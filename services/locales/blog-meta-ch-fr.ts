@@ -1066,6 +1066,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-calano.title': 'Tessin: lavoratori stranieri in aumento',
     'blog.article.frontalieri-ticino-calano.excerpt': 'Selon les données de l\'Office fédéral de la statistique, les frontaliers italiens en Suisse sont en baisse.',
     'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers à Lugano',
+    'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Comment s\'inscrire auprès des bureaux de placement suisses',
+    'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'Au Tessin, 65 000 frontaliers sur 220 000 postes. Depuis 2018, ils ont le droit de s\'inscrire aux URC, mais en 2017, ils n\'étaient que 83 dans toute la Suisse.',
+    'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Bureau de placement moderne dans un bâtiment public tessinois avec des personnes en attente',
 };
 
 export default blogMetaChFr;

@@ -1066,6 +1066,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-calano.title': 'Tessin: Länder mit hohem Ausländeranteil',
     'blog.article.frontalieri-ticino-calano.excerpt': 'Nach Angaben des Bundesamtes für Statistik ist die Zahl der italienischen Grenzgänger in der Schweiz rückläufig.',
     'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers in Lugano',
+    'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Arbeitslose Grenzgänger: So melden Sie sich bei den Schweizer Arbeitsämtern an',
+    'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'Im Tessin 65.000 Grenzgänger auf 220.000 Plätzen. Seit 2018 haben sie das Recht, sich bei den RAV zu registrieren, aber 2017 waren es nur 83 in der ganzen Schweiz.',
+    'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Modernes Arbeitsamt in einem Tessiner öffentlichen Gebäude mit wartenden Personen',
 };
 
 export default blogMetaChDe;

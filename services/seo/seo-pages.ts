@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3192,
+ "numberOfItems": 3193,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7867,7 +7867,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3189, "name": "Cambio cantone di lavoro per frontaliere Ticino...", "url": `${BASE_URL}/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni` },
           { "@type": "ListItem", "position": 3190, "name": "Ticino: i frontalieri calano, ma in Svizzera it...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calano` },
           { "@type": "ListItem", "position": 3191, "name": "Infortunio in itinere al confine per il frontal...", "url": `${BASE_URL}/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere` },
-          { "@type": "ListItem", "position": 3192, "name": "Congedo per lutto o malattia familiare: i dirit...", "url": `${BASE_URL}/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera` }
+          { "@type": "ListItem", "position": 3192, "name": "Congedo per lutto o malattia familiare: i dirit...", "url": `${BASE_URL}/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera` },
+          { "@type": "ListItem", "position": 3193, "name": "Frontalieri disoccupati: come iscriversi agli U...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-ticino` }
  ]
  },
  {
