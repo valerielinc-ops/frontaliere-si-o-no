@@ -148,7 +148,6 @@ async function callDatabroker(definitionSysId, inputValues, pipelineId) {
       }]),
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} from ServiceNow API`);
@@ -161,9 +160,8 @@ async function callDatabroker(definitionSysId, inputValues, pipelineId) {
     // first `result` row) warns loudly instead of silently yielding [].
     const executionResult = data?.result?.[0]?.executionResult;
     return assertJsonListShape(executionResult, { key: 'output', source: 'hopital-du-valais' });
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

@@ -132,12 +132,10 @@ async function fetchPage(url, timeoutMs = 20000) {
       signal: controller.signal,
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

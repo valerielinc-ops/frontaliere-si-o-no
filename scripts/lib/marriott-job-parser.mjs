@@ -201,7 +201,6 @@ async function obtainSessionCookie() {
       redirect: 'follow',
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} fetching jobs page for cookie`);
@@ -219,9 +218,8 @@ async function obtainSessionCookie() {
     await res.text();
 
     return cookies.join('; ');
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -251,16 +249,14 @@ async function callSearchApi(cookie, pageNumber = 1) {
       }),
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} from Paradox search API (page ${pageNumber})`);
     }
 
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

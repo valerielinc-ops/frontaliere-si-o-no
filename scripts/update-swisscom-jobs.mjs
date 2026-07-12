@@ -137,9 +137,9 @@ function isSwissLocation(locText = '') {
 
 async function fetchJson(url, options = {}) {
   const timeoutMs = options.timeoutMs || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, {
       ...options,
       signal: controller.signal,
@@ -152,7 +152,6 @@ async function fetchJson(url, options = {}) {
         ...options.headers,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
@@ -161,6 +160,8 @@ async function fetchJson(url, options = {}) {
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

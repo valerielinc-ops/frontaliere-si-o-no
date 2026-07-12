@@ -287,15 +287,15 @@ export async function fetchSmartRecruitersDetail(postingId, timeoutMs = 12000) {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ SR API ${res.status} for posting ${postingId}`);
       return null;
     }
     return await res.json();
   } catch (err) {
-    clearTimeout(timer);
     console.warn(`⚠️ SR API fetch failed for ${postingId}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }

@@ -179,16 +179,14 @@ async function fetchFustJobUrls() {
     console.log(`🔍 Fetching Coop Group feed CH-wide page ${page + 1} (offset ${offset})…`);
 
     let jobs;
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+    try {
       const res = await fetch(apiUrl, {
         signal: controller.signal,
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
-      clearTimeout(timer);
-
       if (!res.ok) {
         console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
         break;
@@ -200,6 +198,8 @@ async function fetchFustJobUrls() {
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
       break;
+    } finally {
+      clearTimeout(timer);
     }
 
     if (jobs.length === 0) break;

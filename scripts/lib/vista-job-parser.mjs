@@ -127,12 +127,10 @@ async function fetchOstendisListings() {
         'Accept-Language': 'de-CH,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from Ostendis API`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -150,12 +148,10 @@ async function fetchDetailPage(detailUrl) {
         'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from detail page: ${detailUrl}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

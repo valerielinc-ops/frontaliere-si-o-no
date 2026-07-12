@@ -92,10 +92,10 @@ async function fetchCscJobUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
 
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+  try {
     const res = await fetch(CSC_CAREERS_URL, {
       signal: controller.signal,
       headers: {
@@ -103,7 +103,6 @@ async function fetchCscJobUrls() {
         'User-Agent': UA,
       },
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       console.warn(`⚠️ CSC careers page returned ${res.status}`);
@@ -146,6 +145,8 @@ async function fetchCscJobUrls() {
   } catch (err) {
     console.warn(`⚠️ Failed to fetch CSC careers page: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 

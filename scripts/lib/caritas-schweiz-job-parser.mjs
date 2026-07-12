@@ -172,13 +172,11 @@ async function fetchPage(url, timeoutMs = 20000) {
       signal: controller.signal,
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

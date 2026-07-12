@@ -53,11 +53,12 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('zambon') || h.includes('ncoreplat.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
+  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    clearTimeout(timer); if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
+  finally { clearTimeout(timer); }
 }
 
 /**
@@ -103,9 +104,9 @@ function buildZambonDescription(title, raw) {
 async function fetchJobs() {
   // Primary: use the JSON API (Vue.js frontend loads from this)
   console.log(`🔍 Fetching Zambon jobs from API: ${CAREERS_API}`);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 20000);
     const res = await fetch(CAREERS_API, {
       signal: controller.signal,
       headers: {
@@ -114,7 +115,6 @@ async function fetchJobs() {
         'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const body = await res.json();
     const allJobs = body.data || body;
@@ -151,6 +151,8 @@ async function fetchJobs() {
     });
   } catch (err) {
     console.warn(`⚠️ API fetch failed: ${err.message} — falling back to HTML parsing`);
+  } finally {
+    clearTimeout(timer);
   }
 
   // Fallback: HTML parsing (unlikely to work for Vue.js rendered pages)

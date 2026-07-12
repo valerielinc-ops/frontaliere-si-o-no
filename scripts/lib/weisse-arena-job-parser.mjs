@@ -183,12 +183,10 @@ async function callTalentLinkApi(url, body = null) {
       signal: controller.signal,
       body: body ? JSON.stringify(body) : undefined,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from TalentLink API`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

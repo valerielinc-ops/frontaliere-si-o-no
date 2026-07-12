@@ -192,12 +192,10 @@ async function fetchRssFeed() {
         'Accept-Language': 'en-GB,en;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from RSS feed`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

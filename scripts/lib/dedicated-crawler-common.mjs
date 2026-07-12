@@ -5727,9 +5727,9 @@ export async function geocodeCountry(locationString) {
   const q = String(locationString || '').trim();
   if (!q || q.length < 2) return null;
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1&addressdetails=1`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 8000);
     const res = await globalThis.fetch(url, {
       signal: controller.signal,
       headers: {
@@ -5737,13 +5737,14 @@ export async function geocodeCountry(locationString) {
         Accept: 'application/json',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) return null;
     const data = await res.json();
     if (!Array.isArray(data) || data.length === 0) return null;
     return (data[0].address?.country_code || '').toLowerCase() || null;
   } catch {
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

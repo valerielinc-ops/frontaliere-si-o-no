@@ -51,12 +51,10 @@ async function fetchRiveneuveHtml(url) {
       headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

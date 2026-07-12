@@ -209,7 +209,6 @@ async function fetchTypesenseApiKey() {
         'Accept-Language': 'de-CH,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
     const html = await res.text();
 
@@ -255,9 +254,8 @@ async function fetchTypesenseApiKey() {
 
     console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
     return apiKey;
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -293,7 +291,6 @@ async function fetchJobListings(apiKey) {
         }],
       }),
     });
-    clearTimeout(timer);
 
     if (!res.ok) throw new Error(`HTTP ${res.status} from Typesense API`);
 
@@ -305,9 +302,8 @@ async function fetchJobListings(apiKey) {
     console.log(`  📊 Typesense found: ${results.found} jobs, returned: ${hits.length}`);
     warnIfListingAtCap({ label: 'Hochgebirgsklinik Davos listing', count: hits.length, cap: TYPESENSE_PAGE_CAP, total: results.found });
     return hits.map((h) => h.document);
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

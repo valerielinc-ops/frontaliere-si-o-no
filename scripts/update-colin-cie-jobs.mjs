@@ -162,21 +162,23 @@ async function fetchPage(url) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-          'User-Agent': USER_AGENTS[attempt],
-          Referer: 'https://www.google.com/',
-        },
-        redirect: 'follow',
-      });
-      clearTimeout(timer);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.text();
+      try {
+        const res = await fetch(url, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+            'User-Agent': USER_AGENTS[attempt],
+            Referer: 'https://www.google.com/',
+          },
+          redirect: 'follow',
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
+      }
     } catch (err) {
-      clearTimeout(timer);
       if (attempt < 2) {
         const delay = 3000 * (attempt + 1);
         console.log(`  ⚠️  fetch attempt ${attempt + 1} failed (${err.message}), retrying in ${delay / 1000}s...`);

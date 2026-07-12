@@ -396,12 +396,10 @@ async function fetchPublications() {
         'User-Agent': USER_AGENT,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from Abacus API`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

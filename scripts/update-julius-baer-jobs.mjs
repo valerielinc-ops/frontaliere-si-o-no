@@ -61,14 +61,14 @@ function isTrustedDomain(rawUrl = '') {
 
 async function fetchJson(url, options = {}) {
   const timeoutMs = options.timeoutMs || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, { ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', ...options.headers } });
-    clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
     return await res.json();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
+  finally { clearTimeout(timer); }
 }
 
 // Workday `Location_Country` facet ID for Switzerland on the Julius Baer tenant.

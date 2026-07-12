@@ -133,7 +133,6 @@ async function fetchRssFeed() {
         'User-Agent': USER_AGENT,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from RSS feed`);
     const xml = await res.text();
 
@@ -179,9 +178,8 @@ async function fetchRssFeed() {
       });
     }
     return items;
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

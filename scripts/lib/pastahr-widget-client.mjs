@@ -319,7 +319,6 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
         body: params.toString(),
         signal: controller.signal,
       });
-      clearTimeout(timer);
       if (res.ok) return await res.json();
       firstStatus = res.status;
       const err = new Error(`HTTP ${res.status} from ${PASTAHR_ENDPOINT}`);
@@ -327,7 +326,6 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
       err.retryable = RETRYABLE_STATUS.has(res.status);
       throw err;
     } catch (err) {
-      clearTimeout(timer);
       // Anti-bot fence (403/401/406): try the headless-browser replay, which
       // the WAF treats as a genuine visitor — but see the cross-origin caveat
       // above, PastaHR always skips it and falls straight through to marking
@@ -344,6 +342,8 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
         err.retryable = true;
       }
       throw err;
+    } finally {
+      clearTimeout(timer);
     }
   }, { label: `pastahr ${PASTAHR_ENDPOINT}` });
 }
@@ -418,7 +418,6 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
         body: bodyString,
         signal: controller.signal,
       });
-      clearTimeout(timer);
       if (res.ok) return await res.json();
       firstStatus = res.status;
       const err = new Error(`HTTP ${res.status} from ${endpoint}`);
@@ -426,7 +425,6 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
       err.retryable = RETRYABLE_STATUS.has(res.status);
       throw err;
     } catch (err) {
-      clearTimeout(timer);
       const status = firstStatus ?? err?.status;
       if (isAntiBotStatus(status)) {
         console.warn(`[widget] HTTP ${status} from ${endpoint} — trying Playwright anti-bot fallback`);
@@ -445,6 +443,8 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
         if (isCrossOrigin(referer, endpoint)) err.retryable = true;
       }
       throw err;
+    } finally {
+      clearTimeout(timer);
     }
   }, { label: `widget ${endpoint}` });
 }

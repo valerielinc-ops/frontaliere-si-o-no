@@ -350,7 +350,6 @@ async function bootstrapSession(siteId) {
       redirect: 'follow',
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`Failed to load Taleo search page: HTTP ${res.status}`);
@@ -370,9 +369,8 @@ async function bootstrapSession(siteId) {
     }
 
     return { cookies: cookieStr, rft };
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -431,7 +429,6 @@ async function searchJobs(cookies, rft, siteId) {
       body: JSON.stringify(requestBody),
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`Taleo MatchedJobs API returned HTTP ${res.status}`);
@@ -446,9 +443,8 @@ async function searchJobs(cookies, rft, siteId) {
     const totalCount = data?.JobsCount || 0;
 
     return { jobs: jobList, totalCount };
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -499,7 +495,6 @@ async function searchMoreJobs(cookies, rft, pageNumber, siteId) {
       body: JSON.stringify(requestBody),
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`Taleo ProcessSortAndShowMoreJobs API returned HTTP ${res.status}`);
@@ -510,9 +505,8 @@ async function searchMoreJobs(cookies, rft, pageNumber, siteId) {
     const totalCount = data?.JobsCount || 0;
 
     return { jobs: jobList, totalCount };
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

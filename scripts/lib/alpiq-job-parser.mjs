@@ -230,7 +230,6 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
         headers: { Accept: 'text/html', 'User-Agent': UA },
         redirect: 'follow',
       });
-      clearTimeout(timer);
       if (!res.ok) break;
       const html = await res.text();
       if (looksLikeAntiBotChallenge(html)) {
@@ -255,9 +254,10 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
         if (isSwissLocation(j.location)) allJobs.push(j);
       }
     } catch (err) {
-      clearTimeout(timer);
       console.warn(`\u26a0\ufe0f Failed to fetch Alpiq page ${page}: ${err.message}`);
       break;
+    } finally {
+      clearTimeout(timer);
     }
   }
 

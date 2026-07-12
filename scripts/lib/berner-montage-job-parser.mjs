@@ -141,12 +141,10 @@ async function fetchCareerPage() {
       signal: controller.signal,
       headers: BROWSER_HEADERS,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -163,7 +161,6 @@ async function fetchDetailPage(url) {
       signal: controller.signal,
       headers: BROWSER_HEADERS,
     });
-    clearTimeout(timer);
     if (!res.ok) return null;
     const html = await res.text();
 
@@ -207,6 +204,8 @@ async function fetchDetailPage(url) {
     return null;
   } catch {
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

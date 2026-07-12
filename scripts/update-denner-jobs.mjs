@@ -159,16 +159,22 @@ async function fetchDennerJobUrls() {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeoutMs);
 
-        const res = await fetch(fetchUrl, {
-          signal: controller.signal,
-          headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': UA },
-          redirect: 'follow',
-        });
-        clearTimeout(timer);
+        let res;
+        let html;
+        try {
+          res = await fetch(fetchUrl, {
+            signal: controller.signal,
+            headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': UA },
+            redirect: 'follow',
+          });
+          if (res.ok) {
+            html = await res.text();
+          }
+        } finally {
+          clearTimeout(timer);
+        }
 
         if (!res.ok) { console.warn(`\u26a0\ufe0f Denner listing returned ${res.status} for ${name} page ${page}`); break; }
-
-        const html = await res.text();
         const pageUrls = new Set();
 
         let match;
@@ -217,13 +223,13 @@ async function fetchAndParseDetailPages(urls) {
             headers: { Accept: 'text/html', 'User-Agent': UA },
             redirect: 'follow',
           });
-          clearTimeout(timer);
           if (!res.ok) return null;
           const html = await res.text();
           return { url, html };
         } catch {
-          clearTimeout(timer);
           return null;
+        } finally {
+          clearTimeout(timer);
         }
       })
     );

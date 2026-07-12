@@ -162,7 +162,6 @@ async function fetchJobListings() {
           },
           signal: controller.signal,
         });
-        clearTimeout(timer);
 
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const html = await res.text();
@@ -219,9 +218,10 @@ async function fetchJobListings() {
         page++;
         await new Promise((r) => setTimeout(r, 300));
       } catch (err) {
-        clearTimeout(timer);
         console.warn(`  ⚠️ Error fetching ${country} page ${page}: ${err.message}`);
         break;
+      } finally {
+        clearTimeout(timer);
       }
     }
   }
@@ -252,7 +252,6 @@ async function fetchJobDetail(jobUrl) {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) return null;
     const html = await res.text();
@@ -267,8 +266,9 @@ async function fetchJobDetail(jobUrl) {
 
     return descMatch ? stripHtml(descMatch[1]).trim() : null;
   } catch {
-    clearTimeout(timer);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

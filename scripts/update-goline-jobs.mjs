@@ -109,11 +109,9 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
           Referer: 'https://www.google.com/',
         },
       });
-      clearTimeout(timer);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.text();
     } catch (err) {
-      clearTimeout(timer);
       if (attempt < 2) {
         const delay = 3000 * (attempt + 1);
         console.log(`  ⚠️  fetch attempt ${attempt + 1} failed (${err.message}), retrying in ${delay / 1000}s...`);
@@ -155,6 +153,8 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
           throw new Error(`All fetch methods failed. Last fetch: ${err.message}. Playwright: ${pwErr.message}`);
         }
       }
+    } finally {
+      clearTimeout(timer);
     }
   }
 }

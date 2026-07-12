@@ -56,14 +56,14 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'it,en;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
     return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
+  finally { clearTimeout(timer); }
 }
 
 async function fetchJobs() {

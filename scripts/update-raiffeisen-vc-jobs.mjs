@@ -107,15 +107,14 @@ async function fetchJobUrls() {
 
   for (const pageUrl of CAREERS_URLS) {
     console.log(`🔍 Fetching: ${pageUrl}`);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
       const res = await fetch(pageUrl, {
         signal: controller.signal,
         headers: { Accept: 'text/html', 'User-Agent': UA },
         redirect: 'follow',
       });
-      clearTimeout(timer);
 
       if (!res.ok) {
         console.warn(`   ⚠️ HTTP ${res.status}`);
@@ -140,6 +139,8 @@ async function fetchJobUrls() {
       }
     } catch (err) {
       console.warn(`   ⚠️ Failed: ${err.message}`);
+    } finally {
+      clearTimeout(timer);
     }
   }
 
@@ -157,15 +158,14 @@ async function fetchJobUrls() {
  */
 async function fetchDetailBody(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, {
       signal: controller.signal,
       headers: { Accept: 'text/html', 'User-Agent': UA },
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`   ⚠️ HTTP ${res.status} for ${url}`);
       return null;
@@ -179,6 +179,8 @@ async function fetchDetailBody(url) {
   } catch (err) {
     console.warn(`   ⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

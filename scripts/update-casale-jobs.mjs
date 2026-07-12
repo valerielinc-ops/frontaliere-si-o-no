@@ -48,11 +48,11 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('casale'); } catch { return false; } }
 
 async function fetchJson(url, timeoutMs = 20000) {
+  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'application/json', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    clearTimeout(timer); if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.json();
-  } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
+    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.json();
+  } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; } finally { clearTimeout(timer); }
 }
 
 async function fetchJobs() {

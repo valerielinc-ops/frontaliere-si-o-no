@@ -178,13 +178,11 @@ async function fetchListingPage() {
         'Accept-Language': 'de-CH,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     return await rescueHtmlIfChallenged(await res.text(), CAREER_URL, { timeoutMs });
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -285,13 +283,11 @@ async function fetchDetailPage(url) {
         'Accept-Language': 'de-CH,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from detail page: ${url}`);
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

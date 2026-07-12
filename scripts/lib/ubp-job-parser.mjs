@@ -146,7 +146,6 @@ async function fetchJson(url, timeoutMs = 15000) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`   ⚠️ HTTP ${res.status} from ${url}`);
       return null;
@@ -155,9 +154,10 @@ async function fetchJson(url, timeoutMs = 15000) {
     if (!text) return null;
     return JSON.parse(text);
   } catch (err) {
-    clearTimeout(timer);
     console.warn(`   ⚠️ fetchJson failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

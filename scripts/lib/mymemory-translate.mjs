@@ -65,6 +65,8 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     await new Promise((r) => setTimeout(r, wait));
   }
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
     const params = new URLSearchParams({
       q: text.slice(0, 5000), // API supports up to 5000 chars per call
@@ -76,14 +78,11 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     }
 
     const url = `${MYMEMORY_API}?${params.toString()}`;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
 
     const res = await fetch(url, {
       signal: controller.signal,
       headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
     });
-    clearTimeout(timeout);
 
     if (!res.ok) return null;
     const data = await res.json();
@@ -106,6 +105,8 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     return translated.trim();
   } catch {
     return null;
+  } finally {
+    clearTimeout(timeout);
   }
 }
 

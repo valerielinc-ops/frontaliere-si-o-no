@@ -92,10 +92,10 @@ async function fetchJyskJobUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching JYSK listing page: ${JYSK_LISTING_URL}`);
 
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+  try {
     const res = await fetch(JYSK_LISTING_URL, {
       signal: controller.signal,
       headers: {
@@ -103,8 +103,6 @@ async function fetchJyskJobUrls() {
         'User-Agent': UA,
       },
     });
-    clearTimeout(timer);
-
     if (!res.ok) {
       console.warn(`⚠️ JYSK listing page returned ${res.status}`);
       return [];
@@ -128,6 +126,8 @@ async function fetchJyskJobUrls() {
   } catch (err) {
     console.warn(`⚠️ Failed to fetch JYSK listing page: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 

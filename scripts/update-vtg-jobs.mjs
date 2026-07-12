@@ -166,15 +166,13 @@ async function fetchVtgJobUrls() {
     const apiUrl = `${API_BASE}/jobs?${params}`;
     console.log(`🔍 Fetching VTG jobs for region ${regionKey} from Prospective API…`);
 
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-
       const res = await fetch(apiUrl, {
         signal: controller.signal,
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
-      clearTimeout(timer);
 
       if (!res.ok) {
         console.warn(`⚠️ API returned ${res.status} for region ${regionKey} — skipping.`);
@@ -199,6 +197,8 @@ async function fetchVtgJobUrls() {
       console.log(`  🎖️ ${regionKey}: ${addedCount} new unique URLs added`);
     } catch (err) {
       console.warn(`⚠️ API fetch failed for region ${regionKey}: ${err.message}`);
+    } finally {
+      clearTimeout(timer);
     }
   }
 
