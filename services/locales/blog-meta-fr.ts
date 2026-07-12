@@ -8447,6 +8447,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket : financement inchangé',
     'blog.article.sconto-ticino-ticket.excerpt': 'Le Conseil d\'État a précisé qu\'il n\'envisageait pas de modifier la clé de répartition du Ticino Ticket',
     'blog.article.sconto-ticino-ticket.imageAlt': 'Festival du Film de Locarno',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Changement de canton de travail pour frontalier Tessin Grisons : ce qui change',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nouvel accord frontalier : changement de canton de travail pour frontalier Tessin Grisons',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontalier dans la vallée de la Verzasca avec vue sur le lac',
 };
 
 export default blogMetaFr;

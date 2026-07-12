@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3188,
+ "numberOfItems": 3189,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7863,7 +7863,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3185, "name": "Regime forfettario italiano compatibilità reddi...", "url": `${BASE_URL}/articoli-frontaliere/regime-forfettario-italiano-compatibilita-reddito-svizzero` },
           { "@type": "ListItem", "position": 3186, "name": "Di più frenata per gli annunci di lavoro in Svi...", "url": `${BASE_URL}/articoli-frontaliere/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera` },
           { "@type": "ListItem", "position": 3187, "name": "Codice tributo rendite AVS e LPP: novità per i ...", "url": `${BASE_URL}/articoli-frontaliere/codice-tributo-ritenute-rendite-avs-lpp` },
-          { "@type": "ListItem", "position": 3188, "name": "Ticino Ticket: finanziamento invariato", "url": `${BASE_URL}/articoli-frontaliere/sconto-ticino-ticket` }
+          { "@type": "ListItem", "position": 3188, "name": "Ticino Ticket: finanziamento invariato", "url": `${BASE_URL}/articoli-frontaliere/sconto-ticino-ticket` },
+          { "@type": "ListItem", "position": 3189, "name": "Cambio cantone di lavoro per frontaliere Ticino...", "url": `${BASE_URL}/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni` }
  ]
  },
  {
