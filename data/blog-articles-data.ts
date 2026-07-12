@@ -25226,6 +25226,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'richiesta-rinnovo-modifica-permesso-g',
+ category: 'pratico',
+ date: '2026-07-12T00:41:37.624Z',
+ image: '/images/blog/richiesta-rinnovo-modifica-permesso-g.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
