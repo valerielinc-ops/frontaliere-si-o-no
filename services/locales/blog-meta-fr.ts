@@ -8426,6 +8426,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Vignette autoroutière suisse 2026 : coût pour les frontaliers',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'La vignette autoroutière suisse 2026 : comment cela fonctionne, où acheter et ce que cela signifie pour les frontaliers',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'Une photo d\'un véhicule en transit sur la frontière italienne-suisse, avec la vignette autoroute',
+    'blog.article.riapertura-linea-gallarate-stabio.title': 'Réouverture de la ligne Gallarate-Stabio : nouveauté pour les frontaliers',
+    'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Après quatre semaines de travaux, les liaisons ferroviaires stratégiques pour les frontaliers entre Varèse, le Tessin et Porto Ceresio reprennent.',
+    'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'Train TILO arrivant dans une gare du canton du Tessin',
 };
 
 export default blogMetaFr;
