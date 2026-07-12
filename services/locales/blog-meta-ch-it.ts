@@ -1057,6 +1057,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permessi-docenti-frontalieri-ticino.title': 'Docenti frontalieri e permessi: le regole del Governo',
     'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Il Consiglio di Stato chiarisce la procedura per l\'assunzione dei docenti frontalieri: l\'inizio dell\'attività è lecito dopo la richiesta del permesso.',
     'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Sede del Governo cantonale a Bellinzona, Ticino, Svizzera.',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Regime forfettario italiano compatibilità reddito svizzero',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Il regime forfettario italiano è compatibile con il reddito da lavoro svizzero? Scopri come funziona e cosa significa per i frontalieri',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Una scena di lavoro in Svizzera con frontalieri',
 };
 
 export default blogMetaChIt;

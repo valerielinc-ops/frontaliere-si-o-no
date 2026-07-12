@@ -1057,6 +1057,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permessi-docenti-frontalieri-ticino.title': 'Frontier teachers and permits: the rules of the Government',
     'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'The State Council clarifies the procedure for hiring border teachers: the start of the activity is lawful after the request for a permit.',
     'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Seat of the cantonal government in Bellinzona, Ticino, Switzerland.',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Italian flat-rate scheme Swiss income compatibility',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Is the Italian flat-rate scheme compatible with Swiss employment income? Find out how it works and what it means for border crossers',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'A scene of work in Switzerland with frontier workers',
 };
 
 export default blogMetaChEn;

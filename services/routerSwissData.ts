@@ -375,6 +375,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-disoccupati-indennita-900-milioni': { it: 'frontalieri-disoccupati-indennita-900-milioni', en: 'frontaliers-unemployed-indemnity-900-millions', de: 'arbeitsloser-frontalier-indennitat-900-millionen', fr: 'frontalier-sans-emploi-indemnite-900-millions' },
  'svizzera-vacilla-mito-disoccupazione-frontalieri': { it: 'svizzera-vacilla-mito-disoccupazione-frontalieri', en: 'switzerland-vacillas-myt-disoccupazione-frontalieri', de: 'schweiz-vacillas-myt-disoccupazione-frontalieri', fr: 'suisse-vacillas-myt-disoccupation-frontaliers' },
  'permessi-docenti-frontalieri-ticino': { it: 'permessi-docenti-frontalieri-ticino', en: 'work-permits-cross-border-teachers-ticino', de: 'arbeitsbewilligungen-grenzgaenger-lehrer-tessin', fr: 'permis-travail-enseignants-frontaliers-tessin' },
+ 'regime-forfettario-italiano-compatibilita-reddito-svizzero': { it: 'regime-forfettario-italiano-compatibilita-reddito-svizzero', en: 'italian-forfettario-regime-compatibility-swiss-income', de: 'italienisches-furfettari-regime-vertraeglichkeit-schweizerisches-einkommen', fr: 'regime-furfettari-italien-vertraeglichkeit-revenu-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
