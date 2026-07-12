@@ -1036,6 +1036,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terziario-una-svolta-per-chiasso.title': 'Tertiary, a twist for Chiasso?',
     'blog.article.terziario-una-svolta-per-chiasso.excerpt': 'The city of Chiasso is launching a territorial marketing action to attract new businesses and offer additional job opportunities to its citizens.',
     'blog.article.terziario-una-svolta-per-chiasso.imageAlt': 'A scene of work in Chiasso',
+    'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.title': 'Spending frontage: Swiss and Italian prices',
+    'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.excerpt': 'Comparison of Swiss and Italian supermarket prices: what are the differences and where should you shop for a border crossing?',
+    'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.imageAlt': 'A Swiss market scene with fresh and high-quality products',
 };
 
 export default blogMetaChEn;

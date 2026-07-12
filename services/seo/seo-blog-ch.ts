@@ -13356,6 +13356,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spesa-alimentare-svizzera-italia-convieni-frontaliere': {
+    title: 'Spesa fronteggine: prezzi svizzeri e italiani | Frontaliere Ticino',
+    description: 'Confronto prezzi supermercati italiani e svizzeri: quali sono le differenze e dove conviene fare la spesa per un frontaliere?. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, spesa, fronteggine, prezzi, svizzeri',
+    ogTitle: 'Confronto prezzi supermercati italiani e svizzeri: dove conviene fare la spesa per un frontaliere',
+    ogDescription: 'Confronto prezzi supermercati italiani e svizzeri: quali sono le differenze e dove conviene fare la spesa per un frontaliere?',
+    canonicalPath: '/articoli-svizzera/spesa-alimentare-svizzera-italia-convieni-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spesa fronteggine: prezzi svizzeri e italiani",
+      "description": "Confronto prezzi supermercati italiani e svizzeri: quali sono le differenze e dove conviene fare la spesa per un frontaliere?. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spesa-alimentare-svizzera-italia-convieni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di mercato in Svizzera con prodotti freschi e di alta qualità"
+      },
+      "datePublished": "2026-07-12T10:38:23+00:00",
+      "dateModified": "2026-07-12T10:38:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spesa-alimentare-svizzera-italia-convieni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
