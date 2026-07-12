@@ -1,56 +1,19 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-07-12T11:09:24.039Z",
+  "generatedAt": "2026-07-12T22:21:12.767Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4639,
-  "avgDurationMs": 4639,
+  "unchangedCount": 1,
+  "durationMs": 2751,
+  "avgDurationMs": 2751,
   "durationHistory": [
-    4639
+    2751
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "crr-suva-sion-1ef627a9dcec",
-      "slug": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-      "company": "Clinique romande de réadaptation (CRR Suva)",
-      "companyKey": "crr-suva-sion",
-      "companyDomain": "crr-suva.ch",
-      "title": "Assistant/e qualité et processus",
-      "needsRetranslation": false,
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
-      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:09:21.128Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
-      "firstSeenAt": "2026-06-16T13:10:03.338Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
     {
       "id": "crr-suva-sion-9d9e50d545c8",
       "slug": "bottier-ere-orthopediste-crr-suva-sion-sion",
@@ -64,7 +27,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/bottier-ere-orthopediste-2413.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:09:22.251Z",
+      "crawledAt": "2026-07-12T22:21:10.988Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -90,5 +53,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "crr-suva-sion-1ef627a9dcec",
+      "slug": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
+      "company": "Clinique romande de réadaptation (CRR Suva)",
+      "companyKey": "crr-suva-sion",
+      "companyDomain": "crr-suva.ch",
+      "title": "Assistant/e qualité et processus",
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
+      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-12T11:09:21.128Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
+      "firstSeenAt": "2026-06-16T13:10:03.338Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ]
 }
