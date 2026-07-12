@@ -2,19 +2,14 @@
   "version": 1,
   "snoozes": {
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 59,
-      "lastSeen": "2026-07-11",
-      "snoozedUntil": "2026-07-18"
+      "consecutiveDays": 60,
+      "lastSeen": "2026-07-12",
+      "snoozedUntil": "2026-07-19"
     },
     "C.4.engagement-dive": {
-      "consecutiveDays": 4,
-      "lastSeen": "2026-07-11",
-      "snoozedUntil": "2026-07-18"
-    },
-    "A.1.cluster-monoculture": {
-      "consecutiveDays": 0,
-      "lastSeen": "2026-07-05",
-      "snoozedUntil": "2026-07-12"
+      "consecutiveDays": 5,
+      "lastSeen": "2026-07-12",
+      "snoozedUntil": "2026-07-19"
     }
   }
 }
