@@ -1,16 +1,16 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-07-12T10:56:39.666Z",
-  "total": 3,
+  "generatedAt": "2026-07-12T22:11:59.723Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5500,
-  "avgDurationMs": 5500,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5240,
+  "avgDurationMs": 5240,
   "durationHistory": [
-    5500
+    5240
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-System-Quality-Engineer_R-27475-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:56:36.002Z",
+      "crawledAt": "2026-07-12T22:11:56.258Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T10:56:36.810Z",
+      "crawledAt": "2026-07-12T22:11:57.042Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "siemens-healthineers-94787ee46d4e",
       "slug": "sr-manager-ingegneria-dei-processi-siemens-healthineers-zurich",
@@ -131,5 +130,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
