@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-07-11T22:31:52.961Z",
+  "assembledAt": "2026-07-12T11:04:45.168Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +47,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T22:31:50.171Z",
+      "crawledAt": "2026-07-12T11:04:42.324Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
@@ -151,28 +151,29 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:31:49.561Z",
+      "crawledAt": "2026-07-12T11:04:41.762Z",
       "jobReqId": "J-019602",
-      "previousSlugsByLocale": {
-        "fr": [
-          "operateur-pilote-huntsman-corporation-monthey",
-          "operateur-pilote-huntsman-ch"
-        ],
-        "it": [
-          "operateur-pilote-huntsman-ch",
-          "operatore-pilota-huntsman-corporation-monthey"
-        ],
-        "de": [
-          "pilot-anlagenbediener-huntsman-corporation-monthey"
-        ]
-      },
       "previousSlugs": [
         "operateur-pilote-huntsman-ch",
         "pilot-anlagenbediener-huntsman-corporation-monthey",
         "operateur-pilote-huntsman-corporation-monthey",
         "operatore-pilota-huntsman-corporation-monthey"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-pilote-huntsman-ch",
+          "operatore-pilota-huntsman-corporation-monthey"
+        ],
+        "de": [
+          "pilot-anlagenbediener-huntsman-corporation-monthey"
+        ],
+        "fr": [
+          "operateur-pilote-huntsman-corporation-monthey",
+          "operateur-pilote-huntsman-ch"
+        ]
+      },
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -232,7 +233,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:31:48.943Z",
+      "crawledAt": "2026-07-12T11:04:41.213Z",
       "jobReqId": "J-019681",
       "previousSlugs": [
         "technologue-en-production-5-equipes-huntsman-ch",
@@ -310,7 +311,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:31:48.204Z",
+      "crawledAt": "2026-07-12T11:04:40.638Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch",
@@ -388,7 +389,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T22:31:47.449Z",
+      "crawledAt": "2026-07-12T11:04:40.061Z",
       "jobReqId": "J-020004",
       "previousSlugs": [
         "intern-data-science-huntsman-ch",
