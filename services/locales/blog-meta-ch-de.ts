@@ -1024,6 +1024,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investimento-immobiliare-frontaliere.title': 'Immobilieninvestitionen in der Schweiz: Leitfaden für Grenzgänger',
     'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analyse der Einschränkungen für Gebietsfremde, der Besteuerung und der Unterschiede zwischen Erstwohnungskauf und Investition für Grenzgänger.',
     'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Wohnimmobilie im Tessin',
+    'blog.article.frontalieri-regio-insubrica.title': 'Grenzgänger und Mobilität im Mittelpunkt der Arbeit der Regio Insubrica',
+    'blog.article.frontalieri-regio-insubrica.excerpt': 'Die neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und wird am 1. Januar 2024 in Kraft treten.',
+    'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontalier, die sich auf dem Weg zur Arbeit in die Schweiz befinden',
 };
 
 export default blogMetaChDe;

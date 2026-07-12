@@ -1024,6 +1024,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investimento-immobiliare-frontaliere.title': 'Investissement immobilier en Suisse : guide pour frontaliers',
     'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analyse des contraintes pour les non-résidents, de la fiscalité et des différences entre l\'achat d\'une première maison et l\'investissement pour les travailleurs frontaliers.',
     'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Propriété résidentielle au Tessin',
+    'blog.article.frontalieri-regio-insubrica.title': 'Les frontaliers et la mobilité au cœur du travail de la Regio Insubrica',
+    'blog.article.frontalieri-regio-insubrica.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entrera en vigueur le 1er janvier 2024.',
+    'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontaliers en route vers le travail en Suisse',
 };
 
 export default blogMetaChFr;

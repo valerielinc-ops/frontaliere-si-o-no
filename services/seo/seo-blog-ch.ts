@@ -13200,6 +13200,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-regio-insubrica': {
+    title: 'Frontalieri e mobilità al centro del lavoro della Regio Insubrica',
+    description: 'Informazioni sui frontalieri e sulla mobilità transfrontaliera in Svizzera, con focus sul Nuovo Accordo Frontalieri e sulla franchigia per i nuovi frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, centro, lavoro, regio',
+    ogTitle: 'Frontalieri e mobilità in Svizzera',
+    ogDescription: 'Informazioni sui frontalieri e sulla mobilità transfrontaliera in Svizzera, con focus sul Nuovo Accordo Frontalieri e sulla franchigia per i nuovi frontalieri.',
+    canonicalPath: '/articoli-svizzera/frontalieri-regio-insubrica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e mobilità al centro del lavoro della Regio Insubrica",
+      "description": "Informazioni sui frontalieri e sulla mobilità transfrontaliera in Svizzera, con focus sul Nuovo Accordo Frontalieri e sulla franchigia per i nuovi frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-regio-insubrica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che si recano al lavoro in Svizzera"
+      },
+      "datePublished": "2026-07-12T02:18:38+00:00",
+      "dateModified": "2026-07-12T02:18:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-regio-insubrica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

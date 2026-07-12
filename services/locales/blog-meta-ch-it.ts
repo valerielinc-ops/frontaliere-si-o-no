@@ -1024,6 +1024,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.investimento-immobiliare-frontaliere.title': 'Investimento immobiliare in Svizzera: guida per frontalieri',
     'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analisi su vincoli per non residenti, fiscalità e differenze tra acquisto prima casa e investimento per lavoratori frontalieri.',
     'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Immobile residenziale in Ticino',
+    'blog.article.frontalieri-regio-insubrica.title': 'Frontalieri e mobilità al centro del lavoro della Regio Insubrica',
+    'blog.article.frontalieri-regio-insubrica.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e sarà in vigore dal 1° gennaio 2024.',
+    'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontalieri che si recano al lavoro in Svizzera',
 };
 
 export default blogMetaChIt;
