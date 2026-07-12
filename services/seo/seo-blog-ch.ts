@@ -13239,6 +13239,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sviluppatore-informatico-ticino-frontaliere': {
+    title: 'Sviluppatore informatico in Ticino: guida per frontalieri',
+    description: 'Guida pratica per sviluppatori informatici frontalieri in Ticino: stipendio, permesso G, imposte e previdenza secondo le norme vigenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sviluppatore, informatico, pratica, sviluppatori',
+    ogTitle: 'Sviluppatore informatico in Ticino: guida per frontalieri',
+    ogDescription: 'Guida pratica per sviluppatori informatici frontalieri in Ticino: stipendio, permesso G, imposte e previdenza secondo le norme vigenti.',
+    canonicalPath: '/articoli-svizzera/sviluppatore-informatico-ticino-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sviluppatore informatico in Ticino: guida per frontalieri",
+      "description": "Guida pratica per sviluppatori informatici frontalieri in Ticino: stipendio, permesso G, imposte e previdenza secondo le norme vigenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sviluppatore-informatico-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno con vista su Lugano"
+      },
+      "datePublished": "2026-07-12T02:54:59+00:00",
+      "dateModified": "2026-07-12T02:54:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sviluppatore-informatico-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

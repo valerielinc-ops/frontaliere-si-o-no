@@ -365,6 +365,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-treni-bus': { it: 'frontalieri-treni-bus', en: 'frontalieri-treni-bus', de: 'frontalieri-zuge-busse', fr: 'frontaliers-trains-bus' },
  'investimento-immobiliare-frontaliere': { it: 'investimento-immobiliare-frontaliere', en: 'cross-border-real-estate-investment-switzerland', de: 'grenzganger-immobilieninvestition-schweiz', fr: 'investissement-immobilier-frontalier-suisse' },
  'frontalieri-regio-insubrica': { it: 'frontalieri-regio-insubrica', en: 'frontalieri-regio-insubrica', de: 'frontalieri-regio-insubrica', fr: 'frontalieri-regio-insubrica' },
+ 'sviluppatore-informatico-ticino-frontaliere': { it: 'sviluppatore-informatico-ticino-frontaliere', en: 'it-developer-ticino-cross-border', de: 'it-entwickler-tessin-grenzganger', fr: 'developpeur-informatique-tessin-frontalier' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

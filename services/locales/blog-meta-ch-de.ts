@@ -1027,6 +1027,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-regio-insubrica.title': 'Grenzgänger und Mobilität im Mittelpunkt der Arbeit der Regio Insubrica',
     'blog.article.frontalieri-regio-insubrica.excerpt': 'Die neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und wird am 1. Januar 2024 in Kraft treten.',
     'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontalier, die sich auf dem Weg zur Arbeit in die Schweiz befinden',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'IT-Entwickler im Tessin: Leitfaden für Grenzgänger',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für grenzüberschreitende IT-Entwickler im Tessin: Gehalt, G-Bewilligung, Steuern und Vorsorge nach den geltenden Vorschriften.',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Modernes Büro mit Blick auf Lugano',
 };
 
 export default blogMetaChDe;
