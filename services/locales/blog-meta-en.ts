@@ -8437,6 +8437,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Swiss customs duty-free purchases: limits and consequences for border crossers',
     'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'The duty-free allowance for purchases in Switzerland has been increased to €10,000 for new border crossers.',
     'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'A border crossing the italo-swiss border with a shopping cart.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Life as a frontier student: registration and costs for USES/SUPSI',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Commuting university students can enroll in USI/SUPSI without problems, but they must be aware of the differences between the status of working border worker and that of commuting student.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'A student pendular in Ticino, with the University of Italian Switzerland (USI) or the University of Applied Sciences and Arts of Southern Switzerland (SUPSI) in the background.',
 };
 
 export default blogMetaEn;

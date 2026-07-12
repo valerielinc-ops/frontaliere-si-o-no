@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3183,
+ "numberOfItems": 3184,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7858,7 +7858,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3180, "name": "Docenti frontalieri: nessuna irregolarità", "url": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro` },
           { "@type": "ListItem", "position": 3181, "name": "Vacilla il mito della Svizzera: giovani senza l...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-vacilla-mito-disoccupazione-frontalieri` },
           { "@type": "ListItem", "position": 3182, "name": "Franchigia doganale acquisti svizzera: limiti e...", "url": `${BASE_URL}/articoli-frontaliere/franchigia-doganale-acquisti-svizzera` },
-          { "@type": "ListItem", "position": 3183, "name": "Docenti frontalieri e permessi: le regole del G...", "url": `${BASE_URL}/articoli-frontaliere/permessi-docenti-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 3183, "name": "Docenti frontalieri e permessi: le regole del G...", "url": `${BASE_URL}/articoli-frontaliere/permessi-docenti-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 3184, "name": "Vita da studente frontaliere: iscrizione e cost...", "url": `${BASE_URL}/articoli-frontaliere/studente-universitario-pendolare-ticino-usi-supsi` }
  ]
  },
  {
