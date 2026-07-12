@@ -1030,6 +1030,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'Développeur informatique au Tessin : guide pour les frontaliers',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Guide pratique pour les développeurs informatiques frontaliers au Tessin : salaire, permis G, impôts et prévoyance selon les normes en vigueur.',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Bureau moderne avec vue sur Lugano',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Entrepôt frontalier au Tessin : guide de salaire',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Découvrez comment fonctionne le travail d\'entrepôt au Tessin, les retenues salariales et les règles fiscales pour les frontaliers dans le secteur de la logistique.',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Entrepôt logistique au Tessin',
 };
 
 export default blogMetaChFr;

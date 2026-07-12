@@ -3086,6 +3086,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-magazziniere-logistica-ticino',
+    category: 'pratico',
+    date: '2026-07-12T03:27:39.393Z',
+    image: '/images/blog/frontaliere-magazziniere-logistica-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
