@@ -8433,6 +8433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Grenzüberschreitende Dozenten: keine Unregelmäßigkeiten',
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'Der Staatsrat hat auf eine Frage von Lorenzo Quadri geantwortet und festgestellt, dass es keine Unregelmäßigkeiten gibt, dass Grenzlehrer in den Dienst getreten sind, bevor sie eine Arbeitserlaubnis erhalten haben.',
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'Ein Lehrer in einer Schule des Kantons Tessin.',
+    'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Schweizer Einkaufszollbefreiung: Grenzen und Konsequenzen für Grenzgänger',
+    'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'Die Zollbefreiung für Einkäufe in der Schweiz wurde für neue Grenzgänger auf € 10\'000 erhöht.',
+    'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'Eine Grenze, die die italo-schweizerische Grenze mit einem Einkaufswagen überschreitet.',
 };
 
 export default blogMetaDe;
