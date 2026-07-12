@@ -1045,6 +1045,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'Swiss naturalization after years as a border worker: requirements',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'To obtain Swiss citizenship after years of working as a border worker, you must meet the requirements established by Swiss law.',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'A frontier worker who finds himself in a similar situation may seek Swiss citizenship after years of working as a frontier worker.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Second part-time job in Italy for Swiss border workers',
+    'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Tax and contractual guidance: how to manage double income between Switzerland and Italy in compliance with the Agreement on border workers in force since 2024.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Panoramic view of Lugano with modern buildings and lake, symbol of work in Switzerland',
 };
 
 export default blogMetaChEn;

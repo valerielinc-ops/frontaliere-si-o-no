@@ -1045,6 +1045,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'Schweizer Einbürgerung nach Jahren als Grenzgänger: Voraussetzungen',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'Um nach Jahren als Grenzgänger die Schweizer Staatsbürgerschaft zu erhalten, müssen Sie die Anforderungen des Schweizer Gesetzes erfüllen.',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'Ein Grenzgänger, der sich in einer ähnlichen Situation befindet, kann nach Jahren der Arbeit als Grenzgänger versuchen, die Schweizer Staatsbürgerschaft zu erwerben.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Zweiter Teilzeitjob in Italien für Schweizer Grenzgänger',
+    'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Steuer- und Vertragsleitfaden: Wie man das Doppeleinkommen zwischen der Schweiz und Italien in Übereinstimmung mit dem seit 2024 geltenden Grenzgängerabkommen verwaltet.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden und See, Symbol für Arbeit in der Schweiz',
 };
 
 export default blogMetaChDe;
