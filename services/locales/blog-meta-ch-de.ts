@@ -1069,6 +1069,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Arbeitslose Grenzgänger: So melden Sie sich bei den Schweizer Arbeitsämtern an',
     'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'Im Tessin 65.000 Grenzgänger auf 220.000 Plätzen. Seit 2018 haben sie das Recht, sich bei den RAV zu registrieren, aber 2017 waren es nur 83 in der ganzen Schweiz.',
     'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Modernes Arbeitsamt in einem Tessiner öffentlichen Gebäude mit wartenden Personen',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontend mit Doppelarbeit: von den Kameras eingeklemmt',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Ein italienischer Gemeindeangestellter arbeitete während der Dienstzeit im Tessin. Gestrandet von der Guardia di Finanza dank Videos und Telefondaten.',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Grenze zwischen Italien und der Schweiz mit Fahrzeugen und Bergen',
 };
 
 export default blogMetaChDe;

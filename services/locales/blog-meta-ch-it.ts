@@ -1069,6 +1069,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Frontalieri disoccupati: come iscriversi agli Uffici di collocamento svizzeri',
     'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'In Ticino 65mila frontalieri su 220mila posti. Dal 2018 hanno diritto di registrarsi agli URC, ma nel 2017 erano appena 83 in tutta la Svizzera.',
     'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Ufficio di collocamento moderno in un edificio pubblico ticinese con persone in attesa',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontaliere con doppio lavoro: incastrato dalle telecamere',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Un dipendente comunale italiano lavorava in Ticino durante l\'orario di servizio. Incastrato dalla Guardia di Finanza grazie a video e dati telefonici.',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Confine tra Italia e Svizzera con veicoli in transito e montagne',
 };
 
 export default blogMetaChIt;

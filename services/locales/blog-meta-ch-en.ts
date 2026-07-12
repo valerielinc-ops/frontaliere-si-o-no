@@ -1069,6 +1069,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Unemployed frontier workers: how to register with Swiss employment offices',
     'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'In Ticino, 65,000 border workers out of 220,000 seats. Since 2018 they have been eligible to register for URCs, but in 2017 they were just 83 across Switzerland.',
     'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Modern employment office in a Ticino public building with people waiting',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontier with double work: caught by cameras',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'An Italian municipal employee worked in Ticino during working hours. Framed by the Guardia di Finanza thanks to videos and telephone data.',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Border between Italy and Switzerland with vehicles and mountains',
 };
 
 export default blogMetaChEn;

@@ -3203,6 +3203,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-doppio-lavoro-incastrato-ticino',
+    category: 'pratico',
+    date: '2026-07-12T23:55:01.407Z',
+    image: '/images/blog/frontaliere-doppio-lavoro-incastrato-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

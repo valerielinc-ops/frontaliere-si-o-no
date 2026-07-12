@@ -379,6 +379,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'codice-tributo-ritenute-rendite-avs-lpp': { it: 'codice-tributo-ritenute-rendite-avs-lpp', en: 'tax-code-withholding-avs-lpp-pensions-switzerland', de: 'steuercode-abzuege-avs-lpp-renten-schweiz', fr: 'code-imposition-retenues-rentes-avs-lpp-suisse' },
  'frontalieri-ticino-calano': { it: 'frontalieri-ticino-calano', en: 'frontaliers-ticino-decrease', de: 'frontaliers-lugano-abnehmen', fr: 'frontaliers-lugano-decroissance' },
  'frontalieri-disoccupati-urc-ticino': { it: 'frontalieri-disoccupati-urc-ticino', en: 'frontalieri-unemployed-urc-ticino-registration', de: 'grenzgaenger-arbeitslos-urc-tessin-anmeldung', fr: 'frontaliers-chomeurs-urc-tessin-inscription' },
+ 'frontaliere-doppio-lavoro-incastrato-ticino': { it: 'frontaliere-doppio-lavoro-incastrato-ticino', en: 'cross-border-worker-double-job-caught-cameras', de: 'grenzgaenger-doppelarbeit-ueberwachungskameras-erwischt', fr: 'frontalier-double-travail-piege-cameras' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
