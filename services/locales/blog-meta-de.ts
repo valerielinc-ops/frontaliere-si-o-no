@@ -8439,6 +8439,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Leben als Grenzgängerstudent: Einschreibung und Kosten BEI USI/SUPSI',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Pendler-Universitätsstudenten können sich problemlos FÜR USI/SUPSI einschreiben, müssen sich jedoch der Unterschiede zwischen dem Status eines Grenzgängers und eines Pendlers bewusst sein.',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'Ein Student pendular in der Schweiz, mit der Universität der italienischen Schweiz (USI) oder der Hochschule für angewandte Wissenschaften und Kunst Südschweiz (SUPSI) im Hintergrund.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Mehr Bremsen für Stellenanzeigen in der Schweiz',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Der Schweizer Arbeitsmarkt zeigte im zweiten Quartal 2026 eine allgemeine Stagnation, verdeckte aber eine starke Divergenz zwischen Wachstumsbranchen und anderen stark rückläufigen Branchen.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Ein modernes Gebäude in Lugano mit Blick auf den See.',
 };
 
 export default blogMetaDe;
