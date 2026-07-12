@@ -25307,6 +25307,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vignetta-autostradale-svizzera-2026-costo-frontaliere',
+ category: 'pratico',
+ date: '2026-07-12T12:59:25.585Z',
+ image: '/images/blog/vignetta-autostradale-svizzera-2026-costo-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

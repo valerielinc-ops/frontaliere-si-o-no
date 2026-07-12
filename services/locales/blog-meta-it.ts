@@ -8423,6 +8423,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'Conto PostFinance carta di credito frontaliere',
     'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'Il conto PostFinance è una soluzione bancaria popolare tra i frontalieri.',
     'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere che si trova in una situazione simile potrebbe aprire un conto PostFinance per gestire le proprie finanze.',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Vignetta autostradale svizzera 2026: costo per i frontalieri',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'La vignetta autostradale svizzera 2026: come funziona, dove acquistare e cosa significa per i frontalieri',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'Una foto di un veicolo in transito sul confine italo-svizzero, con la vignetta autostradale',
 };
 
 export default blogMetaIt;

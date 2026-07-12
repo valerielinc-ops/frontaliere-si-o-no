@@ -4480,6 +4480,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-spesa-alimentare-svizzera-italia-convieni-frontaliere': { name: 'Confronto prezzi supermercati italiani e', path: '/articoli-svizzera/spesa-alimentare-svizzera-italia-convieni-frontaliere/', parent: 'blog' },
     'blog-conto-postfinance-carta-credito-frontaliere': { name: 'Conto PostFinance carta di credito', path: '/articoli-frontaliere/conto-postfinance-carta-credito-frontaliere', parent: 'blog' },
     'blog-frontalieri-ticino-sondaggio': { name: 'Lavorare in Svizzera, vivere in provincia', path: '/articoli-svizzera/frontalieri-ticino-sondaggio/', parent: 'blog' },
+    'blog-vignetta-autostradale-svizzera-2026-costo-frontaliere': { name: 'Vignetta autostradale svizzera 2026', path: '/articoli-frontaliere/vignetta-autostradale-svizzera-2026-costo-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
