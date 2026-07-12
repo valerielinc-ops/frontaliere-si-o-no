@@ -1,52 +1,18 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-07-11T21:57:32.046Z",
-  "total": 83,
+  "generatedAt": "2026-07-12T10:48:18.652Z",
+  "total": 84,
   "newCount": 6,
-  "updatedCount": 74,
-  "removedCount": 1,
+  "updatedCount": 75,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 484324,
-  "avgDurationMs": 484324,
+  "durationMs": 397761,
+  "avgDurationMs": 397761,
   "durationHistory": [
-    484324
+    397761
   ],
   "newJobs": [
-    {
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
-      "title": "PostAuto-Fahrer:in",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Schiers",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "postauto-fahrer-in-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-07",
-      "validThrough": "2026-08-06",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Schiers"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
     {
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
@@ -172,6 +138,40 @@
       "_targetScope": {
         "canton": "AG",
         "location": "Brugg AG"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Wynigen",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wynigen",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-29",
+      "validThrough": "2026-07-20",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "50-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Wynigen"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -840,6 +840,47 @@
       }
     },
     {
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
+      "title": "PostAuto-Fahrer:in",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Schiers",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "postbus-driver-in-postauto-schiers",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-07",
+      "validThrough": "2026-08-06",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Schiers"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-d0cec2ffb977",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "addressLocality": "Schiers",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-11T21:57:32.041Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "title": "Ticketkontrolleur:in und Kundenberatung",
@@ -930,7 +971,7 @@
       "location": "Sirnach",
       "canton": "TG",
       "country": "CH",
-      "slug": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-sirnach-3f8ac4",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -1420,94 +1461,9 @@
         "translation": 25,
         "completeness": 14
       }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/73643-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Immobilienbewirtschafterin/73643-de_DE",
-      "title": "Immobilienbewirtschafter:in",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-zurich",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-08",
-      "validThrough": "2026-07-08",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-6660eff2d303",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-10T23:18:16.329Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Wynigen",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wynigen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-29",
-      "validThrough": "2026-07-20",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "50-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Wynigen"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-4d01fb2cbf16",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "addressLocality": "Wynigen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73600-de_DE",
