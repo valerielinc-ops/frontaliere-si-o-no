@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-11T22:33:19.753Z",
+  "assembledAt": "2026-07-12T11:07:31.140Z",
   "jobs": [
     {
       "id": "canton-valais-890b4e965e72",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:17.836Z",
+      "crawledAt": "2026-07-12T11:07:28.979Z",
       "addressLocality": "Brigue",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:17.122Z",
+      "crawledAt": "2026-07-12T11:07:28.352Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:16.425Z",
+      "crawledAt": "2026-07-12T11:07:27.769Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:15.761Z",
+      "crawledAt": "2026-07-12T11:07:27.190Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -345,7 +345,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:15.016Z",
+      "crawledAt": "2026-07-12T11:07:26.600Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:14.362Z",
+      "crawledAt": "2026-07-12T11:07:26.037Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -501,7 +501,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:13.682Z",
+      "crawledAt": "2026-07-12T11:07:25.440Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -579,7 +579,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:12.860Z",
+      "crawledAt": "2026-07-12T11:07:24.720Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -657,7 +657,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111585&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:11.904Z",
+      "crawledAt": "2026-07-12T11:07:24.033Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -718,7 +718,7 @@
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
       "titleByLocale": {
-        "it": "Un collaboratore amministrativo (80-100%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
         "en": "An administrative collaborator (80-100%)",
         "de": "Ein administrativer Mitarbeiter (80-100%)",
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)"
@@ -735,7 +735,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111282&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:11.234Z",
+      "crawledAt": "2026-07-12T11:07:23.410Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -769,6 +769,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.997Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -813,7 +814,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101474&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:10.548Z",
+      "crawledAt": "2026-07-12T11:07:22.807Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -891,7 +892,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102451&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:09.812Z",
+      "crawledAt": "2026-07-12T11:07:22.170Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -969,7 +970,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102355&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:08.787Z",
+      "crawledAt": "2026-07-12T11:07:21.528Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1015,616 +1016,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "canton-valais-e50630c46d97",
-      "slug": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "un-ingegnere-specialista-del-rumore-50-2-anni-di-termine-canton-du-valais-sion",
-        "en": "an-engineer-noise-specialist-50-2-years-term-canton-du-valais-sion",
-        "de": "ein-ingenieur-larmspezialist-50-2-jahre-laufzeit-canton-du-valais-sion",
-        "fr": "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)",
-      "titleByLocale": {
-        "it": "Un ingegnere – specialista del rumore (50% – 2 anni di termine)",
-        "en": "An engineer – noise specialist (50% – 2 years term)",
-        "de": "Ein Ingenieur – Lärmspezialist (50% – 2 Jahre Laufzeit)",
-        "fr": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans)"
-      },
-      "description": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans) auprès du Service de l’environnement (SEN), à Sion\n\nVos tâches:\n• Collaboration à l’application de la législation spécifique à la protection contre le bruit (OPB) dans le canton du Valais Examen de la conformité à l’OPB de projets de construction, de planification et d’assainissement Préavis des demandes d’allégement\n• Traitement des oppositions relatives à ces projets Traitement des plaintes et proposition de mesures de protection Contrôles et visions locales Soutien et conseil aux partenaires internes et externes en matière de protection contre le bruit\n\nVotre profil:\n• Formation d’ingénieur HES en lien avec le domaine d’activité ou formation équivalente\n• Expérience souhaitée dans le domaine de l’acoustique Flexibilité, disponibilité à se former Sens de la communication, esprit d’équipe Autonomie et sens de l’organisation\n• Rigueur, précision Esprit d’initiative et dynamisme Maîtrise des outils informatiques standards et bonnes capacités rédactionnelles Langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’environnement (027 606 31 66 / catherine.pralong-fauchere@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 111252",
-      "descriptionByLocale": {
-        "fr": "Un ingénieur ou une ingénieure – spécialiste bruit (50% – durée déterminée de 2 ans) auprès du Service de l’environnement (SEN), à Sion\n\nVos tâches:\n• Collaboration à l’application de la législation spécifique à la protection contre le bruit (OPB) dans le canton du Valais Examen de la conformité à l’OPB de projets de construction, de planification et d’assainissement Préavis des demandes d’allégement\n• Traitement des oppositions relatives à ces projets Traitement des plaintes et proposition de mesures de protection Contrôles et visions locales Soutien et conseil aux partenaires internes et externes en matière de protection contre le bruit\n\nVotre profil:\n• Formation d’ingénieur HES en lien avec le domaine d’activité ou formation équivalente\n• Expérience souhaitée dans le domaine de l’acoustique Flexibilité, disponibilité à se former Sens de la communication, esprit d’équipe Autonomie et sens de l’organisation\n• Rigueur, précision Esprit d’initiative et dynamisme Maîtrise des outils informatiques standards et bonnes capacités rédactionnelles Langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’environnement (027 606 31 66 / catherine.pralong-fauchere@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 111252",
-        "it": "Un ingegnere – specialista del rumore (50%) – durata fissa di 2 anni presso il Servizio Ambientale (SEN) di Sion\n\nI vostri compiti:\n• Cooperazione nell'applicazione della legislazione specifica per la protezione del rumore (OPB) nel cantone dell'esame Vallese del rispetto dell'OPB dei progetti di costruzione, pianificazione e bonifica\n• Trattamento delle opposizioni a questi progetti Movimentazione e proposta di misure di protezione Controlli e visioni locali Supporto e consulenza a partner interni ed esterni nella protezione del rumore\n\nIl tuo profilo:\n• Formazione tecnica HES relativa al campo di attività o alla formazione equivalente\n• Esperienza desiderata nel campo dell'acustica Flessibilità, prontezza per formare il significato della comunicazione, spirito di squadra Autonomia e senso organizzativo\n• Rigor, precisione Spirito di iniziativa e dinamismo Mastery di strumenti informatici standard e buone capacità editoriali Lingua madre francese o tedesca, con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nPosizione Informazioni: Servizio Ambientale (027 606 31 66 / catherine.pralong-fauchere@admin.vs.ch) Richiesta online: www.vs.ch/jobs o invio di offerte: Servizio Risorse Umane, Luogo St-Theodoule 15, 1951 Sion Deadline per l'applicazione: 10 luglio 2026 / Numero di riferimento: 111252",
-        "en": "An engineer – noise specialist (50%) – fixed duration of 2 years at the Environmental Service (SEN) in Sion\n\nYour tasks:\n• Cooperation in the application of the specific legislation for noise protection (OPB) in the canton of Valais Examination of compliance with OPB of construction, planning and remediation projects\n• Treatment of oppositions to these projects Complaint handling and proposal of protective measures Local controls and visions Support and advice to internal and external partners in noise protection\n\nYour profile:\n• HES engineering training related to the field of activity or equivalent training\n• Desired experience in the field of acoustics Flexibility, readiness to train Meaning of communication, team spirit Autonomy and organizational sense\n• Rigor, precision Initiative spirit and dynamism Mastery of standard computer tools and good editorial skills French or German mother tongue, with good knowledge of the second official language\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPosition Information: Environmental Service (027 606 31 66 / catherine.pralong-fauchere@admin.vs.ch) Requested online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: July 10, 2026 / Reference Number: 111252",
-        "de": "Ein Ingenieur - Lärmspezialist (50%) - feste Dauer von 2 Jahren beim Umweltdienst (SEN) in Sion\n\nIhre Aufgaben:\n• Zusammenarbeit bei der Anwendung der spezifischen Lärmschutzgesetze (OPB) im Walliser Kanton Prüfung der Einhaltung der OPB bei Bau-, Planungs- und Sanierungsprojekten\n• Behandlung von Einsprüchen zu diesen Projekten Beschwerdebehandlung und Vorschlag von Schutzmaßnahmen Lokale Kontrollen und Visionen Unterstützung und Beratung für interne und externe Partner im Lärmschutz\n\nIhr Profil:\n• HES-Ausbildung in Bezug auf den Tätigkeitsbereich oder gleichwertige Ausbildung\n• Gewünschte Erfahrung im Bereich Akustik Flexibilität, Bereitschaft zur Ausbildung Sinn der Kommunikation, Teamgeist Autonomie und Organisationssinn\n• Strenge, Präzision Initiative Geist und Dynamik Beherrschen von Standard-Computer-Tools und gute redaktionelle Fähigkeiten Französisch oder Deutsch Muttersprache, mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Umweltdienst (027 606 31 66 / catherine.pralong-fauchere@admin.vs.ch) Angeforderte Online-Bewerbung: www.vs.ch/jobs oder Zusendung von Angeboten: Personaldienst, Place St-Theodoule 15, 1951 Sion Bewerbungsfrist: 10. Juli 2026 / Referenznummer: 111252"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:56.518Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111252&publication=2625",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ],
-        "en": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ],
-        "de": [
-          "un-ingenieur-ou-une-ingenieure-specialiste-bruit-50-duree-determinee-de-2-ans-canton"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:26.658Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 45800,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-1a5544347ab3",
-      "slug": "un-ufficiale-giudiziario-segretario-di-direzione-o-un-ufficiale-giudiziario-segretario-di-direzione-100-canton-du-valais",
-      "slugByLocale": {
-        "it": "un-ufficiale-giudiziario-segretario-di-direzione-o-un-ufficiale-giudiziario-segretario-di-direzione-100-canton-du-valais",
-        "en": "un-huissier-secretaire-de-direction-ou-une-huissiere-secretaire-de-direction-100-canton",
-        "de": "un-huissier-secretaire-de-direction-ou-une-huissiere-secretaire-de-direction-100-canton",
-        "fr": "un-huissier-secretaire-de-direction-ou-une-huissiere-secretaire-de-direction-100-canton"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
-      "titleByLocale": {
-        "it": "Un ufficiale giudiziario-segretario di direzione o un ufficiale giudiziario-segretario di direzione (100%)",
-        "en": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)",
-        "de": "A huissier-secrétaire de direction ou une huissière-secrétaire de direction (100 %)",
-        "fr": "Un huissier-secrétaire de direction ou une huissière-secrétaire de direction (100%)"
-      },
-      "description": "A la suite du départ à la retraite du titulaire, le Tribunal cantonal met au concours le poste suivant : UN-E HUISSIER-E-SECRETAIRE DE DIRECTION à 100 % auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion\n\nVos missions:\nVeiller à la préparation des salles d’audience avant les séances. Accueillir, annoncer et introduire les personnes appelées à comparaître. Exécuter d’autres tâches administratives confiées en relation avec la gestion administrative des dossiers, la réception d’appels téléphoniques, le traitement des archives, la pagination et la numérisation des dossiers, la gestion du courrier, la correspondance générale, la gestion de l’économat et exécuter d’autres tâches pratiques.\n\nVotre profil:\n✓ Formation commerciale (CFC d’employé de commerce ou formation équivalente) ✓ Bonnes connaissances des outils informatiques usuels (Word, Excel) ✓ Conscience professionnelle et discrétion ✓ Faire preuve d’entregent, de discrétion et de diplomatie ✓ Expérience préalable dans un secrétariat ✓ Formation dans la sécurité serait un atout Langue maternelle Française Nous offrons Une activité intéressante et variée, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nEntrée en fonction:\n1\n\n• er\n• novembre 2026 ou à convenir. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. Intéressé-e ? Les offres de service, accompagnées d’un curriculum vitae, des copies des diplômes et certificats et d’une photo, devront être adressées au Tribunal cantonal, Secrétariat général, Case postale 2203, 1950 Sion 2 Nord, jusqu’au 10 juillet 2026.",
-      "descriptionByLocale": {
-        "it": "A seguito del ritiro del titolare, il giudice cantonale applica il seguente posto al concorso: UN-E HUISSIER-E-SECRETAIRE DE DIRECTION 100 % al tribunale distrettuale di Sion e al tribunale distrettuale di Herens e Conthey a Sion\n\nLe vostre missioni:\nAssicurare la preparazione di cortili prima delle sedute. Benvenuto, annunciare e introdurre le persone ad apparire. Eseguire altri compiti amministrativi affidati in relazione alla gestione amministrativa dei file, alla ricezione delle telefonate, al trattamento degli archivi, all'impaginazione e alla digitalizzazione dei file, alla gestione della posta, alla corrispondenza generale, alla gestione dell'economia e di altri compiti pratici.\n\nIl tuo profilo:\n✓ Business Training (CFC Business Employee o Equivalent Training) ✓ Buona conoscenza degli strumenti informatici comuni (Word, Excel) ✓ Consapevolezza professionale e Discrezione ✓ Dimostrare comprensione, discrezione e diplomazia ✓ Esperienza prioritaria in un segretariato ✓ Formazione di sicurezza sarebbe un bene Lingua madre Francese Offriamo un'attività interessante e variata, eccellenti condizioni di lavoro moderne e piacevoli e benefici sociali elevati.\n\nEntrata in ufficio:\n1\n\n• e\n• Novembre 2026 o da concordare. Informazioni Il Segretariato generale delle Corti risponderÃ volentieri alle vostre domande allo 027 606 53 00. Interessante? Le offerte di servizio, accompagnate da un curriculum vitae, copie di diplomi e certificati e una foto, devono essere inviate al tribunale cantonale, Segreteria Generale, casella 2203, 1950 Sion 2 Nord, fino al 10 luglio 2026.",
-        "en": "Following the retirement of the holder, the cantonal court shall apply the following post to the competition: UN-E HUISSIER-E-SECRETAIRE DE DIRECTION 100 % to the district court of Sion and the district court of Herens and Conthey in Sion\n\nYour missions:\nEnsure the preparation of courtrooms prior to sittings. Welcome, announce and introduce persons to appear. Perform other administrative tasks entrusted in relation to the administrative management of files, the receipt of telephone calls, the processing of archives, the pagination and digitisation of files, the management of mail, general correspondence, the management of economics and other practical tasks.\n\nYour profile:\n✓ Business Training (CFC Business Employee or Equivalent Training) ✓ Good Knowledge of Common Computer Tools (Word, Excel) ✓ Professional Awareness and Discretion ✓ Demonstrating understanding, discretion and diplomacy ✓ Prior experience in a secretariat ✓ Security training would be an asset Mother tongue French We offer An interesting and varied activity, excellent modern and pleasant working conditions and high social benefits.\n\nEntry into office:\n1\n\n• and\n• November 2026 or to be agreed. Information The General Secretariat of the Courts will gladly answer your questions at 027 606 53 00. Interested? Offers of service, accompanied by a curriculum vitae, copies of diplomas and certificates and a photo, should be sent to the cantonal court, General Secretariat, P.O. Box 2203, 1950 Sion 2 Nord, until 10 July 2026.",
-        "de": "Nach der Pensionierung des Inhabers wendet das kantonale Gericht den folgenden Posten auf den Wettbewerb an: UN-E HUISSIER-E-SECRETAIRE DE DIRECTION 100 % auf das Landgericht Sion und das Landgericht Herens und Conthey in Sion\n\nIhre Missionen:\nGewährleistung der Vorbereitung der Gerichtssäle vor den Sitzungen. Begrüßung, Ankündigung und Einführung von Personen zu erscheinen. Durchführung sonstiger Verwaltungsaufgaben im Zusammenhang mit der Verwaltung von Dateien, dem Empfang von Telefonanrufen, der Bearbeitung von Archiven, der Paginierung und Digitalisierung von Dateien, der Verwaltung von Post, der allgemeinen Korrespondenz, der Verwaltung von wirtschaftlichen und anderen praktischen Aufgaben.\n\nIhr Profil:\n✓ Business Training (CFC Business Employee oder Equivalent Training) ✓ Gute Kenntnisse der gängigen Computer-Tools (Word, Excel) ✓ Professionelles Bewusstsein und Diskretion ✓ Vorerfahrung in einem Sekretariat ✓ Sicherheitstraining wäre ein Vermögenswert Muttersprache Französisch Wir bieten eine interessante und abwechslungsreiche Aktivität, ausgezeichnete moderne und angenehme Arbeitsbedingungen und hohe soziale Vorteile.\n\nAmtsantritt:\n1\n\n• und\n• November 2026 oder vereinbart werden. Information Das Generalsekretariat der Gerichte beantwortet Ihre Fragen gerne unter 027 606 53 00. Interessiert? Leistungsangebote, begleitet von einem Lebenslauf, Kopien von Diplomen und Urkunden und einem Foto, sind bis zum 10. Juli 2026 an das kantonale Gericht, Generalsekretariat, P.O. Box 2203, 1950 Sion 2 Nord, zu richten.",
-        "fr": "A la suite du départ à la retraite du titulaire, le Tribunal cantonal met au concours le poste suivant : UN-E HUISSIER-E-SECRETAIRE DE DIRECTION à 100 % auprès du tribunal de district de Sion et du tribunal des districts d’Hérens et Conthey à Sion\n\nVos missions:\nVeiller à la préparation des salles d’audience avant les séances. Accueillir, annoncer et introduire les personnes appelées à comparaître. Exécuter d’autres tâches administratives confiées en relation avec la gestion administrative des dossiers, la réception d’appels téléphoniques, le traitement des archives, la pagination et la numérisation des dossiers, la gestion du courrier, la correspondance générale, la gestion de l’économat et exécuter d’autres tâches pratiques.\n\nVotre profil:\n✓ Formation commerciale (CFC d’employé de commerce ou formation équivalente) ✓ Bonnes connaissances des outils informatiques usuels (Word, Excel) ✓ Conscience professionnelle et discrétion ✓ Faire preuve d’entregent, de discrétion et de diplomatie ✓ Expérience préalable dans un secrétariat ✓ Formation dans la sécurité serait un atout Langue maternelle Française Nous offrons Une activité intéressante et variée, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nEntrée en fonction:\n1\n\n• er\n• novembre 2026 ou à convenir. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. Intéressé-e ? Les offres de service, accompagnées d’un curriculum vitae, des copies des diplômes et certificats et d’une photo, devront être adressées au Tribunal cantonal, Secrétariat général, Case postale 2203, 1950 Sion 2 Nord, jusqu’au 10 juillet 2026."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:54.960Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20037?language=fr",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:07:25.750Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-huissier-secretaire-de-direction-ou-une-huissiere-secretaire-de-direction-100-canton"
-        ]
-      },
-      "previousSlugs": [
-        "un-huissier-secretaire-de-direction-ou-une-huissiere-secretaire-de-direction-100-canton"
-      ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-58244e8fac0f",
-      "slug": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "collaboratore-specializzato-o-collaboratore-di-risorse-umane-80-canton-du-valais-sion",
-        "en": "a-specialist-collaborator-or-a-human-resources-collaborator-80-canton-du-valais-sion",
-        "de": "ein-spezialisierter-mitarbeiter-oder-ein-mitarbeiter-des-personalwesens-80-canton-du-valais-sion",
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)",
-      "titleByLocale": {
-        "it": "Collaboratore specializzato o collaboratore di risorse umane (80%)",
-        "en": "A specialist collaborator or a human resources collaborator (80%)",
-        "de": "Ein spezialisierter Mitarbeiter oder ein Mitarbeiter des Personalwesens (80%)",
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%)"
-      },
-      "description": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Assurer l'ensemble des processus administratifs RH liés au cycle de vie des collaborateurs, de l'engagement à la fin des rapports de service Participer aux processus de recrutement en assurant la gestion administrative des procédures et le suivi des candidatures Gérer les mutations RH dans les différents systèmes et garantir la qualité et la mise à jour des données du personnel Gérer les processus liés au temps de travail et aux absences (maladie, accident, congés, indemnités et cas particuliers) Conseiller et soutenir les cadres et les collaborateurs sur les questions administratives RH relevant de votre domaine de compétence Contribuer aux projets RH, aux activités transversales du service ainsi qu'à la mise à jour des informations destinées aux utilisateurs\n\nVotre profil:\n• Titulaire d'un certificat de gestionnaire RH ou d'une formation jugée équivalente\n• Expérience confirmée dans la gestion administrative des ressources humaines, idéalement au sein d'une administration publique ou d'une organisation de taille comparable Excellente maîtrise des processus RH et des outils informatiques usuels ; une expérience des systèmes de gestion du temps constitue un atout Aisance rédactionnelle et capacité à traiter des dossiers avec rigueur, précision et confidentialité\n• Sens de l'organisation, autonomie et capacité à gérer plusieurs priorités simultanément\n• Esprit de collaboration, orientation service et aptitude à travailler avec des interlocuteurs variés Maîtrise du français à l'oral et à l'écrit ; des connaissances de l'allemand constituent un avantage\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026\n\nInformations:\nRenseignements sur le poste : La direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Thomas Meier, Responsable RH (027 606 51 78) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 112055",
-      "descriptionByLocale": {
-        "it": "Collaboratore specializzato o collaboratore di risorse umane (80%) con la Direzione del Servizio di Forza (SAPEM), in Sion Postulation online: www.vs.ch/en/jobs\n\nI vostri compiti:\n• Assicurare tutti i processi aziendali HR relativi al ciclo di vita dei dipendenti, dall'impegno al completamento dei rapporti di servizio Partecipare ai processi di reclutamento, assicurando la gestione amministrativa delle procedure e il follow-up delle applicazioni Gestire le implementazioni HR in diversi sistemi e garantire la qualità e la manutenzione dei dati del personale Gestione dei processi relativi a tempo di lavoro e assenza (illness, incidente, congedo, assegni e casi speciali) Consigliare e supportare manager e dipendenti su questioni amministrative HR nell'ambito della tua area di competenza Contribuire a progetti HR, attività di cross-cuting di servizio e aggiornare le informazioni degli utenti\n\nIl tuo profilo:\n• Titolare del certificato HR manager o formazione equivalente\n• Esperienza confermata nella gestione amministrativa delle risorse umane, idealmente in una pubblica amministrazione o organizzazione di dimensioni simili Ottimo controllo dei processi HR e degli strumenti IT comuni; un'esperienza dei sistemi di gestione del tempo è una risorsa forza editoriale e la capacità di gestire i file rigorosamente, accuratamente e confidenziali\n• Senso organizzativo, autonomia e capacità di gestire contemporaneamente più priorità\n• Spirito di collaborazione, orientamento di servizio e capacità di lavorare con una varietà di interlocutori Master in francese orale e scritto; la conoscenza del tedesco è un vantaggio\n\nEntrata in ufficio:\n1\n\n• e\n• Dicembre 2026\n\nInformazioni:\nPosizione Informazioni: La Direzione del Servizio di Esecuzione delle PenalitÃ e Misure (SAPEM) a Sion, Thomas Meier, HR Manager (027 606 51 78) Desiderata applicazione online: www.vs.ch/en/jobs o invio di offerte: Servizio Risorse Umane, Luogo St-Theodoule 15, 1951 Sion Scadenza per l'applicazione: 10 luglio 2026 / Numero di riferimento: 112055",
-        "en": "A specialist collaborator or a human resources collaborator (80%) with the Directorate of the Enforcement Service (SAPEM), in Sion Postulation online: www.vs.ch/en/jobs\n\nYour tasks:\n• Ensure all HR business processes related to the employees' life cycle, from commitment to completion of service reports Participate in recruitment processes by ensuring administrative management of procedures and follow-up of applications Manage HR deployments in different systems and ensure the quality and maintenance of staff data Manage processes related to working time and absences (illness, accident, leave, allowances and special cases) Advise and support managers and employees on HR administrative issues within your area of competence Contribute to HR projects, service cross-cutting activities and update user information\n\nYour profile:\n• Holder of HR manager certificate or equivalent training\n• Confirmed experience in the administrative management of human resources, ideally in a public administration or similar size organization Excellent control of HR processes and common IT tools; an experience of time management systems is an asset Editorial strength and ability to handle files rigorously, accurately and confidentially\n• Organizational sense, autonomy and ability to manage multiple priorities simultaneously\n• Spirit of collaboration, service orientation and ability to work with a variety of interlocutors Master's degree in oral and written French; knowledge of German is an advantage\n\nEntry into office:\n1\n\n• and\n• December 2026\n\nInformation:\nPosition Information: The Directorate of the Enforcement Service of Penalties and Measures (SAPEM) in Sion, Mr. Thomas Meier, HR Manager (027 606 51 78) Desired online application: www.vs.ch/en/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: July 10, 2026 / Reference Number: 112055",
-        "de": "Ein Fachmitarbeiter oder ein Personalmitarbeiter (80%) bei der Direktion des Vollstreckungsdienstes (SAPEM), in Sion Postulation online: www.vs.ch/en/jobs\n\nIhre Aufgaben:\n• Stellen Sie sicher, dass alle HR-Geschäftsprozesse im Zusammenhang mit dem Lebenszyklus der Mitarbeiter, von der Verpflichtung bis zum Abschluss der Serviceberichte, an Rekrutierungsprozessen teilnehmen, indem Sie die administrative Verwaltung der Verfahren und die Nachverfolgung der Anwendungen sicherstellen HR-Bereitstellungen in verschiedenen Systemen verwalten und die Qualität und Pflege der Personaldaten sicherstellen Prozesse in Bezug auf Arbeitszeit und Abwesenheiten verwalten (Krankheit, Unfall, Urlaub, Zulagen und Sonderfälle) Beratung und Unterstützung von Managern und Mitarbeitern zu HR-Verwaltungsfragen in Ihrem Kompetenzbereich Beitrag zu HR-Projekten, Service-Querschnittsaktivitäten und Aktualisierung von Benutzerinformationen\n\nIhr Profil:\n• Inhaber eines Zeugnisses des Personalleiters oder einer gleichwertigen Ausbildung\n• Bestätigte Erfahrung in der Verwaltung von Personalressourcen, idealerweise in einer öffentlichen Verwaltung oder einer Organisation ähnlicher Größe Ausgezeichnete Kontrolle der HR-Prozesse und gängiger IT-Tools; Erfahrung in Zeitmanagementsystemen ist eine Ressource Redaktionsstärke und Fähigkeit, Dateien streng, genau und vertraulich zu behandeln\n• Organisationssinn, Autonomie und Fähigkeit, mehrere Prioritäten gleichzeitig zu verwalten\n• Geist der Zusammenarbeit, Serviceorientierung und Fähigkeit, mit einer Vielzahl von Gesprächspartnern zu arbeiten Master-Abschluss in mündlichem und schriftlichem Französisch; Deutschkenntnisse sind von Vorteil\n\nAmtsantritt:\n1\n\n• und\n• Dezember 2026\n\nInformationen:\nPositionsinformation: Die Direktion des Vollstreckungsdienstes für Strafen und Maßnahmen (SAPEM) in Sion, Herr Thomas Meier, HR Manager (027 606 51 78) Gewünschte Online-Bewerbung: www.vs.ch/en/jobs oder Versandangebote: Personaldienst, Place St-Theodoule 15, 1951 Sion Bewerbungsfrist: 10. Juli 2026 / Referenznummer: 112055",
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée en ressources humaines (80%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Assurer l'ensemble des processus administratifs RH liés au cycle de vie des collaborateurs, de l'engagement à la fin des rapports de service Participer aux processus de recrutement en assurant la gestion administrative des procédures et le suivi des candidatures Gérer les mutations RH dans les différents systèmes et garantir la qualité et la mise à jour des données du personnel Gérer les processus liés au temps de travail et aux absences (maladie, accident, congés, indemnités et cas particuliers) Conseiller et soutenir les cadres et les collaborateurs sur les questions administratives RH relevant de votre domaine de compétence Contribuer aux projets RH, aux activités transversales du service ainsi qu'à la mise à jour des informations destinées aux utilisateurs\n\nVotre profil:\n• Titulaire d'un certificat de gestionnaire RH ou d'une formation jugée équivalente\n• Expérience confirmée dans la gestion administrative des ressources humaines, idéalement au sein d'une administration publique ou d'une organisation de taille comparable Excellente maîtrise des processus RH et des outils informatiques usuels ; une expérience des systèmes de gestion du temps constitue un atout Aisance rédactionnelle et capacité à traiter des dossiers avec rigueur, précision et confidentialité\n• Sens de l'organisation, autonomie et capacité à gérer plusieurs priorités simultanément\n• Esprit de collaboration, orientation service et aptitude à travailler avec des interlocuteurs variés Maîtrise du français à l'oral et à l'écrit ; des connaissances de l'allemand constituent un avantage\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026\n\nInformations:\nRenseignements sur le poste : La direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Thomas Meier, Responsable RH (027 606 51 78) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 112055"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:54.065Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112055&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-ressources-humaines-80"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:25.148Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-8415f1dd8a33",
-      "slug": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
-      "slugByLocale": {
-        "it": "sachbearbeiter-in-80-100-davon-10-per-eine-befristete-dauer-canton-du-valais-visp",
-        "en": "personnel-80-100-of-which-10-for-a-temporary-period-canton-du-valais-visp",
-        "de": "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch",
-        "fr": "personnel-80-a-100-dont-10-pour-une-periode-temporaire-canton-du-valais-visp"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
-      "titleByLocale": {
-        "it": "Sachbearbeiter/in (80-100%, davon 10% per eine befristete Dauer)",
-        "en": "Personnel (80-100%, of which 10% for a temporary period)",
-        "de": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer)",
-        "fr": "Personnel (80 à 100 %, dont 10 % pour une période temporaire)"
-      },
-      "description": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer) bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp\n\nIhre Aufgaben:\n• Sie unterstützen die Konkursverwaltung bei Ihren Tätigkeiten und erledigen selbstständig Arbeiten wie Sicherungsmassnahmen bei Konkurseröffnungen, Inventaraufnahmen vor Ort Sie sind behilflich bei der Fahrnis- und Immobilienverwertung im Konkurs- und Nachlassverfahren sowie bei Spezialliquidationen Sie sind für die administrativen Arbeiten im Liquidationsverfahren verantwortlich\n\nIhr Profil:\n• EFZ Kaufmann, Berufsmatura Wirtschaft, Diplom einer Handelsmittelschule oder gleichwertige Ausbildung Inhaber des eidgenössischen Fachausweises Fachmann Betreibung und Konkurs oder Bereitschaft dieses zu absolvieren Berufserfahrung im Bereich SchKG erwünscht Methodisches, präzises und termingerechtes Arbeiten\n• Fähigkeit, selbständig und im Team zu arbeiten Gute Organisations-, Administrationsund Kommunikationsfähigkeiten Verantwortungsbewusstsein, Belastbarkeit und soziale Kompetenz Sehr gute Informatikkenntnisse Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache Privatfahrzeug\n\nStellenantritt:\nSofort oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Amtsvorsteher Konkursamt Oberwallis, Herr Alwin Gemmet (027/606 16 98) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 10. Juli 2026 /Referenznummer: 108517",
-      "descriptionByLocale": {
-        "it": "Personale (80-100%, di cui 10% per un periodo temporaneo) presso l'Ufficio per le Imprese e la Bancaria, l'Ufficio Bancario Oberwallis di Visp\n\nI loro compiti:\n• Sostieni l'amministrazione fallimentare nelle tue attività e effettui lavori indipendentemente come misure di sicurezza per le aperture di fallimento, registrazioni di inventario sul sito Sei utile nella guida e realizzazione immobiliare in procedure fallimentari e immobiliari, nonché liquidazioni speciali Lei è responsabile del lavoro amministrativo nel procedimento di liquidazione\n\nIl tuo profilo:\n• EFZ Kaufmann, Berufsmatura Wirtschaft, Diplom der Handelsmittelschule o un titolare di istruzione equivalente del certificato professionale federale svizzero per l'amministrazione aziendale e la corruzione o la volontà di completare l'esperienza professionale nel campo SchKG desiderato Lavoro metodico, preciso e tempestivo\n• Capacità di lavorare in modo indipendente e in un team Buone capacità organizzative, amministrative e di comunicazione Responsabilità, resilienza e competenze sociali Molto buone competenze informatiche nativo tedesco con buona conoscenza della seconda lingua ufficiale Veicolo privato\n\nApertura del lavoro:\nImmediatamente o con accordo\n\nInformazioni:\nInformazioni sulla posizione: Chief Bankruptcy Office Oberwallis, Mr. Alwin Gemmet (027/606 16 98) Richiesta online: www.vs.ch/jobs o inviare la vostra domanda a: Ufficio per la gestione del personale, Place St-Théodule 15, 1951 Termine per la presentazione delle dogane: 10. luglio 2026 /Numero di riferimento: 108517",
-        "en": "Personnel (80-100%, of which 10% for a temporary period) at the Office for Business and Bankruptcy, Bankruptcy Office Oberwallis in Visp\n\nTheir tasks:\n• You support the bankruptcy administration in your activities and carry out independently work such as security measures for bankruptcy openings, inventory recordings on site You are helpful in driving and real estate realization in bankruptcy and estate proceedings as well as special liquidations You are responsible for the administrative work in the winding-up proceedings\n\nYour profile:\n• EFZ Kaufmann, Berufsmatura Wirtschaft, Diplom der Handelsmittelschule or an equivalent education Holder of the Swiss Federal Professional Certificate for Business Administration and Bankruptcy or willingness to complete professional experience in the field SchKG desired Methodical, precise and timely work\n• Ability to work independently and in a team Good organizational, administrative and communication skills Responsibility, resilience and social competence Very good computer skills native German with good knowledge of the second official language Private vehicle\n\nJob opening:\nImmediately or by agreement\n\nInformation:\nInformation about the position: Chief Bankruptcy Office Oberwallis, Mr. Alwin Gemmet (027/606 16 98) Online application requested: www.vs.ch/jobs or send your application to: Office for Personnel Management, Place St-Théodule 15, 1951 Customs submission deadline: 10. July 2026 /Reference number: 108517",
-        "de": "Sachbearbeiter/in (80-100%, davon 10% für eine befristete Dauer) bei der Dienststelle für Betreibungs- und Konkurswesen, Konkursamt Oberwallis in Visp\n\nIhre Aufgaben:\n• Sie unterstützen die Konkursverwaltung bei Ihren Tätigkeiten und erledigen selbstständig Arbeiten wie Sicherungsmassnahmen bei Konkurseröffnungen, Inventaraufnahmen vor Ort Sie sind behilflich bei der Fahrnis- und Immobilienverwertung im Konkurs- und Nachlassverfahren sowie bei Spezialliquidationen Sie sind für die administrativen Arbeiten im Liquidationsverfahren verantwortlich\n\nIhr Profil:\n• EFZ Kaufmann, Berufsmatura Wirtschaft, Diplom einer Handelsmittelschule oder gleichwertige Ausbildung Inhaber des eidgenössischen Fachausweises Fachmann Betreibung und Konkurs oder Bereitschaft dieses zu absolvieren Berufserfahrung im Bereich SchKG erwünscht Methodisches, präzises und termingerechtes Arbeiten\n• Fähigkeit, selbständig und im Team zu arbeiten Gute Organisations-, Administrationsund Kommunikationsfähigkeiten Verantwortungsbewusstsein, Belastbarkeit und soziale Kompetenz Sehr gute Informatikkenntnisse Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache Privatfahrzeug\n\nStellenantritt:\nSofort oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Amtsvorsteher Konkursamt Oberwallis, Herr Alwin Gemmet (027/606 16 98) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 10. Juli 2026 /Referenznummer: 108517",
-        "fr": "Personnel (80 à 100 %, dont 10 % pour une période temporaire) au Bureau des affaires et de la faillite, Bureau de la faillite Oberwallis à Viège\n\nLeurs tâches:\n• Vous soutenez l'administration de la faillite dans vos activités et effectuez des travaux indépendants tels que les mesures de sécurité pour les ouvertures de faillite, les enregistrements d'inventaire sur le site Vous êtes utile pour conduire et la réalisation immobilière dans les procédures de faillite et de succession ainsi que les liquidations spéciales Vous êtes responsable du travail administratif dans la procédure de liquidation\n\nVotre profil:\n• EFZ Kaufmann, Berufsmatura Wirtschaft, Diplom der Handelsmittelschule ou une formation équivalente Titulaire du certificat professionnel fédéral suisse pour l'administration des affaires et la faillite ou volonté de compléter l'expérience professionnelle dans le domaine SchKG souhaité Travail méthodique, précis et opportun\n• Aptitude à travailler de manière indépendante et en équipe Bonnes compétences en matière d'organisation, d'administration et de communication Responsabilité, résilience et compétence sociale Très bonne compétence en informatique native Allemande avec une bonne connaissance de la seconde langue officielle Véhicule privé\n\nCréation d'emplois:\nImmédiatement ou par accord\n\nRenseignements:\nRenseignements sur le poste : Bureau des faillites en chef Oberwallis, M. Alwin Gemmet (027/606 16 98) Demande en ligne demandée : www.vs.ch/jobs ou envoyer votre demande à : Bureau de la gestion du personnel, Place St-Théodule 15, 1951 Date limite de présentation des douanes : 10. juillet 2026 /Numéro de référence : 108517"
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:47:53.471Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108517&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
-        ],
-        "en": [
-          "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-in-80-100-davon-10-fur-eine-befristete-dauer-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.846Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-0a82a97b7cff",
-      "slug": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
-      "slugByLocale": {
-        "it": "un-educatore-sociale-o-educatore-sociale-80-100-canton-du-valais-st-gingolph",
-        "en": "a-social-educator-or-social-educator-80-100-canton-du-valais-st-gingolph",
-        "de": "ein-sozialpadagoge-oder-sozialpadagoge-80-100-canton-du-valais-st-gingolph",
-        "fr": "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un éducateur social ou une éducatrice sociale (80-100%)",
-      "titleByLocale": {
-        "it": "Un educatore sociale o educatore sociale (80-100%)",
-        "en": "A social educator or social educator (80-100%)",
-        "de": "Ein Sozialpädagoge oder Sozialpädagoge (80-100%)",
-        "fr": "Un éducateur social ou une éducatrice sociale (80-100%)"
-      },
-      "description": "Un éducateur social ou une éducatrice sociale (80-100%) auprès du Service de l’action sociale, Office de l’asile, au sein du foyer de l’Ecole des Missions à St-Gingolph Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous accueillez et encadrez des jeunes enfants issus de l’asile Vous gérez et suivez leur scolarisation Vous élaborez et assurez la gestion des projets d’activités individuelles ou de groupe Vous encadrez et suivez les jeunes requérants d’asile placés en programmes de formation Vous veillez à leur insertion sociale et professionnelle Vous gérez les dossiers sociaux de même que toutes les tâches administratives en lien avec le suivi des enfants Vous effectuez des permanences en soirée et le week-end\n\nVotre profil:\n• Formation en éducation sociale ES/HES ou formation jugée équivalente Expérience du secteur socio-éducatif Connaissance du domaine de l’asile souhaitée Aptitude à travailler en équipe Compétences administratives et rédactionnelles Sens des priorités Résistance face au stress Flexibilité et disponibilité Maîtrise de la langue française La connaissance d’autres langues serait un réel atout Entrée en fonction - Conditions particulières Entrée en fonction : 1 er septembre 2026 Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Claude Thomas (027 607 20 68) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 114558",
-      "descriptionByLocale": {
-        "fr": "Un éducateur social ou une éducatrice sociale (80-100%) auprès du Service de l’action sociale, Office de l’asile, au sein du foyer de l’Ecole des Missions à St-Gingolph Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous accueillez et encadrez des jeunes enfants issus de l’asile Vous gérez et suivez leur scolarisation Vous élaborez et assurez la gestion des projets d’activités individuelles ou de groupe Vous encadrez et suivez les jeunes requérants d’asile placés en programmes de formation Vous veillez à leur insertion sociale et professionnelle Vous gérez les dossiers sociaux de même que toutes les tâches administratives en lien avec le suivi des enfants Vous effectuez des permanences en soirée et le week-end\n\nVotre profil:\n• Formation en éducation sociale ES/HES ou formation jugée équivalente Expérience du secteur socio-éducatif Connaissance du domaine de l’asile souhaitée Aptitude à travailler en équipe Compétences administratives et rédactionnelles Sens des priorités Résistance face au stress Flexibilité et disponibilité Maîtrise de la langue française La connaissance d’autres langues serait un réel atout Entrée en fonction - Conditions particulières Entrée en fonction : 1 er septembre 2026 Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Claude Thomas (027 607 20 68) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 114558",
-        "it": "Un educatore sociale o educatore sociale (80-100%) presso il Servizio di Azione Sociale, l'Asylum Office, nella sede della Scuola di Missioni a St-Gingolph Postulation online: www.vs.ch/jobs Il Servizio di Azione Sociale è composto dall'Ufficio di Coordinamento dei Prestazioni Sociali, dall'Ufficio di Coordinamento degli Affari Disabili e dall'Ufficio di Asylum.\n\nI vostri compiti:\n• Accogliete e supervisionate i bambini in asilo Gestisci e segui la loro formazione Sviluppa e gestisci progetti di attività individuali o di gruppo Voi supervisionate e seguite i giovani richiedenti asilo inseriti nei programmi di formazione Garantisci la loro integrazione sociale e professionale Gestisci i file sociali e tutti i compiti amministrativi relativi al monitoraggio dei bambini Fai le pause serali e weekend\n\nIl tuo profilo:\n• ES/HES formazione sociale o formazione giudicata equivalente Esperienza nel settore socio-educativo Conoscenza del campo d'asilo desiderato Capacità di lavorare come squadra Amministrazioni e competenze editoriali Priorità messa a fuoco Resistenza allo stress Flessibilità e disponibilità Lingua francese competenza La conoscenza di altre lingue sarebbe un bene reale Entry in office - Condizioni speciali Entrata in carica: 1 settembre 2026 Nomina fissa: la durata è legata a variazioni del numero di persone che accettano la legge\n\nInformazioni:\nPosizione Informazioni: Servizio di Azione Sociale, Sig. Claude Thomas (027 607 20 68) Desired postulazione online: www.vs.ch/jobs or mailing offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: July 10, 2026 / Numero di riferimento: 114558",
-        "en": "A social educator or social educator (80-100%) at the Social Action Service, Asylum Office, in the home of the School of Missions in St-Gingolph Postulation online: www.vs.ch/jobs The Social Action Service consists of the Social Benefits Coordination Office, the Disability Affairs Coordination Office and the Asylum Office.\n\nYour tasks:\n• You welcome and supervise young children from asylum You manage and follow their schooling You develop and manage individual or group activity projects You supervise and follow young asylum seekers placed in training programmes You ensure their social and professional integration You manage social files as well as all administrative tasks related to monitoring children You do evening and weekend breaks\n\nYour profile:\n• ES/HES social education training or training deemed equivalent Experience in the socio-educational sector Knowledge of the asylum field desired Ability to work as a team Administrative and editorial skills Priority focus Stress resistance Flexibility and availability French language proficiency Knowledge of other languages would be a real asset Entry into office - Special conditions Entry into office: 1 September 2026 Fixed-term appointment: the duration is linked to variations in the number of persons that the canton is obliged to accept under the Federal Asylum Act\n\nInformation:\nPosition Information: Social Action Service, Mr. Claude Thomas (027 607 20 68) Desired online postulation: www.vs.ch/jobs or mailing offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: July 10, 2026 / Reference Number: 114558",
-        "de": "Sozialpädagoge oder Sozialpädagoge (80-100%) beim Sozialen Aktionsdienst, Asylamt, im Haus der Missionsschule in St-Gingolph Postulation online: www.vs.ch/jobs Der Soziale Aktionsdienst besteht aus dem Koordinierungsbüro für Sozialleistungen, dem Koordinierungsbüro für Behinderte und dem Asylamt.\n\nIhre Aufgaben:\n• Sie begrüßen und beaufsichtigen kleine Kinder aus dem Asyl Sie verwalten und folgen ihrer Ausbildung Sie entwickeln und verwalten Einzel- oder Gruppenaktivitäten Sie beaufsichtigen und verfolgen junge Asylbewerber, die in Ausbildungsprogramme aufgenommen wurden Sie sichern ihre soziale und berufliche Integration Sie verwalten soziale Dateien sowie alle administrativen Aufgaben im Zusammenhang mit der Überwachung von Kindern Sie machen Abend- und Wochenendpausen\n\nIhr Profil:\n• ES/HES Sozialpädagogik oder Ausbildung als gleichwertig Erfahrung im sozialpädagogischen Bereich Kenntnisse des Asylbereichs gewünscht Fähigkeit, als Team zu arbeiten Verwaltungs- und redaktionelle Fähigkeiten Schwerpunkt Stressresistenz Flexibilität und Verfügbarkeit Französisch Sprachkenntnisse Kenntnisse anderer Sprachen wären ein echtes Gut Eintritt ins Amt - Besondere Bedingungen Eintritt ins Amt: 1. September 2026 Befristete Ernennung: Die Dauer ist an Schwankungen der Anzahl der Personen gebunden, die der Kanton nach dem Bundesasylgesetz zu akzeptieren verpflichtet ist\n\nInformationen:\nPositionsinformation: Social Action Service, Herr Claude Thomas (027 607 20 68) Gewünschte Online-Postulation: www.vs.ch/Jobs oder Mailingangebote: Personaldienst, Place St-Theodoule 15, 1951 Sion Bewerbungsfrist: 10. Juli 2026 / Referenznummer: 114558"
-      },
-      "location": "St-Gingolph",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:52.878Z",
-      "addressLocality": "St-Gingolph",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114558&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-educateur-social-ou-une-educatrice-sociale-80-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.545Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-45595232ff58",
-      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "collaboratore-specializzato-o-collaboratore-specializzato-70-80-canton-du-valais-sion",
-        "en": "a-specialist-collaborator-or-a-specialist-collaborator-70-80-canton-du-valais-sion",
-        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-70-80-canton-du-valais-sion",
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)",
-      "titleByLocale": {
-        "it": "Collaboratore specializzato o collaboratore specializzato (70-80%)",
-        "en": "A specialist collaborator or a specialist collaborator (70-80%)",
-        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (70-80%)",
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%)"
-      },
-      "description": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%) auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous assurez la gestion des besoins métiers auprès des fournisseurs informatiques de l’aide sociale en Valais (logiciel de gestion et plateforme de formation) Vous organisez et participez à la formation des utilisateurs de la solution informatique Vous effectuez le support aux utilisateurs Vous coordonnez les activités de support, de développement métier et de maintenance métier avec les fournisseurs informatiques en lien avec l’aide sociale Vous collaborez au bon fonctionnement du système de documentation de l’Office Vous assurez les besoins en reporting de l’Office Vous soutenez le chef d’office dans ses tâches\n\nVotre profil:\n• Diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Excellentes compétences dans le domaine de l’aide sociale Expérience en tant que responsable d’application dans le domaine du social souhaitée Intérêt marqué pour le domaine informatique Expérience souhaitée dans la mise en œuvre d’un projet d’informatisation Sens des responsabilités, de la communication et de l’organisation Flexibilité et disponibilité Langue maternelle française avec bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Roland Favre (027 606 48 77) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 100796",
-      "descriptionByLocale": {
-        "it": "Collaboratore specializzato o collaboratore specializzato (70-80%) con il Servizio di Azione Sociale, Ufficio Coordinamento dei Prestazioni Sociali in Sion Postulation online: www.vs.ch/jobs Il Servizio di Azione Sociale è composto dall'Ufficio di Coordinamento dei Prestazioni Sociali, dall'Ufficio di Coordinamento degli Affari Disabili e dall'Ufficio di Asylum.\n\nI vostri compiti:\n• Sei responsabile della gestione delle esigenze aziendali con assistenza sociale provider IT in Vallese (software di gestione e piattaforma di formazione) Si organizza e partecipa alla formazione degli utenti della soluzione IT Coordinate le attività di supporto, sviluppo aziendale e manutenzione aziendale con i fornitori IT in relazione all'assistenza sociale Collaborate al corretto funzionamento del sistema di documentazione dell'Ufficio Assicurate i requisiti di reportistica dell'Ufficio Sostenete il Capo ufficio nei suoi doveri\n\nIl tuo profilo:\n• Diploma da una scuola superiore di commercio, SWC di dipendenti aziendali o formazione giudicata equivalente Eccellente competenze nel campo dell'assistenza sociale Esperienza come responsabile dell'applicazione nel campo dell'interesse sociale desiderato nel campo del computer Esperienza desiderata nell'attuazione di un progetto di computerizzazione Significato di responsabilità, comunicazione e organizzazione Flessibilità e disponibilità Lingua madre francese con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nPosizione Informazioni: Servizio di Azione Sociale, Sig. Roland Favre (027 606 48 77) Richiesta di domanda online: www.vs.ch/en/jobs o inviando offerte: Servizio Risorse Umane, Luogo St-Théodule 15, 1951 Sion Deadline per l'applicazione: 10 luglio 2026 / Numero di riferimento: 100796",
-        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (70-80%) beim Social Action Service, Social Benefits Coordination Office in Sion Postulation online: www.vs.ch/jobs Der Soziale Aktionsdienst besteht aus dem Koordinierungsbüro für Sozialleistungen, dem Koordinierungsbüro für Behinderte und dem Asylamt.\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Verwaltung der Geschäftsanforderungen mit Sozialhilfe-IT-Anbietern im Wallis (Managementsoftware und Schulungsplattform) Sie organisieren und beteiligen sich an der Schulung der Nutzer der IT-Lösung Sie unterstützen die Nutzer Sie koordinieren Support-, Business Development- und Business Maintenance-Aktivitäten mit IT-Anbietern im Zusammenhang mit Sozialhilfe Sie arbeiten am ordnungsgemäßen Funktionieren des Dokumentationssystems des Büros mit Sie stellen die Berichtspflichten des Büros sicher Sie unterstützen den Büroleiter in seinen Aufgaben\n\nIhr Profil:\n• Diplom einer höheren Handelsschule, SWC eines Geschäftsangestellten oder Ausbildung als gleichwertig angesehen Exzellente Fähigkeiten im Bereich der Sozialhilfe Erfahrung als Anwendungsmanager im Bereich des sozialen Interesses im Computerbereich Erfahrung gewünscht bei der Durchführung eines Computerisierungsprojekts Bedeutung der Verantwortlichkeiten, Kommunikation und Organisation Flexibilität und Verfügbarkeit Französisch Muttersprache mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Social Action Service, Herr Roland Favre (027 606 48 77) Online-Bewerbung: www.vs.ch/en/jobs oder Zusendung von Angeboten: Human Resources Service, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 10. Juli 2026 / Referenznummer: 100796",
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (70-80%) auprès du Service de l’action sociale, Office de coordination des prestations sociales à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous assurez la gestion des besoins métiers auprès des fournisseurs informatiques de l’aide sociale en Valais (logiciel de gestion et plateforme de formation) Vous organisez et participez à la formation des utilisateurs de la solution informatique Vous effectuez le support aux utilisateurs Vous coordonnez les activités de support, de développement métier et de maintenance métier avec les fournisseurs informatiques en lien avec l’aide sociale Vous collaborez au bon fonctionnement du système de documentation de l’Office Vous assurez les besoins en reporting de l’Office Vous soutenez le chef d’office dans ses tâches\n\nVotre profil:\n• Diplôme d’une école supérieure de commerce, CFC d’employé de commerce ou formation jugée équivalente Excellentes compétences dans le domaine de l’aide sociale Expérience en tant que responsable d’application dans le domaine du social souhaitée Intérêt marqué pour le domaine informatique Expérience souhaitée dans la mise en œuvre d’un projet d’informatisation Sens des responsabilités, de la communication et de l’organisation Flexibilité et disponibilité Langue maternelle française avec bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Roland Favre (027 606 48 77) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 100796",
-        "en": "A specialist collaborator or a specialist collaborator (70-80%) with the Social Action Service, Social Benefits Coordination Office in Sion Postulation online: www.vs.ch/jobs The Social Action Service consists of the Social Benefits Coordination Office, the Disability Affairs Coordination Office and the Asylum Office.\n\nYour tasks:\n• You are responsible for managing business needs with social assistance IT providers in Valais (management software and training platform) You organize and participate in the training of users of the IT solution You support users You coordinate support, business development and business maintenance activities with IT providers in connection with social assistance You collaborate in the proper functioning of the Office's documentation system You ensure the reporting requirements of the Office You support the Head of Office in his or her duties\n\nYour profile:\n• Diploma from a higher school of commerce, SWC of business employee or training deemed equivalent Excellent skills in the field of social assistance Experience as an application manager in the field of social desired Interest in the computer field Experience desired in the implementation of a computerization project Meaning of responsibilities, communication and organization Flexibility and availability French mother tongue with good knowledge of the second official language\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPosition Information: Social Action Service, Mr. Roland Favre (027 606 48 77) Requested online application: www.vs.ch/en/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: July 10, 2026 / Reference Number: 100796"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:52.276Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100796&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:24.229Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-6eb8bbae5f66",
-      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "collaboratore-specializzato-o-collaboratore-specializzato-80-dal-1-agosto-2026-al-31-dicembre-2026-canton-du-valais-sion",
-        "en": "a-specialist-collaborator-or-a-specialist-collaborator-80-from-1-august-2026-to-31-december-2026-canton-du-valais-sion",
-        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-80-vom-1-august-2026-bis-zum-31-dezember-2026",
-        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)",
-      "titleByLocale": {
-        "it": "Collaboratore specializzato o collaboratore specializzato (80%) – dal 1° agosto 2026 al 31 dicembre 2026)",
-        "en": "A specialist collaborator or a specialist collaborator (80%) – from 1 August 2026 to 31 December 2026)",
-        "de": "Ein spezialisierter Mitarbeiter oder ein spezialisierter Mitarbeiter (80%) – vom 1. August 2026 bis zum 31. Dezember 2026",
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1er août 2026 au 31 décembre 2026)"
-      },
-      "description": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1 er août 2026 au 31 décembre 2026) auprès de l’Office cantonal du sport (OCS) à Sion\n\nVos tâches:\n• Vous assistez activement le Chef de l’Office cantonal du sport (OCS) Vous participez aux tâches administratives de la direction de l’OCS Vous collaborez activement à la mise en place du Team Valais Vous soutenez l'OCS dans sa communication avec toutes les parties prenantes Vous collaborez à la mise à jour de la plateforme informatique sport.vs.ch Vous collaborez activement à l’organisation de la soirée annuelle des présidents des fédérations/associations sportives cantonales organisée par l’Office cantonal du sport et le Fonds du sport\n\nVotre profil:\n• Formation universitaire en management du sport/économie ou formation jugée équivalente Autonomie Facilité de contact et esprit d’équipe Précision et efficacité dans l’exécution des travaux Sens de la discrétion, de l’organisation et des responsabilités Flexibilité dans les horaires lors du déroulement des manifestations organisées par l’Office cantonal du sport et le Fonds du sport Bonne maîtrise des outils informatiques Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• août 2026\n\nInformations:\nRenseignements sur le poste : M. Ralf Kreuzer, Chef de l’Office cantonal du sport (027 606 52 48) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 112053",
-      "descriptionByLocale": {
-        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (80% – du 1 er août 2026 au 31 décembre 2026) auprès de l’Office cantonal du sport (OCS) à Sion\n\nVos tâches:\n• Vous assistez activement le Chef de l’Office cantonal du sport (OCS) Vous participez aux tâches administratives de la direction de l’OCS Vous collaborez activement à la mise en place du Team Valais Vous soutenez l'OCS dans sa communication avec toutes les parties prenantes Vous collaborez à la mise à jour de la plateforme informatique sport.vs.ch Vous collaborez activement à l’organisation de la soirée annuelle des présidents des fédérations/associations sportives cantonales organisée par l’Office cantonal du sport et le Fonds du sport\n\nVotre profil:\n• Formation universitaire en management du sport/économie ou formation jugée équivalente Autonomie Facilité de contact et esprit d’équipe Précision et efficacité dans l’exécution des travaux Sens de la discrétion, de l’organisation et des responsabilités Flexibilité dans les horaires lors du déroulement des manifestations organisées par l’Office cantonal du sport et le Fonds du sport Bonne maîtrise des outils informatiques Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• août 2026\n\nInformations:\nRenseignements sur le poste : M. Ralf Kreuzer, Chef de l’Office cantonal du sport (027 606 52 48) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 112053",
-        "it": "Collaboratore specializzato o collaboratore specializzato (80%) – dal 1° agosto 2026 al 31 dicembre 2026) presso l'Ufficio cantonale dello sport (OCS) di Sion\n\nI vostri compiti:\n• Stai assistendo attivamente il Capo dell'Ufficio Sportivo cantonale (OCS) Sei coinvolto nei compiti amministrativi della gestione dell'OCS Sei attivamente coinvolto nella creazione del Team Valais Supporti l'OCS nella sua comunicazione con tutti gli stakeholder Stai collaborando nell'aggiornamento della piattaforma IT sport.vs.ch Stai collaborando attivamente nell'organizzazione della serata annuale dei presidenti delle federazioni sportive cantonali/associazioni organizzate dall'Ufficio Sportivo cantonale e dal Fondo Sportivo\n\nIl tuo profilo:\n• Formazione universitaria in gestione sportiva/economia o formazione ritenuta equivalente Autonomia Facilità di contatto e spirito di squadra Accuratezza ed efficienza nell'esecuzione del lavoro Senso di discrezione, organizzazione e responsabilità Flessibilità nei programmi durante la conduzione degli eventi organizzati dall'Ufficio cantonale dello sport e dai Fonds du sport Buona padronanza di strumenti informatici Lingua madre francese con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\n1\n\n• e\n• agosto 2026\n\nInformazioni:\nDati postali: Sig. Ralf Kreuzer, Capo dell'Ufficio Cantonale dello Sport (027 606 52 48) Postazione desiderata online: www.vs.ch/jobs o invio di offerte: Servizio Risorse Umane, Luogo St-Théodule 15, 1951 Scadenza Sion per l'applicazione: 10 luglio 2026 / Numero di riferimento: 112053",
-        "en": "A specialist collaborator or a specialist collaborator (80%) – from 1 August 2026 to 31 December 2026) at the Cantonal Office of Sport (OCS) in Sion\n\nYour tasks:\n• You are actively assisting the Head of the Cantonal Sports Office (OCS) You are involved in the administrative tasks of the management of the OCS You are actively involved in the setting up of Team Valais You support the OCS in its communication with all stakeholders You are collaborating in the updating of the IT platform sport.vs.ch You are actively collaborating in the organisation of the annual evening of the presidents of cantonal sports federations/associations organised by the Cantonal Sports Office and the Sports Fund\n\nYour profile:\n• University training in sport management/economy or training deemed equivalent Autonomy Ease of contact and team spirit Accuracy and efficiency in the execution of the work Sense of discretion, organization and responsibilities Flexibility in the schedules during the conduct of the events organized by the Cantonal Office of Sport and the Fonds du sport Good mastery of computer tools French mother tongue with good knowledge of the second official language\n\nEntry into office:\n1\n\n• and\n• August 2026\n\nInformation:\nPost information: Mr. Ralf Kreuzer, Head of the Cantonal Office of Sport (027 606 52 48) Posting desired online: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: July 10, 2026 / Reference Number: 112053",
-        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (80%) – vom 1. August 2026 bis zum 31. Dezember 2026 im Kantonsamt für Sport (OCS) in Sion\n\nIhre Aufgaben:\n• Sie unterstützen aktiv den Leiter des Kantonalen Sportamtes (OCS) Sie sind an den administrativen Aufgaben des Managements der OCS beteiligt Sie sind aktiv am Aufbau des Teams Wallis beteiligt Sie unterstützen die OCS in ihrer Kommunikation mit allen Stakeholdern Sie arbeiten an der Aktualisierung der IT-Plattform sport.vs.ch mit Sie beteiligen sich aktiv an der Organisation des jährlichen Abends der Präsidenten der kantonalen Sportverbände, der vom Kantonalen Sportamt und dem Sportfonds organisiert wird\n\nIhr Profil:\n• Universitätsausbildung in Sportmanagement / Wirtschaft oder Ausbildung als gleichwertig angesehen Autonomie Leichtigkeit des Kontakts und Teamgeist Genauigkeit und Effizienz bei der Ausführung der Arbeit Sinn für Diskretion, Organisation und Verantwortlichkeiten Flexibilität in den Zeitplänen während der Durchführung der von der kantonalen Sportbehörde und dem Fonds du sport organisierten Veranstaltungen Gute Beherrschung der Computer-Tools Französisch Muttersprache mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\n1\n\n• und\n• August 2026\n\nInformationen:\nPostinformationen: Herr Ralf Kreuzer, Leiter des Kantonsamtes für Sport (027 606 52 48) Online-Posting gewünscht: www.vs.ch/jobs oder Versandangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 10. Juli 2026 / Referenznummer: 112053"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:50.451Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112053&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ],
-        "en": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ],
-        "de": [
-          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-80-du-1er-aout-2026-au-31"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.303Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-3498c59799aa",
-      "slug": "una-segretaria-100-canton-du-valais-martigny",
-      "slugByLocale": {
-        "it": "una-segretaria-100-canton-du-valais-martigny",
-        "en": "a-secretary-100-canton-du-valais-martigny",
-        "de": "eine-sekretarin-100-canton-du-valais-martigny",
-        "fr": "un-ou-une-secretaire-100-canton-valais-ch"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un ou une secrétaire (100%)",
-      "titleByLocale": {
-        "it": "Segretario/a (100%)",
-        "en": "Secretary (100%)",
-        "de": "Sekretär/in (100%)",
-        "fr": "Un ou une secrétaire (100%)"
-      },
-      "description": "Un ou une secrétaire (100%) auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny\n\nVos tâches:\n• Vous assurez l’accueil et l’information au public Vous exécutez les tâches administratives liées aux consultations et aux ateliers collectifs Vous mettez en forme les documents liés aux démarches d’insertion Vous exécutez les tâches liées à la gestion et à la mise à jour de la documentation\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d'employé de commerce, d’un diplôme d'une école supérieure de commerce ou d’une formation jugée équivalente Vous avez de l’expérience dans l’accueil, le contact et l’information au public Vous avez de l’intérêt pour les questions liées à la formation, l’emploi et l’insertion Vous maîtrisez les outils informatiques standard (Office - Windows - Internet) Vous savez coopérer et travailler en équipe Vous pouvez faire preuve d’autonomie et avez le sens des responsabilités\n• Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : M. Lionel Clavien, adjoint de Office d’orientation scolaire, professionnelle et de carrière, (027 606 45 06, lionel.clavien@admin.vs.ch ) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 10 juillet 2026 / Numéro de référence : 110146",
-      "descriptionByLocale": {
-        "it": "Designazione\n\nUna o una segretaria (100%) presso l'Ufficio per l'istruzione, la formazione professionale e l'orientamento professionale per il Centro di informazione e orientamento (CIO) di Martigny\n\nMissioni\n\n- Assicurate la ricezione e le informazioni al pubblico\n- Lei svolge compiti amministrativi relativi a consultazioni collettive e workshop\n- Formatta i documenti relativi alle procedure di integrazione\n- Lei esegue compiti relativi alla gestione e all'aggiornamento della documentazione\n\nProfilo ricercato\n\n- Stai beneficiando di una SWC di un dipendente d'affari, una laurea da un business college o formazione equivalente\n- Hai esperienza in reception, contatto e informazioni al pubblico\n- Ha un interesse per la formazione, l'occupazione e l'integrazione\n- Si padroneggiano gli strumenti IT standard (Office - Windows - Internet)\n- Sai come collaborare e lavorare come squadra\n- È possibile esercitare l'autonomia e avere un senso di responsabilità\n- Lingua madre francese con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio\n\n- 1 ottobre 2026\n\nInformazioni\n\n- Informazioni sulla posizione: Lionel Clavien, Assistente all'Ufficio per l'educazione, la formazione professionale e l'orientamento professionale, (027 606 45 06, lionel.clavien@admin.vs.ch)\n- Per applicare online: www.vs.ch/jobs o inviare offerte: Servizio risorse umane, Luogo St-Théodule 15, 1951 Sion\n- Termine ultimo per l'applicazione: 10 luglio 2026\n- Numero di riferimento: 110146",
-        "en": "Description\n\nOne or one secretary (1010) to the Office of Educational, Vocational and Career Guidance, for the Information and Guidance Centre (CIO) of Martigny\n\nMission\n\n- You ensure the reception and information to the public - You perform the administrative tasks related to the consultations and workshops - You format the documents related to the procedures for, insertion - You perform the tasks related to the management and updating of the documentation\n\nProfile sought\n\n- You have experience in reception, contact and information to the public - You have a interest in questions related to training, l, employment and integration - You have mastery of standard IT tools (Office - Windows - Internet) - You know how to cooperate and work as a team - You can demonstrate autonomy and have a sense of responsibility - French mother tongue with good knowledge of the second language\n\nOfficial\n\nEntry into office\n\n- 1 October 2026\n\nInformation\n\n- Information on the position: Mr Lionel Clavien, Assistant to the Office d'Orientation scolaire, professionnel et de carrière, (027 606 45 06, lionel.clavien@admin.vs.ch) - Requested online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion - Deadline for application: 10 July 2026 - Reference Number: 110 146",
-        "de": "Beschreibung\n\nEine oder eine Sekretärin (100%) im Büro für Bildungs-, Berufs- und Berufsberatung des Informations- und Beratungszentrums (CIO) in Martigny\n\nDienstreisen\n\n- Sie gewährleisten Empfang und Information für die Öffentlichkeit\n- Sie führen administrative Aufgaben im Zusammenhang mit kollektiven Konsultationen und Workshops durch\n- Sie formatieren die Dokumente im Zusammenhang mit den Integrationsverfahren\n- Sie erfüllen Aufgaben im Zusammenhang mit der Verwaltung und Aktualisierung der Dokumentation\n\nProfil gesucht\n\n- Sie profitieren von einem SWC eines Geschäftsangestellten, einem Abschluss einer Business College oder einer gleichwertigen Ausbildung\n- Sie haben Erfahrung in Empfang, Kontakt und Information für die Öffentlichkeit\n- Sie haben Interesse an Ausbildung, Beschäftigung und Integration\n- Sie beherrschen Standard-IT-Tools (Office - Windows - Internet)\n- Sie wissen, wie man zusammenarbeitet und als Team arbeitet\n- Sie können Autonomie ausüben und Verantwortungsbewusstsein haben\n- Französische Muttersprache mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt\n\n1. Oktober 2026\n\nInformation\n\n- Information über die Stelle: Herr Lionel Clavien, Assistent des Amtes für Erziehungs-, Berufs- und Berufsberatung, (027 606 45 06, lionel.clavien@admin.vs.ch)\n- Um sich online zu bewerben: www.vs.ch/jobs oder Angebote senden: Human Resources Service, Place St-Théodule 15, 1951 Zion\n- Bewerbungsfrist: 10. Juli 2026\n- Referenznummer : 110146",
-        "fr": "Description\n\nUn ou une secrétaire (100%) auprès de l’Office d’orientation scolaire, professionnelle et de carrière, pour le Centre d’information et d’orientation (CIO) de Martigny\n\nMissions\n\n- Vous assurez l’accueil et l’information au public\n- Vous exécutez les tâches administratives liées aux consultations et aux ateliers collectifs\n- Vous mettez en forme les documents liés aux démarches d’insertion\n- Vous exécutez les tâches liées à la gestion et à la mise à jour de la documentation\n\nProfil recherché\n\n- Vous êtes au bénéfice d’un CFC d'employé de commerce, d’un diplôme d'une école supérieure de commerce ou d’une formation jugée équivalente\n- Vous avez de l’expérience dans l’accueil, le contact et l’information au public\n- Vous avez de l’intérêt pour les questions liées à la formation, l’emploi et l’insertion\n- Vous maîtrisez les outils informatiques standard (Office - Windows - Internet)\n- Vous savez coopérer et travailler en équipe\n- Vous pouvez faire preuve d’autonomie et avez le sens des responsabilités\n- Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction\n\n- 1er octobre 2026\n\nInformations\n\n- Renseignements sur le poste : M. Lionel Clavien, adjoint de Office d’orientation scolaire, professionnelle et de carrière, (027 606 45 06, lionel.clavien@admin.vs.ch)\n- Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion\n- Délai de postulation : 10 juillet 2026\n- Numéro de référence : 110146"
-      },
-      "location": "Martigny",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:47:49.243Z",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110146&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-ou-une-secretaire-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-ou-une-secretaire-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.701Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
