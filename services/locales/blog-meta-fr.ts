@@ -8405,6 +8405,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-telelavoro.title': 'Frontaliers : l\'accord sur le télétravail est entré en vigueur',
     'blog.article.frontalieri-telelavoro.excerpt': 'Les frontaliers peuvent travailler à domicile jusqu\'à 25 % du temps de travail annuel',
     'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri en Suisse italienne',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': 'Frontières à distance à 50 % sans impact sur les cotisations et les pensions',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'Le nouvel accord frontalier prévoit l\'exonération de la taxe à la source pour les frontaliers travaillant à distance à 50 %.',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'Un frontalier travaille de manière distante dans un bureau dans le canton du Tessin.',
 };
 
 export default blogMetaFr;

@@ -8403,6 +8403,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-telelavoro.title': 'Grenzgänger: Die Vereinbarung über Telearbeit ist in Kraft getreten',
     'blog.article.frontalieri-telelavoro.excerpt': 'Grenzgänger können bis zu 25% der Jahresarbeitszeit von zu Hause aus arbeiten',
     'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': 'Grenzgänger aus der Ferne zu 50% ohne Auswirkungen auf Beiträge und Renten',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'Die neue Frontalieri-Vereinbarung sieht eine Befreiung von der Quellensteuer für Grenzgänger vor, die zu 50% aus der Ferne arbeiten.',
+    'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'Ein Frontalier arbeitet von zu Hause aus in einem Büro im Kanton Tessin.',
 };
 
 export default blogMetaDe;

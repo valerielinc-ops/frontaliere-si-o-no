@@ -25253,6 +25253,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni',
+ category: 'pratico',
+ date: '2026-07-12T02:28:41.484Z',
+ image: '/images/blog/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
