@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3158,
+ "numberOfItems": 3159,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7833,7 +7833,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3155, "name": "Canton Ticino, novità storica per gli apprendis...", "url": `${BASE_URL}/articoli-frontaliere/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu` },
           { "@type": "ListItem", "position": 3156, "name": "Indennità di perdita di guadagno: malattia di l...", "url": `${BASE_URL}/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere` },
           { "@type": "ListItem", "position": 3157, "name": "Frontalieri, più treni e bus. Intesa col Canton...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-treni-bus` },
-          { "@type": "ListItem", "position": 3158, "name": "Rinnovo e modifiche al permesso per frontalieri...", "url": `${BASE_URL}/articoli-frontaliere/richiesta-rinnovo-modifica-permesso-g` }
+          { "@type": "ListItem", "position": 3158, "name": "Rinnovo e modifiche al permesso per frontalieri...", "url": `${BASE_URL}/articoli-frontaliere/richiesta-rinnovo-modifica-permesso-g` },
+          { "@type": "ListItem", "position": 3159, "name": "Investimento immobiliare in Svizzera: guida per...", "url": `${BASE_URL}/articoli-frontaliere/investimento-immobiliare-frontaliere` }
  ]
  },
  {

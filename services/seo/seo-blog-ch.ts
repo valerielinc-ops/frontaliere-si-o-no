@@ -13161,6 +13161,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-investimento-immobiliare-frontaliere': {
+    title: 'Investimento immobiliare in Svizzera: guida per frontalieri',
+    description: 'Scopri i vincoli, la fiscalità e le procedure per acquistare un immobile in Svizzera come investimento se sei un lavoratore frontaliere. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, investimento, immobiliare, analisi, vincoli',
+    ogTitle: 'Investimento immobiliare in Svizzera: guida per frontalieri',
+    ogDescription: 'Scopri i vincoli, la fiscalità e le procedure per acquistare un immobile in Svizzera come investimento se sei un lavoratore frontaliere.',
+    canonicalPath: '/articoli-svizzera/investimento-immobiliare-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Investimento immobiliare in Svizzera: guida per frontalieri",
+      "description": "Scopri i vincoli, la fiscalità e le procedure per acquistare un immobile in Svizzera come investimento se sei un lavoratore frontaliere. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/investimento-immobiliare-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immobile residenziale in Ticino"
+      },
+      "datePublished": "2026-07-12T00:59:54+00:00",
+      "dateModified": "2026-07-12T00:59:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investimento-immobiliare-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1021,6 +1021,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-treni-bus.title': 'Frontières, plus de trains et de bus. Entente avec le canton du Tessin',
     'blog.article.frontalieri-treni-bus.excerpt': 'L\'accord entre la Région et le canton du Tessin prévoit une augmentation des liaisons ferroviaires et du caoutchouc transfrontalier.',
     'blog.article.frontalieri-treni-bus.imageAlt': 'Image d\'un bus franchissant la frontière entre l\'Italie et la Suisse',
+    'blog.article.investimento-immobiliare-frontaliere.title': 'Investissement immobilier en Suisse : guide pour frontaliers',
+    'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analyse des contraintes pour les non-résidents, de la fiscalité et des différences entre l\'achat d\'une première maison et l\'investissement pour les travailleurs frontaliers.',
+    'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Propriété résidentielle au Tessin',
 };
 
 export default blogMetaChFr;

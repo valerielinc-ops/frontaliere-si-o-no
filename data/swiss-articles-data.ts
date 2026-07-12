@@ -3059,6 +3059,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'investimento-immobiliare-frontaliere',
+    category: 'fiscale',
+    date: '2026-07-12T00:59:54.276Z',
+    image: '/images/blog/investimento-immobiliare-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
