@@ -1057,6 +1057,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permessi-docenti-frontalieri-ticino.title': 'Enseignants frontaliers et permis : les règles du gouvernement',
     'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Le Conseil d\'État clarifie la procédure de recrutement des enseignants frontaliers : le début de l\'activité est licite après la demande du permis.',
     'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Siège du gouvernement cantonal à Bellinzona, Tessin, Suisse.',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Régime forfaitaire italien compatibilité revenu suisse',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Le régime forfaitaire italien est-il compatible avec le revenu du travail suisse ? Découvrez comment cela fonctionne et ce que cela signifie pour les frontaliers',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Une scène de travail en Suisse avec les travailleurs frontaliers',
 };
 
 export default blogMetaChFr;

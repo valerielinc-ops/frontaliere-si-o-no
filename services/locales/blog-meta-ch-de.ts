@@ -1057,6 +1057,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permessi-docenti-frontalieri-ticino.title': 'Grenzüberschreitende Lehrkräfte und Erlaubnisse: die Regeln der Regierung',
     'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Der Staatsrat klärt das Verfahren für die Einstellung von Grenzlehrern: Die Aufnahme der Tätigkeit ist nach Beantragung der Erlaubnis zulässig.',
     'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Sitz der Kantonsregierung in Bellinzona, Tessin, Schweiz.',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.title': 'Italienische Pauschalregelung Vereinbarkeit von schweizerischem Einkommen',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.excerpt': 'Ist die italienische Pauschalregelung mit dem schweizerischen Arbeitseinkommen vereinbar? Erfahren Sie, wie es funktioniert und was es für Grenzgänger bedeutet',
+    'blog.article.regime-forfettario-italiano-compatibilita-reddito-svizzero.imageAlt': 'Eine Szene von Arbeit in der Schweiz mit Grenzarbeitern',
 };
 
 export default blogMetaChDe;
