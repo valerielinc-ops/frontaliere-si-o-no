@@ -8412,6 +8412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Reform der Grenzarbeitslosigkeit: 900 Mio. pro Jahr',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'Die Schweiz könnte durch die Reform der Grenzarbeitslosigkeit zusätzliche Kosten erleiden.',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Ein Frontalier wartet am Grenzübergang Chiasso.',
+    'blog.article.partita-iva-frontaliere-svizzera.title': 'Partita IVA transfrontaliera: guida alla propria attività in Svizzera',
+    'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in der Schweiz selbstständig arbeiten können: Anforderungen, Steuern und Vorsorge in Übereinstimmung mit den geltenden Vorschriften.',
+    'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Professioneller Schreibtisch mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

@@ -8414,6 +8414,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Riforma disoccupazione frontalieri: 900 mln all\'anno',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'La Svizzera potrebbe subire costi aggiuntivi per la riforma sulla disoccupazione dei frontalieri.',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Un frontaliere in attesa al valico di Chiasso.',
+    'blog.article.partita-iva-frontaliere-svizzera.title': 'Partita IVA frontaliere: guida al lavoro autonomo in Svizzera',
+    'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Scopri come gestire l\'attività autonoma in Svizzera da frontaliere: requisiti, fiscalità e previdenza nel rispetto delle norme vigenti.',
+    'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Scrivania professionale con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
