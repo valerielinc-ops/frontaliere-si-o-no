@@ -25,7 +25,7 @@
       "fr": "chef-d-equipe-sap-finance-reporting-m-w-d-80-100-implenia-glattpark-opfikon"
     },
     "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
-    "expiredAt": "2026-07-11T11:05:04.956Z",
+    "expiredAt": "2026-07-12T22:25:07.329Z",
     "previousSlugs": [
       "team-lead-sap-finance-reporting-m-w-d-80-100-implenia-ch"
     ],
@@ -70,7 +70,7 @@
       "fr": "premier-specialiste-des-procedes-et-de-la-gestion-administrative-de-la-construction-m-f-j-80-100-implenia"
     },
     "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
-    "expiredAt": "2026-07-11T11:05:04.956Z",
+    "expiredAt": "2026-07-12T22:25:07.329Z",
     "previousSlugs": [
       "junior-fachspezialist-prozesse-administration-construction-management-m-w-d-80-100"
     ],
@@ -87,6 +87,47 @@
     },
     "salaryMin": 62000,
     "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
+    "title": "Zimmermann EFZ (m/w/d), 80-100%",
+    "titleByLocale": {
+      "it": "Zimmermann CFC (m/w/d), 80-100%",
+      "en": "Zimmermann EFZ (m/f/d), 80-100 %",
+      "de": "Zimmermann EFZ (m/w/d), 80-100%",
+      "fr": "Zimmermann EFZ (m/f/d), 80-100 %"
+    },
+    "company": "Implenia",
+    "companyKey": "implenia",
+    "location": "Rümlang",
+    "addressLocality": "Rümlang",
+    "descriptionByLocale": {
+      "it": "A Implenia Holzbau, molto è in movimento – guidato dalla crescente importanza della costruzione sostenibile e dalla nostra chiara attenzione alla moderna costruzione del legno. Con la nostra pluriennale esperienza, l'alta competenza tecnica e un forte team interdisciplinare, realizziamo esigenti servizi di costruzione del legno in tutte le fasi – dalla pianificazione alla produzione all'esecuzione. Al fine di sviluppare ulteriormente la nostra organizzazione e modellare la costruzione del legno in modo orientato al futuro, stiamo cercando personalità impegnate che vogliano assumersi la responsabilità e crescere insieme a noi – come Zimmermann EFZ (m/f/d) Porti il pensiero imprenditoriale, le capacità di comunicazione e un modo di lavorare strutturato? Il lavoro analitico, indipendente e tempestivo è una questione naturalmente per voi – come sta lavorando insieme in una squadra? Allora non vediamo l'ora del vostro impegno per il nostro team nella posizione Rümlang.",
+      "en": "At Implenia Holzbau, a lot is currently in motion – driven by the growing importance of sustainable construction and our clear focus on modern timber construction. With our many years of experience, high technical competence and a strong interdisciplinary team, we realize demanding timber construction services across all phases – from planning to production to execution. In order to further develop our organization and shape timber construction in a future-oriented way, we are looking for committed personalities who want to take responsibility and grow together with us – as Zimmermann EFZ (m/f/d) You bring entrepreneurial thinking, communication skills and a structured way of working? Analytical, independent and timely work is a matter of course for you – as is working together in a team? Then we look forward to your commitment to our team at the Rümlang location.",
+      "de": "Bei Implenia Holzbau ist derzeit vieles in Bewegung – getragen von der wachsenden Bedeutung des nachhaltigen Bauens und unserer klaren Ausrichtung auf den modernen Holzbau. Mit unserer langjährigen Erfahrung, hoher technischer Kompetenz und einem starken interdisziplinären Team realisieren wir anspruchsvolle Holzbauleistungen über alle Phasen hinweg – von der Planung über die Produktion bis zur Ausführung. Um unsere Organisation weiterzuentwickeln und den Holzbau zukunftsorientiert mitzugestalten, suchen wir engagierte Persönlichkeiten, die Verantwortung übernehmen und gemeinsam mit uns wachsen möchten – als Zimmermann EFZ (m/w/d) Du bringst unternehmerisches Denken, Kommunikationsstärke und eine strukturierte Arbeitsweise mit? Analytisches, selbstständiges und termingerechtes Arbeiten ist für dich selbstverständlich – ebenso wie die Zusammenarbeit im Team? Dann freuen wir uns auf deinen Einsatz für unser Team am Standort Rümlang .",
+      "fr": "Chez Implenia Holzbau, beaucoup est actuellement en mouvement, sous l'influence de l'importance croissante de la construction durable et de l'accent mis clairement sur la construction moderne du bois. Avec nos nombreuses années d'expérience, nos hautes compétences techniques et une solide équipe interdisciplinaire, nous réalisons des services de construction en bois exigeants dans toutes les phases – de la planification à la production à l'exécution. Afin de développer davantage notre organisation et de façonner la construction de bois d'une manière orientée vers l'avenir, nous recherchons des personnalités engagées qui veulent prendre des responsabilités et grandir avec nous – comme Zimmermann EFZ (m/f/d) Vous apportez la pensée entrepreneuriale, les compétences en communication et une façon structurée de travailler? Un travail d'analyse, d'indépendance et d'actualité est bien sûr une question pour vous, tout comme le travail en équipe? Ensuite, nous attendons avec impatience votre engagement envers notre équipe à l'emplacement de Rümlang."
+    },
+    "slugByLocale": {
+      "it": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
+      "en": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
+      "de": "zimmermann-efz-m-w-d-80-100-implenia-ch",
+      "fr": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
+    },
+    "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
+    "expiredAt": "2026-07-12T22:25:07.329Z",
+    "previousSlugs": [
+      "zimmermann-efz-m-w-d-80-100-implenia-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "zimmermann-efz-m-w-d-80-100-implenia-ch"
+      ]
+    },
+    "postalCode": "8153",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
