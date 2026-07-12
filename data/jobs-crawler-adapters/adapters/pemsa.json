@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-11T21:57:15.922Z",
+  "updatedAt": "2026-07-12T10:49:12.760Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/cartongessista-gessatore-2682784/": {
       "location": "Bellinzona",
@@ -1099,12 +1099,6 @@
       "company": "PEMSA",
       "postedDate": "2026-06-28"
     },
-    "https://www.pemsa.ch/it/job/macchina-per-la-stesura-dellasfalto-2680608/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-26"
-    },
     "https://www.pemsa.ch/it/job/addetto-alla-regolazione-e-alla-programmazione-della-rettifica-a-5-assi-m-f-d-2680587/": {
       "location": "Genève",
       "canton": "GE",
@@ -1150,12 +1144,6 @@
     "https://www.pemsa.ch/it/job/muratore-cat-c-2680538/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-26"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2680530/": {
-      "location": "Taverne",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-06-26"
     },
@@ -1347,12 +1335,6 @@
     },
     "https://www.pemsa.ch/it/job/idraulico-con-esperienza-2678333/": {
       "location": "Agno",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-06-10"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2678321/": {
-      "location": "Torricella",
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-06-10"
