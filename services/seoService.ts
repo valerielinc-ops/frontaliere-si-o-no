@@ -4501,6 +4501,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congedo-lutto-malattia-frontaliere-svizzera': { name: 'Congedo familiare', path: '/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera', parent: 'blog' },
     'blog-frontalieri-disoccupati-urc-ticino': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/frontalieri-disoccupati-urc-ticino/', parent: 'blog' },
     'blog-lavoro-remoto-terzo-paese-frontaliere-fiscalita': { name: 'Lavoro remoto terzo paese', path: '/articoli-frontaliere/lavoro-remoto-terzo-paese-frontaliere-fiscalita', parent: 'blog' },
+    'blog-frontaliere-doppio-lavoro-incastrato-ticino': { name: 'Frontaliere doppio lavoro', path: '/articoli-svizzera/frontaliere-doppio-lavoro-incastrato-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

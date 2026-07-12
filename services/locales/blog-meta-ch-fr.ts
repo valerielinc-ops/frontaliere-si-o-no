@@ -1069,6 +1069,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Comment s\'inscrire auprès des bureaux de placement suisses',
     'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'Au Tessin, 65 000 frontaliers sur 220 000 postes. Depuis 2018, ils ont le droit de s\'inscrire aux URC, mais en 2017, ils n\'étaient que 83 dans toute la Suisse.',
     'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Bureau de placement moderne dans un bâtiment public tessinois avec des personnes en attente',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontalier à double travail : encastré par les caméras',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Un employé municipal italien travaillait au Tessin pendant les heures de service. Piégé par la Guardia di Finanza grâce à des vidéos et des données téléphoniques.',
+    'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Frontière entre l\'Italie et la Suisse avec des véhicules et des montagnes',
 };
 
 export default blogMetaChFr;
