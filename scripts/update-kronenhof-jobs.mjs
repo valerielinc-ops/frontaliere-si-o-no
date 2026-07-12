@@ -123,6 +123,9 @@ function sleep(ms) {
 async function fetchJson(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  // clearTimeout in `finally`, AFTER `res.json()` reads the body — keeping the
+  // abort armed during the body read so a stalled body aborts at TIMEOUT_MS
+  // instead of hanging the crawler (same class as PR #4118 / review sibling).
   try {
     const res = await fetch(url, {
       signal: controller.signal,
@@ -131,12 +134,10 @@ async function fetchJson(url) {
         'User-Agent': UA,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
