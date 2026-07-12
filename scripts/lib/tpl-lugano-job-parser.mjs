@@ -7,8 +7,11 @@
  *
  * This module exports:
  *   parseTplListingPage(html)  — extract job links from careers page
- *   parseTplDetailPage(html)   — extract job data from a detail page
  *   isTplJob(job)              — match TPL jobs in dataset
+ *
+ * Detail-page parsing is handled by the shared `runDedicatedBaseCrawler`
+ * generic engine (see scripts/update-tpl-lugano-jobs.mjs), not by a
+ * crawler-specific parser here.
  */
 
 function normalizeSpace(s = '') {
@@ -73,51 +76,6 @@ export function parseTplListingPage(html = '') {
   }
 
   return results;
-}
-
-/**
- * Extract job data from a TPL detail page.
- *
- * @param {string} html - Raw HTML of a job detail page
- * @returns {{ title: string, body: string, location: string } | null}
- */
-export function parseTplDetailPage(html = '') {
-  if (!html) return null;
-
-  const titleMatch = html.match(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
-
-  // TPL jobs are always in Lugano area
-  const location = 'Lugano';
-
-  let body = '';
-  const contentMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-  if (contentMatch) {
-    body = stripHtml(contentMatch[1]);
-  }
-
-  // Real tplsa.ch application pages (/2/50/candidati/?idhr=N) have no
-  // <main>/<article>: the job block runs from the <h1> (title + link to the
-  // PDF "capitolato" + application instructions) up to the generic "Menu2"
-  // accordion of company cards that follows it.
-  if (!body && titleMatch) {
-    const afterTitle = html.slice(titleMatch.index + titleMatch[0].length);
-    const endIdx = afterTitle.search(/<div[^>]*class\s*=\s*"[^"]*Menu2[^"]*"/i);
-    if (endIdx >= 0) {
-      body = stripHtml(afterTitle.slice(0, endIdx));
-    }
-  }
-
-  body = body
-    .split('\n')
-    .map((line) => normalizeSpace(line))
-    .filter(Boolean)
-    .join('\n');
-
-  if (!title && !body) return null;
-
-  return { title, body, location };
 }
 
 /**

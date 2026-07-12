@@ -1,10 +1,9 @@
 /**
  * TPL (Trasporti Pubblici Luganesi) crawler parser tests
  *
- * Tests parseTplListingPage(), parseTplDetailPage(), and isTplJob().
+ * Tests parseTplListingPage() and isTplJob().
  * Fixtures recalced from the live tplsa.ch markup (2026-07):
  *   - listing: https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html
- *   - detail:  https://www.tplsa.ch/2/50/candidati/?idhr=748
  * The CMS emits spaces around attribute `=` (href = "...") and links each
  * position to /2/50/candidati/?idhr=NNN; idhr=0 is the spontaneous form.
  */
@@ -12,7 +11,6 @@ import { describe, it, expect } from 'vitest';
 
 import {
   parseTplListingPage,
-  parseTplDetailPage,
   isTplJob,
   inferEmploymentType,
 } from '@/scripts/lib/tpl-lugano-job-parser.mjs';
@@ -77,36 +75,6 @@ const LISTING_NO_JOBS_HTML = `
 </body>
 </html>`;
 
-// ─── Fixture: Detail/application page (live markup, no <main>) ───
-const DETAIL_HTML = `
-<html>
-<body>
-	<section id="tabs">
-		<div class="container mt-5 mb-5">
-					<div class="col-md-12">
-						<h1>Specialista Risorse Umane </h1>
-						<a class="btn btn-candidati" href = "/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf" target = "_blank" >Guarda il Capitolato <i class="fas fa-file"></i></a>
-					</div>
-					<div class="col-md-12">
-						<hr>
-							Le candidature per le posizioni vacanti, complete dei documenti richiesti, dovranno pervenire esclusivamente in formato elettronico all'indirizzo e-mail: <a href = "mailto:candidature@tplsa.ch">candidature@tplsa.ch</a>
-	    			</div>
-			<div class="row">
-				<div class="col-12 col-md-12 col-lg-12 col-xl-12">
-<div class="Menu2 mt-5" id="accordion">
-		<div class="card col-12 col-md-6 col-lg-3 col-xl-3">
-			<div class="card-body">
-					<p>La Trasporti Pubblici Luganesi SA (TPL) è la società di trasporto pubblico che serve la città di Lugano e i comuni limitrofi.</p>
-			</div>
-		</div>
-</div>
-				</div>
-			</div>
-    	</div>
-    </section>
-</body>
-</html>`;
-
 // ═══════════════════════════════════════════════════════════════
 // parseTplListingPage
 // ═══════════════════════════════════════════════════════════════
@@ -152,44 +120,6 @@ describe('parseTplListingPage', () => {
   it('returns empty array for empty input', () => {
     expect(parseTplListingPage('')).toEqual([]);
     expect(parseTplListingPage(null)).toEqual([]);
-  });
-});
-
-// ═══════════════════════════════════════════════════════════════
-// parseTplDetailPage
-// ═══════════════════════════════════════════════════════════════
-
-describe('parseTplDetailPage', () => {
-  it('extracts title from the live application page markup', () => {
-    const result = parseTplDetailPage(DETAIL_HTML);
-    expect(result).not.toBeNull();
-    expect(result.title).toBe('Specialista Risorse Umane');
-  });
-
-  it('sets location to Lugano', () => {
-    const result = parseTplDetailPage(DETAIL_HTML);
-    expect(result.location).toBe('Lugano');
-  });
-
-  it('extracts body up to the Menu2 accordion (no <main> on real pages)', () => {
-    const result = parseTplDetailPage(DETAIL_HTML);
-    expect(result.body).toContain('candidature@tplsa.ch');
-    expect(result.body).toContain('Guarda il Capitolato');
-    // Accordion boilerplate must not leak into the body
-    expect(result.body).not.toContain('società di trasporto pubblico');
-  });
-
-  it('still supports pages with a <main> container', () => {
-    const result = parseTplDetailPage(
-      '<main><h1>Autista Autobus</h1><p>Guida sulla rete di trasporto pubblico di Lugano.</p></main>'
-    );
-    expect(result.title).toBe('Autista Autobus');
-    expect(result.body).toContain('trasporto pubblico');
-  });
-
-  it('returns null for empty input', () => {
-    expect(parseTplDetailPage('')).toBeNull();
-    expect(parseTplDetailPage(null)).toBeNull();
   });
 });
 
