@@ -372,6 +372,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-ticino-sondaggio': { it: 'frontalieri-ticino-sondaggio', en: 'frontalieri-ticino-survey', de: 'frontalieri-ticino-umfrage', fr: 'frontaliers-ticino-sondage' },
  'naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti': { it: 'naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti', en: 'swiss-citizenship-frontier-worker-requirements', de: 'schweizer-staatsburgerschaft-grenzganger-anforderungen', fr: 'citoyennete-suisse-travailleurs-frontaliers-exigences' },
  'secondo-lavoro-part-time-frontaliere': { it: 'secondo-lavoro-part-time-frontaliere', en: 'part-time-second-job-cross-border', de: 'nebenjob-teilzeit-grenzgaenger', fr: 'second-emploi-temps-partiel-frontalier' },
+ 'frontalieri-disoccupati-indennita-900-milioni': { it: 'frontalieri-disoccupati-indennita-900-milioni', en: 'frontaliers-unemployed-indemnity-900-millions', de: 'arbeitsloser-frontalier-indennitat-900-millionen', fr: 'frontalier-sans-emploi-indemnite-900-millions' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

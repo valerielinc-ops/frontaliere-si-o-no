@@ -1048,6 +1048,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Zweiter Teilzeitjob in Italien für Schweizer Grenzgänger',
     'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Steuer- und Vertragsleitfaden: Wie man das Doppeleinkommen zwischen der Schweiz und Italien in Übereinstimmung mit dem seit 2024 geltenden Grenzgängerabkommen verwaltet.',
     'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden und See, Symbol für Arbeit in der Schweiz',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Grenzgänger: 900 Mio. Entschädigung aörtet der Schweiz',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Das EU-Parlament hat der Reform zur Arbeitslosigkeit von Grenzgängern zugestimmt, was die Schweiz um 900 Millionen Franken belastet.',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Arbeitsloser Frontalier',
 };
 
 export default blogMetaChDe;

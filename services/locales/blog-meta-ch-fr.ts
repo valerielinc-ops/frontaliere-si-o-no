@@ -1048,6 +1048,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Deuxième emploi à temps partiel en Italie pour un frontalier suisse',
     'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Guide fiscal et contractuel : comment gérer le double revenu entre la Suisse et l\'Italie dans le respect de l\'Accord sur les frontaliers en vigueur depuis 2024.',
     'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Vue panoramique de Lugano avec bâtiments modernes et lac, symbole du travail en Suisse',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Chômeurs frontaliers : l\'indemnité de 900 millions à la charge de la Suisse',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Le Parlement européen a approuvé la réforme sur le chômage des frontaliers, entraînant une charge de 900 millions de francs pour la Suisse.',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontalier sans emploi',
 };
 
 export default blogMetaChFr;

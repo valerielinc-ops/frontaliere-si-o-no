@@ -3140,6 +3140,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontalieri-disoccupati-indennita-900-milioni',
+    category: 'fiscale',
+    date: '2026-07-12T14:18:18.116Z',
+    image: '/images/blog/frontalieri-disoccupati-indennita-900-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
