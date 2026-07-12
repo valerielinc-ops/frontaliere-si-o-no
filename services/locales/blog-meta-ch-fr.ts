@@ -1063,6 +1063,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'Code de l\'impôt sur les rentes AVS et LPP : nouveauté pour les frontaliers',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introduit un code fiscal spécifique pour les retenues sur les rentes AVS et LPP de Suisse : ce qui change pour les travailleurs frontaliers.',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Bâtiment de l\'administration fédérale des contributions à Berne',
+    'blog.article.frontalieri-ticino-calano.title': 'Tessin: lavoratori stranieri in aumento',
+    'blog.article.frontalieri-ticino-calano.excerpt': 'Selon les données de l\'Office fédéral de la statistique, les frontaliers italiens en Suisse sont en baisse.',
+    'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers à Lugano',
 };
 
 export default blogMetaChFr;

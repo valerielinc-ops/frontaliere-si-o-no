@@ -3185,6 +3185,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'frontalieri-ticino-calano',
+    category: 'pratico',
+    date: '2026-07-12T17:25:42.582Z',
+    image: '/images/blog/frontalieri-ticino-calano.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

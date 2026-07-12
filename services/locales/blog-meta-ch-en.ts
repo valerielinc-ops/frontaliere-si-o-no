@@ -1063,6 +1063,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'AVS and LPP income tax code: new for frontier workers',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introduced a specific tax code for withholdings on AVS and LPP annuities from Switzerland: what changes for frontier workers.',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Federal tax administration building in Bern',
+    'blog.article.frontalieri-ticino-calano.title': 'Ticino: foreign workers on the rise',
+    'blog.article.frontalieri-ticino-calano.excerpt': 'According to data from the Federal Statistical Office, Italian border workers in Switzerland are declining.',
+    'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers in Ticino',
 };
 
 export default blogMetaChEn;
