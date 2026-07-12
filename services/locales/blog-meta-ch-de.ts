@@ -1054,6 +1054,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Der Mythos Schweiz wankt: Junge Menschen ohne Arbeit',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Die Arbeitslosenquote in der Schweiz stieg im Januar 2026 nach Angaben des Staatssekretariats für Wirtschaft (SECO) auf 3,2%',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Eine Szene von Arbeit in der Schweiz mit Menschen verschiedenen Alters und Nationalitäten',
+    'blog.article.permessi-docenti-frontalieri-ticino.title': 'Grenzüberschreitende Lehrkräfte und Erlaubnisse: die Regeln der Regierung',
+    'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Der Staatsrat klärt das Verfahren für die Einstellung von Grenzlehrern: Die Aufnahme der Tätigkeit ist nach Beantragung der Erlaubnis zulässig.',
+    'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Sitz der Kantonsregierung in Bellinzona, Tessin, Schweiz.',
 };
 
 export default blogMetaChDe;
