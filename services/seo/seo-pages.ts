@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3156,
+ "numberOfItems": 3157,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7831,7 +7831,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3153, "name": "Ticino, rincari e commercianti in crisi. La ver...", "url": `${BASE_URL}/articoli-frontaliere/ticino-nuovi-rincari` },
           { "@type": "ListItem", "position": 3154, "name": "Sì alla tredicesima AVS: pensione per frontalie...", "url": `${BASE_URL}/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte` },
           { "@type": "ListItem", "position": 3155, "name": "Canton Ticino, novità storica per gli apprendis...", "url": `${BASE_URL}/articoli-frontaliere/canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu` },
-          { "@type": "ListItem", "position": 3156, "name": "Indennità di perdita di guadagno: malattia di l...", "url": `${BASE_URL}/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere` }
+          { "@type": "ListItem", "position": 3156, "name": "Indennità di perdita di guadagno: malattia di l...", "url": `${BASE_URL}/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere` },
+          { "@type": "ListItem", "position": 3157, "name": "Frontalieri, più treni e bus. Intesa col Canton...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-treni-bus` }
  ]
  },
  {

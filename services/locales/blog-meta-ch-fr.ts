@@ -1018,6 +1018,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Canton du Tessin : la nouvelle autorisation G pour les apprentis frontaliers',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Le Conseil national a approuvé la mesure qui prolonge la validité du permis de travail G pour couvrir toute la durée du stage.',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Promenade dans le centre-ville de Lugano, avec des personnes de différentes âges et nationalités',
+    'blog.article.frontalieri-treni-bus.title': 'Frontières, plus de trains et de bus. Entente avec le canton du Tessin',
+    'blog.article.frontalieri-treni-bus.excerpt': 'L\'accord entre la Région et le canton du Tessin prévoit une augmentation des liaisons ferroviaires et du caoutchouc transfrontalier.',
+    'blog.article.frontalieri-treni-bus.imageAlt': 'Image d\'un bus franchissant la frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaChFr;

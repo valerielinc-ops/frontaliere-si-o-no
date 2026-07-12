@@ -13122,6 +13122,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-treni-bus': {
+    title: 'Frontalieri, più treni e bus. Intesa col Canton Ticino',
+    description: 'L\'accordo tra la Regione e il Cantone Ticino prevede un aumento dei collegamenti ferroviari e su gomma transfrontalieri, migliorando la mobilità e la qualità',
+    keywords: 'frontalieri, ticino, svizzera, italia, treni, intesa, canton, accordo',
+    ogTitle: 'Frontalieri, più treni e bus. Intesa col Canton Ticino',
+    ogDescription: 'L\'accordo tra la Regione e il Cantone Ticino prevede un aumento dei collegamenti ferroviari e su gomma transfrontalieri, migliorando la mobilità e la qualità',
+    canonicalPath: '/articoli-svizzera/frontalieri-treni-bus/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, più treni e bus. Intesa col Canton Ticino",
+      "description": "L'accordo tra la Regione e il Cantone Ticino prevede un aumento dei collegamenti ferroviari e su gomma transfrontalieri, migliorando la mobilità e la qualità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-treni-bus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale di un bus che attraversa il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-12T00:24:11+00:00",
+      "dateModified": "2026-07-12T00:24:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-treni-bus/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

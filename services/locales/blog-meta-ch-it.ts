@@ -1018,6 +1018,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Canton Ticino, novità storica per gli apprendisti frontalieri: il permesso G vale più di prima',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Il Consiglio nazionale ha approvato il provvedimento che estende la validità del permesso di lavoro G per coprire l\'intera durata del tirocinio.',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Passeggiata in centro Lugano, con persone di diverse età e nazionalità',
+    'blog.article.frontalieri-treni-bus.title': 'Frontalieri, più treni e bus. Intesa col Canton Ticino',
+    'blog.article.frontalieri-treni-bus.excerpt': 'L\'accordo tra la Regione e il Cantone Ticino prevede un aumento dei collegamenti ferroviari e su gomma transfrontalieri.',
+    'blog.article.frontalieri-treni-bus.imageAlt': 'Immagine editoriale di un bus che attraversa il confine tra Italia e Svizzera',
 };
 
 export default blogMetaChIt;

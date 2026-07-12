@@ -1018,6 +1018,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Historische Neuerung für Grenzgänger in Tessin: G-Pass verlängert',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'Der Nationalrat hat die Maßnahme genehmigt, die die Gültigkeit der Arbeitserlaubnis G auf die gesamte Dauer des Praktikums ausdehnt.',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Spaziergang im Zentrum von Lugano, mit Menschen verschiedenen Alters und Nationalitäten',
+    'blog.article.frontalieri-treni-bus.title': 'Grenzgänger, mehr Züge und Busse. Im Einvernehmen mit dem Kanton Tessin',
+    'blog.article.frontalieri-treni-bus.excerpt': 'Die Vereinbarung zwischen der Region und dem Kanton Tessin sieht eine Ausweitung der Eisenbahnverbindungen und des grenzüberschreitenden Kautschuks vor.',
+    'blog.article.frontalieri-treni-bus.imageAlt': 'Bild eines Busses, der die Grenze zwischen Italien und der Schweiz überschreitet',
 };
 
 export default blogMetaChDe;
