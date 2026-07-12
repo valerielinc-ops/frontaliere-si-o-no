@@ -8414,6 +8414,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Réforme du chômage frontalier : 900 millions par an',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'La Suisse pourrait subir des coûts supplémentaires pour la réforme du chômage des frontaliers.',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Un frontalière attend à la frontière de Chiasso.',
+    'blog.article.partita-iva-frontaliere-svizzera.title': 'Numéro de TVA frontalier : conduite autonome en Suisse',
+    'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Découvrez comment gérer l\'activité indépendante en Suisse en tant que frontalière : exigences, fiscalité et prévoyance dans le respect des règles en vigueur.',
+    'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Bureau professionnel avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

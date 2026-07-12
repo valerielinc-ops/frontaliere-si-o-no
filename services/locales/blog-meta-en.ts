@@ -8413,6 +8413,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Border unemployment reform: 900 million per year',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'Switzerland could suffer additional costs for the reform on the unemployment of frontier workers.',
     'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'A frontaliere waiting at the Chiasso border crossing.',
+    'blog.article.partita-iva-frontaliere-svizzera.title': 'Border VAT number: guide to self-employment in Switzerland',
+    'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Learn how to manage self-employment in Switzerland as a border worker: requirements, taxation and social security in compliance with current regulations.',
+    'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Professional desk with a view of Lake Lugano',
 };
 
 export default blogMetaEn;
