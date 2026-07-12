@@ -78,8 +78,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-6629e8863839",
@@ -174,7 +173,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
       "titleByLocale": {
-        "it": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
+        "it": "Ti stiamo cercando; IF Maestro 6 Lezioni di terza classe",
         "en": "We are looking for you; IF Teacher 6 Lessons 3rd Class",
         "de": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
         "fr": "Nous vous recherchons; IF Enseignant 6 leçons 3ème classe"
@@ -226,7 +225,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.272Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -925,7 +923,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -1292,7 +1289,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
+        "it": "Vice Franz 4. Kl. & BG 5./6. Kl., 7 lezioni",
         "en": "Deputy Franz 4. Kl. & BG 5./6. Kl., 7 lessons",
         "de": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
         "fr": "Conseiller Franz 4. Kl. & BG 5./6. Kl., 7 leçons"
@@ -1345,7 +1342,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.354Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2077,7 +2073,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schulische-heilpadagogin-schulischer-heilpadagoge-10-15-lektionen-zyklus-2-primarschule-39899",
-        "schulische-heilpadagogin-schulischer-heilpadagoge-10-15-lektionen-zyklus-2-ksml-kantonaler-stellenmarkt-fur-lehrer-39899"
+        "schulische-heilpadagogin-schulischer-heilpadagoge-10-15-lektionen-zyklus-2-ksml-kantonaler-stellenmarkt-fur-lehrer-39899",
+        "docente-curativo-scolastico-8-10-lezioni-if-ciclo-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann",
+        "school-curative-teacher-8-10-lessons-if-cycle-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-38821",
+        "schulische-heilpadagogin-schulischer-heilpadagoge-8-10-lektionen-if-zyklus-3-ksml-kantonaler-stellenmarkt-fur-38821",
+        "professeur-a-l-ecole-8-a-10-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann-38821",
+        "schulische-heilpadagogin-schulischer-heilpadagoge-8-10-lektionen-if-zyklus-3-schulen-twann-38821",
+        "docente-curativo-scolastico-8-10-lezioni-if-ciclo-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-38821"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2647,7 +2649,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -2810,7 +2812,7 @@
       "title": "Oberstufenlehrperson 23 L.",
       "titleByLocale": {
         "it": "Professore di scuola superiore 23 L.",
-        "en": "Oberstufenlehrperson 23 L.",
+        "en": "High school teacher 23 L.",
         "de": "Oberstufenlehrperson 23 L.",
         "fr": "Professeur de lycée 23 L."
       },
@@ -3343,8 +3345,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-c617325a2670",
@@ -4335,7 +4336,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5214,7 +5214,7 @@
       "title": "Lehrperson 4. Klasse (10-14L + 1/2KLP)",
       "titleByLocale": {
         "it": "Maestro 4 ° grado (10-14L + 1/2KLP)",
-        "en": "Lehrperson 4. Klasse (10-14L + 1/2KLP)",
+        "en": "Teacher 4th grade (10-14L + 1/2KLP)",
         "de": "Lehrperson 4. Klasse (10-14L + 1/2KLP)",
         "fr": "Enseignant 4e année (10-14L + 1/2KLP)"
       },
@@ -5415,7 +5415,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-oder-schulische-heilpadagoge-in-40-60-zyklus-i-stiftung-you-count-standort-39269",
-        "lehrperson-oder-schulische-heilpadagoge-in-40-60-zyklus-i-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39269"
+        "lehrperson-oder-schulische-heilpadagoge-in-40-60-zyklus-i-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39269",
+        "insegnante-di-guarigione-ciclo-di-insegnante-di-guarigione-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf",
+        "healing-teacher-healing-teacher-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38018",
+        "heilpadagogin-heilpadagoge-zyklus-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzen-38018",
+        "enseignant-en-guerison-enseignant-en-guerison-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38018",
+        "heilpadagogin-heilpadagoge-zyklus-3-14-l-schule-untere-emme-utzenstorf-38018",
+        "insegnante-di-guarigione-ciclo-di-insegnante-di-guarigione-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-38018"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5792,7 +5798,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5844,7 +5850,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6191,8 +6196,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-6b3d4e6680b8",
@@ -6300,7 +6304,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -6352,7 +6356,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7216,7 +7219,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Professeur flexible, créatif et polyvalent (Z2/3) 50 %"
       },
@@ -7883,7 +7886,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante specializzato Sek1, 16.5 lezioni, 2° trimestre in SJ 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Professeur spécialiste Sek1, 16,5 leçons, 2ème trimestre en SJ 26/27"
       },
@@ -8126,7 +8129,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -8176,7 +8179,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8249,7 +8251,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:27:35.603Z",
-      "needsRetranslation": true,
       "salaryMin": 26000,
       "salaryMax": 39500,
       "baseSalary": {
@@ -8445,7 +8446,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Il Weissenheim cerca: insegnante di classe, ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Le Weissenheim est à la recherche: professeur de classe, cycle 2, 14 leçons"
       },
@@ -9297,7 +9298,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "2 Lektionen Sport an der 5./6. Klasse 10.08.2026 bis 31.01.2027",
       "titleByLocale": {
-        "it": "2 Lektionen Sport an der 5./6. Klasse 10.08.2026 bis 31.01.2027",
+        "it": "2 lezioni di sport al 5./6. Classe 10.08.2026 al 31.01.2027",
         "en": "2 lessons of sport at the 5./6. Class 10.08.2026 to 31.01.2027",
         "de": "2 Lektionen Sport an der 5./6. Klasse 10.08.2026 bis 31.01.2027",
         "fr": "2 leçons de sport au 5./6. Classe 10.08.2026 au 31.01.2027"
@@ -9349,7 +9350,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.247Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9932,7 +9932,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

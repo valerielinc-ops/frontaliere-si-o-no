@@ -176,7 +176,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-11T22:54:36.623Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -259,8 +258,7 @@
       "country": "CH",
       "addressRegion": "TI",
       "firstSeenAt": "2026-07-10T12:42:44.029Z",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
