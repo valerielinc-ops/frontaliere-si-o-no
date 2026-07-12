@@ -48,6 +48,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { parseFeed } from './lib/stadt-chur-feed-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -67,6 +68,15 @@ const COMPANY_NAME = 'Stadt Chur';
 const COMPANY_DOMAIN = 'chur.ch';
 const HQ = getCompanyDefaults(COMPANY_KEY);
 const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de';
+// jobs.chur.ch (Rexx ATS, self-hosted on Stadt Chur's own IP range) firewalls
+// datacenter egress at the TLS layer: from CI the direct fetch resets during
+// the handshake (verified 2026-07-12 — every TLS variant fails identically,
+// so it's IP-reputation, not a JA3 block). morss is an open-source (AGPL) feed
+// reader/proxy (https://git.pictuga.com/pictuga/morss) whose public instance
+// fetches the feed from its own clean IP; verified live to return all real
+// Stadt Chur jobs. For hardening, self-host morss on a clean-IP free tier and
+// point STADT_CHUR_FEED_PROXY at it.
+const FEED_PROXY_BASE = process.env.STADT_CHUR_FEED_PROXY || 'https://morss.it/:proxy/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '30000', 10);
@@ -111,12 +121,6 @@ function stripHtml(html = '') {
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
-}
-
-function decodeHtmlEntities(str = '') {
-  return str
-    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&#x27;/g, "'");
 }
 
 function isTargetJob(job) {
@@ -195,35 +199,9 @@ function mapEmploymentType(title = '') {
 }
 
 // ──────────────────────────────────────────────────────────────
-// Atom feed parsing
+// Feed parsing (Atom + RSS 2.0) lives in ./lib/stadt-chur-feed-parser.mjs
+// so it is unit testable without running this crawler's main().
 // ──────────────────────────────────────────────────────────────
-
-function parseAtomEntries(xmlText) {
-  const entries = [];
-  const entryRegex = /<entry>([\s\S]*?)<\/entry>/g;
-  let match;
-  while ((match = entryRegex.exec(xmlText)) !== null) {
-    const block = match[1];
-    const get = (tag) => {
-      const m = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`));
-      return m ? decodeHtmlEntities(m[1].trim()) : '';
-    };
-    const getAttr = (tag, attr) => {
-      const m = block.match(new RegExp(`<${tag}[^>]*\\s${attr}="([^"]*)"`));
-      return m ? decodeHtmlEntities(m[1].trim()) : '';
-    };
-
-    entries.push({
-      title: get('title'),
-      link: getAttr('link', 'href') || get('link'),
-      id: get('id'),
-      summary: get('summary'),
-      updated: get('updated'),
-      category: getAttr('category', 'term'),
-    });
-  }
-  return entries;
-}
 
 // ──────────────────────────────────────────────────────────────
 // Detail page scraping (optional enrichment)
@@ -261,14 +239,35 @@ function parseDetailPage(html) {
 // Fetch
 // ──────────────────────────────────────────────────────────────
 
+async function fetchFeedXml() {
+  const headers = { 'User-Agent': UA, Accept: 'application/atom+xml, application/rss+xml, application/xml, text/xml, */*' };
+  // Primary: direct fetch. Fails fast (single attempt) — from a datacenter
+  // egress jobs.chur.ch resets the TLS handshake, so this normally throws and
+  // we fall through to the proxy; from a clean-IP/self-hosted runner it works.
+  try {
+    const res = await fetchWithRetry(FEED_URL, { headers }, 1);
+    if (res.ok) {
+      const xml = await res.text();
+      if (/<(entry|item)[\s>]/.test(xml)) return xml;
+      console.warn('  ⚠️ Direct feed response had no <entry>/<item>; trying proxy.');
+    } else {
+      console.warn(`  ⚠️ Direct feed fetch HTTP ${res.status}; trying proxy.`);
+    }
+  } catch (err) {
+    console.warn(`  ⚠️ Direct feed fetch failed (${err.message}); trying morss proxy.`);
+  }
+  // Fallback: open-source morss reader proxy fetches the feed from its own IP.
+  const proxied = `${FEED_PROXY_BASE}${FEED_URL}`;
+  console.log(`  ↪ Fetching via feed proxy: ${FEED_PROXY_BASE}`);
+  const res = await fetchWithRetry(proxied, { headers });
+  if (!res.ok) throw new Error(`Feed fetch failed (direct + proxy): ${res.status} ${res.statusText}`);
+  return res.text();
+}
+
 async function fetchFeed() {
-  console.log(`🔍 Fetching Atom feed from ${FEED_URL} ...`);
-  const res = await fetchWithRetry(FEED_URL, {
-    headers: { 'User-Agent': UA, Accept: 'application/atom+xml, application/xml, text/xml' },
-  });
-  if (!res.ok) throw new Error(`Feed fetch failed: ${res.status} ${res.statusText}`);
-  const xml = await res.text();
-  const entries = parseAtomEntries(xml);
+  console.log(`🔍 Fetching feed from ${FEED_URL} ...`);
+  const xml = await fetchFeedXml();
+  const entries = parseFeed(xml);
   console.log(`📋 Total entries in feed: ${entries.length}`);
   return entries;
 }
