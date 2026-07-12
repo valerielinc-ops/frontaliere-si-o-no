@@ -1167,12 +1167,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postbus-driver-in-postauto-schiers",
+      "slug": "postauto-fahrer-in-post",
       "slugByLocale": {
-        "it": "postbus-driver-in-postauto-schiers",
+        "it": "postauto-fahrer-in-post",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
-        "fr": "pilote-postbus-in-postauto-schiers"
+        "fr": "postauto-fahrer-in-post"
       },
       "sourceLang": "de",
       "department": "",
@@ -1206,18 +1206,7 @@
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-11T21:57:32.041Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "postauto-fahrer-in-post"
-        ],
-        "fr": [
-          "postauto-fahrer-in-post"
-        ]
-      },
-      "previousSlugs": [
-        "postauto-fahrer-in-post"
-      ]
+      "firstSeenAt": "2026-07-11T21:57:32.041Z"
     },
     {
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
@@ -1392,9 +1381,9 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "consegna-in-pacchetti-die-schweizerische-post-sirnach-3f8ac4",
+      "slug": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
       "slugByLocale": {
-        "it": "consegna-in-pacchetti-die-schweizerische-post-sirnach-3f8ac4",
+        "it": "spedizioniere-in-pacchi-die-schweizerische-post-sirnach",
         "en": "delivery-in-packages-die-schweizerische-post-sirnach-3f8ac4",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
         "fr": "livraison-en-paquets-die-schweizerische-post-sirnach-3f8ac4"
@@ -1434,8 +1423,7 @@
       "firstSeenAt": "2026-07-11T10:27:25.937Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-pakete-post",
-          "spedizioniere-in-pacchi-die-schweizerische-post-sirnach"
+          "zusteller-in-pakete-post"
         ],
         "en": [
           "zusteller-in-pakete-post"
@@ -1445,8 +1433,7 @@
         ]
       },
       "previousSlugs": [
-        "zusteller-in-pakete-post",
-        "spedizioniere-in-pacchi-die-schweizerische-post-sirnach"
+        "zusteller-in-pakete-post"
       ]
     },
     {
