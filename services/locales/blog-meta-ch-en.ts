@@ -1024,6 +1024,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimento-immobiliare-frontaliere.title': 'Real estate investment in Switzerland: a guide for border workers',
     'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analysis of constraints for non-residents, taxation and differences between first home purchase and investment for frontier workers.',
     'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Residential property in Ticino',
+    'blog.article.frontalieri-regio-insubrica.title': 'Frontier workers and mobility at the heart of Regio Insubrica\'s work',
+    'blog.article.frontalieri-regio-insubrica.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and will be in force from 1 January 2024.',
+    'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontaliers commuting to work in Switzerland',
 };
 
 export default blogMetaChEn;

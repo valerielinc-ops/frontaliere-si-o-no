@@ -3068,6 +3068,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontalieri-regio-insubrica',
+    category: 'pratico',
+    date: '2026-07-12T02:18:38.407Z',
+    image: '/images/blog/frontalieri-regio-insubrica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
