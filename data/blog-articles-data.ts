@@ -25289,6 +25289,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-over-55-ricollocamento-cambio-lavoro',
+ category: 'pratico',
+ date: '2026-07-12T10:25:32.556Z',
+ image: '/images/blog/frontaliere-over-55-ricollocamento-cambio-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8417,6 +8417,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera.title': 'Numéro de TVA frontalier : conduite autonome en Suisse',
     'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Découvrez comment gérer l\'activité indépendante en Suisse en tant que frontalière : exigences, fiscalité et prévoyance dans le respect des règles en vigueur.',
     'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Bureau professionnel avec vue sur le lac de Lugano',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Retraite dopo 55 anni: tutele e impatto sul secondo pilastro',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Les frontaliers de plus de 55 ans peuvent changer d\'emploi sans perdre les avantages du deuxième pilier, grâce au nouvel accord frontalier.',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
 };
 
 export default blogMetaFr;

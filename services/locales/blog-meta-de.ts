@@ -8415,6 +8415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera.title': 'Partita IVA transfrontaliera: guida alla propria attività in Svizzera',
     'blog.article.partita-iva-frontaliere-svizzera.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in der Schweiz selbstständig arbeiten können: Anforderungen, Steuern und Vorsorge in Übereinstimmung mit den geltenden Vorschriften.',
     'blog.article.partita-iva-frontaliere-svizzera.imageAlt': 'Professioneller Schreibtisch mit Blick auf den Luganersee',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Grenzgänger ab 55 Jahren wechseln: Auswirkungen auf die zweite Säule und Rente',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Grenzgänger über 55 können dank der neuen Grenzgängervereinbarung den Arbeitsplatz wechseln, ohne die Vorteile der zweiten Säule zu verlieren.',
+    'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
 };
 
 export default blogMetaDe;
