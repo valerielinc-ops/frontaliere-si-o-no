@@ -381,7 +381,6 @@ export const COMPANY_HQ = {
   'apg-sga':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'imerys':                       { city: 'Bodio',              canton: 'TI', postalCode: '6743', addressRegion: 'TI' },
   'faulhaber':                    { city: 'Croglio',            canton: 'TI', postalCode: '6981', addressRegion: 'TI' },
-  'alprose':                      { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
   'kudelski-nagra':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'franklin-university':          { city: 'Sorengo',            canton: 'TI', postalCode: '6924', addressRegion: 'TI' },
   'elettra-1938':                 { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
