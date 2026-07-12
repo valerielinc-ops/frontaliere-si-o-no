@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-12T10:39:37.389Z",
+  "generatedAt": "2026-07-12T21:48:30.387Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9570,
-  "avgDurationMs": 9570,
+  "durationMs": 9121,
+  "avgDurationMs": 9121,
   "durationHistory": [
-    9570
+    9121
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -293,7 +293,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -617,7 +616,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 60500,
