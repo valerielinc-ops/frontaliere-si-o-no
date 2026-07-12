@@ -4472,6 +4472,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni': { name: 'Frontalieri da remoto', path: '/articoli-frontaliere/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni', parent: 'blog' },
     'blog-sviluppatore-informatico-ticino-frontaliere': { name: 'Frontaliere informatico Ticino', path: '/articoli-svizzera/sviluppatore-informatico-ticino-frontaliere/', parent: 'blog' },
     'blog-frontaliere-ticino-permessi-g': { name: 'Permessi G per frontaliere', path: '/articoli-frontaliere/frontaliere-ticino-permessi-g', parent: 'blog' },
+    'blog-frontaliere-magazziniere-logistica-ticino': { name: 'Frontaliere logistica', path: '/articoli-svizzera/frontaliere-magazziniere-logistica-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

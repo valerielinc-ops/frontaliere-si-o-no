@@ -1030,6 +1030,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'IT-Entwickler im Tessin: Leitfaden für Grenzgänger',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für grenzüberschreitende IT-Entwickler im Tessin: Gehalt, G-Bewilligung, Steuern und Vorsorge nach den geltenden Vorschriften.',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Modernes Büro mit Blick auf Lugano',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Grenzgänger Lagerarbeiter im Tessin: Lohnleitfaden',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Erfahren Sie, wie die Arbeit als Lagerist im Tessin, die Lohnabzüge und die Steuervorschriften für Grenzgänger in der Logistikbranche funktionieren.',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Logistiklager im Tessin',
 };
 
 export default blogMetaChDe;

@@ -1030,6 +1030,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'Sviluppatore informatico in Ticino: guida per frontalieri',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Guida pratica per sviluppatori informatici frontalieri in Ticino: stipendio, permesso G, imposte e previdenza secondo le norme vigenti.',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Ufficio moderno con vista su Lugano',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Frontaliere magazziniere in Ticino: guida allo stipendio',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Scopri come funziona il lavoro di magazziniere in Ticino, le trattenute salariali e le regole fiscali per i frontalieri nel settore logistico.',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Magazzino logistico in Ticino',
 };
 
 export default blogMetaChIt;

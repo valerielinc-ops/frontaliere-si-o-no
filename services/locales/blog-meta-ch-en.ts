@@ -1030,6 +1030,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'IT developer in Ticino: guide for border workers',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Practical guide for cross-border IT developers in Ticino: salary, G permit, taxes and pension according to current regulations.',
     'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Modern office with view of Lugano',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Border warehouse worker in Ticino: salary guide',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Find out how the job of warehouseman in Ticino works, wage deductions and tax rules for frontier workers in the logistics sector.',
+    'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Logistics warehouse in Ticino',
 };
 
 export default blogMetaChEn;

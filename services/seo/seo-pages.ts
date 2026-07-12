@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3165,
+ "numberOfItems": 3166,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7840,7 +7840,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3162, "name": "Frontalieri e mobilità al centro del lavoro del...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-regio-insubrica` },
           { "@type": "ListItem", "position": 3163, "name": "Frontalieri da remoto al 50% senza impatto su c...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni` },
           { "@type": "ListItem", "position": 3164, "name": "Sviluppatore informatico in Ticino: guida per f...", "url": `${BASE_URL}/articoli-frontaliere/sviluppatore-informatico-ticino-frontaliere` },
-          { "@type": "ListItem", "position": 3165, "name": "Frontaliere Ticino: Permessi G e lavoro autonom...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-permessi-g` }
+          { "@type": "ListItem", "position": 3165, "name": "Frontaliere Ticino: Permessi G e lavoro autonom...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-permessi-g` },
+          { "@type": "ListItem", "position": 3166, "name": "Frontaliere magazziniere in Ticino: guida allo ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-magazziniere-logistica-ticino` }
  ]
  },
  {
