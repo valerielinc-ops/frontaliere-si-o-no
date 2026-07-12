@@ -4499,6 +4499,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-calano': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-calano/', parent: 'blog' },
     'blog-infortunio-in-iter-confine-assicurazione-frontaliere': { name: 'Infortunio in itinere al confine per il', path: '/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere', parent: 'blog' },
     'blog-congedo-lutto-malattia-frontaliere-svizzera': { name: 'Congedo familiare', path: '/articoli-frontaliere/congedo-lutto-malattia-frontaliere-svizzera', parent: 'blog' },
+    'blog-frontalieri-disoccupati-urc-ticino': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/frontalieri-disoccupati-urc-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

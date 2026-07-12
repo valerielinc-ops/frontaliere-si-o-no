@@ -1066,6 +1066,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-calano.title': 'Ticino: i frontalieri calano, ma in Svizzera italiana ci sono paesi con forte presenza di lavoratori stranieri',
     'blog.article.frontalieri-ticino-calano.excerpt': 'Secondo i dati dell\'Ufficio Federale di Statistica, i frontalieri italiani in Svizzera sono in calo.',
     'blog.article.frontalieri-ticino-calano.imageAlt': 'Lavoratori frontalieri a Lugano',
+    'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Frontalieri disoccupati: come iscriversi agli Uffici di collocamento svizzeri',
+    'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'In Ticino 65mila frontalieri su 220mila posti. Dal 2018 hanno diritto di registrarsi agli URC, ma nel 2017 erano appena 83 in tutta la Svizzera.',
+    'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Ufficio di collocamento moderno in un edificio pubblico ticinese con persone in attesa',
 };
 
 export default blogMetaChIt;

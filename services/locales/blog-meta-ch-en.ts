@@ -1066,6 +1066,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-calano.title': 'Ticino: foreign workers on the rise',
     'blog.article.frontalieri-ticino-calano.excerpt': 'According to data from the Federal Statistical Office, Italian border workers in Switzerland are declining.',
     'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers in Ticino',
+    'blog.article.frontalieri-disoccupati-urc-ticino.title': 'Unemployed frontier workers: how to register with Swiss employment offices',
+    'blog.article.frontalieri-disoccupati-urc-ticino.excerpt': 'In Ticino, 65,000 border workers out of 220,000 seats. Since 2018 they have been eligible to register for URCs, but in 2017 they were just 83 across Switzerland.',
+    'blog.article.frontalieri-disoccupati-urc-ticino.imageAlt': 'Modern employment office in a Ticino public building with people waiting',
 };
 
 export default blogMetaChEn;
