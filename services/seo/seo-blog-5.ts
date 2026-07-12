@@ -48510,6 +48510,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigia-doganale-acquisti-svizzera': {
+    title: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere',
+    description: 'La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10\'000 per i nuovi frontaliere. I vecchi frontaliere hanno un\'esenzione di €7\'500 fino',
+    keywords: 'frontalieri, ticino, svizzera, italia, franchigia, doganale, acquisti, limiti',
+    ogTitle: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere',
+    ogDescription: 'La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10\'000 per i nuovi frontaliere.',
+    canonicalPath: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere",
+      "description": "La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10'000 per i nuovi frontaliere. I vecchi frontaliere hanno un'esenzione di €7'500 fino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigia-doganale-acquisti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontiera che attraversa il confine italo-svizzero con un carrello di acquisti."
+      },
+      "datePublished": "2026-07-12T15:06:19+00:00",
+      "dateModified": "2026-07-12T15:06:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-doganale-acquisti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

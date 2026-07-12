@@ -8434,6 +8434,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Frontier teachers: no irregularities',
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'The Council of State responded to a question by Lorenzo Quadri, stating that there is no irregularity in the fact that border teachers entered the service before obtaining a work permit.',
     'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'A teacher in a school of the Ticino Canton.',
+    'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Swiss customs duty-free purchases: limits and consequences for border crossers',
+    'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'The duty-free allowance for purchases in Switzerland has been increased to €10,000 for new border crossers.',
+    'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'A border crossing the italo-swiss border with a shopping cart.',
 };
 
 export default blogMetaEn;
