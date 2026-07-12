@@ -8399,6 +8399,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Rinnovo e modifiche al permesso per frontalieri: Repubblica e Cantone Ticino',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'È necessario richiedere il rinnovo del permesso 14 giorni prima della scadenza e comunicare eventuali modifiche dei dati indicati sul permesso entro 14 giorni dal cambiamento',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Una frontaliere che si trova in una situazione simile potrebbe dover rinnovare il proprio permesso',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Conversione patente di guida in Svizzera per frontalieri: guida pratica, costi, validità',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'Il nuovo Accordo Frontalieri firmato il 23/12/2020 prevede la possibilità di convertire la patente di guida italiana in svizzera per i frontalieri.',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'Una scena di un frontaliere che si reca al traffico di Locarno per cambiare la patente di guida italiana in svizzera.',
 };
 
 export default blogMetaIt;
