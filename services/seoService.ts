@@ -4494,6 +4494,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-regime-forfettario-italiano-compatibilita-reddito-svizzero': { name: 'Regime forfettario italiano compatibilità', path: '/articoli-svizzera/regime-forfettario-italiano-compatibilita-reddito-svizzero/', parent: 'blog' },
     'blog-dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera': { name: 'Mercato del lavoro in Svizzera', path: '/articoli-frontaliere/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera', parent: 'blog' },
     'blog-codice-tributo-ritenute-rendite-avs-lpp': { name: 'Codice tributo pensioni', path: '/articoli-svizzera/codice-tributo-ritenute-rendite-avs-lpp/', parent: 'blog' },
+    'blog-sconto-ticino-ticket': { name: 'Finanziamento Ticino Ticket', path: '/articoli-frontaliere/sconto-ticino-ticket', parent: 'blog' },
  };
 
  const info = sectionNames[section];

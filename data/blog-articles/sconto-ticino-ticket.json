@@ -1,0 +1,19 @@
+{
+  "id": "sconto-ticino-ticket",
+  "slug": "sconto-ticino-ticket",
+  "publishedAt": "2026-07-12T16:22:55.574Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.76341666666667,
+    "confidence": 1,
+    "finalScore": 155.76341666666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 77.88170833333334,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -8444,6 +8444,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Plus de freinage pour les offres d\'emploi en Suisse',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Le marché du travail suisse au deuxième trimestre 2026 a affiché une stagnation générale, cachant toutefois une forte divergence entre des secteurs en croissance et d\'autres en nette baisse.',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Un bâtiment moderne à Lugano avec une vue sur le lac.',
+    'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket : financement inchangé',
+    'blog.article.sconto-ticino-ticket.excerpt': 'Le Conseil d\'État a précisé qu\'il n\'envisageait pas de modifier la clé de répartition du Ticino Ticket',
+    'blog.article.sconto-ticino-ticket.imageAlt': 'Festival du Film de Locarno',
 };
 
 export default blogMetaFr;
