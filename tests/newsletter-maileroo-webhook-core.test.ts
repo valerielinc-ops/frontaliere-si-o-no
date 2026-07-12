@@ -5,7 +5,19 @@ import {
 } from '../functions/src/newsletterMailerooWebhookCore.js';
 import crypto from 'crypto';
 
-function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+/**
+ * `existingEvents` seeds the `events` subcollection per doc (keyed by
+ * `${collection}/${docId}`) so refreshPreferredSendHour's
+ * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * query (FRO — #3798) has something to read. Real Firestore query semantics
+ * (actual ordering/limiting) aren't reproduced — these tests only need the
+ * seeded docs to come back so the sample count/hour computation runs.
+ * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
+ */
+function createFakeDb(
+  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingEvents: Record<string, Array<Record<string, unknown>>> = {},
+) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -40,6 +52,16 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
             add: async (data: Record<string, unknown>) => {
               adds.push({ collection: subPath, data });
             },
+            // Minimal query shim: only `events` collections are queried
+            // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                  return { docs: seeded.map((d) => ({ data: () => d })) };
+                },
+              }),
+            }),
           };
         },
       };
@@ -301,6 +323,39 @@ describe('newsletterMailerooWebhookCore', () => {
       event_data: {},
     });
     expect(result).toMatchObject({ skipped: true, reason: 'invalid_email' });
+  });
+
+  describe('preferred send hour (#3798)', () => {
+    it('writes preferred_send_hour_utc/sample_count/strength on a "clicked" event with enough seeded prior events', async () => {
+      const email = 'frequent-clicker@example.com';
+      const db = createFakeDb({
+        newsletter_subscribers: { [email]: { status: 'confirmed', isActive: true } },
+      }, {
+        [`newsletter_subscribers/${email}`]: [
+          { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+          { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+          { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+        ],
+      });
+
+      const result = await persistMailerooEvent(db as any, {
+        event_type: 'clicked',
+        message_id: 'm-click',
+        event_data: { to: email, original_url: 'https://frontaliereticino.ch/x' },
+      });
+
+      expect(result).toMatchObject({ processed: true, type: 'click', email });
+
+      const preferredSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers'
+          && s.docId === email
+          && 'preferred_send_sample_count' in s.data,
+      );
+      expect(preferredSet).toBeTruthy();
+      expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+      expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
+      expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
+    });
   });
 });
 

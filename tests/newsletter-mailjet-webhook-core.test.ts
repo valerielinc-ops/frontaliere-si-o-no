@@ -3,8 +3,18 @@ import { persistMailjetEvent, handleMailjetWebhookRequest } from '../functions/s
 
 /**
  * Fake Firestore db that captures all set/add calls for assertion.
+ *
+ * `existingEvents` seeds the `events` subcollection per doc (keyed by
+ * `${collection}/${docId}`) so refreshPreferredSendHour's
+ * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * query (FRO — #3798) has something to read. Real Firestore query semantics
+ * (actual ordering/limiting) aren't reproduced — these tests only need the
+ * seeded docs to come back so the sample count/hour computation runs.
  */
-function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+function createFakeDb(
+  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingEvents: Record<string, Array<Record<string, unknown>>> = {},
+) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -32,6 +42,16 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
             add: async (data: Record<string, unknown>) => {
               adds.push({ collection: subPath, data });
             },
+            // Minimal query shim: only `events` collections are queried
+            // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                  return { docs: seeded.map((d) => ({ data: () => d })) };
+                },
+              }),
+            }),
           };
         },
       };
@@ -149,6 +169,77 @@ describe('newsletterMailjetWebhookCore', () => {
 
       const deliverySet = db.__sets.find(s => s.collection.includes('/campaign_deliveries'));
       expect(deliverySet?.data.opened_at).toBeTruthy();
+    });
+
+    it('refreshes preferred_send_hour on an "open" event with too few prior events (cold start)', async () => {
+      // No seeded events — refreshPreferredSendHour still runs and writes a
+      // sampleCount of 0 (below PREFERRED_SEND_MIN_EVENTS), hourUtc null.
+      const db = createFakeDb();
+
+      await persistMailjetEvent(db as any, {
+        event: 'open',
+        time: 1700000200,
+        email: 'opener@example.com',
+        MessageID: 55555,
+        CustomID: 'weekly_2026-04-01',
+      });
+
+      const preferredSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers'
+          && s.docId === 'opener@example.com'
+          && 'preferred_send_sample_count' in s.data,
+      );
+      expect(preferredSet).toBeTruthy();
+      expect(preferredSet!.data.preferred_send_sample_count).toBe(0);
+      expect(preferredSet!.data.preferred_send_hour_utc).toBeNull();
+    });
+
+    it('refreshes preferred_send_hour on an "open" event with enough prior events', async () => {
+      const docId = 'frequent-opener@example.com';
+      const db = createFakeDb({}, {
+        [`newsletter_subscribers/${docId}`]: [
+          { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+          { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+          { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+          // Wrong type — must be filtered out client-side (no where clause).
+          { event_type: 'bounce', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+        ],
+      });
+
+      await persistMailjetEvent(db as any, {
+        event: 'open',
+        time: 1700000200,
+        email: docId,
+        MessageID: 55556,
+        CustomID: 'weekly_2026-04-01',
+      });
+
+      const preferredSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers'
+          && s.docId === docId
+          && 'preferred_send_sample_count' in s.data,
+      );
+      expect(preferredSet).toBeTruthy();
+      expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+      expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
+      expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
+    });
+
+    it('does NOT refresh preferred_send_hour on a "sent" event (no time-of-day signal)', async () => {
+      const db = createFakeDb();
+
+      await persistMailjetEvent(db as any, {
+        event: 'sent',
+        time: 1700000000,
+        email: 'sender@example.com',
+        MessageID: 12345,
+        CustomID: 'weekly_2026-04-01',
+      });
+
+      const preferredSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && 'preferred_send_sample_count' in s.data,
+      );
+      expect(preferredSet).toBeUndefined();
     });
 
     it('processes "bounce" event and marks subscriber as bounced', async () => {

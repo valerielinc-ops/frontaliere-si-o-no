@@ -13,6 +13,7 @@
 // `{ ok: false, candidates: [], reason }`.
 
 import { readFileSync, existsSync } from 'node:fs';
+import { fnv1a32 } from '../fnv1a.mjs';
 
 const ORPHAN_QUERIES_PATH = 'data/gsc-orphan-queries.json';
 const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
@@ -48,15 +49,11 @@ export function jaccard(a, b) {
   return union === 0 ? 0 : inter / union;
 }
 
-// FNV-1a 32-bit, 8-hex output. Stable across runs.
+// FNV-1a 32-bit, 8-hex output. Stable across runs. Delegates the 32-bit core
+// to the shared `scripts/lib/fnv1a.mjs` (AGENTS.md #6) and only adds the hex
+// encoding local to this module's candidate-id format.
 export function fnv1a8(input) {
-  let h = 0x811c9dc5;
-  const s = String(input);
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 0x01000193);
-  }
-  return (h >>> 0).toString(16).padStart(8, '0');
+  return fnv1a32(input).toString(16).padStart(8, '0');
 }
 
 export function normalizeKeyword(s) {

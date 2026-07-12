@@ -81,5 +81,11 @@ export function subscriberFromFirestoreRow(row) {
     sendCount: Number(row.send_count || row.sendCount) || 0,
     engagementScore: fresh.score,
     engagementLevel: fresh.level,
+    // Per-user scheduled-send hour (#3798) — written by
+    // functions/src/lib/preferredSendHour.js from open/click history. null
+    // hourUtc/0 sampleCount means "no personal preference yet" (cold start),
+    // consumed by scripts/lib/send-schedule.mjs:resolveEffectivePreferredHour.
+    preferredSendHourUtc: row.preferred_send_hour_utc ?? null,
+    preferredSendSampleCount: row.preferred_send_sample_count ?? 0,
   };
 }

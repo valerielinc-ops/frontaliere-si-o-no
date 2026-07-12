@@ -14,7 +14,19 @@
  *   const { sent, failed } = await sendEmailCascade(emails);
  *
  * Email format (same as Resend):
- *   { from, to: [string], subject, html, headers?, tags?: [{name, value}] }
+ *   { from, to: [string], subject, html, headers?, tags?: [{name, value}], scheduledAt?: string }
+ *
+ * scheduledAt (optional) — ISO 8601 UTC timestamp (e.g. "2026-07-12T08:00:00.000Z")
+ *   requesting a provider-side delayed send. Only resend/mailgun/maileroo support
+ *   it (see providerSupportsScheduledSend() / PROVIDERS[*].scheduledSend below);
+ *   the other three providers (mailjet, mailtrap, cloudflare) have no
+ *   scheduled-send API and always send immediately regardless of this field.
+ *   Falls back to an immediate send (no error) when: scheduledAt is
+ *   missing/unparsable; in the past or under a 2-minute anti-race margin; past
+ *   the resolved provider's max lookahead window; or the provider has no
+ *   scheduled-send support. Every sent item in sendEmailCascade's `sent` array
+ *   carries `scheduledFor`: the resolved ISO timestamp when the send was
+ *   actually scheduled provider-side, else null.
  *
  * Environment variables (from Firebase Remote Config via load-rc-env.mjs):
  *   MAILJET_API_KEY          — Mailjet API key (public)
@@ -39,8 +51,19 @@
 
 // ── Provider daily quotas ────────────────────────────────────
 
+// scheduledSend.maxLookaheadMs is the single source of truth for how far in
+// the future a per-message `scheduledAt` may be scheduled with each provider
+// (verified against live docs 2026-07-11). Mailgun/Maileroo's real ceiling is
+// either short (3d default plan) or undocumented — clamped conservatively
+// rather than risk a silent-drop by the provider past its real limit.
+const DAY_MS = 24 * 60 * 60 * 1000;
+
 const PROVIDERS = [
-  { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
+    // o:deliverytime, RFC 2822 with an explicit +0000 offset (NOT toUTCString(),
+    // which emits "GMT"). Lookahead clamped to 3 days (default-plan cap; the
+    // free-plan real ceiling is unverified, so this is the conservative floor).
+    scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
   // workhorse of the cascade. No self-imposed dailyLimit (owner request
   // 2026-07-07): the 1666/day floor (50000/30, months-average) was OUR OWN
@@ -51,7 +74,9 @@ const PROVIDERS = [
   // of the day even though Resend's real monthly ceiling (50000) had ample
   // room left. Real protection still stands: a genuine Resend-side 429/403
   // still trips isRateLimitedError below and benches it for the run.
-  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000 },
+  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000,
+    // scheduled_at in the JSON body, ISO 8601 UTC. 30-day lookahead (verified docs).
+    scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 30 * DAY_MS } },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
@@ -61,7 +86,11 @@ const PROVIDERS = [
   // (return-path on our domain, 85.204.106.x authorized via include:_spf.maileroo.com),
   // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
   // the purely-free providers are preferred over the paid Workers quota.
-  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000,
+    // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
+    // Lookahead undocumented by the provider — clamped to 3 days, same
+    // conservative floor as Mailgun's default-plan cap.
+    scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 3 * DAY_MS } },
   // Cloudflare Email Service: reverted to the free-tier threshold 2026-07-06
   // (owner request) — dailyLimit=100, monthlyLimit=3000, superseding the
   // 2026-07-03 paid-overage bump (dailyLimit 1000/monthlyLimit 30000). Root
@@ -404,10 +433,93 @@ function isProviderConfigured(providerId) {
   }
 }
 
+// ── Scheduled-send (per-message) ─────────────────────────────
+// Feature #3798: an email payload may carry an optional `scheduledAt` (ISO
+// 8601 UTC string) requesting a provider-side delayed send. Only providers
+// with a `scheduledSend` capability entry in PROVIDERS support it.
+
+/**
+ * Whether the given provider supports provider-side scheduled send at all
+ * (regardless of whether a particular message's scheduledAt is usable).
+ * @param {string} providerId
+ * @returns {boolean}
+ */
+export function providerSupportsScheduledSend(providerId) {
+  return !!PROVIDERS.find(p => p.id === providerId)?.scheduledSend;
+}
+
+// Anti-race margin: a scheduledAt this close to "now" (or in the past) is
+// sent immediately instead — avoids handing a provider a timestamp that may
+// already have elapsed by the time the HTTP request lands.
+const SCHEDULE_MIN_LEAD_MS = 2 * 60 * 1000;
+
+// Tracks which providers already got a "clamped to immediate" warning this
+// process, so a large batch that all exceeds the same provider's lookahead
+// logs it ONCE instead of once per email.
+const _scheduleClampWarned = new Set();
+
+/**
+ * Resolve the Date to actually schedule `email.scheduledAt` for with `provider`,
+ * or null when the send should go out immediately instead. Immediate-send
+ * (null) cases: scheduledAt absent/unparsable; in the past or under the
+ * SCHEDULE_MIN_LEAD_MS anti-race margin; beyond the provider's max lookahead
+ * (logged once via console.warn, not per-email); or provider has no
+ * scheduledSend support at all.
+ * @param {{ scheduledAt?: string }} email
+ * @param {{ id: string, scheduledSend?: { param: string, maxLookaheadMs: number } }} provider
+ * @returns {Date|null}
+ */
+function resolveScheduledAt(email, provider) {
+  const cap = provider?.scheduledSend;
+  if (!cap) return null;
+  const raw = email?.scheduledAt;
+  if (!raw) return null;
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return null;
+
+  const now = Date.now();
+  if (d.getTime() < now + SCHEDULE_MIN_LEAD_MS) return null;
+
+  if (d.getTime() - now > cap.maxLookaheadMs) {
+    if (!_scheduleClampWarned.has(provider.id)) {
+      _scheduleClampWarned.add(provider.id);
+      const maxDays = Math.round(cap.maxLookaheadMs / DAY_MS);
+      console.warn(`⚠️  [${provider.id}] scheduledAt beyond the ${maxDays}-day max lookahead — clamped to immediate send (this warning is logged once per provider per run)`);
+    }
+    return null;
+  }
+
+  return d;
+}
+
+/**
+ * Format a Date as the RFC 2822 timestamp Mailgun's `o:deliverytime` expects,
+ * with an EXPLICIT "+0000" offset. Deliberately NOT `date.toUTCString()`,
+ * which emits the literal string "GMT" instead of a numeric offset — Mailgun's
+ * docs example uses "+0000" and the numeric form is what's verified to parse.
+ * @param {Date} date
+ * @returns {string} e.g. "Sun, 12 Jul 2026 08:05:00 +0000"
+ */
+function toRfc2822Utc(date) {
+  const dayName = RFC2822_DAY_NAMES[date.getUTCDay()];
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const monthName = RFC2822_MONTH_NAMES[date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+  const hh = String(date.getUTCHours()).padStart(2, '0');
+  const mm = String(date.getUTCMinutes()).padStart(2, '0');
+  const ss = String(date.getUTCSeconds()).padStart(2, '0');
+  return `${dayName}, ${day} ${monthName} ${year} ${hh}:${mm}:${ss} +0000`;
+}
+
+const RFC2822_DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const RFC2822_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 // ── Mailjet API (v3.1) ──────────────────────────────────────
 // Docs: https://dev.mailjet.com/email/guides/send-api-v31/
 
-async function sendViaMailjet(email) {
+async function sendViaMailjet(email, _scheduledAt) {
+  // Mailjet Send API v3.1 has no scheduled-send parameter — _scheduledAt is
+  // accepted for signature parity with the other 5 send fns but unused.
   const apiKey = process.env.MAILJET_API_KEY;
   const secretKey = process.env.MAILJET_SECRET_KEY;
   const auth = Buffer.from(`${apiKey}:${secretKey}`).toString('base64');
@@ -448,7 +560,7 @@ async function sendViaMailjet(email) {
 // ── Mailgun API (v3) ─────────────────────────────────────────
 // Docs: https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Messages/
 
-async function sendViaMailgun(email) {
+async function sendViaMailgun(email, scheduledAt) {
   const apiKey = process.env.MAILGUN_API_KEY;
   const domain = process.env.MAILGUN_DOMAIN;
   const auth = Buffer.from(`api:${apiKey}`).toString('base64');
@@ -480,6 +592,11 @@ async function sendViaMailgun(email) {
       form.append(`h:${key}`, value);
     }
   }
+  // Per-message scheduled send (feature #3798). RFC 2822 with an explicit
+  // "+0000" offset — see toRfc2822Utc(). Omitted entirely (no key at all)
+  // when resolveScheduledAt found no usable scheduledAt, so an unscheduled
+  // send's form body is byte-identical to before this feature.
+  if (scheduledAt) form.append('o:deliverytime', toRfc2822Utc(scheduledAt));
 
   const res = await fetch(`https://api.eu.mailgun.net/v3/${domain}/messages`, {
     method: 'POST',
@@ -499,7 +616,9 @@ async function sendViaMailgun(email) {
 // ── Mailtrap Send API ────────────────────────────────────────
 // Docs: https://api-docs.mailtrap.io/docs/mailtrap-api-docs/
 
-async function sendViaMailtrap(email) {
+async function sendViaMailtrap(email, _scheduledAt) {
+  // Mailtrap's transactional Send API has no scheduled-send parameter —
+  // _scheduledAt is accepted for signature parity but unused.
   const token = process.env.MAILTRAP_API_TOKEN;
   const fromParsed = parseEmailAddress(email.from);
 
@@ -535,7 +654,7 @@ async function sendViaMailtrap(email) {
 // Docs: https://maileroo.com/docs/email-api/send-basic-email/
 // Auth: X-Api-Key header. Free tier 3000/mo with custom DKIM domain.
 
-async function sendViaMaileroo(email) {
+async function sendViaMaileroo(email, scheduledAt) {
   const apiKey = process.env.MAILEROO_API_KEY;
   const fromParsed = parseEmailAddress(email.from);
 
@@ -560,6 +679,10 @@ async function sendViaMaileroo(email) {
   }
   // Forward custom email headers (List-Unsubscribe, Feedback-ID, etc.).
   if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+  // Per-message scheduled send (feature #3798), RFC 3339 (ISO 8601 is valid
+  // RFC 3339). Omitted entirely when resolveScheduledAt found no usable
+  // scheduledAt, so an unscheduled send's body is byte-identical to before.
+  if (scheduledAt) body.scheduled_at = scheduledAt.toISOString();
 
   const res = await fetch('https://smtp.maileroo.com/api/v2/emails', {
     method: 'POST',
@@ -585,29 +708,36 @@ async function sendViaMaileroo(email) {
 // ── Resend API (fallback) ────────────────────────────────────
 // Same as existing implementation but single-email
 
-async function sendViaResend(email) {
+async function sendViaResend(email, scheduledAt) {
   const apiKey = process.env.RESEND_API_KEY;
+  const body = {
+    from: email.from,
+    to: email.to,
+    subject: email.subject,
+    html: email.html,
+    text: email.text || undefined,
+    headers: email.headers || undefined,
+    tags: email.tags || undefined,
+    // Opens (pixel) stay on for engagement scoring. Click tracking rewrites
+    // links through Resend's tracking domain; callers may opt out per-message
+    // with `tracking: false` (e.g. win-back CTAs that must point directly to
+    // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
+    click_tracking: email.tracking !== false,
+    open_tracking: true,
+  };
+  // Per-message scheduled send (feature #3798), ISO 8601 UTC. Omitted
+  // entirely (no key at all, not even `undefined`) when resolveScheduledAt
+  // found no usable scheduledAt, so an unscheduled send's body is
+  // byte-identical to before this feature.
+  if (scheduledAt) body.scheduled_at = scheduledAt.toISOString();
+
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${apiKey}`,
     },
-    body: JSON.stringify({
-      from: email.from,
-      to: email.to,
-      subject: email.subject,
-      html: email.html,
-      text: email.text || undefined,
-      headers: email.headers || undefined,
-      tags: email.tags || undefined,
-      // Opens (pixel) stay on for engagement scoring. Click tracking rewrites
-      // links through Resend's tracking domain; callers may opt out per-message
-      // with `tracking: false` (e.g. win-back CTAs that must point directly to
-      // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
-      click_tracking: email.tracking !== false,
-      open_tracking: true,
-    }),
+    body: JSON.stringify(body),
   });
 
   if (!res.ok) {
@@ -637,7 +767,9 @@ function cloudflareAddress(addr) {
   return parsed.name ? `${parsed.name} <${parsed.email}>` : parsed.email;
 }
 
-async function sendViaCloudflare(email) {
+async function sendViaCloudflare(email, _scheduledAt) {
+  // Cloudflare Email Service has no scheduled-send parameter — _scheduledAt is
+  // accepted for signature parity but unused.
   const accountId = cloudflareAccountId();
   const token = cloudflareToken();
 
@@ -729,9 +861,9 @@ const SEND_FNS = {
 
 /**
  * Send a single email via the first available provider with remaining quota.
- * @param {Object} email - Email payload
+ * @param {Object} email - Email payload (may carry an optional `scheduledAt`)
  * @param {string} [forceProvider] - If set, only use this specific provider
- * @returns {{ messageId: string, provider: string }}
+ * @returns {{ messageId: string, provider: string, scheduledFor: string|null }}
  */
 /**
  * Detect a hard rate-limit / quota-reached signal in a provider error message.
@@ -815,10 +947,14 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
       if (typeof finalizeForProvider === 'function') {
         try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
       }
-      const result = await SEND_FNS[provider.id](email);
+      // Resolved against the provider actually being tried (not the caller's
+      // preferred/first provider) — matters when the cascade falls back to a
+      // different provider with a different scheduledSend capability/lookahead.
+      const resolved = resolveScheduledAt(email, provider);
+      const result = await SEND_FNS[provider.id](email, resolved);
       incrementCounter(provider.id, 1);
       recordRealSent(provider.id);
-      return result;
+      return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
       if (isSoftThrottleError(err.message)) {
@@ -944,6 +1080,11 @@ export async function sendEmailCascade(emails, opts = {}) {
   if (Object.keys(providerBreakdown).length > 0) {
     console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=${v}`).join(', ')}`);
   }
+  // Per-message scheduled-send breakdown (feature #3798): how many of the
+  // successful sends were actually deferred provider-side vs sent immediately.
+  const scheduledCount = sent.filter(s => s.scheduledFor).length;
+  const immediateCount = sent.length - scheduledCount;
+  console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
   return { sent, failed };
 }
@@ -1035,4 +1176,4 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + finiteDailyLimit(p), 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc };

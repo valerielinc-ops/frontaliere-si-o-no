@@ -39,6 +39,7 @@ import {
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
+import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -999,18 +1000,42 @@ async function sendBatch(emails) {
           { name: 'alert_id', value: e.alertId },
         ],
         headers: { ...feedbackHeader, ...unsubHeaders },
+        // Per-user send-time (#3798) — resolved per-recipient in main() above
+        // and carried through on the pre-send item; omitted entirely (not
+        // just null) when absent, matching email-cascade.mjs's own contract
+        // for "no scheduling requested".
+        ...(e.scheduledAt ? { scheduledAt: e.scheduledAt } : {}),
       },
       recipient: { email: e.to },
-      meta: { type: 'job-alert', alertId: e.alertId },
+      meta: { type: 'job-alert', alertId: e.alertId, sendTimeSource: e.sendTimeSource || null },
     };
   });
 
   const result = await sendEmailCascade(cascadeEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
   logProviderSummary();
+
+  // Per-user send-time observability (#3798 follow-up): the cascade returns
+  // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
+  // ...result }, see sendEmailCascade in email-cascade.mjs) — a provider may
+  // not honor the requested scheduledAt, so this is what actually happened,
+  // not just what was requested. Capture it here, keyed by recipient email, so
+  // the post-send Firestore writes in main() can persist it (last_scheduled_for
+  // / last_send_time_source) instead of silently discarding it.
+  const scheduleOutcomes = new Map();
+  for (const item of result.sent) {
+    const email = (item.recipient?.email || '').toLowerCase();
+    if (!email) continue;
+    scheduleOutcomes.set(email, {
+      scheduledFor: item.scheduledFor ?? null,
+      sendTimeSource: item.meta?.sendTimeSource ?? item.sendTimeSource ?? null,
+    });
+  }
+
   return {
     sent: result.sent.length,
     failed: result.failed.length,
     failedItems: result.failed,
+    scheduleOutcomes,
   };
 }
 
@@ -1070,6 +1095,10 @@ async function processRetryQueue(db) {
       continue;
     }
 
+    // Per-user send-time (#3798): deliberately NO scheduledAt here. A retry
+    // means the first attempt already missed today's daily quota window — the
+    // recipient is already late, so send it the moment fresh quota is
+    // available rather than deferring it further to their preferred hour.
     retryEmails.push({
       payload: {
         from: FROM_EMAIL,
@@ -1151,6 +1180,20 @@ async function main() {
     console.log('   🔵 DRY RUN — skipping retry queue processing');
   }
 
+  // Per-user send-time (#3798): read the site-wide fallback hour written by
+  // send-newsletter.mjs onto newsletter_subscribers/_meta_ once per run — a
+  // single get(), not a per-recipient read. null when that doc doesn't exist
+  // yet or the newsletter run never computed a global hour (too few qualified
+  // users — see MIN_GLOBAL_SAMPLE_USERS in scripts/lib/send-schedule.mjs).
+  let globalPreferredHour = null;
+  try {
+    const metaSnap = await db.collection('newsletter_subscribers').doc('_meta_').get();
+    const hourUtc = metaSnap.exists ? metaSnap.data()?.global_preferred_send_hour_utc : null;
+    globalPreferredHour = Number.isInteger(hourUtc) ? hourUtc : null;
+  } catch (e) {
+    console.warn(`   ⚠️  Global preferred send hour read failed: ${e?.message || e}`);
+  }
+
   // 1. Load recent jobs (+ full-dataset geo index for source-job resolution)
   const { recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
@@ -1226,6 +1269,11 @@ async function main() {
   // so the matcher can fold the newsletter profile (job_company, job_category,
   // sector_interest, location_interest, preferences, …) into relevance scoring.
   const subscriberProfiles = new Map();
+  // job_alert_subscribers/{email} raw doc data, keyed by lowercased email
+  // (#3798 — this channel's OWN preferred_send_hour_utc/sample_count, read
+  // for resolveEffectivePreferredHour; falls back to subscriberProfiles'
+  // newsletter-channel data when this doc has no signal of its own yet).
+  const jobAlertProfiles = new Map();
   // Browsing-personalization signals (filter usage + viewed-job cities/searches)
   // keyed by lowercased email. These live in a SUBCOLLECTION the matcher never
   // read before (newsletter_subscribers/{email}/private/personalization), which
@@ -1292,6 +1340,7 @@ async function main() {
 
         if (alertSubDoc.exists) {
           const alertData = alertSubDoc.data() || {};
+          jobAlertProfiles.set(email.toLowerCase(), alertData);
           if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
           // Alert-channel click is the most relevant — overrides the newsletter one.
           if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
@@ -1453,6 +1502,30 @@ async function main() {
     // copies — cheap to carry to the post-send persistence step.
     const sentJobs = liveMatched.slice(0, 10);
 
+    // Per-user send-time (#3798): this channel's own preferred hour first
+    // (job_alert_subscribers/{email}), falling back to the subscriber's
+    // newsletter-channel hour, then the site-wide global hour. Both doc
+    // lookups were already loaded above (zero extra reads) — see
+    // jobAlertProfiles/subscriberProfiles.
+    let scheduledAt = null;
+    let sendTimeSource = null;
+    // TARGET_EMAIL/ALLOWED_EMAILS set means this is an operator verification
+    // run against specific recipient(s) (parallel to send-newsletter.mjs's
+    // --test --target-email) — it must arrive immediately so the operator can
+    // confirm the send works, not get deferred to the preferred hour.
+    if (!ALLOWED_EMAILS && perUserSendTimeEnabled()) {
+      const emailKey = alert.email.toLowerCase();
+      const resolved = resolveEffectivePreferredHour({
+        subscriberDoc: jobAlertProfiles.get(emailKey) || null,
+        fallbackDoc: subscriberProfiles.get(emailKey) || null,
+        globalHour: globalPreferredHour,
+      });
+      if (resolved.hourUtc !== null) {
+        scheduledAt = computeScheduledSendAt({ preferredHourUtc: resolved.hourUtc, email: alert.email });
+        sendTimeSource = resolved.source;
+      }
+    }
+
     emailsToSend.push({
       to: alert.email,
       subject,
@@ -1464,6 +1537,8 @@ async function main() {
       sentMap,
       sentJobs,
       unsubscribeUrl,
+      scheduledAt,
+      sendTimeSource,
     });
 
     console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
@@ -1478,14 +1553,21 @@ async function main() {
 
   // 4. Send emails
   let failedEmailSet = new Set();
+  // Per-user send-time observability (#3798 follow-up): populated by sendBatch
+  // from the cascade's authoritative per-recipient outcome; read below when
+  // mirroring last_sent_at onto job_alert_subscribers/{email}. Stays empty on
+  // DRY_RUN (nothing sent) — the batch.set below already guards on sentEmails.
+  let scheduleOutcomes = new Map();
   if (DRY_RUN) {
     console.log('   🔵 DRY RUN — not sending emails');
+    logScheduleDistribution(emailsToSend, { indent: '   ' });
   } else {
     const result = await sendBatch(emailsToSend);
     console.log(`   ✅ Sent ${result.sent} emails`);
     failedEmailSet = new Set(
       result.failedItems.map((item) => (item.recipient?.email || '').toLowerCase()).filter(Boolean),
     );
+    scheduleOutcomes = result.scheduleOutcomes || new Map();
 
     // 4b. Enqueue failed emails for retry on the next run
     if (result.failed > 0) {
@@ -1525,8 +1607,16 @@ async function main() {
     )];
     if (sentEmails.length > 0) {
       await commitInChunks(db, sentEmails, (batch, email) => {
+        // Per-user send-time observability (#3798 follow-up): mirror what the
+        // cascade actually decided for this recipient (scheduleOutcomes, built
+        // in sendBatch from the cascade's authoritative per-item result) — null
+        // when scheduling wasn't requested/resolved for this send, not just
+        // when the map lookup misses.
+        const outcome = scheduleOutcomes.get(email) || null;
         batch.set(db.collection('job_alert_subscribers').doc(email), {
           last_sent_at: FieldValue.serverTimestamp(),
+          last_scheduled_for: outcome?.scheduledFor ?? null,
+          last_send_time_source: outcome?.sendTimeSource ?? null,
         }, { merge: true });
       });
       console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);
