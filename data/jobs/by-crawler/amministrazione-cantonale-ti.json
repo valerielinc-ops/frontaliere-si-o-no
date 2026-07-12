@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-07-11T21:58:30.152Z",
+  "assembledAt": "2026-07-12T11:06:13.270Z",
   "jobs": [
     {
       "id": "company-213hof",
@@ -465,7 +465,7 @@
       "crawledAt": "2026-07-06T00:31:52.385Z",
       "firstSeenAt": "2026-07-06T00:31:52.385Z",
       "titleByLocale": {
-        "fr": "Concours général 2026 Infirmières spécialisées (santé mentale) et infirmières de l'Organisation sociopsychiatrique cantonale (OSC), Mendrisio",
+        "fr": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
         "it": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
         "en": "General Competition 2026 Nurses with specialty (mental health) and nurses at the cantonal sociopsychiatric Organization (OSC), Mendrisio",
         "de": "Generalwettbewerb 2026 Krankenschwestern mit Spezialgebiet (psychische Gesundheit) und Krankenschwestern bei der kantonalen Soziopsychiatrischen Organisation (OSC), Mendrisio"
@@ -507,7 +507,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6850",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hpc",
@@ -532,7 +533,7 @@
       "crawledAt": "2026-06-30T23:38:46.364Z",
       "firstSeenAt": "2026-06-30T23:38:46.364Z",
       "titleByLocale": {
-        "fr": "Professeur de culture III à temps partiel (30 %), à l'Organisation sociopsychiatrique cantonale (OSC), à la clinique psychiatrique cantonale (CPC), à l'unité de soins pédiatriques (UCPP), à San Pietro di Stabio",
+        "fr": "Docente di cultura III a tempo parziale (30%), presso l’Organizzazione sociopsichiatrica cantonale (OSC), Clinica psichiatra cantonale (CPC), Unità di cura pedopsichiatrica (UCPP), San Pietro di Stabio",
         "it": "Docente di cultura III a tempo parziale (30%), presso l’Organizzazione sociopsichiatrica cantonale (OSC), Clinica psichiatra cantonale (CPC), Unità di cura pedopsichiatrica (UCPP), San Pietro di Stabio",
         "en": "Teacher of culture III in part time (30%), at the cantonal sociopsychiatric Organization (OSC), cantonal psychiatric clinic (CPC), pedopsichiatric care unit (UCPP), San Pietro di Stabio",
         "de": "Lehrer der Kultur III in Teilzeit (30%), an der kantonalen soziopsychiatrischen Organisation (OSC), der kantonalen psychiatrischen Klinik (CPC), der pädopsichiatrischen Pflegestation (UCPP), San Pietro di Stabio"
@@ -575,7 +576,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hpb",
@@ -643,7 +645,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hpz",
@@ -711,7 +714,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hq1",
@@ -805,7 +809,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0l",
@@ -879,7 +884,8 @@
       },
       "previousSlugs": [
         "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213i9v",
@@ -963,7 +969,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213i9s",
@@ -1047,7 +1054,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213i9t",
@@ -1131,7 +1139,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j3w",
@@ -1202,7 +1211,8 @@
         "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-am",
         "allgemeiner-wettbewerb-2026-kuchenhilfe-buro-fur-verpflegung-und-schultransport-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rappor",
         "concours-general-2026-aide-cuisine-office-de-la-restauration-et-des-transports-scolaires-bellinzona-orario-di-lavoro-42-ore-settimanali-per-"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213zbv",
@@ -1276,7 +1286,8 @@
         "en": [
           "general-competition-2026-employees-administratives-manufacturers-hospitallers-insured-persons-iii-telephone-advisers"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -1352,7 +1363,8 @@
         "general-competition-2026-medical-head-in-psychiatry-at-the-cantonal-sociopsychiatric-organization-osc-mendrisio",
         "generalwettbewerb-2026-medizinischer-leiter-der-psychiatrie-an-der-kantonalen-sozipsychiatrischen-organisation-osc",
         "concours-general-2026-responsable-medical-en-psychiatrie-a-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
@@ -1433,7 +1445,8 @@
           "concours-general-2026-medecins-adjoints-de-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio-amministrazione",
           "concours-general-2026-medecins-adjoints-de-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio-organizzazione"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

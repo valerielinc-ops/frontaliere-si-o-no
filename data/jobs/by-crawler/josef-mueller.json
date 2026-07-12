@@ -1,6 +1,6 @@
 {
   "crawlerKey": "josef-mueller",
-  "assembledAt": "2026-07-11T22:51:25.883Z",
+  "assembledAt": "2026-07-12T10:53:43.408Z",
   "jobs": [
     {
       "id": "josef-mueller-c3b1c8bb353b",
@@ -33,7 +33,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/",
       "source": "Josef Müller Gemüse AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:51:23.921Z",
+      "crawledAt": "2026-07-12T10:53:41.528Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "Zug",
       "streetAddress": "Rothusstrasse 26",
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:16:23.484Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
