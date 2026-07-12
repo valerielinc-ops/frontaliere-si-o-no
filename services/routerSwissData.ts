@@ -369,6 +369,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-magazziniere-logistica-ticino': { it: 'frontaliere-magazziniere-logistica-ticino', en: 'cross-border-warehouse-worker-logistics-ticino', de: 'grenzgaenger-lagerist-logistik-tessin', fr: 'frontalier-magasinier-logistique-tessin' },
  'terziario-una-svolta-per-chiasso': { it: 'terziario-una-svolta-per-chiasso', en: 'terziario-una-svolta-per-chiasso', de: 'terziario-eine-wende-fur-chiasso', fr: 'terziario-une-bas-sinistra-pour-chiasso' },
  'spesa-alimentare-svizzera-italia-convieni-frontaliere': { it: 'spesa-alimentare-svizzera-italia-convieni-frontaliere', en: 'swiss-italian-food-prices-frontier-workers', de: 'essen-swiss-italien-frontalier-arbeiter', fr: 'prix-alimentaire-suisse-italien-travailleurs-frontaliers' },
+ 'frontalieri-ticino-sondaggio': { it: 'frontalieri-ticino-sondaggio', en: 'frontalieri-ticino-survey', de: 'frontalieri-ticino-umfrage', fr: 'frontaliers-ticino-sondage' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

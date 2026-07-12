@@ -1039,6 +1039,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.title': 'Spending frontage: Swiss and Italian prices',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.excerpt': 'Comparison of Swiss and Italian supermarket prices: what are the differences and where should you shop for a border crossing?',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.imageAlt': 'A Swiss market scene with fresh and high-quality products',
+    'blog.article.frontalieri-ticino-sondaggio.title': 'Work in Switzerland, life in Ticino: Routes and Agreements for 32,000 Frontier Workers',
+    'blog.article.frontalieri-ticino-sondaggio.excerpt': 'VareseNews survey: 46 out of 649 border workers in the province of Varese work in Switzerland, with an increase of 21% in the last 10 years.',
+    'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri waiting for the train at Lugano',
 };
 
 export default blogMetaChEn;

@@ -1039,6 +1039,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.title': 'Dépense face à la jachère : prix suisses et italiens',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.excerpt': 'Comparaison des prix des supermarchés suisses et italiens : quelles sont les différences et où faut-il faire les courses pour un frontalier ?',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.imageAlt': 'Une scène de marché en Suisse avec des produits frais et de haute qualité',
+    'blog.article.frontalieri-ticino-sondaggio.title': 'Emploi en Suisse, vie en province : chiffres, parcours et accords pour 32 000 frontaliers',
+    'blog.article.frontalieri-ticino-sondaggio.excerpt': 'Enquête VareseNews : 46 frontaliers sur 649 de la province de Varese travaillent en Suisse, avec une augmentation de 21 % au cours des 10 dernières années.',
+    'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontaliers en attente du train à Lugano',
 };
 
 export default blogMetaChFr;

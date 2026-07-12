@@ -1039,6 +1039,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.title': 'Kosten im Vergleich: Schweizer und italienische Preise',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.excerpt': 'Preisvergleich Schweizer und italienische Supermärkte: Was sind die Unterschiede und wo lohnt es sich für einen Grenzgänger einzukaufen?',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.imageAlt': 'Ein Schweizer Markt mit frischen und hochwertigen Produkten',
+    'blog.article.frontalieri-ticino-sondaggio.title': 'Arbeit in der Schweiz, Leben in der Provinz: Zahlen, Wege und Vereinbarungen für 32.000 Grenzpendler',
+    'blog.article.frontalieri-ticino-sondaggio.excerpt': 'Umfrage VareseNews: 46 von 649 Grenzgängern der Provinz Varese arbeiten in der Schweiz, ein Anstieg von 21% in den letzten 10 Jahren.',
+    'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri im Bahnhof Lugano',
 };
 
 export default blogMetaChDe;
