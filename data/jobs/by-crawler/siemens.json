@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-07-11T21:51:08.952Z",
+  "assembledAt": "2026-07-12T10:42:38.494Z",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -33,7 +33,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:51:06.662Z",
+      "crawledAt": "2026-07-12T10:42:35.732Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -108,7 +108,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511948",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:51:02.413Z",
+      "crawledAt": "2026-07-12T10:42:31.175Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -183,7 +183,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501565",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:50:55.777Z",
+      "crawledAt": "2026-07-12T10:42:24.234Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -225,7 +225,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-f5aff5ab3357",
@@ -258,7 +259,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/495789",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:53.520Z",
+      "crawledAt": "2026-07-12T10:42:21.860Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -287,6 +288,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:36.245Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -331,7 +333,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501581",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:50:51.452Z",
+      "crawledAt": "2026-07-12T10:42:19.593Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -373,7 +375,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-a3eb7b804682",
@@ -406,7 +409,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502608",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:49.222Z",
+      "crawledAt": "2026-07-12T10:42:17.301Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -437,6 +440,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:31.940Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -481,7 +485,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/496729",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:47.018Z",
+      "crawledAt": "2026-07-12T10:42:14.998Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -512,6 +516,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:29.615Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -556,7 +561,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502611",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:44.912Z",
+      "crawledAt": "2026-07-12T10:42:12.741Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -598,7 +603,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-d194227e116d",
@@ -631,7 +637,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502805",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:42.543Z",
+      "crawledAt": "2026-07-12T10:42:10.436Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -706,7 +712,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:40.352Z",
+      "crawledAt": "2026-07-12T10:42:08.034Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -765,7 +771,7 @@
       "title": "Automation & Robotics Systems Engineer 80-100%",
       "titleByLocale": {
         "it": "Automation & Robotics Systems Ingegnere 80-100%",
-        "en": "Automation & Robotics Systems Engineer 80-100 %",
+        "en": "Automation & Robotics Systems Engineer 80-100%",
         "de": "Automation & Robotics Systems Ingenieur 80-100%",
         "fr": "Automation & Robotics Systems Ingénieur 80-100%"
       },
@@ -781,7 +787,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505172",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:38.221Z",
+      "crawledAt": "2026-07-12T10:42:05.751Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -812,6 +818,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:18.632Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -856,7 +863,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505367",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:36.067Z",
+      "crawledAt": "2026-07-12T10:42:03.445Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -921,7 +928,7 @@
       "title": "IT/ OT System Engineer 80-100%",
       "titleByLocale": {
         "it": "IT/ OT System Ingegnere 80-100%",
-        "en": "IT/OT System Engineer 80-100 %",
+        "en": "IT/ OT System Engineer 80-100%",
         "de": "IT/ OT System Ingenieur 80-100%",
         "fr": "IT/ OT System Ingénieur 80-100%"
       },
@@ -937,7 +944,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:33.927Z",
+      "crawledAt": "2026-07-12T10:42:01.141Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -968,6 +975,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:14.096Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1012,7 +1020,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508461",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:50:31.792Z",
+      "crawledAt": "2026-07-12T10:41:58.955Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1087,7 +1095,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508713",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:29.607Z",
+      "crawledAt": "2026-07-12T10:41:56.740Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1168,7 +1176,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509175",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:27.374Z",
+      "crawledAt": "2026-07-12T10:41:54.395Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -1247,7 +1255,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509377",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:25.169Z",
+      "crawledAt": "2026-07-12T10:41:52.109Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1296,7 +1304,7 @@
       "title": "Technischer Sales Support Niederspannungsprodukte 80-100%",
       "titleByLocale": {
         "it": "Supporto tecnico di vendita Prodotti a bassa tensione 80-100 %",
-        "en": "Technical Sales Support Low Voltage Products 80-100 %",
+        "en": "Technischer Sales Support Niederspannungsprodukte 80-100%",
         "de": "Technischer Sales Support Niederspannungsprodukte 80-100%",
         "fr": "Support technique des ventes Produits basse tension 80-100 %"
       },
@@ -1312,7 +1320,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509387",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:23.112Z",
+      "crawledAt": "2026-07-12T10:41:49.912Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1346,6 +1354,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:55.408Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1390,7 +1399,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509879",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:50:20.846Z",
+      "crawledAt": "2026-07-12T10:41:47.605Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1449,7 +1458,7 @@
       "title": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
       "titleByLocale": {
         "it": "Team leader: nelle vendite tecniche (portfolio group Automation) 80–100 %",
-        "en": "Team leader: in Technical Sales (portfolio group Automation) 80–100 %",
+        "en": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
         "de": "Teamleiter:in Technical Sales (Portfolio-Gruppe Automation) 80–100%",
         "fr": "Chef d'équipe: Ventes techniques (groupe d'automation) 80 à 100 %"
       },
@@ -1465,7 +1474,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509164",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:18.633Z",
+      "crawledAt": "2026-07-12T10:41:45.289Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1496,6 +1505,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:48.702Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1540,7 +1550,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508738",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:16.548Z",
+      "crawledAt": "2026-07-12T10:41:43.092Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1615,7 +1625,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510207",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:50:14.389Z",
+      "crawledAt": "2026-07-12T10:41:40.785Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1690,7 +1700,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510486",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:12.185Z",
+      "crawledAt": "2026-07-12T10:41:38.453Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1721,6 +1731,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:35.193Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1765,7 +1776,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497748",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:50:09.926Z",
+      "crawledAt": "2026-07-12T10:41:36.178Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1796,6 +1807,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:30.785Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1840,7 +1852,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510769",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:05.010Z",
+      "crawledAt": "2026-07-12T10:41:33.953Z",
       "addressLocality": "Lucerne",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1871,6 +1883,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:28.414Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1915,7 +1928,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510962",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:02.771Z",
+      "crawledAt": "2026-07-12T10:41:31.815Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1996,7 +2009,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509065",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:50:00.574Z",
+      "crawledAt": "2026-07-12T10:41:29.522Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2055,7 +2068,7 @@
       "title": "Solution Engineer Traffic Management Systems 80-100%",
       "titleByLocale": {
         "it": "Solution Ingegnere Traffic Management Systems 80-100%",
-        "en": "Solution Engineer Traffic Management Systems 80-100 %",
+        "en": "Solution Engineer Traffic Management Systems 80-100%",
         "de": "Solution Ingenieur Traffic Management Systems 80-100%",
         "fr": "Solution Ingénieur Traffic Management Systems 80-100%"
       },
@@ -2071,7 +2084,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510807",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:58.327Z",
+      "crawledAt": "2026-07-12T10:41:27.178Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2102,6 +2115,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:19.284Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2146,7 +2160,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511150",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:49:56.169Z",
+      "crawledAt": "2026-07-12T10:41:24.986Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2205,7 +2219,7 @@
       "title": "PMC & Project Quality Manager",
       "titleByLocale": {
         "it": "PMC e Project Quality Manager",
-        "en": "PMC and Project Quality Manager",
+        "en": "PMC & Project Quality Manager",
         "de": "PMC & Project Qualität Manager",
         "fr": "PMC & Project Qualité Manager"
       },
@@ -2221,7 +2235,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511115",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:53.910Z",
+      "crawledAt": "2026-07-12T10:41:22.662Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2252,6 +2266,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:14.756Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2296,7 +2311,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511112",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:49:51.757Z",
+      "crawledAt": "2026-07-12T10:41:20.452Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2371,7 +2386,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511101",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:49.538Z",
+      "crawledAt": "2026-07-12T10:41:18.055Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2430,7 +2445,7 @@
       "title": "Projektleitung Software-Entwicklung (80-100%)",
       "titleByLocale": {
         "it": "Sviluppo del software di gestione del progetto (80-100%)",
-        "en": "Project management software development (80-100%)",
+        "en": "Projektleitung Software-Entwicklung (80-100%)",
         "de": "Projektleitung Software-Entwicklung (80-100%)",
         "fr": "Développement de logiciels de gestion de projet (80-100%)"
       },
@@ -2446,7 +2461,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497618",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:47.319Z",
+      "crawledAt": "2026-07-12T10:41:15.783Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2483,6 +2498,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:07.622Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2527,7 +2543,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/499867",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:45.159Z",
+      "crawledAt": "2026-07-12T10:41:13.545Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2548,6 +2564,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:51:05.174Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2592,7 +2609,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511324",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:42.880Z",
+      "crawledAt": "2026-07-12T10:41:11.210Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2667,7 +2684,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511183",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:49:40.735Z",
+      "crawledAt": "2026-07-12T10:41:08.939Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2701,6 +2718,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:58.507Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2729,7 +2747,7 @@
       "title": "Solution Engineer OT Infrastruktur (100%)",
       "titleByLocale": {
         "it": "Solution Ingegnere OT Infrastruktur (100%)",
-        "en": "Solution Engineer OT Infrastructure (100%)",
+        "en": "Solution Engineer OT Infrastruktur (100%)",
         "de": "Solution Ingenieur OT Infrastruktur (100%)",
         "fr": "Solution Ingénieur OT Infrastruktur (100%)"
       },
@@ -2745,7 +2763,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/491193",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:38.457Z",
+      "crawledAt": "2026-07-12T10:41:06.623Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2776,6 +2794,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:53.964Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2804,7 +2823,7 @@
       "title": "Technical Account Manager pour machines-outils CNC 80–100%",
       "titleByLocale": {
         "it": "Account Manager tecnico per macchine utensili CNC 80-100%",
-        "en": "Technical Account Manager for CNC machine tools 80–100%",
+        "en": "Technical Account Manager pour machines-outils CNC 80–100%",
         "de": "Technischer Account Manager für CNC-Werkzeugmaschinen 80–100%",
         "fr": "Technical Account Manager pour machines-outils CNC 80–100%"
       },
@@ -2820,7 +2839,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510436",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:36.286Z",
+      "crawledAt": "2026-07-12T10:41:04.455Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2851,6 +2870,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:51.094Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2895,7 +2915,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511958",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:34.115Z",
+      "crawledAt": "2026-07-12T10:41:02.437Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -2953,7 +2973,7 @@
       "companyDomain": "siemens.com",
       "title": "Chef de projet moyenne tension 80-100% (f/h/d)",
       "titleByLocale": {
-        "it": "Responsabile del progetto a media tensione 80-100% (f/h/d)",
+        "it": "Chef de projet moyenne tension 80-100% (f/h/d)",
         "en": "Medium voltage project manager 80-100% (f/h/d)",
         "de": "Mittelspannungsprojektmanager 80-100% (f/h/d)",
         "fr": "Chef de projet moyenne tension 80-100% (f/h/d)"
@@ -2970,7 +2990,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512016",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:31.919Z",
+      "crawledAt": "2026-07-12T10:41:00.065Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3001,6 +3021,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:46.662Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3045,7 +3066,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511973",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:29.764Z",
+      "crawledAt": "2026-07-12T10:40:57.846Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3076,6 +3097,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:44.455Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3104,7 +3126,7 @@
       "title": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)",
       "titleByLocale": {
         "it": "Commercial Project Manager FIN OPS Support 80-100% (f/m/d)",
-        "en": "Commercial Project Manager FIN OPS Support 80-100% (e/h/d)",
+        "en": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)",
         "de": "Kommerzieller Projektmanager FIN OPS Support 80-100% (e/h/d)",
         "fr": "Commercial Project Manager FIN OPS Support 80-100% (f/h/d)"
       },
@@ -3120,7 +3142,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511974",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:27.579Z",
+      "crawledAt": "2026-07-12T10:40:55.492Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3151,6 +3173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:42.129Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3195,7 +3218,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511788",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:25.435Z",
+      "crawledAt": "2026-07-12T10:40:53.182Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3270,7 +3293,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:49:23.215Z",
+      "crawledAt": "2026-07-12T10:40:50.785Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3345,7 +3368,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502648",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:21.142Z",
+      "crawledAt": "2026-07-12T10:40:48.516Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3404,7 +3427,7 @@
       "title": "Technical Sales Support Professional 80-100%",
       "titleByLocale": {
         "it": "Supporto tecnico commerciale Professional 80-100 %",
-        "en": "Technical Sales Support Professional 80-100 %",
+        "en": "Technical Sales Support Professional 80-100%",
         "de": "Technical Sales Support Professional 80-100%",
         "fr": "Technical Sales Support Professional 80-100 %"
       },
@@ -3420,7 +3443,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508781",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:18.805Z",
+      "crawledAt": "2026-07-12T10:40:46.125Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3451,6 +3474,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:33.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3495,7 +3519,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508719",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:14.619Z",
+      "crawledAt": "2026-07-12T10:40:41.442Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3570,7 +3594,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:12.492Z",
+      "crawledAt": "2026-07-12T10:40:39.272Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -3601,6 +3625,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:26.475Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3645,7 +3670,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512480",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:10.318Z",
+      "crawledAt": "2026-07-12T10:40:36.998Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3733,7 +3758,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:49:08.176Z",
+      "crawledAt": "2026-07-12T10:40:34.655Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3808,7 +3833,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512853",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:49:04.228Z",
+      "crawledAt": "2026-07-12T10:40:30.548Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3896,7 +3921,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511652",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:49:02.057Z",
+      "crawledAt": "2026-07-12T10:40:28.208Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3963,7 +3988,7 @@
         "it": "Controller IT 80-100%",
         "en": "IT Controller 80-100%",
         "de": "IT Controller 80-100%",
-        "fr": "Contrôleur informatique 80-100%"
+        "fr": "IT Controller 80-100%"
       },
       "description": "Youtube Video Together with our customers, we combine the real and digital worlds. With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure Our shared journey could take you anywhere…where would you like to go? Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of IT Controller – your team is looking forward to meeting you! Your new responsibilities\n• Assume commercial responsibility for several IT services in an agile environment\n• Interact regularly with stakeholders and support our technical colleagues with budgeting, planning and general finance-related queries\n• Create and evaluate commercial reports\n• Handle cost allocation and processing of postings in SAP\n• Provide support with monthly, quarterly and annual financial statements\n• Review compliance with commercial guidelines independently\n• Analyse and standardise data sources and structures for (further) development and prepare new business intelligence summaries\n• Further develop controlling concepts and the digitalisation and automation of IT controlling processes Your talents and experience\n• Education : Bachelor’s degree (university/university of applied sciences) in business administration, business informatics or a similar field of study\n• Experience and Skills :\n• Some professional experience in a comparable commercial position\n• A strong interest in data and its visualisation (data analytics)\n• Affinity for new digital, low-code applications (e.g. Knime, MS Power Platform)\n• Very good knowledge of Microsoft Excel and ideally some experience with SAP and data visualisation programmes (e.g. QlikSense)\n• Ways of Working : Ownership mentality and a strong ability to work under your own initiative; reliable team player who works in a precise and analytical way\n• Languages : Excellent spoken and written German and English Location : this role will be based in Zug/Switzerland. Please note that qualified candidates need to be legally eligible for work authorization in Switzerland. Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Carmen Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
       "descriptionByLocale": {
@@ -3977,7 +4002,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512924",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:48:59.933Z",
+      "crawledAt": "2026-07-12T10:40:26.060Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3998,6 +4023,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:12:17.936Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4042,7 +4068,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513042",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:48:57.759Z",
+      "crawledAt": "2026-07-12T10:40:23.865Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -4123,7 +4149,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513089",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:48:55.567Z",
+      "crawledAt": "2026-07-12T10:40:21.553Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4188,7 +4214,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508721",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:48:53.336Z",
+      "crawledAt": "2026-07-12T10:40:19.394Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4255,7 +4281,7 @@
         "it": "Executive Assistant al CEO di Smart Infrastructure Buildings 100%",
         "en": "Executive Assistant to the CEO of Smart Infrastructure Buildings 100%",
         "de": "Executive Assistent to the CEO of Smart Infrastructure Buildings 100%",
-        "fr": "Adjoint exécutif du directeur général des immeubles d'infrastructure intelligente 100 %"
+        "fr": "Executive Assistant to the CEO of Smart Infrastructure Buildings 100%"
       },
       "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our Buildings business, our global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. Our shared journey could take you anywhere…where would you like to go? Your new responsibilities\n• Provide proactive high-level administrative and organizational support to the CEO of SI Buildings in a fast-paced international environment\n• Manage the CEO’s calendar, inbox, meetings, and priorities with a strong sense of structure, transparency, and anticipation\n• Organize and steer leadership meetings, workshops, customer visits, and offsites, including logistics and follow-up actions\n• Ensure all administrative requirements for key meetings are fulfilled, including effective scheduling, stakeholder alignment, and timely distribution of meeting materials and pre-reads\n• Coordinate domestic and international business travel, including all related arrangements and logistics\n• Ensure reliable coordination and information flow across key stakeholders in close collaboration with the CEO Office\n• Independently manage confidential correspondence and communication in German and English\n• Contribute to continuously improving administrative processes, ways of working, and coordination mechanisms within the CEO Office Your skills and experience\n• Several years of experience as an Executive Assistant or in a comparable role supporting C-level or senior management in an international environment\n• Strong organizational and coordination skills with a high level of attention to detail\n• Excellent communication skills and fluency in German and English, both written and spoken\n• High level of professionalism, discretion, reliability, and service orientation\n• Ability to work independently, proactively, and in a structured manner while managing multiple priorities simultaneously\n• Confident use of modern digital tools and workflows, particularly within the MS365 environment, including Copilot Location : this role will be based in Zug/Switzerland. Please note that qualified candidates need to be legally eligible for work authorization in Switzerland. Employee benefits\n• mobile working possible, in alignment with the management\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application Carmen Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
       "descriptionByLocale": {
@@ -4269,7 +4295,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508564",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:48:51.100Z",
+      "crawledAt": "2026-07-12T10:40:17.252Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4290,6 +4316,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T11:57:52.209Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4334,7 +4361,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/486145",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:48:48.925Z",
+      "crawledAt": "2026-07-12T10:40:14.948Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -4355,6 +4382,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:02:29.226Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4399,7 +4427,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/503079",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T21:48:46.699Z",
+      "crawledAt": "2026-07-12T10:40:12.642Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
