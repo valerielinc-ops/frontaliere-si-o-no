@@ -287,9 +287,13 @@ function pdfFilenameId(pdfUrl = '') {
  * Returns the response body as text, or null on failure.
  */
 async function fetchPage(url, timeoutMs = 15000) {
+  // clearTimeout in `finally` (after the body read), NOT right after fetch():
+  // the abort timer must stay armed while `res.text()` streams the body, else
+  // a server that sends headers then stalls the body hangs the crawler forever
+  // (same class as the Google-News-decoder hang, PR #4118 / review sibling).
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
@@ -299,7 +303,6 @@ async function fetchPage(url, timeoutMs = 15000) {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
@@ -308,6 +311,8 @@ async function fetchPage(url, timeoutMs = 15000) {
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
