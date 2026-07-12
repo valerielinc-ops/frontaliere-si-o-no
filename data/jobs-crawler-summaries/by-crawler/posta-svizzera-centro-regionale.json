@@ -1,52 +1,18 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-07-12T10:48:18.652Z",
+  "generatedAt": "2026-07-12T21:58:17.903Z",
   "total": 84,
-  "newCount": 6,
-  "updatedCount": 75,
+  "newCount": 4,
+  "updatedCount": 77,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 397761,
-  "avgDurationMs": 397761,
+  "durationMs": 459123,
+  "avgDurationMs": 459123,
   "durationHistory": [
-    397761
+    459123
   ],
   "newJobs": [
-    {
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
-      "title": "PostAuto-Fahrer:in",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Lenzerheide/Lai",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "postauto-fahrer-in-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-07",
-      "validThrough": "2026-08-06",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Lenzerheide/Lai"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
     {
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
@@ -138,40 +104,6 @@
       "_targetScope": {
         "canton": "AG",
         "location": "Brugg AG"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Wynigen",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wynigen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-29",
-      "validThrough": "2026-07-20",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "50-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Wynigen"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -881,6 +813,47 @@
       }
     },
     {
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
+      "title": "PostAuto-Fahrer:in",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Lenzerheide/Lai",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "postbus-driver-in-postauto-lenzerheide-lai",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-07",
+      "validThrough": "2026-08-06",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Lenzerheide/Lai"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-9a852426a65d",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "addressLocality": "Lenzerheide/Lai",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-12T10:48:18.647Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "title": "Ticketkontrolleur:in und Kundenberatung",
@@ -1419,47 +1392,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
-      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Stans",
-      "canton": "NW",
-      "country": "CH",
-      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-06",
-      "validThrough": "2026-07-30",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "NW",
-        "location": "Stans"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-505e99e7d477",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 14
       }
     }
   ],
