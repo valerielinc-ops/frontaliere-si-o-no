@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-07-11T22:34:04.965Z",
+  "assembledAt": "2026-07-12T11:08:47.588Z",
   "jobs": [
     {
       "id": "etat-de-fribourg-8e52e2312fac",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Kripo-Spezialistin-f%C3%BCr-forensische-Informatik-SBGP-%28IKT-Systemingenieurin%29-Saan/1363852157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:58.786Z",
+      "crawledAt": "2026-07-12T11:08:41.520Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -81,7 +81,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-ea4d46bb140d",
@@ -114,7 +115,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Sp%C3%A9cialiste-police-judiciaire-en-informatique-forensique-%28ing%C3%A9nieur-e-syst%C3%A8me-TIC%29-Sari/1363852057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:58.105Z",
+      "crawledAt": "2026-07-12T11:08:40.881Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -135,11 +136,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de"
+        "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de",
+        "specialista-di-polizia-forense-in-informatica-forense-ict-systems-engineer-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de"
+          "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de",
+          "specialista-di-polizia-forense-in-informatica-forense-ict-systems-engineer-etat-de-fribourg-fribourg"
         ],
         "en": [
           "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de"
@@ -192,7 +195,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Zeichnerin-oder-Technikerin-Saan/1363914957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:57.426Z",
+      "crawledAt": "2026-07-12T11:08:40.252Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -213,11 +216,13 @@
       "pensumMax": 90,
       "pensum": "70-90%",
       "previousSlugs": [
-        "zeichner-in-oder-techniker-in-etat-de-fribourg-ch"
+        "zeichner-in-oder-techniker-in-etat-de-fribourg-ch",
+        "disegnatore-trice-o-techniker-in-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zeichner-in-oder-techniker-in-etat-de-fribourg-ch"
+          "zeichner-in-oder-techniker-in-etat-de-fribourg-ch",
+          "disegnatore-trice-o-techniker-in-etat-de-fribourg"
         ],
         "en": [
           "zeichner-in-oder-techniker-in-etat-de-fribourg-ch"
@@ -273,7 +278,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Sachbearbeiterin-Arbeitslosigkeit-Saan/1363910457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:56.703Z",
+      "crawledAt": "2026-07-12T11:08:39.614Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -294,11 +299,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "sachbearbeiter-in-arbeitslosigkeit-etat-de-fribourg-ch"
+        "sachbearbeiter-in-arbeitslosigkeit-etat-de-fribourg-ch",
+        "impiegato-della-disoccupazione-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-arbeitslosigkeit-etat-de-fribourg-ch"
+          "sachbearbeiter-in-arbeitslosigkeit-etat-de-fribourg-ch",
+          "impiegato-della-disoccupazione-etat-de-fribourg-givisiez"
         ],
         "en": [
           "sachbearbeiter-in-arbeitslosigkeit-etat-de-fribourg-ch"
@@ -353,7 +360,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Gestionnaire-de-dossier-ch%C3%B4mage-Sari/1363910357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:55.999Z",
+      "crawledAt": "2026-07-12T11:08:38.962Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -375,12 +382,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch",
-        "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez"
+        "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez",
+        "responsabile-dei-casi-di-disoccupazione-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch",
-          "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez"
+          "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez",
+          "responsabile-dei-casi-di-disoccupazione-etat-de-fribourg-givisiez"
         ],
         "en": [
           "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch"
@@ -435,7 +444,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Richterin-beim-Zwangsmassnahmengericht-Saan/1363858657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:55.305Z",
+      "crawledAt": "2026-07-12T11:08:38.315Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -456,11 +465,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg"
         ],
         "en": [
           "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
@@ -516,7 +527,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-au-Tribunal-des-mesures-de-contrainte-Sari/1363858557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:54.600Z",
+      "crawledAt": "2026-07-12T11:08:37.640Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -537,11 +548,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065"
         ],
         "en": [
           "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
@@ -597,7 +610,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Wissenschaftl_-Mitarbeiterin-Betriebswirtschaft-Saan/1363996357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:53.893Z",
+      "crawledAt": "2026-07-12T11:08:36.986Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -619,11 +632,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-betriebswirtschaft-etat-de-fribourg-ch",
-        "administration-scientifique-des-employes-et-des-entreprises-etat-de-fribourg-hauterive-fr"
+        "administration-scientifique-des-employes-et-des-entreprises-etat-de-fribourg-hauterive-fr",
+        "wissenschaftl-collaboratore-trice-betriebswirtschaft-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftl-mitarbeiter-in-betriebswirtschaft-etat-de-fribourg-ch"
+          "wissenschaftl-mitarbeiter-in-betriebswirtschaft-etat-de-fribourg-ch",
+          "wissenschaftl-collaboratore-trice-betriebswirtschaft-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "wissenschaftl-mitarbeiter-in-betriebswirtschaft-etat-de-fribourg-ch"
@@ -679,7 +694,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Economisteagronome-expert-e-en-financement-de-projets-agricoles-Sari/1363996257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:53.201Z",
+      "crawledAt": "2026-07-12T11:08:36.343Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -702,11 +717,13 @@
       "previousSlugs": [
         "economiste-agronome-expert-e-en-financement-de-projets-agricoles-etat-de-fribourg-ch",
         "economist-farmer-expert-in-financing-agricultural-projects-etat-de-fribourg-hauterive-fr",
-        "okonom-landwirt-experte-in-der-finanzierung-von-landwirtschaftlichen-projekten-etat-de-fribourg-hauterive-fr"
+        "okonom-landwirt-experte-in-der-finanzierung-von-landwirtschaftlichen-projekten-etat-de-fribourg-hauterive-fr",
+        "economista-agronomo-con-competenze-nel-finanziamento-di-progetti-agricoli-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "economiste-agronome-expert-e-en-financement-de-projets-agricoles-etat-de-fribourg-ch"
+          "economiste-agronome-expert-e-en-financement-de-projets-agricoles-etat-de-fribourg-ch",
+          "economista-agronomo-con-competenze-nel-finanziamento-di-progetti-agricoli-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "economiste-agronome-expert-e-en-financement-de-projets-agricoles-etat-de-fribourg-ch",
@@ -763,7 +780,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Empfang-Saan/1364162857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:52.503Z",
+      "crawledAt": "2026-07-12T11:08:35.707Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -848,7 +865,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9ception-Sari/1364162757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:51.789Z",
+      "crawledAt": "2026-07-12T11:08:35.027Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -870,11 +887,13 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "agent-e-de-detention-reception-etat-de-fribourg-ch",
-        "haftbeauftragter-empfang-etat-de-fribourg-fribourg"
+        "haftbeauftragter-empfang-etat-de-fribourg-fribourg",
+        "ufficiale-di-detenzione-reception-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-reception-etat-de-fribourg-ch"
+          "agent-e-de-detention-reception-etat-de-fribourg-ch",
+          "ufficiale-di-detenzione-reception-etat-de-fribourg-fribourg"
         ],
         "de": [
           "agent-e-de-detention-reception-etat-de-fribourg-ch",
@@ -928,7 +947,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stellvertretende-Direktorin-Stellvertretender-Direktor-Saan/1364101557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:51.092Z",
+      "crawledAt": "2026-07-12T11:08:34.383Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -949,11 +968,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "stellvertretende-direktorin-stellvertretender-direktor-etat-de-fribourg-ch"
+        "stellvertretende-direktorin-stellvertretender-direktor-etat-de-fribourg-ch",
+        "vice-direttore-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-direktorin-stellvertretender-direktor-etat-de-fribourg-ch"
+          "stellvertretende-direktorin-stellvertretender-direktor-etat-de-fribourg-ch",
+          "vice-direttore-etat-de-fribourg-fribourg"
         ],
         "en": [
           "stellvertretende-direktorin-stellvertretender-direktor-etat-de-fribourg-ch"
@@ -1009,7 +1030,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Directeur-trice-adjoint-e-Sari/1364101457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:50.395Z",
+      "crawledAt": "2026-07-12T11:08:33.744Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1031,12 +1052,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "directeur-trice-adjoint-e-etat-de-fribourg-ch",
-        "directeur-trice-adjoint-e-etat-de-fribourg"
+        "directeur-trice-adjoint-e-etat-de-fribourg",
+        "assistente-alla-regia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-trice-adjoint-e-etat-de-fribourg-ch",
-          "directeur-trice-adjoint-e-etat-de-fribourg"
+          "directeur-trice-adjoint-e-etat-de-fribourg",
+          "assistente-alla-regia-etat-de-fribourg-fribourg"
         ],
         "en": [
           "directeur-trice-adjoint-e-etat-de-fribourg-ch"
@@ -1092,7 +1115,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Greffier-%C3%A8re-stagiaire-Gruy/1361424157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:49.702Z",
+      "crawledAt": "2026-07-12T11:08:33.084Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -1115,11 +1138,13 @@
       "previousSlugs": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
         "registrar-etat-de-fribourg-bulle",
-        "kanzler-etat-de-fribourg-bulle"
+        "kanzler-etat-de-fribourg-bulle",
+        "tirocinante-etat-de-fribourg-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "greffier-ere-stagiaire-etat-de-fribourg-ch"
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "tirocinante-etat-de-fribourg-bulle"
         ],
         "en": [
           "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -1175,7 +1200,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Weibelin-Saan/1364233557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:48.860Z",
+      "crawledAt": "2026-07-12T11:08:32.442Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1196,14 +1221,17 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "weibel-in-etat-de-fribourg-ch"
+        "weibel-in-etat-de-fribourg-ch",
+        "donna-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weibel-in-etat-de-fribourg-ch"
+          "weibel-in-etat-de-fribourg-ch",
+          "donna-etat-de-fribourg-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:08.255Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1250,7 +1278,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Huissier-%C3%A8re-Sari/1364233457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:48.169Z",
+      "crawledAt": "2026-07-12T11:08:31.802Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1273,11 +1301,13 @@
       "previousSlugs": [
         "huissier-ere-etat-de-fribourg-ch",
         "husband-era-etat-de-fribourg-fribourg",
-        "ehegattenzeit-etat-de-fribourg-fribourg"
+        "ehegattenzeit-etat-de-fribourg-fribourg",
+        "ufficiale-giudiziario-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "huissier-ere-etat-de-fribourg-ch"
+          "huissier-ere-etat-de-fribourg-ch",
+          "ufficiale-giudiziario-etat-de-fribourg-fribourg"
         ],
         "en": [
           "huissier-ere-etat-de-fribourg-ch",
@@ -1335,7 +1365,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-web-et-communication-D%C3%A9canat-de-la-Facult%C3%A9-des-lettres-et-des-sciences-humaines-Sari/1364575857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:46.060Z",
+      "crawledAt": "2026-07-12T11:08:31.082Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1356,11 +1386,13 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "responsable-web-et-communication-decanat-de-la-faculte-des-lettres-et-des-sciences"
+        "responsable-web-et-communication-decanat-de-la-faculte-des-lettres-et-des-sciences",
+        "capo-del-web-e-della-comunicazione-presso-l-ufficio-del-preside-della-facolta-di-arti-e-discipline-umanistiche-etat-de"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-web-et-communication-decanat-de-la-faculte-des-lettres-et-des-sciences"
+          "responsable-web-et-communication-decanat-de-la-faculte-des-lettres-et-des-sciences",
+          "capo-del-web-e-della-comunicazione-presso-l-ufficio-del-preside-della-facolta-di-arti-e-discipline-umanistiche-etat-de"
         ],
         "en": [
           "responsable-web-et-communication-decanat-de-la-faculte-des-lettres-et-des-sciences"
@@ -1416,7 +1448,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Web-und-Kommunikationsverantwortlicher-im-Dekanat-der-Philosophischen-Fakult%C3%A4t-Saan/1364575757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:45.358Z",
+      "crawledAt": "2026-07-12T11:08:30.431Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1497,7 +1529,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Sp%C3%A9cialiste-Conseiller-%C3%A8re-en-r%C3%A9adaptation-professionnelle-Sari/1364668057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:44.667Z",
+      "crawledAt": "2026-07-12T11:08:29.786Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -1518,11 +1550,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "specialiste-conseiller-ere-en-readaptation-professionnelle-etat-de-fribourg-ch"
+        "specialiste-conseiller-ere-en-readaptation-professionnelle-etat-de-fribourg-ch",
+        "specialista-consulente-in-riabilitazione-professionale-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-conseiller-ere-en-readaptation-professionnelle-etat-de-fribourg-ch"
+          "specialiste-conseiller-ere-en-readaptation-professionnelle-etat-de-fribourg-ch",
+          "specialista-consulente-in-riabilitazione-professionale-etat-de-fribourg-givisiez"
         ],
         "en": [
           "specialiste-conseiller-ere-en-readaptation-professionnelle-etat-de-fribourg-ch"
@@ -1561,7 +1595,7 @@
       "title": "Case-manager REA Jeunes",
       "titleByLocale": {
         "it": "Responsabile dei Casi Giovanili REA",
-        "en": "Case manager REA Youth",
+        "en": "Case-manager REA Jeunes",
         "de": "Case Manager REA Jugend",
         "fr": "Case-manager REA Jeunes"
       },
@@ -1577,7 +1611,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Case-manager-REA-Jeunes-Sari/1364660557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:43.948Z",
+      "crawledAt": "2026-07-12T11:08:29.093Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -1598,14 +1632,17 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "case-manager-rea-jeunes-etat-de-fribourg-ch"
+        "case-manager-rea-jeunes-etat-de-fribourg-ch",
+        "responsabile-dei-casi-giovanili-rea-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-rea-jeunes-etat-de-fribourg-ch"
+          "case-manager-rea-jeunes-etat-de-fribourg-ch",
+          "responsabile-dei-casi-giovanili-rea-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:56.637Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1635,7 +1672,7 @@
       "title": "Case Manager/in Jugendliche",
       "titleByLocale": {
         "it": "Case Manager Youth",
-        "en": "Case Manager/Youth",
+        "en": "Case Manager/in Jugendliche",
         "de": "Case Manager/in Jugendliche",
         "fr": "Gestionnaire de cas/jeunes"
       },
@@ -1651,7 +1688,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Case-Managerin-Jugendliche-Saan/1364660657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:43.262Z",
+      "crawledAt": "2026-07-12T11:08:28.414Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -1672,14 +1709,17 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "case-manager-in-jugendliche-etat-de-fribourg-ch"
+        "case-manager-in-jugendliche-etat-de-fribourg-ch",
+        "case-manager-youth-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-in-jugendliche-etat-de-fribourg-ch"
+          "case-manager-in-jugendliche-etat-de-fribourg-ch",
+          "case-manager-youth-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:57.278Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1725,7 +1765,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-%28BachelorMaster%29-Data-Science-Saan/1364672857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:42.567Z",
+      "crawledAt": "2026-07-12T11:08:27.768Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1746,11 +1786,13 @@
       "pensumMax": 90,
       "pensum": "60-90%",
       "previousSlugs": [
-        "praktikant-in-bachelor-master-data-science-etat-de-fribourg-ch"
+        "praktikant-in-bachelor-master-data-science-etat-de-fribourg-ch",
+        "tirocinante-laurea-master-data-science-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-bachelor-master-data-science-etat-de-fribourg-ch"
+          "praktikant-in-bachelor-master-data-science-etat-de-fribourg-ch",
+          "tirocinante-laurea-master-data-science-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "praktikant-in-bachelor-master-data-science-etat-de-fribourg-ch"
@@ -1770,7 +1812,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-a21c2fd164a3",
@@ -1787,7 +1830,7 @@
       "title": "Stagiaire Bachelor ou Master - Data Scientist",
       "titleByLocale": {
         "it": "Tirocinante triennale o magistrale - Data Scientist",
-        "en": "Bachelor or Master Trainee - Data Scientist",
+        "en": "Stagiaire Bachelor ou Master - Data Scientist",
         "de": "Bachelor oder Master Trainee - Data Scientist",
         "fr": "Stagiaire Bachelor ou Master - Data Scientist"
       },
@@ -1803,7 +1846,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-Bachelor-ou-Master-Data-Scientist-Sari/1364672757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:41.784Z",
+      "crawledAt": "2026-07-12T11:08:27.132Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1824,14 +1867,17 @@
       "pensumMax": 90,
       "pensum": "60-90%",
       "previousSlugs": [
-        "stagiaire-bachelor-ou-master-data-scientist-etat-de-fribourg-ch"
+        "stagiaire-bachelor-ou-master-data-scientist-etat-de-fribourg-ch",
+        "tirocinante-triennale-o-magistrale-data-scientist-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-bachelor-ou-master-data-scientist-etat-de-fribourg-ch"
+          "stagiaire-bachelor-ou-master-data-scientist-etat-de-fribourg-ch",
+          "tirocinante-triennale-o-magistrale-data-scientist-etat-de-fribourg-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:57.976Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1878,7 +1924,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Zwei-internationale-Projektmanagerinnen-Saan/1364657657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:41.093Z",
+      "crawledAt": "2026-07-12T11:08:26.483Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1899,11 +1945,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "zwei-internationale-projektmanager-innen-etat-de-fribourg-ch"
+        "zwei-internationale-projektmanager-innen-etat-de-fribourg-ch",
+        "due-project-manager-internazionali-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zwei-internationale-projektmanager-innen-etat-de-fribourg-ch"
+          "zwei-internationale-projektmanager-innen-etat-de-fribourg-ch",
+          "due-project-manager-internazionali-etat-de-fribourg-fribourg"
         ],
         "en": [
           "zwei-internationale-projektmanager-innen-etat-de-fribourg-ch"
@@ -1959,7 +2007,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Deux-responsables-de-projets-internationaux-Sari/1364657557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:40.374Z",
+      "crawledAt": "2026-07-12T11:08:25.835Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1980,11 +2028,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "deux-responsables-de-projets-internationaux-etat-de-fribourg-ch"
+        "deux-responsables-de-projets-internationaux-etat-de-fribourg-ch",
+        "due-project-manager-internazionali-etat-de-fribourg-fribourg-7729db"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "deux-responsables-de-projets-internationaux-etat-de-fribourg-ch"
+          "deux-responsables-de-projets-internationaux-etat-de-fribourg-ch",
+          "due-project-manager-internazionali-etat-de-fribourg-fribourg-7729db"
         ],
         "en": [
           "deux-responsables-de-projets-internationaux-etat-de-fribourg-ch"
@@ -2040,7 +2090,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dipl_-Verwaltungssachbearbeiterin-Saan/1364647757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:39.680Z",
+      "crawledAt": "2026-07-12T11:08:25.197Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2061,11 +2111,13 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "diplomatico-impiegato-amministrativo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+          "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "diplomatico-impiegato-amministrativo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
@@ -2121,7 +2173,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-dipl%C3%B4m%C3%A9-e-Sari/1364647657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:38.995Z",
+      "crawledAt": "2026-07-12T11:08:24.554Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2142,11 +2194,13 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch",
+        "assistente-amministrativo-graduato-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch",
+          "assistente-amministrativo-graduato-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch"
@@ -2202,7 +2256,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-Chemie-Saan/1364724057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:38.308Z",
+      "crawledAt": "2026-07-12T11:08:23.927Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2223,11 +2277,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "laborant-in-chemie-etat-de-fribourg-ch"
+        "laborant-in-chemie-etat-de-fribourg-ch",
+        "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-chemie-etat-de-fribourg-ch"
+          "laborant-in-chemie-etat-de-fribourg-ch",
+          "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "laborant-in-chemie-etat-de-fribourg-ch"
@@ -2282,7 +2338,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-e-en-chimie-Sari/1364723957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:37.619Z",
+      "crawledAt": "2026-07-12T11:08:23.105Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2303,11 +2359,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "laborantin-e-en-chimie-etat-de-fribourg-ch"
+        "laborantin-e-en-chimie-etat-de-fribourg-ch",
+        "tecnico-di-laboratorio-chimico-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborantin-e-en-chimie-etat-de-fribourg-ch"
+          "laborantin-e-en-chimie-etat-de-fribourg-ch",
+          "tecnico-di-laboratorio-chimico-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "laborantin-e-en-chimie-etat-de-fribourg-ch"
@@ -2348,7 +2406,7 @@
         "it": "Assistente di laboratorio in biologia",
         "en": "Laboratory assistant/biology",
         "de": "Laborant/in Biologie",
-        "fr": "Assistant de laboratoire/biologie"
+        "fr": "Laborant/in Biologie"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nGrangeneuve ist ein multidisziplinäres Kompetenzzentrum, das sich mit Leidenschaft der Berufsbildung, der Expertise, der Beratung und den Dienstleistungen für die Berufe der Natur, Milch, Lebensmittel und Hotellerie-Hauswirtschaft verschrieben hat.  Mehr als 280 Mitarbeitende sind in einem zweisprachigen Umfeld tätig, in dem Exzellenz, Respekt, Zusammenarbeit und Innovation ebenso gefördert werden wie die Wertschätzung und Weitergabe des Kulturerbes.\n\nDas Freiburger Agrar- und Lebensmittellabor ist auf die Analyse von Milch, Milchprodukten und anderen Lebensmitteln spezialisiert.\n\nBefristeter Vertrag bis am 30.06.2028\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Durchführung mikrobiologischer und chemischer Analysen von Milchprodukten und anderen Lebensmitteln\n\n• Anwendung der Normen und Qualitätsstandards des Labors\n\n• Mitarbeit zur Gewährleistung eines reibungslosen Laborbetriebs\n\n• Bedienung des Schalters und des Telefons\n\n• Aktive Mitwirkung an der kontinuierlichen Optimierung der Arbeitsabläufe und Dienstleistungen\n\n• Beteiligung an der Ausbildung der Lernenden\n\n• Teilnahme am Bereitschaftsdienst am Wochenende (Turnus)\n\nGewünschtes Profil\n\n• Abgeschlossene Ausbildung als Laborant/-in EFZ Biologie oder gleichwertige Ausbildung\n\n• Mindestens 3 Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Teamfähigkeit\n\n• Sorgfältige und präzise Arbeitsweise\n\n• Sicherer Umgang mit den MS-Office-Anwendungen\n\n• Gute Kenntnisse der Norm ISO 17025 sind von Vorteil\n\n• Beherrschen der deutschen oder der französischen Sprache mit sehr guten Kenntnissen der Partnersprache (B2)\n\nKontaktperson\n\nFlorence Deschenaux, Leiterin des Freiburgischen Agro-Lebensmittellabors, T +41 26 305 57 17\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -2362,7 +2420,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-Biologie-Saan/1364701357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:36.909Z",
+      "crawledAt": "2026-07-12T11:08:22.456Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2383,11 +2441,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "laborant-in-biologie-etat-de-fribourg-ch"
+        "laborant-in-biologie-etat-de-fribourg-ch",
+        "assistente-di-laboratorio-in-biologia-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-biologie-etat-de-fribourg-ch"
+          "laborant-in-biologie-etat-de-fribourg-ch",
+          "assistente-di-laboratorio-in-biologia-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "laborant-in-biologie-etat-de-fribourg-ch"
@@ -2397,6 +2457,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:03.132Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2442,7 +2503,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-e-en-biologie-Sari/1364701257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:36.208Z",
+      "crawledAt": "2026-07-12T11:08:21.811Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2463,11 +2524,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "laborantin-e-en-biologie-etat-de-fribourg-ch"
+        "laborantin-e-en-biologie-etat-de-fribourg-ch",
+        "tecnico-di-laboratorio-di-biologia-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborantin-e-en-biologie-etat-de-fribourg-ch"
+          "laborantin-e-en-biologie-etat-de-fribourg-ch",
+          "tecnico-di-laboratorio-di-biologia-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "laborantin-e-en-biologie-etat-de-fribourg-ch"
@@ -2522,7 +2585,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Spezialistin-Technisches-Facility-Management-Saan/1364681757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:35.437Z",
+      "crawledAt": "2026-07-12T11:08:21.167Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2543,11 +2606,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "spezialist-in-technisches-facility-management-etat-de-fribourg-ch"
+        "spezialist-in-technisches-facility-management-etat-de-fribourg-ch",
+        "specialista-in-gestione-tecnica-delle-strutture-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-technisches-facility-management-etat-de-fribourg-ch"
+          "spezialist-in-technisches-facility-management-etat-de-fribourg-ch",
+          "specialista-in-gestione-tecnica-delle-strutture-etat-de-fribourg-fribourg"
         ],
         "en": [
           "spezialist-in-technisches-facility-management-etat-de-fribourg-ch"
@@ -2603,7 +2668,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sp%C3%A9cialiste-Facility-Management-technique-Sari/1364681657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:34.749Z",
+      "crawledAt": "2026-07-12T11:08:20.531Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2626,11 +2691,13 @@
       "previousSlugs": [
         "specialiste-facility-management-technique-etat-de-fribourg-ch",
         "technical-facility-management-specialist-etat-de-fribourg-fribourg",
-        "spezialist-fur-technisches-facility-management-etat-de-fribourg-fribourg"
+        "spezialist-fur-technisches-facility-management-etat-de-fribourg-fribourg",
+        "specialista-in-gestione-tecnica-delle-strutture-etat-de-fribourg-fribourg-3a0a4a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-facility-management-technique-etat-de-fribourg-ch"
+          "specialiste-facility-management-technique-etat-de-fribourg-ch",
+          "specialista-in-gestione-tecnica-delle-strutture-etat-de-fribourg-fribourg-3a0a4a"
         ],
         "en": [
           "specialiste-facility-management-technique-etat-de-fribourg-ch",
@@ -2688,7 +2755,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gerichtsschreiberin-Praktikantin-Saan/1364675857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:34.057Z",
+      "crawledAt": "2026-07-12T11:08:19.888Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2710,11 +2777,13 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch",
-        "greffier-praticien-in-etat-de-fribourg-fribourg"
+        "greffier-praticien-in-etat-de-fribourg-fribourg",
+        "tirocinante-di-tribunale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch"
+          "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch",
+          "tirocinante-di-tribunale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch"
@@ -2771,7 +2840,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier%C3%A8re-stagiaire-Sari/1364675757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:33.363Z",
+      "crawledAt": "2026-07-12T11:08:19.256Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2793,12 +2862,14 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch-2",
-        "greffier-ere-stagiaire-etat-de-fribourg-ch"
+        "greffier-ere-stagiaire-etat-de-fribourg-ch",
+        "tirocinante-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "greffier-ere-stagiaire-etat-de-fribourg-ch-2",
-          "greffier-ere-stagiaire-etat-de-fribourg-ch"
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "tirocinante-etat-de-fribourg-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:59.260Z",
@@ -2848,7 +2919,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Formateur-trice-d'adultes-en-Interactive-Media-Design-Sari/1364770757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:32.679Z",
+      "crawledAt": "2026-07-12T11:08:18.623Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2929,7 +3000,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Chefin-der-Gendarmerie-Saan/1364794757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:31.992Z",
+      "crawledAt": "2026-07-12T11:08:17.989Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -2950,11 +3021,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "chef-in-der-gendarmerie-etat-de-fribourg-ch"
+        "chef-in-der-gendarmerie-etat-de-fribourg-ch",
+        "capo-della-gendarmeria-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-der-gendarmerie-etat-de-fribourg-ch"
+          "chef-in-der-gendarmerie-etat-de-fribourg-ch",
+          "capo-della-gendarmeria-etat-de-fribourg-granges-paccot"
         ],
         "en": [
           "chef-in-der-gendarmerie-etat-de-fribourg-ch"
@@ -3006,7 +3079,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Chef-fe-de-la-gendarmerie-Sari/1364794657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:31.306Z",
+      "crawledAt": "2026-07-12T11:08:17.360Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -3028,11 +3101,13 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "chef-fe-de-la-gendarmerie-etat-de-fribourg-ch",
-        "chief-of-gendarmerie-etat-de-fribourg-granges-paccot"
+        "chief-of-gendarmerie-etat-de-fribourg-granges-paccot",
+        "capo-della-gendarmeria-etat-de-fribourg-granges-paccot-04fff2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-la-gendarmerie-etat-de-fribourg-ch"
+          "chef-fe-de-la-gendarmerie-etat-de-fribourg-ch",
+          "capo-della-gendarmeria-etat-de-fribourg-granges-paccot-04fff2"
         ],
         "en": [
           "chef-fe-de-la-gendarmerie-etat-de-fribourg-ch",
@@ -3085,7 +3160,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-HSW-Vorpraktikum-in-der-Verwaltung-Saan/1359274857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:30.615Z",
+      "crawledAt": "2026-07-12T11:08:16.729Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3107,11 +3182,13 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "hsw-vorpraktikum-in-der-verwaltung-etat-de-fribourg-ch",
-        "hsw-pre-internship-en-administration-etat-de-fribourg-givisiez"
+        "hsw-pre-internship-en-administration-etat-de-fribourg-givisiez",
+        "tirocinio-pre-studio-hsw-in-amministrazione-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hsw-vorpraktikum-in-der-verwaltung-etat-de-fribourg-ch"
+          "hsw-vorpraktikum-in-der-verwaltung-etat-de-fribourg-ch",
+          "tirocinio-pre-studio-hsw-in-amministrazione-etat-de-fribourg-givisiez"
         ],
         "en": [
           "hsw-vorpraktikum-in-der-verwaltung-etat-de-fribourg-ch"
@@ -3167,7 +3244,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stagiaire-pr%C3%A9-HEG-en-administration-publique-Sari/1359274757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:29.918Z",
+      "crawledAt": "2026-07-12T11:08:16.077Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3188,11 +3265,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "stagiaire-pre-heg-en-administration-publique-etat-de-fribourg-ch"
+        "stagiaire-pre-heg-en-administration-publique-etat-de-fribourg-ch",
+        "tirocinante-pre-heg-in-amministrazione-pubblica-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-pre-heg-en-administration-publique-etat-de-fribourg-ch"
+          "stagiaire-pre-heg-en-administration-publique-etat-de-fribourg-ch",
+          "tirocinante-pre-heg-in-amministrazione-pubblica-etat-de-fribourg-givisiez"
         ],
         "en": [
           "stagiaire-pre-heg-en-administration-publique-etat-de-fribourg-ch"
@@ -3247,7 +3326,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistenzprofessorin-FH-f%C3%BCr-Umwelthydraulik-Saan/1362134957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:29.196Z",
+      "crawledAt": "2026-07-12T11:08:15.418Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3328,7 +3407,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-HES-assistant-e-en-hydraulique-environnementale-Sari/1362134857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:28.492Z",
+      "crawledAt": "2026-07-12T11:08:14.778Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3351,12 +3430,14 @@
       "previousSlugs": [
         "professeur-e-hes-assistant-e-en-hydraulique-environnementale-etat-de-fribourg-ch",
         "professore-hes-assistente-idraulico-ambientale-etat-de-fribourg-fribourg",
-        "professor-hes-environmental-hydraulics-assistant-etat-de-fribourg-fribourg"
+        "professor-hes-environmental-hydraulics-assistant-etat-de-fribourg-fribourg",
+        "professor-hes-assistente-idraulico-ambientale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "professeur-e-hes-assistant-e-en-hydraulique-environnementale-etat-de-fribourg-ch",
-          "professore-hes-assistente-idraulico-ambientale-etat-de-fribourg-fribourg"
+          "professore-hes-assistente-idraulico-ambientale-etat-de-fribourg-fribourg",
+          "professor-hes-assistente-idraulico-ambientale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "professeur-e-hes-assistant-e-en-hydraulique-environnementale-etat-de-fribourg-ch",
@@ -3413,7 +3494,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1361907257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:27.791Z",
+      "crawledAt": "2026-07-12T11:08:14.090Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3435,12 +3516,14 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-3",
-        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "impiegato-amministrativo-etat-de-fribourg-fribourg-9bd702"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-3",
-          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "impiegato-amministrativo-etat-de-fribourg-fribourg-9bd702"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:48.883Z",
@@ -3473,7 +3556,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -3490,7 +3573,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Sari/1361907157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:27.096Z",
+      "crawledAt": "2026-07-12T11:08:13.437Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3512,15 +3595,18 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-3",
-        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c4b769"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-3",
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+          "associato-amministrativo-etat-de-fribourg-fribourg-c4b769"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:48.238Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3567,7 +3653,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Beisitzerin-%28Bauingenieurin%29-bei-der-Enteignungskommission-Saan/1365175457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:26.395Z",
+      "crawledAt": "2026-07-12T11:08:12.805Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3585,11 +3671,13 @@
       "requirementsByLocale": {},
       "department": "Justizrat",
       "previousSlugs": [
-        "beisitzer-in-bauingenieur-in-bei-der-enteignungskommission-etat-de-fribourg-ch"
+        "beisitzer-in-bauingenieur-in-bei-der-enteignungskommission-etat-de-fribourg-ch",
+        "valutatore-ingegnere-civile-presso-la-commissione-per-l-espropriazione-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "beisitzer-in-bauingenieur-in-bei-der-enteignungskommission-etat-de-fribourg-ch"
+          "beisitzer-in-bauingenieur-in-bei-der-enteignungskommission-etat-de-fribourg-ch",
+          "valutatore-ingegnere-civile-presso-la-commissione-per-l-espropriazione-etat-de-fribourg-fribourg"
         ],
         "en": [
           "beisitzer-in-bauingenieur-in-bei-der-enteignungskommission-etat-de-fribourg-ch"
@@ -3645,7 +3733,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assesseur-e-%28ing%C3%A9nieur-e-civil-e%29-aupr%C3%A8s-de-la-Commission-d'expropriation-Sari/1365175357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:25.691Z",
+      "crawledAt": "2026-07-12T11:08:12.129Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3723,7 +3811,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juriste-Sari/1365168457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:24.991Z",
+      "crawledAt": "2026-07-12T11:08:11.490Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3744,11 +3832,13 @@
       "pensumMax": 10,
       "pensum": "5-10%",
       "previousSlugs": [
-        "juriste-etat-de-fribourg-ch"
+        "juriste-etat-de-fribourg-ch",
+        "avvocato-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-etat-de-fribourg-ch"
+          "juriste-etat-de-fribourg-ch",
+          "avvocato-etat-de-fribourg-fribourg"
         ],
         "en": [
           "juriste-etat-de-fribourg-ch"
@@ -3801,7 +3891,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Buchhaltung-Saan/1365172457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:24.291Z",
+      "crawledAt": "2026-07-12T11:08:10.849Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3826,11 +3916,13 @@
         "contabile-responsabile-della-contabilita-etat-de-fribourg-fribourg",
         "accounting-officer-accounting-manager-etat-de-fribourg-fribourg",
         "sachbearbeiter-in-buchhaltung-buchhaltungsleiter-etat-de-fribourg-ch",
-        "comptable-gestionnaire-comptable-etat-de-fribourg-fribourg"
+        "comptable-gestionnaire-comptable-etat-de-fribourg-fribourg",
+        "responsabile-della-contabilita-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
+          "responsabile-della-contabilita-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
@@ -3886,7 +3978,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-comptable-Sari/1365172357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:23.597Z",
+      "crawledAt": "2026-07-12T11:08:10.210Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3907,11 +3999,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "responsable-comptable-etat-de-fribourg-ch"
+        "responsable-comptable-etat-de-fribourg-ch",
+        "responsabile-della-contabilita-etat-de-fribourg-fribourg-84926b"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-comptable-etat-de-fribourg-ch"
+          "responsable-comptable-etat-de-fribourg-ch",
+          "responsabile-della-contabilita-etat-de-fribourg-fribourg-84926b"
         ],
         "en": [
           "responsable-comptable-etat-de-fribourg-ch"
@@ -3967,7 +4061,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-ordinaire-de-th%C3%A9ologie-morale-fondamentale-Sari/1365177957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:22.907Z",
+      "crawledAt": "2026-07-12T11:08:09.554Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3988,11 +4082,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "professeur-e-ordinaire-de-theologie-morale-fondamentale-etat-de-fribourg-ch"
+        "professeur-e-ordinaire-de-theologie-morale-fondamentale-etat-de-fribourg-ch",
+        "professore-ordinario-di-teologia-morale-fondamentale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professeur-e-ordinaire-de-theologie-morale-fondamentale-etat-de-fribourg-ch"
+          "professeur-e-ordinaire-de-theologie-morale-fondamentale-etat-de-fribourg-ch",
+          "professore-ordinario-di-teologia-morale-fondamentale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "professeur-e-ordinaire-de-theologie-morale-fondamentale-etat-de-fribourg-ch"
@@ -4048,7 +4144,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ordentliche-Professur-oder-als-Tenure-Track-Professur-f%C3%BCr-Dogmatik-und-%C3%96kumenische-Theologie-Saan/1365195957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:22.218Z",
+      "crawledAt": "2026-07-12T11:08:08.907Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4098,7 +4194,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-65aec3e26317",
@@ -4131,7 +4228,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-ordinaire-de-l'Ancien-Testament-en-langue-fran%C3%A7aise-Sari/1365199557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:21.520Z",
+      "crawledAt": "2026-07-12T11:08:08.271Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4212,7 +4309,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-HR-Personalsachbearbeiterin-Saan/1365214757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:20.817Z",
+      "crawledAt": "2026-07-12T11:08:07.638Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4234,12 +4331,14 @@
       "pensum": "50-60%",
       "previousSlugs": [
         "hr-personalsachbearbeiter-in-etat-de-fribourg-ch",
-        "hr-personalsachbearbeiter-in-etat-de-fribourg-givisiez"
+        "hr-personalsachbearbeiter-in-etat-de-fribourg-givisiez",
+        "risorse-umane-personalsachbearbeiter-in-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-personalsachbearbeiter-in-etat-de-fribourg-ch",
-          "hr-personalsachbearbeiter-in-etat-de-fribourg-givisiez"
+          "hr-personalsachbearbeiter-in-etat-de-fribourg-givisiez",
+          "risorse-umane-personalsachbearbeiter-in-etat-de-fribourg-givisiez"
         ],
         "fr": [
           "hr-personalsachbearbeiter-in-etat-de-fribourg-givisiez"
@@ -4291,7 +4390,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Gestionnaire-RH-Sari/1365214657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:20.127Z",
+      "crawledAt": "2026-07-12T11:08:06.989Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4313,12 +4412,14 @@
       "pensum": "50-60%",
       "previousSlugs": [
         "gestionnaire-rh-etat-de-fribourg-ch",
-        "gestionnaire-rh-etat-de-fribourg-givisiez"
+        "gestionnaire-rh-etat-de-fribourg-givisiez",
+        "hr-manager-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-rh-etat-de-fribourg-ch",
-          "gestionnaire-rh-etat-de-fribourg-givisiez"
+          "gestionnaire-rh-etat-de-fribourg-givisiez",
+          "hr-manager-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:41.761Z",
@@ -4367,7 +4468,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1365286457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:19.431Z",
+      "crawledAt": "2026-07-12T11:08:06.348Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4389,12 +4490,14 @@
       "pensum": "50-60%",
       "previousSlugs": [
         "ksva-sachbearbeiter-in-etat-de-fribourg-ch-2",
-        "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+        "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
+        "impiegato-ksva-etat-de-fribourg-givisiez-281d8e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ksva-sachbearbeiter-in-etat-de-fribourg-ch-2",
-          "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+          "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
+          "impiegato-ksva-etat-de-fribourg-givisiez-281d8e"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:39.214Z",
@@ -4435,7 +4538,7 @@
       "descriptionByLocale": {
         "it": "Designazione delle merci\n\nAutorità che ha il potere di nomina / Unità amministrativa / Istituzione\n\nIl Kant † † (KSVA) è un istituto indipendente di diritto pubblico che gestisce e coordina le attività del Fondo perequativo del Canton Friburgo, della IV-Stelle e dei Servizi Centrali. Costituisce così un centro di competenza unico per gli assicurati e le imprese del Canton Friburgo per tutte le prestazioni di sicurezza sociale del primo pilastro.\n\nFate parte della nostra squadra!\n\nOffriamo un ambiente di lavoro piacevole con una moderna infrastruttura che è idealmente collegata ai trasporti pubblici. Promuoviamo la compatibilità della vita privata e professionale, formazione e mobilità.\n\n\"Per semplificare il trattamento delle domande, chiediamo a tutti gli interessati di allegare un solo file PDF con tutti i diplomi, certificati di lavoro e/o altri documenti.\"\n\nI tuoi compiti\n\nNella sezione. Pensioni / IV-TG. nel fondo di compensazione del cantone di Friburgo:\n\n- Verifica delle registrazioni, lettere e varie informazioni - Creazione di un fascicolo completo: controllare informazioni e richiedere documenti - Determinare il diritto alle pensioni e alle prestazioni (per l'importo delle pensioni e l'importo delle indennità pagate) - Monitorare e modificare le note: promemoria, revisioni dei file - Risposte alle richieste di informazioni: per iscritto, per telefono o durante un colloquio personale\n\nProfilo di berlina\n\n- EFZ come commerciante/donna o formazione equivalente - capacità di svolgere più compiti simultaneamente - ottima conoscenza dell'informatica - padronanza della lingua tedesca\n\nContatto\n\nJean-Daniel Pochon, capo sezione, T +41 26 426 73 61\n\nData del posto vacante:",
         "en": "Description\n\nAppointing authority / Administrative unit / Institution\n\nThe Kantonale Social Security Institute (KSVA) is an independent public-law institution that manages and coordinates activities of the Equalisation Fund of the Canton of Freiburg, the IV-Stelle and the Central Services. Thus, it forms a unique centre of competence for insured persons and the companies of the Canton of Freiburg for all social security benefits of the first pillar.\n\nBecome part of our team!\n\nWe offer a pleasant working environment with a modern infrastructure that is ideally connected to public transport. We promote the compatibility of private and professional life, training and mobility.\n\n\"To simplify the processing of applications, we ask all interested persons to attach only one PDF file with all diplomas, employment certificates and/or other documents\".\n\nYour tasks\n\nIn the section « Pensions / IV-TG » in the compensation fund of the canton of Freiburg :\n\n- Checking the registrations, letters and various information - Create a complete dossier: check information and request documents - Determine the right to pensions and the benefits (for the amount of the pensions and the amount of the allowances paid) - Monitor and edit the notes: reminders, file revisions - Answers to the requests for information: in writing, by telephone or during a personal interview\n\nDesired profile\n\n- EFZ as a merchant/woman or equivalent training - ability to work several tasks simultaneously - excellent knowledge of computer science - mastery of the German language\n\nContact\n\nJean-Daniel Pochon, Head of Section, T +41 26 426 73 61\n\nDate of the vacancy:",
-        "de": "Beschreibung\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Kantonale Sozialversicherungsanstalt (KSVA) ist eine selbständige öffentlich-rechtliche Anstalt, die Tätigkeiten der Ausgleichskasse des Kantons Freiburg, der IV-Stelle und der Zentralen Diensten verwaltet und koordiniert. Sie bildet somit für die versicherten Personen und die Unternehmen des Kantons Freiburg ein einzigartiges Kompetenzzentrum aller Sozialversicherungen der ersten Säule.\n\nWerden Sie Teil unseres Teams!\n\nWir bieten ein angenehmes Arbeitsumfeld mit einer modernen Infrastruktur, das ideal an den öffentlichen Verkehr angebunden ist. Wir fördern die Vereinbarkeit von Privat- und Berufsleben, die Weiterbildung sowie die Mobilität.\n\n«Um die Bearbeitung der Bewerbungen zu vereinfachen, bitten wir alle interessierten Personen, nur eine einzige PDF-Datei mit allen Diplomen, Arbeitszeugnissen und/oder sonstigen Unterlagen beizufügen».\n\nIhre Aufgaben\n\nIn der Sektion « Renten / IV-TG » in der Ausgleichskasse des Kantons Freiburg :\n\n- Prüfen der Anmeldungen, Briefe und verschiedenen Informationen\n- Erstellen eines vollständigen Dossier: Informationen überprüfen und der nötigen Auskünfte sowie Dokumente einverlangen\n- Bestimmen des Anrechts auf Renten und die Leistungen berechnen (Renten und IV-Taggelder)\n- Überwachen und Bearbeiten der Vormerke: Erinnerungsschreiben, Aktenrevisionen\n- Beantworten der Auskunftsanfragen: schriftlich, per Telefon oder anlässlich eines persönlichen Gesprächs\n\nGewünschtes Profil\n\n- EFZ als Kaufmann/frau oder gleichwertige Ausbildung\n- Fähigkeit, mehrere Aufgaben gleichzeitig zu bearbeiten\n- Ausgezeichnete Kenntnisse in Informatik\n- Beherrschung der deutschen Sprache\n\nKontakt\n\nJean-Daniel Pochon, Sektionschef, T +41 26 426 73 61\n\nDatum der Stellenausschreibung:",
+        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Kantonale Sozialversicherungsanstalt (KSVA) ist eine selbständige öffentlich-rechtliche Anstalt, die Tätigkeiten der Ausgleichskasse des Kantons Freiburg, der IV-Stelle und der Zentralen Diensten verwaltet und koordiniert. Sie bildet somit für die versicherten Personen und die Unternehmen des Kantons Freiburg ein einzigartiges Kompetenzzentrum aller Sozialversicherungen der ersten Säule.\n\nWerden Sie Teil unseres Teams!\n\nWir bieten ein angenehmes Arbeitsumfeld mit einer modernen Infrastruktur, das ideal an den öffentlichen Verkehr angebunden ist. Wir fördern die Vereinbarkeit von Privat- und Berufsleben, die Weiterbildung sowie die Mobilität.\n\n«Um die Bearbeitung der Bewerbungen zu vereinfachen, bitten wir alle interessierten Personen, nur eine einzige PDF-Datei mit allen Diplomen, Arbeitszeugnissen und/oder sonstigen Unterlagen beizufügen».\n\nIhre Aufgaben\n\nIn der Sektion « Renten / IV-TG » in der Ausgleichskasse des Kantons Freiburg :\n\n• Prüfen der Anmeldungen, Briefe und verschiedenen Informationen\n\n• Erstellen eines vollständigen Dossier: Informationen überprüfen und der nötigen Auskünfte sowie Dokumente einverlangen\n\n• Bestimmen des Anrechts auf Renten und die Leistungen berechnen (Renten und IV-Taggelder)\n\n• Überwachen und Bearbeiten der Vormerke: Erinnerungsschreiben, Aktenrevisionen\n\n• Beantworten der Auskunftsanfragen: schriftlich, per Telefon oder anlässlich eines persönlichen Gesprächs\n\nGewünschtes Profil\n\n• EFZ als Kaufmann/frau oder gleichwertige Ausbildung\n\n• Fähigkeit, mehrere Aufgaben gleichzeitig zu bearbeiten\n\n• Ausgezeichnete Kenntnisse in Informatik\n\n• Beherrschung der deutschen Sprache\n\nKontaktperson\n\nJean-Daniel Pochon, Sektionschef, T +41 26 426 73 61\n\nDatum der Stellenausschreibung:",
         "fr": "Désignation des marchandises\n\nAutorité de nomination / Unité administrative / Institution\n\nL'Institut Kantonale de Sécurité Sociale (KSVA) est une institution de droit public indépendante qui gère et coordonne les activités de la Caisse d'Égalisation du Canton de Freiburg, de la IV-Stelle et des Services centraux. Ainsi, il constitue un centre de compétence unique pour les assurés et les entreprises du Canton de Freiburg pour toutes les prestations de sécurité sociale du premier pilier.\n\nFaites partie de notre équipe!\n\nNous offrons un environnement de travail agréable avec une infrastructure moderne idéalement connectée aux transports en commun. Nous favorisons la compatibilité de la vie privée et professionnelle, la formation et la mobilité.\n\n« Pour simplifier le traitement des demandes, nous demandons à toutes les personnes intéressées de joindre un seul fichier PDF avec tous les diplômes, certificats d'emploi et/ou autres documents ».\n\nVos tâches\n\nDans la section « Pensions / IV-TG » du fonds de compensation du canton de Fribourg :\n\n- Vérifier les inscriptions, les lettres et les renseignements divers - Créer un dossier complet : vérifier les renseignements et les documents de demande - Déterminer le droit aux pensions et aux prestations (pour le montant des pensions et des indemnités versées) - Surveiller et modifier les notes : rappels, révisions de dossiers - Réponses aux demandes de renseignements : par écrit, par téléphone ou lors d'une entrevue personnelle\n\nProfil désiré\n\n- EFZ en tant que commerçant/femme ou formation équivalente - capacité à travailler simultanément plusieurs tâches - excellente connaissance de l'informatique - maîtrise de la langue allemande\n\nPersonne à contacter\n\nJean-Daniel Pochon, chef de section, T +41 26 426 73 61\n\nDate du siège vacant :"
       },
       "location": "Givisiez",
@@ -4443,7 +4546,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1365286857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:18.727Z",
+      "crawledAt": "2026-07-12T11:08:05.702Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4465,11 +4568,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
-        "ksva-case-handler-etat-de-fribourg-givisiez"
+        "ksva-case-handler-etat-de-fribourg-givisiez",
+        "impiegato-ksva-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+          "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
+          "impiegato-ksva-etat-de-fribourg-givisiez"
         ],
         "en": [
           "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
@@ -4525,7 +4630,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Spez_-Kriminalpolizeibeamter-beamtin-in-Kriminalanalyse-befristeter-Vertrag-6-Monate-Saan/1365328157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:18.032Z",
+      "crawledAt": "2026-07-12T11:08:05.061Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4546,11 +4651,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "spez-kriminalpolizeibeamter-beamtin-in-kriminalanalyse-befristeter-vertrag-6-monate-etat"
+        "spez-kriminalpolizeibeamter-beamtin-in-kriminalanalyse-befristeter-vertrag-6-monate-etat",
+        "spec-agente-di-polizia-penale-nell-analisi-penale-con-contratto-a-tempo-determinato-di-6-mesi-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spez-kriminalpolizeibeamter-beamtin-in-kriminalanalyse-befristeter-vertrag-6-monate-etat"
+          "spez-kriminalpolizeibeamter-beamtin-in-kriminalanalyse-befristeter-vertrag-6-monate-etat",
+          "spec-agente-di-polizia-penale-nell-analisi-penale-con-contratto-a-tempo-determinato-di-6-mesi-etat-de-fribourg-fribourg"
         ],
         "en": [
           "spez-kriminalpolizeibeamter-beamtin-in-kriminalanalyse-befristeter-vertrag-6-monate-etat"
@@ -4606,7 +4713,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Agent-e-de-police-judiciaire-sp%C3%A9cialis%C3%A9-e-en-analyse-criminelle-CDD-6-mois-Sari/1365328057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:17.348Z",
+      "crawledAt": "2026-07-12T11:08:04.416Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4627,11 +4734,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "agent-e-de-police-judiciaire-specialise-e-en-analyse-criminelle-cdd-6-mois-etat-de"
+        "agent-e-de-police-judiciaire-specialise-e-en-analyse-criminelle-cdd-6-mois-etat-de",
+        "agente-di-polizia-giudiziaria-specializzato-in-analisi-penale-con-contratti-a-tempo-determinato-di-6-mesi-etat-de"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-police-judiciaire-specialise-e-en-analyse-criminelle-cdd-6-mois-etat-de"
+          "agent-e-de-police-judiciaire-specialise-e-en-analyse-criminelle-cdd-6-mois-etat-de",
+          "agente-di-polizia-giudiziaria-specializzato-in-analisi-penale-con-contratti-a-tempo-determinato-di-6-mesi-etat-de"
         ],
         "en": [
           "agent-e-de-police-judiciaire-specialise-e-en-analyse-criminelle-cdd-6-mois-etat-de"
@@ -4687,7 +4796,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiterin-Finanzen-und-Software-Asset-Management-Saan/1365300057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:16.667Z",
+      "crawledAt": "2026-07-12T11:08:03.776Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4709,11 +4818,13 @@
       "pensum": "90-100%",
       "previousSlugsByLocale": {
         "de": [
-          "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch"
+          "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch",
+          "leiter-in-service-desk-etat-de-fribourg-ch"
         ],
         "it": [
           "leiter-in-service-desk-etat-de-fribourg-ch",
-          "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch"
+          "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch",
+          "responsabile-service-desk-etat-de-fribourg"
         ],
         "fr": [
           "leiter-in-service-desk-etat-de-fribourg-ch"
@@ -4721,7 +4832,8 @@
       },
       "previousSlugs": [
         "leiter-in-service-desk-etat-de-fribourg-ch",
-        "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch"
+        "leiter-in-finanzen-und-software-asset-management-etat-de-fribourg-ch",
+        "responsabile-service-desk-etat-de-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:41:38.570Z",
       "salaryMin": 94500,
@@ -4770,7 +4882,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-finances-et-actifs-logiciels-Sari/1365299957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:15.971Z",
+      "crawledAt": "2026-07-12T11:08:03.123Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4791,11 +4903,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "responsable-finances-et-actifs-logiciels-etat-de-fribourg-ch"
+        "responsable-finances-et-actifs-logiciels-etat-de-fribourg-ch",
+        "gestione-asset-finanziaria-e-software-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-finances-et-actifs-logiciels-etat-de-fribourg-ch"
+          "responsable-finances-et-actifs-logiciels-etat-de-fribourg-ch",
+          "gestione-asset-finanziaria-e-software-etat-de-fribourg-fribourg"
         ],
         "en": [
           "responsable-finances-et-actifs-logiciels-etat-de-fribourg-ch"
@@ -4851,7 +4965,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1365296257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:15.265Z",
+      "crawledAt": "2026-07-12T11:08:02.470Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4875,12 +4989,14 @@
         "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-4",
         "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
         "impiegato-amministrativo-etat-de-fribourg-fribourg-4222bf",
-        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-2"
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-2",
+        "impiegato-amministrativo-etat-de-fribourg-fribourg-25af9d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-4",
-          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "impiegato-amministrativo-etat-de-fribourg-fribourg-25af9d"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:37.291Z",
@@ -4913,7 +5029,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -4930,7 +5046,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Sari/1365296157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:14.565Z",
+      "crawledAt": "2026-07-12T11:08:01.827Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4955,15 +5071,18 @@
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
         "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
         "associato-amministrativo-etat-de-fribourg-fribourg-c961d8",
-        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c09884"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-4",
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+          "associato-amministrativo-etat-de-fribourg-fribourg-c09884"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:36.656Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5010,7 +5129,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Adjoint-e-de-direction-de-l'%C3%A9cole-du-CO-du-Belluard-Sari/1365304357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:13.871Z",
+      "crawledAt": "2026-07-12T11:08:01.156Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5090,7 +5209,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-HR-Mitarbeiter-in-Saan/1365336057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:13.179Z",
+      "crawledAt": "2026-07-12T11:08:00.506Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5111,11 +5230,13 @@
       "pensumMax": 60,
       "pensum": "55-60%",
       "previousSlugs": [
-        "hr-mitarbeiter-in-etat-de-fribourg-ch"
+        "hr-mitarbeiter-in-etat-de-fribourg-ch",
+        "risorse-umane-collaboratore-trice-in-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-mitarbeiter-in-etat-de-fribourg-ch"
+          "hr-mitarbeiter-in-etat-de-fribourg-ch",
+          "risorse-umane-collaboratore-trice-in-etat-de-fribourg"
         ],
         "en": [
           "hr-mitarbeiter-in-etat-de-fribourg-ch"
@@ -5125,6 +5246,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:41.119Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5171,7 +5293,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-RH-Sari/1365335957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:12.473Z",
+      "crawledAt": "2026-07-12T11:07:59.873Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5192,11 +5314,13 @@
       "pensumMax": 60,
       "pensum": "55-60%",
       "previousSlugs": [
-        "assistant-e-rh-etat-de-fribourg-ch"
+        "assistant-e-rh-etat-de-fribourg-ch",
+        "assistente-di-risorse-umane-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-rh-etat-de-fribourg-ch"
+          "assistant-e-rh-etat-de-fribourg-ch",
+          "assistente-di-risorse-umane-etat-de-fribourg-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:40.485Z",
@@ -5246,7 +5370,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Saan/1362499657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:11.755Z",
+      "crawledAt": "2026-07-12T11:07:59.232Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5268,18 +5392,21 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
+        "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg",
+        "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-          "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
+          "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg",
+          "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:34.085Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5326,7 +5453,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Sari/1362499557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T22:33:11.050Z",
+      "crawledAt": "2026-07-12T11:07:58.600Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5347,11 +5474,13 @@
       "pensumMax": 100,
       "pensum": "95-100%",
       "previousSlugs": [
-        "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+        "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+        "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+          "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
         ]
       },
       "needsRetranslation": true,
@@ -5402,7 +5531,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Offenes-Regime-See/1365442257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:10.355Z",
+      "crawledAt": "2026-07-12T11:07:57.955Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5483,7 +5612,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ouvert-Lac/1365442157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:09.673Z",
+      "crawledAt": "2026-07-12T11:07:57.308Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5504,11 +5633,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
+        "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch",
+        "ufficiale-di-detenzione-regime-aperto-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
+          "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch",
+          "ufficiale-di-detenzione-regime-aperto-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
@@ -5563,7 +5694,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-Juristin-Saan/1365406257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:08.969Z",
+      "crawledAt": "2026-07-12T11:07:56.672Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5584,11 +5715,13 @@
       "pensumMax": 60,
       "pensum": "50-60%",
       "previousSlugs": [
-        "praktikant-in-jurist-in-etat-de-fribourg-ch"
+        "praktikant-in-jurist-in-etat-de-fribourg-ch",
+        "avvocato-stagista-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-jurist-in-etat-de-fribourg-ch"
+          "praktikant-in-jurist-in-etat-de-fribourg-ch",
+          "avvocato-stagista-etat-de-fribourg-fribourg"
         ],
         "en": [
           "praktikant-in-jurist-in-etat-de-fribourg-ch"
@@ -5644,7 +5777,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-Sari/1365406157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:08.267Z",
+      "crawledAt": "2026-07-12T11:07:56.031Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5665,11 +5798,13 @@
       "pensumMax": 60,
       "pensum": "50-60%",
       "previousSlugs": [
-        "stagiaire-juriste-etat-de-fribourg-ch"
+        "stagiaire-juriste-etat-de-fribourg-ch",
+        "tirocinante-legale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-juriste-etat-de-fribourg-ch"
+          "stagiaire-juriste-etat-de-fribourg-ch",
+          "tirocinante-legale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "stagiaire-juriste-etat-de-fribourg-ch"
@@ -5725,7 +5860,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Un-e-stagiaire-analyste-financier-%C3%A8re-pour-une-dur%C3%A9e-d%C3%A9termin%C3%A9e-de-6-mois-%2860-100%29-Sari/1365464857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:07.567Z",
+      "crawledAt": "2026-07-12T11:07:55.375Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5746,11 +5881,13 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
+        "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de",
+        "uno-stage-di-analista-finanziario-per-un-periodo-fisso-di-6-mesi-60-100-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
+          "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de",
+          "uno-stage-di-analista-finanziario-per-un-periodo-fisso-di-6-mesi-60-100-etat-de-fribourg-fribourg"
         ],
         "en": [
           "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
@@ -5806,7 +5943,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Einen-Praktikantinten-im-Bereich-Finanzanalyse-f%C3%BCr-eine-befristete-Dauer-von-6-Monaten-%2860-100%29-Saan/1365464957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:06.852Z",
+      "crawledAt": "2026-07-12T11:07:54.742Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5841,6 +5978,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:27.051Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5887,7 +6025,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistenz-Primarschule-Saan/1365470657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:06.165Z",
+      "crawledAt": "2026-07-12T11:07:54.101Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5908,11 +6046,13 @@
       "pensumMax": 30,
       "pensum": "25-30%",
       "previousSlugs": [
-        "assistenz-primarschule-etat-de-fribourg-ch"
+        "assistenz-primarschule-etat-de-fribourg-ch",
+        "scuola-primaria-assistente-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-primarschule-etat-de-fribourg-ch"
+          "assistenz-primarschule-etat-de-fribourg-ch",
+          "scuola-primaria-assistente-etat-de-fribourg-fribourg"
         ],
         "en": [
           "assistenz-primarschule-etat-de-fribourg-ch"
@@ -5968,7 +6108,7 @@
       "url": "https://jobs.fr.ch/job/Kerzers%2C-CH-Stv_-Schuldirektorin-Primarschule-Kerzers-See/1365462257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:05.452Z",
+      "crawledAt": "2026-07-12T11:07:53.459Z",
       "addressLocality": "Kerzers",
       "postalCode": "3210",
       "addressCountry": "CH",
@@ -5990,11 +6130,13 @@
       "pensum": "10-15%",
       "previousSlugs": [
         "stv-schuldirektor-in-primarschule-kerzers-etat-de-fribourg-ch",
-        "directeur-ecole-primaire-stv-kerzers-etat-de-fribourg-kerzers"
+        "directeur-ecole-primaire-stv-kerzers-etat-de-fribourg-kerzers",
+        "vice-preside-della-scuola-primaria-di-kerzers-etat-de-fribourg-kerzers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-schuldirektor-in-primarschule-kerzers-etat-de-fribourg-ch"
+          "stv-schuldirektor-in-primarschule-kerzers-etat-de-fribourg-ch",
+          "vice-preside-della-scuola-primaria-di-kerzers-etat-de-fribourg-kerzers"
         ],
         "en": [
           "stv-schuldirektor-in-primarschule-kerzers-etat-de-fribourg-ch"
@@ -6036,7 +6178,7 @@
         "it": "Infermiera, FNPG Villars-sur-Glâne - Stazione Saturn",
         "en": "Nursing Professional, FNPG Villars-sur-Glâne - Saturn Station",
         "de": "Pflegefachfrau/Pflegefachmann, FNPG Villars-sur-Glâne - Station Saturn",
-        "fr": "Professionnels des soins infirmiers, FNPG Villars-sur-Glâne - Station Saturne"
+        "fr": "Pflegefachfrau/Pflegefachmann, FNPG Villars-sur-Glâne - Station Saturn"
       },
       "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nSaturn ist eine allgemeinpsychiatrische Station für deutschsprachige Personen im Alter von 18 bis über 65 Jahre.\n\nWir bieten:\n\n• einen angenehmen und dynamischen Arbeitsrahmen an einem neuen stationären Standort, der sich in voller Entwicklung befindet\n\n• die Möglichkeit, an der Entwicklung der Angebote mitzuarbeiten und sich aktiv miteinzubringen und mitzugestalten\n\n• die Möglichkeit, sich weiterzubilden und moderne Ansätze zu praktizieren (Acudetox, Achtsamkeit, therapeutische Gruppen usw.)\n\n• die Möglichkeit, am selben Standort weitere Bereiche kennenzulernen (Ambulatorium, Tagesklinik, Notfallpsychiatrie usw.)\n\n• Französisch- und Deutschkurse\n\nGewünschtes Profil\n\n• Diplomierte Pflegefachpersonen mit Interesse für die Fachrichtung Psychiatrie\n\n• Fähigkeit zur Zusammenarbeit im pluridisziplinären Team\n\n• Flexibilität und Anpassungsfähigkeit\n\n• Interesse an Therapeutischer Gruppen zu leiten\n\n• Tag und Nachtdienste\n\n• Beherrschung der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (mindestens Niveau C1)\n\nAngaben der Kontaktpersonen\n\nAnaïs Torres, Stationsleiterin - T +41 26 308 11 71 - anais.torres@rfsm.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -6050,7 +6192,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-PflegefachfrauPflegefachmann%2C-FNPG-Villars-sur-Gl%C3%A2ne-Station-Saturn-Saan/1365431157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:04.752Z",
+      "crawledAt": "2026-07-12T11:07:52.815Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -6071,17 +6213,20 @@
       "pensumMax": 50,
       "pensum": "30-50%",
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-fnpg-villars-sur-glane-station-saturn-etat-de-fribourg-ch"
+        "pflegefachfrau-pflegefachmann-fnpg-villars-sur-glane-station-saturn-etat-de-fribourg-ch",
+        "infermiera-fnpg-villars-sur-glane-stazione-saturn-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-fnpg-villars-sur-glane-station-saturn-etat-de-fribourg-ch"
+          "pflegefachfrau-pflegefachmann-fnpg-villars-sur-glane-station-saturn-etat-de-fribourg-ch",
+          "infermiera-fnpg-villars-sur-glane-stazione-saturn-etat-de-fribourg-villars-sur-glane"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-fnpg-villars-sur-glane-station-saturn-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:32.783Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6127,7 +6272,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Villars-sur-Gl%C3%A2ne-Unit%C3%A9-Saturn-Sari/1365431057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:04.059Z",
+      "crawledAt": "2026-07-12T11:07:52.174Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -6150,11 +6295,13 @@
       "previousSlugs": [
         "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-etat-de-fribourg-ch",
         "nurse-rfsm-villars-sur-glane-saturn-unit-etat-de-fribourg-villars-sur-glane",
-        "krankenschwester-rfsm-villars-sur-glane-saturn-unit-etat-de-fribourg-villars-sur-glane"
+        "krankenschwester-rfsm-villars-sur-glane-saturn-unit-etat-de-fribourg-villars-sur-glane",
+        "infermiera-rfsm-villars-sur-glane-unita-saturn-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-etat-de-fribourg-ch"
+          "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-etat-de-fribourg-ch",
+          "infermiera-rfsm-villars-sur-glane-unita-saturn-etat-de-fribourg-villars-sur-glane"
         ],
         "en": [
           "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-etat-de-fribourg-ch",
@@ -6166,6 +6313,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:32.146Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6211,7 +6359,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-Laboratoire-Sari/1365425657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:03.367Z",
+      "crawledAt": "2026-07-12T11:07:51.512Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -6234,11 +6382,13 @@
       "previousSlugs": [
         "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
         "post-bachelor-or-post-master-in-the-laboratory-field-etat-de-fribourg-givisiez",
-        "post-bachelor-oder-post-master-im-laborbereich-etat-de-fribourg-givisiez"
+        "post-bachelor-oder-post-master-im-laborbereich-etat-de-fribourg-givisiez",
+        "tirocinante-post-laurea-triennale-o-post-master-nel-campo-del-laboratorio-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch"
+          "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
+          "tirocinante-post-laurea-triennale-o-post-master-nel-campo-del-laboratorio-etat-de-fribourg-givisiez"
         ],
         "en": [
           "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
@@ -6295,7 +6445,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-psychoth%C3%A9rapeute-etou-en-formation%2C-RFSM-Villars-sur-Gl%C3%A2ne-Sari/1362614857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:02.679Z",
+      "crawledAt": "2026-07-12T11:07:50.853Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -6318,12 +6468,14 @@
       "previousSlugs": [
         "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-etat-de-fribourg-ch",
         "psychotherapeutin-und-oder-in-der-ausbildung-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
-        "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars"
+        "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars",
+        "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-etat-de-fribourg-ch",
-          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars"
+          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars",
+          "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
         ],
         "en": [
           "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars"
@@ -6382,7 +6534,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-master-domaine-juridique-Sari/1365607057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:01.941Z",
+      "crawledAt": "2026-07-12T11:07:50.197Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6403,11 +6555,13 @@
       "pensumMax": 80,
       "pensum": "75-80%",
       "previousSlugs": [
-        "stagiaire-post-master-domaine-juridique-etat-de-fribourg-ch"
+        "stagiaire-post-master-domaine-juridique-etat-de-fribourg-ch",
+        "tirocinante-post-master-nel-campo-legale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-post-master-domaine-juridique-etat-de-fribourg-ch"
+          "stagiaire-post-master-domaine-juridique-etat-de-fribourg-ch",
+          "tirocinante-post-master-nel-campo-legale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "stagiaire-post-master-domaine-juridique-etat-de-fribourg-ch"
@@ -6463,7 +6617,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Sanierungsprogramm-des-Immobilienbestands-Saan/1362910057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:33:01.251Z",
+      "crawledAt": "2026-07-12T11:07:49.553Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6484,11 +6638,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "verantwortliche-r-sanierungsprogramm-des-immobilienbestands-etat-de-fribourg-ch"
+        "verantwortliche-r-sanierungsprogramm-des-immobilienbestands-etat-de-fribourg-ch",
+        "responsabile-del-programma-di-ristrutturazione-del-portafoglio-immobiliare-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-sanierungsprogramm-des-immobilienbestands-etat-de-fribourg-ch"
+          "verantwortliche-r-sanierungsprogramm-des-immobilienbestands-etat-de-fribourg-ch",
+          "responsabile-del-programma-di-ristrutturazione-del-portafoglio-immobiliare-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verantwortliche-r-sanierungsprogramm-des-immobilienbestands-etat-de-fribourg-ch"
@@ -6544,7 +6700,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-du-programme-d'assainissement-du-patrimoine-immobilier-Sari/1362910157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:33:00.547Z",
+      "crawledAt": "2026-07-12T11:07:48.915Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6625,7 +6781,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:59.843Z",
+      "crawledAt": "2026-07-12T11:07:48.259Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6705,7 +6861,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:59.150Z",
+      "crawledAt": "2026-07-12T11:07:47.618Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6726,11 +6882,13 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
+        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
+        "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
+          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
+          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:38.558Z",
@@ -6779,7 +6937,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-en-M%C3%A9decine-humaine-Sari/1365682457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:58.457Z",
+      "crawledAt": "2026-07-12T11:07:46.974Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6800,11 +6958,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "collaborateur-trice-scientifique-en-medecine-humaine-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-en-medecine-humaine-etat-de-fribourg-ch",
+        "scienziato-collaborativo-in-medicina-umana-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-en-medecine-humaine-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-en-medecine-humaine-etat-de-fribourg-ch",
+          "scienziato-collaborativo-in-medicina-umana-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-scientifique-en-medecine-humaine-etat-de-fribourg-ch"
@@ -6860,7 +7020,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ferm%C3%A9-SI-Lac/1365688157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:57.746Z",
+      "crawledAt": "2026-07-12T11:07:46.329Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6881,11 +7041,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+        "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
+        "ufficiale-di-detenzione-velocita-chiusa-si-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+          "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
+          "ufficiale-di-detenzione-velocita-chiusa-si-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
@@ -6940,7 +7102,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftlicher-Mitarbeiterin-in-Humanmedizin-Saan/1365682357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:57.049Z",
+      "crawledAt": "2026-07-12T11:07:45.690Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6961,11 +7123,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch"
+        "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch",
+        "wissenschaftliche-r-collaboratore-trice-in-humanmedizin-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch"
+          "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch",
+          "wissenschaftliche-r-collaboratore-trice-in-humanmedizin-etat-de-fribourg"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch"
@@ -7004,9 +7168,9 @@
       "companyDomain": "fr.ch",
       "title": "Professorship in Applied Microeconomics (Open Rank)",
       "titleByLocale": {
-        "it": "Professore in Microeconomia applicata (Open Rank)",
+        "it": "Professorship in Applied Microeconomics (Open Rank)",
         "en": "Professorship in Applied Microeconomics (Open Rank)",
-        "de": "Professur für Angewandte Mikroökonomie (Open Rank)",
+        "de": "Professorship in Applied Microeconomics (Open Rank)",
         "fr": "Professeur en microéconomie appliquée (Open Rank)"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nThe position includes one 100% doctoral assistant. The University offers attractive working conditions and a competitive salary. The position is open rank, in accordance with University statutes.\n\nSeeking to promote an equitable representation of women and men, the University strongly encourages applications from women. Having signed the CoARA declaration, the University of Fribourg emphasizes qualitative assessment of academic achievement.\n\nImportant\n\nPlease note  : Do not   use the \"apply\" button at the top of this page: your application will not be processed. Apply electronically at  Appl-Micro@unifr.ch\n\nCandidates should submit a complete application package (motivation letter, CV, list of publications, teaching evaluations, administrative experience, third-party funding, research and teaching statement, three references, and three representative publications)\n\nIhre Aufgaben\n\n• The successful candidate will teach courses in French and English at the Bachelor’s and Master’s levels. Two courses will be given in French in Microeconomics on the Bachelor’s level. The research profile as well as offered Master courses should fall within applied microeconomics. Possible areas include, for example, labour economics, health economics, education economics, competition, personnel economics, or innovation economics.\n\nGewünschtes Profil\n\n• The successful candidate must have a doctorate (Ph.D.) in economics or a related field, and demonstrate an excellent research record in applied microeconomics, strong teaching skills, and the ability to supervise theses at the Bachelor’s and Master’s level.\n\n• The University of Fribourg is bilingual (French/German). Fluency in French is required and knowledge of German (oral level B1) is expected. If this is not the case, it must be acquired within two years of taking up the position.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung:",
@@ -7021,7 +7185,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professorship-in-Applied-Microeconomics-%28Open-Rank%29-Saan/1365685957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-11T22:32:56.337Z",
+      "crawledAt": "2026-07-12T11:07:45.055Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7043,17 +7207,21 @@
       "pensum": "90-100%",
       "previousSlugsByLocale": {
         "de": [
-          "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch"
+          "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch",
+          "professur-fur-angewandte-mikrookonomie-open-rank-etat-de-fribourg-fribourg"
         ],
         "it": [
-          "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch"
+          "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch",
+          "professore-in-microeconomia-applicata-open-rank-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch"
+        "professorship-in-applied-microeconomics-open-rank-etat-de-fribourg-ch",
+        "professur-fur-angewandte-mikrookonomie-open-rank-etat-de-fribourg-fribourg",
+        "professore-in-microeconomia-applicata-open-rank-etat-de-fribourg-fribourg"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:09:43.721Z",
@@ -7103,7 +7271,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ouvert-Lac/1365692857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:55.645Z",
+      "crawledAt": "2026-07-12T11:07:44.418Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7124,11 +7292,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
+        "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch",
+        "agente-di-detenzione-schema-aperto-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
+          "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch",
+          "agente-di-detenzione-schema-aperto-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "agent-e-de-detention-regime-ouvert-etat-de-fribourg-ch"
@@ -7183,7 +7353,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-en-Micro%C3%A9conomie-appliqu%C3%A9e-%28open-rank%29-Sari/1365685857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:54.947Z",
+      "crawledAt": "2026-07-12T11:07:43.782Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7204,11 +7374,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "professeur-e-en-microeconomie-appliquee-open-rank-etat-de-fribourg-ch"
+        "professeur-e-en-microeconomie-appliquee-open-rank-etat-de-fribourg-ch",
+        "professore-in-microeconomia-applicata-grado-aperto-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professeur-e-en-microeconomie-appliquee-open-rank-etat-de-fribourg-ch"
+          "professeur-e-en-microeconomie-appliquee-open-rank-etat-de-fribourg-ch",
+          "professore-in-microeconomia-applicata-grado-aperto-etat-de-fribourg-fribourg"
         ],
         "en": [
           "professeur-e-en-microeconomie-appliquee-open-rank-etat-de-fribourg-ch"
@@ -7264,7 +7436,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Geschlossenes-Regime-See/1365688257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:54.256Z",
+      "crawledAt": "2026-07-12T11:07:43.146Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7344,7 +7516,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-de-comptabilit%C3%A9-Sari/1365731957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:52.859Z",
+      "crawledAt": "2026-07-12T11:07:41.870Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7365,11 +7537,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "employe-e-de-comptabilite-etat-de-fribourg-ch"
+        "employe-e-de-comptabilite-etat-de-fribourg-ch",
+        "dipendente-contabile-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-de-comptabilite-etat-de-fribourg-ch"
+          "employe-e-de-comptabilite-etat-de-fribourg-ch",
+          "dipendente-contabile-etat-de-fribourg-fribourg"
         ],
         "en": [
           "employe-e-de-comptabilite-etat-de-fribourg-ch"
@@ -7425,7 +7599,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juriste-Sari/1365842357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:52.157Z",
+      "crawledAt": "2026-07-12T11:07:41.229Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7446,11 +7620,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "juriste-etat-de-fribourg-ch"
+        "juriste-etat-de-fribourg-ch",
+        "ufficiale-legale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-etat-de-fribourg-ch"
+          "juriste-etat-de-fribourg-ch",
+          "ufficiale-legale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "juriste-etat-de-fribourg-ch"
@@ -7506,7 +7682,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juristin-Saan/1365842257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:51.466Z",
+      "crawledAt": "2026-07-12T11:07:40.573Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7527,11 +7703,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "jurist-in-etat-de-fribourg-ch"
+        "jurist-in-etat-de-fribourg-ch",
+        "avvocato-etat-de-fribourg-fribourg-d0a10b"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-etat-de-fribourg-ch"
+          "jurist-in-etat-de-fribourg-ch",
+          "avvocato-etat-de-fribourg-fribourg-d0a10b"
         ],
         "en": [
           "jurist-in-etat-de-fribourg-ch"
@@ -7587,7 +7765,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-du-Lac-Lac/1365905057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:50.763Z",
+      "crawledAt": "2026-07-12T11:07:39.920Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -7608,11 +7786,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+        "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
+        "giustizia-della-pace-del-lago-etat-de-fribourg-morat"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+          "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
+          "giustizia-della-pace-del-lago-etat-de-fribourg-morat"
         ],
         "en": [
           "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
@@ -7667,7 +7847,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-bureau-Sari/1365886357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:50.051Z",
+      "crawledAt": "2026-07-12T11:07:39.270Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7688,11 +7868,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "chef-fe-de-bureau-etat-de-fribourg-ch"
+        "chef-fe-de-bureau-etat-de-fribourg-ch",
+        "capo-ufficio-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-bureau-etat-de-fribourg-ch"
+          "chef-fe-de-bureau-etat-de-fribourg-ch",
+          "capo-ufficio-etat-de-fribourg-fribourg"
         ],
         "en": [
           "chef-fe-de-bureau-etat-de-fribourg-ch"
@@ -7748,7 +7930,7 @@
       "url": "https://jobs.fr.ch/job/Estavayer-le-Lac%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Broye-Broy/1365901357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:49.328Z",
+      "crawledAt": "2026-07-12T11:07:38.631Z",
       "addressLocality": "Estavayer-le-Lac",
       "postalCode": "1470",
       "addressCountry": "CH",
@@ -7769,11 +7951,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "juge-de-paix-aupres-de-la-justice-de-paix-de-la-broye-etat-de-fribourg-ch"
+        "juge-de-paix-aupres-de-la-justice-de-paix-de-la-broye-etat-de-fribourg-ch",
+        "giustizia-della-pace-del-fratello-etat-de-fribourg-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juge-de-paix-aupres-de-la-justice-de-paix-de-la-broye-etat-de-fribourg-ch"
+          "juge-de-paix-aupres-de-la-justice-de-paix-de-la-broye-etat-de-fribourg-ch",
+          "giustizia-della-pace-del-fratello-etat-de-fribourg-estavayer-le-lac"
         ],
         "en": [
           "juge-de-paix-aupres-de-la-justice-de-paix-de-la-broye-etat-de-fribourg-ch"
@@ -7828,7 +8012,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Friedensrichterin-des-Seebezirks-See/1365905157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:48.640Z",
+      "crawledAt": "2026-07-12T11:07:37.996Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -7849,11 +8033,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
+        "giustizia-del-distretto-mare-etat-de-fribourg-morat"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
+          "giustizia-del-distretto-mare-etat-de-fribourg-morat"
         ],
         "en": [
           "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
@@ -7908,7 +8094,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-B%C3%BCroleiterin-Saan/1365886457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:47.948Z",
+      "crawledAt": "2026-07-12T11:07:37.361Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7929,11 +8115,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "buroleiter-in-etat-de-fribourg-ch"
+        "buroleiter-in-etat-de-fribourg-ch",
+        "responsabile-ufficio-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buroleiter-in-etat-de-fribourg-ch"
+          "buroleiter-in-etat-de-fribourg-ch",
+          "responsabile-ufficio-etat-de-fribourg-fribourg"
         ],
         "en": [
           "buroleiter-in-etat-de-fribourg-ch"
@@ -7989,7 +8177,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Responsable-de-dispositif-EPCO-free-trading-Sari/1366028057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:47.235Z",
+      "crawledAt": "2026-07-12T11:07:36.705Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -8010,11 +8198,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "responsable-de-dispositif-epco-free-trading-etat-de-fribourg-ch"
+        "responsable-de-dispositif-epco-free-trading-etat-de-fribourg-ch",
+        "epco-dispositivo-manager-free-trading-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-dispositif-epco-free-trading-etat-de-fribourg-ch"
+          "responsable-de-dispositif-epco-free-trading-etat-de-fribourg-ch",
+          "epco-dispositivo-manager-free-trading-etat-de-fribourg-granges-paccot"
         ],
         "en": [
           "responsable-de-dispositif-epco-free-trading-etat-de-fribourg-ch"
@@ -8069,7 +8259,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Hauswartin-Saan/1366018457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:46.548Z",
+      "crawledAt": "2026-07-12T11:07:36.068Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8090,11 +8280,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "hauswart-in-etat-de-fribourg-ch"
+        "hauswart-in-etat-de-fribourg-ch",
+        "housekeeper-in-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hauswart-in-etat-de-fribourg-ch"
+          "hauswart-in-etat-de-fribourg-ch",
+          "housekeeper-in-etat-de-fribourg-fribourg"
         ],
         "en": [
           "hauswart-in-etat-de-fribourg-ch"
@@ -8150,7 +8342,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Kantonaler-Koordinatorin-f%C3%BCr-die-soziale-und-berufliche-Eingliederung-von-Jugendlichen-bei-der-KJS-Saan/1366015857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:45.839Z",
+      "crawledAt": "2026-07-12T11:07:35.414Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8171,11 +8363,13 @@
       "pensumMax": 90,
       "pensum": "80-90%",
       "previousSlugs": [
-        "kantonale-r-koordinator-in-fur-die-soziale-und-berufliche-eingliederung-von-jugendlichen"
+        "kantonale-r-koordinator-in-fur-die-soziale-und-berufliche-eingliederung-von-jugendlichen",
+        "kantonale-r-koordinator-in-per-la-soziale-e-berufliche-eingliederung-von-jugendlichen-bei-der-kjs-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kantonale-r-koordinator-in-fur-die-soziale-und-berufliche-eingliederung-von-jugendlichen"
+          "kantonale-r-koordinator-in-fur-die-soziale-und-berufliche-eingliederung-von-jugendlichen",
+          "kantonale-r-koordinator-in-per-la-soziale-e-berufliche-eingliederung-von-jugendlichen-bei-der-kjs-etat-de-fribourg"
         ],
         "en": [
           "kantonale-r-koordinator-in-fur-die-soziale-und-berufliche-eingliederung-von-jugendlichen"
@@ -8231,7 +8425,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Coordinateur-trice-cantonal-e-de-l'insertion-socio-professionnelle-des-jeunes-aupr%C3%A8s-de-la-CJD-Sari/1366015757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:45.095Z",
+      "crawledAt": "2026-07-12T11:07:34.731Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8312,7 +8506,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Technologue-du-lait-Sari/1366021257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:44.403Z",
+      "crawledAt": "2026-07-12T11:07:34.075Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8333,11 +8527,13 @@
       "pensumMax": 90,
       "pensum": "80-90%",
       "previousSlugs": [
-        "technologue-du-lait-etat-de-fribourg-ch"
+        "technologue-du-lait-etat-de-fribourg-ch",
+        "tecnologo-del-latte-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-du-lait-etat-de-fribourg-ch"
+          "technologue-du-lait-etat-de-fribourg-ch",
+          "tecnologo-del-latte-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "technologue-du-lait-etat-de-fribourg-ch"
@@ -8392,7 +8588,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Sarine-Sari/1365989657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:43.717Z",
+      "crawledAt": "2026-07-12T11:07:33.415Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8413,11 +8609,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "juge-de-paix-aupres-de-la-justice-de-paix-de-la-sarine-etat-de-fribourg-ch"
+        "juge-de-paix-aupres-de-la-justice-de-paix-de-la-sarine-etat-de-fribourg-ch",
+        "giustizia-della-pace-della-sarina-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juge-de-paix-aupres-de-la-justice-de-paix-de-la-sarine-etat-de-fribourg-ch"
+          "juge-de-paix-aupres-de-la-justice-de-paix-de-la-sarine-etat-de-fribourg-ch",
+          "giustizia-della-pace-della-sarina-etat-de-fribourg-fribourg"
         ],
         "en": [
           "juge-de-paix-aupres-de-la-justice-de-paix-de-la-sarine-etat-de-fribourg-ch"
@@ -8473,7 +8671,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Concierge-Sari/1366018357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:43.018Z",
+      "crawledAt": "2026-07-12T11:07:32.772Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8494,6 +8692,7 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "firstSeenAt": "2026-07-10T12:09:31.236Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8540,7 +8739,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Milchtechnologein-Saan/1366021357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:42.315Z",
+      "crawledAt": "2026-07-12T11:07:32.122Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8562,12 +8761,14 @@
       "pensum": "80-90%",
       "previousSlugs": [
         "milchtechnologe-in-etat-de-fribourg-ch",
-        "milchtechnologe-in-etat-de-fribourg-hauterive-fr"
+        "milchtechnologe-in-etat-de-fribourg-hauterive-fr",
+        "tecnologo-del-latte-etat-de-fribourg-hauterive-fr-e0315f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "milchtechnologe-in-etat-de-fribourg-ch",
-          "milchtechnologe-in-etat-de-fribourg-hauterive-fr"
+          "milchtechnologe-in-etat-de-fribourg-hauterive-fr",
+          "tecnologo-del-latte-etat-de-fribourg-hauterive-fr-e0315f"
         ],
         "en": [
           "milchtechnologe-in-etat-de-fribourg-hauterive-fr"
@@ -8622,7 +8823,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-ICT-Architect-Territoire%2C-Environnement-et-Economie-Sari/1365988457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:41.620Z",
+      "crawledAt": "2026-07-12T11:07:31.481Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8643,11 +8844,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "ict-architect-territoire-environnement-et-economie-etat-de-fribourg-ch"
+        "ict-architect-territoire-environnement-et-economie-etat-de-fribourg-ch",
+        "ict-architetto-territoire-environnement-et-economie-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-architect-territoire-environnement-et-economie-etat-de-fribourg-ch"
+          "ict-architect-territoire-environnement-et-economie-etat-de-fribourg-ch",
+          "ict-architetto-territoire-environnement-et-economie-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:29.942Z",
@@ -8696,7 +8899,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Friedensrichterin-des-Saanebezirks-Saan/1365989757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:40.926Z",
+      "crawledAt": "2026-07-12T11:07:30.818Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8717,11 +8920,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "friedensrichter-in-des-saanebezirks-etat-de-fribourg-ch"
+        "friedensrichter-in-des-saanebezirks-etat-de-fribourg-ch",
+        "giustizia-del-distretto-saane-della-pace-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "friedensrichter-in-des-saanebezirks-etat-de-fribourg-ch"
+          "friedensrichter-in-des-saanebezirks-etat-de-fribourg-ch",
+          "giustizia-del-distretto-saane-della-pace-etat-de-fribourg-fribourg"
         ],
         "en": [
           "friedensrichter-in-des-saanebezirks-etat-de-fribourg-ch"
@@ -8777,7 +8982,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1365993057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:40.229Z",
+      "crawledAt": "2026-07-12T11:07:30.166Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8798,11 +9003,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+        "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
+        "ksva-case-handler-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+          "ksva-sachbearbeiter-in-etat-de-fribourg-ch",
+          "ksva-case-handler-etat-de-fribourg-givisiez"
         ],
         "en": [
           "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
@@ -8857,7 +9064,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1363180657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:39.513Z",
+      "crawledAt": "2026-07-12T11:07:29.526Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8878,11 +9085,13 @@
       "pensumMax": 25,
       "pensum": "20-25%",
       "previousSlugs": [
-        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "impiegato-amministrativo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "impiegato-amministrativo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
@@ -8921,7 +9130,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -8938,7 +9147,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Sari/1363180757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:38.818Z",
+      "crawledAt": "2026-07-12T11:07:28.863Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8961,11 +9170,13 @@
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
         "administrative-collaborator-etat-de-fribourg-fribourg",
-        "verwaltungsmitarbeiter-etat-de-fribourg-fribourg"
+        "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
+        "associato-amministrativo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+          "associato-amministrativo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
@@ -8977,6 +9188,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:37.230Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9023,7 +9235,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Asyl-Integration-Saan/1366123657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:38.124Z",
+      "crawledAt": "2026-07-12T11:07:28.211Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9044,11 +9256,13 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "wissenschaftl-mitarbeiter-in-asyl-integration-etat-de-fribourg-ch"
+        "wissenschaftl-mitarbeiter-in-asyl-integration-etat-de-fribourg-ch",
+        "wissenschaftl-collaboratore-trice-asyl-integration-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftl-mitarbeiter-in-asyl-integration-etat-de-fribourg-ch"
+          "wissenschaftl-mitarbeiter-in-asyl-integration-etat-de-fribourg-ch",
+          "wissenschaftl-collaboratore-trice-asyl-integration-etat-de-fribourg"
         ],
         "en": [
           "wissenschaftl-mitarbeiter-in-asyl-integration-etat-de-fribourg-ch"
@@ -9104,7 +9318,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-de-l'enfantadolescent-Gruy/1366115857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:37.439Z",
+      "crawledAt": "2026-07-12T11:07:27.565Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9188,7 +9402,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Kinder-und-Jugendpsychiatrie-und-psychotherapie-Grey/1366115957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:36.754Z",
+      "crawledAt": "2026-07-12T11:07:26.933Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9268,7 +9482,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-sse-d'enseignement-HES-Sari/1366126757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:35.977Z",
+      "crawledAt": "2026-07-12T11:07:26.300Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9349,7 +9563,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-Saan/1366126857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:35.256Z",
+      "crawledAt": "2026-07-12T11:07:25.636Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9370,11 +9584,13 @@
       "pensumMax": 30,
       "pensum": "20-30%",
       "previousSlugs": [
-        "dozent-in-fh-etat-de-fribourg-ch"
+        "dozent-in-fh-etat-de-fribourg-ch",
+        "docente-fh-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dozent-in-fh-etat-de-fribourg-ch"
+          "dozent-in-fh-etat-de-fribourg-ch",
+          "docente-fh-etat-de-fribourg-fribourg"
         ],
         "en": [
           "dozent-in-fh-etat-de-fribourg-ch"
@@ -9430,7 +9646,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-asile-int%C3%A9gration-Sari/1366123557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:34.566Z",
+      "crawledAt": "2026-07-12T11:07:24.994Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9451,11 +9667,13 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "collaborateur-trice-scientifique-asile-integration-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-asile-integration-etat-de-fribourg-ch",
+        "collaboratore-scientifico-per-l-integrazione-dell-asilo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-asile-integration-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-asile-integration-etat-de-fribourg-ch",
+          "collaboratore-scientifico-per-l-integrazione-dell-asilo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-scientifique-asile-integration-etat-de-fribourg-ch"
@@ -9511,7 +9729,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Co-Leitung-der-Praxisstelle-Saan/1366096957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:33.868Z",
+      "crawledAt": "2026-07-12T11:07:24.360Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9532,11 +9750,13 @@
       "pensumMax": 70,
       "pensum": "50-70%",
       "previousSlugs": [
-        "co-leitung-der-praxisstelle-etat-de-fribourg-ch"
+        "co-leitung-der-praxisstelle-etat-de-fribourg-ch",
+        "cogestione-dell-ufficio-pratica-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-leitung-der-praxisstelle-etat-de-fribourg-ch"
+          "co-leitung-der-praxisstelle-etat-de-fribourg-ch",
+          "cogestione-dell-ufficio-pratica-etat-de-fribourg-fribourg"
         ],
         "en": [
           "co-leitung-der-praxisstelle-etat-de-fribourg-ch"
@@ -9592,7 +9812,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Assistant-e-scientifique-protection-des-sols-et-fumure-Sari/1366104357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:33.168Z",
+      "crawledAt": "2026-07-12T11:07:23.725Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9613,11 +9833,13 @@
       "pensumMax": 100,
       "pensum": "70-100%",
       "previousSlugs": [
-        "assistant-e-scientifique-protection-des-sols-et-fumure-etat-de-fribourg-ch"
+        "assistant-e-scientifique-protection-des-sols-et-fumure-etat-de-fribourg-ch",
+        "assistente-scientifico-della-protezione-del-suolo-e-del-fume-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-scientifique-protection-des-sols-et-fumure-etat-de-fribourg-ch"
+          "assistant-e-scientifique-protection-des-sols-et-fumure-etat-de-fribourg-ch",
+          "assistente-scientifico-della-protezione-del-suolo-e-del-fume-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "assistant-e-scientifique-protection-des-sols-et-fumure-etat-de-fribourg-ch"
@@ -9672,7 +9894,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Wissenschafticher-Assistentin-Bodenschutz-und-Pflanzenern%C3%A4hrung-Saan/1366104457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:32.477Z",
+      "crawledAt": "2026-07-12T11:07:23.072Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9707,6 +9929,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:21.383Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9752,7 +9975,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:31.768Z",
+      "crawledAt": "2026-07-12T11:07:22.427Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9774,11 +9997,13 @@
       "pensum": "50-100%",
       "previousSlugsByLocale": {
         "fr": [
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "it": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg"
@@ -9789,7 +10014,9 @@
       },
       "previousSlugs": [
         "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:30.147Z",
       "salaryMin": 94500,
@@ -9837,7 +10064,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:31.072Z",
+      "crawledAt": "2026-07-12T11:07:21.790Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9917,7 +10144,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:30.359Z",
+      "crawledAt": "2026-07-12T11:07:21.143Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9939,11 +10166,13 @@
       "pensum": "50-100%",
       "previousSlugsByLocale": {
         "fr": [
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "it": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
         ],
         "en": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg"
@@ -9951,7 +10180,9 @@
       },
       "previousSlugs": [
         "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:28.873Z",
       "salaryMin": 68500,
@@ -9999,7 +10230,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:29.621Z",
+      "crawledAt": "2026-07-12T11:07:20.503Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10079,7 +10310,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-technique-dipl%C3%B4m%C3%A9-e-Sari/1363334757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:28.901Z",
+      "crawledAt": "2026-07-12T11:07:19.861Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10100,11 +10331,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "collaborateur-trice-technique-diplome-e-etat-de-fribourg-ch"
+        "collaborateur-trice-technique-diplome-e-etat-de-fribourg-ch",
+        "assistente-tecnico-specializzato-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-technique-diplome-e-etat-de-fribourg-ch"
+          "collaborateur-trice-technique-diplome-e-etat-de-fribourg-ch",
+          "assistente-tecnico-specializzato-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-technique-diplome-e-etat-de-fribourg-ch"
@@ -10160,7 +10393,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dipl_-Technischer-Sachbearbeiterin-Saan/1363334857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:28.202Z",
+      "crawledAt": "2026-07-12T11:07:19.196Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10182,11 +10415,13 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "dipl-technische-r-sachbearbeiter-in-etat-de-fribourg-ch",
-        "dipl-manipulation-technique-case-etat-de-fribourg-fribourg"
+        "dipl-manipulation-technique-case-etat-de-fribourg-fribourg",
+        "diploma-tecnico-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-technische-r-sachbearbeiter-in-etat-de-fribourg-ch"
+          "dipl-technische-r-sachbearbeiter-in-etat-de-fribourg-ch",
+          "diploma-tecnico-etat-de-fribourg-fribourg"
         ],
         "en": [
           "dipl-technische-r-sachbearbeiter-in-etat-de-fribourg-ch"
@@ -10226,7 +10461,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -10243,7 +10478,7 @@
       "url": "https://jobs.fr.ch/job/Estavayer-le-Lac%2C-CH-Collaborateur-trice-administratif-ve-Broy/1366253657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:27.505Z",
+      "crawledAt": "2026-07-12T11:07:18.551Z",
       "addressLocality": "Estavayer-le-Lac",
       "postalCode": "1470",
       "addressCountry": "CH",
@@ -10264,11 +10499,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+        "collaboratore-amministrativo-etat-de-fribourg-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+          "collaboratore-amministrativo-etat-de-fribourg-estavayer-le-lac"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
@@ -10278,6 +10515,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.806Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10323,7 +10561,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1366255957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:26.802Z",
+      "crawledAt": "2026-07-12T11:07:17.916Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10344,11 +10582,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "stagiaire-pre-heg-etat-de-fribourg-ch"
+        "stagiaire-pre-heg-etat-de-fribourg-ch",
+        "addestramento-pre-heg-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-pre-heg-etat-de-fribourg-ch"
+          "stagiaire-pre-heg-etat-de-fribourg-ch",
+          "addestramento-pre-heg-etat-de-fribourg-fribourg"
         ],
         "en": [
           "stagiaire-pre-heg-etat-de-fribourg-ch"
@@ -10404,7 +10644,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sektionschefin-Langzeitpflege-Saan/1366257357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:26.103Z",
+      "crawledAt": "2026-07-12T11:07:17.266Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10425,11 +10665,13 @@
       "pensumMax": 80,
       "pensum": "70-80%",
       "previousSlugs": [
-        "sektionschef-in-langzeitpflege-etat-de-fribourg-ch"
+        "sektionschef-in-langzeitpflege-etat-de-fribourg-ch",
+        "responsabile-sezione-in-assistenza-a-lungo-termine-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sektionschef-in-langzeitpflege-etat-de-fribourg-ch"
+          "sektionschef-in-langzeitpflege-etat-de-fribourg-ch",
+          "responsabile-sezione-in-assistenza-a-lungo-termine-etat-de-fribourg-fribourg"
         ],
         "en": [
           "sektionschef-in-langzeitpflege-etat-de-fribourg-ch"
@@ -10485,7 +10727,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-section-Soins-de-longue-dur%C3%A9e-Sari/1366257257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:25.394Z",
+      "crawledAt": "2026-07-12T11:07:16.605Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10506,11 +10748,13 @@
       "pensumMax": 80,
       "pensum": "70-80%",
       "previousSlugs": [
-        "chef-fe-de-section-soins-de-longue-duree-etat-de-fribourg-ch"
+        "chef-fe-de-section-soins-de-longue-duree-etat-de-fribourg-ch",
+        "capo-sezione-cura-a-lungo-termine-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-section-soins-de-longue-duree-etat-de-fribourg-ch"
+          "chef-fe-de-section-soins-de-longue-duree-etat-de-fribourg-ch",
+          "capo-sezione-cura-a-lungo-termine-etat-de-fribourg-fribourg"
         ],
         "en": [
           "chef-fe-de-section-soins-de-longue-duree-etat-de-fribourg-ch"
@@ -10566,7 +10810,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1366234557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:24.693Z",
+      "crawledAt": "2026-07-12T11:07:15.973Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10644,7 +10888,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Konservatorin-Restauratorin-FH-%2840%29-Saan/1366229457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:23.995Z",
+      "crawledAt": "2026-07-12T11:07:15.329Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10665,11 +10909,13 @@
       "pensumMax": 40,
       "pensum": "35-40%",
       "previousSlugs": [
-        "konservator-in-restaurator-in-fh-40-etat-de-fribourg-ch"
+        "konservator-in-restaurator-in-fh-40-etat-de-fribourg-ch",
+        "conservatore-in-restauratore-in-fh-40-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konservator-in-restaurator-in-fh-40-etat-de-fribourg-ch"
+          "konservator-in-restaurator-in-fh-40-etat-de-fribourg-ch",
+          "conservatore-in-restauratore-in-fh-40-etat-de-fribourg-fribourg"
         ],
         "en": [
           "konservator-in-restaurator-in-fh-40-etat-de-fribourg-ch"
@@ -10725,7 +10971,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Conservateur-restaurateur-HES-Conservatrice-restauratrice-HES-%2840%29-Sari/1366229357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:23.297Z",
+      "crawledAt": "2026-07-12T11:07:14.699Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10746,11 +10992,13 @@
       "pensumMax": 40,
       "pensum": "35-40%",
       "previousSlugs": [
-        "conservateur-restaurateur-hes-conservatrice-restauratrice-hes-40-etat-de-fribourg-ch"
+        "conservateur-restaurateur-hes-conservatrice-restauratrice-hes-40-etat-de-fribourg-ch",
+        "curatore-restauratore-hes-curatore-restauratore-hes-40-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conservateur-restaurateur-hes-conservatrice-restauratrice-hes-40-etat-de-fribourg-ch"
+          "conservateur-restaurateur-hes-conservatrice-restauratrice-hes-40-etat-de-fribourg-ch",
+          "curatore-restauratore-hes-curatore-restauratore-hes-40-etat-de-fribourg-fribourg"
         ],
         "en": [
           "conservateur-restaurateur-hes-conservatrice-restauratrice-hes-40-etat-de-fribourg-ch"
@@ -10806,7 +11054,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Praktikantin-Post-Master-Kriminologein-See/1366242657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:22.591Z",
+      "crawledAt": "2026-07-12T11:07:14.065Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10827,11 +11075,13 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "praktikant-in-post-master-kriminologe-in-etat-de-fribourg-ch"
+        "praktikant-in-post-master-kriminologe-in-etat-de-fribourg-ch",
+        "criminologo-interno-post-master-post-master-criminologo-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-post-master-kriminologe-in-etat-de-fribourg-ch"
+          "praktikant-in-post-master-kriminologe-in-etat-de-fribourg-ch",
+          "criminologo-interno-post-master-post-master-criminologo-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "praktikant-in-post-master-kriminologe-in-etat-de-fribourg-ch"
@@ -10886,7 +11136,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Stagiaire-post-master-Criminologue-Lac/1366242557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:21.908Z",
+      "crawledAt": "2026-07-12T11:07:13.428Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10907,11 +11157,13 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "stagiaire-post-master-criminologue-etat-de-fribourg-ch"
+        "stagiaire-post-master-criminologue-etat-de-fribourg-ch",
+        "postmaster-traine-criminologist-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-post-master-criminologue-etat-de-fribourg-ch"
+          "stagiaire-post-master-criminologue-etat-de-fribourg-ch",
+          "postmaster-traine-criminologist-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "stagiaire-post-master-criminologue-etat-de-fribourg-ch"
@@ -10966,7 +11218,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Infirmier-%C3%A8re-Lac/1366246257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:21.214Z",
+      "crawledAt": "2026-07-12T11:07:12.787Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10987,11 +11239,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "infirmier-ere-etat-de-fribourg-ch"
+        "infirmier-ere-etat-de-fribourg-ch",
+        "infermiera-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-etat-de-fribourg-ch"
+          "infirmier-ere-etat-de-fribourg-ch",
+          "infermiera-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "infirmier-ere-etat-de-fribourg-ch"
@@ -11029,7 +11283,7 @@
       "companyDomain": "fr.ch",
       "title": "Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Infermieristica professionale",
+        "it": "Pflegefachfrau/-mann",
         "en": "Nursing professional",
         "de": "Pflegefachfrau/-mann",
         "fr": "Professionnels des soins infirmiers"
@@ -11046,7 +11300,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Pflegefachfrau-mann-See/1366246357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:20.527Z",
+      "crawledAt": "2026-07-12T11:07:12.145Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11068,12 +11322,14 @@
       "pensum": "40-50%",
       "previousSlugs": [
         "pflegefachfrau-mann-etat-de-fribourg-ch",
-        "pflegefachfrau-mann-etat-de-fribourg-mont-vully"
+        "pflegefachfrau-mann-etat-de-fribourg-mont-vully",
+        "infermieristica-professionale-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-etat-de-fribourg-ch",
-          "pflegefachfrau-mann-etat-de-fribourg-mont-vully"
+          "pflegefachfrau-mann-etat-de-fribourg-mont-vully",
+          "infermieristica-professionale-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "pflegefachfrau-mann-etat-de-fribourg-ch"
@@ -11083,6 +11339,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:10.228Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11128,7 +11385,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Post-Bachelorpraktikum-See/1366232757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:19.829Z",
+      "crawledAt": "2026-07-12T11:07:11.501Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11149,11 +11406,13 @@
       "pensumMax": 90,
       "pensum": "80-90%",
       "previousSlugs": [
-        "post-bachelorpraktikum-etat-de-fribourg-ch"
+        "post-bachelorpraktikum-etat-de-fribourg-ch",
+        "stage-post-bachelor-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "post-bachelorpraktikum-etat-de-fribourg-ch"
+          "post-bachelorpraktikum-etat-de-fribourg-ch",
+          "stage-post-bachelor-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "post-bachelorpraktikum-etat-de-fribourg-ch"
@@ -11208,7 +11467,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Stagiaire-post-bachelor-Lac/1366232657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:19.121Z",
+      "crawledAt": "2026-07-12T11:07:10.865Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11229,11 +11488,13 @@
       "pensumMax": 90,
       "pensum": "80-90%",
       "previousSlugs": [
-        "stagiaire-post-bachelor-etat-de-fribourg-ch"
+        "stagiaire-post-bachelor-etat-de-fribourg-ch",
+        "post-bachelor-traine-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-post-bachelor-etat-de-fribourg-ch"
+          "stagiaire-post-bachelor-etat-de-fribourg-ch",
+          "post-bachelor-traine-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "stagiaire-post-bachelor-etat-de-fribourg-ch"
@@ -11288,7 +11549,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-scientifique-Sari/1366264257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:18.422Z",
+      "crawledAt": "2026-07-12T11:07:10.221Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -11309,11 +11570,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "collaboratore-scientifico-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+          "collaboratore-scientifico-etat-de-fribourg-givisiez"
         ],
         "en": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch"
@@ -11368,7 +11631,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Wissenschaftlicher-Mitarbeiterin-Saan/1366264357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:17.725Z",
+      "crawledAt": "2026-07-12T11:07:09.582Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -11389,11 +11652,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch"
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch",
+        "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch"
+          "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch",
+          "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg-givisiez"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch"
@@ -11434,7 +11699,7 @@
         "it": "Infermiera FH/HF, FNPG TK Villars-sur-Glâne",
         "en": "Nurse FH/HF, FNPG TK Villars-sur-Glâne",
         "de": "Pflegefachperson FH/HF, FNPG TK Villars-sur-Glâne",
-        "fr": "Infirmière FH/HF, FNPG TK Villars-sur-Glâne"
+        "fr": "Pflegefachperson FH/HF, FNPG TK Villars-sur-Glâne"
       },
       "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nFür das deutschsprachige Ambulatorium und die Tagesklinik des FNPG in Villars-sur-Glâne\n\n• Ambulante Konsultationen und Begleitung der deutschsprachigen Patient/innen des Kantons Freiburg\n\n• Netzwerkarbeit und Gespräche\n\n• Mitarbeit in der Tagesklink als Bezugsperson der Patient/innen\n\n• Leitung und Co-Leitung therapeutischer Gruppen im Rahmen des therapeutischen Programms\n\n• Pflegerische Tätigkeiten wie Pflegegespräche, Medikamentenvorbereitung und Depotmedikation\n\nGewünschtes Profil\n\n• Diplom als Pflegefachperson FH/HF\n\n• Mindestens zwei Jahre Erfahrung im psychiatrischen stationären und/oder teilstationären Setting\n\n• Gute Kenntnisse des psychiatrischen Netzwerks im Kanton Freiburg\n\n• Autonomie, Flexibilität und Initiativfähigkeit\n\n• Planungsvermögen und Organisationsgeschick\n\n• Erfahrung in der Gesprächsführung\n\n• Fähigkeit und Interesse, therapeutische Gruppen zu leiten/mitzuleiten\n\n• Aktive Mitarbeit an der Weiterentwicklung des therapeutischen Angebots\n\n• Fähigkeit zur Zusammenarbeit im pluridisziplinären Team\n\n• Beherrschen der deutschen oder französischen Sprache mit guten Kentnissen der anderen Sprache (Niveau B2/C1, mündlich und schriftlich)\n\nAngaben der Kontaktpersonen\n\nSilvia Baeriswyl, Stationsleiterin, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -11448,7 +11713,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Pflegefachperson-FHHF%2C-FNPG-TK-Villars-sur-Gl%C3%A2ne-Saan/1363492557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:17.036Z",
+      "crawledAt": "2026-07-12T11:07:08.940Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11469,17 +11734,20 @@
       "pensumMax": 100,
       "pensum": "95-100%",
       "previousSlugs": [
-        "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+        "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch",
+        "infermiera-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+          "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch",
+          "infermiera-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
         ],
         "en": [
           "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:26.961Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11525,7 +11793,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Charg%C3%A9-e-de-s%C3%A9curit%C3%A9-Sari/1363432457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:16.327Z",
+      "crawledAt": "2026-07-12T11:07:08.293Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11546,11 +11814,13 @@
       "pensumMax": 80,
       "pensum": "60-80%",
       "previousSlugs": [
-        "charge-e-de-securite-etat-de-fribourg-ch"
+        "charge-e-de-securite-etat-de-fribourg-ch",
+        "ufficiale-di-sicurezza-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-securite-etat-de-fribourg-ch"
+          "charge-e-de-securite-etat-de-fribourg-ch",
+          "ufficiale-di-sicurezza-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "charge-e-de-securite-etat-de-fribourg-ch"
@@ -11605,7 +11875,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re-HESES%2C-RFSM-Villars-sur-Gl%C3%A2ne-Clinique-de-jour-germanophone-Sari/1363492657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:15.627Z",
+      "crawledAt": "2026-07-12T11:07:07.655Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11628,11 +11898,13 @@
       "previousSlugs": [
         "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg",
         "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-reseau-fribourgeois-sante-mentale-villars",
-        "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
+        "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+        "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-di-lingua-tedesca-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg"
+          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg",
+          "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-di-lingua-tedesca-etat-de-fribourg-villars-sur-glane"
         ],
         "fr": [
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-reseau-fribourgeois-sante-mentale-villars"
@@ -11684,7 +11956,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Aide-infirmier-%C3%A8re%2C-RFSM-Marsens-Unit%C3%A9-Jasmin-Gruy/1363496357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:14.940Z",
+      "crawledAt": "2026-07-12T11:07:06.991Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11705,14 +11977,17 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "aide-infirmier-ere-rfsm-marsens-unite-jasmin-etat-de-fribourg-ch"
+        "aide-infirmier-ere-rfsm-marsens-unite-jasmin-etat-de-fribourg-ch",
+        "assistente-infermiera-rfsm-marsens-unita-jasmin-etat-de-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-infirmier-ere-rfsm-marsens-unite-jasmin-etat-de-fribourg-ch"
+          "aide-infirmier-ere-rfsm-marsens-unite-jasmin-etat-de-fribourg-ch",
+          "assistente-infermiera-rfsm-marsens-unita-jasmin-etat-de-fribourg-marsens"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:28.233Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11758,7 +12033,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Sicherheitsbeauftragter-Saan/1363432557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:14.237Z",
+      "crawledAt": "2026-07-12T11:07:06.348Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11780,12 +12055,14 @@
       "pensum": "60-80%",
       "previousSlugs": [
         "sicherheitsbeauftragte-r-etat-de-fribourg-ch",
-        "sicherheitsbeauftragte-r-etat-de-fribourg-hauterive-fr"
+        "sicherheitsbeauftragte-r-etat-de-fribourg-hauterive-fr",
+        "responsabile-della-sicurezza-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsbeauftragte-r-etat-de-fribourg-ch",
-          "sicherheitsbeauftragte-r-etat-de-fribourg-hauterive-fr"
+          "sicherheitsbeauftragte-r-etat-de-fribourg-hauterive-fr",
+          "responsabile-della-sicurezza-etat-de-fribourg-hauterive-fr"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:25.679Z",
@@ -11834,7 +12111,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Grandes-cultures-Lac/1363595057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:32:13.535Z",
+      "crawledAt": "2026-07-12T11:07:05.705Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11855,11 +12132,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "agent-e-de-detention-grandes-cultures-etat-de-fribourg-ch"
+        "agent-e-de-detention-grandes-cultures-etat-de-fribourg-ch",
+        "responsabile-della-detenzione-colture-di-campi-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-grandes-cultures-etat-de-fribourg-ch"
+          "agent-e-de-detention-grandes-cultures-etat-de-fribourg-ch",
+          "responsabile-della-detenzione-colture-di-campi-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "agent-e-de-detention-grandes-cultures-etat-de-fribourg-ch"
@@ -11914,7 +12193,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Ackerculturen-See/1363595157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:32:12.820Z",
+      "crawledAt": "2026-07-12T11:07:05.051Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
