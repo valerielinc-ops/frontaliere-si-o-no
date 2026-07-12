@@ -3113,6 +3113,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-ticino-sondaggio',
+    category: 'pratico',
+    date: '2026-07-12T12:41:26.027Z',
+    image: '/images/blog/frontalieri-ticino-sondaggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -13395,6 +13395,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-sondaggio': {
+    title: 'Lavoro in Svizzera, vita in provincia: numeri, percorsi e accordi per 32mila frontalieri',
+    description: 'Sondaggio VareseNews: 46 frontaliere su 649 della provincia di Varese lavorano in Svizzera, con un aumento del 21% negli ultimi 10 anni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, vita, provincia, numeri',
+    ogTitle: 'Lavorare in Svizzera, vivere in provincia: numeri, percorsi e accordi',
+    ogDescription: 'Sondaggio VareseNews: 46 frontaliere su 649 della provincia di Varese lavorano in Svizzera, con un aumento del 21% negli ultimi 10 anni.',
+    canonicalPath: '/articoli-svizzera/frontalieri-ticino-sondaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro in Svizzera, vita in provincia: numeri, percorsi e accordi per 32mila frontalieri",
+      "description": "Sondaggio VareseNews: 46 frontaliere su 649 della provincia di Varese lavorano in Svizzera, con un aumento del 21% negli ultimi 10 anni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-sondaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa del treno a Lugano"
+      },
+      "datePublished": "2026-07-12T12:41:26+00:00",
+      "dateModified": "2026-07-12T12:41:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-ticino-sondaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1039,6 +1039,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.title': 'Spesa fronteggine: prezzi svizzeri e italiani',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.excerpt': 'Confronto prezzi supermercati svizzeri e italiani: quali sono le differenze e dove conviene fare la spesa per un frontaliere?',
     'blog.article.spesa-alimentare-svizzera-italia-convieni-frontaliere.imageAlt': 'Una scena di mercato in Svizzera con prodotti freschi e di alta qualità',
+    'blog.article.frontalieri-ticino-sondaggio.title': 'Lavoro in Svizzera, vita in provincia: numeri, percorsi e accordi per 32mila frontalieri',
+    'blog.article.frontalieri-ticino-sondaggio.excerpt': 'Sondaggio VareseNews: 46 frontaliere su 649 della provincia di Varese lavorano in Svizzera, con un aumento del 21% negli ultimi 10 anni.',
+    'blog.article.frontalieri-ticino-sondaggio.imageAlt': 'Frontalieri in attesa del treno a Lugano',
 };
 
 export default blogMetaChIt;
