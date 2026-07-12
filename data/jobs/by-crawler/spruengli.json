@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1234/pub/7/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:56:28.767Z",
+      "crawledAt": "2026-07-12T11:10:19.081Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -56,7 +56,6 @@
       "previousSlugs": [
         "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
         "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon",
         "collaboratore-trice-in-produktion-70-fullabteilung-konditorei-confiserie-sprungli-ag-dietikon",
         "employee-in-production-70-filling-department-confectionery-confiserie-sprungli-ag-dietikon",
         "mitarbeiter-in-produktion-70-fullabteilung-konditorei-spruengli-dietikon",
@@ -65,13 +64,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
         ],
         "en": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ],
         "fr": [
+          "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "de": [
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ]
       },
@@ -95,7 +97,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
         "en": "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "de": "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "de": "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
         "fr": "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
@@ -156,7 +158,8 @@
           "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
         ],
         "de": [
-          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau"
+          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
+          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
         ]
       },
       "firstSeenAt": "2026-07-08T11:18:29.720Z",
@@ -179,7 +182,7 @@
       "slugByLocale": {
         "it": "personale-di-servizio-in-80-100-paradeplatz-zurigo-confiserie-sprungli-ag-zurich",
         "en": "service-staff-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
-        "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
+        "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich",
         "fr": "personnel-de-service-a-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -240,7 +243,8 @@
           "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
         ],
         "de": [
-          "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich"
+          "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich",
+          "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-08T11:18:29.717Z",
@@ -263,7 +267,7 @@
       "slugByLocale": {
         "it": "stv-filiale-manager-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-aargau",
         "en": "stv-branch-manager-80-100-railway-station-baden-confiserie-sprungli-ag-aargau",
-        "de": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "de": "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
         "fr": "directeur-de-succursale-stv-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
@@ -324,7 +328,8 @@
           "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ],
         "de": [
-          "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau"
+          "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
+          "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ]
       },
       "firstSeenAt": "2026-07-08T11:18:29.718Z",
@@ -362,17 +367,17 @@
       },
       "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80-100%) Raum Zürich\n\n80-100%, Zürich\n\nArbeiten bei Sprüngli\n\nZur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
       "descriptionByLocale": {
-        "it": "Descrizione Fondata nel 1836, l'azienda svizzera di famiglia è oggi uno dei più grandi confezionatori d'Europa con il suo assortimento squisito. I prodotti di Sprüngli sono sinonimo di qualità, freschezza e naturalezza.\n\nConsulente commerciale (80-100%) Zona di Zurigo\n\n80-100%, Zurigo\n\nLavorare a Sprüngli\n\nPer rafforzare i nostri team di varie filiali nella zona di Zurigo (aeroporto, stazione centrale, piazza parata, stazione Oerlikon) stiamo cercando una personalità orientata al servizio come\n\nCompiti - Consulenza ai nostri clienti nazionali ed internazionali con eccellente qualità del servizio - Gestione e presentazione dei nostri prodotti squisiti Sprüngli con un tocco decorativo - Accettazione degli ordini dei clienti e preparazione alla collezione\n\nRequisiti - Formazione completa nel commercio al dettaglio e/o esperienza di vendita nel commercio al dettaglio (preferibilmente consumer o industria alimentare) - competenze tedesche e di buona lingua - flessibilità negli orari di lavoro (aeroporto: operazioni di trasferimento tra le 17.30 e le 22.30 e dalle 2 alle 3 viaggi del fine settimana al mese)\n\nOffriamo - singole aree di responsabilità, nonché opportunità di sviluppo e di formazione - integratori generosi e sconti per lo shopping - giornata libera aggiuntiva come stima del valore di compleanno - un ambiente vivace e moderno con una cultura di 1 561al du - Un team motivato e impegnato, che è già in attesa di voi\n\nContatto Sei interessato? Allora non vediamo l'ora di ricevere la tua applicazione elettronica.* Attualmente non accettiamo le richieste delle agenzie di lavoro per questa posizione.",
-        "en": "Description Founded in 1836, the Swiss family business is today one of the most prestigious confectioners in Europe with its exquisite assortment. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The finished creations bring customers from all over the world to the swarms every day.\n\nSales consultant (80-100%) Zurich area\n\n80-100%, Zurich\n\nWorking at Sprüngli\n\nTo strengthen our teams of various branches in the Zurich area (airport, central station, parade square, Oerlikon station) we are looking for a service-oriented personality as\n\nTasks - Advising our national and international customers with excellent service quality - Management and presentation of our exquisite Sprüngli products with a decorative flair - Acceptance of customer orders and preparation for collection\n\nRequirements - Completed training in retail trade and/or sales experience in retail trade (preferably confiserie or food industry) - leading German and good English skills - flexibility in working hours (airport: shift operations between 5.30 and 10.30 p.m. and 2 to 3 weekend trips per month)\n\nWe offer - Individual areas of responsibility as well as development and further education opportunities - Generous supplements and shopping discounts - Additional free day as birthday value estimate - A lively and modern environment with a collegial du culture - A motivated and committed team, which is already looking forward to you\n\nContact Are you interested? Then we look forward to receiving your electronic application.* We currently do not accept applications from job agencies for this position.",
-        "de": "## Beschreibung\nDas 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80-100%) Raum Zürich\n\n80-100%, Zürich\n\nArbeiten bei Sprüngli\n\nZur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\n## Aufgaben\n- Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n- Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n- Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\n## Anforderungen\n- Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n- Fliessende Deutsch- und gute Englischkenntnisse\n- Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\n## Wir bieten\n- Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n- Grosszügige Zulagen und Einkaufsvergünstigung\n- Zusätzlicher freier Tag als Geburtstagswertschätzung\n- Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n- Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\n## Kontakt\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Description Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'un des plus prestigieux de l'Europe avec son assortiment exquis. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur et de naturel uniques. Les créations finies apportent des clients du monde entier aux essaims tous les jours.\n\nConsultant en ventes (80-100%) Région de Zurich\n\n80-100%, Zurich\n\nTravail chez Sprüngli\n\nPour renforcer nos équipes de différentes branches dans la région de Zurich (aéroport, gare centrale, place de parade, gare d'Oerlikon) nous recherchons une personnalité orientée service comme\n\nTâches - Conseiller nos clients nationaux et internationaux avec une excellente qualité de service - Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif - Acceptation des commandes des clients et préparation pour la collection\n\nExigences - Formation complète dans le commerce de détail et/ou l'expérience commerciale dans le commerce de détail (de préférence confiscation ou industrie alimentaire) - compétences allemandes de premier plan et bonnes compétences anglaises - flexibilité des heures de travail (aéroport : activités de travail par équipes entre 17 h 30 et 22 h 30 et 2 à 3 week-ends par mois)\n\nNous offrons - Des domaines de responsabilité individuels ainsi que le développement et les possibilités de formation - Des suppléments généreux et des réductions d'achat - Journée gratuite supplémentaire comme estimation de la valeur anniversaire - Un environnement vivant et moderne avec une culture collégiale - Une équipe motivée et engagée, qui est déjà impatiente de vous\n\nNous attendons avec impatience de recevoir votre demande électronique.* Nous n'acceptons pas actuellement les demandes des agences professionnelles pour ce poste."
+        "it": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen. Verkaufsberater*in (80-100%) Raum Zürich 80-100%, Zürich Arbeiten bei Sprüngli Zur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als Was du bei uns bewegst\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung Was wir uns wünschen\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n• Fliessende Deutsch- und gute Englischkenntnisse\n• Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat) Darauf kannst du dich freuen\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n• Grosszügige Zulagen und Einkaufsvergünstigung\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut Bist du interessiert? Dann freuen wir uns auf deine elektronische Bewerbung.* Derzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "en": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen. Verkaufsberater*in (80-100%) Raum Zürich 80-100%, Zürich Arbeiten bei Sprüngli Zur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als Was du bei uns bewegst\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung Was wir uns wünschen\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n• Fliessende Deutsch- und gute Englischkenntnisse\n• Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat) Darauf kannst du dich freuen\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n• Grosszügige Zulagen und Einkaufsvergünstigung\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut Bist du interessiert? Dann freuen wir uns auf deine elektronische Bewerbung.* Derzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80-100%) Raum Zürich\n\n80-100%, Zürich\n\nArbeiten bei Sprüngli\n\nZur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen. Verkaufsberater*in (80-100%) Raum Zürich 80-100%, Zürich Arbeiten bei Sprüngli Zur Verstärkung unserer Teams diverser Filialen im Raum Zürich (Flughafen, Hauptbahnhof, Paradeplatz, Bahnhof Oerlikon) suchen wir eine dienstleistungsorientierte Persönlichkeit als Was du bei uns bewegst\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung Was wir uns wünschen\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n• Fliessende Deutsch- und gute Englischkenntnisse\n• Flexibilität bezüglich Arbeitszeiten (Flughafen: Schichteinsätze zwischen 5.30 und 22.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat) Darauf kannst du dich freuen\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n• Grosszügige Zulagen und Einkaufsvergünstigung\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut Bist du interessiert? Dann freuen wir uns auf deine elektronische Bewerbung.* Derzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/116352/1094/pub/60/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T21:56:28.763Z",
+      "crawledAt": "2026-07-12T11:10:19.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -394,22 +399,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-80-100-raum-zurich-confiserie-sprungli-ag-zurich",
-        "verkaufsberater-in-80-100-raum-zurich-spruengli-zurich",
-        "consulente-commerciale-80-100-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+        "verkaufsberater-in-80-100-raum-zurich-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-80-100-raum-zurich-confiserie-sprungli-ag-zurich",
-          "verkaufsberater-in-80-100-raum-zurich-spruengli-zurich",
-          "consulente-commerciale-80-100-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+          "verkaufsberater-in-80-100-raum-zurich-spruengli-zurich"
         ],
         "en": [
           "verkaufsberater-in-80-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ],
         "fr": [
           "verkaufsberater-in-80-100-raum-zurich-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "verkaufsberater-in-80-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:00:50.642Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -430,7 +437,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
         "en": "sales-consultant-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "de": "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
+        "de": "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
         "fr": "consultant-commercial-80-100-bern-station-confiserie-sprungli-ag-bern"
       },
       "company": "Confiserie Sprüngli AG",
@@ -491,7 +498,7 @@
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "de": [
-          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern"
+          "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -515,7 +522,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
         "en": "sales-consultant-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "de": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+        "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
         "fr": "consultant-en-ventes-60-100-zermatt-confiserie-sprungli-ag-zermatt"
       },
       "company": "Confiserie Sprüngli AG",
@@ -576,7 +583,7 @@
           "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ],
         "de": [
-          "verkaufsberater-in-60-100-zermatt-spruengli-zermatt"
+          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ]
       },
       "needsRetranslation": true,
@@ -600,7 +607,7 @@
       "slugByLocale": {
         "it": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
         "en": "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "de": "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
+        "de": "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
         "fr": "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern"
       },
       "company": "Confiserie Sprüngli AG",
@@ -661,7 +668,7 @@
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "de": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern"
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -685,7 +692,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug",
         "en": "sales-consultant-100-train-station-zug-confiserie-sprungli-ag-zug",
-        "de": "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
+        "de": "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
         "fr": "consultant-commercial-100-gare-de-zug-confiserie-sprungli-ag-zug"
       },
       "company": "Confiserie Sprüngli AG",
@@ -746,7 +753,7 @@
           "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
         ],
         "de": [
-          "verkaufsberater-in-100-bahnhof-zug-spruengli-zug"
+          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
         ]
       },
       "needsRetranslation": true,
@@ -771,7 +778,7 @@
         "it": "retail-trade-officer-genf-bahnhof-60-confiserie-sprungli-ag-genf",
         "en": "retail-trade-officer-genf-bahnhof-60-confiserie-sprungli-ag-geneve",
         "de": "retail-trade-officer-genf-bahnhof-60-confiserie-sprungli-ag-geneve",
-        "fr": "specialiste-du-commerce-de-detail-genf-bahnhof-60-confiserie-sprungli-ag-geneve"
+        "fr": "specialiste-du-commerce-de-detail-genf-bahnhof-60-spruengli-genf"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -816,14 +823,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-du-commerce-de-detail-genf-bahnhof-60-spruengli-genf"
+        "specialiste-du-commerce-de-detail-genf-bahnhof-60-spruengli-genf",
+        "specialiste-du-commerce-de-detail-genf-bahnhof-60-confiserie-sprungli-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-du-commerce-de-detail-genf-bahnhof-60-spruengli-genf"
         ],
         "fr": [
-          "specialiste-du-commerce-de-detail-genf-bahnhof-60-spruengli-genf"
+          "specialiste-du-commerce-de-detail-genf-bahnhof-60-confiserie-sprungli-ag-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -847,7 +855,7 @@
       "slugByLocale": {
         "it": "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
         "en": "service-staff-80-100-cafe-lounge-and-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
-        "de": "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+        "de": "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
         "fr": "personnel-du-service-80-100-cafe-salon-et-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -907,7 +915,7 @@
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ],
         "de": [
-          "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich"
+          "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ]
       },
       "needsRetranslation": true,
@@ -931,7 +939,7 @@
       "slugByLocale": {
         "it": "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag",
         "en": "production-employee-in-machine-operation-100-luxembourgerli-department-confiserie-sprungli-ag-dietikon",
-        "de": "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
+        "de": "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli",
         "fr": "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -992,7 +1000,7 @@
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
         ],
         "de": [
-          "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli"
+          "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1016,7 +1024,7 @@
       "slugByLocale": {
         "it": "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "en": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "de": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
+        "de": "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
         "fr": "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1078,7 +1086,7 @@
           "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ],
         "de": [
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich"
+          "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1102,7 +1110,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "en": "home-service-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "de": "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich",
+        "de": "mitarbeiter-in-hausdienst-100-paradeplatz-spruengli-zurich",
         "fr": "employe-de-service-a-domicile-100-paradeplatz-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1162,7 +1170,7 @@
           "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ],
         "de": [
-          "mitarbeiter-in-hausdienst-100-paradeplatz-spruengli-zurich"
+          "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1197,7 +1205,7 @@
         "it": "Pasticceria nel reparto torte e pasticcerie (100%)",
         "en": "Pastry confectioner in the cake/patisserie department (100%)",
         "de": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)",
-        "fr": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)"
+        "fr": "pâtissier dans le département des gâteaux/pâtisseries (100%)"
       },
       "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nKonditor-Confiseur*in Abteilung Torten/Patisserie (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Torten/Patisserie per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest in unserer Torten/Patisserie-Abteilung in unserer Manufaktur in Dietikon und stellst im Team unsere anspruchsvollen Rahmtorten und Rahmpatisserie auf höchstem Qualitätsniveau her. Dabei sind dir ein früher Arbeitsbeginn (05.00 oder 06.00 Uhr) und regelmässige Wochenend-Einsätze in einer Nachtschicht möglich.\n\nDeine Aufgaben\n\n• Handwerkliche Anfertigung unseres Torten-, Rahm- und Pâtisseriesortiments\n\n• Herstellung von Standard- und Saisonprodukten sowie Sonderbestellungen\n\n• Belegen, Glasieren und Überziehen von unterschiedlichen Produkten\n\n• Einhalten der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\nWas wir uns wünschen\n\n• Lehrabschluss als Konditor-Confiseur*in EFZ oder EBA\n\n• Freude an deinem erlernten Beruf sowie an Arbeiten im Team\n\n• Exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Mobilität und Flexibilität, insbesondere in der Saison\n\n• Eine offene, kommunikative Persönlichkeit mit handwerklichem Geschick sowie guter körperlicher Verfassung\n\n• Gute Deutschkenntnisse\n\n• PC-Kenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften, modernen Umfeld. Du arbeitest in einem motivierten Team mit offener Du-Kultur und echtem Zusammenhalt.\n\n🌙 Attraktive Nachtzulagen:\n Für Einsätze in der Nacht profitierst du von einer besonders attraktiven Regelung:\n – 40 % Lohnzuschlag in Geldform im Zeitraum von 22.00 bis 4.00 Uhr\n – 10 % Zeitgutschrift für geleistete Stunden zwischen 22.00 und 5.00 Uhr\n\n• ✨ 10 Minuten bezahlte Umkleidezeit\n\n• 👕 Arbeitskleidung inklusive Reinigung\n\n• 🎂Ein zusätzlicher freier Tag in deinem Geburtstagsmonat\n\n• 🏖️ 5 Wochen Ferien\n\n• 🚗 Kostenloser Parkplatz\n\n• 🛍️ Grosszügige Einkaufsvergünstigungen\n\n• 🥗 Verpflegungsmöglichkeiten vor Ort\n\n🛡️ Starke Sozialleistungen:\n – Die Arbeitgeberin übernimmt freiwillig die volle Prämie der Krankentaggeldversicherung\n – Die Kosten der Berufsunfallversicherung gemäss UVG werden vollständig von der Arbeitgeberin getragen\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
       "descriptionByLocale": {
@@ -1414,7 +1422,7 @@
       "slugByLocale": {
         "it": "confezionatore-di-panetteria-fine-100-confiserie-sprungli-ag-dietikon",
         "en": "baker-confectioner-in-the-department-of-fine-bakery-100-confiserie-sprungli-ag-dietikon",
-        "de": "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
+        "de": "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
         "fr": "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1460,14 +1468,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
+        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
+        "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
         ],
         "de": [
-          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
+          "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1491,7 +1500,7 @@
       "slugByLocale": {
         "it": "il-turno-di-notte-aiuta-la-pasticceria-del-reparto-di-riempimento-del-100-confiserie-sprungli-ag-dietikon",
         "en": "night-shift-help-100-filling-department-confectionery-confiserie-sprungli-ag-dietikon",
-        "de": "aushilfe-nachtschicht-100-fullabteilung-konditorei-confiserie-sprungli-ag-dietikon",
+        "de": "aushilfe-nachtschicht-100-fullabteilung-konditorei-spruengli-dietikon",
         "fr": "le-quart-de-nuit-aide-le-service-de-remplissage-100-confiserie-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1537,14 +1546,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-nachtschicht-100-fullabteilung-konditorei-spruengli-dietikon"
+        "aushilfe-nachtschicht-100-fullabteilung-konditorei-spruengli-dietikon",
+        "aushilfe-nachtschicht-100-fullabteilung-konditorei-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-nachtschicht-100-fullabteilung-konditorei-spruengli-dietikon"
         ],
         "de": [
-          "aushilfe-nachtschicht-100-fullabteilung-konditorei-spruengli-dietikon"
+          "aushilfe-nachtschicht-100-fullabteilung-konditorei-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1716,7 +1726,7 @@
       "slugByLocale": {
         "it": "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
         "en": "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
-        "de": "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+        "de": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
         "fr": "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1762,14 +1772,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ],
         "de": [
-          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1793,7 +1804,7 @@
       "slugByLocale": {
         "it": "stv-branch-manager-100-zona-di-zurigo-confiserie-sprungli-ag-zurich",
         "en": "stv-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich",
-        "de": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
+        "de": "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
         "fr": "directeur-de-succursale-stv-100-region-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1840,7 +1851,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-        "stv-filialleiter-in-100-raum-zurich-spruengli-zurich"
+        "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+        "stv-filialleiter-in-100-raum-zug-confiserie-sprungli-ag-zug",
+        "stv-filialleiter-in-100-raum-zug-spruengli-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1854,7 +1867,7 @@
           "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ],
         "de": [
-          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich"
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1952,7 +1965,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon",
         "en": "employee-in-cleaning-30-confiserie-sprungli-ag-dietikon",
-        "de": "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon",
+        "de": "mitarbeiter-in-reinigung-30-spruengli-dietikon",
         "fr": "employe-de-nettoyage-30-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -2012,7 +2025,7 @@
           "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon"
         ],
         "de": [
-          "mitarbeiter-in-reinigung-30-spruengli-dietikon"
+          "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -2110,7 +2123,7 @@
       "slugByLocale": {
         "it": "chauffeur-euse-kat-c1-o-hoher-100-confiserie-sprungli-ag-dietikon",
         "en": "chauffeur-euse-cat-c1-or-higher-100-confiserie-sprungli-ag-dietikon",
-        "de": "chauffeur-euse-kat-c1-oder-hoher-100-confiserie-sprungli-ag-dietikon",
+        "de": "chauffeur-euse-kat-c1-oder-hoher-100-spruengli-dietikon",
         "fr": "chauffeur-euse-cat-c1-ou-plus-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -2156,14 +2169,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-euse-kat-c1-oder-hoher-100-spruengli-dietikon"
+        "chauffeur-euse-kat-c1-oder-hoher-100-spruengli-dietikon",
+        "chauffeur-euse-kat-c1-oder-hoher-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-euse-kat-c1-oder-hoher-100-spruengli-dietikon"
         ],
         "de": [
-          "chauffeur-euse-kat-c1-oder-hoher-100-spruengli-dietikon"
+          "chauffeur-euse-kat-c1-oder-hoher-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
