@@ -48393,6 +48393,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riapertura-linea-gallarate-stabio': {
+    title: 'Riapre la linea Gallarate-Stabio: novità per frontalieri',
+    description: 'Riaprono i collegamenti ferroviari tra Varese e il Ticino. Scopri le tratte attive, i cantieri ancora in corso e come pianificare i tuoi spostamenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, linea, gallarate-stabio, novità',
+    ogTitle: 'Riapertura linea Gallarate-Stabio: info per frontalieri',
+    ogDescription: 'Riaprono i collegamenti ferroviari tra Varese e il Ticino. Scopri le tratte attive, i cantieri ancora in corso e come pianificare i tuoi spostamenti.',
+    canonicalPath: '/articoli-frontaliere/riapertura-linea-gallarate-stabio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riapre la linea Gallarate-Stabio: novità per frontalieri",
+      "description": "Riaprono i collegamenti ferroviari tra Varese e il Ticino. Scopri le tratte attive, i cantieri ancora in corso e come pianificare i tuoi spostamenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riapertura-linea-gallarate-stabio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno TILO in transito presso una stazione del Canton Ticino"
+      },
+      "datePublished": "2026-07-12T13:29:49+00:00",
+      "dateModified": "2026-07-12T13:29:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riapertura-linea-gallarate-stabio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

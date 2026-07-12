@@ -8425,6 +8425,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Swiss motorway vignette 2026: cost for border crossers',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'The 2026 Swiss motorway vignette: how it works, where to buy and what it means for border crossers',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'A photo of a vehicle in transit on the Italy-Switzerland border, with the toll sticker',
+    'blog.article.riapertura-linea-gallarate-stabio.title': 'The Gallarate-Stabio line reopens: news for border workers',
+    'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'After four weeks of work, the strategic railway connections for border workers between Varese, Ticino and Porto Ceresio resume.',
+    'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'TILO train arriving at a station in the Canton of Ticino',
 };
 
 export default blogMetaEn;

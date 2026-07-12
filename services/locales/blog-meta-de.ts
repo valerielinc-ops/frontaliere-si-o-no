@@ -8424,6 +8424,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Schweizer Autobahnvignette 2026: Kosten für Grenzgänger',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'Die Schweizer Autobahnvignette 2026: Wie es funktioniert, wo man es kaufen kann und was es für Grenzgänger bedeutet',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'Eine Fotografie eines Fahrzeugs im Transit auf der italienisch-schweizerischen Grenze, mit dem Autobahnvignette',
+    'blog.article.riapertura-linea-gallarate-stabio.title': 'Wiedereröffnung der Linie Gallarate-Stabio: Neuheit für Grenzgänger',
+    'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Nach vierwöchigen Arbeiten nehmen sie die strategischen Bahnverbindungen für die Grenzgänger zwischen Varese, dem Tessin und Porto Ceresio wieder auf.',
+    'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'TILO-Zug bei der Einfahrt in einen Bahnhof im Kanton Tessin',
 };
 
 export default blogMetaDe;

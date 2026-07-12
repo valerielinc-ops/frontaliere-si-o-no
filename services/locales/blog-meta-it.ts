@@ -8426,6 +8426,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Vignetta autostradale svizzera 2026: costo per i frontalieri',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'La vignetta autostradale svizzera 2026: come funziona, dove acquistare e cosa significa per i frontalieri',
     'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'Una foto di un veicolo in transito sul confine italo-svizzero, con la vignetta autostradale',
+    'blog.article.riapertura-linea-gallarate-stabio.title': 'Riapre la linea Gallarate-Stabio: novità per frontalieri',
+    'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Dopo quattro settimane di lavori, riprendono i collegamenti ferroviari strategici per i frontalieri tra Varese, il Ticino e Porto Ceresio.',
+    'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'Treno TILO in transito presso una stazione del Canton Ticino',
 };
 
 export default blogMetaIt;
