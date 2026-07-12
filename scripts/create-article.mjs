@@ -8248,12 +8248,14 @@ async function main() {
           _discoveryId: id,
           _discoveryCandidate: c,
         };
+        // resolveGoogleNewsHeadline now ALWAYS returns an object: the direct
+        // twin when the fuzzy-match hits, else the wrapper flagged
+        // _needsGoogleNewsDecode (decoded lazily at fetch time). It no longer
+        // drops candidates — the old `if (!resolved) …skip` branch was the
+        // exact behaviour that discarded ~219 real news/run and is gone. Keep a
+        // defensive falsy-guard only (should not fire for a valid candidate).
         const resolved = resolveGoogleNewsHeadline(headline, _provenHeadlinesForDiscovery);
-        if (!resolved) {
-          console.error(`   ⏭️  Google News RSS non risolto a fonte diretta: "${String(c.headline || '').slice(0, 80)}"`);
-          RUN_REPORT.notes.push(`Google News RSS skipped: unresolved direct source (${String(c.headline || '').slice(0, 120)})`);
-          continue;
-        }
+        if (!resolved) continue;
         if (resolved._resolvedFromGoogleNewsRss) {
           console.error(`   🔗 Google News RSS risolto a fonte diretta (${resolved._resolvedGoogleNewsScore.toFixed(2)}): ${resolved.url}`);
         }
@@ -8329,7 +8331,20 @@ async function main() {
       // proven pool so the same ranker + gates rank them alongside direct
       // sources. Real-URL decoding is deferred to fetch time (lazy). Entirely
       // best-effort: any failure leaves the direct-source pool untouched.
-      if (slotKind === 'proven' && evidenceForDiscovery) {
+      // Wall-clock guard: this adds a remote pool build (orphan/suggest/news
+      // fetches) that the proven slot did NOT do before. Skip it when the run
+      // budget is already spent, so slow/timing-out feeds can't push the run
+      // past its deadline — the direct-source pool + evergreen safety net still
+      // produce an article. (_buildDiscoveryPool has its own per-fetch timeouts
+      // too; this is the belt to that suspenders.)
+      if (slotKind === 'proven' && evidenceForDiscovery && wallBudgetExceeded()) {
+        // Observability: make the budget-skip visible (the removed dead branch
+        // used to log its own skip); silence here would hide why no Google-News
+        // candidates entered the pool on a budget-tight run.
+        console.error('GOOGLE_NEWS_INJECT skipped=wall_budget_exceeded');
+        RUN_REPORT.notes.push('Google-News injection skipped: wall budget exceeded before pool build');
+      }
+      if (slotKind === 'proven' && evidenceForDiscovery && !wallBudgetExceeded()) {
         try {
           _provenHeadlinesForDiscovery = headlines.slice();
           const provenStrings = headlines.map((h) => String(h.headline || ''));
