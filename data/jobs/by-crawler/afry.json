@@ -1173,7 +1173,15 @@
         }
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-12T11:03:42.286Z"
+      "firstSeenAt": "2026-07-12T11:03:42.286Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "revit-modell-80-100-e-h-d-freiburg-afry-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "revit-modell-80-100-e-h-d-freiburg-afry-fribourg"
+      ]
     },
     {
       "title": "Teamleiter:in BSA 80-100% - Zürich",
@@ -1375,7 +1383,19 @@
         }
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-12T11:03:42.286Z"
+      "firstSeenAt": "2026-07-12T11:03:42.286Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "civil-engineering-project-engineer-structure-orientation-80-100-f-h-d-fribourg-afry-fribourg"
+        ],
+        "de": [
+          "bauingenieur-strukturorientierung-80-100-w-h-d-freiburg-afry-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "civil-engineering-project-engineer-structure-orientation-80-100-f-h-d-fribourg-afry-fribourg",
+        "bauingenieur-strukturorientierung-80-100-w-h-d-freiburg-afry-fribourg"
+      ]
     },
     {
       "title": "Projektleiter:in Nationalstrassenbau Region Deutschschweiz 80-100% - Zürich oder Chur",
@@ -1488,10 +1508,14 @@
       "previousSlugsByLocale": {
         "it": [
           "directeur-adjoint-de-la-region-ouest-business-unit-civil-f-h-d-80-100-lausanne-fribourg-delemont-afry-lausanne"
+        ],
+        "de": [
+          "stellvertretender-direktor-western-region-civil-business-unit-w-h-d-80-100-lausanne-freiburg-delemont-afry-lausanne"
         ]
       },
       "previousSlugs": [
-        "directeur-adjoint-de-la-region-ouest-business-unit-civil-f-h-d-80-100-lausanne-fribourg-delemont-afry-lausanne"
+        "directeur-adjoint-de-la-region-ouest-business-unit-civil-f-h-d-80-100-lausanne-fribourg-delemont-afry-lausanne",
+        "stellvertretender-direktor-western-region-civil-business-unit-w-h-d-80-100-lausanne-freiburg-delemont-afry-lausanne"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
