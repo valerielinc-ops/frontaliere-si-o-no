@@ -8440,6 +8440,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Life as a frontier student: registration and costs for USES/SUPSI',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Commuting university students can enroll in USI/SUPSI without problems, but they must be aware of the differences between the status of working border worker and that of commuting student.',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'A student pendular in Ticino, with the University of Italian Switzerland (USI) or the University of Applied Sciences and Arts of Southern Switzerland (SUPSI) in the background.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'More restraint for job listings in Switzerland',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'The Swiss labor market in the second quarter of 2026 showed a general stagnation, however, hiding a strong divergence between growing sectors and others in sharp decline.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'A modern building in Lugano with a view of the lake.',
 };
 
 export default blogMetaEn;

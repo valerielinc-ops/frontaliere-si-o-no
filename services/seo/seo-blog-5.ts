@@ -48588,6 +48588,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera': {
+    title: 'Di più frenata per gli annunci di lavoro in Svizzera',
+    description: 'Il mercato del lavoro svizzero nel secondo trimestre 2026 ha mostrato una stagnazione generale, nascondendo però una forte divergenza tra settori in crescita e',
+    keywords: 'frontalieri, ticino, svizzera, italia, frenata, annunci, lavoro, mercato',
+    ogTitle: 'Di più frenata per gli annunci di lavoro in Svizzera',
+    ogDescription: 'Il mercato del lavoro svizzero nel secondo trimestre 2026 ha mostrato una stagnazione generale, nascondendo però una forte divergenza tra settori in crescita e',
+    canonicalPath: '/articoli-frontaliere/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più frenata per gli annunci di lavoro in Svizzera",
+      "description": "Il mercato del lavoro svizzero nel secondo trimestre 2026 ha mostrato una stagnazione generale, nascondendo però una forte divergenza tra settori in crescita e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un edificio moderno in Lugano con una vista sul lago."
+      },
+      "datePublished": "2026-07-12T16:02:29+00:00",
+      "dateModified": "2026-07-12T16:02:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

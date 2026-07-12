@@ -8441,6 +8441,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Vie d\'étudiant frontalier : inscription et coûts aux USAGES/SUPSI',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Les étudiants universitaires itinérants peuvent s\'inscrire à USI/SUPSI sans problème, mais ils doivent être conscients des différences entre le statut de travailleur frontalier et celui d\'étudiant itinérant.',
     'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'Un étudiant pendulaire en Suisse, avec l\'Université de la Suisse italienne (USI) ou la Haute École spécialisée de la Suisse italienne (SUPSI) en arrière-plan.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Plus de freinage pour les offres d\'emploi en Suisse',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Le marché du travail suisse au deuxième trimestre 2026 a affiché une stagnation générale, cachant toutefois une forte divergence entre des secteurs en croissance et d\'autres en nette baisse.',
+    'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Un bâtiment moderne à Lugano avec une vue sur le lac.',
 };
 
 export default blogMetaFr;
