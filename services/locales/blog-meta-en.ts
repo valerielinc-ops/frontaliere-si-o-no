@@ -8455,6 +8455,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Family Sick Leave and Bereavement Leave: Cross-Border Rights in Switzerland and Italy',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Duration, pay and leave procedures in case of bereavement or illness of a family member when you work in Ticino. Differences with Italian rules.',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Swiss official document on family leave in a Ticino office',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Remote work in third country: taxation for border workers',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Holidays and smart working abroad for border workers: tax implications, LAMal insurance coverage and communication obligations to the employer.',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Lake Lugano with Alpine backdrop, representation of cross-border remote work',
 };
 
 export default blogMetaEn;

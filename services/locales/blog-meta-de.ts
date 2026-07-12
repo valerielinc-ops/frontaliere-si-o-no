@@ -8454,6 +8454,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Rechtsanspruch Grenzübergänger: Trauer- oder Familienkrankheitsurlaub in der Schweiz und Italien',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Dauer, Vergütung und Bewilligungsverfahren bei Trauer oder Krankheit eines Angehörigen während der Arbeit im Tessin. Unterschiede zu den italienischen Regeln.',
     'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Schweizerisches offizielles Dokument zum Familienurlaub in einem Tessiner Büro',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Fernarbeit im Drittland: Besteuerung von Grenzgängern',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Urlaub und Smart Working im Ausland für Grenzgänger: steuerliche Auswirkungen, KVG-Versicherungsschutz und Meldepflichten gegenüber dem Arbeitgeber.',
+    'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Luganersee mit Alpenkulisse, Darstellung der grenzüberschreitenden Fernarbeit',
 };
 
 export default blogMetaDe;
