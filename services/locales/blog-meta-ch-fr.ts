@@ -1051,6 +1051,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Chômeurs frontaliers : l\'indemnité de 900 millions à la charge de la Suisse',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Le Parlement européen a approuvé la réforme sur le chômage des frontaliers, entraînant une charge de 900 millions de francs pour la Suisse.',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontalier sans emploi',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Le mythe de la Suisse vacille : les jeunes sans emploi',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Le taux de chômage en Suisse est monté à 3,2% en janvier 2026, selon les données du Secrétariat d\'Etat à l\'économie (SECO)',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Une scène de travail en Suisse avec des personnes de diverses âges et nationalités',
 };
 
 export default blogMetaChFr;

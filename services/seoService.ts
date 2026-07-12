@@ -4487,6 +4487,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franchigia-doganale-acquisti-svizzera-frontaliere-dogana': { name: 'Limiti di franchigia doganale per gli', path: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana', parent: 'blog' },
     'blog-frontalieri-disoccupati-indennita-900-milioni': { name: 'Frontalieri disoccupati', path: '/articoli-svizzera/frontalieri-disoccupati-indennita-900-milioni/', parent: 'blog' },
     'blog-docenti-frontalieri-ticino-permessi-lavoro': { name: 'Docenti frontalieri senza permesso di', path: '/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro', parent: 'blog' },
+    'blog-svizzera-vacilla-mito-disoccupazione-frontalieri': { name: 'Vacilla il mito della Svizzera', path: '/articoli-svizzera/svizzera-vacilla-mito-disoccupazione-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

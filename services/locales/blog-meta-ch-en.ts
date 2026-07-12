@@ -1051,6 +1051,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Unemployed frontier workers: the 900 million Swiss allowance',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'The EU Parliament has approved the reform on the unemployment of frontier workers, causing an aggravation of 900 million francs for Switzerland.',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontalier unemployed',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'The myth of Switzerland shatters: young people out of work',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'The unemployment rate in Switzerland rose to 3.2% in January 2026, according to data from the State Secretariat for Economic Affairs (SECO)',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'A scene of work in Switzerland with people of different ages and nationalities',
 };
 
 export default blogMetaChEn;

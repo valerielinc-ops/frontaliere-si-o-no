@@ -1051,6 +1051,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Grenzgänger: 900 Mio. Entschädigung aörtet der Schweiz',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Das EU-Parlament hat der Reform zur Arbeitslosigkeit von Grenzgängern zugestimmt, was die Schweiz um 900 Millionen Franken belastet.',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Arbeitsloser Frontalier',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Der Mythos Schweiz wankt: Junge Menschen ohne Arbeit',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Die Arbeitslosenquote in der Schweiz stieg im Januar 2026 nach Angaben des Staatssekretariats für Wirtschaft (SECO) auf 3,2%',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Eine Szene von Arbeit in der Schweiz mit Menschen verschiedenen Alters und Nationalitäten',
 };
 
 export default blogMetaChDe;
