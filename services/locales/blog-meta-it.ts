@@ -8447,6 +8447,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket: finanziamento invariato',
     'blog.article.sconto-ticino-ticket.excerpt': 'Il Consiglio di Stato ha chiarito che non prevede di modificare la chiave di riparto del Ticino Ticket',
     'blog.article.sconto-ticino-ticket.imageAlt': 'Festival del Film di Locarno',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Cambio cantone di lavoro per frontaliere Ticino Grigioni: cosa cambia',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nuovo Accordo Frontalieri: cambio cantone di lavoro per frontaliere Ticino Grigioni',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontaliere in valle Verzasca con vista sul lago',
 };
 
 export default blogMetaIt;

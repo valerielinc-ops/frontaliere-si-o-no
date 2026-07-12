@@ -4495,6 +4495,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera': { name: 'Mercato del lavoro in Svizzera', path: '/articoli-frontaliere/dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera', parent: 'blog' },
     'blog-codice-tributo-ritenute-rendite-avs-lpp': { name: 'Codice tributo pensioni', path: '/articoli-svizzera/codice-tributo-ritenute-rendite-avs-lpp/', parent: 'blog' },
     'blog-sconto-ticino-ticket': { name: 'Finanziamento Ticino Ticket', path: '/articoli-frontaliere/sconto-ticino-ticket', parent: 'blog' },
+    'blog-cambio-cantone-di-lavoro-frontaliere-ticino-grigioni': { name: 'Cambio cantone di lavoro', path: '/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

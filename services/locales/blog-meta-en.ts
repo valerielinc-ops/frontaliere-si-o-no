@@ -8446,6 +8446,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket: funding unchanged',
     'blog.article.sconto-ticino-ticket.excerpt': 'The Council of State has clarified that it does not plan to change the Ticino Ticket allocation key',
     'blog.article.sconto-ticino-ticket.imageAlt': 'Locarno Film Festival',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Change of working canton for border crossing Ticino Grigioni: what changes',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'New Frontier Agreement: change of working canton for border crossers Ticino Grigioni',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontaliere in the Verzasca Valley with a view of the lake',
 };
 
 export default blogMetaEn;
