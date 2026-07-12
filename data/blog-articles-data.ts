@@ -25262,6 +25262,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-ticino-permessi-g',
+ category: 'pratico',
+ date: '2026-07-12T03:12:14.609Z',
+ image: '/images/blog/frontaliere-ticino-permessi-g.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

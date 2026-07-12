@@ -8408,6 +8408,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': 'Frontalieri da remoto al 50% senza impatto su contributi e pensioni',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'Il Nuovo Accordo Frontalieri prevede l\'esenzione dall\'imposta alla fonte per i frontalieri che lavorano da remoto al 50%.',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'Un frontaliere lavora da remoto in un ufficio nel Canton Ticino.',
+    'blog.article.frontaliere-ticino-permessi-g.title': 'Frontaliere Ticino: Permessi G e lavoro autonomo in Svizzera',
+    'blog.article.frontaliere-ticino-permessi-g.excerpt': 'La Svizzera ha un sistema di permessi G per i frontalieri che desiderano lavorare in Svizzera. Ma cosa sono questi permessi e come si ottengono?',
+    'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'Un frontaliere siede al banco di un ufficio di registrazione, con un foglio di permesso G in mano.',
 };
 
 export default blogMetaIt;

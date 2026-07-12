@@ -8408,6 +8408,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.title': 'Frontières à distance à 50 % sans impact sur les cotisations et les pensions',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.excerpt': 'Le nouvel accord frontalier prévoit l\'exonération de la taxe à la source pour les frontaliers travaillant à distance à 50 %.',
     'blog.article.frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.imageAlt': 'Un frontalier travaille de manière distante dans un bureau dans le canton du Tessin.',
+    'blog.article.frontaliere-ticino-permessi-g.title': 'Frontalier Tessin : Permis G et travail indépendant en Suisse',
+    'blog.article.frontaliere-ticino-permessi-g.excerpt': 'La Suisse dispose d\'un système de permis G pour les frontaliers qui souhaitent travailler en Suisse. Mais que sont ces permis et comment sont-ils obtenus ?',
+    'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'Un frontaliere est assis à un bureau d\'inscription, tenant un formulaire de permis G dans la main.',
 };
 
 export default blogMetaFr;
