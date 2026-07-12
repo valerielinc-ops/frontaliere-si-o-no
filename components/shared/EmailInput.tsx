@@ -156,21 +156,26 @@ export function validateEmailStrict(emailStr: string): { valid: boolean; reason?
  * Falls back to true on network/timeout errors (fail-open).
  */
 export async function checkMxRecord(domain: string): Promise<boolean> {
- try {
  const controller = new AbortController();
  const timer = setTimeout(() => controller.abort(), 4000);
+ try {
  const res = await fetch(
  `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=MX`,
  { signal: controller.signal },
  );
- clearTimeout(timer);
  if (!res.ok) return true; // fail-open
+ // clearTimeout must run AFTER the body is read (in finally), not right after
+ // fetch(): the abort timer has to stay armed across res.json() so a stalled
+ // response body still trips the 4s timeout and the newsletter form never gets
+ // stuck on status:'loading'. See #4123 (anti-hang sweep).
  const data = await res.json();
  // Status 0 = NOERROR; Answer array contains MX records
  if (data.Status === 3) return false; // NXDOMAIN — domain doesn't exist
  return Array.isArray(data.Answer) && data.Answer.length > 0;
  } catch {
  return true; // fail-open on network error
+ } finally {
+ clearTimeout(timer);
  }
 }
 

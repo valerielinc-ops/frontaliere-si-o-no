@@ -17,13 +17,16 @@ export async function handleGetExchangeRate() {
     return { status: 200, body: { ok: false, rate: null, error: 'not_configured' } };
   }
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
     const res = await fetch(`${TWELVEDATA_URL}&apikey=${encodeURIComponent(apiKey)}`, {
       signal: controller.signal,
     });
-    clearTimeout(timeout);
+    // clearTimeout must run AFTER the body is fully read, not right after
+    // fetch() resolves: the AbortController has to stay armed across res.json()
+    // so a server that stalls the response body still trips the 5s timeout
+    // instead of hanging the Cloud Function. See #4123 (anti-hang sweep).
     const data = await res.json().catch(() => ({}));
     if (data?.rate) {
       return { status: 200, body: { ok: true, rate: parseFloat(data.rate) } };
@@ -31,5 +34,7 @@ export async function handleGetExchangeRate() {
     return { status: 200, body: { ok: false, rate: null, error: data?.message || 'no_rate' } };
   } catch (error) {
     return { status: 200, body: { ok: false, rate: null, error: error instanceof Error ? error.message : 'fetch_failed' } };
+  } finally {
+    clearTimeout(timeout);
   }
 }
