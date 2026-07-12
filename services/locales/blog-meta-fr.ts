@@ -8420,6 +8420,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Retraite dopo 55 anni: tutele e impatto sul secondo pilastro',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Les frontaliers de plus de 55 ans peuvent changer d\'emploi sans perdre les avantages du deuxième pilier, grâce au nouvel accord frontalier.',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'Compte PostFinance carte de crédit frontalière',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'Le compte PostFinance est une solution bancaire populaire auprès des frontaliers.',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontalière qui pourrait ouvrir un compte PostFinance pour gérer ses finances.',
 };
 
 export default blogMetaFr;

@@ -8419,6 +8419,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Retirement job change after 55: second pillar, pension impacts',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'Border workers over 55 can change jobs without losing the benefits of the second pillar, thanks to the New Border Agreement.',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'PostFinance cross-border credit card account',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'The PostFinance account is a popular banking solution among border crossers.',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere that might open a PostFinance account to manage their finances.',
 };
 
 export default blogMetaEn;

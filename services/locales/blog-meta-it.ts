@@ -8420,6 +8420,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.title': 'Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.excerpt': 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri.',
     'blog.article.frontaliere-over-55-ricollocamento-cambio-lavoro.imageAlt': 'Frontalieri ticinesi con il permesso G che lavorano in Svizzera',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'Conto PostFinance carta di credito frontaliere',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'Il conto PostFinance è una soluzione bancaria popolare tra i frontalieri.',
+    'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere che si trova in una situazione simile potrebbe aprire un conto PostFinance per gestire le proprie finanze.',
 };
 
 export default blogMetaIt;
