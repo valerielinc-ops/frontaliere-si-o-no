@@ -52,13 +52,13 @@ async function fetchBobstDetail(detailUrl) {
       signal: controller.signal,
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) return '';
     const html = await res.text();
     return extractUmantisDetailContent(html);
   } catch {
-    clearTimeout(timer);
     return '';
+  } finally {
+    clearTimeout(timer);
   }
 }
 

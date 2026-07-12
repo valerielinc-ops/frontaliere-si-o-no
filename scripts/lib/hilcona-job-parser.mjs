@@ -199,7 +199,6 @@ export async function fetchHilconaJobUrls(timeoutMs = 15000) {
       headers: { 'User-Agent': UA, Accept: 'application/xml, text/xml' },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const xml = await res.text();
     return parseHilconaSitemapXml(xml);

@@ -142,15 +142,14 @@ async function fetchAldiListings() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`\ud83d\udd0d Fetching ALDI Suisse jobs: ${ALDI_SEARCH_API}`);
 
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(ALDI_SEARCH_API, {
       signal: controller.signal,
       headers: { Accept: 'application/json', 'User-Agent': UA },
       redirect: 'follow',
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       console.warn(`\u26a0\ufe0f ALDI search API returned ${res.status}`);
@@ -164,6 +163,8 @@ async function fetchAldiListings() {
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch ALDI search API: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -186,13 +187,13 @@ async function fetchAndParseDetailPages(listings) {
             headers: { Accept: 'text/html', 'User-Agent': UA },
             redirect: 'follow',
           });
-          clearTimeout(timer);
           if (!res.ok) return null;
           const html = await res.text();
           return { listing, html };
         } catch {
-          clearTimeout(timer);
           return null;
+        } finally {
+          clearTimeout(timer);
         }
       })
     );

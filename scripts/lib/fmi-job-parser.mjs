@@ -94,12 +94,10 @@ async function postListing({ offset = 0, limit = 100, lang = 'de', timeoutMs } =
       body,
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${LISTING_URL}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -112,12 +110,12 @@ async function fetchDetail(url, { timeoutMs } = {}) {
       headers: { Accept: 'text/html,application/xhtml+xml,*/*', 'User-Agent': USER_AGENT },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
   } catch (err) {
-    clearTimeout(timer);
     return '';
+  } finally {
+    clearTimeout(timer);
   }
 }
 

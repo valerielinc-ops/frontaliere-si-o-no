@@ -114,7 +114,6 @@ async function fetchJobupJobPosting(url) {
       headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) return null;
     const html = await res.text();
     const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
@@ -130,8 +129,9 @@ async function fetchJobupJobPosting(url) {
     }
     return null;
   } catch {
-    clearTimeout(timer);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

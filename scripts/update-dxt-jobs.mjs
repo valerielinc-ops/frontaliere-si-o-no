@@ -150,9 +150,9 @@ const DXT_DEFAULT_USER_AGENT =
 const DXT_MIN_PAGE_SIZE = 10000;
 
 async function fetchPage(url, timeoutMs = 20000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
@@ -161,7 +161,6 @@ async function fetchPage(url, timeoutMs = 20000) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || DXT_DEFAULT_USER_AGENT,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
@@ -178,6 +177,8 @@ async function fetchPage(url, timeoutMs = 20000) {
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

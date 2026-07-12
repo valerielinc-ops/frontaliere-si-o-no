@@ -132,12 +132,10 @@ async function fetchJson(url) {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from SmartRecruiters API`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

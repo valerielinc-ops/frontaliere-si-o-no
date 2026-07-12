@@ -79,11 +79,11 @@ async function fetchWithTimeout(url, timeoutMs = 10000) {
       signal: ctl.signal,
       headers: { 'User-Agent': 'FrontaliereTicino-AE3/1.0 (+https://frontaliereticino.ch)' },
     });
-    clearTimeout(t);
     return res.ok ? await res.text() : null;
   } catch {
-    clearTimeout(t);
     return null;
+  } finally {
+    clearTimeout(t);
   }
 }
 

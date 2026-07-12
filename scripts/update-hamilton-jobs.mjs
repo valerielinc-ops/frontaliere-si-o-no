@@ -168,12 +168,10 @@ async function fetchJobsPage(offset = 0) {
       }),
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -189,12 +187,12 @@ async function fetchJobDetail(externalPath) {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) return null;
     return await res.json();
   } catch {
-    clearTimeout(timer);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

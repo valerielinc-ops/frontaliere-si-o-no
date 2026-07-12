@@ -175,16 +175,16 @@ async function fetchRecruiteeOffers() {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.error(`❌ HTTP ${res.status} for ${RECRUITEE_API}`);
       return [];
     }
     body = await res.text();
   } catch (err) {
-    clearTimeout(timer);
     console.error(`❌ Fetch failed for ${RECRUITEE_API}: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 
   let data;

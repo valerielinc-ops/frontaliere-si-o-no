@@ -88,10 +88,9 @@ async function fetchTplJobUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching TPL careers page: ${TPL_LISTING_URL}`);
 
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
     const res = await fetch(TPL_LISTING_URL, {
       signal: controller.signal,
       headers: {
@@ -99,7 +98,6 @@ async function fetchTplJobUrls() {
         'User-Agent': UA,
       },
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       console.warn(`⚠️ TPL careers page returned ${res.status}`);
@@ -114,6 +112,8 @@ async function fetchTplJobUrls() {
   } catch (err) {
     console.warn(`⚠️ Failed to fetch TPL careers page: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 

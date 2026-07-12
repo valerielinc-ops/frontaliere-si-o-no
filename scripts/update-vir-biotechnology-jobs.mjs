@@ -87,9 +87,9 @@ async function fetchGreenhouseJobs() {
   console.log(`🔍 Fetching Vir Biotechnology jobs from Greenhouse API`);
   console.log(`   API: ${GREENHOUSE_API}`);
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(GREENHOUSE_API, {
       signal: controller.signal,
       headers: {
@@ -97,7 +97,6 @@ async function fetchGreenhouseJobs() {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for Greenhouse API`); return []; }
     const data = await res.json();
     const swissJobs = parseGreenhouseJobs(data);
@@ -106,6 +105,8 @@ async function fetchGreenhouseJobs() {
   } catch (err) {
     console.warn(`⚠️ Greenhouse API fetch failed: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 
