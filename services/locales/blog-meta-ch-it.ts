@@ -1051,6 +1051,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Frontalieri disoccupati: l\'indennità da 900 milioni a carico della Svizzera',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Il Parlamento UE ha approvato la riforma sulla disoccupazione dei frontalieri, causando un aggravio di 900 milioni di franchi per la Svizzera.',
     'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontaliere disoccupato',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Vacilla il mito della Svizzera: giovani senza lavoro',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Il tasso di disoccupazione in Svizzera è salito al 3,2% a gennaio 2026, secondo i dati della Segreteria di Stato dell\'economia (SECO)',
+    'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Una scena di lavoro in Svizzera con persone di diverse età e nazionalità',
 };
 
 export default blogMetaChIt;

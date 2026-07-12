@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3180,
+ "numberOfItems": 3181,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7855,7 +7855,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3177, "name": "Secondo lavoro part-time in Italia per frontali...", "url": `${BASE_URL}/articoli-frontaliere/secondo-lavoro-part-time-frontaliere` },
           { "@type": "ListItem", "position": 3178, "name": "Limiti doganali in Svizzera: aggiornamento dei ...", "url": `${BASE_URL}/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana` },
           { "@type": "ListItem", "position": 3179, "name": "Frontalieri disoccupati: l'indennità da 900 mil...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-indennita-900-milioni` },
-          { "@type": "ListItem", "position": 3180, "name": "Docenti frontalieri: nessuna irregolarità", "url": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro` }
+          { "@type": "ListItem", "position": 3180, "name": "Docenti frontalieri: nessuna irregolarità", "url": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro` },
+          { "@type": "ListItem", "position": 3181, "name": "Vacilla il mito della Svizzera: giovani senza l...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-vacilla-mito-disoccupazione-frontalieri` }
  ]
  },
  {

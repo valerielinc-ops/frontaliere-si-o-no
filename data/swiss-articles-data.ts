@@ -3149,6 +3149,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'svizzera-vacilla-mito-disoccupazione-frontalieri',
+    category: 'fiscale',
+    date: '2026-07-12T14:43:41.170Z',
+    image: '/images/blog/svizzera-vacilla-mito-disoccupazione-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
