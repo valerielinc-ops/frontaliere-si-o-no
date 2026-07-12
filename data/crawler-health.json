@@ -196,19 +196,6 @@
       "_lastObservedAssembledAt": "2026-07-11T23:12:07.482Z",
       "_lastObservedGeneratedAt": "2026-07-11T23:12:07.482Z"
     },
-    "alprose": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 5,
-      "lastFailureReason": "5 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-07-12T08:45:33.432Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-07-11T22:44:50.383Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": null,
-      "_lastObservedGeneratedAt": "2026-07-11T22:44:50.383Z"
-    },
     "alten-switzerland": {
       "lastSuccessfulRunAt": "2026-07-02T21:16:58.606Z",
       "lastNonZeroJobs": 3,

@@ -1,69 +1,46 @@
 #!/usr/bin/env node
 /**
- * Belimo job parser — bespoke in-house "job-listing" widget (NOT an ATS).
+ * Belimo job parser — SAP SuccessFactors Career Site Builder (CSB).
  *
- * Source: https://www.belimo.com/ch/de_CH/job-listing (Swiss career page).
+ * Source: https://jobsredirect.belimo.com/ (tenant `belimoauto`), crawled
+ * sitemap-first like die Mobiliar (`mobiliar-job-parser.mjs`):
+ *   1. GET /sitemap.xml            → every live job detail URL (+ lastmod)
+ *   2. GET /job/{slug}/{reqId}/    → SSR detail page with full schema.org
+ *      microdata (itemprop title/description/addressLocality/addressRegion/
+ *      postalCode/addressCountry/datePosted) — the CH gate reads
+ *      `addressCountry` off the page itself, never the URL slug.
  *
  * Belimo is a Swiss manufacturer of damper and valve actuators for HVAC /
  * building automation, headquartered in Hinwil ZH (Brunnenbachstrasse 1,
- * 8340 Hinwil — verified via the site's own footer text, and cross-checked
- * against the opencorpdata.com LEI record; NOT 8620, which is Wetzikon's
- * postal code, a different nearby ZH town).
+ * 8340 Hinwil).
  *
- * ATS discovery: a Nov-2025 Wayback Machine snapshot of jobs.belimo.com
- * shows the site used to run SAP SuccessFactors Recruiting Marketing
- * (career4.successfactors.com/career?company=C0000206975T1). The LIVE site
- * has since migrated off SF entirely — grepping the current rendered HTML
- * for "successfactors|smartrecruiters|workday|personio|greenhouse|taleo"
- * returns zero matches. The job list is now a plain-HTML widget embedded
- * directly in www.belimo.com (traces of the old SF integration remain only
- * as a stale in-page comment: "fallback to successFactorsData.defaultLanguage").
- * There is no JSON API or iframe — genuinely bespoke HTML scraping is
- * required, hence no `./ats-clients/*` shared client is used here.
+ * ISSUE #3892 RE-SOURCING (this crawler had NEVER produced a job):
+ * The previous revision scraped a bespoke `.joblist__item` widget on
+ * www.belimo.com/{site}/{locale}/job-listing. That widget is dead for every
+ * visitor, not just for crawlers: its XHR endpoint (`data-url="/{site}/
+ * {locale}/jobs"`) 301s to /{site}/{locale}/about/careers/jobs, which 302s to
+ * jobs.belimo.com/search, which 301s BACK to www.belimo.com/job-listing — a
+ * circular chain that can never return job data, so the widget renders zero
+ * rows even in a real headless browser (verified via a Jina Reader Chromium
+ * render with `X-Wait-For-Selector: .joblist__item`: timeout, 0 items).
+ * The other candidate sources verified dead/empty on 2026-07-11:
+ *   - jobs.belimo.com (old CSB vanity host): 301s every path — /search/,
+ *     /sitemap.xml, /job/… — to the broken www widget page.
+ *   - ohws.prospective.ch careercenter 1003051 (embedded on
+ *     /ch/de_CH/about/careers/jobs/emea): live but SSRs 0 vacancies, and
+ *     public/v1/medium/1003051/jobs returns `{"total":0,"jobs":[]}`.
+ * The REAL live board was found by walking a jobs.ch Belimo ad (13 active
+ * Hinwil postings) to its apply chain: jobs.ch → belimo-automation-ag.
+ * contactrh.com → **jobsredirect.belimo.com** — a fully server-rendered SF
+ * CSB with ~99 sitemap'd jobs (~38 Swiss), reachable from datacenter egress
+ * (no Akamai block, unlike www.belimo.com which 403s plain curl; fetchHtml's
+ * Jina rescue still backstops any future WAF drift).
  *
- * The widget is Akamai-WAF-gated (HTTP 403 to datacenter/CI egress IPs on
- * every path tried, incl. `/careers`, `/job-listing`, and the legacy
- * `jobs.belimo.com` which itself 301s to the 403'd `/job-listing`). The
- * shared `fetchHtml()` from crawler-template.mjs already auto-rescues via
- * the Jina Reader proxy on exactly this WAF status class
- * (`WAF_IP_BLOCK_STATUS` incl. 403), so no custom Jina wiring is needed here.
- *
- * Listing DOM (paginated, `?page=N`; page 1 must be fetched WITHOUT the
- * query param — an explicit `?page=1` renders an empty list, a widget quirk):
- *   <div class="joblist__item">
- *     <h3><a href="/us/en_US/jobs/{id}">{title}</a></h3>
- *     <p><span>{city}, {country}</span> | {jobType}</p>
- *   </div>
- * Max page number is read off `data-page="N"` pagination buttons.
- *
- * Detail DOM (no JSON-LD; plain structured `<dl>`):
- *   <h1 class="jobdetails__title">{title}</h1>
- *   <section class="jobdetails__content">{description html}</section>
- *   <dl><dt>Location</dt><dd>{Country}, {City}</dd>
- *       <dt>Category</dt><dd>...</dd> <dt>Department</dt><dd>...</dd>
- *       <dt>Job type</dt><dd>...</dd> <dt>Job flexibility</dt><dd>...</dd>
- *       <dt>Recruiter</dt><dd>...</dd></dl>
- *
- * Description language follows the original posting's source language
- * (mixed DE/EN across postings), not the `/us/en_US/` URL locale prefix —
- * that locale segment is used here mainly because it matched investigation
- * output byte-for-byte.
- *
- * ISSUE #3797 FALSE-NEGATIVE FIX: the listing widget renders its job list via
- * a client-side XHR that fires AFTER initial page load. A plain `fetchHtml()`
- * (incl. its Jina Reader WAF-rescue path) returns HTTP 200 with the real page
- * shell but an empty `.joblist__item` list whenever the snapshot is taken
- * before that XHR resolves — confirmed by direct probing: a Jina render of
- * BOTH the listing page and the widget's own `data-url` endpoint returned the
- * static shell with zero job rows, with no WAF challenge to retry against.
- * This is a hydration race, not a bot block, so retrying `fetchHtml()` alone
- * (the previous approach) cannot reliably win it. The fix follows the same
- * pattern already used for Hilti/Bucherer/Pictet/etc: render the listing with
- * a real headless Chromium (`./ats-clients/playwright-runtime.mjs`) and wait
- * for `.joblist__item` to attach before scraping — the widget's own XHR then
- * has time to complete. Detail pages are still fetched via plain `fetchHtml()`
- * (Jina-rescued on WAF 403) since they are per-job SSR pages, not the
- * client-hydrated aggregate widget, and were not observed to have this issue.
+ * The shared `ats-clients/successfactors-client.mjs` html-jobreq flavor is
+ * host-allowlisted and doesn't know this host; rather than touching the
+ * shared client, this parser follows the in-tree sitemap-driven CSB idiom
+ * (Mobiliar) with plain `fetchHtml()`. Only the shared date normalizer
+ * (`parseSuccessFactorsPostedDate`) is imported from the client.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBelimoJobs()   — Fetch and parse all Swiss jobs
@@ -75,14 +52,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import {
-  createBrowser,
-  createPoliteContext,
-  fetchWithRateLimit,
-  closeAll,
-  AntiBotBlockError,
-  NavigationTimeout,
-} from './ats-clients/playwright-runtime.mjs';
+import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -90,11 +60,21 @@ export const BELIMO_KEY = 'belimo';
 export const BELIMO_COMPANY_NAME = 'Belimo';
 export const BELIMO_COMPANY_DOMAIN = 'belimo.com';
 
-// Documented "source" career page (Swiss locale); pagination is fetched
-// against the /us/en_US/ prefix, which proved empirically reliable across
-// all pages — see header note above.
-const CAREER_URL = 'https://www.belimo.com/ch/de_CH/job-listing';
-const LISTING_URL = 'https://www.belimo.com/us/en_US/job-listing';
+const CAREER_URL = 'https://jobsredirect.belimo.com/search/';
+const SITEMAP_URL = 'https://jobsredirect.belimo.com/sitemap.xml';
+const JOB_BASE = 'https://jobsredirect.belimo.com';
+
+// ── Detail-page fetch budget ──
+// Sitemap lists every worldwide posting (~99 live, ~38 Swiss). The 4-digit
+// postal prefilter (below) drops the US/DE bulk before any detail fetch, so
+// a run costs ~40 × (fetch + delay). The cap is a safety valve against a
+// listing-count explosion, NOT a routine limiter: when it trips, skipped
+// URLs are counted and reported loudly in the run log.
+export const DETAIL_FETCH_DELAY_MS = 400;
+export const MAX_DETAIL_FETCHES = (() => {
+  const raw = Number(process.env.BELIMO_MAX_DETAIL_FETCHES);
+  return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 300;
+})();
 
 /* ── HQ fallback (Brunnenbachstrasse 1, 8340 Hinwil, ZH) ─────── */
 
@@ -108,13 +88,6 @@ const HQ = {
 
 const SECTOR = 'Industria / Automazione edifici';
 
-// Realistic desktop Chrome UA — the WAF 403s the default bot UA / raw curl.
-const BROWSER_UA =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-  '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
-
-const LISTING_WAIT_SELECTOR_MS = 25_000;
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -123,10 +96,6 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-async function safeClose(page) {
-  try { if (page) await page.close(); } catch { /* no-op */ }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -153,8 +122,8 @@ export function isBelimoJob(job) {
 }
 
 /**
- * Validate that a URL belongs to Belimo's own domain (no 3rd-party ATS
- * host — the widget lives directly on www.belimo.com).
+ * Validate that a URL belongs to Belimo's own domain (the CSB lives on the
+ * jobsredirect.belimo.com subdomain).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -167,32 +136,7 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── Category Detection ────────────────────────────────────── */
 
-const CATEGORY_MAP = {
-  'production/manufacturing': 'Produzione',
-  production: 'Produzione',
-  manufacturing: 'Produzione',
-  engineering: 'Ingegneria',
-  'research and development': 'Ricerca e Sviluppo',
-  'r&d': 'Ricerca e Sviluppo',
-  sales: 'Commerciale',
-  'sales & marketing': 'Commerciale',
-  marketing: 'Marketing',
-  finance: 'Finanza',
-  'human resources': 'Risorse Umane',
-  hr: 'Risorse Umane',
-  it: 'IT',
-  'information technology': 'IT',
-  logistics: 'Logistica',
-  'supply chain': 'Logistica',
-  quality: 'Qualità',
-  administration: 'Amministrazione',
-  legal: 'Legale',
-};
-
-function detectCategory(rawCategory = '', title = '') {
-  const mapped = CATEGORY_MAP[normalize(rawCategory)];
-  if (mapped) return mapped;
-
+function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(ingegner|engineer|entwickl|architect)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install|meccatron|mechatron|instandhalt)/.test(t)) return 'Tecnica';
@@ -218,156 +162,125 @@ function detectExperienceLevel(title = '') {
 }
 
 /**
- * Belimo's "Job type" field is Permanent/Temporary (contract duration, not
- * hours) — part-time signal instead comes from a "(NN-100%)" / "(NN%)"
- * workload suffix commonly appended to Swiss job titles.
+ * The CSB detail page carries no explicit employment-type field, so this is
+ * title-driven: a Swiss "(NN%)" / "(NN-MM%)" workload suffix below 100%
+ * means part-time; temp/intern keywords beat the FULL_TIME default.
  */
-function detectEmploymentType(jobTypeLabel = '', title = '') {
-  const pctMatch = title.match(/\((\d{1,3})\s*(?:-\s*(\d{1,3})\s*)?%\)/);
+export function detectEmploymentType(title = '') {
+  const pctMatch = String(title).match(/\((\d{1,3})\s*(?:-\s*(\d{1,3})\s*)?%\)/);
   if (pctMatch) {
     const nums = [pctMatch[1], pctMatch[2]].filter(Boolean).map(Number);
     if (nums.length && Math.max(...nums) < 100) return 'PART_TIME';
   }
-  const t = normalize(jobTypeLabel);
-  if (/temporary|befristet|temporaneo/.test(t)) return 'TEMPORARY';
-  if (/intern|praktik|stage/.test(t)) return 'INTERN';
-  if (/permanent|unbefristet|fest/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
+  const t = normalize(title);
+  // No \b before "aushilfe": German compounds it ("Ferienaushilfe").
+  if (/tempor[aä]r|temporary|befristet|temporaneo|aushilfe/.test(t)) return 'TEMPORARY';
+  if (/\b(praktik|intern\b|stage|working student|lernend|lehrling)/.test(t)) return 'INTERN';
+  return 'FULL_TIME';
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Render one listing page with a real headless browser and return its
- * `.joblist__item` rows plus the max pagination page seen on the page.
- * Page 1 MUST be the bare URL (an explicit `?page=1` renders empty — a
- * widget quirk, unrelated to the hydration issue this fixes).
- *
- * @param {import('playwright').BrowserContext} context
+ * Extract the SF requisition ID from a CSB job URL.
+ * Pattern: /job/{slug}/{reqId}/
  */
-async function fetchListingPageViaBrowser(context, pageNum) {
-  const url = pageNum <= 1 ? LISTING_URL : `${LISTING_URL}?page=${pageNum}`;
-  let page;
-  try {
-    page = await fetchWithRateLimit(context, url, { minDelayMs: pageNum <= 1 ? 0 : 1500 });
-  } catch (err) {
-    if (err instanceof AntiBotBlockError) {
-      console.warn(`⚠️ Belimo listing anti-bot block (page ${pageNum}): ${err.message}`);
-      return { items: [], maxPage: pageNum };
-    }
-    if (err instanceof NavigationTimeout) {
-      console.warn(`⚠️ Belimo listing navigation timeout (page ${pageNum}): ${err.message}`);
-      return { items: [], maxPage: pageNum };
-    }
-    throw err;
-  }
-
-  try {
-    await page.waitForSelector('.joblist__item', {
-      timeout: LISTING_WAIT_SELECTOR_MS,
-      state: 'attached',
-    });
-  } catch {
-    console.warn(`   Listing page ${pageNum}: no job items rendered within timeout`);
-    await safeClose(page);
-    return { items: [], maxPage: pageNum };
-  }
-
-  const { items, maxPage } = await page.evaluate(() => {
-    const cards = [...document.querySelectorAll('.joblist__item')];
-    const out = [];
-    for (const card of cards) {
-      const a = card.querySelector('h3 a');
-      const href = a?.getAttribute('href') || '';
-      const title = (a?.textContent || '').replace(/\s+/g, ' ').trim();
-      if (!href || !title) continue;
-      const p = card.querySelector('p');
-      const pText = (p?.textContent || '').replace(/\s+/g, ' ').trim();
-      const pipeIdx = pText.indexOf('|');
-      const locationText = (pipeIdx >= 0 ? pText.slice(0, pipeIdx) : pText).trim();
-      const employmentLabel = (pipeIdx >= 0 ? pText.slice(pipeIdx + 1) : '').trim();
-      out.push({ href, title, locationText, employmentLabel });
-    }
-    const pageNums = [...document.querySelectorAll('[data-page]')]
-      .map((el) => Number(el.getAttribute('data-page')))
-      .filter((n) => Number.isFinite(n));
-    return { items: out, maxPage: pageNums.length ? Math.max(...pageNums) : 1 };
-  });
-
-  await safeClose(page);
-  return { items, maxPage };
+export function extractJobReqId(url = '') {
+  const match = String(url).match(/\/job\/[^/]+\/(\d+)\/?$/);
+  return match ? match[1] : '';
 }
 
 /**
- * Fetch every listing page, filter to Swiss postings, then fetch each
- * Swiss posting's detail page for the full description + metadata.
- * Returns an array of raw listing objects.
+ * Cheap pre-filter on the sitemap URL slug, to avoid fetching ~60 non-Swiss
+ * detail pages per run. CSB slugs end in "…-{Region}-{postal}/{reqId}/";
+ * Swiss postal codes are 4 digits, US ZIP / German PLZ are 5. A slug WITHOUT
+ * a recognizable postal tail stays a candidate — the authoritative gate is
+ * the detail page's `addressCountry` microdata, never this heuristic.
  */
-async function fetchJobListings() {
-  console.log('   Fetching Belimo job-listing widget (Playwright, paginated, Switzerland-only filter)');
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-
-  let allItems = [];
-  let browser;
+export function isSwissJobUrlCandidate(url = '') {
+  let path = '';
   try {
-    browser = await createBrowser({ userAgent: BROWSER_UA });
-    const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
+    path = decodeURIComponent(new URL(url).pathname);
+  } catch {
+    return false;
+  }
+  const match = path.match(/\/job\/([^/]+)\/\d+\/?$/);
+  if (!match) return false;
+  const postal = match[1].match(/-(\d{4,6})$/);
+  if (!postal) return true;
+  return postal[1].length === 4;
+}
 
-    const { items: page1Items, maxPage } = await fetchListingPageViaBrowser(context, 1);
-    console.log(`   Pages detected: ${maxPage}`);
+/**
+ * Fetch the CSB sitemap and return every job detail URL.
+ */
+async function fetchAllJobUrls() {
+  console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
+  const xml = await fetchHtml(SITEMAP_URL, {
+    headers: { Accept: 'application/xml,text/xml,*/*' },
+  });
 
-    allItems = [...page1Items];
-    for (let page = 2; page <= maxPage; page += 1) {
-      const { items } = await fetchListingPageViaBrowser(context, page);
-      allItems.push(...items);
-    }
-  } catch (err) {
-    console.warn(`⚠️ Belimo listing fetch failed: ${err?.message || err}`);
-  } finally {
-    if (browser) await closeAll(browser);
+  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
+    .map((m) => m[1].trim())
+    .filter((url) => /\/job\/[^/]+\/\d+\/?$/.test(url))
+    .map((url) => new URL(url, JOB_BASE).toString());
+
+  console.log(`  📦 Total job URLs in sitemap: ${allUrls.length}`);
+  return allUrls;
+}
+
+/**
+ * Parse a CSB job detail page (schema.org microdata + jobdescription body).
+ *
+ * @param {string} html Raw detail-page HTML.
+ * @returns {{title: string, city: string, region: string, postalCode: string,
+ *            country: string, postedDate: string|null, descriptionHtml: string} | null}
+ *   `null` when the page carries no job microdata (challenge page, redirect
+ *   stub, "The desired job cannot be found" template, expired posting).
+ */
+export function parseBelimoDetailPage(html = '') {
+  if (!html) return null;
+  const grabMeta = (prop) => {
+    const m = String(html).match(
+      new RegExp(`itemprop="${prop}"[^>]*content="([^"]*)"`, 'i')
+    );
+    return m ? normalizeSpace(m[1]) : '';
+  };
+
+  const titleMatch = html.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+
+  // Description: from the itemprop="description" container up to the bottom
+  // apply-button block (the body nests unbalanced <div>s, so a non-greedy
+  // closing-tag match would truncate or overshoot — same caveat as the
+  // shared client's joqReqDescription slicing).
+  let descriptionHtml = '';
+  const anchor = html.search(/<[a-z]+[^>]*itemprop="description"[^>]*>/i);
+  if (anchor !== -1) {
+    const fromAnchor = html.slice(anchor);
+    const bodyStart = fromAnchor.indexOf('>') + 1;
+    const body = fromAnchor.slice(bodyStart);
+    const end = body.search(/<div[^>]*class="[^"]*applylink|<script\b/i);
+    descriptionHtml = (end !== -1 ? body.slice(0, end) : body.slice(0, 20000)).trim();
   }
 
-  const seenHrefs = new Set();
-  const swissItems = [];
-  for (const item of allItems) {
-    if (!item.href || seenHrefs.has(item.href)) continue;
-    if (!/switzerland|schweiz|suisse|svizzera/i.test(item.locationText)) continue;
-    seenHrefs.add(item.href);
-    swissItems.push(item);
-  }
-  console.log(`   Swiss listings: ${swissItems.length} / ${allItems.length} total`);
+  const city = grabMeta('addressLocality');
+  const country = grabMeta('addressCountry');
+  if (!title && !city && !country) return null;
 
-  const listings = [];
-  for (const item of swissItems) {
-    const detailUrl = new URL(item.href, LISTING_URL).toString();
-    try {
-      const detailHtml = await fetchHtml(detailUrl, { timeoutMs });
-      const titleMatch = detailHtml.match(/<h1 class="jobdetails__title">([^<]*)<\/h1>/);
-      const secMatch = detailHtml.match(/<section class="jobdetails__content">([\s\S]*?)<\/section>/);
-      const dlMatch = detailHtml.match(/<dl>([\s\S]*?)<\/dl>/);
+  // SF CSB truncates region labels ("Züri" for Zürich) — expand the known one.
+  let region = grabMeta('addressRegion');
+  if (/^z[uü]ri$/i.test(region)) region = 'Zürich';
 
-      const meta = {};
-      if (dlMatch) {
-        for (const [, k, v] of dlMatch[1].matchAll(/<dt>([^<]*)<\/dt>\s*<dd>([^<]*)<\/dd>/g)) {
-          meta[normalizeSpace(k).toLowerCase()] = normalizeSpace(v);
-        }
-      }
-
-      listings.push({
-        title: normalizeSpace((titleMatch && titleMatch[1]) || item.title),
-        href: item.href,
-        url: detailUrl,
-        descriptionHtml: (secMatch && secMatch[1]) || '',
-        locationText: item.locationText,
-        employmentLabel: item.employmentLabel,
-        meta,
-      });
-    } catch (err) {
-      console.warn(`⚠️ Detail fetch failed for ${detailUrl}: ${err?.message || err}`);
-    }
-  }
-
-  return listings;
+  return {
+    title,
+    city,
+    region,
+    postalCode: grabMeta('postalCode'),
+    country: country.toUpperCase(),
+    postedDate: parseSuccessFactorsPostedDate(grabMeta('datePosted')),
+    descriptionHtml,
+  };
 }
 
 /**
@@ -378,15 +291,15 @@ async function fetchJobListings() {
  * silently paper over a future non-Hinwil ZH posting).
  */
 function resolveAddress(rawLoc = {}) {
-  const city = (rawLoc.city || rawLoc.fullLocation || '').trim();
+  const city = (rawLoc.city || '').trim();
   const postalCode = (rawLoc.postalCode || '').trim();
-  const streetAddress = (rawLoc.address || '').trim();
   const region = (rawLoc.region || '').trim();
+  const isHq = !city || /hinwil/i.test(city);
 
   return {
     city: city || HQ.city,
-    postalCode: postalCode || (!city || /hinwil/i.test(city) ? HQ.postalCode : ''),
-    streetAddress: streetAddress || (!city || /hinwil/i.test(city) ? HQ.streetAddress : ''),
+    postalCode: postalCode || (isHq ? HQ.postalCode : ''),
+    streetAddress: isHq ? HQ.streetAddress : '',
     region,
   };
 }
@@ -400,44 +313,66 @@ function resolveAddress(rawLoc = {}) {
  */
 export async function fetchAllBelimoJobs() {
   console.log(`🔍 Fetching ${BELIMO_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${CAREER_URL} (SuccessFactors CSB, sitemap-driven)\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+  const allUrls = await fetchAllJobUrls();
+  if (!allUrls || allUrls.length === 0) {
+    console.warn('⚠️ No job URLs found in sitemap.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  const candidates = allUrls.filter(isSwissJobUrlCandidate);
+  console.log(`  🇨🇭 Swiss candidates after postal prefilter: ${candidates.length} / ${allUrls.length}`);
 
   const jobs = [];
   const seen = new Set();
-  for (const listing of listings) {
-    const title = normalizeSpace(listing.title || '');
+  let fetched = 0;
+  let skippedByCap = 0;
+
+  for (const jobUrl of candidates) {
+    if (fetched >= MAX_DETAIL_FETCHES) {
+      skippedByCap += 1;
+      continue;
+    }
+    fetched += 1;
+
+    let parsed;
+    try {
+      const html = await fetchHtml(jobUrl, {
+        headers: { Accept: 'text/html,application/xhtml+xml' },
+      });
+      parsed = parseBelimoDetailPage(html);
+    } catch (err) {
+      console.warn(`  ⚠️ Skipping ${jobUrl} — fetch failed: ${err?.message || err}`);
+      continue;
+    }
+
+    if (!parsed) {
+      console.warn(`  ⚠️ Could not parse detail page: ${jobUrl}`);
+      continue;
+    }
+    // Authoritative CH gate: the page's own microdata, not the URL slug.
+    if (parsed.country !== 'CH') continue;
+
+    const title = normalizeSpace(parsed.title || '');
     if (!title || title.length < 3) continue;
 
-    const cityRaw = normalizeSpace((listing.locationText || '').split(',')[0] || '');
-    const { city, postalCode, streetAddress, region } = resolveAddress({
-      city: cityRaw,
-      fullLocation: listing.locationText,
-    });
-    const location = normalizeSpace(listing.locationText || city || HQ.city);
-    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
-
-    const descriptionHtml = listing.descriptionHtml || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
+    const publicUrl = jobUrl;
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
+    const { city, postalCode, streetAddress, region } = resolveAddress(parsed);
+    const location = city;
+    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(region) || HQ.canton;
+
+    const descriptionText = stripHtml(parsed.descriptionHtml || '');
     const description = descriptionText || `${title} presso ${BELIMO_COMPANY_NAME} a ${location}.`;
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} belimo ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const jobTypeLabel = listing.meta?.['job type'] || listing.employmentLabel || '';
-    const employmentType = detectEmploymentType(jobTypeLabel, title);
-    const postedDate = new Date().toISOString().split('T')[0];
-    const jobReqId = (listing.href || '').split('/').filter(Boolean).pop() || null;
+    const employmentType = detectEmploymentType(title);
+    const postedDate = parsed.postedDate || new Date().toISOString().split('T')[0];
+    const jobReqId = extractJobReqId(jobUrl) || null;
 
     const job = {
       // ── Required fields ──
@@ -454,7 +389,7 @@ export async function fetchAllBelimoJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Belimo Dedicated Parser (custom job-listing widget)',
+      source: 'Belimo Dedicated Parser (SuccessFactors Career Site Builder)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -465,7 +400,7 @@ export async function fetchAllBelimoJobs() {
       postalCode,
       addressCountry: 'CH',
       country: 'CH',
-      category: detectCategory(listing.meta?.category || '', title),
+      category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
@@ -480,6 +415,16 @@ export async function fetchAllBelimoJobs() {
     };
 
     jobs.push(job);
+    console.log(`  ✅ ${jobReqId || '—'} — ${title.substring(0, 60)}`);
+
+    await new Promise((r) => setTimeout(r, DETAIL_FETCH_DELAY_MS));
+  }
+
+  if (skippedByCap > 0) {
+    console.warn(
+      `⚠️ MAX_DETAIL_FETCHES=${MAX_DETAIL_FETCHES} tripped — ${skippedByCap} candidate URLs were NOT fetched. ` +
+        'Raise BELIMO_MAX_DETAIL_FETCHES if the listing count grew legitimately.'
+    );
   }
 
   console.log(`\n📋 Total ${BELIMO_COMPANY_NAME} jobs discovered: ${jobs.length}`);

@@ -34,7 +34,14 @@ function stripHtml(html = '') {
 
 /**
  * Extract job URLs from the TPL careers listing page.
- * The page may have links to detail pages or PDF documents.
+ *
+ * Real markup (verified live 2026-07): the "Elenco posizioni" table rows
+ * link each open position to an application/detail page of the form
+ *   <a style = "color: #68be4d" href = "/2/50/candidati/?idhr=748">
+ *     <i class="fas fa-arrow-right"></i> Specialista Risorse Umane</a>
+ * Notes:
+ *   - the CMS emits spaces around the `=` of attributes (href = "..."),
+ *   - `idhr=0` is the spontaneous-application form, not a job posting.
  *
  * @param {string} html - Raw HTML of the listing page
  * @returns {{ url: string, title: string }[]}
@@ -43,47 +50,29 @@ export function parseTplListingPage(html = '') {
   if (!html) return [];
 
   const results = [];
+  const seen = new Set();
 
-  // Look for links to job detail pages or PDF announcements
-  // TPL uses various patterns: /2/XX/slug.html or direct PDF links
-  const linkPattern = /href="([^"]*(?:lavora|posizione|offerta|impiego|candidatura)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  const linkPattern =
+    /<a\b[^>]*href\s*=\s*"([^"]*\/candidati\/?\?[^"]*\bidhr=(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = linkPattern.exec(html)) !== null) {
-    const rawUrl = match[1];
-    const rawTitle = normalizeSpace(stripHtml(match[2]));
-    if (!rawUrl || !rawTitle || rawTitle.length < 3) continue;
+    const rawUrl = match[1].replace(/&amp;/g, '&');
+    const idhr = match[2];
+    if (idhr === '0') continue; // spontaneous-application form, not a posting
+
+    const rawTitle = normalizeSpace(stripHtml(match[3]));
+    if (!rawTitle || rawTitle.length < 3) continue;
 
     const url = rawUrl.startsWith('http')
       ? rawUrl
       : `https://www.tplsa.ch${rawUrl.startsWith('/') ? '' : '/'}${rawUrl}`;
 
+    if (seen.has(url)) continue;
+    seen.add(url);
     results.push({ url, title: rawTitle });
   }
 
-  // Also look for generic job links with common patterns
-  const genericPattern = /href="(\/[^"]*\.html)"[^>]*>\s*([\s\S]*?)\s*<\/a>/gi;
-  while ((match = genericPattern.exec(html)) !== null) {
-    const rawUrl = match[1];
-    const rawTitle = normalizeSpace(stripHtml(match[2]));
-    if (!rawUrl || !rawTitle || rawTitle.length < 5) continue;
-    // Skip navigation/footer links
-    if (/contatti|mappa|privacy|cookie|home|login/i.test(rawTitle)) continue;
-    // Only include if it looks like a job
-    if (/autista|conducente|meccanico|impiegat|tecnic|dirett|responsabil/i.test(rawTitle)) {
-      const url = `https://www.tplsa.ch${rawUrl}`;
-      if (!results.some((r) => r.url === url)) {
-        results.push({ url, title: rawTitle });
-      }
-    }
-  }
-
-  // Deduplicate
-  const seen = new Set();
-  return results.filter((r) => {
-    if (seen.has(r.url)) return false;
-    seen.add(r.url);
-    return true;
-  });
+  return results;
 }
 
 /**
@@ -103,12 +92,28 @@ export function parseTplDetailPage(html = '') {
 
   let body = '';
   const contentMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
   if (contentMatch) {
     body = stripHtml(contentMatch[1]);
   }
+
+  // Real tplsa.ch application pages (/2/50/candidati/?idhr=N) have no
+  // <main>/<article>: the job block runs from the <h1> (title + link to the
+  // PDF "capitolato" + application instructions) up to the generic "Menu2"
+  // accordion of company cards that follows it.
+  if (!body && titleMatch) {
+    const afterTitle = html.slice(titleMatch.index + titleMatch[0].length);
+    const endIdx = afterTitle.search(/<div[^>]*class\s*=\s*"[^"]*Menu2[^"]*"/i);
+    if (endIdx >= 0) {
+      body = stripHtml(afterTitle.slice(0, endIdx));
+    }
+  }
+
+  body = body
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .filter(Boolean)
+    .join('\n');
 
   if (!title && !body) return null;
 

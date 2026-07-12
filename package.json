@@ -73,7 +73,6 @@
     "jobs:update:apg-sga": "node scripts/update-apg-sga-jobs.mjs",
     "jobs:update:imerys": "node scripts/update-imerys-jobs.mjs",
     "jobs:update:faulhaber": "node scripts/update-faulhaber-jobs.mjs",
-    "jobs:update:alprose": "node scripts/update-alprose-jobs.mjs",
     "jobs:update:kudelski-nagra": "node scripts/update-kudelski-nagra-jobs.mjs",
     "jobs:update:franklin-university": "node scripts/update-franklin-university-jobs.mjs",
     "jobs:update:elettra-1938": "node scripts/update-elettra-1938-jobs.mjs",

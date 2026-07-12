@@ -1,8 +1,12 @@
 /**
  * TPL (Trasporti Pubblici Luganesi) crawler parser tests
  *
- * Tests parseTplListingPage(), parseTplDetailPage(), and isTplJob()
- * using realistic HTML fixtures.
+ * Tests parseTplListingPage(), parseTplDetailPage(), and isTplJob().
+ * Fixtures recalced from the live tplsa.ch markup (2026-07):
+ *   - listing: https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html
+ *   - detail:  https://www.tplsa.ch/2/50/candidati/?idhr=748
+ * The CMS emits spaces around attribute `=` (href = "...") and links each
+ * position to /2/50/candidati/?idhr=NNN; idhr=0 is the spontaneous form.
  */
 import { describe, it, expect } from 'vitest';
 
@@ -10,53 +14,96 @@ import {
   parseTplListingPage,
   parseTplDetailPage,
   isTplJob,
+  inferEmploymentType,
 } from '@/scripts/lib/tpl-lugano-job-parser.mjs';
 
-// ─── Fixture: Listing page with jobs ───
+// ─── Fixture: Listing page with one open position (live markup) ───
 const LISTING_WITH_JOBS_HTML = `
 <html>
 <body>
-<div class="content">
-  <h1>TPL - Lavora con noi</h1>
-  <p>Le seguenti posizioni sono aperte:</p>
-  <a href="/2/51/autista-autobus.html">Autista Autobus</a>
-  <a href="/2/52/meccanico-officina.html">Meccanico Officina</a>
-  <a href="/2/53/impiegato-amministrativo.html">Impiegato Amministrativo</a>
+	<section id="tabs">
+		<div class="container mt-5 mb-5">
+				<div class="col-md-12">
+					<h1>Lavora con noi</h1>
+					<!--h2>Elenco posizioni</h2-->
+				</div>
+    		<div class="row no-gutters">
+    			<h2>Qualsiasi concorso o posizione aperta presso la nostra azienda viene pubblicata nella presente area del sito.<br><br><img src = "/img/logo-lavoro.png"> <br></h2>
+        <div class="col-md-12" style="border-bottom: 1px solid #d8d8d8; margin-top: 20px">
+    <div class = "col-lg-3 mb-2"><b>Data pubblicazione</b></div>
+    <div class = "col-lg-3 mb-2"><b>Data scadenza</b></div>
+    <div class = "col-lg-6 mb-2"><b>Posizione</b></div>
 </div>
+<div class="col-md-12">
+    <div class = "col-lg-3 mt-3">12 giugno 2026</div>
+    <div class = "col-lg-3 mt-3">15 luglio 2026</div>
+    <div class = "col-lg-6 mt-3"><h5><a  style = "color: #68be4d" href = "/2/50/candidati/?idhr=748"><i class="fas fa-arrow-right"></i> Specialista Risorse Umane</a></h5></div>
+</div>
+        <br/><br/><br/><a href = "/2/50/candidati/?idhr=0">Unicamente per candidature spontanee, preghiamo di utilizzare il seguente formulario <i class="fas fa-arrow-right"></i></a>
+    		</div>
+    	</div>
+    </section>
 </body>
 </html>`;
 
-// ─── Fixture: Listing page with no jobs ───
+// ─── Fixture: Listing page with multiple positions ───
+const LISTING_MULTI_HTML = `
+<div class="col-md-12">
+  <div class = "col-lg-6 mt-3"><h5><a style = "color: #68be4d" href = "/2/50/candidati/?idhr=748"><i class="fas fa-arrow-right"></i> Specialista Risorse Umane</a></h5></div>
+</div>
+<div class="col-md-12">
+  <div class = "col-lg-6 mt-3"><h5><a style = "color: #68be4d" href = "/2/50/candidati/?idhr=751"><i class="fas fa-arrow-right"></i> Autista Autobus</a></h5></div>
+</div>
+<div class="col-md-12">
+  <div class = "col-lg-6 mt-3"><h5><a style = "color: #68be4d" href = "/2/50/candidati/?idhr=748"><i class="fas fa-arrow-right"></i> Specialista Risorse Umane</a></h5></div>
+</div>
+<a href = "/2/50/candidati/?idhr=0">Unicamente per candidature spontanee</a>`;
+
+// ─── Fixture: Listing page with no jobs (only spontaneous form) ───
 const LISTING_NO_JOBS_HTML = `
 <html>
 <body>
-<div class="content">
-  <h1>TPL - Lavora con noi</h1>
-  <p>Non ci sono risultati nell'area selezionata.</p>
-  <p>Unicamente per candidature spontanee, preghiamo di utilizzare il seguente formulario.</p>
+	<section id="tabs">
+				<div class="col-md-12">
+					<h1>Lavora con noi</h1>
+				</div>
+        <div class="col-md-12" style="border-bottom: 1px solid #d8d8d8; margin-top: 20px">
+    <div class = "col-lg-3 mb-2"><b>Data pubblicazione</b></div>
+    <div class = "col-lg-3 mb-2"><b>Data scadenza</b></div>
+    <div class = "col-lg-6 mb-2"><b>Posizione</b></div>
 </div>
+        <br/><br/><br/><a href = "/2/50/candidati/?idhr=0">Unicamente per candidature spontanee, preghiamo di utilizzare il seguente formulario <i class="fas fa-arrow-right"></i></a>
+    </section>
 </body>
 </html>`;
 
-// ─── Fixture: Detail page ───
+// ─── Fixture: Detail/application page (live markup, no <main>) ───
 const DETAIL_HTML = `
 <html>
 <body>
-<main>
-  <h1>Autista Autobus</h1>
-  <div class="content">
-    <p>TPL SA cerca un autista per il servizio di trasporto pubblico nella regione
-    di Lugano. Il candidato deve possedere la patente di categoria D e avere
-    esperienza nella guida di veicoli pesanti. Offriamo un ambiente di lavoro
-    dinamico e un contratto a tempo indeterminato con benefit aziendali.</p>
-    <h3>Requisiti</h3>
-    <ul>
-      <li>Patente categoria D</li>
-      <li>Esperienza minima 2 anni</li>
-      <li>Conoscenza italiano</li>
-    </ul>
-  </div>
-</main>
+	<section id="tabs">
+		<div class="container mt-5 mb-5">
+					<div class="col-md-12">
+						<h1>Specialista Risorse Umane </h1>
+						<a class="btn btn-candidati" href = "/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf" target = "_blank" >Guarda il Capitolato <i class="fas fa-file"></i></a>
+					</div>
+					<div class="col-md-12">
+						<hr>
+							Le candidature per le posizioni vacanti, complete dei documenti richiesti, dovranno pervenire esclusivamente in formato elettronico all'indirizzo e-mail: <a href = "mailto:candidature@tplsa.ch">candidature@tplsa.ch</a>
+	    			</div>
+			<div class="row">
+				<div class="col-12 col-md-12 col-lg-12 col-xl-12">
+<div class="Menu2 mt-5" id="accordion">
+		<div class="card col-12 col-md-6 col-lg-3 col-xl-3">
+			<div class="card-body">
+					<p>La Trasporti Pubblici Luganesi SA (TPL) è la società di trasporto pubblico che serve la città di Lugano e i comuni limitrofi.</p>
+			</div>
+		</div>
+</div>
+				</div>
+			</div>
+    	</div>
+    </section>
 </body>
 </html>`;
 
@@ -65,22 +112,39 @@ const DETAIL_HTML = `
 // ═══════════════════════════════════════════════════════════════
 
 describe('parseTplListingPage', () => {
-  it('extracts job URLs from listing page with jobs', () => {
+  it('extracts the open position from the live listing markup', () => {
     const results = parseTplListingPage(LISTING_WITH_JOBS_HTML);
-    expect(results.length).toBe(3);
+    expect(results.length).toBe(1);
+    expect(results[0].url).toBe('https://www.tplsa.ch/2/50/candidati/?idhr=748');
+    expect(results[0].title).toBe('Specialista Risorse Umane');
   });
 
-  it('builds absolute URLs with tplsa.ch domain', () => {
+  it('handles spaces around the href attribute equals sign', () => {
+    // The tplsa.ch CMS emits `href = "..."` — a plain href="..." regex never matches
     const results = parseTplListingPage(LISTING_WITH_JOBS_HTML);
-    expect(results[0].url).toContain('tplsa.ch');
+    expect(results.length).toBeGreaterThan(0);
   });
 
-  it('extracts correct titles', () => {
+  it('excludes the spontaneous-application form (idhr=0)', () => {
     const results = parseTplListingPage(LISTING_WITH_JOBS_HTML);
-    expect(results[0].title).toBe('Autista Autobus');
+    expect(results.some((r) => /idhr=0\b/.test(r.url))).toBe(false);
   });
 
-  it('returns empty array when no jobs listed', () => {
+  it('extracts multiple positions and deduplicates by URL', () => {
+    const results = parseTplListingPage(LISTING_MULTI_HTML);
+    expect(results.length).toBe(2);
+    expect(results.map((r) => r.title)).toEqual([
+      'Specialista Risorse Umane',
+      'Autista Autobus',
+    ]);
+  });
+
+  it('strips the arrow icon from titles', () => {
+    const results = parseTplListingPage(LISTING_WITH_JOBS_HTML);
+    expect(results[0].title).not.toMatch(/fa-arrow|</);
+  });
+
+  it('returns empty array when only the spontaneous form is present', () => {
     const results = parseTplListingPage(LISTING_NO_JOBS_HTML);
     expect(results).toEqual([]);
   });
@@ -96,10 +160,10 @@ describe('parseTplListingPage', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('parseTplDetailPage', () => {
-  it('extracts title from detail page', () => {
+  it('extracts title from the live application page markup', () => {
     const result = parseTplDetailPage(DETAIL_HTML);
     expect(result).not.toBeNull();
-    expect(result.title).toBe('Autista Autobus');
+    expect(result.title).toBe('Specialista Risorse Umane');
   });
 
   it('sets location to Lugano', () => {
@@ -107,8 +171,19 @@ describe('parseTplDetailPage', () => {
     expect(result.location).toBe('Lugano');
   });
 
-  it('extracts body text', () => {
+  it('extracts body up to the Menu2 accordion (no <main> on real pages)', () => {
     const result = parseTplDetailPage(DETAIL_HTML);
+    expect(result.body).toContain('candidature@tplsa.ch');
+    expect(result.body).toContain('Guarda il Capitolato');
+    // Accordion boilerplate must not leak into the body
+    expect(result.body).not.toContain('società di trasporto pubblico');
+  });
+
+  it('still supports pages with a <main> container', () => {
+    const result = parseTplDetailPage(
+      '<main><h1>Autista Autobus</h1><p>Guida sulla rete di trasporto pubblico di Lugano.</p></main>'
+    );
+    expect(result.title).toBe('Autista Autobus');
     expect(result.body).toContain('trasporto pubblico');
   });
 
@@ -132,7 +207,7 @@ describe('isTplJob', () => {
   });
 
   it('matches by URL domain', () => {
-    expect(isTplJob({ companyKey: '', company: '', url: 'https://www.tplsa.ch/job/123' })).toBe(true);
+    expect(isTplJob({ companyKey: '', company: '', url: 'https://www.tplsa.ch/2/50/candidati/?idhr=748' })).toBe(true);
   });
 
   it('does not match unrelated companies', () => {
@@ -141,5 +216,27 @@ describe('isTplJob', () => {
 
   it('returns false for null', () => {
     expect(isTplJob(null)).toBe(false);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// inferEmploymentType
+// ═══════════════════════════════════════════════════════════════
+
+describe('inferEmploymentType', () => {
+  it('defaults to FULL_TIME', () => {
+    expect(inferEmploymentType('Specialista Risorse Umane', '')).toBe('FULL_TIME');
+  });
+
+  it('detects part-time from percentage below 80', () => {
+    expect(inferEmploymentType('Impiegato', 'Grado di occupazione: 50%')).toBe('PART_TIME');
+  });
+
+  it('treats 80-100% as full time', () => {
+    expect(inferEmploymentType('Autista', 'Grado di occupazione: 80-100%')).toBe('FULL_TIME');
+  });
+
+  it('detects explicit tempo parziale', () => {
+    expect(inferEmploymentType('Impiegato', 'Posizione a tempo parziale')).toBe('PART_TIME');
   });
 });

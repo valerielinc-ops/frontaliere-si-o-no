@@ -229,8 +229,13 @@ async function fetchPage(url) {
  *     <div id="job-{id}-desktop-section-customfield2-value">{Dienstabteilung}</div>
  *     <div id="job-{id}-desktop-section-adcode-value">{Referenz-Nr.}</div>
  *   </li>
+ *
+ * Exported (single source of truth for the tile regexes): the same portal
+ * hosts the Stadtspital Zürich postings, and
+ * `stadtspital-zuerich-job-parser.mjs` reuses this function on its
+ * facet-filtered listing pages instead of duplicating the regexes.
  */
-function parseListingTiles(html = '') {
+export function parseListingTiles(html = '') {
   const rows = [];
   const seen = new Set();
   const tileSplits = String(html || '').split('<li class="job-tile job-id-');

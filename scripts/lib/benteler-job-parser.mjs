@@ -14,6 +14,18 @@
  * spans, paginated via `?startrow=N` (25 rows/page), and detail pages
  * carry schema.org `JobPosting` microdata.
  *
+ * ISSUE #3893 DETAIL-STAGE FIX (verified live 2026-07-11): this tenant's
+ * `PostalAddress` microdata emits NO `postalCode` itemprop, so the old
+ * strict 4-field-in-order address regex could never match. Postings can
+ * also carry SEVERAL `itemprop="address"` blocks (multi-location rows show
+ * "+1 more…" in the listing), so a Swiss location can hide behind a
+ * non-Swiss visible location. The detail parser now reads every address
+ * block field-by-field (each field optional) and prefers the CH one;
+ * multi-location listing rows are kept for a detail-page country check.
+ * Note: Benteler has no Ticino entity — its active Swiss entities are in
+ * Zug/Baar (Zefix: Benteler Trading International AG, Benteler Mobility
+ * GmbH, BENTELER HOLON Verwaltungs AG), hence the Zug fallbacks.
+ *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBentelerJobs()  — Fetch and parse all jobs
  *   - isBentelerJob()         — Match jobs belonging to this company
@@ -138,8 +150,10 @@ function detectEmploymentType(text = '') {
  * Nordrhein-Westfalen in Germany) — without this guard, `isTargetSwissLocation()`
  * false-positives on every German posting whose region code happens to
  * match a Swiss canton code.
+ *
+ * Exported for tests.
  */
-function isSwissLocation(location = '') {
+export function isSwissLocation(location = '') {
   const loc = String(location || '').trim();
   if (!loc) return false;
   if (/\b(schweiz|switzerland|suisse|svizzera)\b/i.test(loc)) return true;
@@ -157,14 +171,21 @@ function isSwissLocation(location = '') {
  * Parse one Jobs2Web search-results page (server-rendered `<tr class="data-row">`
  * table). Returns `{ rows, total }` where `total` is the "Results X to Y of
  * TOTAL" count parsed from the page (0 if not found).
+ *
+ * `hasMoreLocations` flags multi-location rows ("+N more…" marker): their
+ * extra locations are NOT in the listing HTML, so a Swiss site can hide
+ * behind a non-Swiss visible location — the caller must check the detail
+ * page's address microdata before discarding them.
+ *
+ * Exported for tests (fixture-based).
  */
-function parseSearchPage(html = '') {
+export function parseSearchPage(html = '') {
   const rows = [];
   const blocks = String(html || '').split('<tr class="data-row">').slice(1);
   for (const block of blocks) {
     const titleM = block.match(/class="jobTitle-link">([^<]*)</);
     const hrefM = block.match(/href="([^"]+)"\s*class="jobTitle-link"/);
-    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*<\/span>/);
+    const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*</);
     const facM = block.match(/class="jobFacility">([^<]*)</);
     if (!titleM || !hrefM) continue;
     rows.push({
@@ -172,6 +193,7 @@ function parseSearchPage(html = '') {
       href: hrefM[1],
       locationText: locM ? normalizeSpace(locM[1]) : '',
       facility: facM ? normalizeSpace(facM[1]) : '',
+      hasMoreLocations: /\+\s*\d+\s*more/i.test(block.replace(/&hellip;/g, '…')),
     });
   }
   const totalM = html.match(/Results\s+\d+\s+to\s+\d+\s+of\s+(\d+)/i);
@@ -182,7 +204,10 @@ function parseSearchPage(html = '') {
  * Fetch every Jobs2Web search-results page, then filter client-side for
  * Swiss locations. Note: on this tenant `jobFacility` holds a business-unit
  * name (e.g. "BENTELER Steel/Tube"), not a country, so filtering relies on
- * the `jobLocation` text via `isSwissLocation()`.
+ * the `jobLocation` text via `isSwissLocation()`. Multi-location rows
+ * ("+N more…") are kept too: their hidden locations can be Swiss, and the
+ * detail page's address microdata is the only place they are listed —
+ * `fetchAllBentelerJobs()` drops them if no CH address shows up there.
  */
 async function listSwissJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -209,14 +234,90 @@ async function listSwissJobs() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  const swissRows = allRows.filter((r) => isSwissLocation(r.locationText));
-  console.log(`  🎯 Filtered ${allRows.length} total → ${swissRows.length} Swiss jobs`);
+  const swissRows = allRows.filter(
+    (r) => isSwissLocation(r.locationText) || r.hasMoreLocations,
+  );
+  console.log(
+    `  🎯 Filtered ${allRows.length} total → ${swissRows.length} Swiss/multi-location candidates`,
+  );
   return swissRows;
 }
 
 /**
- * Fetch and parse a job detail page (schema.org `JobPosting` microdata,
- * server-rendered — no JS needed).
+ * Parse every schema.org `PostalAddress` microdata block on a detail page.
+ *
+ * Field-by-field and order-independent, because this tenant emits NO
+ * `postalCode` itemprop at all (the old strict locality→region→postalCode→
+ * country regex could therefore never match) and multi-location postings
+ * carry several `itemprop="address"` blocks.
+ */
+function parseAddressBlocks(html = '') {
+  const addresses = [];
+  const chunks = String(html || '').split(/itemprop="address"[^>]*>/).slice(1);
+  for (const chunk of chunks) {
+    // Confine the scan to this PostalAddress block (metas are adjacent;
+    // the block ends at its closing </span>).
+    const end = chunk.indexOf('</span>');
+    const scope = end !== -1 ? chunk.slice(0, end) : chunk.slice(0, 600);
+    const get = (name) => {
+      const m = scope.match(new RegExp(`itemprop="${name}" content="([^"]*)"`));
+      return m ? normalizeSpace(m[1]) : '';
+    };
+    const addr = {
+      addressLocality: get('addressLocality'),
+      addressRegion: get('addressRegion'),
+      postalCode: get('postalCode'),
+      addressCountry: get('addressCountry').toUpperCase(),
+    };
+    if (addr.addressLocality || addr.addressCountry) addresses.push(addr);
+  }
+  return addresses;
+}
+
+/**
+ * Parse a job detail page (schema.org `JobPosting` microdata, server-rendered
+ * — no JS needed). Pure function, exported for tests (fixture-based).
+ *
+ * Returns all address blocks plus the "best" one flattened for convenience:
+ * the CH address when present (multi-location postings list every site),
+ * otherwise the first.
+ */
+export function parseJobDetailHtml(html = '', url = '') {
+  const addresses = parseAddressBlocks(html);
+  const best = addresses.find((a) => a.addressCountry === 'CH') || addresses[0] || {};
+  const dateM = String(html || '').match(/itemprop="datePosted" content="([^"]*)"/);
+
+  let descriptionHtml = '';
+  const startMarker = '<span class="jobdescription">';
+  const start = String(html || '').indexOf(startMarker);
+  if (start !== -1) {
+    const from = start + startMarker.length;
+    const endMarker = '<p class="job-location">';
+    const end = html.indexOf(endMarker, from);
+    descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
+  }
+
+  let postedDate = '';
+  if (dateM) {
+    // Tenant emits Java-style dates, e.g. "Wed Jun 17 02:01:00 UTC 2026".
+    const d = new Date(dateM[1]);
+    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
+  }
+
+  return {
+    addresses,
+    addressLocality: best.addressLocality || '',
+    addressRegion: best.addressRegion || '',
+    postalCode: best.postalCode || '',
+    addressCountry: best.addressCountry || '',
+    postedDate,
+    descriptionHtml,
+    url,
+  };
+}
+
+/**
+ * Fetch and parse a job detail page.
  */
 async function fetchJobDetail(href) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -228,37 +329,7 @@ async function fetchJobDetail(href) {
     console.warn(`⚠️ Detail fetch failed for ${url}: ${err.message}`);
     return null;
   }
-
-  const addrM = html.match(
-    /itemprop="addressLocality" content="([^"]*)"[\s\S]{0,200}?itemprop="addressRegion" content="([^"]*)"[\s\S]{0,200}?itemprop="postalCode" content="([^"]*)"[\s\S]{0,200}?itemprop="addressCountry" content="([^"]*)"/,
-  );
-  const dateM = html.match(/itemprop="datePosted" content="([^"]*)"/);
-
-  let descriptionHtml = '';
-  const startMarker = '<span class="jobdescription">';
-  const start = html.indexOf(startMarker);
-  if (start !== -1) {
-    const from = start + startMarker.length;
-    const endMarker = '<p class="job-location">';
-    const end = html.indexOf(endMarker, from);
-    descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
-  }
-
-  let postedDate = '';
-  if (dateM) {
-    const d = new Date(dateM[1]);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
-
-  return {
-    addressLocality: addrM ? addrM[1] : '',
-    addressRegion: addrM ? addrM[2] : '',
-    postalCode: addrM ? addrM[3] : '',
-    addressCountry: addrM ? addrM[4] : '',
-    postedDate,
-    descriptionHtml,
-    url,
-  };
+  return parseJobDetailHtml(html, url);
 }
 
 /**
@@ -285,10 +356,23 @@ export async function fetchAllBentelerJobs() {
     const detail = await fetchJobDetail(listing.href);
     if (!detail) continue;
 
+    // Multi-location candidates ("+N more…") were kept past the listing
+    // filter only to inspect their full address microdata: drop them unless
+    // one of the addresses is actually Swiss.
+    const visiblySwiss = isSwissLocation(listing.locationText);
+    const detailSwiss = (detail.addresses || []).some((a) => a.addressCountry === 'CH');
+    if (!visiblySwiss && !detailSwiss) {
+      console.log(`     ↳ skipped (no Swiss site among ${detail.addresses?.length || 0} locations)`);
+      continue;
+    }
+
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(detail.addressLocality || listing.locationText || '') || HQ?.city || 'Manno';
+    // Listing locationText is "City, Region, CC" — keep only the city part
+    // as fallback when the microdata has no locality.
+    const listingCity = normalizeSpace((listing.locationText || '').split(',')[0]);
+    const location = normalizeSpace(detail.addressLocality || listingCity) || HQ?.city || 'Zug';
     const canton = inferAnyCanton(`${location} ${detail.addressRegion || ''}`) || HQ?.canton || '';
     const descriptionText = stripHtml(detail.descriptionHtml || '');
     const publicUrl = detail.url;
@@ -298,7 +382,7 @@ export async function fetchAllBentelerJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(title);
 
-    const desc = descriptionText || `${title} — Stelle bei Benteler in ${location}, Schweiz. Benteler ist ein globaler Automobil- und Stahlzulieferer mit einem Standort in Manno (Tessin).`;
+    const desc = descriptionText || `${title} — Stelle bei Benteler in ${location}, Schweiz. Benteler ist ein globaler Automobil- und Stahlzulieferer mit Schweizer Gesellschaften im Raum Zug.`;
 
     const job = {
       id: `benteler-${urlHash}`,
@@ -318,10 +402,10 @@ export async function fetchAllBentelerJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressRegion: detail.addressRegion || canton || HQ?.addressRegion || 'ZG',
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: detail.postalCode || HQ?.postalCode || '6928',
+      postalCode: detail.postalCode || HQ?.postalCode || '6300',
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,

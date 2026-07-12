@@ -169,6 +169,77 @@ describe('INTEGRA Biosciences crawler parser', () => {
       expect(jobs).toHaveLength(1);
       expect(jobs[0].detailUrl).toBe('https://www.integra-biosciences.com/global/en/careers/test-job');
     });
+
+    // Live markup (Jul 2026) served by the global open-positions table: rows
+    // carry the FULL country name in the Country column ("United States",
+    // "Canada", "Switzerland"). The crawler fetches the unfiltered global list
+    // and selects Swiss rows client-side — proven here on the real structure.
+    const MIXED_COUNTRY_HTML = `
+      <table class="cols-3">
+        <thead><tr>
+          <th class="views-field views-field-title" scope="col">Title</th>
+          <th class="views-field views-field-field-business-area" scope="col">Business Area</th>
+          <th class="views-field views-field-field-job-country" scope="col">Country</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td headers="view-title-table-column" class="views-field views-field-title" data-thead="
+            Title
+          "><a href="https://www.integra-biosciences.com/global/en/careers/field-calibration-technician" hreflang="en">Field Calibration Technician</a></td>
+            <td class="views-field views-field-field-business-area">Sales &amp; Customer Support</td>
+            <td class="views-field views-field-field-job-country">United States</td>
+          </tr>
+          <tr>
+            <td headers="view-title-table-column" class="views-field views-field-title" data-thead="
+            Title
+          "><a href="https://www.integra-biosciences.com/global/en/careers/mitarbeiter-qualitatssicherung-spritzguss-wmd-100" hreflang="en">Mitarbeiter Qualitätssicherung Spritzguss (m/w/d) 100%</a></td>
+            <td class="views-field views-field-field-business-area">Quality &amp; Safety Management</td>
+            <td class="views-field views-field-field-job-country">Switzerland</td>
+          </tr>
+          <tr>
+            <td headers="view-title-table-column" class="views-field views-field-title" data-thead="
+            Title
+          "><a href="https://www.integra-biosciences.com/global/en/careers/outside-sales-representative" hreflang="en">Outside Sales Representative</a></td>
+            <td class="views-field views-field-field-business-area">Sales &amp; Customer Support</td>
+            <td class="views-field views-field-field-job-country">Canada</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    it('parses full country names and lets the client-side filter select Swiss rows', () => {
+      const cards = parseListingTable(MIXED_COUNTRY_HTML);
+      expect(cards).toHaveLength(3);
+      // Mirrors the crawler's client-side filter (country blank/switzerland/ch).
+      const swiss = cards.filter((c) => {
+        const country = c.country.trim().toLowerCase();
+        return !country || country === 'switzerland' || country === 'ch';
+      });
+      expect(swiss.map((c) => c.title)).toEqual([
+        'Mitarbeiter Qualitätssicherung Spritzguss (m/w/d) 100%',
+      ]);
+      expect(swiss[0].businessArea).toBe('Quality & Safety Management');
+    });
+
+    // Real render when INTEGRA has no live positions (its state as of the fix):
+    // an empty tbody plus a "no job offers available" panel → 0 jobs, no error.
+    it('returns [] for the "no job offers available" empty table', () => {
+      const emptyHtml = `
+        <table class="cols-3">
+          <thead><tr>
+            <th class="views-field views-field-title" scope="col">Title</th>
+            <th class="views-field views-field-field-business-area" scope="col">Business Area</th>
+            <th class="views-field views-field-field-job-country" scope="col">Country</th>
+          </tr></thead>
+          <tbody>
+          </tbody>
+        </table>
+        <div class="panel no-results">
+          <div class="paragraph--text rt-content"><p>There are currently no job offers available.</p></div>
+        </div>
+      `;
+      expect(parseListingTable(emptyHtml)).toEqual([]);
+    });
   });
 
   // ── parseDetailPage ──

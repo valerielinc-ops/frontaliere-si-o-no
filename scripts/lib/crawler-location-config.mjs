@@ -369,7 +369,7 @@ export const COMPANY_HQ = {
   'canton-valais':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'zermatt-bergbahnen':           { city: 'Zermatt',            canton: 'VS', postalCode: '3920', addressRegion: 'VS' },
   'ikea':                         { city: 'Spreitenbach',       canton: 'AG', postalCode: '8957', addressRegion: 'AG' },
-  'benteler':                     { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
+  'benteler':                     { city: 'Zug',                canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
   'moncucco':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'bally':                        { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
   'mabetex':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
