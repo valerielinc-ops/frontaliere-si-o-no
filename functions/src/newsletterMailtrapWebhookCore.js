@@ -1,5 +1,6 @@
 import admin from 'firebase-admin';
 import { refreshEngagementScore } from './lib/engagementScore.js';
+import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
@@ -179,6 +180,15 @@ export async function persistMailtrapEvent(db, eventData) {
  occurred_at: occurredAt,
  });
 
+ // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
+ // signal. Runs AFTER the events.add() above so the just-arrived event is
+ // itself part of the sample the recompute reads back (otherwise the
+ // computation always lags one event behind, and the cold-start threshold
+ // would only ever be cleared on the event *after* the 3rd one).
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
+
  if (type === 'open') {
  await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailtrap', campaignId });
  }
@@ -227,6 +237,13 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
+
+ // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
+ // same events subcollection shape as newsletter_subscribers. Runs AFTER the
+ // events.add() above so the current event is part of the sample it reads.
+ if (type === 'open' || type === 'click') {
+ await refreshPreferredSendHour(subscriberRef, FieldValue);
+ }
 
  return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }

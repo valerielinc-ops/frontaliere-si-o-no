@@ -1,7 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import { applyResendWebhookEvent } from '../functions/src/newsletterResendWebhookCore.js';
 
-function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+/**
+ * `existingEvents` seeds the `events` subcollection per doc (keyed by
+ * `${collection}/${docId}`) so refreshPreferredSendHour's
+ * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * query (FRO — #3798) has something to read. Real Firestore query semantics
+ * (actual ordering/limiting) aren't reproduced — these tests only need the
+ * seeded docs to come back so the sample count/hour computation runs.
+ */
+function createFakeDb(
+  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingEvents: Record<string, Array<Record<string, unknown>>> = {},
+) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -29,6 +40,16 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
             add: async (data: Record<string, unknown>) => {
               adds.push({ collection: subPath, data });
             },
+            // Minimal query shim: only `events` collections are queried
+            // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                  return { docs: seeded.map((d) => ({ data: () => d })) };
+                },
+              }),
+            }),
           };
         },
       };
@@ -100,6 +121,83 @@ describe('newsletterResendWebhookCore', () => {
     expect(db.__sets.some((entry) => entry.collection === 'newsletter_subscribers' && entry.docId === 'testuser@example.com')).toBe(true);
     expect(db.__sets.some((entry) => entry.collection.includes('/campaign_deliveries') && entry.docId.includes('weekly_2026-03-11__testuser@example.com'))).toBe(true);
     expect(db.__adds.some((entry) => entry.collection.includes('/events'))).toBe(true);
+  });
+
+  it('refreshes preferred_send_hour on a click event with too few prior events (cold start)', async () => {
+    // No seeded events — refreshPreferredSendHour still runs and writes a
+    // sampleCount of 0 (below PREFERRED_SEND_MIN_EVENTS), hourUtc null.
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'coldstart@example.com': { status: 'confirmed', isActive: true },
+      },
+    });
+
+    await applyResendWebhookEvent({
+      type: 'email.clicked',
+      data: { email: 'coldstart@example.com', email_id: 'msg_cold' },
+    }, { db: db as any });
+
+    const preferredSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers'
+        && s.docId === 'coldstart@example.com'
+        && 'preferred_send_sample_count' in s.data,
+    );
+    expect(preferredSet).toBeTruthy();
+    expect(preferredSet!.data.preferred_send_sample_count).toBe(0);
+    expect(preferredSet!.data.preferred_send_hour_utc).toBeNull();
+  });
+
+  it('refreshes preferred_send_hour on an open event with enough prior events', async () => {
+    const docId = 'frequent-opener@example.com';
+    const db = createFakeDb(
+      {
+        newsletter_subscribers: {
+          [docId]: { status: 'confirmed', isActive: true },
+        },
+      },
+      {
+        [`newsletter_subscribers/${docId}`]: [
+          { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+          { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+          { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+          // Wrong type — must be filtered out client-side (no where clause).
+          { event_type: 'bounce', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+        ],
+      },
+    );
+
+    await applyResendWebhookEvent({
+      type: 'email.opened',
+      data: { email: docId, email_id: 'msg_frequent' },
+    }, { db: db as any });
+
+    const preferredSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers'
+        && s.docId === docId
+        && 'preferred_send_sample_count' in s.data,
+    );
+    expect(preferredSet).toBeTruthy();
+    expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+    expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
+    expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
+  });
+
+  it('does NOT refresh preferred_send_hour on a delivered event (no time-of-day signal)', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'delivered-only@example.com': { status: 'confirmed', isActive: true },
+      },
+    });
+
+    await applyResendWebhookEvent({
+      type: 'email.delivered',
+      data: { email: 'delivered-only@example.com', email_id: 'msg_delivered' },
+    }, { db: db as any });
+
+    const preferredSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && 'preferred_send_sample_count' in s.data,
+    );
+    expect(preferredSet).toBeUndefined();
   });
 
   it('does NOT promote pending subscribers to confirmed on delivered event (FRO-20)', async () => {

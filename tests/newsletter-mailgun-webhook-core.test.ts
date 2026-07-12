@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { persistMailgunEvent } from '../functions/src/newsletterMailgunWebhookCore.js';
 
-function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+/**
+ * `existingEvents` seeds the `events` subcollection per doc (keyed by
+ * `${collection}/${docId}`) so refreshPreferredSendHour's
+ * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * query (FRO — #3798) has something to read. Real Firestore query semantics
+ * (actual ordering/limiting) aren't reproduced — these tests only need the
+ * seeded docs to come back so the sample count/hour computation runs.
+ * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
+ */
+function createFakeDb(
+  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingEvents: Record<string, Array<Record<string, unknown>>> = {},
+) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -29,6 +41,16 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
             add: async (data: Record<string, unknown>) => {
               adds.push({ collection: subPath, data });
             },
+            // Minimal query shim: only `events` collections are queried
+            // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                  return { docs: seeded.map((d) => ({ data: () => d })) };
+                },
+              }),
+            }),
           };
         },
       };
@@ -59,6 +81,37 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
     __adds: adds,
   };
 }
+
+describe('newsletterMailgunWebhookCore — preferred send hour (#3798)', () => {
+  it('writes preferred_send_hour_utc/sample_count/strength on an "opened" event with enough seeded prior events', async () => {
+    const docId = 'frequent-opener@example.com';
+    const db = createFakeDb({}, {
+      [`newsletter_subscribers/${docId}`]: [
+        { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+        { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+        { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+      ],
+    });
+
+    const result = await persistMailgunEvent(db as any, {
+      event: 'opened',
+      recipient: docId,
+      timestamp: 1700000200,
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'open' });
+
+    const preferredSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers'
+        && s.docId === docId
+        && 'preferred_send_sample_count' in s.data,
+    );
+    expect(preferredSet).toBeTruthy();
+    expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+    expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
+    expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
+  });
+});
 
 describe('newsletterMailgunWebhookCore — job alert bounce handling', () => {
   it('soft bounce (severity=temporary) on a job-alert subscriber does not set permanent bounced status', async () => {
