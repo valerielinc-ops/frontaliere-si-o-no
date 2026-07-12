@@ -183,7 +183,6 @@ export async function fetchRapelliJobUrls(timeoutMs = 15000) {
       headers: { Accept: 'text/html', 'User-Agent': UA },
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
     return parseRapelliListingHtml(html);

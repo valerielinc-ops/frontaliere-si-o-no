@@ -203,9 +203,9 @@ function dedupeBitfinexJobs(jobs) {
  */
 async function fetchJobListings() {
   console.log(`   Fetching from: ${API_URL}`);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 25000);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 25000);
     const res = await fetch(API_URL, {
       signal: controller.signal,
       headers: {
@@ -213,7 +213,6 @@ async function fetchJobListings() {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`   ⚠️ HTTP ${res.status} from Recruitee API`);
       return [];
@@ -225,6 +224,8 @@ async function fetchJobListings() {
   } catch (err) {
     console.warn(`   ⚠️ Fetch failed: ${err.message}`);
     return [];
+  } finally {
+    clearTimeout(timer);
   }
 }
 

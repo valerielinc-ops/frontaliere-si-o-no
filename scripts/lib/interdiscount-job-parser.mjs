@@ -199,12 +199,10 @@ async function callApi(url) {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from Prospective API`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

@@ -283,21 +283,28 @@ async function fetchCoopJobDetailUrls() {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
 
-      const res = await fetch(apiUrl, {
-        signal: controller.signal,
-        headers: {
-          Accept: 'application/json',
-          'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        },
-      });
-      clearTimeout(timer);
+      let res;
+      let data;
+      try {
+        res = await fetch(apiUrl, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'application/json',
+            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+          },
+        });
+        if (res.ok) {
+          data = await res.json();
+        }
+      } finally {
+        clearTimeout(timer);
+      }
 
       if (!res.ok) {
         console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
         break;
       }
 
-      const data = await res.json();
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
       if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
     } catch (err) {

@@ -207,12 +207,10 @@ async function fetchPage(url) {
         'Accept-Language': 'de-CH,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

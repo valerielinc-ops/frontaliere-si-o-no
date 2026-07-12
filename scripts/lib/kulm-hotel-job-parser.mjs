@@ -169,12 +169,10 @@ async function fetchJson(url) {
         'User-Agent': USER_AGENT,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -191,12 +189,10 @@ async function fetchHtml(url) {
         'Accept-Language': 'en,de;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

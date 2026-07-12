@@ -888,8 +888,16 @@ async function enrichWayback(enrichedOrphans) {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 10000);
 
-      const res = await fetch(cdxUrl, { signal: controller.signal });
-      clearTimeout(timeout);
+      let res;
+      let data;
+      try {
+        res = await fetch(cdxUrl, { signal: controller.signal });
+        if (res.ok) {
+          data = await res.json();
+        }
+      } finally {
+        clearTimeout(timeout);
+      }
 
       if (!res.ok) {
         errors++;
@@ -897,7 +905,6 @@ async function enrichWayback(enrichedOrphans) {
         continue;
       }
 
-      const data = await res.json();
       // CDX returns [["timestamp","original"], ["20240101...","url"]]
       if (!Array.isArray(data) || data.length < 2) {
         await sleep(1000);

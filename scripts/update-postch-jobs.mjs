@@ -145,9 +145,9 @@ function isPostJob(job) {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchPage(url, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
@@ -157,7 +157,6 @@ async function fetchPage(url, timeoutMs = 15000) {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
@@ -166,6 +165,8 @@ async function fetchPage(url, timeoutMs = 15000) {
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -197,7 +198,6 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
       },
       body: JSON.stringify({ locale, pageNumber, sortBy: 'date' }),
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
       return { totalJobs: 0, jobs: [] };
@@ -208,9 +208,10 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
       .filter(Boolean);
     return { totalJobs: Number(data?.totalJobs ?? 0), jobs };
   } catch (err) {
-    clearTimeout(timer);
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
     return { totalJobs: 0, jobs: [] };
+  } finally {
+    clearTimeout(timer);
   }
 }
 

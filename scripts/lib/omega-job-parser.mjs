@@ -281,7 +281,6 @@ async function fetchPage(url) {
       signal: controller.signal,
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (res.ok) {
       const body = await res.text();
       if (!looksLikeAntiBotChallenge(body)) return body;
@@ -290,8 +289,9 @@ async function fetchPage(url) {
       directErr = new Error(`HTTP ${res.status} from ${url}`);
     }
   } catch (err) {
-    clearTimeout(timer);
     directErr = err;
+  } finally {
+    clearTimeout(timer);
   }
 
   const viaJina = await fetchHtmlViaJinaWithRetry(jinaSafeUrl(url), { timeoutMs: Math.max(timeoutMs, 30000) });

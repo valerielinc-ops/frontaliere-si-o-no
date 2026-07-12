@@ -351,7 +351,6 @@ export async function fetchJobupDetailDescription(detailUrl) {
       signal: controller.signal,
       redirect: 'follow',
     });
-    clearTimeout(timer);
     if (!res.ok) return '';
     const html = await res.text();
     // Extract every <script type="application/ld+json"> block and look for JobPosting
@@ -378,8 +377,9 @@ export async function fetchJobupDetailDescription(detailUrl) {
     }
     return '';
   } catch {
-    clearTimeout(timer);
     return '';
+  } finally {
+    clearTimeout(timer);
   }
 }
 

@@ -389,10 +389,9 @@ async function fetchTichJobDetailUrls() {
 
   // ── Step 1: Fetch the main listing page ──
   console.log(`🔍 Fetching Ti.CH listing page: ${LISTING_URL}`);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
     const res = await fetch(LISTING_URL, {
       signal: controller.signal,
       headers: {
@@ -400,7 +399,6 @@ async function fetchTichJobDetailUrls() {
         'User-Agent': userAgent,
       },
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       console.warn(`⚠️ Listing returned ${res.status} — will try RSS fallback.`);
@@ -419,22 +417,22 @@ async function fetchTichJobDetailUrls() {
     }
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err.message} — will try RSS fallback.`);
+  } finally {
+    clearTimeout(timer);
   }
 
   // ── Step 2: Fetch the RSS/Atom feed as fallback/supplement ──
   console.log(`🔍 Fetching Ti.CH RSS feed: ${RSS_URL}`);
+  const rssController = new AbortController();
+  const rssTimer = setTimeout(() => rssController.abort(), timeoutMs);
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
     const res = await fetch(RSS_URL, {
-      signal: controller.signal,
+      signal: rssController.signal,
       headers: {
         Accept: 'application/atom+xml, application/rss+xml, application/xml, text/xml',
         'User-Agent': userAgent,
       },
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       console.warn(`⚠️ RSS feed returned ${res.status} — skipping.`);
@@ -462,6 +460,8 @@ async function fetchTichJobDetailUrls() {
     }
   } catch (err) {
     console.warn(`⚠️ RSS feed fetch failed: ${err.message}`);
+  } finally {
+    clearTimeout(rssTimer);
   }
 
   console.log(`✅ Total unique Ti.CH detail URLs discovered: ${allUrls.size}`);

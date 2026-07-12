@@ -156,16 +156,14 @@ async function fetchJobPage(page = 1) {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} from Reboot Monkey API`);
     }
 
     return await res.json();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

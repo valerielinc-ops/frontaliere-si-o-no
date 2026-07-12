@@ -303,12 +303,12 @@ export async function fetchAllWuerthInternationalJobs() {
       headers: { 'User-Agent': userAgent },
       signal: controller1.signal,
     });
-    clearTimeout(timer1);
     if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
     listingHtml = await res.text();
   } catch (err) {
-    clearTimeout(timer1);
     throw new Error(`Failed to fetch listing page: ${err?.message || err}`);
+  } finally {
+    clearTimeout(timer1);
   }
 
   const listings = parseListingPage(listingHtml);
@@ -325,16 +325,20 @@ export async function fetchAllWuerthInternationalJobs() {
     try {
       const controller2 = new AbortController();
       const timer2 = setTimeout(() => controller2.abort(), timeoutMs);
-      const res = await fetch(listing.url, {
-        headers: { 'User-Agent': userAgent },
-        signal: controller2.signal,
-      });
-      clearTimeout(timer2);
 
       let detail = null;
-      if (res.ok) {
-        const detailHtml = await res.text();
-        detail = parseDetailPage(detailHtml);
+      try {
+        const res = await fetch(listing.url, {
+          headers: { 'User-Agent': userAgent },
+          signal: controller2.signal,
+        });
+
+        if (res.ok) {
+          const detailHtml = await res.text();
+          detail = parseDetailPage(detailHtml);
+        }
+      } finally {
+        clearTimeout(timer2);
       }
 
       // Build job object

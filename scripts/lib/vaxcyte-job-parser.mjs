@@ -193,16 +193,16 @@ async function fetchGreenhouseApi() {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`\u26a0\ufe0f HTTP ${res.status} from Greenhouse API`);
       return null;
     }
     return await res.json();
   } catch (err) {
-    clearTimeout(timer);
     console.warn(`\u26a0\ufe0f Greenhouse API fetch failed: ${err.message}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

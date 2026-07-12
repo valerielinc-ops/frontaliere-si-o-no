@@ -165,16 +165,16 @@ async function fetchJson(url, options = {}) {
         ...options.headers,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
     }
     return await res.json();
   } catch (err) {
-    clearTimeout(timer);
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

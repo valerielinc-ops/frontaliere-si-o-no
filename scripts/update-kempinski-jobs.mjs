@@ -172,13 +172,11 @@ async function fetchAllPostings() {
       },
       signal: controller.signal,
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     const json = await res.json();
     return assertJsonListShape(json, { key: 'data', source: 'kempinski' });
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 

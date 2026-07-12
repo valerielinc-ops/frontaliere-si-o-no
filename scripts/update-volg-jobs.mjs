@@ -135,12 +135,10 @@ async function fetchPage(url) {
         'User-Agent': UA,
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -454,7 +452,6 @@ async function enrichWithDetails(jobs) {
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
             },
           });
-          clearTimeout(timer);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const html = await res.text();
           const result = parseDetailPage(html, resolveCantonLocale(job.canton));
@@ -496,9 +493,10 @@ async function enrichWithDetails(jobs) {
             enriched++;
           }
         } catch (err) {
-          clearTimeout(timer);
           failed++;
           console.warn(`  ⚠️ Detail fetch failed for ${job.title}: ${err.message}`);
+        } finally {
+          clearTimeout(timer);
         }
       }),
     );

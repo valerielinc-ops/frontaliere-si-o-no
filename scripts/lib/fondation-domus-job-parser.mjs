@@ -207,12 +207,10 @@ async function fetchCareerPage() {
         'Accept-Language': 'fr-CH,fr;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
     return await res.text();
-  } catch (err) {
+  } finally {
     clearTimeout(timer);
-    throw err;
   }
 }
 
@@ -310,7 +308,6 @@ async function fetchJobUpDescription(jobUpUrl) {
         'Accept-Language': 'fr-CH,fr;q=0.9',
       },
     });
-    clearTimeout(timer);
     if (!res.ok) return null;
     const html = await res.text();
 
@@ -338,8 +335,9 @@ async function fetchJobUpDescription(jobUpUrl) {
 
     return null;
   } catch {
-    clearTimeout(timer);
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
