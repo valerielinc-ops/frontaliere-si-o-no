@@ -8453,6 +8453,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un frontaliere che si reca al lavoro in Svizzera attraversando il confine con l\'Italia.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Congedo per lutto o malattia familiare: i diritti del frontaliere tra Svizzera e Italia',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Durata, retribuzione e procedure per i permessi in caso di lutto o malattia di un familiare quando lavori in Ticino. Differenze con le regole italiane.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Documento ufficiale svizzero su congedo familiare in ufficio ticinese',
 };
 
 export default blogMetaIt;

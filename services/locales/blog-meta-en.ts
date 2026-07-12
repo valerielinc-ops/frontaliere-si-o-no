@@ -8452,6 +8452,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Injury en route at the border: LAINF coverage and procedures',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Border workers who go to work in Switzerland crossing the border with Italy must know how to proceed in the event of an accident.',
     'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'A commuter who is traveling to work in Switzerland through the border with Italy.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.title': 'Family Sick Leave and Bereavement Leave: Cross-Border Rights in Switzerland and Italy',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.excerpt': 'Duration, pay and leave procedures in case of bereavement or illness of a family member when you work in Ticino. Differences with Italian rules.',
+    'blog.article.congedo-lutto-malattia-frontaliere-svizzera.imageAlt': 'Swiss official document on family leave in a Ticino office',
 };
 
 export default blogMetaEn;
