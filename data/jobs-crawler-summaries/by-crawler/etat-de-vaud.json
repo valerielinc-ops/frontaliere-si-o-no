@@ -1,34 +1,32 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-12T11:05:26.654Z",
-  "total": 35,
+  "generatedAt": "2026-07-12T22:25:33.350Z",
+  "total": 34,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 22912,
-  "avgDurationMs": 22912,
+  "unchangedCount": 0,
+  "durationMs": 15996,
+  "avgDurationMs": 15996,
   "durationHistory": [
-    22912
+    15996
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5369",
-      "slug": "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "id": "etat-de-vaud-5550",
+      "slug": "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Juriste",
+      "title": "Stagiaire juriste",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5369",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T10:52:08.295Z",
+      "crawledAt": "2026-07-12T11:05:16.866Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -38,16 +36,16 @@
       "category": "Legale",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "intern",
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5369",
-      "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
+      "firstSeenAt": "2026-07-05T11:43:15.359Z",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
