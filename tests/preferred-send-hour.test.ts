@@ -347,3 +347,56 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     expect(result.updated).toBe(true);
   });
 });
+
+// Gap flagged by #3798 code review: the catch block (mirrors refreshEngagementScore's
+// swallow-and-console.warn idiom) had no direct test forcing it to actually execute.
+// Both possible throw sites inside the try are exercised separately: the initial
+// subscriberRef.get() (staleness-gate read) and the events subcollection query.
+describe('refreshPreferredSendHour — error handling (catch path, #3798 code review)', () => {
+  it('swallows a thrown error from subscriberRef.get() and returns { updated: false } without writing', async () => {
+    const sets: Array<{ data: unknown; opts?: unknown }> = [];
+    const ref = {
+      get: async () => {
+        throw new Error('boom-get');
+      },
+      set: async (data: unknown, opts?: unknown) => {
+        sets.push({ data, opts });
+      },
+      collection: () => {
+        throw new Error('should not reach the events collection when get() already threw');
+      },
+    };
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(result).toEqual({ updated: false });
+    expect(sets.length).toBe(0);
+  });
+
+  it('swallows a thrown error from the events subcollection query and returns { updated: false } without writing', async () => {
+    const sets: Array<{ data: unknown; opts?: unknown }> = [];
+    const ref = {
+      get: async () => ({ exists: false, data: () => null }),
+      set: async (data: unknown, opts?: unknown) => {
+        sets.push({ data, opts });
+      },
+      collection: (name: string) => {
+        if (name !== 'events') throw new Error(`unexpected subcollection: ${name}`);
+        return {
+          orderBy: () => ({
+            limit: () => ({
+              get: async () => {
+                throw new Error('boom-events-query');
+              },
+            }),
+          }),
+        };
+      },
+    };
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(result).toEqual({ updated: false });
+    expect(sets.length).toBe(0);
+  });
+});

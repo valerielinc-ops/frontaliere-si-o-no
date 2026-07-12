@@ -47,25 +47,64 @@
  * Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA), GCLOUD_PROJECT (optional).
  */
 
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 const SMALL_SAMPLE_THRESHOLD = 100;
 const BATCH_PAGE_SIZE = 200;
 const SUBCOLLECTION_CONCURRENCY = 20;
+const DEFAULT_DAYS = 30;
 
-const args = process.argv.slice(2);
-const JSON_OUT = args.includes('--json');
-
-function argValue(flag) {
+export function argValue(args, flag) {
   const i = args.indexOf(flag);
   return i >= 0 && i + 1 < args.length ? args[i + 1] : null;
 }
 
-const DAYS = Number(argValue('--days')) || 30;
-const SINCE_RAW = argValue('--since');
-let SINCE_DATE = null;
-if (SINCE_RAW) {
-  const parsed = new Date(`${SINCE_RAW}T00:00:00.000Z`);
-  if (!Number.isNaN(parsed.getTime())) SINCE_DATE = parsed;
-  else console.warn(`⚠️  --since "${SINCE_RAW}" is not a valid YYYY-MM-DD date — ignoring the pre/post split.`);
+/**
+ * `--days` is a lookback window, so it must be a finite positive number.
+ * Bug this guards against: `Number(raw) || DEFAULT_DAYS` (the previous
+ * implementation) only falls back to the default for `NaN`/`0` — a negative
+ * value like `--days -5` is truthy and survives untouched, which then makes
+ * `cutoffDate = now - DAYS*24h` land 5 days in the FUTURE. The query still
+ * "succeeds" (0 rows, since nothing is dated in the future), so the report
+ * silently prints "Nothing to report" instead of erroring on the bad input.
+ * @param {string|null} raw - the raw --days value, or null when the flag was omitted
+ * @returns {{ days: number, warning: string|null }}
+ */
+export function parseDaysArg(raw) {
+  if (raw === null) return { days: DEFAULT_DAYS, warning: null };
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) {
+    return { days: DEFAULT_DAYS, warning: `⚠️  --days "${raw}" must be a positive number — using the default (${DEFAULT_DAYS}).` };
+  }
+  return { days: n, warning: null };
+}
+
+/**
+ * Strict YYYY-MM-DD parse for `--since`. Rejects malformed strings AND
+ * calendar-invalid-but-JS-Date-"helpfully"-rolled-over dates: plain
+ * `new Date("2026-02-30T00:00:00.000Z")` silently returns 2026-03-02 instead
+ * of throwing, which would silently shift the pre/post split boundary by
+ * however many days the invalid date overflowed by, with no warning at all
+ * (the previous implementation only checked `Number.isNaN(parsed.getTime())`,
+ * which a rolled-over date never triggers). This round-trips the parsed
+ * UTC components against the input and rejects on mismatch instead.
+ * @param {string|null} raw
+ * @returns {{ date: Date|null, warning: string|null }}
+ */
+export function parseSinceArg(raw) {
+  if (!raw) return { date: null, warning: null };
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(raw);
+  const invalidWarning = `⚠️  --since "${raw}" is not a valid YYYY-MM-DD date — ignoring the pre/post split.`;
+  if (!m) return { date: null, warning: invalidWarning };
+  const parsed = new Date(`${raw}T00:00:00.000Z`);
+  const [, y, mo, d] = m;
+  const roundTrips = !Number.isNaN(parsed.getTime())
+    && parsed.getUTCFullYear() === Number(y)
+    && parsed.getUTCMonth() + 1 === Number(mo)
+    && parsed.getUTCDate() === Number(d);
+  if (!roundTrips) return { date: null, warning: invalidWarning };
+  return { date: parsed, warning: null };
 }
 
 /** Thrown when a collectionGroup query needs a Firestore index that doesn't exist. */
@@ -91,12 +130,12 @@ async function initFirebase() {
   return { admin: a, db: a.firestore() };
 }
 
-function normalizeEmail(value) {
+export function normalizeEmail(value) {
   return String(value || '').trim().toLowerCase();
 }
 
 /** Mirrors functions/src/lib/deliveryDocId.js buildDeliveryDocId (kept in sync by hand — read-only report, no import to avoid a functions/ → scripts/ runtime dependency). */
-function buildCanonicalDeliveryDocId(campaignId, email) {
+export function buildCanonicalDeliveryDocId(campaignId, email) {
   return `${campaignId}__${normalizeEmail(email)}`.replace(/[^a-z0-9@._-]+/gi, '-');
 }
 
@@ -204,27 +243,27 @@ async function loadEvents(db, cutoffDate) {
 
 // ── Aggregation ──────────────────────────────────────────────────────────
 
-const IMMEDIATE_LABEL = 'immediate/pre-feature';
-const GROUP_ORDER = ['personal', 'global', IMMEDIATE_LABEL];
+export const IMMEDIATE_LABEL = 'immediate/pre-feature';
+export const GROUP_ORDER = ['personal', 'global', IMMEDIATE_LABEL];
 
-function emptyCell() {
+export function emptyCell() {
   return { deliveries: 0, opens: 0, clicks: 0 };
 }
 
-function newSegment() {
+export function newSegment() {
   const cells = {};
   for (const g of GROUP_ORDER) cells[g] = emptyCell();
   return cells;
 }
 
-const pct = (n, d) => (d > 0 ? (100 * n) / d : 0);
+export const pct = (n, d) => (d > 0 ? (100 * n) / d : 0);
 
 /**
  * @param {FirebaseFirestore.QueryDocumentSnapshot[]} deliveryDocs
  * @param {FirebaseFirestore.QueryDocumentSnapshot[]} eventDocs
  * @param {Date|null} sinceDate - when set, returns { before, after } segments; else { combined }
  */
-function aggregate(deliveryDocs, eventDocs, sinceDate) {
+export function aggregate(deliveryDocs, eventDocs, sinceDate) {
   // Only newsletter events carry campaign_id (job_alert_subscribers events use
   // alert_id instead) — collectionGroup('events') pulls from BOTH collections
   // since they share the subcollection name, so filter to newsletter ones.
@@ -283,7 +322,7 @@ function aggregate(deliveryDocs, eventDocs, sinceDate) {
 
 // ── Reporting ────────────────────────────────────────────────────────────
 
-function formatSegmentTable(title, cells) {
+export function formatSegmentTable(title, cells) {
   const lines = [];
   lines.push(title);
   lines.push('  group                    deliveries    opens  open-rate    clicks  click-rate');
@@ -300,7 +339,7 @@ function formatSegmentTable(title, cells) {
   return lines.join('\n');
 }
 
-function comparisonLine(label, cellA, cellB, nameA, nameB) {
+export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   if (cellA.deliveries === 0 || cellB.deliveries === 0) {
     return `${label}: insufficient data (${nameA}=${cellA.deliveries}, ${nameB}=${cellB.deliveries} deliveries)`;
   }
@@ -324,7 +363,50 @@ function printSegment(name, cells) {
   console.log(comparisonLine('  → personal vs global   ', cells.personal, cells.global, 'personal', 'global'));
 }
 
+function printHelp() {
+  console.log(`
+report-send-hour-impact.mjs — READ-ONLY validation report for feature #3798
+(per-user scheduled-send time personalization). Compares open/click rate
+between subscribers sent at their personal preferred hour, the site-wide
+global hour, and the pre-feature immediate send.
+
+Usage:
+  node scripts/report-send-hour-impact.mjs                    # last 30 days
+  node scripts/report-send-hour-impact.mjs --days 60
+  node scripts/report-send-hour-impact.mjs --since 2026-07-01  # pre/post split
+  node scripts/report-send-hour-impact.mjs --json
+
+Options:
+  --days <N>       Lookback window in days. Default: 30. Must be > 0.
+  --since <DATE>   YYYY-MM-DD. Splits the window into before/on-after this date.
+  --json           Emit a single JSON object on stdout instead of the table.
+  --help, -h       Show this help.
+
+Read-only: no Firestore writes, no emails sent. Exit code is always 0.
+Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA), GCLOUD_PROJECT (optional).
+`);
+}
+
 async function main() {
+  const argv = process.argv.slice(2);
+
+  if (argv.includes('--help') || argv.includes('-h')) {
+    printHelp();
+    return;
+  }
+
+  const JSON_OUT = argv.includes('--json');
+  const { days: DAYS, warning: daysWarning } = parseDaysArg(argValue(argv, '--days'));
+  const SINCE_RAW = argValue(argv, '--since');
+  const { date: SINCE_DATE, warning: sinceWarning } = parseSinceArg(SINCE_RAW);
+  // console.warn → stderr, never stdout, so these are safe to print
+  // unconditionally without corrupting `--json`'s stdout output.
+  if (daysWarning) console.warn(daysWarning);
+  if (sinceWarning) console.warn(sinceWarning);
+  if (SINCE_DATE && SINCE_DATE.getTime() > Date.now()) {
+    console.warn(`⚠️  --since "${SINCE_RAW}" is in the future — the "after" segment will be empty.`);
+  }
+
   const now = new Date();
   const cutoffDate = new Date(now.getTime() - DAYS * 24 * 60 * 60 * 1000);
   const queryFloor = SINCE_DATE && SINCE_DATE < cutoffDate ? SINCE_DATE : cutoffDate;
@@ -350,8 +432,14 @@ async function main() {
   ]);
 
   if (deliveryDocs.length === 0) {
-    console.log('⚠️  No campaign_deliveries found in this window. Nothing to report.');
-    if (JSON_OUT) console.log(JSON.stringify({ deliveries: 0 }, null, 2));
+    // JSON mode must emit ONLY valid JSON on stdout (a consumer piping this
+    // into `jq`/JSON.parse would otherwise choke on the human-readable
+    // warning line printed ahead of it — this used to print both).
+    if (JSON_OUT) {
+      console.log(JSON.stringify({ deliveries: 0 }, null, 2));
+    } else {
+      console.log('⚠️  No campaign_deliveries found in this window. Nothing to report.');
+    }
     process.exit(0);
   }
 
@@ -379,8 +467,13 @@ async function main() {
   console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored.)\n`);
 }
 
-main().catch((err) => {
-  // Report, not a gate: log the failure but never fail the process.
-  console.error('❌ Report failed to complete:', err?.message || err);
-  process.exit(0);
-});
+// Run only when invoked directly (node scripts/report-send-hour-impact.mjs);
+// the pure aggregation/parsing functions above stay importable for tests
+// without triggering a live Firestore connection attempt.
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  main().catch((err) => {
+    // Report, not a gate: log the failure but never fail the process.
+    console.error('❌ Report failed to complete:', err?.message || err);
+    process.exit(0);
+  });
+}
