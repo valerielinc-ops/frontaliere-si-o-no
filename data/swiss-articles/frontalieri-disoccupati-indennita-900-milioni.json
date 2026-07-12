@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-disoccupati-indennita-900-milioni",
+  "slug": "frontalieri-disoccupati-indennita-900-milioni",
+  "publishedAt": "2026-07-12T14:18:23.262Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.6196124254497843,
+    "confidence": 0.8,
+    "finalScore": 2.8956899403598277,
+    "topK": [
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri-2026",
+        "cosine": 0.9049031063624461
+      },
+      {
+        "slug": "frontalieri-disoccupati-svizzera-indennita",
+        "cosine": 0.8806858341014382
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8781435216620618
+      },
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8750919097470973
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri",
+        "cosine": 0.8748333632721038
+      }
+    ],
+    "score": 2.8956899403598277,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1048,6 +1048,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Second part-time job in Italy for Swiss border workers',
     'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Tax and contractual guidance: how to manage double income between Switzerland and Italy in compliance with the Agreement on border workers in force since 2024.',
     'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Panoramic view of Lugano with modern buildings and lake, symbol of work in Switzerland',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Unemployed frontier workers: the 900 million Swiss allowance',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'The EU Parliament has approved the reform on the unemployment of frontier workers, causing an aggravation of 900 million francs for Switzerland.',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontalier unemployed',
 };
 
 export default blogMetaChEn;

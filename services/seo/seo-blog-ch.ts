@@ -13512,6 +13512,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati-indennita-900-milioni': {
+    title: 'Frontalieri disoccupati: l\'indennità da 900 milioni a carico della Svizzera',
+    description: 'Il Parlamento UE ha approvato la riforma sulla disoccupazione dei frontalieri, causando un aggravio di 900 milioni di franchi per la Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, indennità, milioni, carico',
+    ogTitle: 'Frontalieri disoccupati: l\'indennità da 900 milioni a carico della Svizzera',
+    ogDescription: 'Il Parlamento UE ha approvato la riforma sulla disoccupazione dei frontalieri, causando un aggravio di 900 milioni di franchi per la Svizzera.',
+    canonicalPath: '/articoli-svizzera/frontalieri-disoccupati-indennita-900-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri disoccupati: l'indennità da 900 milioni a carico della Svizzera",
+      "description": "Il Parlamento UE ha approvato la riforma sulla disoccupazione dei frontalieri, causando un aggravio di 900 milioni di franchi per la Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupati-indennita-900-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere disoccupato"
+      },
+      "datePublished": "2026-07-12T14:18:18+00:00",
+      "dateModified": "2026-07-12T14:18:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-disoccupati-indennita-900-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

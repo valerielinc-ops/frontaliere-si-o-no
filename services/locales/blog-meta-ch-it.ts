@@ -1048,6 +1048,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Secondo lavoro part-time in Italia per frontaliere svizzero',
     'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Guida fiscale e contrattuale: come gestire il doppio reddito tra Svizzera e Italia nel rispetto dell\'Accordo sui frontalieri in vigore dal 2024.',
     'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Vista panoramica di Lugano con edifici moderni e lago, simbolo del lavoro in Svizzera',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.title': 'Frontalieri disoccupati: l\'indennità da 900 milioni a carico della Svizzera',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.excerpt': 'Il Parlamento UE ha approvato la riforma sulla disoccupazione dei frontalieri, causando un aggravio di 900 milioni di franchi per la Svizzera.',
+    'blog.article.frontalieri-disoccupati-indennita-900-milioni.imageAlt': 'Frontaliere disoccupato',
 };
 
 export default blogMetaChIt;
