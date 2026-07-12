@@ -8444,6 +8444,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Di più frenata per gli annunci di lavoro in Svizzera',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Il mercato del lavoro svizzero nel secondo trimestre 2026 ha mostrato una stagnazione generale, nascondendo però una forte divergenza tra settori in crescita e altri in netto calo.',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Una foto di un edificio moderno in Lugano con una vista sul lago.',
+    'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket: finanziamento invariato',
+    'blog.article.sconto-ticino-ticket.excerpt': 'Il Consiglio di Stato ha chiarito che non prevede di modificare la chiave di riparto del Ticino Ticket',
+    'blog.article.sconto-ticino-ticket.imageAlt': 'Festival del Film di Locarno',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Cambio cantone di lavoro per frontaliere Ticino Grigioni: cosa cambia',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nuovo Accordo Frontalieri: cambio cantone di lavoro per frontaliere Ticino Grigioni',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontaliere in valle Verzasca con vista sul lago',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un frontaliere che si reca al lavoro in Svizzera attraversando il confine con l\'Italia.',
 };
 
 export default blogMetaIt;

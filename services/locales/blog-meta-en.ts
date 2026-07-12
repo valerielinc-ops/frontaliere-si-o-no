@@ -8443,6 +8443,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'More restraint for job listings in Switzerland',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'The Swiss labor market in the second quarter of 2026 showed a general stagnation, however, hiding a strong divergence between growing sectors and others in sharp decline.',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'A modern building in Lugano with a view of the lake.',
+    'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket: funding unchanged',
+    'blog.article.sconto-ticino-ticket.excerpt': 'The Council of State has clarified that it does not plan to change the Ticino Ticket allocation key',
+    'blog.article.sconto-ticino-ticket.imageAlt': 'Locarno Film Festival',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Change of working canton for border crossing Ticino Grigioni: what changes',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'New Frontier Agreement: change of working canton for border crossers Ticino Grigioni',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontaliere in the Verzasca Valley with a view of the lake',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Injury en route at the border: LAINF coverage and procedures',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Border workers who go to work in Switzerland crossing the border with Italy must know how to proceed in the event of an accident.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'A commuter who is traveling to work in Switzerland through the border with Italy.',
 };
 
 export default blogMetaEn;

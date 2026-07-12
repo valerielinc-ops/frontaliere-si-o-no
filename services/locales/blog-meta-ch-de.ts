@@ -1063,6 +1063,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'AHV- und BVG-Rentenabgabenkodex: Neu für Grenzgänger',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Spezieller Abgabenkodex für AHV- und BVG-Renteneinbehalte aus der Schweiz eingeführt: Was ändert sich für Grenzgänger?',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Gebäude der Bundessteuerverwaltung in Bern',
+    'blog.article.frontalieri-ticino-calano.title': 'Tessin: Länder mit hohem Ausländeranteil',
+    'blog.article.frontalieri-ticino-calano.excerpt': 'Nach Angaben des Bundesamtes für Statistik ist die Zahl der italienischen Grenzgänger in der Schweiz rückläufig.',
+    'blog.article.frontalieri-ticino-calano.imageAlt': 'Frontaliers in Lugano',
 };
 
 export default blogMetaChDe;

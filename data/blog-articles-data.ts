@@ -25370,6 +25370,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sconto-ticino-ticket',
+ category: 'pratico',
+ date: '2026-07-12T16:22:51.095Z',
+ image: '/images/blog/sconto-ticino-ticket.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cambio-cantone-di-lavoro-frontaliere-ticino-grigioni',
+ category: 'novita',
+ date: '2026-07-12T17:16:13.221Z',
+ image: '/images/blog/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'infortunio-in-iter-confine-assicurazione-frontaliere',
+ category: 'pratico',
+ date: '2026-07-12T17:57:04.899Z',
+ image: '/images/blog/infortunio-in-iter-confine-assicurazione-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

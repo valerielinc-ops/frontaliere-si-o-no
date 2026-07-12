@@ -8444,6 +8444,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Plus de freinage pour les offres d\'emploi en Suisse',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Le marché du travail suisse au deuxième trimestre 2026 a affiché une stagnation générale, cachant toutefois une forte divergence entre des secteurs en croissance et d\'autres en nette baisse.',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Un bâtiment moderne à Lugano avec une vue sur le lac.',
+    'blog.article.sconto-ticino-ticket.title': 'Ticino Ticket : financement inchangé',
+    'blog.article.sconto-ticino-ticket.excerpt': 'Le Conseil d\'État a précisé qu\'il n\'envisageait pas de modifier la clé de répartition du Ticino Ticket',
+    'blog.article.sconto-ticino-ticket.imageAlt': 'Festival du Film de Locarno',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Changement de canton de travail pour frontalier Tessin Grisons : ce qui change',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Nouvel accord frontalier : changement de canton de travail pour frontalier Tessin Grisons',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontalier dans la vallée de la Verzasca avec vue sur le lac',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine: copertura e procedure',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Les frontaliers qui se rendent au travail en Suisse en traversant la frontière avec l\'Italie doivent savoir comment procéder en cas d\'accident.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Un travailleur frontalier qui se rend au travail en Suisse en traversant la frontière avec l\'Italie.',
 };
 
 export default blogMetaFr;

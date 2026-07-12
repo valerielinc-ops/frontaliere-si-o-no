@@ -8442,6 +8442,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.title': 'Mehr Bremsen für Stellenanzeigen in der Schweiz',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.excerpt': 'Der Schweizer Arbeitsmarkt zeigte im zweiten Quartal 2026 eine allgemeine Stagnation, verdeckte aber eine starke Divergenz zwischen Wachstumsbranchen und anderen stark rückläufigen Branchen.',
     'blog.article.dipiu-frenata-per-gli-annunci-di-lavoro-in-svizzera.imageAlt': 'Ein modernes Gebäude in Lugano mit Blick auf den See.',
+    'blog.article.sconto-ticino-ticket.title': 'Tessin Ticket: Finanzierung unverändert',
+    'blog.article.sconto-ticino-ticket.excerpt': 'Der Staatsrat hat klargestellt, dass er keine Änderung des Verteilschlüssels des Tessiner Tickets plant',
+    'blog.article.sconto-ticino-ticket.imageAlt': 'Filmfestival Locarno',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.title': 'Wechsel Arbeitskanton für Grenzgänger Tessin Graubünden: Was ändert sich',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.excerpt': 'Neue Grenzgängervereinbarung: Wechsel des Arbeitskantons für Grenzgänger Tessin Graubünden',
+    'blog.article.cambio-cantone-di-lavoro-frontaliere-ticino-grigioni.imageAlt': 'Frontalier im Valle Verzasca mit Blick auf den See',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.title': 'Grenzgänger-Unfall auf dem Weg an die Grenze: UVG-Deckung und Verfahren',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.excerpt': 'Grenzgänger, die über die Grenze nach Italien zur Arbeit in die Schweiz reisen, müssen wissen, wie sie im Falle eines Unfalls vorgehen müssen.',
+    'blog.article.infortunio-in-iter-confine-assicurazione-frontaliere.imageAlt': 'Ein Pendler, der arbeitet in der Schweiz und den Grenzübergang mit Italien nutzt.',
 };
 
 export default blogMetaDe;
