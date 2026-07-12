@@ -1033,6 +1033,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Entrepôt frontalier au Tessin : guide de salaire',
     'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Découvrez comment fonctionne le travail d\'entrepôt au Tessin, les retenues salariales et les règles fiscales pour les frontaliers dans le secteur de la logistique.',
     'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Entrepôt logistique au Tessin',
+    'blog.article.terziario-una-svolta-per-chiasso.title': 'Tertiaire, un tournant pour Chiasso ?',
+    'blog.article.terziario-una-svolta-per-chiasso.excerpt': 'La ville de Chiasso lance une action de marketing territorial pour attirer de nouvelles entreprises et offrir de nouvelles opportunités d\'emploi à ses citoyens.',
+    'blog.article.terziario-una-svolta-per-chiasso.imageAlt': 'Une scène de travail à Chiasso',
 };
 
 export default blogMetaChFr;

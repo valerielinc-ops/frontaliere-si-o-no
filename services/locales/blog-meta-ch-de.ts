@@ -1033,6 +1033,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Grenzgänger Lagerarbeiter im Tessin: Lohnleitfaden',
     'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Erfahren Sie, wie die Arbeit als Lagerist im Tessin, die Lohnabzüge und die Steuervorschriften für Grenzgänger in der Logistikbranche funktionieren.',
     'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Logistiklager im Tessin',
+    'blog.article.terziario-una-svolta-per-chiasso.title': 'Tertiär, ein Durchbruch für Chiasso?',
+    'blog.article.terziario-una-svolta-per-chiasso.excerpt': 'Die Stadt Chiasso startet eine territoriale Marketingaktion, um neue Unternehmen anzuziehen und ihren Bürgern zusätzliche Beschäftigungsmöglichkeiten zu bieten.',
+    'blog.article.terziario-una-svolta-per-chiasso.imageAlt': 'Eine Szene von Arbeit in Chiasso',
 };
 
 export default blogMetaChDe;

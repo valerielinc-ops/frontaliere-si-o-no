@@ -1033,6 +1033,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-logistica-ticino.title': 'Frontaliere magazziniere in Ticino: guida allo stipendio',
     'blog.article.frontaliere-magazziniere-logistica-ticino.excerpt': 'Scopri come funziona il lavoro di magazziniere in Ticino, le trattenute salariali e le regole fiscali per i frontalieri nel settore logistico.',
     'blog.article.frontaliere-magazziniere-logistica-ticino.imageAlt': 'Magazzino logistico in Ticino',
+    'blog.article.terziario-una-svolta-per-chiasso.title': 'Terziario, una svolta per Chiasso?',
+    'blog.article.terziario-una-svolta-per-chiasso.excerpt': 'La città di Chiasso sta avviando un\'azione di marketing territoriale per attirare nuove imprese e offrire ulteriori opportunità di lavoro ai suoi cittadini.',
+    'blog.article.terziario-una-svolta-per-chiasso.imageAlt': 'Una scena di lavoro a Chiasso',
 };
 
 export default blogMetaChIt;
