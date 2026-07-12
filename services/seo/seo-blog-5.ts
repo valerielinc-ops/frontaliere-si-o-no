@@ -48471,6 +48471,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-docenti-frontalieri-ticino-permessi-lavoro': {
+    title: 'Docenti frontalieri: nessuna irregolarità | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato ha risposto a un\'interrogazione di Lorenzo Quadri, affermando che non vi è irregolarità nel fatto che docenti frontalieri siano entrati in',
+    keywords: 'frontalieri, ticino, svizzera, italia, docenti, nessuna, irregolarità, consiglio',
+    ogTitle: 'Docenti frontalieri senza permesso di lavoro: il Governo',
+    ogDescription: 'Il Consiglio di Stato ha risposto a un\'interrogazione di Lorenzo Quadri, affermando che non vi è irregolarità nel fatto che docenti frontalieri siano entrati in',
+    canonicalPath: '/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Docenti frontalieri: nessuna irregolarità",
+      "description": "Il Consiglio di Stato ha risposto a un'interrogazione di Lorenzo Quadri, affermando che non vi è irregolarità nel fatto che docenti frontalieri siano entrati in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/docenti-frontalieri-ticino-permessi-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un docente frontaliero insegna in una scuola del Cantone Ticino."
+      },
+      "datePublished": "2026-07-12T14:30:57+00:00",
+      "dateModified": "2026-07-12T14:30:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

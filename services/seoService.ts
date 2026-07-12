@@ -4486,6 +4486,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-secondo-lavoro-part-time-frontaliere': { name: 'Lavoro e tasse', path: '/articoli-svizzera/secondo-lavoro-part-time-frontaliere/', parent: 'blog' },
     'blog-franchigia-doganale-acquisti-svizzera-frontaliere-dogana': { name: 'Limiti di franchigia doganale per gli', path: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana', parent: 'blog' },
     'blog-frontalieri-disoccupati-indennita-900-milioni': { name: 'Frontalieri disoccupati', path: '/articoli-svizzera/frontalieri-disoccupati-indennita-900-milioni/', parent: 'blog' },
+    'blog-docenti-frontalieri-ticino-permessi-lavoro': { name: 'Docenti frontalieri senza permesso di', path: '/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

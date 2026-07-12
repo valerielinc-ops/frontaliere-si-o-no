@@ -8430,6 +8430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Schweizerische Zollgrenzen: Werteaktualisierung, Erklärung und Folgen',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Mit dem Inkrafttreten der Neuen Grenzgängervereinbarung haben sich die Regeln für den Einkauf in der Schweiz geändert. Entdecken Sie die neuen Grenzen der Zollbefreiung, die notwendige Erklärung und die Folgen der Überschreitung.',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Ein Grenzgänger wartet auf den Kauf in der Schweiz.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Grenzüberschreitende Dozenten: keine Unregelmäßigkeiten',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'Der Staatsrat hat auf eine Frage von Lorenzo Quadri geantwortet und festgestellt, dass es keine Unregelmäßigkeiten gibt, dass Grenzlehrer in den Dienst getreten sind, bevor sie eine Arbeitserlaubnis erhalten haben.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'Ein Lehrer in einer Schule des Kantons Tessin.',
 };
 
 export default blogMetaDe;

@@ -8431,6 +8431,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Swiss Customs Limits: Value Updates, Declaration, and Consequences',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'With the entry into force of the New Frontier Agreement, the rules for purchases in Switzerland have changed. Discover the new duty-free limits, the necessary declaration and the consequences of exceeding them.',
     'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'A border worker waiting to shop in Switzerland.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.title': 'Frontier teachers: no irregularities',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.excerpt': 'The Council of State responded to a question by Lorenzo Quadri, stating that there is no irregularity in the fact that border teachers entered the service before obtaining a work permit.',
+    'blog.article.docenti-frontalieri-ticino-permessi-lavoro.imageAlt': 'A teacher in a school of the Ticino Canton.',
 };
 
 export default blogMetaEn;
