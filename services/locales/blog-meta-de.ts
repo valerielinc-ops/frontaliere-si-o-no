@@ -8400,6 +8400,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Schweizer Führerscheinkonvertierung für Grenzgänger: Praktische Tipps, Kosten & Gültigkeitsdauer',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'Die neue Frontalieri-Vereinbarung, die am 23.12.2020 unterzeichnet wurde, sieht die Möglichkeit vor, den italienischen Führerschein für Grenzgänger in die Schweiz umzuwandeln.',
     'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'Eine Szene eines Grenzgängers, der sich zum Verkehr von Locarno begeben hat, um seine italienische Fahrerlaubnis in die Schweiz umzutauschen.',
+    'blog.article.frontalieri-telelavoro.title': 'Grenzgänger: Die Vereinbarung über Telearbeit ist in Kraft getreten',
+    'blog.article.frontalieri-telelavoro.excerpt': 'Grenzgänger können bis zu 25% der Jahresarbeitszeit von zu Hause aus arbeiten',
+    'blog.article.frontalieri-telelavoro.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaDe;

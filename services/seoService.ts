@@ -4467,6 +4467,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-richiesta-rinnovo-modifica-permesso-g': { name: 'Richiesta di rinnovo e/o modifica del', path: '/articoli-frontaliere/richiesta-rinnovo-modifica-permesso-g', parent: 'blog' },
     'blog-investimento-immobiliare-frontaliere': { name: 'Investimento immobiliare', path: '/articoli-svizzera/investimento-immobiliare-frontaliere/', parent: 'blog' },
     'blog-conversione-patente-italiana-svizzera-frontalieri': { name: 'Conversione patente di guida italiana in', path: '/articoli-frontaliere/conversione-patente-italiana-svizzera-frontalieri', parent: 'blog' },
+    'blog-frontalieri-telelavoro': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-telelavoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];
