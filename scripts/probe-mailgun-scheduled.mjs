@@ -56,11 +56,18 @@ import { toRfc2822Utc } from './lib/email-cascade.mjs';
 
 function parseArgs(argv) {
   const out = { send: false };
+  // A flag's value must not itself look like another flag — otherwise e.g.
+  // `--to --days 3` (a missing --to value, `--days` typed right after by
+  // mistake) would silently swallow "--days" as the email address AND drop
+  // the real --days value ("3" is left over, matches no flag, and is
+  // silently ignored by this loop), producing a confusing bogus-recipient
+  // run instead of the clean "--to is required" error this should give.
+  const looksLikeFlag = (v) => typeof v === 'string' && v.startsWith('--');
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--send') { out.send = true; continue; }
-    if (a === '--to') { out.to = argv[++i]; continue; }
-    if (a === '--days') { out.days = argv[++i]; continue; }
+    if (a === '--to') { if (!looksLikeFlag(argv[i + 1])) out.to = argv[++i]; continue; }
+    if (a === '--days') { if (!looksLikeFlag(argv[i + 1])) out.days = argv[++i]; continue; }
     if (a === '--help' || a === '-h') { out.help = true; continue; }
   }
   return out;

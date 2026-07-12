@@ -82,6 +82,25 @@ describe('computeScheduledSendAt', () => {
     const iso = computeScheduledSendAt({ preferredHourUtc: 7, email: 'anyone@example.com', now: NOW }) as string;
     expect(iso).toMatch(/:\d{2}:00\.000Z$/);
   });
+
+  it('is deterministic and does not throw when email is empty, null, or undefined (String(email || "") fallback)', () => {
+    const emptyIso = computeScheduledSendAt({ preferredHourUtc: 5, email: '', now: NOW });
+    const nullIso = computeScheduledSendAt({ preferredHourUtc: 5, email: null as never, now: NOW });
+    const undefinedIso = computeScheduledSendAt({ preferredHourUtc: 5, email: undefined as never, now: NOW });
+    expect(emptyIso).not.toBeNull();
+    // null/undefined collapse to the same '' input as an explicit empty string,
+    // so all three must land on the exact same jittered minute.
+    expect(nullIso).toBe(emptyIso);
+    expect(undefinedIso).toBe(emptyIso);
+  });
+
+  it('is deterministic for an email containing unicode characters', () => {
+    const email = 'ünïçødé.ключ.例え@münchen.example';
+    const iso1 = computeScheduledSendAt({ preferredHourUtc: 5, email, now: NOW });
+    const iso2 = computeScheduledSendAt({ preferredHourUtc: 5, email, now: NOW });
+    expect(iso1).not.toBeNull();
+    expect(iso1).toBe(iso2);
+  });
 });
 
 describe('resolveEffectivePreferredHour', () => {
