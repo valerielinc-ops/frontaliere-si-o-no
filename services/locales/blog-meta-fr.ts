@@ -8411,6 +8411,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-permessi-g.title': 'Frontalier Tessin : Permis G et travail indépendant en Suisse',
     'blog.article.frontaliere-ticino-permessi-g.excerpt': 'La Suisse dispose d\'un système de permis G pour les frontaliers qui souhaitent travailler en Suisse. Mais que sont ces permis et comment sont-ils obtenus ?',
     'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'Un frontaliere est assis à un bureau d\'inscription, tenant un formulaire de permis G dans la main.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Réforme du chômage frontalier : 900 millions par an',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'La Suisse pourrait subir des coûts supplémentaires pour la réforme du chômage des frontaliers.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'Un frontalière attend à la frontière de Chiasso.',
 };
 
 export default blogMetaFr;

@@ -8410,6 +8410,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-permessi-g.title': 'Ticino Borders: G Permits and Self-Employment in Switzerland',
     'blog.article.frontaliere-ticino-permessi-g.excerpt': 'Switzerland has a system of G permits for border workers who wish to work in Switzerland. But what are these permits and how do you get them?',
     'blog.article.frontaliere-ticino-permessi-g.imageAlt': 'A frontiere sits at a registration office desk, holding a permit G form.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.title': 'Border unemployment reform: 900 million per year',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.excerpt': 'Switzerland could suffer additional costs for the reform on the unemployment of frontier workers.',
+    'blog.article.costi-riforma-sulla-disoccupazione-dei-frontalieri.imageAlt': 'A frontaliere waiting at the Chiasso border crossing.',
 };
 
 export default blogMetaEn;
