@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-07-11T22:13:19.874Z",
+  "assembledAt": "2026-07-12T22:04:54.486Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-030ec90b0677",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.878Z",
+      "crawledAt": "2026-07-12T22:04:51.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.191Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -95,7 +96,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.878Z",
+      "crawledAt": "2026-07-12T22:04:51.068Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -112,6 +113,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
@@ -138,6 +140,85 @@
           "@type": "QuantitativeValue",
           "minValue": 31000,
           "maxValue": 47000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-7f466b0b2c6d",
+      "slug": "sostituto-in-mlaw-kellerhals-carrard-zurich",
+      "slugByLocale": {
+        "it": "sostituto-in-mlaw-kellerhals-carrard-zurich",
+        "en": "substitute-in-mlaw-kellerhals-carrard-zurich",
+        "de": "substitut-in-mlaw-kellerhals-carrard-zurich",
+        "fr": "membre-suppleant-in-mlaw-kellerhals-carrard-zurich"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Substitut/-in (MLaw)",
+      "titleByLocale": {
+        "it": "Sostituto/in (MLaw)",
+        "en": "Substitute/in (MLaw)",
+        "de": "Substitut/-in (MLaw)",
+        "fr": "Membre suppléant/in (MLaw)"
+      },
+      "description": "Für ein spannendes, mehrere Rechtsgebiete umfassendes und längerfristig angelegtes Mandat im Bereich Missbrauchsbekämpfung im Zusammenhang mit Covid-Krediten suchen wir Substitutinnen/Substituten (MLaw).\n\nWir bieten eine abwechslungsreiche Tätigkeit in den Bereichen Straf- und Strafprozessrecht, vertragliches und ausservertragliches Haftpflichtrecht, Bürgschaftsrecht und SchKG. Sie profitieren von attraktiven Anstellungsbedingungen in einem dynamischen Umfeld, einer engen Zusammenarbeit in einem grösseren Team und einem überregionalen Austausch mit anderen Standorten von Kellerhals Carrard. Sie verfügen über gute juristische Kenntnisse und entsprechende Noten. Ihre Interessen liegen in den erwähnten Rechtsgebieten und Sie bringen eine engagierte Arbeitseinstellung mit.\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein familiäres Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort.\n Stellenantritt: Nach Vereinbarung\nArbeitsort: an unserem Standort in Zürich (Bellevue).",
+      "descriptionByLocale": {
+        "it": "Per un mandato emozionante, multi-giurisdizionale e a lungo termine nell'area di anti-abuso in relazione ai prestiti covid, stiamo cercando sostituti (MLaw). Offriamo una variegata attività nei settori di diritto penale e penale, diritto di responsabilità contrattuale e non contrattuale, diritto di garanzia e SchKG. Essi beneficiano di condizioni di lavoro interessanti in un ambiente dinamico, una stretta cooperazione in un team più ampio e uno scambio supra-regionale con altre sedi di Kellerhals Carrard. Hanno buone conoscenze legali e voti appropriati. I tuoi interessi si trovano nei settori di diritto menzionati e porti un atteggiamento di lavoro impegnato.\n• Promuoviamo il pensiero imprenditoriale e il lavoro auto-responsabile.\n• Il nostro modello di business unico crea un ambiente di lavoro familiare.\n• Condizioni di lavoro attraenti e modelli di tempo di lavoro flessibili.\n• Posizione centrale del lavoro. Lavoro: Su appuntamento Luogo di lavoro: nella nostra posizione a Zurigo (Bellevue).",
+        "en": "For an exciting, multi-jurisdictional and long-term mandate in the area of anti-abuse in connection with covid loans, we are looking for substitutes (MLaw). We offer a varied activity in the areas of criminal and criminal procedure law, contractual and non-contractual liability law, guarantee law and SchKG. They benefit from attractive employment conditions in a dynamic environment, close cooperation in a larger team and a supra-regional exchange with other locations of Kellerhals Carrard. They have good legal knowledge and appropriate grades. Your interests lie in the mentioned areas of law and you bring a committed work attitude.\n• We promote entrepreneurial thinking and self-responsible work.\n• Our unique business model creates a family working environment.\n• Attractive employment conditions and flexible working time models.\n• Central location of work. Job: By appointment Place of work: at our location in Zurich (Bellevue).",
+        "de": "Für ein spannendes, mehrere Rechtsgebiete umfassendes und längerfristig angelegtes Mandat im Bereich Missbrauchsbekämpfung im Zusammenhang mit Covid-Krediten suchen wir Substitutinnen/Substituten (MLaw).\n\nWir bieten eine abwechslungsreiche Tätigkeit in den Bereichen Straf- und Strafprozessrecht, vertragliches und ausservertragliches Haftpflichtrecht, Bürgschaftsrecht und SchKG. Sie profitieren von attraktiven Anstellungsbedingungen in einem dynamischen Umfeld, einer engen Zusammenarbeit in einem grösseren Team und einem überregionalen Austausch mit anderen Standorten von Kellerhals Carrard. Sie verfügen über gute juristische Kenntnisse und entsprechende Noten. Ihre Interessen liegen in den erwähnten Rechtsgebieten und Sie bringen eine engagierte Arbeitseinstellung mit.\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein familiäres Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort.\nStellenantritt: Nach Vereinbarung\nArbeitsort: an unserem Standort in Zürich (Bellevue).",
+        "fr": "Pour un mandat passionnant, multijuridictionnel et à long terme dans le domaine de la lutte contre l'abus en relation avec les prêts covid, nous cherchons des substituts (MLaw). Nous proposons une activité variée dans les domaines du droit pénal et de la procédure pénale, du droit de la responsabilité contractuelle et non contractuelle, du droit de la garantie et du SchKG. Ils bénéficient de conditions d'emploi attrayantes dans un environnement dynamique, d'une coopération étroite au sein d'une plus grande équipe et d'un échange suprarégional avec d'autres localités de Kellerhals Carrard. Ils ont de bonnes connaissances juridiques et des notes appropriées. Vos intérêts sont dans les domaines de droit mentionnés et vous apportez une attitude de travail engagée.\n• Nous favorisons la pensée entrepreneuriale et le travail autoresponsable.\n• Notre modèle d'affaires unique crée un environnement de travail familial.\n• Des conditions d'emploi attrayantes et des modèles de temps de travail flexibles.\n• Emplacement central des travaux. Emploi: Sur rendez-vous Lieu de travail: à notre emplacement à Zurich (Bellevue)."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-12T22:04:51.062Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "substitut-in-mlaw-kellerhals-carrard-zurich",
+        "sostituto-in-mlaw-kellerhals-carrard-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "substitut-in-mlaw-kellerhals-carrard-zurich",
+          "sostituto-in-mlaw-kellerhals-carrard-zurich"
+        ],
+        "en": [
+          "substitut-in-mlaw-kellerhals-carrard-zurich"
+        ],
+        "fr": [
+          "substitut-in-mlaw-kellerhals-carrard-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.188Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -173,7 +254,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2639350",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.876Z",
+      "crawledAt": "2026-07-12T22:04:51.062Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -235,14 +316,14 @@
       "companyDomain": "kellerhals-carrard.ch",
       "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
       "titleByLocale": {
-        "it": "Avvio senior & Venture Capital Lawyer (80%-100%)",
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%)",
         "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
         "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
         "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
       },
       "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
       "descriptionByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%) — posizione a Kellerhals Carrard a Zurigo (ZH), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
         "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
@@ -252,7 +333,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.875Z",
+      "crawledAt": "2026-07-12T22:04:51.061Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,6 +350,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.188Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -279,85 +361,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kellerhals-carrard-7f466b0b2c6d",
-      "slug": "sostituto-in-mlaw-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "sostituto-in-mlaw-kellerhals-carrard-zurich",
-        "en": "substitute-in-mlaw-kellerhals-carrard-zurich",
-        "de": "substitut-in-mlaw-kellerhals-carrard-zurich",
-        "fr": "membre-suppleant-in-mlaw-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Substitut/-in (MLaw)",
-      "titleByLocale": {
-        "it": "Sostituto/in (MLaw)",
-        "en": "Substitute/in (MLaw)",
-        "de": "Substitut/-in (MLaw)",
-        "fr": "Membre suppléant/in (MLaw)"
-      },
-      "description": "Für ein spannendes, mehrere Rechtsgebiete umfassendes und längerfristig angelegtes Mandat im Bereich Missbrauchsbekämpfung im Zusammenhang mit Covid-Krediten suchen wir Substitutinnen/Substituten (MLaw).\n\nWir bieten eine abwechslungsreiche Tätigkeit in den Bereichen Straf- und Strafprozessrecht, vertragliches und ausservertragliches Haftpflichtrecht, Bürgschaftsrecht und SchKG. Sie profitieren von attraktiven Anstellungsbedingungen in einem dynamischen Umfeld, einer engen Zusammenarbeit in einem grösseren Team und einem überregionalen Austausch mit anderen Standorten von Kellerhals Carrard. Sie verfügen über gute juristische Kenntnisse und entsprechende Noten. Ihre Interessen liegen in den erwähnten Rechtsgebieten und Sie bringen eine engagierte Arbeitseinstellung mit.\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein familiäres Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort.\n Stellenantritt: Nach Vereinbarung\nArbeitsort: an unserem Standort in Zürich (Bellevue).",
-      "descriptionByLocale": {
-        "it": "Per un mandato emozionante, multi-giurisdizionale e a lungo termine nell'area di anti-abuso in relazione ai prestiti covid, stiamo cercando sostituti (MLaw). Offriamo una variegata attività nei settori di diritto penale e penale, diritto di responsabilità contrattuale e non contrattuale, diritto di garanzia e SchKG. Essi beneficiano di condizioni di lavoro interessanti in un ambiente dinamico, una stretta cooperazione in un team più ampio e uno scambio supra-regionale con altre sedi di Kellerhals Carrard. Hanno buone conoscenze legali e voti appropriati. I tuoi interessi si trovano nei settori di diritto menzionati e porti un atteggiamento di lavoro impegnato.\n• Promuoviamo il pensiero imprenditoriale e il lavoro auto-responsabile.\n• Il nostro modello di business unico crea un ambiente di lavoro familiare.\n• Condizioni di lavoro attraenti e modelli di tempo di lavoro flessibili.\n• Posizione centrale del lavoro. Lavoro: Su appuntamento Luogo di lavoro: nella nostra posizione a Zurigo (Bellevue).",
-        "en": "For an exciting, multi-jurisdictional and long-term mandate in the area of anti-abuse in connection with covid loans, we are looking for substitutes (MLaw). We offer a varied activity in the areas of criminal and criminal procedure law, contractual and non-contractual liability law, guarantee law and SchKG. They benefit from attractive employment conditions in a dynamic environment, close cooperation in a larger team and a supra-regional exchange with other locations of Kellerhals Carrard. They have good legal knowledge and appropriate grades. Your interests lie in the mentioned areas of law and you bring a committed work attitude.\n• We promote entrepreneurial thinking and self-responsible work.\n• Our unique business model creates a family working environment.\n• Attractive employment conditions and flexible working time models.\n• Central location of work. Job: By appointment Place of work: at our location in Zurich (Bellevue).",
-        "de": "Für ein spannendes, mehrere Rechtsgebiete umfassendes und längerfristig angelegtes Mandat im Bereich Missbrauchsbekämpfung im Zusammenhang mit Covid-Krediten suchen wir Substitutinnen/Substituten (MLaw).\n\nWir bieten eine abwechslungsreiche Tätigkeit in den Bereichen Straf- und Strafprozessrecht, vertragliches und ausservertragliches Haftpflichtrecht, Bürgschaftsrecht und SchKG. Sie profitieren von attraktiven Anstellungsbedingungen in einem dynamischen Umfeld, einer engen Zusammenarbeit in einem grösseren Team und einem überregionalen Austausch mit anderen Standorten von Kellerhals Carrard. Sie verfügen über gute juristische Kenntnisse und entsprechende Noten. Ihre Interessen liegen in den erwähnten Rechtsgebieten und Sie bringen eine engagierte Arbeitseinstellung mit.\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein familiäres Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort.\nStellenantritt: Nach Vereinbarung\nArbeitsort: an unserem Standort in Zürich (Bellevue).",
-        "fr": "Pour un mandat passionnant, multijuridictionnel et à long terme dans le domaine de la lutte contre l'abus en relation avec les prêts covid, nous cherchons des substituts (MLaw). Nous proposons une activité variée dans les domaines du droit pénal et de la procédure pénale, du droit de la responsabilité contractuelle et non contractuelle, du droit de la garantie et du SchKG. Ils bénéficient de conditions d'emploi attrayantes dans un environnement dynamique, d'une coopération étroite au sein d'une plus grande équipe et d'un échange suprarégional avec d'autres localités de Kellerhals Carrard. Ils ont de bonnes connaissances juridiques et des notes appropriées. Vos intérêts sont dans les domaines de droit mentionnés et vous apportez une attitude de travail engagée.\n• Nous favorisons la pensée entrepreneuriale et le travail autoresponsable.\n• Notre modèle d'affaires unique crée un environnement de travail familial.\n• Des conditions d'emploi attrayantes et des modèles de temps de travail flexibles.\n• Emplacement central des travaux. Emploi: Sur rendez-vous Lieu de travail: à notre emplacement à Zurich (Bellevue)."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.875Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "substitut-in-mlaw-kellerhals-carrard-zurich",
-        "sostituto-in-mlaw-kellerhals-carrard-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "substitut-in-mlaw-kellerhals-carrard-zurich",
-          "sostituto-in-mlaw-kellerhals-carrard-zurich"
-        ],
-        "en": [
-          "substitut-in-mlaw-kellerhals-carrard-zurich"
-        ],
-        "fr": [
-          "substitut-in-mlaw-kellerhals-carrard-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.188Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -376,14 +379,14 @@
       "companyDomain": "kellerhals-carrard.ch",
       "title": "Avocat(e) collaborateur(trice) Corporate à 100 %",
       "titleByLocale": {
-        "it": "Avocat(e) collaboraur(trice) Corporate à 100 %",
+        "it": "Avocat(e) collaborateur(trice) Corporate à 100 %",
         "en": "Avocat(e) co-operator(trice) Corporate à 100 %",
         "de": "Avocat(e) co-operator(trice) Corporate à 100 %",
-        "fr": "Avocat(e) collaborateur(trice) Entreprise à 100 %"
+        "fr": "Avocat(e) collaborateur(trice) Corporate à 100 %"
       },
       "description": "Avocat(e) collaborateur(trice) Corporate à 100 % — Stelle bei Kellerhals Carrard in Genève (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
       "descriptionByLocale": {
-        "it": "Avocat(e) collaboraur(trice) Corporate à 100 % — posizione presso Kellerhals Carrard a Genève (GE), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
+        "it": "Avocat(e) collaborateur(trice) Corporate à 100 % — Stelle bei Kellerhals Carrard in Genève (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "en": "Avocat(e) collaborateur(trice) Corporate à 100 % — position at Kellerhals Carrard in Genève (GE), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
         "de": "Avocat(e) Collaboraur(trice) Corporate à 100 % — Stars bei Kellerhals Carrard in Genf (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "fr": "Avocat(e) collaborateur(trice) Entreprise à 100 % — poste à Kellerhals Carrard à Genève (GE), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
@@ -393,7 +396,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2623779",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.874Z",
+      "crawledAt": "2026-07-12T22:04:51.060Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -410,6 +413,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2623779",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.187Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -455,7 +459,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.873Z",
+      "crawledAt": "2026-07-12T22:04:51.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +522,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.870Z",
+      "crawledAt": "2026-07-12T22:04:51.051Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -597,7 +601,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.869Z",
+      "crawledAt": "2026-07-12T22:04:51.050Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -676,7 +680,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.868Z",
+      "crawledAt": "2026-07-12T22:04:51.049Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -755,7 +759,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.864Z",
+      "crawledAt": "2026-07-12T22:04:51.041Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -818,7 +822,7 @@
       "title": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
       "titleByLocale": {
         "it": "Substitut/-in Banking, Finanza & Fintech e Kapitalmarktrecht",
-        "en": "Substitute/-in Banking, Finance & Fintech and Capital Market Law",
+        "en": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
         "de": "Substitut/-in Banking, Finanzen & Fintech und Kapitalmarktrecht",
         "fr": "Substitut/-in Droit bancaire, financier et fintech et du marché des capitaux"
       },
@@ -834,7 +838,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.863Z",
+      "crawledAt": "2026-07-12T22:04:51.039Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -851,6 +855,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
         "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
@@ -896,7 +901,7 @@
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
       "titleByLocale": {
         "it": "Avvocato / Avvocato (100%) nel team bancario",
-        "en": "Lawyer / Lawyer (100%) in the banking team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "de": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "fr": "Avocat / Avocat (100%) dans l'équipe bancaire"
       },
@@ -912,7 +917,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.861Z",
+      "crawledAt": "2026-07-12T22:04:51.037Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -929,6 +934,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
         "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
@@ -987,7 +993,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:13:16.859Z",
+      "crawledAt": "2026-07-12T22:04:51.036Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
