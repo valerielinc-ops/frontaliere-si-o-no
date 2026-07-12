@@ -1,6 +1,6 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-07-11T22:40:59.179Z",
+  "assembledAt": "2026-07-12T10:59:20.089Z",
   "jobs": [
     {
       "id": "new-yorker-27003",
@@ -33,7 +33,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27003.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:56.083Z",
+      "crawledAt": "2026-07-12T10:59:17.136Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -113,7 +113,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j26851.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:55.340Z",
+      "crawledAt": "2026-07-12T10:59:16.407Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -193,7 +193,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j25798.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:54.582Z",
+      "crawledAt": "2026-07-12T10:59:15.727Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -273,7 +273,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j27418.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:53.825Z",
+      "crawledAt": "2026-07-12T10:59:15.041Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -351,7 +351,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j27161.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:53.129Z",
+      "crawledAt": "2026-07-12T10:59:14.321Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -435,7 +435,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27435.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:52.380Z",
+      "crawledAt": "2026-07-12T10:59:13.621Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 23",
@@ -469,6 +469,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:34:32.300Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -513,7 +514,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27376.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:51.583Z",
+      "crawledAt": "2026-07-12T10:59:12.865Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -547,6 +548,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:33.862Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -591,7 +593,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26803.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:50.864Z",
+      "crawledAt": "2026-07-12T10:59:12.115Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -625,6 +627,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:33.085Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -669,7 +672,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26482.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:50.099Z",
+      "crawledAt": "2026-07-12T10:59:11.381Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -703,6 +706,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:32.367Z",
+      "needsRetranslation": true,
       "salaryMin": 55600,
       "salaryMax": 84800,
       "baseSalary": {
@@ -747,7 +751,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26477.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:49.333Z",
+      "crawledAt": "2026-07-12T10:59:10.592Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -781,6 +785,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:31.474Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -825,7 +830,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26245.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:48.601Z",
+      "crawledAt": "2026-07-12T10:59:09.817Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -859,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:30.635Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -903,7 +909,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26043.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:47.877Z",
+      "crawledAt": "2026-07-12T10:59:09.088Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -937,6 +943,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:29.787Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -981,7 +988,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26021.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:47.050Z",
+      "crawledAt": "2026-07-12T10:59:08.335Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -1015,6 +1022,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:29.012Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -1059,7 +1067,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j24561.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:46.300Z",
+      "crawledAt": "2026-07-12T10:59:07.640Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -1093,6 +1101,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:28.245Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -1137,7 +1146,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25735.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:45.609Z",
+      "crawledAt": "2026-07-12T10:59:06.872Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -1171,6 +1180,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:27.493Z",
+      "needsRetranslation": true,
       "salaryMin": 43400,
       "salaryMax": 65800,
       "baseSalary": {
@@ -1215,7 +1225,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25733.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:44.915Z",
+      "crawledAt": "2026-07-12T10:59:06.112Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1249,6 +1259,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:26.650Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 78100,
       "baseSalary": {
@@ -1293,7 +1304,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25731.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:44.172Z",
+      "crawledAt": "2026-07-12T10:59:05.349Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -1327,6 +1338,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 78100,
       "baseSalary": {
@@ -1371,7 +1383,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j27434.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:43.377Z",
+      "crawledAt": "2026-07-12T10:59:04.595Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 23",
@@ -1405,6 +1417,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:34:23.430Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -1449,7 +1462,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26860.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:42.624Z",
+      "crawledAt": "2026-07-12T10:59:03.825Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1483,6 +1496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:25.058Z",
+      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "baseSalary": {
@@ -1527,7 +1541,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26802.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:41.906Z",
+      "crawledAt": "2026-07-12T10:59:03.023Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -1561,6 +1575,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:24.245Z",
+      "needsRetranslation": true,
       "salaryMin": 41700,
       "salaryMax": 63600,
       "baseSalary": {
@@ -1605,7 +1620,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j27419.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:41.208Z",
+      "crawledAt": "2026-07-12T10:59:02.293Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "La Maladitre Centre, Rue Pierre-á-Mazel",
@@ -1639,6 +1654,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:35:52.916Z",
+      "needsRetranslation": true,
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -1683,7 +1699,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26861.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:40.425Z",
+      "crawledAt": "2026-07-12T10:59:01.533Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1717,6 +1733,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:23.432Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1761,7 +1778,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26854.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:39.656Z",
+      "crawledAt": "2026-07-12T10:59:00.815Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -1795,6 +1812,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:22.701Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1839,7 +1857,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26804.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:38.940Z",
+      "crawledAt": "2026-07-12T10:59:00.148Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -1873,6 +1891,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:21.973Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1917,7 +1936,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26244.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:38.174Z",
+      "crawledAt": "2026-07-12T10:58:59.407Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -1951,6 +1970,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:21.125Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1995,7 +2015,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-40-de-j27420.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:37.430Z",
+      "crawledAt": "2026-07-12T10:58:58.683Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "La Maladitre Centre, Rue Pierre-á-Mazel",
@@ -2029,6 +2049,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:35:49.096Z",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -2073,7 +2094,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27006.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:36.316Z",
+      "crawledAt": "2026-07-12T10:58:58.005Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -2101,6 +2122,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:20.362Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2145,7 +2167,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j26592.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:35.485Z",
+      "crawledAt": "2026-07-12T10:58:57.333Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -2173,6 +2195,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:19.551Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2217,7 +2240,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/LERNENDE-FACHFRAU-MANN-IM-DETAILHANDEL-EFZ-START-01082026-de-j27304.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:34.794Z",
+      "crawledAt": "2026-07-12T10:58:56.598Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -2296,7 +2319,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j27422.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:33.928Z",
+      "crawledAt": "2026-07-12T10:58:55.838Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Shoppi Tivoli - Landstrasse",
@@ -2374,7 +2397,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j27057.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:33.114Z",
+      "crawledAt": "2026-07-12T10:58:55.089Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahhostrasse 140",
@@ -2452,7 +2475,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26795.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:32.344Z",
+      "crawledAt": "2026-07-12T10:58:54.375Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -2530,7 +2553,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26540.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:31.489Z",
+      "crawledAt": "2026-07-12T10:58:53.618Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -2608,7 +2631,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26491.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:30.710Z",
+      "crawledAt": "2026-07-12T10:58:52.917Z",
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "streetAddress": "Grabenstrasse 2",
@@ -2686,7 +2709,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26406.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:29.952Z",
+      "crawledAt": "2026-07-12T10:58:52.183Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Oberstadt 5/7",
@@ -2764,7 +2787,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26339.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:29.236Z",
+      "crawledAt": "2026-07-12T10:58:51.479Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -2842,7 +2865,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25984.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:28.462Z",
+      "crawledAt": "2026-07-12T10:58:50.791Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -2920,7 +2943,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25476.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:27.610Z",
+      "crawledAt": "2026-07-12T10:58:50.114Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -2998,7 +3021,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25212.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:26.746Z",
+      "crawledAt": "2026-07-12T10:58:49.386Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -3076,7 +3099,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25211.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:25.934Z",
+      "crawledAt": "2026-07-12T10:58:48.695Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Bahnhofstrasse 7",
@@ -3154,7 +3177,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j24321.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:25.156Z",
+      "crawledAt": "2026-07-12T10:58:47.933Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -3232,7 +3255,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j23768.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-11T22:40:24.337Z",
+      "crawledAt": "2026-07-12T10:58:47.185Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
