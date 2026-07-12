@@ -110,6 +110,16 @@ newsletter_subscribers/_meta_
 reliable site-wide aggregate — and newsletter/job-alert audiences overlap
 heavily) rather than computing a separate one.
 
+**Cross-run staleness (by design)** — with the cron slots below,
+`send-job-alerts` fires at 01:47 UTC, *before* `send-newsletter` at 03:33 UTC.
+So the `global_preferred_send_hour_utc` job-alerts reads on any given day is
+the value `send-newsletter` wrote on the *previous* day's run, never today's.
+This is intentionally harmless: the global aggregate is a slow-moving mean
+over many users, and a ~1-day-old snapshot doesn't meaningfully differ from
+a same-day one. If this ever needs tightening: (a) swap the two crons' fire
+order, or (b) have `send-job-alerts` compute its own global hour from the
+subscriber profiles it already loads into memory during the run.
+
 ## Provider matrix — scheduled-send support
 
 | Provider | Param | Format | Max lookahead | Native scheduling? |
