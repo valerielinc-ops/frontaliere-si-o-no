@@ -8397,6 +8397,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Verlängerung und Änderung der Grenzgängerbewilligung: Republik und Kanton Tessin',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'Es ist notwendig, die Erneuerung der Genehmigung 14 Tage vor Ablauf zu beantragen und alle Änderungen der in der Genehmigung angegebenen Daten innerhalb von 14 Tagen nach der Änderung mitzuteilen',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Eine Frontalierin, die ihren Aufenthalt verlängern möchte',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Schweizer Führerscheinkonvertierung für Grenzgänger: Praktische Tipps, Kosten & Gültigkeitsdauer',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'Die neue Frontalieri-Vereinbarung, die am 23.12.2020 unterzeichnet wurde, sieht die Möglichkeit vor, den italienischen Führerschein für Grenzgänger in die Schweiz umzuwandeln.',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'Eine Szene eines Grenzgängers, der sich zum Verkehr von Locarno begeben hat, um seine italienische Fahrerlaubnis in die Schweiz umzutauschen.',
 };
 
 export default blogMetaDe;

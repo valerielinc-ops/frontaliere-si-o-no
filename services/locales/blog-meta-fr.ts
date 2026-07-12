@@ -8399,6 +8399,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Renouvellement et modifications du permis de frontalier : Tessin',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'Il est nécessaire de demander le renouvellement du permis 14 jours avant l\'expiration et de communiquer toute modification des données indiquées sur le permis dans les 14 jours suivant le changement',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'Une frontalière qui pourrait devoir renouveler son permis',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Guide pratique et coûts de conversion permis en Suisse pour les frontaliers',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'Le nouvel accord frontalier signé le 23/12/2020 prévoit la possibilité de convertir le permis de conduire italien en suisse pour les frontaliers.',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'Une scène d\'un travailleur frontalier qui se rend au trafic de Locarno pour changer son permis de conduire italien en Suisse.',
 };
 
 export default blogMetaFr;

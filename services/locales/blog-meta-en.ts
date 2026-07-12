@@ -8398,6 +8398,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.richiesta-rinnovo-modifica-permesso-g.title': 'Ticino Permit Renewal and Changes',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.excerpt': 'It is necessary to request the renewal of the permit 14 days before the expiry date and communicate any changes in the data indicated on the permit within 14 days of the change',
     'blog.article.richiesta-rinnovo-modifica-permesso-g.imageAlt': 'A frontalier who might need to renew their permit',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.title': 'Driving License Conversion in Switzerland for Border Workers: Guide, Costs, Validity',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.excerpt': 'The new Frontier Agreement signed on 23/12/2020 provides for the possibility of converting the Italian driving licence into Swiss for border workers.',
+    'blog.article.conversione-patente-italiana-svizzera-frontalieri.imageAlt': 'A scene of a cross-border worker going to the traffic of Locarno to change their Italian driving license to Swiss.',
 };
 
 export default blogMetaEn;
