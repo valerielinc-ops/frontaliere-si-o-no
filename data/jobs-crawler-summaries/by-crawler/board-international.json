@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-07-10T23:18:26.494Z",
+  "generatedAt": "2026-07-11T22:48:56.297Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2551,
-  "avgDurationMs": 2551,
+  "durationMs": 3525,
+  "avgDurationMs": 3525,
   "durationHistory": [
-    2551
+    3525
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,10 +32,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-11",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-07-10",
+      "validThrough": "2026-07-11",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -43,7 +43,6 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -266,7 +265,6 @@
       "streetAddress": "",
       "postalCode": "6830",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -381,7 +379,6 @@
       "streetAddress": "",
       "postalCode": "6830",
       "firstSeenAt": "2026-06-11T22:16:20.916Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

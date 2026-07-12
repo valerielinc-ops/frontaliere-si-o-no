@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-07-10T22:52:48.238Z",
+  "assembledAt": "2026-07-11T22:02:36.434Z",
   "jobs": [
     {
       "id": "company-kbhp6",
@@ -82,8 +82,7 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-viaqie",
@@ -116,7 +115,7 @@
       "crawledAt": "2026-07-08T11:14:55.248Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "titleByLocale": {
-        "fr": "Legal & Compliance Officer",
+        "fr": "Spécialiste des questions juridiques et du respect des dispositions",
         "it": "Legal & Compliance Officer",
         "en": "Legal and Compliance Officer",
         "de": "Legal und Compliance Officer"
@@ -149,10 +148,14 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi"
+        ],
+        "fr": [
+          "agent-de-conformite-juridique-amp-cambiavalute-ch-2026-cambiavalute"
         ]
       },
       "previousSlugs": [
-        "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi"
+        "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi",
+        "agent-de-conformite-juridique-amp-cambiavalute-ch-2026-cambiavalute"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -169,8 +172,7 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fooban",
@@ -206,7 +208,7 @@
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+        "en": "Sales, Marketing & Customer Support Assistant (German Market)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Tedesco)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "fr": "Assistant de vente, marketing et support à la clientèle (marché allemand)"
@@ -242,16 +244,7 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
-        ]
-      },
-      "previousSlugs": [
-        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-a24znt",
@@ -287,7 +280,7 @@
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer support assistant (Mercato Francese)",
+        "en": "Sales, Marketing & Customer Support assistant (French Market)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Francese)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "fr": "Assistant Ventes, Marketing et Service clientèle (Marché français)"
@@ -323,16 +316,7 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt"
-        ]
-      },
-      "previousSlugs": [
-        "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt"
-      ]
+      "employmentType": "FULL_TIME"
     }
   ]
 }

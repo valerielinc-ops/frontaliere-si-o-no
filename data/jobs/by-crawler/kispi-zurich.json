@@ -1,40 +1,40 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-07-10T22:06:18.009Z",
+  "assembledAt": "2026-07-11T21:56:20.923Z",
   "jobs": [
     {
       "id": "kispi-zurich-4e83e14e0e49",
-      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "slug": "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
+        "it": "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "vocational-nurse-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        "fr": "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Berufsbildnerin Pflege (m/w)",
       "titleByLocale": {
+        "it": "Infermiere professionale (m/f)",
+        "en": "Vocational nurse (m/f)",
         "de": "Berufsbildnerin Pflege (m/w)",
-        "it": "Berufsbildnerin Pflege (m/w)",
-        "en": "Berufsbildnerin Pflege (m/w)",
-        "fr": "Berufsbildnerin Pflege (m/w)"
+        "fr": "Infirmière professionnelle (m/f)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 22.06.2026 In combinazione con l'occupazione come dipl. Professionista infermieristico presso la Stazione di Concentrazione 3.1 I tuoi compiti\n• Delegate la responsabilità per gli studenti e gli studenti di formazione.\n\n• Tipo: Tempo parziale\n• Termine: perpetuo",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 22.06.2026 In combination with employment as a dipl. Nursing professional at the Concentration Station 3.1 Your tasks\n• You will delegate responsibility for training learners and students.\n\n• Type: Part-time\n• Time limit: perpetual",
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1 Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet"
+        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 22.06.2026 En combinaison avec l'emploi comme dipl. Spécialiste des soins infirmiers au Centre de concentration 3.1 Vos tâches\n• Vous déléguerez la responsabilité de la formation des apprenants et des étudiants.\n\n• Type: Temps partiel\n• Délai: perpétuel"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:15.814Z",
+      "crawledAt": "2026-07-11T21:56:19.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,9 +50,24 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+          "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ]
       },
+      "firstSeenAt": "2026-07-10T22:06:15.814Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -64,8 +79,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T22:06:15.814Z"
+      }
     },
     {
       "id": "kispi-zurich-047d6fb14fc5",
@@ -99,7 +113,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:14.768Z",
+      "crawledAt": "2026-07-11T21:56:18.731Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +182,7 @@
       "title": "Pflegeexpertin / Pflegeexperte Praxis 50%",
       "titleByLocale": {
         "it": "Esperto di infermieristica 50 %",
-        "en": "Pflegeexpertin / Pflegeexperte Praxis 50%",
+        "en": "Nursing expert / nursing expert practice 50 %",
         "de": "Pflegeexpertin / Pflegeexperte Praxis 50%",
         "fr": "Expert en soins infirmiers / pratique expert en soins infirmiers 50 %"
       },
@@ -179,13 +193,12 @@
         "de": "Pflegeexpertin / Pflegeexperte Praxis 50% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Pratique d'expert en soins infirmiers 50% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:13.640Z",
+      "crawledAt": "2026-07-11T21:56:17.886Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,7 +277,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:12.594Z",
+      "crawledAt": "2026-07-11T21:56:17.044Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -324,7 +337,7 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Fellow (m/w) 100%",
       "titleByLocale": {
-        "it": "Fellow (m/w) 100%",
+        "it": "Fellow (m/f) 100%",
         "en": "Fellow (m/f) 100%",
         "de": "Fellow (m/w) 100%",
         "fr": "Fellow (m/f) 100%"
@@ -336,13 +349,12 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n\n• Art: Vollzeit\n• Befristung: befristet",
         "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 29.06.2026 Neuroradiologie pédiatrique Vos tâches\n• Dans ce rôle, vous trouverez des examens IRM neuroradiologiques chez les enfants et les adolescents sous surveillance spécialisée.\n• Type: Temps plein\n• Durée temporaire : temporaire"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:11.551Z",
+      "crawledAt": "2026-07-11T21:56:16.176Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -405,7 +417,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3705/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:10.490Z",
+      "crawledAt": "2026-07-11T21:56:15.319Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -486,7 +498,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3683/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:09.548Z",
+      "crawledAt": "2026-07-11T21:56:14.485Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -567,7 +579,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:08.624Z",
+      "crawledAt": "2026-07-11T21:56:13.642Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -652,7 +664,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3706/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:07.716Z",
+      "crawledAt": "2026-07-11T21:56:12.799Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -731,7 +743,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3707/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:06:06.608Z",
+      "crawledAt": "2026-07-11T21:56:11.940Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -773,82 +785,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "kispi-zurich-3b7718ce689a",
-      "slug": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "scientific-project-data-manager-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "de": "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "fr": "gestionnaire-de-projets-scientifiques-et-de-donnees-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Scientific Project & Data Managerin (w/m) 50-100%",
-      "titleByLocale": {
-        "it": "Scientific Project & Data Manager (f/m) 50-100%",
-        "en": "Scientific Project & Data Managerin (w/m) 50-100%",
-        "de": "Scientific Project & Data Managerin (w/m) 50-100%",
-        "fr": "Gestionnaire de projets scientifiques et de données (f/m) 50-100 %"
-      },
-      "description": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Scientific Project & Data Manager (f/m) 50-100% presso il Kinderspital Zürich Eleonorenstiftung di Zurigo (8032, ZH), Svizzera.\n• Tipo: Tempo parziale\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Scientific Project & Data Manager (f/m) 50-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: Part-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "de": "Scientific Project & Data Managerin (w/m) 50-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Directeur scientifique de projet et de données (f/m) 50-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: Temps partiel\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-10T12:09:57.976Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3702/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich",
-        "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "scientific-project-data-managerin-w-m-50-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "gestionnaire-de-donnees-et-de-projets-scientifiques-f-m-50-100-universitats-kinderspital-zurich-kispi-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T13:37:41.987Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
     }
   ]
 }

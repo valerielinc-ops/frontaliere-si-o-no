@@ -1,18 +1,19 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-07-10T22:55:33.092Z",
-  "total": 9,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6826,
-  "avgDurationMs": 6826,
+  "generatedAt": "2026-07-11T21:58:46.977Z",
+  "total": 8,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7606,
+  "avgDurationMs": 7606,
   "durationHistory": [
-    6826
+    7606
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-62cf8b46a466",
       "slug": "operations-manager-logistik-m-w-d-kuehne-nagel-moehlin",
@@ -25,7 +26,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15013EXTERNALENGLOBAL/operations-manager-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:55:31.034Z",
+      "crawledAt": "2026-07-11T21:58:43.842Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -42,16 +43,15 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15013EXTERNALENGLOBAL/operations-manager-logistik-m-w-d",
       "jobReqId": "15013",
-      "_qualityScore": 53,
+      "firstSeenAt": "2026-07-10T22:55:31.034Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuehne-nagel-00cd22abd5ee",
       "slug": "senior-travel-agent-m-d-f-kuehne-nagel-schindellegi",
@@ -64,7 +64,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14660EXTERNALENGLOBAL/senior-travel-agent-m-d-f",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:55:30.323Z",
+      "crawledAt": "2026-07-11T21:58:42.094Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -102,7 +102,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL13326EXTERNALENGLOBAL/hr-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:55:29.288Z",
+      "crawledAt": "2026-07-11T21:58:43.502Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -141,7 +141,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL13157EXTERNALENGLOBAL/global-insurance-program-manager-m-f-d-employee-benefits",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:55:29.973Z",
+      "crawledAt": "2026-07-11T21:58:43.146Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -180,7 +180,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL13624EXTERNALENGLOBAL/team-leader-customer-care-m-w-d-seefracht",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:55:29.634Z",
+      "crawledAt": "2026-07-11T21:58:42.453Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -219,7 +219,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL13143EXTERNALENGLOBAL/disponent-in-fernverkehr-healthcare-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:55:28.860Z",
+      "crawledAt": "2026-07-11T21:58:42.804Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -258,7 +258,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL12404EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:55:28.443Z",
+      "crawledAt": "2026-07-11T21:58:41.756Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -297,7 +297,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:55:30.706Z",
+      "crawledAt": "2026-07-11T21:58:44.215Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -325,8 +325,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kuehne-nagel-dd8a87cbbb6d",
       "slug": "gestione-delle-operazioni-logistica-m-f-d-1-kuehne-nagel-moehlin",
@@ -359,7 +358,7 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "firstSeenAt": "2026-07-10T10:27:53.002Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -368,5 +367,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

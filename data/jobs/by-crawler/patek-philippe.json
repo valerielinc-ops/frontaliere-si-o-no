@@ -1,80 +1,7 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-07-10T22:04:09.098Z",
+  "assembledAt": "2026-07-11T21:49:39.514Z",
   "jobs": [
-    {
-      "id": "patek-philippe-2e1fa088d89b",
-      "slug": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
-      "slugByLocale": {
-        "it": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
-        "en": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-        "de": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-        "fr": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Assistant en Traitement de Surface (H/F)",
-      "titleByLocale": {
-        "it": "Assistente per la lavorazione delle superfici (H/F)",
-        "en": "Surface Processing Assistant (H/F)",
-        "de": "Assistent en Traitement de Surface (H/F)",
-        "fr": "Assistant en Traitement de Surface (H/F)"
-      },
-      "description": "Assistant en Traitement de Surface (H/F) — Patek Philippe, Saint-Imier (BE).",
-      "descriptionByLocale": {
-        "it": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
-        "en": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
-        "de": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
-        "fr": "Assistant en Traitement de Surface (H/F) — Patek Philippe, Saint-Imier (BE)."
-      },
-      "location": "Saint-Imier",
-      "canton": "BE",
-      "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:06.425Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Artigianato / Orologeria",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
-      "jobReqId": "1356532255",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-        "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
-          "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T12:12:13.675Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "patek-philippe-f6a05088a487",
       "slug": "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier",
@@ -106,7 +33,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:05.860Z",
+      "crawledAt": "2026-07-11T21:49:37.323Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -180,7 +107,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Assistant-%C3%A9v%C3%A8nementiel-et-administratif-%28HF%29/1358584955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:05.297Z",
+      "crawledAt": "2026-07-11T21:49:36.698Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -253,7 +180,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:04.732Z",
+      "crawledAt": "2026-07-11T21:49:36.048Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -328,7 +255,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:04.158Z",
+      "crawledAt": "2026-07-11T21:49:35.396Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -401,7 +328,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:03.592Z",
+      "crawledAt": "2026-07-11T21:49:34.752Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -476,7 +403,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Microm%C3%A9canicien-%28HF%29/1359072755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:02.400Z",
+      "crawledAt": "2026-07-11T21:49:34.101Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -549,7 +476,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Prototypes-%28HF%29/1359260155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:01.821Z",
+      "crawledAt": "2026-07-11T21:49:33.461Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -622,7 +549,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:01.237Z",
+      "crawledAt": "2026-07-11T21:49:32.829Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -695,7 +622,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:00.673Z",
+      "crawledAt": "2026-07-11T21:49:32.174Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -770,7 +697,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:04:00.102Z",
+      "crawledAt": "2026-07-11T21:49:31.532Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -845,7 +772,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Rhabilleur/1338567155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:59.544Z",
+      "crawledAt": "2026-07-11T21:49:30.889Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -926,7 +853,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:58.969Z",
+      "crawledAt": "2026-07-11T21:49:30.244Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -976,85 +903,78 @@
       }
     },
     {
-      "id": "patek-philippe-b8ecf423c0a6",
-      "slug": "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates",
+      "id": "patek-philippe-2e1fa088d89b",
+      "slug": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates",
-        "en": "manager-quality-assurance-industrialization-h-f-patek-philippe-plan-les-ouates",
-        "de": "manager-quality-assurance-industrialisierung-h-f-patek-philippe-plan-les-ouates",
-        "fr": "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+        "it": "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier",
+        "en": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "de": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "fr": "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Responsable Assurance Qualité Industrialisation (H/F)",
+      "title": "Assistant en Traitement de Surface (H/F)",
       "titleByLocale": {
-        "it": "Industrializzazione dell'assicurazione di qualità (H/F)",
-        "en": "Manager Quality Assurance Industrialization (H/F)",
-        "de": "Manager Quality Assurance Industrialisierung (H/F)",
-        "fr": "Responsable Assurance Qualité Industrialisation (H/F)"
+        "it": "Assistente per la lavorazione delle superfici (H/F)",
+        "en": "Surface Processing Assistant (H/F)",
+        "de": "Assistent en Traitement de Surface (H/F)",
+        "fr": "Assistant en Traitement de Surface (H/F)"
       },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous aurez la charge de gérer et développer l’activité « Assurance Qualité Industrialisation» en renforçant la qualité préventive dans la phase d’industrialisation des nouveaux composants, afin d’assurer l’atteinte des objectifs de production.\n\nResponsabilités\n\n• Encadrer, fédérer, développer et motiver une équipe de Chargés d’amélioration qualité, tout en gérant des dossiers d’industrialisation en direct.\n\n• Répartir la charge opérationnelle au sein de l’équipe, valider les jalons, orienter les décisions et arbitrer les priorités.\n\n• Définir et/ou optimiser les plans de surveillance par rapport aux risques et capabilités des processus afin de garantir la qualité en vie série.\n\n• Piloter des actions transverses en collaboration avec les services support pour faire progresser les procédés de fabrication et améliorer leurs capabilités.\n\n• Etre garant des gammes de contrôle type en production.\n\n• Contribuer à la définition des standards et des bonnes pratiques.\n\nProfil recherché\n\n• Ingénieur en microtechnique ou équivalent.\n\n• Expérience confirmée en management impérative.\n\n• Expérience préalable dans le secteur horloger ou en fabrication de composants horlogers un atout.\n\n• Bonnes connaissances des process de fabrication de composants mouvements.\n\n• Maîtrise de la gestion de projet.\n\n• Maîtrise des outils et méthodologies qualité.\n\n• Maîtrise d’un ERP (SAP idéalement).\n\n• Force de proposition, proactivité, créativité.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Excellent sens relationnel, diplomatie, esprit collaboratif.\n\n• Forte capacité d’écoute, orienté client, solution et résultat.\n\nRéférence du poste\n\n3425",
+      "description": "Assistant en Traitement de Surface (H/F) — Patek Philippe, Saint-Imier (BE).",
       "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata alla nostra Divisione Componenti del Movimento, sarete responsabili della gestione e dello sviluppo dell'attività \"Industrialization Quality Assurance\" rafforzando la qualità preventiva nella fase di industrializzazione dei nuovi componenti, al fine di garantire il raggiungimento degli obiettivi di produzione.\n\nresponsabilità\n\n• Guidare, federazione, sviluppare e motivare un team di Quality Improvement Charges, mentre la gestione dei file di industrializzazione dal vivo.\n\n• Dividere l'onere operativo all'interno del team, convalidare le pietre miliari, guidare le decisioni e arbitrare le priorità.\n\n• Definire e/o ottimizzare i piani di monitoraggio in relazione ai rischi e alle capacità dei processi al fine di garantire la qualità della vita seriale.\n\n• Azioni di cross-cutting pilota in collaborazione con i servizi di supporto per migliorare i processi produttivi e migliorare le loro capacità.\n\n• Essere un garante dei range di controllo standard in produzione.\n\n• Contribuisci alla definizione di standard e buone pratiche.\n\nProfilo ricercato\n\n• Ingegnere microtecnico o equivalente.\n\n• Esperienza confermata nella gestione imperativa.\n\n• Esperienza prioritaria nel settore dell'orologeria o nella produzione di componenti dell'orologeria un bene.\n\n• Buona conoscenza del processo di produzione componenti di movimento.\n\n• Controllo della gestione dei progetti.\n\n• Conoscenza di strumenti e metodologie di qualità.\n\n• Mastery di un ERP (SAP idealmente).\n\n• Forza di proposizione, proattività, creatività.\n\n• Rigor, spirito di analisi e sintesi.\n\n• Eccellente senso relazionale, diplomazia, spirito collaborativo.\n\n• Forte capacità di ascolto, orientata al cliente, soluzione e risultato.\n\nRiferimenti\n\n3425",
-        "en": "Mission\n\nWithin the framework of this function, attached to our Movement Components Division, you will be responsible for managing and developing the activity \"Industrialization Quality Assurance\" by strengthening the preventive quality in the industrialization phase of the new components, in order to ensure the achievement of production objectives.\n\nResponsibilities\n\n• Lead, federate, develop and motivate a team of Quality Improvement Charges, while managing live industrialisation files.\n\n• Divide the operational burden within the team, validate milestones, guide decisions and arbitrate priorities.\n\n• Defining and/or optimizing monitoring plans in relation to the risks and capabilities of processes in order to ensure serial life quality.\n\n• Pilot cross-cutting actions in collaboration with support services to advance manufacturing processes and improve their capabilities.\n\n• Be a guarantor of the standard control ranges in production.\n\n• Contribute to the definition of standards and good practices.\n\nProfile sought\n\n• Microtechnic engineer or equivalent.\n\n• Experience confirmed in imperative management.\n\n• Prior experience in the watchmaking sector or in manufacturing watchmaking components an asset.\n\n• Good knowledge of the process of manufacturing movement components.\n\n• Control of project management.\n\n• Knowledge of quality tools and methodologies.\n\n• Mastery of an ERP (SAP ideally).\n\n• Proposition force, proactivity, creativity.\n\n• Rigor, spirit of analysis and synthesis.\n\n• Excellent relational sense, diplomacy, collaborative spirit.\n\n• Strong listening capacity, customer-oriented, solution and result.\n\nPost reference\n\n3425",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserer Division Movement Components angegliedert ist, sind Sie verantwortlich für die Leitung und Entwicklung der Aktivität \"Industrialization Quality Assurance\" durch die Stärkung der präventiven Qualität in der Industrialisierungsphase der neuen Komponenten, um die Erreichung der Produktionsziele sicherzustellen.\n\nZuständigkeiten\n\n• Führen, föderieren, entwickeln und motivieren Sie ein Team von Qualitätsverbesserungsgebühren, während Sie die Industrialisierungsdateien verwalten.\n\n• Teilen Sie die operative Belastung innerhalb des Teams, validieren Sie Meilensteine, leiten Sie Entscheidungen und legen Sie Prioritäten fest.\n\n• Definition und/oder Optimierung von Monitoringplänen in Bezug auf die Risiken und Fähigkeiten von Prozessen, um die Qualität der Serienlebensdauer zu gewährleisten.\n\n• Pilot-Querschnittsmaßnahmen in Zusammenarbeit mit Unterstützungsdiensten, um Fertigungsprozesse voranzutreiben und ihre Fähigkeiten zu verbessern.\n\n• Seien Sie ein Garant für die Standard-Kontrollbereiche in der Produktion.\n\n• Beitrag zur Definition von Standards und bewährten Verfahren.\n\nProfil gesucht\n\n• Mikrotechniker oder gleichwertiges Verfahren.\n\n• Erfahrung im imperativen Management bestätigt.\n\n• Vorkenntnisse im Uhrensektor oder in der Herstellung von Uhrenkomponenten als Aktivposten.\n\n• Gute Kenntnisse des Prozesses der Herstellung von Bewegungskomponenten.\n\n• Kontrolle des Projektmanagements.\n\n• Wissen über Qualitätswerkzeuge und -methoden.\n\n• Beherrschung eines ERP (SAP idealerweise).\n\n• Propositionskraft, Proaktivität, Kreativität.\n\n• Strenge, Geist der Analyse und Synthese.\n\n• Ausgezeichneter relationaler Sinn, Diplomatie, kooperativer Geist.\n\n• Starke Hörfähigkeit, kundenorientiert, Lösung und Ergebnis.\n\nPostleitzahl\n\n3425",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous aurez la charge de gérer et développer l’activité « Assurance Qualité Industrialisation» en renforçant la qualité préventive dans la phase d’industrialisation des nouveaux composants, afin d’assurer l’atteinte des objectifs de production.\n\nResponsabilités\n\n• Encadrer, fédérer, développer et motiver une équipe de Chargés d’amélioration qualité, tout en gérant des dossiers d’industrialisation en direct.\n\n• Répartir la charge opérationnelle au sein de l’équipe, valider les jalons, orienter les décisions et arbitrer les priorités.\n\n• Définir et/ou optimiser les plans de surveillance par rapport aux risques et capabilités des processus afin de garantir la qualité en vie série.\n\n• Piloter des actions transverses en collaboration avec les services support pour faire progresser les procédés de fabrication et améliorer leurs capabilités.\n\n• Etre garant des gammes de contrôle type en production.\n\n• Contribuer à la définition des standards et des bonnes pratiques.\n\nProfil recherché\n\n• Ingénieur en microtechnique ou équivalent.\n\n• Expérience confirmée en management impérative.\n\n• Expérience préalable dans le secteur horloger ou en fabrication de composants horlogers un atout.\n\n• Bonnes connaissances des process de fabrication de composants mouvements.\n\n• Maîtrise de la gestion de projet.\n\n• Maîtrise des outils et méthodologies qualité.\n\n• Maîtrise d’un ERP (SAP idéalement).\n\n• Force de proposition, proactivité, créativité.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Excellent sens relationnel, diplomatie, esprit collaboratif.\n\n• Forte capacité d’écoute, orienté client, solution et résultat.\n\nRéférence du poste\n\n3425"
+        "it": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
+        "en": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
+        "de": "Mission Dans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques. Responsabilités\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie. Profil recherché\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie. Référence du poste 3668",
+        "fr": "Assistant en Traitement de Surface (H/F) — Patek Philippe, Saint-Imier (BE)."
       },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Assurance-Qualit%C3%A9-Industrialisation-%28HF%29/1338602555/",
+      "location": "Saint-Imier",
+      "canton": "BE",
+      "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T12:08:00.823Z",
+      "crawledAt": "2026-07-10T22:04:06.425Z",
       "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Qualità",
+      "category": "Artigianato / Orologeria",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Luxury / Watchmaking (Manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-21",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Assurance-Qualit%C3%A9-Industrialisation-%28HF%29/1338602555/",
-      "jobReqId": "1338602555",
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
+      "jobReqId": "1356532255",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
-        "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates"
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates",
-          "industrializzazione-dell-assicurazione-di-qualita-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "en": [
-          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "de": [
-          "responsable-assurance-qualite-industrialisation-h-f-patek-philippe-plan-les-ouates"
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+          "assistente-per-la-lavorazione-delle-superfici-h-f-patek-philippe-saint-imier"
         ]
       },
-      "firstSeenAt": "2026-07-09T22:26:51.046Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:12:13.675Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

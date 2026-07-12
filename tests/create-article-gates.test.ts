@@ -127,17 +127,25 @@ describe('create-article gate helpers', () => {
     expect(resolved?._resolvedFromGoogleNewsRss).toContain('news.google.com');
   });
 
-  it('drops unresolved Google News RSS wrappers before article generation', () => {
+  it('keeps unresolved Google News RSS wrappers flagged for lazy decode (was: dropped)', () => {
+    // Since 2026-07-11: a Google News item with no direct-scan twin is no
+    // longer discarded (that dropped ~219 real frontaliere news/run). Instead
+    // it is kept with the wrapper URL + _needsGoogleNewsDecode so the real
+    // publisher URL is resolved lazily at fetch time (decodeGoogleNewsUrl).
+    const wrapper = 'https://news.google.com/rss/articles/abc?oc=5';
     const resolved = resolveGoogleNewsHeadline(
       {
         headline: 'Permesso G frontalieri: notizia non presente nelle fonti dirette',
-        url: 'https://news.google.com/rss/articles/abc?oc=5',
+        url: wrapper,
         source: 'news',
       },
       [{ headline: 'Sciopero treni regionali in Lombardia', url: 'https://example.com/a', source: 'example' }],
     );
 
-    expect(resolved).toBeNull();
+    expect(resolved).not.toBeNull();
+    expect(resolved._needsGoogleNewsDecode).toBe(true);
+    // Wrapper URL preserved (real URL is decoded later, only for the picked one).
+    expect(resolved.url).toBe(wrapper);
   });
 
   it('blocks evergreen variants in an already-covered canonical family before LLM spend', () => {

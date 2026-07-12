@@ -1,5 +1,60 @@
 [
   {
+    "slug": "collaboratore-trice-studienkoordination-universitat-bern",
+    "title": "Mitarbeiter:in Studienkoordination",
+    "titleByLocale": {
+      "it": "Coordinatore/Coordinatrice di Studi",
+      "en": "Study Coordinator",
+      "de": "Mitarbeiter:in Studienkoordination",
+      "fr": "Coordinateur/Coordonnatrice de Programmes d'Études"
+    },
+    "company": "Universität Bern",
+    "companyKey": "unibe",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Supervisione delle procedure amministrative nel corso dello studio (pianificazione oraria, esami, tesi di master, laurea)\n• Comunicazione orale e scritta con docenti e studenti in tedesco e inglese\n• Consulenza generale di studio\n• Gestione del bilancio, incarichi di insegnamento\n• Organizzazione di eventi informativi e incontri Requisiti:\n• Formazione commerciale completata con diversi anni di esperienza professionale o qualifiche comparabili. In alternativa, hai diversi anni di esperienza professionale in un campo di attività comparabile e portare le competenze e competenze necessarie.\n• Talento organizzativo e alta competenza di comunicazione\n• Autoiniziativa e responsabilità\n• Ottime conoscenze inglesi, a prova di stile tedesco\n• Maneggio regolare dei programmi MS Office\n• Interesse per i processi universitari, soprattutto presso la struttura di studio Offriamo: Cooperazione interdisciplinare",
+      "en": "Tasks:\n• Supervision of administrative procedures in the course of study (hour plan, exams, master's theses, degree degrees)\n• Oral and written communication with lecturers and students in German and English\n• General study advice\n• Budget management, teaching assignments\n• Organisation of information events and meetings Requirements:\n• Completed commercial training with several years of professional experience or comparable qualifications. Alternatively, you have several years of professional experience in a comparable field of activity and bring the necessary expertise and expertise.\n• Organizational talent and high communication competence\n• Self-initiative and responsibility\n• Very good English knowledge, style-proof German\n• Routine handling of MS Office programs\n• Interest in universitary processes, especially at the study facility We offer: Interdisciplinary cooperation",
+      "de": "Aufgaben:\n• Betreuung der administrativen Abläufe im Studiengang (Stundenplan, Prüfungen, Masterarbeiten, Studienabschlüsse)\n\n• Mündliche und schriftliche Kommunikation mit Dozierenden und Studierenden in deutscher und englischer Sprache\n\n• Allgemeine Studienberatung\n\n• Budgetverwaltung, Erteilung von Lehraufträgen\n\n• Organisation von Informationsveranstaltungen und Besprechungen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung mit mehrjähriger Berufserfahrung oder eine vergleichbare Qualifikation. Alternativ verfügen Sie über mehrjährige Berufserfahrung in einem vergleichbaren Tätigkeitsbereich und bringen die erforderlichen Fachkenntnisse und Kompetenzen mit.\n\n• Organisationstalent und hohe Kommunikationskompetenz\n\n• Eigeninitiative und Übernahme von Verantwortung\n\n• Sehr gute Englischkenntnisse, stilsicheres Deutsch\n\n• Routinierter Umgang mit den MS-Office-Programmen\n\n• Interesse an den universitären Abläufen, insbesondere am Studienbetrieb\n\nWir bieten:\nInterdisziplinäre Zusammenarbeit",
+      "fr": "Tâches:\n• Supervision des procédures administratives au cours des études (plan horaire, examens, thèses de maîtrise, diplômes)\n• Communication orale et écrite avec les professeurs et les étudiants en allemand et en anglais\n• Conseils généraux d'études\n• Gestion budgétaire, missions pédagogiques\n• Organisation d'événements d'information et de réunions Exigences:\n• Formation commerciale complétée avec plusieurs années d'expérience professionnelle ou qualifications comparables. Vous avez également plusieurs années d'expérience professionnelle dans un domaine d'activité comparable et vous apportez l'expertise et l'expertise nécessaires.\n• Compétences organisationnelles et haute compétence en communication\n• Auto-initiative et responsabilité\n• Très bonne connaissance anglaise, style-proof Allemand\n• Gestion systématique des programmes MS Office\n• Intérêt pour les processus universitaires, en particulier au centre d'études Nous offrons: Coopération interdisciplinaire"
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-studienkoordination-universitat-bern",
+      "en": "associate-studienkoordination-universitat-bern-bern",
+      "de": "mitarbeiter-in-studienkoordination-unibe-bern",
+      "fr": "collaborateur-trice-studienkoordination-universitat-bern-bern"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-11T22:58:38.996Z",
+    "previousSlugs": [
+      "mitarbeiter-in-studienkoordination-unibe-bern",
+      "mitarbeiter-in-studienkoordination-universitat-bern-bern",
+      "studentische-r-collaboratore-trice-in-universitat-bern",
+      "student-staff-universitat-bern-bern",
+      "studentische-r-mitarbeiter-in-unibe-bern",
+      "personnel-etudiant-universitat-bern-bern",
+      "studentische-r-mitarbeiter-in-universitat-bern-bern",
+      "collaboratore-trice-studienkoordination-universitat-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-in-studienkoordination-unibe-bern",
+        "collaboratore-trice-studienkoordination-universitat-bern"
+      ],
+      "en": [
+        "mitarbeiter-in-studienkoordination-universitat-bern-bern"
+      ],
+      "fr": [
+        "mitarbeiter-in-studienkoordination-universitat-bern-bern"
+      ]
+    },
+    "postalCode": "3010",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "student-in-come-forschungsassistenz-20-universitat-bern",
     "title": "Student*in als Forschungsassistenz 20 %",
     "titleByLocale": {
@@ -25,7 +80,7 @@
       "fr": "etudiant-assistant-de-recherche-20-universitat-bern-bern"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-10T22:39:51.540Z",
+    "expiredAt": "2026-07-11T10:55:25.542Z",
     "previousSlugs": [
       "student-in-als-forschungsassistenz-20-unibe-bern",
       "student-in-als-forschungsassistenz-20-universitat-bern-bern"

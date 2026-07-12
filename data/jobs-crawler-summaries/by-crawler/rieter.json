@@ -1,16 +1,16 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-07-10T22:04:01.374Z",
+  "generatedAt": "2026-07-11T21:49:33.900Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5517,
-  "avgDurationMs": 5517,
+  "durationMs": 6429,
+  "avgDurationMs": 6429,
   "durationHistory": [
-    5517
+    6429
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4024475",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:57.274Z",
+      "crawledAt": "2026-07-11T21:49:29.465Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -64,7 +64,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:03:57.915Z",
+      "crawledAt": "2026-07-11T21:49:30.129Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -102,7 +102,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:58.599Z",
+      "crawledAt": "2026-07-11T21:49:30.780Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -129,48 +129,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "rieter-d9ab8f2c6639",
-      "slug": "senior-system-ingegnere-rieter-winterthur",
-      "company": "Rieter",
-      "companyKey": "rieter",
-      "companyDomain": "rieter.com",
-      "title": "Senior System Engineer",
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4017896",
-      "source": "Rieter Dedicated Parser (Solique)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-06T22:16:05.143Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "Zürich",
-      "streetAddress": "Klosterstrasse 20",
-      "postalCode": "8406",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Industria / Macchinari Tessili",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer--4017896",
-      "jobReqId": "2601091448fb",
-      "employerBrand": "Rieter AG",
-      "firstSeenAt": "2026-07-04T12:31:14.900Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

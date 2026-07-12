@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-07-10T22:37:09.757Z",
-  "total": 3,
+  "generatedAt": "2026-07-11T23:03:43.757Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4316,
-  "avgDurationMs": 4316,
+  "unchangedCount": 0,
+  "durationMs": 4525,
+  "avgDurationMs": 4525,
   "durationHistory": [
-    4316
+    4525
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T22:37:07.411Z",
+      "crawledAt": "2026-07-11T23:03:41.037Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
@@ -64,57 +64,18 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-10T22:37:07.813Z",
+      "crawledAt": "2026-07-11T23:03:41.393Z",
       "id": "pkb-private-bank-272b22e48816",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T10:40:32.532Z",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Junior Private Banking & External Asset Managers Assistant",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=26-junior-private-banking-external-asset-managers-assistant-lugano&language=it",
-      "slug": "junior-private-banking-external-asset-managers-assistant-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-07-02",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Servizi finanziari/Gestione patrimoniale",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-10T10:40:32.171Z",
-      "id": "pkb-private-bank-c42efec91e04",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-07-10T10:40:32.171Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

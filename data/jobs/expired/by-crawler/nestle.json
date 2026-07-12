@@ -19,13 +19,58 @@
       "fr": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir."
     },
     "slugByLocale": {
+      "it": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch",
       "en": "4x8-team-schedule-maintenance-technician-h-f-d-nestle-romont-ch",
-      "de": "4x8-teamplan-wartungstechniker-h-f-d-nestle-romont-ch"
+      "de": "4x8-teamplan-wartungstechniker-h-f-d-nestle-romont-ch",
+      "fr": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch"
     },
     "sector": "Food / Beverage",
-    "expiredAt": "2026-07-10T13:27:04.415Z",
+    "expiredAt": "2026-07-11T22:14:23.847Z",
     "salaryMin": 60500,
     "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "laborant-in-cfc-chemie-nestle-konolfingen-ch",
+    "title": "Laborant:in EFZ Chemie",
+    "titleByLocale": {
+      "it": "Laborant:in CFC Chemie",
+      "en": "Laborant:in EFZ Chemie",
+      "de": "Laborant: in EFZ Chemie",
+      "fr": "Travailleur:dans EFZ Chemie"
+    },
+    "company": "Nestlé",
+    "companyKey": "nestle",
+    "location": "Konolfingen, CH",
+    "addressLocality": "Konolfingen, CH",
+    "descriptionByLocale": {
+      "it": "Laborant:in EFZ Chemie — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "en": "Laborant:in EFZ Chemie — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "de": "Laborant:in EFZ Chemie — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "fr": "Laborant:in EFZ Chemie — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+    },
+    "slugByLocale": {
+      "it": "laborant-in-cfc-chemie-nestle-konolfingen-ch",
+      "en": "laborant-in-efz-chemie-nestle-ch",
+      "de": "laborant-in-efz-chemie-nestle-ch",
+      "fr": "travailleur-dans-efz-chemie-nestle-konolfingen-ch"
+    },
+    "sector": "Food / Beverage",
+    "expiredAt": "2026-07-11T22:14:23.847Z",
+    "previousSlugs": [
+      "laborant-in-efz-chemie-nestle-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "laborant-in-efz-chemie-nestle-ch"
+      ],
+      "fr": [
+        "laborant-in-efz-chemie-nestle-ch"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

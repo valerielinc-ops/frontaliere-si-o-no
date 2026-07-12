@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-10T23:04:23.074Z",
+  "assembledAt": "2026-07-11T22:14:14.138Z",
   "jobs": [
     {
       "id": "company-rne8bl",
@@ -279,7 +279,7 @@
       },
       "titleByLocale": {
         "de": "Pionier Maurer (m/w)",
-        "it": "Pionier Maurer (m/w)",
+        "it": "Pioneer Maurer (m/f)",
         "en": "Pioneer Maurer (m/f)",
         "fr": "Pioneer Maurer (m/f)"
       },
@@ -1027,7 +1027,7 @@
         "it": "ingegnere-di-controllo-del-traffico-aereo-in-support-air-traffic-control-systems-sufs-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "en": "Flugsicherungstechniker/-in Support Flugsicherungssysteme (SUFS)",
+        "en": "Air Traffic Control Engineer/in Support Air Traffic Control Systems (SUFS)",
         "de": "Flugsicherungstechniker/-in Support Flugsicherungssysteme (SUFS)",
         "it": "Ingegnere di controllo del traffico aereo / in Support Air Traffic Control Systems (SUFS)",
         "fr": "Ingénieur du contrôle de la circulation aérienne/In Support Systèmes de contrôle de la circulation aérienne (SUFS)"
@@ -1456,7 +1456,7 @@
         "it": "impiegato-a-in-logistica-vorortlager-bronschhofen-swiss-armed-forces-vtg-bern-f1p602"
       },
       "titleByLocale": {
-        "fr": "Logistiker/-in Vorortlager Bronschhofen",
+        "fr": "Logisticien/dans la banlieue Bronschhofen",
         "it": "Impiegato/a in logistica Vorortlager Bronschhofen",
         "de": "Logistiker/-in Vorortlager Bronschhofen",
         "en": "Logistician/in suburban Bronschhofen"
@@ -1629,7 +1629,7 @@
         "it": "operatore-in-support-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "en": "Operator/-in Support",
+        "en": "Operator/in Support",
         "it": "Operatore/-in Support",
         "fr": "Opérateur/-in Support",
         "de": "Operator/-in Support"
@@ -2171,7 +2171,7 @@
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "en": "Fahrer/in / Transporthelfer/in",
+        "en": "Driver / transport assistant /",
         "de": "Fahrer/in / Transporthelfer/in",
         "it": "Driver / assistente di trasporto /",
         "fr": "Conducteur / assistant de transport /"
@@ -2386,8 +2386,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
-          "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
           "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
@@ -2405,7 +2403,9 @@
           "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
           "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
-          "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona"
+          "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+          "logistique-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
+          "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -2756,7 +2756,7 @@
         "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
+        "it": "Specialista delle infrastrutture / in Elettrici / Potenza",
         "de": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
         "en": "Infrastructure specialist / in Electrics / Power",
         "fr": "Spécialiste de l'infrastructure / en électricité / énergie"
@@ -3229,7 +3229,7 @@
       "crawledAt": "2026-06-26T12:28:41.768Z",
       "firstSeenAt": "2026-06-26T12:28:41.768Z",
       "titleByLocale": {
-        "en": "Fahrzeugexperte/-in",
+        "en": "Vehicle Expert",
         "de": "Fahrzeugexperte/-in",
         "it": "Esperto di veicoli",
         "fr": "Expert du véhicule"
@@ -3311,7 +3311,7 @@
       "firstSeenAt": "2026-06-22T23:55:42.785Z",
       "titleByLocale": {
         "de": "Chef/-in Troubleshooter Hornet",
-        "it": "Chef/-in Troubleshooter Hornet",
+        "it": "Head of Troubleshooter Hornet",
         "en": "Chief/-in-Marie-Marthornet",
         "fr": "Chef/in-Marie-Marthornet"
       },
@@ -3365,91 +3365,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "country": "CH"
-    },
-    {
-      "id": "company-leyl0q",
-      "slug": "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-swiss-armed-forces-vtg",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten\n\n- Radar-, Funk- und Kommunikationssysteme verwalten und betreiben\n\n- IKT Grundinfrastruktur und Kommunikationsanbindung im Rahmen des Betriebs militärsicher Flugplätze betreiben und sicherstellen\n\n- Fehlerhafte und komplexe Systemzustände analysieren, protokollieren und beheben\n\n- Inventar- und Dokumentationssysteme führen sowie bei der Installations- bzw. Ein-/ und Ausbauplanung von Hardwarekomponenten mitarbeiten\n\n- Bei Betriebs- und LifeCycle-Projekten mitarbeiten und unterstützen sowie den SUFS Emmen als lokale Vertretung gewährleisten\n\nDas macht dich einzigartig\n\n- Technische Grundausbildung EFZ in der Fachrichtung Elektrotechnik, Elektronik, Informatik Telekommunikation und Netzwerktechnik\n\n- Berufserfahrung im Bereich Betrieb von IKT-Infrastrukturen mit vernetztem Fachwissen der Tätigkeitsgebiete IKT- und Flugsicherungssysteme von Vorteil\n\n- Systembezogene Ausbildungen für den Betrieb und Unterhalt von Führungssystemen wie Radar, Funk, Voice Communication und IKT-Plattformen von Vorteil\n\n- Selbständigkeit, hohe Eigeninitiative sowie eine exakte und verantwortungsbewusste Arbeitsweise\n\n- Englischkenntnisse auf Stufe B1 von Vorteil sowie für die Ausübung der Funktion erforderlichen mündlichen und schriftlichen Kenntnisse einer zweiten Amtssprache\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "url": "https://jobs.admin.ch/offene-stellen/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/535d3aaf-7aed-4325-a325-c5e588921e77",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Emmen",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-06T22:33:40.684Z",
-      "firstSeenAt": "2026-07-06T22:33:40.684Z",
-      "slugByLocale": {
-        "de": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
-        "en": "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-swiss-armed-forces-vtg-bern",
-        "fr": "technicien-en-controle-de-la-circulation-aerienne-soutien-aux-systemes-de-controle-de-la-circulation-aerienne-sufs-swiss",
-        "it": "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-swiss-armed-forces-vtg"
-      },
-      "titleByLocale": {
-        "en": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
-        "de": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
-        "it": "Tecnico di controllo del traffico aereo / in supporto sistemi di controllo del traffico aereo SUFS",
-        "fr": "Technicien en contrôle de la circulation aérienne/soutien aux systèmes de contrôle de la circulation aérienne SUFS"
-      },
-      "descriptionByLocale": {
-        "de": "Diesen Beitrag kannst du leisten\n\n- Radar-, Funk- und Kommunikationssysteme verwalten und betreiben\n\n- IKT Grundinfrastruktur und Kommunikationsanbindung im Rahmen des Betriebs militärsicher Flugplätze betreiben und sicherstellen\n\n- Fehlerhafte und komplexe Systemzustände analysieren, protokollieren und beheben\n\n- Inventar- und Dokumentationssysteme führen sowie bei der Installations- bzw. Ein-/ und Ausbauplanung von Hardwarekomponenten mitarbeiten\n\n- Bei Betriebs- und LifeCycle-Projekten mitarbeiten und unterstützen sowie den SUFS Emmen als lokale Vertretung gewährleisten\n\nDas macht dich einzigartig\n\n- Technische Grundausbildung EFZ in der Fachrichtung Elektrotechnik, Elektronik, Informatik Telekommunikation und Netzwerktechnik\n\n- Berufserfahrung im Bereich Betrieb von IKT-Infrastrukturen mit vernetztem Fachwissen der Tätigkeitsgebiete IKT- und Flugsicherungssysteme von Vorteil\n\n- Systembezogene Ausbildungen für den Betrieb und Unterhalt von Führungssystemen wie Radar, Funk, Voice Communication und IKT-Plattformen von Vorteil\n\n- Selbständigkeit, hohe Eigeninitiative sowie eine exakte und verantwortungsbewusste Arbeitsweise\n\n- Englischkenntnisse auf Stufe B1 von Vorteil sowie für die Ausübung der Funktion erforderlichen mündlichen und schriftlichen Kenntnisse einer zweiten Amtssprache\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "it": "Puoi dare questo contributo\n\n- Gestione e gestione di sistemi radar, radio e comunicazione\n\n- ICT Basic infrastruttura e connettività di comunicazione nel contesto del funzionamento sicuro militare\n\n- Analizzare, registrare e correggere gli stati di sistema difettosi e complessi\n\n- I sistemi di inventario e documentazione di piombo e partecipare alla pianificazione di installazione e di espansione dei componenti hardware\n\n- Lavorare e sostenere progetti operativi e LifeCycle e garantire SUFS Emmen come rappresentante locale\n\nQuesto ti rende unico\n\n- Formazione tecnica di base EFZ nel settore dell'ingegneria elettrica, dell'elettronica, dell'informatica, delle telecomunicazioni e della tecnologia di rete\n\n- Esperienza professionale nel funzionamento delle infrastrutture ICT con competenze in rete nei settori di attività ICT e sistemi di navigazione aerea\n\n- Formazione legata al sistema per il funzionamento e la manutenzione di sistemi di guida come radar, radio, comunicazione vocale e piattaforme ICT\n\n- Lavoro autonomo, alto livello di iniziativa e metodo di lavoro esatto e responsabile\n\n- Conoscenza inglese a livello B1 conoscenza benefica e orale e scritta di una seconda lingua ufficiale richiesta per l'esercizio della funzione\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Attraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nIl Cyber Command (Kdo Cy) sta per competenza nei settori della cyber e della digitalizzazione. Uniamo l'entusiasmo per il nostro compito con know-how, innovazione, tecnologie all'avanguardia e metodi di lavoro agili. Forniamo servizi IT sicuri, robusti e resilienti per l'esercito svizzero e i nostri partner nell'Associazione svizzera di sicurezza. Il Kdo Cy dà così all'esercito svizzero la necessaria conoscenza e il vantaggio decisionale – per una Svizzera sicura.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.",
-        "en": "You can make this contribution\n\n- Manage and operate radar, radio and communication systems\n\n- ICT Basic infrastructure and communications connectivity in the context of military safe operation\n\n- Analyze, log and correct faulty and complex system states\n\n- Lead inventory and documentation systems as well as participate in the installation and expansion planning of hardware components\n\n- Working and supporting operational and LifeCycle projects and ensuring SUFS Emmen as a local representative\n\nThis makes you unique\n\n- Basic technical training EFZ in the field of electrical engineering, electronics, computer science telecommunications and network technology\n\n- Professional experience in the operation of ICT infrastructures with networked expertise in the fields of activity ICT and air navigation systems\n\n- System-related training for the operation and maintenance of guidance systems such as radar, radio, voice communication and ICT platforms\n\n- Self-employment, high level of initiative and an exact and responsible working method\n\n- English proficiency at level B1 beneficial as well as oral and written knowledge of a second official language required for the exercise of the function\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Through equal opportunities, we develop our skills and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe Cyber Command (Kdo Cy) stands for competence in the areas of cyber and digitalization. We combine the enthusiasm for our task with know-how, innovation, state-of-the-art technologies and agile working methods. We provide secure, robust and resilient IT services for the Swiss Army and our partners in the Swiss Security Association. The Kdo Cy thus gives the Swiss army the necessary knowledge and decision-making advantage – for a safe Switzerland.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.",
-        "fr": "Vous pouvez faire cette contribution\n\n- Gérer et exploiter les systèmes radar, radio et de communication\n\n- Infrastructure de base et connectivité des communications dans le contexte de la sécurité militaire\n\n- Analyser, loger et corriger les états système défectueux et complexes\n\n- Les systèmes d'inventaire et de documentation du chef de file ainsi que participer à l'installation et à la planification de l'expansion des composants matériels\n\n- Travailler et soutenir les projets opérationnels et LifeCycle et assurer SUFS Emmen en tant que représentant local\n\nCela vous rend unique\n\n- Formation technique de base EFZ dans le domaine du génie électrique, de l'électronique, de l'informatique, des télécommunications et de la technologie des réseaux\n\n- Expérience professionnelle dans le fonctionnement des infrastructures TIC avec une expertise en réseau dans les domaines d'activité TIC et systèmes de navigation aérienne\n\n- Formation liée au système pour le fonctionnement et la maintenance de systèmes de guidage tels que radar, radio, communication vocale et plates-formes TIC\n\n- Travail indépendant, haut niveau d'initiative et méthode de travail exacte et responsable\n\n- Connaissance de l'anglais au niveau B1 bénéfique ainsi que connaissance orale et écrite d'une deuxième langue officielle nécessaire à l'exercice de la fonction\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLe Cyber Command (Kdo Cy) représente une compétence dans les domaines de la cyber et de la numérisation. Nous combinons l'enthousiasme pour notre tâche avec le savoir-faire, l'innovation, les technologies de pointe et les méthodes de travail agiles. Nous fournissons des services informatiques sécurisés, robustes et résistants à l'armée suisse et à nos partenaires de l'Association suisse de sécurité. Le Kdo Cy donne ainsi à l'armée suisse les connaissances nécessaires et l'avantage de prendre des décisions – pour une Suisse sûre.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern",
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
-        ],
-        "en": [
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
-        ],
-        "fr": [
-          "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q"
-        ]
-      },
-      "previousSlugs": [
-        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern",
-        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
-        "technicien-du-controle-de-la-circulation-aerienne-appui-aux-systemes-de-controle-de-la-circulation-aerienne-sufs",
-        "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-emmen",
-        "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-confederazione-svizzera",
-        "air-traffic-control-technician-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-emmen",
-        "technicien-en-controle-de-la-circulation-aerienne-soutien-aux-systemes-de-controle-de-la-circulation-aerienne-sufs"
-      ]
     }
   ]
 }

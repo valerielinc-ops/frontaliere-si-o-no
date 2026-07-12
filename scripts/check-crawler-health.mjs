@@ -196,6 +196,24 @@ const EMPTY_OK_CRAWLERS = new Set([
   // #1245 as fragile/per-tenant.
   'paraplegie',
   'upd',
+  // Psychiatriezentrum Münsingen (PZM, Prospective medium 1008606): the
+  // public career site (pzmag.ch/karriere) now 301-redirects to
+  // upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
+  // Psychiatrisches Zentrum Bern (UPZ)" (verified live 2026-07-11). The
+  // shared Prospective API is still live (71 postings on medium 1008606),
+  // but every listing's `links.directlink` now resolves to the generic
+  // `ohws.prospective.ch/public/v1/jobs/{id}` job-direct format instead of
+  // the `jobs.pzmag.ch` host this parser's `acceptDirectlinkHosts`
+  // allowlist requires — so 0 is the correct, permanent output for this
+  // companyKey, not a selector break. The former PZM roles (verified: e.g.
+  // "Dipl. Pflegefachperson im Nachtdienst ICM", Hunzigenallee 1
+  // Münsingen) are already surfaced by the sibling `upd` crawler above
+  // (Umantis tenant 2908), which now lists the full merged UPZ vacancy set
+  // including Münsingen-located roles — so no coverage is lost. Retiring
+  // the dedicated crawler (removing it from `.github/workflows/
+  // crawler-group-10.yml`) is the complete follow-up but out of reach for
+  // the automated fixer (no `workflows` push scope); tracked in #4080.
+  'pzm-muensingen',
   // Würth International (Chur, GR): the careers listing
   // (https://www.wurth-international.com/web/en/wurthinternational/jobs_career/jobs/Jobs.php)
   // returns HTTP 200 with its unchanged structure but currently shows "Keine
@@ -346,6 +364,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // genuinely has no open Swiss postings on this ATS right now. Parser is
   // healthy and will pick up real jobs the moment any CH ones are published.
   'kone',
+  // Clariant AG (SuccessFactors Jobs2Web, careers.clariant.com): verified
+  // live 2026-07-12 — the `/search/?locationsearch=switzerland` filtered
+  // listing returns "no open positions matching switzerland", and the
+  // markup/selectors this parser targets (`data-row`, `jobTitle-link`,
+  // `colLocation`, `colDepartment`) are unchanged and still correctly parse
+  // the 20 rows on the unfiltered `/search/` page. Walked all 110 currently
+  // open postings across all 6 result pages: none is Switzerland-located
+  // (Airoli IN, Burgkirchen/Gersthofen/Moosburg/Heufeld DE, Shanghai CN,
+  // Louisville/Quincy/Albuquerque US, etc.) — Clariant genuinely has 0 open
+  // Swiss roles right now, not a selector break. Parser is healthy and
+  // re-arms when a CH listing (historically filed under "Pratteln, CH")
+  // reappears. Same legitimately-empty regional-filter case as
+  // manor/bracco/fnz.
+  'clariant',
 ]);
 
 /** Read JSON file, return null on any error. */

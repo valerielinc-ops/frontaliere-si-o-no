@@ -1,18 +1,19 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-10T22:01:42.434Z",
+  "generatedAt": "2026-07-11T21:48:20.954Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9892,
-  "avgDurationMs": 9892,
+  "durationMs": 10451,
+  "avgDurationMs": 10451,
   "durationHistory": [
-    9892
+    10451
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
@@ -39,16 +40,16 @@
         "location": "Couvet"
       },
       "sourceLang": "en",
-      "_qualityScore": 62,
+      "id": "sintetica-70d63209d4ff",
+      "firstSeenAt": "2026-07-10T22:01:42.430Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 2,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
@@ -76,7 +77,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -113,7 +113,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -150,7 +149,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -259,7 +257,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -322,7 +319,7 @@
       "addressCountry": "CH",
       "postalCode": "2108",
       "streetAddress": "Rue de l'Ecluse 28",
-      "slug": "production-engineer-couvet-site-sintetica",
+      "slug": "production-ingegnere-couvet-site-sintetica-sa-couvet",
       "category": "production",
       "datePosted": "2026-07-10",
       "source": "sintetica-careers-crawler",
@@ -334,17 +331,17 @@
         "location": "Couvet"
       },
       "sourceLang": "en",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "sintetica-70d63209d4ff",
+      "firstSeenAt": "2026-07-10T22:01:42.430Z",
+      "crawledAt": "",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -375,12 +372,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -416,12 +413,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -457,12 +454,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 101500,
       "salaryMax": 169000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -578,9 +575,9 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",

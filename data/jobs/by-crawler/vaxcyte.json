@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-07-10T22:02:32.288Z",
+  "assembledAt": "2026-07-11T21:48:52.471Z",
   "jobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:27.730Z",
+      "crawledAt": "2026-07-11T21:48:48.224Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -117,7 +116,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:27.676Z",
+      "crawledAt": "2026-07-11T21:48:48.187Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -140,7 +139,6 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-07-09T12:13:14.086Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -185,7 +183,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:27.660Z",
+      "crawledAt": "2026-07-11T21:48:48.174Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -268,7 +266,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:27.649Z",
+      "crawledAt": "2026-07-11T21:48:48.161Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -315,8 +313,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "vaxcyte-27b9ca402283",
@@ -349,7 +346,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-10T22:02:27.462Z",
+      "crawledAt": "2026-07-11T21:48:48.019Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -400,8 +397,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

@@ -47067,6 +47067,1254 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-dogana-ponte-tresa-guida': {
+    title: 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
+    description: 'Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, ponte, tresa, orari',
+    ogTitle: 'Dogana Ponte Tresa: orari, attese e consigli per frontalieri',
+    ogDescription: 'Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code.',
+    canonicalPath: '/articoli-frontaliere/traffico-dogana-ponte-tresa-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogana Ponte Tresa: orari, attese e consigli per frontalieri",
+      "description": "Guida pratica al valico di Ponte Tresa: orari di punta, franchigie doganali, documenti per auto aziendali e consigli per evitare le code. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-dogana-ponte-tresa-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico al valico di Ponte Tresa"
+      },
+      "datePublished": "2026-07-11T05:15:02+00:00",
+      "dateModified": "2026-07-11T05:15:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-dogana-ponte-tresa-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-valtellina-lavorare-grigioni-frontaliere': {
+    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    description: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l\'imposta alla fonte in',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
+    ogTitle: 'Nuovo accordo fiscale per frontalieri',
+    ogDescription: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "description": "Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l'imposta alla fonte in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valtellina-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in transito"
+      },
+      "datePublished": "2026-07-11T05:50:16+00:00",
+      "dateModified": "2026-07-11T05:50:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-fisioterapista-ticino-stipendio-requisiti': {
+    title: 'Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione',
+    description: 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavora, fisioterapista, riconoscimento, diploma',
+    ogTitle: 'Lavorare come fisioterapista in Ticino da frontaliere: riconoscimento del diploma, stipendio, iter di abilitazione, permesso G',
+    ogDescription: 'Per i frontalieri fisioterapisti, il riconoscimento del diploma e l\'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l\'iter di abilitazione',
+    canonicalPath: '/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavora come fisioterapista in Ticino: riconoscimento del diploma, stipendio e iter di abilitazione",
+      "description": "Per i frontalieri fisioterapisti, il riconoscimento del diploma e l'abilitazione a lavorare in Ticino sono fondamentali. Ma come funziona l'iter di abilitazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-fisioterapista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un fisioterapista frontaliero si affaccia sulla vista del Lago di Lugano mentre prende il tramonto."
+      },
+      "datePublished": "2026-07-11T06:16:34+00:00",
+      "dateModified": "2026-07-11T06:16:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-fisioterapista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-cuoco-ristorazione-ticino-stipendio-permesso': {
+    title: 'Lavora come cuoco in ristorazione ticinese da frontaliere: stipendio, orari e CCL di settore',
+    description: 'Informazioni utili per i frontalieri che desiderano lavorare come cuochi nella ristorazione ticinese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavora, cuoco, ristorazione, ticinese',
+    ogTitle: 'Lavorare come cuoco nella ristorazione ticinese da frontaliere: stipendio, orari, CCL di settore, permesso G',
+    ogDescription: 'Informazioni utili per i frontalieri che desiderano lavorare come cuochi nella ristorazione ticinese.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavora come cuoco in ristorazione ticinese da frontaliere: stipendio, orari e CCL di settore",
+      "description": "Informazioni utili per i frontalieri che desiderano lavorare come cuochi nella ristorazione ticinese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere cuoco in un ristorante di Lugano, con la vista sul lago."
+      },
+      "datePublished": "2026-07-11T06:58:45+00:00",
+      "dateModified": "2026-07-11T06:58:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ristorazione-ticino-stipendio-permesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assicurazione-vita-privata-svizzera-convienne-frontalieri': {
+    title: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    description: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, vita, privata, conviene',
+    ogTitle: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    ogDescription: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera.',
+    canonicalPath: '/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'assicurazione vita privata svizzera conviene ai frontaliere?",
+      "description": "La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-vita-privata-svizzera-convienne-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che si trova in una situazione simile potrebbe cercare di capire come funziona l'assicurazione vita privata svizzera."
+      },
+      "datePublished": "2026-07-11T07:39:43+00:00",
+      "dateModified": "2026-07-11T07:39:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferimento-residenza-svizzera-frontaliere': {
+    title: 'Sposarsi in Svizzera: documenti, permessi e impatto fiscale-prevenziale',
+    description: 'Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sposarsi, documenti, permessi, impatto',
+    ogTitle: 'Trasferirsi a vivere in Svizzera dopo anni da frontaliere',
+    ogDescription: 'Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale.',
+    canonicalPath: '/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sposarsi in Svizzera: documenti, permessi e impatto fiscale-prevenziale",
+      "description": "Il Nuovo Accordo Frontalieri entra in vigore il 1° gennaio 2024. I frontalieri devono riempire un modulo speciale. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferimento-residenza-svizzera-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si trasferisce in Svizzera con la sua famiglia"
+      },
+      "datePublished": "2026-07-11T08:08:37+00:00",
+      "dateModified": "2026-07-11T08:08:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferimento-residenza-svizzera-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-gravidanza-controlli-sanitari-lamal-cmi': {
+    title: 'Frontaliere gravidanza: copertura LAMal o CMI, scelta ospedale, differenze pratiche',
+    description: 'Le frontaliere che lavorano in Svizzera e risiedono in Italia devono sottoporsi a controlli sanitari periodici. Ma cosa accade se si aspettano un figlio?',
+    keywords: 'frontalieri, ticino, svizzera, italia, gravidanza, copertura, lamal, scelta',
+    ogTitle: 'Frontaliere gravidanza: copertura LAMal o CMI, scelta dell\'ospedale, differenze pratiche',
+    ogDescription: 'Le frontaliere che lavorano in Svizzera e risiedono in Italia devono sottoporsi a controlli sanitari periodici. Ma cosa accade se si aspettano un figlio?',
+    canonicalPath: '/articoli-frontaliere/frontaliere-gravidanza-controlli-sanitari-lamal-cmi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere gravidanza: copertura LAMal o CMI, scelta ospedale, differenze pratiche",
+      "description": "Le frontaliere che lavorano in Svizzera e risiedono in Italia devono sottoporsi a controlli sanitari periodici. Ma cosa accade se si aspettano un figlio?",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-gravidanza-controlli-sanitari-lamal-cmi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che lavora in Svizzera e risiede in Italia si reca presso un centro sanitario per sottoporsi a controlli periodici."
+      },
+      "datePublished": "2026-07-11T09:16:23+00:00",
+      "dateModified": "2026-07-11T09:16:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-gravidanza-controlli-sanitari-lamal-cmi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-disdetta-contratto-lavoro-dimissioni-termini': {
+    title: 'Come dimettersi da un lavoro da frontaliere in Svizzera: termini e procedura corretta',
+    description: 'Fatti chiave sulla disdetta del contratto di lavoro per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dimettersi, lavoro, termini, procedura',
+    ogTitle: 'Come dimettersi da un lavoro da frontaliere in Svizzera:',
+    ogDescription: 'Fatti chiave sulla disdetta del contratto di lavoro per i frontalieri in Svizzera',
+    canonicalPath: '/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come dimettersi da un lavoro da frontaliere in Svizzera: termini e procedura corretta",
+      "description": "Fatti chiave sulla disdetta del contratto di lavoro per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-disdetta-contratto-lavoro-dimissioni-termini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere italiana che lavora in Svizzera sta scrivendo una lettera di dimissioni"
+      },
+      "datePublished": "2026-07-11T09:44:15+00:00",
+      "dateModified": "2026-07-11T09:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-disdetta-contratto-lavoro-dimissioni-termini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tilo-lavori-gallarate-luglio': {
+    title: 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
+    description: 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, limitazioni, circolazione, gallarate',
+    ogTitle: 'Tilo: limitazioni circolazione Gallarate 11-13 luglio',
+    ogDescription: 'Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.',
+    canonicalPath: '/articoli-frontaliere/tilo-lavori-gallarate-luglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tilo: limitazioni circolazione Gallarate 11-13 luglio",
+      "description": "Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tilo-lavori-gallarate-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Tilo in transito in una stazione del Canton Ticino"
+      },
+      "datePublished": "2026-07-11T10:09:23+00:00",
+      "dateModified": "2026-07-11T10:09:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-lavori-gallarate-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-immobiliare-ticino-prezzi-tendenze': {
+    title: 'Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti',
+    description: 'Tendenze del mercato immobiliare in Ticino, prezzi medi per zona, differenze tra affitto e acquisto. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, immobiliare, prezzi, medi',
+    ogTitle: 'Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti',
+    ogDescription: 'Tendenze del mercato immobiliare in Ticino, prezzi medi per zona, differenze tra affitto e acquisto',
+    canonicalPath: '/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il mercato immobiliare in Ticino: prezzi medi per zona, tendenze recenti",
+      "description": "Tendenze del mercato immobiliare in Ticino, prezzi medi per zona, differenze tra affitto e acquisto. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-immobiliare-ticino-prezzi-tendenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato immobiliare a Locarno, Ticino"
+      },
+      "datePublished": "2026-07-11T11:13:22+00:00",
+      "dateModified": "2026-07-11T11:13:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-immobiliare-ticino-prezzi-tendenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoro-parrucchiere-estetista-frontaliere': {
+    title: 'Frontaliere parrucchiere ed estetista in Ticino',
+    description: 'Lavorare come parrucchiere o estetista in Ticino: guida su stipendio, permesso G, imposta alla fonte e nuove regole fiscali 2024 per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parrucchiere, estetista, operativa, parrucchieri',
+    ogTitle: 'Frontaliere parrucchiere ed estetista in Ticino: guida',
+    ogDescription: 'Guida pratica per parrucchieri ed estetisti frontalieri: stipendio, permesso G, imposta alla fonte e gestione fiscale tra Svizzera e Italia.',
+    canonicalPath: '/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere parrucchiere ed estetista in Ticino",
+      "description": "Lavorare come parrucchiere o estetista in Ticino: guida su stipendio, permesso G, imposta alla fonte e nuove regole fiscali 2024 per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-parrucchiere-estetista-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Salone di parrucchiere a Lugano con vista lago"
+      },
+      "datePublished": "2026-07-11T17:25:52+00:00",
+      "dateModified": "2026-07-11T17:25:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-parrucchiere-estetista-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-del-lavoro-ticino-settori-in-crescita': {
+    title: 'Settori in crescita: profughi ricercati, prospettive per chi cerca lavoro in Ticino',
+    description: 'Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, settori, crescita, profughi, ricercati',
+    ogTitle: 'I settori in crescita nel mercato del lavoro ticinese',
+    ogDescription: 'Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.',
+    canonicalPath: '/articoli-frontaliere/mercato-del-lavoro-ticino-settori-in-crescita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settori in crescita: profughi ricercati, prospettive per chi cerca lavoro in Ticino",
+      "description": "Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-del-lavoro-ticino-settori-in-crescita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con edifici moderni e lago"
+      },
+      "datePublished": "2026-07-11T18:07:07+00:00",
+      "dateModified": "2026-07-11T18:07:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-del-lavoro-ticino-settori-in-crescita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
+    title: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
+    ogTitle: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere insegnante scuola ticino stipendio requisiti",
+      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/insegnanti-frontalieri-stipendio-requisiti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di insegnamento in Ticino con la città sullo sfondo."
+      },
+      "datePublished": "2026-07-11T18:41:23+00:00",
+      "dateModified": "2026-07-11T18:41:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-samarate-licenziamenti-2026': {
+    title: 'Samarate, ex Deltapav, licenzia un terzo della forza lavoro',
+    description: 'La procedura collettiva per la parte impiegatizia si è chiusa in questi giorni. Gli impiegati che hanno perso il lavoro hanno ottenuto indennizzo e in aggiunta',
+    keywords: 'frontalieri, ticino, svizzera, italia, samarate, deltapav, licenzia, terzo',
+    ogTitle: 'Samarate, ex Deltapav, licenzia un terzo della forza lavoro',
+    ogDescription: 'La procedura collettiva per la parte impiegatizia si è chiusa in questi giorni.',
+    canonicalPath: '/articoli-frontaliere/samarate-licenziamenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Samarate, ex Deltapav, licenzia un terzo della forza lavoro",
+      "description": "La procedura collettiva per la parte impiegatizia si è chiusa in questi giorni. Gli impiegati che hanno perso il lavoro hanno ottenuto indennizzo e in aggiunta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/samarate-licenziamenti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una strada di Samarate con persone in lontananza"
+      },
+      "datePublished": "2026-07-11T19:10:05+00:00",
+      "dateModified": "2026-07-11T19:10:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/samarate-licenziamenti-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere': {
+    title: 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
+    description: 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionarsi, trasferisce, nuovo, accordo',
+    ogTitle: 'Pensionarsi in Svizzera per chi si trasferisce non frontaliere',
+    ogDescription: 'Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionarsi in Svizzera per chi si trasferisce non frontaliere",
+      "description": "Il nuovo accordo frontaliere del 2024 introduce nuove regole per i frontalieri che desiderano pensionarsi in Svizzera. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna siede su una panchina con lo sfondo della città di Lugano, Svizzera."
+      },
+      "datePublished": "2026-07-11T19:45:28+00:00",
+      "dateModified": "2026-07-11T19:45:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensionarsi-in-svizzera-per-chi-si-trasferisce-non-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-busta-paga-svizzera-2026': {
+    title: 'Analisi completa della busta paga svizzera 2026 per i frontalieri',
+    description: 'La nuova legge sulle trattenute e contributi per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, analisi, completa, busta, paga',
+    ogTitle: 'Analisi completa della busta paga svizzera 2026 per i frontalieri',
+    ogDescription: 'La nuova legge sulle trattenute e contributi per i frontalieri in Svizzera',
+    canonicalPath: '/articoli-frontaliere/frontalieri-busta-paga-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Analisi completa della busta paga svizzera 2026 per i frontalieri",
+      "description": "La nuova legge sulle trattenute e contributi per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-busta-paga-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che lavora in Svizzera e risiede in Italia, con il lago di Lugano in background."
+      },
+      "datePublished": "2026-07-11T20:13:41+00:00",
+      "dateModified": "2026-07-11T20:13:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-busta-paga-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-italia-zona-economica-speciale': {
+    title: 'Italia, una zona economica speciale a ridosso del confine',
+    description: 'La Svizzera e l\'Italia hanno firmato un accordo per creare una zona economica speciale lungo il confine. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zona, economica, speciale, ridosso',
+    ogTitle: 'Italia, zona economica speciale a ridosso del confine',
+    ogDescription: 'La Svizzera e l\'Italia hanno firmato un accordo per creare una zona economica speciale lungo il confine.',
+    canonicalPath: '/articoli-frontaliere/italia-zona-economica-speciale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia, una zona economica speciale a ridosso del confine",
+      "description": "La Svizzera e l'Italia hanno firmato un accordo per creare una zona economica speciale lungo il confine. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/italia-zona-economica-speciale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora in Svizzera e risiede in Italia"
+      },
+      "datePublished": "2026-07-11T20:30:52+00:00",
+      "dateModified": "2026-07-11T20:30:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-zona-economica-speciale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio': {
+    title: 'Lavora come parrucchiere o estetista in Ticino da frontaliere: permesso, stipendio e opportunità',
+    description: 'Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio e opportunità nel settore. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavora, parrucchiere, estetista, permesso',
+    ogTitle: 'Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio e opportunità nel settore',
+    ogDescription: 'Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio e opportunità nel settore.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavora come parrucchiere o estetista in Ticino da frontaliere: permesso, stipendio e opportunità",
+      "description": "Frontalieri parrucchieri e estetisti in Ticino: permesso G, stipendio e opportunità nel settore. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere parrucchiere in un negozio di Lugano, con un cliente seduto sulla sedia da taglio."
+      },
+      "datePublished": "2026-07-11T20:48:39+00:00",
+      "dateModified": "2026-07-11T20:48:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-imposta-frontalieri-2026-guida': {
+    title: 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
+    description: 'Guida al credito d\'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, dichiarazione',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: calcolo e dichiarazione',
+    ogDescription: 'Guida al credito d\'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-frontalieri-2026-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta frontalieri 2026: calcolo e dichiarazione",
+      "description": "Guida al credito d'imposta per frontalieri 2026: franchigia, aliquote Irpef e gestione del quadro CE nella dichiarazione dei redditi in Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-frontalieri-2026-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e il centro città"
+      },
+      "datePublished": "2026-07-11T21:15:47+00:00",
+      "dateModified": "2026-07-11T21:15:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-frontalieri-2026-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-meccanico-auto-ticino-stipendio-permessi': {
+    title: 'Lavorare come meccanico auto in Ticino: stipendio, CCL di settore, permesso G',
+    description: 'Impostato alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, meccanico, auto, stipendio',
+    ogTitle: 'Lavorare come meccanico auto in Ticino: stipendio, CCL di settore, permesso G',
+    ogDescription: 'Impostato alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/meccanico-auto-ticino-stipendio-permessi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come meccanico auto in Ticino: stipendio, CCL di settore, permesso G",
+      "description": "Impostato alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/meccanico-auto-ticino-stipendio-permessi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un meccanico auto lavora in una officina di Lugano, Ticino."
+      },
+      "datePublished": "2026-07-11T21:40:18+00:00",
+      "dateModified": "2026-07-11T21:40:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/meccanico-auto-ticino-stipendio-permessi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-dei-frontalieri': {
+    title: 'Consiglio federale: opporsi alla modifica unilaterale UE sulla disoccupazione dei frontalieri',
+    description: 'La Svizzera potrebbe farsi carico delle indennità di disoccupazione dei frontalieri che hanno perso il lavoro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, opporsi, alla',
+    ogTitle: 'Disoccupazione dei frontalieri: l\'UDC vuole che il Consiglio federale respinga la modifica unilaterale delle norme UE',
+    ogDescription: 'La Svizzera potrebbe farsi carico delle indennità di disoccupazione dei frontalieri che hanno perso il lavoro.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-dei-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: opporsi alla modifica unilaterale UE sulla disoccupazione dei frontalieri",
+      "description": "La Svizzera potrebbe farsi carico delle indennità di disoccupazione dei frontalieri che hanno perso il lavoro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-dei-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora sul lago di Lugano, in Svizzera."
+      },
+      "datePublished": "2026-07-11T22:33:37+00:00",
+      "dateModified": "2026-07-11T22:33:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-dei-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-equipollenza-titolo-studio-italiano-svizzera-frontaliere': {
+    title: 'Equipollenza titolo di studio italiano in Svizzera: cosa fare',
+    description: 'I titoli di studio italiani sono equipollenti in Svizzera, ma ci sono procedure da seguire per ottenere il riconoscimento. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, equipollenza, titolo, studio, italiano',
+    ogTitle: 'Equipollenza titolo di studio italiano in Svizzera',
+    ogDescription: 'I titoli di studio italiani sono equipollenti in Svizzera, ma ci sono procedure da seguire per ottenere il riconoscimento',
+    canonicalPath: '/articoli-frontaliere/equipollenza-titolo-studio-italiano-svizzera-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Equipollenza titolo di studio italiano in Svizzera: cosa fare",
+      "description": "I titoli di studio italiani sono equipollenti in Svizzera, ma ci sono procedure da seguire per ottenere il riconoscimento. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/equipollenza-titolo-studio-italiano-svizzera-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa di varcare il confine italo-svizzero"
+      },
+      "datePublished": "2026-07-11T23:09:50+00:00",
+      "dateModified": "2026-07-11T23:09:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/equipollenza-titolo-studio-italiano-svizzera-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sia-tredicesima-avs-guadagnarci-due-volte': {
+    title: 'Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità',
+    description: 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alla, tredicesima, pensione, doppia',
+    ogTitle: 'Sì alla tredicesima AVS: i frontalieri in pensione potrebbero guadagnarci due volte',
+    ogDescription: 'La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione.',
+    canonicalPath: '/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sì alla tredicesima AVS: pensione per frontalieri con doppia indennità",
+      "description": "La Svizzera ha approvato la misura che potrebbe beneficiare i frontalieri in pensione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sia-tredicesima-avs-guadagnarci-due-volte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino"
+      },
+      "datePublished": "2026-07-11T23:36:34+00:00",
+      "dateModified": "2026-07-11T23:36:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sia-tredicesima-avs-guadagnarci-due-volte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-perdita-guadagno-malattia-lunga-frontaliere': {
+    title: 'Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere',
+    description: 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, perdita, guadagno, malattia',
+    ogTitle: 'Indennità di perdita di guadagno malattia lunga frontaliere',
+    ogDescription: 'La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di perdita di guadagno: malattia di lunga durata per il frontaliere",
+      "description": "La nuova legge prevede un regime transitorio per i vecchi frontalieri e una franchigia per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-perdita-guadagno-malattia-lunga-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che si trova in una situazione di salute precaria"
+      },
+      "datePublished": "2026-07-12T00:09:11+00:00",
+      "dateModified": "2026-07-12T00:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indennita-perdita-guadagno-malattia-lunga-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richiesta-rinnovo-modifica-permesso-g': {
+    title: 'Rinnovo e modifiche al permesso per frontalieri: Repubblica e Cantone Ticino',
+    description: 'È necessario richiedere il rinnovo del permesso 14 giorni prima della scadenza e comunicare eventuali modifiche dei dati indicati sul permesso entro 14 giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, rinnovo, modifiche, permesso, repubblica',
+    ogTitle: 'Richiesta di rinnovo e/o modifica del permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    ogDescription: 'È necessario richiedere il rinnovo del permesso 14 giorni prima della scadenza e comunicare eventuali modifiche dei dati indicati sul permesso entro 14 giorni',
+    canonicalPath: '/articoli-frontaliere/richiesta-rinnovo-modifica-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rinnovo e modifiche al permesso per frontalieri: Repubblica e Cantone Ticino",
+      "description": "È necessario richiedere il rinnovo del permesso 14 giorni prima della scadenza e comunicare eventuali modifiche dei dati indicati sul permesso entro 14 giorni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-rinnovo-modifica-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che si trova in una situazione simile potrebbe dover rinnovare il proprio permesso"
+      },
+      "datePublished": "2026-07-12T00:41:37+00:00",
+      "dateModified": "2026-07-12T00:41:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/richiesta-rinnovo-modifica-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-conversione-patente-italiana-svizzera-frontalieri': {
+    title: 'Conversione patente di guida in Svizzera per frontalieri: guida pratica, costi, validità',
+    description: 'Il nuovo Accordo Frontalieri prevede la possibilità di convertire la patente di guida italiana in svizzera per i frontalieri. La procedura di conversione è',
+    keywords: 'frontalieri, ticino, svizzera, italia, conversione, patente, pratica, costi',
+    ogTitle: 'Conversione patente di guida italiana in svizzera per frontalieri: quando serve, procedura, costi, validità durante il permesso G',
+    ogDescription: 'Il nuovo Accordo Frontalieri prevede la possibilità di convertire la patente di guida italiana in svizzera per i frontalieri. La procedura di conversione è',
+    canonicalPath: '/articoli-frontaliere/conversione-patente-italiana-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conversione patente di guida in Svizzera per frontalieri: guida pratica, costi, validità",
+      "description": "Il nuovo Accordo Frontalieri prevede la possibilità di convertire la patente di guida italiana in svizzera per i frontalieri. La procedura di conversione è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conversione-patente-italiana-svizzera-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere che si reca al traffico di Locarno per cambiare la patente di guida italiana in svizzera."
+      },
+      "datePublished": "2026-07-12T01:19:03+00:00",
+      "dateModified": "2026-07-12T01:19:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conversione-patente-italiana-svizzera-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-telelavoro': {
+    title: 'Frontalieri: è entrata in vigore l\'intesa sul telelavoro',
+    description: 'I frontalieri possono lavorare da casa fino al 25% del tempo di lavoro annuale. L\'intesa è entrata in vigore il 9 febbraio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, entrata, vigore, intesa, telelavoro',
+    ogTitle: 'Frontalieri: è entrata in vigore l\'intesa sul telelavoro',
+    ogDescription: 'I frontalieri possono lavorare da casa fino al 25% del tempo di lavoro annuale. L\'intesa è entrata in vigore il 9 febbraio.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-telelavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: è entrata in vigore l'intesa sul telelavoro",
+      "description": "I frontalieri possono lavorare da casa fino al 25% del tempo di lavoro annuale. L'intesa è entrata in vigore il 9 febbraio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-telelavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino"
+      },
+      "datePublished": "2026-07-12T02:09:09+00:00",
+      "dateModified": "2026-07-12T02:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni': {
+    title: 'Frontalieri da remoto al 50% senza impatto su contributi e pensioni',
+    description: 'Il Nuovo Accordo Frontalieri prevede l\'esenzione dall\'imposta alla fonte per i frontalieri che lavorano da remoto al 50%. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, remoto, senza, impatto, contributi',
+    ogTitle: 'Frontalieri da remoto al 50% senza impatto su contributi e pensioni',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede l\'esenzione dall\'imposta alla fonte per i frontalieri che lavorano da remoto al 50%.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri da remoto al 50% senza impatto su contributi e pensioni",
+      "description": "Il Nuovo Accordo Frontalieri prevede l'esenzione dall'imposta alla fonte per i frontalieri che lavorano da remoto al 50%. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora da remoto in un ufficio nel Canton Ticino."
+      },
+      "datePublished": "2026-07-12T02:28:41+00:00",
+      "dateModified": "2026-07-12T02:28:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-permessi-g': {
+    title: 'Frontaliere Ticino: Permessi G e lavoro autonomo in Svizzera',
+    description: 'Informazioni sulle procedure per ottenere un permesso G per lavorare in Svizzera come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, lavoro, autonomo, sistema',
+    ogTitle: 'Permessi G per frontaliere in Svizzera',
+    ogDescription: 'Informazioni sulle procedure per ottenere un permesso G per lavorare in Svizzera come frontaliere.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-permessi-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: Permessi G e lavoro autonomo in Svizzera",
+      "description": "Informazioni sulle procedure per ottenere un permesso G per lavorare in Svizzera come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-permessi-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere siede al banco di un ufficio di registrazione, con un foglio di permesso G in mano."
+      },
+      "datePublished": "2026-07-12T03:12:14+00:00",
+      "dateModified": "2026-07-12T03:12:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-permessi-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-riforma-sulla-disoccupazione-dei-frontalieri': {
+    title: 'Riforma disoccupazione frontalieri: 900 mln all\'anno',
+    description: 'La Svizzera potrebbe subire costi aggiuntivi per la riforma sulla disoccupazione dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, disoccupazione, anno, potrebbe',
+    ogTitle: 'La riforma sulla disoccupazione dei frontalieri, costi fino a 900 milioni all\'anno',
+    ogDescription: 'La Svizzera potrebbe subire costi aggiuntivi per la riforma sulla disoccupazione dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costi-riforma-sulla-disoccupazione-dei-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma disoccupazione frontalieri: 900 mln all'anno",
+      "description": "La Svizzera potrebbe subire costi aggiuntivi per la riforma sulla disoccupazione dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-riforma-sulla-disoccupazione-dei-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa al valico di Chiasso."
+      },
+      "datePublished": "2026-07-12T03:37:24+00:00",
+      "dateModified": "2026-07-12T03:37:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-riforma-sulla-disoccupazione-dei-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-partita-iva-frontaliere-svizzera': {
+    title: 'Partita IVA frontaliere: guida al lavoro autonomo in Svizzera',
+    description: 'Guida pratica per frontalieri: requisiti, fiscalità, previdenza e nuovo accordo 2024 per chi apre un\'attività autonoma in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, partita, lavoro, autonomo, scopri',
+    ogTitle: 'Partita IVA frontaliere: guida al lavoro autonomo in Svizzera',
+    ogDescription: 'Scopri come gestire l\'attività autonoma in Svizzera da frontaliere: requisiti, fiscalità e previdenza nel rispetto delle norme vigenti.',
+    canonicalPath: '/articoli-frontaliere/partita-iva-frontaliere-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Partita IVA frontaliere: guida al lavoro autonomo in Svizzera",
+      "description": "Guida pratica per frontalieri: requisiti, fiscalità, previdenza e nuovo accordo 2024 per chi apre un'attività autonoma in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/partita-iva-frontaliere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania professionale con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-07-12T04:07:07+00:00",
+      "dateModified": "2026-07-12T04:07:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/partita-iva-frontaliere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-over-55-ricollocamento-cambio-lavoro': {
+    title: 'Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione',
+    description: 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambia, lavoro, dopo, anni',
+    ogTitle: 'Cambiare lavoro da frontaliere dopo i 55 anni: ricollocamento, tutele, impatto su secondo pilastro e pensione',
+    ogDescription: 'I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-over-55-ricollocamento-cambio-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambia lavoro da frontaliere dopo i 55 anni: tutele e impatto sul secondo pilastro e pensione",
+      "description": "I frontalieri over 55 possono cambiare lavoro senza perdere i benefici del secondo pilastro, grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-over-55-ricollocamento-cambio-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri ticinesi con il permesso G che lavorano in Svizzera"
+      },
+      "datePublished": "2026-07-12T10:25:32+00:00",
+      "dateModified": "2026-07-12T10:25:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-over-55-ricollocamento-cambio-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

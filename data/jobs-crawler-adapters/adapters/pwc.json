@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-10T22:05:52.107Z",
+  "updatedAt": "2026-07-11T22:26:42.408Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/praktikum-digital-assurance-it-audit-and-process-analytics-sept-feb-financial-services/e95874ab-bb88-4836-81ea-b23408422e8f": {
       "location": "Zürich",

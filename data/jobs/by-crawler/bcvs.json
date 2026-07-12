@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-07-10T22:03:27.569Z",
+  "assembledAt": "2026-07-11T21:57:24.719Z",
   "jobs": [
     {
       "id": "bcvs-eb1d10e603b7",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:25.162Z",
+      "crawledAt": "2026-07-11T21:57:22.530Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:24.745Z",
+      "crawledAt": "2026-07-11T21:57:21.936Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -160,11 +160,14 @@
           "Francophone, vos compétences linguistiques vous permettent de traiter correctement la documentation en allemand."
         ]
       },
+      "previousSlugs": [
+        "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
+        "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion",
+        "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion",
+        "gestionnaire-economat-courrier-et-ged-bcvs-sion",
+        "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
-        ],
         "it": [
           "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
           "gestionnaire-economat-courrier-et-ged-bcvs-sion",
@@ -175,15 +178,12 @@
         ],
         "de": [
           "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
+        ],
+        "fr": [
+          "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
         ]
       },
-      "previousSlugs": [
-        "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-        "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion",
-        "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion",
-        "gestionnaire-economat-courrier-et-ged-bcvs-sion",
-        "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion"
-      ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -229,7 +229,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:03:24.236Z",
+      "crawledAt": "2026-07-11T21:57:21.339Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -309,7 +309,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-fichier-central-2593",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:23.719Z",
+      "crawledAt": "2026-07-11T21:57:20.882Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -398,7 +398,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2596",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:23.203Z",
+      "crawledAt": "2026-07-11T21:57:20.286Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -489,7 +489,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:22.688Z",
+      "crawledAt": "2026-07-11T21:57:19.829Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -581,7 +581,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sales-manager-2600",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-10T22:03:22.169Z",
+      "crawledAt": "2026-07-11T21:57:19.364Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",

@@ -11,379 +11,379 @@
     "https://afry.com/en/api/afp-hr-smartrecruiteres-job-list"
   ],
   "notes": "Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then keeps CH-wide jobs whose city resolves to a Swiss canton (all 26). ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, offices nationwide incl. Bellinzona/Airolo.",
-  "updatedAt": "2026-07-10T22:39:51.261Z",
+  "updatedAt": "2026-07-11T23:06:41.088Z",
   "seedMetaByUrl": {
     "https://afry.com/en/career/available-jobs/REF13428R-zeichnerin-bim-modelliererin-wasserkraft-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF15190U-projektleiterin-tief-und-strassenbau-60-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF15189T-junior-projektleiterin-tiefbau-strassenbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF15112T-bauleiterin-hochbau-gesamtplanung-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF15032G-senior-consultant-asset-management-systems-m-f-d-80-100-zurich-basel": {
       "location": "Basel",
       "canton": "BS",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13075M-projektleiterin-tragwerksplanung-ingenieurbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13781L-elektroplanerin-40-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13930H-projektleiterin-elektro-infrastrukturprojekte-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13750S-projektingenieurin-fh-hf-elektro-technische-anlagen-60-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14084I-junior-projektingenieurin-leitungsbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14083F-junior-projektingenieurin-leitungsbau-pls-cadd-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14339Y-junior-bauingenieurin-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14796J-elektroplanerin-60-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14773I-senior-projektleiterin-brandschutz-60-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14755F-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont": {
       "location": "Delémont",
       "canton": "JU",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14710W-chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg": {
       "location": "Fribourg",
       "canton": "FR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14623F-modeleur-revit-80-100-f-h-d-fribourg": {
       "location": "Fribourg",
       "canton": "FR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14462G-teamleiterin-bsa-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14461K-bauleiterin-elektro-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14419M-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg": {
       "location": "Fribourg",
       "canton": "FR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14322C-projektleiterin-nationalstrassenbau-region-deutschschweiz-80-100-zurich-oder-chur": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14262I-directeur-adjoint-de-la-region-ouest-business-unit-civil-f-h-d-80-100-lausanne-fribourg-delemont": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13225G-praktikantin-wasser-abwasser-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14230L-projektingenieurin-bahnbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF14227H-projektingenieurin-im-bereich-strassen-und-bahnbau-80-100-brig": {
       "location": "Brig",
       "canton": "VS",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF11645J-pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona": {
       "location": "Bellinzona",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13856B-chef-de-projet-cvcs-experimente-f-h-d-80-100-lausanne-fribourg": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13598P-projektingenieurin-kunstbauten-bruckenbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13708L-teamleiterin-infrastruktur-und-stv-niederlassungsleiterin-80-100-brunnen": {
       "location": "Ingenbohl",
       "canton": "SZ",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13707M-projektleiterin-kunstbauten-80-100-brunnen": {
       "location": "Ingenbohl",
       "canton": "SZ",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13706S-projektingenieurin-civil-70-100-brunnen": {
       "location": "Ingenbohl",
       "canton": "SZ",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13490Z-leiterin-bereich-bahntiefbau-strassenbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13331F-leiterin-abteilung-bahnbau-bahntiefbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13487C-leiterin-abteilung-gesamtplanung-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13427F-projektingenieurin-wasserkraft-und-tragwerksplanung-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13426D-einstieg-als-projektingenieurin-wasserkraft-und-tragwerksplanung-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13151X-projektleiterin-kunstbauten-80-100-winterthur": {
       "location": "Winterthur",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13119R-projektleiterin-bahnbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13116C-projektleiterin-kunstbauten-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF11391E-zeichnerin-tiefbau-kunstbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF13045S-elektroplanerin-elektroingenieurin-gebaudetechnik-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF5755A-ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF2564D-projektingenieurin-infrastrukturbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF8919B-projektleiterin-hlks-gebaudetechnik-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF10081W-hlks-planerin-gebaudetechnik-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF12295H-ingenieur-en-genie-civil-chef-de-projet-orientation-infrastructure-hydraulique-80-100-f-h-d-delemont": {
       "location": "Delémont",
       "canton": "JU",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF10630U-projektingenieurin-bau-und-projektleiterin-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig": {
       "location": "Brig",
       "canton": "VS",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF11845P-projektleiterin-projektingenieurin-tragwerk-hochbau-80-100-rapperswil": {
       "location": "Rapperswil-Jona",
       "canton": "SG",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF11389O-ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona": {
       "location": "Bellinzona",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF11676H-directeur-de-travaux-f-h-d-80-100-lausanne": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1238C-chefbauleiterin-infrastrukturbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF7769T-ingenieur-de-projet-en-communication-et-systemes-dinformation-f-m-d-80-100-lausanne-neuchatel": {
       "location": "Neuchâtel",
       "canton": "NE",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF10433H-senior-projektleiterin-bauherrenunterstutzung-80-100-zurich-oder-chur": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1247R-bauleiterin-tunnelbau-tiefbau-eth-fh-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF3908P-praktikantin-ethz-epfl-civil-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF9083H-projektleiterin-tief-strassen-und-bahnbau-80-100-brig": {
       "location": "Brig",
       "canton": "VS",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF6761I-projektleiterin-tiefbau-bahnbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1212E-candidatura-spontanea-svizzera": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1211X-candidature-spontanee-suisse": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF65Z-spontanbewerbung-schweiz": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1241C-gesamtprojektleiterin-infrastruktur-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     },
     "https://afry.com/en/career/available-jobs/REF1239Z-projektleiterin-bahnbau-80-100-zurich": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "AFRY",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-07-11"
     }
   }
 }

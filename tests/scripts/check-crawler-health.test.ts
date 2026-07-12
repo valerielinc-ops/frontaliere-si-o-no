@@ -305,6 +305,42 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  it('clears broken status for clariant (SuccessFactors Jobs2Web, empty-ok regional filter) on a fresh zero-job run (#4104)', () => {
+    // Reproduces the #4104 state: Clariant's Jobs2Web listing/detail markup
+    // (data-row / jobTitle-link / colLocation / colDepartment) is unchanged
+    // and the parser still correctly parses every row on the unfiltered
+    // /search/ page; walking all 110 currently open postings across all 6
+    // result pages found none Switzerland-located. Clariant genuinely has 0
+    // open Swiss roles right now, not a selector break. It must not stay
+    // flagged broken once added to EMPTY_OK_CRAWLERS.
+    const prev = {
+      lastSuccessfulRunAt: '2026-07-07T22:17:10.074Z',
+      lastNonZeroJobs: 1,
+      consecutiveEmptyRuns: 3,
+      lastFailureReason: '3 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'clariant',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(

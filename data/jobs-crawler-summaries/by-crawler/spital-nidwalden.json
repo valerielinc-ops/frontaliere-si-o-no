@@ -1,16 +1,16 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-07-10T22:54:47.098Z",
+  "generatedAt": "2026-07-11T21:58:09.825Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5004,
-  "avgDurationMs": 5004,
+  "durationMs": 5356,
+  "avgDurationMs": 5356,
   "durationHistory": [
-    5004
+    5356
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:54:44.572Z",
+      "crawledAt": "2026-07-11T21:58:06.915Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/3-mitarbeiter-innen-hauswirtschaft-zu-je/102588bb-0360-4897-bb00-9eed742efc74",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:54:44.577Z",
+      "crawledAt": "2026-07-11T21:58:06.918Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/physiotherapeut-in/60097e2e-40bf-4f3c-a0c3-07b11d74bb07",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-10T22:54:44.579Z",
+      "crawledAt": "2026-07-11T21:58:06.920Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "firstSeenAt": "2026-05-26T14:04:35.880Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
