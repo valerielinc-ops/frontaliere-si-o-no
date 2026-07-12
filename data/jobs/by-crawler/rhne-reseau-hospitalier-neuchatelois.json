@@ -1,7 +1,87 @@
 {
   "crawlerKey": "rhne-reseau-hospitalier-neuchatelois",
-  "assembledAt": "2026-07-11T21:56:34.360Z",
+  "assembledAt": "2026-07-12T11:10:28.526Z",
   "jobs": [
+    {
+      "id": "rhne-reseau-hospitalier-neuchatelois-4c08f7c44aed",
+      "slug": "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slugByLocale": {
+        "it": "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "social-assistant-at-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "social-assistant-bei-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      },
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Assistante·e social·e à 60%",
+      "titleByLocale": {
+        "it": "Assistente sociale al 60%",
+        "en": "Social Assistant at 60%",
+        "de": "Social Assistant bei 60%",
+        "fr": "Assistante·e social·e à 60%"
+      },
+      "description": "Assistante·e social·e à 60% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
+      "descriptionByLocale": {
+        "it": "60% assistente sociale alla rete ospedaliera Neuchâtel (RHNE) a Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
+        "en": "60% social worker at the Neuchâtel hospital network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
+        "de": "60% Sozialarbeiter im Krankenhausnetzwerk Neuenburg (RHNE) in Neuenburg. Das Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
+        "fr": "Assistante·e social·e à 60% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+      },
+      "needsRetranslation": false,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563048&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-12T11:10:25.783Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563048&cat=all",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2563048",
+      "previousSlugs": [
+        "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+          "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        ],
+        "en": [
+          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "firstSeenAt": "2026-06-29T14:23:34.518Z",
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-27732adabfe3",
       "slug": "assistente-capo-medico-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -34,7 +114,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560761&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.271Z",
+      "crawledAt": "2026-07-12T11:10:25.783Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -116,7 +196,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560297&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.271Z",
+      "crawledAt": "2026-07-12T11:10:25.783Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -192,12 +272,13 @@
         "de": "Chief Medical Officer der 80-100% Klinik des Neuenburger Krankenhausnetzwerks (RHNE) in Neuenburg. Das Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
         "fr": "Médecin chef·fe de clinique à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": true,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563731&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.270Z",
+      "crawledAt": "2026-07-12T11:10:25.782Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -246,86 +327,6 @@
       }
     },
     {
-      "id": "rhne-reseau-hospitalier-neuchatelois-4c08f7c44aed",
-      "slug": "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "slugByLocale": {
-        "it": "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "social-assistant-at-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "de": "social-assistant-bei-60-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "fr": "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Assistante·e social·e à 60%",
-      "titleByLocale": {
-        "it": "Assistente sociale al 60%",
-        "en": "Social Assistant at 60%",
-        "de": "Social Assistant bei 60%",
-        "fr": "Assistante·e social·e à 60%"
-      },
-      "description": "Assistante·e social·e à 60% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "it": "60% assistente sociale alla rete ospedaliera Neuchâtel (RHNE) a Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
-        "en": "60% social worker at the Neuchâtel hospital network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
-        "de": "60% Sozialarbeiter im Krankenhausnetzwerk Neuenburg (RHNE) in Neuenburg. Das Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
-        "fr": "Assistante·e social·e à 60% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
-      },
-      "needsRetranslation": false,
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563048&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.270Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563048&cat=all",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2563048",
-      "previousSlugs": [
-        "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-          "assistente-sociale-al-60-reseau-hospitalier-neuchatelois-rhne-neuchatel"
-        ],
-        "en": [
-          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "de": [
-          "assistante-e-social-e-a-60-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T14:23:34.518Z",
-      "salaryMin": 36300,
-      "salaryMax": 54900,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36300,
-          "maxValue": 54900,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "rhne-reseau-hospitalier-neuchatelois-c80c7de3f0a7",
       "slug": "capo-di-clinica-o-vice-capo-di-clinica-al-100-dipartimento-di-cardiologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
@@ -357,7 +358,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2563935&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.269Z",
+      "crawledAt": "2026-07-12T11:10:25.782Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -439,7 +440,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2564234&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.268Z",
+      "crawledAt": "2026-07-12T11:10:25.781Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -521,7 +522,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2565388&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.265Z",
+      "crawledAt": "2026-07-12T11:10:25.779Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -601,7 +602,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2564962&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.265Z",
+      "crawledAt": "2026-07-12T11:10:25.779Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -681,7 +682,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2565570&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.264Z",
+      "crawledAt": "2026-07-12T11:10:25.778Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -752,12 +753,13 @@
         "de": "Pflegeleiterin 80-100% Pflegeeinheit im Krankenhausnetzwerk Neuenburg (RHNE) in Neuenburg.\n\nDas Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
         "fr": "Infirmier·ère chef·fe d'unité de soins à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": true,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2565393&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.264Z",
+      "crawledAt": "2026-07-12T11:10:25.778Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -837,7 +839,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2565848&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T21:56:31.262Z",
+      "crawledAt": "2026-07-12T11:10:25.776Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-11T22:09:22.178Z",
+  "assembledAt": "2026-07-12T11:05:26.650Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5476",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:19.457Z",
+      "crawledAt": "2026-07-12T11:05:23.998Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -85,6 +85,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5473",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:19.027Z",
+      "crawledAt": "2026-07-12T11:05:23.528Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,6 +178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.207Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -221,7 +223,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:18.580Z",
+      "crawledAt": "2026-07-12T11:05:23.056Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -281,6 +283,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -325,7 +328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5452",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:18.138Z",
+      "crawledAt": "2026-07-12T11:05:22.579Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -365,6 +368,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.128Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -409,7 +413,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5413",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:17.685Z",
+      "crawledAt": "2026-07-12T11:05:22.112Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -457,6 +461,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:21.700Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -501,7 +506,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5380",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:17.265Z",
+      "crawledAt": "2026-07-12T11:05:21.644Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -551,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:21.283Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -595,7 +601,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:16.832Z",
+      "crawledAt": "2026-07-12T11:05:21.161Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -657,6 +663,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.624Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -701,7 +708,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5513",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:16.407Z",
+      "crawledAt": "2026-07-12T11:05:20.691Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -755,6 +762,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.206Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -799,7 +807,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:15.993Z",
+      "crawledAt": "2026-07-12T11:05:20.224Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -853,6 +861,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -897,7 +906,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5494",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:15.552Z",
+      "crawledAt": "2026-07-12T11:05:19.740Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -957,6 +966,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.367Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1001,7 +1011,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5528",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:15.133Z",
+      "crawledAt": "2026-07-12T11:05:19.268Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1061,6 +1071,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:17.523Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1105,7 +1116,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5519",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:14.718Z",
+      "crawledAt": "2026-07-12T11:05:18.761Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1162,6 +1173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:17.090Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1206,7 +1218,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5381",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:14.299Z",
+      "crawledAt": "2026-07-12T11:05:18.294Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1254,6 +1266,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.647Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1298,7 +1311,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:13.886Z",
+      "crawledAt": "2026-07-12T11:05:17.823Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1350,6 +1363,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.234Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1394,7 +1408,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:13.448Z",
+      "crawledAt": "2026-07-12T11:05:17.339Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1451,6 +1465,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.788Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1495,7 +1510,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:13.036Z",
+      "crawledAt": "2026-07-12T11:05:16.866Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1541,6 +1556,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.359Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1585,7 +1601,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:12.612Z",
+      "crawledAt": "2026-07-12T11:05:16.388Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1634,6 +1650,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1678,7 +1695,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:12.197Z",
+      "crawledAt": "2026-07-12T11:05:15.905Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1757,7 +1774,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5582",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:11.776Z",
+      "crawledAt": "2026-07-12T11:05:15.435Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1836,7 +1853,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5565",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:11.363Z",
+      "crawledAt": "2026-07-12T11:05:14.969Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1915,7 +1932,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:10.952Z",
+      "crawledAt": "2026-07-12T11:05:14.505Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1994,7 +2011,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5543",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:10.539Z",
+      "crawledAt": "2026-07-12T11:05:14.032Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2073,7 +2090,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:10.125Z",
+      "crawledAt": "2026-07-12T11:05:13.565Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2152,7 +2169,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:09.708Z",
+      "crawledAt": "2026-07-12T11:05:13.094Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2231,7 +2248,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:09.291Z",
+      "crawledAt": "2026-07-12T11:05:12.605Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2294,7 +2311,7 @@
       "title": "Juriste au support juridique",
       "titleByLocale": {
         "it": "Aiuti di Stato",
-        "en": "Legal aid",
+        "en": "Juriste au support juridique",
         "de": "Prozesskostenhilfe",
         "fr": "Juriste au support juridique"
       },
@@ -2310,7 +2327,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:08.871Z",
+      "crawledAt": "2026-07-12T11:05:12.132Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2345,6 +2362,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2389,7 +2407,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:08.402Z",
+      "crawledAt": "2026-07-12T11:05:11.663Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2468,7 +2486,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:07.972Z",
+      "crawledAt": "2026-07-12T11:05:11.194Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2549,7 +2567,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5603",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:07.537Z",
+      "crawledAt": "2026-07-12T11:05:10.686Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2630,7 +2648,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5588",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:07.116Z",
+      "crawledAt": "2026-07-12T11:05:10.211Z",
       "addressLocality": "Crassier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2709,7 +2727,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5641",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:06.659Z",
+      "crawledAt": "2026-07-12T11:05:09.724Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2788,7 +2806,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:06.242Z",
+      "crawledAt": "2026-07-12T11:05:09.245Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2867,7 +2885,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5629",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:05.801Z",
+      "crawledAt": "2026-07-12T11:05:08.750Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2946,7 +2964,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5571",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-11T22:09:05.378Z",
+      "crawledAt": "2026-07-12T11:05:08.266Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3097,7 +3115,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
