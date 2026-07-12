@@ -4484,6 +4484,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti': { name: 'Naturalizzazione svizzera', path: '/articoli-svizzera/naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti/', parent: 'blog' },
     'blog-riapertura-linea-gallarate-stabio': { name: 'Riapertura linea', path: '/articoli-frontaliere/riapertura-linea-gallarate-stabio', parent: 'blog' },
     'blog-secondo-lavoro-part-time-frontaliere': { name: 'Lavoro e tasse', path: '/articoli-svizzera/secondo-lavoro-part-time-frontaliere/', parent: 'blog' },
+    'blog-franchigia-doganale-acquisti-svizzera-frontaliere-dogana': { name: 'Limiti di franchigia doganale per gli', path: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

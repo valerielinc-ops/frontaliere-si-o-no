@@ -8427,6 +8427,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riapertura-linea-gallarate-stabio.title': 'Wiedereröffnung der Linie Gallarate-Stabio: Neuheit für Grenzgänger',
     'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Nach vierwöchigen Arbeiten nehmen sie die strategischen Bahnverbindungen für die Grenzgänger zwischen Varese, dem Tessin und Porto Ceresio wieder auf.',
     'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'TILO-Zug bei der Einfahrt in einen Bahnhof im Kanton Tessin',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Schweizerische Zollgrenzen: Werteaktualisierung, Erklärung und Folgen',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Mit dem Inkrafttreten der Neuen Grenzgängervereinbarung haben sich die Regeln für den Einkauf in der Schweiz geändert. Entdecken Sie die neuen Grenzen der Zollbefreiung, die notwendige Erklärung und die Folgen der Überschreitung.',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Ein Grenzgänger wartet auf den Kauf in der Schweiz.',
 };
 
 export default blogMetaDe;
