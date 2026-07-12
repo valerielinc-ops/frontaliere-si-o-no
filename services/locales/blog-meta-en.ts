@@ -8422,6 +8422,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'PostFinance cross-border credit card account',
     'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'The PostFinance account is a popular banking solution among border crossers.',
     'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere that might open a PostFinance account to manage their finances.',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Swiss motorway vignette 2026: cost for border crossers',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'The 2026 Swiss motorway vignette: how it works, where to buy and what it means for border crossers',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'A photo of a vehicle in transit on the Italy-Switzerland border, with the toll sticker',
 };
 
 export default blogMetaEn;

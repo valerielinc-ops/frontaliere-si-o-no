@@ -8421,6 +8421,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conto-postfinance-carta-credito-frontaliere.title': 'PostFinance-Konto Kreditkarte Borderline',
     'blog.article.conto-postfinance-carta-credito-frontaliere.excerpt': 'Das PostFinance-Konto ist eine beliebte Banklösung bei Grenzgängern.',
     'blog.article.conto-postfinance-carta-credito-frontaliere.imageAlt': 'Frontaliere, der ein PostFinance-Konto eröffnen könnte, um seine Finanzen zu verwalten.',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.title': 'Schweizer Autobahnvignette 2026: Kosten für Grenzgänger',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.excerpt': 'Die Schweizer Autobahnvignette 2026: Wie es funktioniert, wo man es kaufen kann und was es für Grenzgänger bedeutet',
+    'blog.article.vignetta-autostradale-svizzera-2026-costo-frontaliere.imageAlt': 'Eine Fotografie eines Fahrzeugs im Transit auf der italienisch-schweizerischen Grenze, mit dem Autobahnvignette',
 };
 
 export default blogMetaDe;
