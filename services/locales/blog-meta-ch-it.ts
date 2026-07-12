@@ -1021,6 +1021,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-treni-bus.title': 'Frontalieri, più treni e bus. Intesa col Canton Ticino',
     'blog.article.frontalieri-treni-bus.excerpt': 'L\'accordo tra la Regione e il Cantone Ticino prevede un aumento dei collegamenti ferroviari e su gomma transfrontalieri.',
     'blog.article.frontalieri-treni-bus.imageAlt': 'Immagine editoriale di un bus che attraversa il confine tra Italia e Svizzera',
+    'blog.article.investimento-immobiliare-frontaliere.title': 'Investimento immobiliare in Svizzera: guida per frontalieri',
+    'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analisi su vincoli per non residenti, fiscalità e differenze tra acquisto prima casa e investimento per lavoratori frontalieri.',
+    'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Immobile residenziale in Ticino',
 };
 
 export default blogMetaChIt;

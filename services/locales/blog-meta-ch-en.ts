@@ -1021,6 +1021,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-treni-bus.title': 'Frontier, more trains and buses. Agreement with the Canton of Ticino',
     'blog.article.frontalieri-treni-bus.excerpt': 'The agreement between the Region and the Canton of Ticino provides for an increase in cross-border rail and road connections.',
     'blog.article.frontalieri-treni-bus.imageAlt': 'Image of a bus crossing the border between Italy and Switzerland',
+    'blog.article.investimento-immobiliare-frontaliere.title': 'Real estate investment in Switzerland: a guide for border workers',
+    'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analysis of constraints for non-residents, taxation and differences between first home purchase and investment for frontier workers.',
+    'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Residential property in Ticino',
 };
 
 export default blogMetaChEn;

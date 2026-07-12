@@ -1021,6 +1021,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-treni-bus.title': 'Grenzgänger, mehr Züge und Busse. Im Einvernehmen mit dem Kanton Tessin',
     'blog.article.frontalieri-treni-bus.excerpt': 'Die Vereinbarung zwischen der Region und dem Kanton Tessin sieht eine Ausweitung der Eisenbahnverbindungen und des grenzüberschreitenden Kautschuks vor.',
     'blog.article.frontalieri-treni-bus.imageAlt': 'Bild eines Busses, der die Grenze zwischen Italien und der Schweiz überschreitet',
+    'blog.article.investimento-immobiliare-frontaliere.title': 'Immobilieninvestitionen in der Schweiz: Leitfaden für Grenzgänger',
+    'blog.article.investimento-immobiliare-frontaliere.excerpt': 'Analyse der Einschränkungen für Gebietsfremde, der Besteuerung und der Unterschiede zwischen Erstwohnungskauf und Investition für Grenzgänger.',
+    'blog.article.investimento-immobiliare-frontaliere.imageAlt': 'Wohnimmobilie im Tessin',
 };
 
 export default blogMetaChDe;
