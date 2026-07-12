@@ -1054,6 +1054,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'The myth of Switzerland shatters: young people out of work',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'The unemployment rate in Switzerland rose to 3.2% in January 2026, according to data from the State Secretariat for Economic Affairs (SECO)',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'A scene of work in Switzerland with people of different ages and nationalities',
+    'blog.article.permessi-docenti-frontalieri-ticino.title': 'Frontier teachers and permits: the rules of the Government',
+    'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'The State Council clarifies the procedure for hiring border teachers: the start of the activity is lawful after the request for a permit.',
+    'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Seat of the cantonal government in Bellinzona, Ticino, Switzerland.',
 };
 
 export default blogMetaChEn;

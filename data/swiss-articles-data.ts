@@ -3158,6 +3158,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permessi-docenti-frontalieri-ticino',
+    category: 'pratico',
+    date: '2026-07-12T15:15:44.295Z',
+    image: '/images/blog/permessi-docenti-frontalieri-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

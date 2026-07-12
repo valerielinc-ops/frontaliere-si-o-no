@@ -374,6 +374,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'secondo-lavoro-part-time-frontaliere': { it: 'secondo-lavoro-part-time-frontaliere', en: 'part-time-second-job-cross-border', de: 'nebenjob-teilzeit-grenzgaenger', fr: 'second-emploi-temps-partiel-frontalier' },
  'frontalieri-disoccupati-indennita-900-milioni': { it: 'frontalieri-disoccupati-indennita-900-milioni', en: 'frontaliers-unemployed-indemnity-900-millions', de: 'arbeitsloser-frontalier-indennitat-900-millionen', fr: 'frontalier-sans-emploi-indemnite-900-millions' },
  'svizzera-vacilla-mito-disoccupazione-frontalieri': { it: 'svizzera-vacilla-mito-disoccupazione-frontalieri', en: 'switzerland-vacillas-myt-disoccupazione-frontalieri', de: 'schweiz-vacillas-myt-disoccupazione-frontalieri', fr: 'suisse-vacillas-myt-disoccupation-frontaliers' },
+ 'permessi-docenti-frontalieri-ticino': { it: 'permessi-docenti-frontalieri-ticino', en: 'work-permits-cross-border-teachers-ticino', de: 'arbeitsbewilligungen-grenzgaenger-lehrer-tessin', fr: 'permis-travail-enseignants-frontaliers-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

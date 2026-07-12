@@ -1054,6 +1054,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Vacilla il mito della Svizzera: giovani senza lavoro',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Il tasso di disoccupazione in Svizzera è salito al 3,2% a gennaio 2026, secondo i dati della Segreteria di Stato dell\'economia (SECO)',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Una scena di lavoro in Svizzera con persone di diverse età e nazionalità',
+    'blog.article.permessi-docenti-frontalieri-ticino.title': 'Docenti frontalieri e permessi: le regole del Governo',
+    'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Il Consiglio di Stato chiarisce la procedura per l\'assunzione dei docenti frontalieri: l\'inizio dell\'attività è lecito dopo la richiesta del permesso.',
+    'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Sede del Governo cantonale a Bellinzona, Ticino, Svizzera.',
 };
 
 export default blogMetaChIt;

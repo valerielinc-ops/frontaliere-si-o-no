@@ -1054,6 +1054,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.title': 'Le mythe de la Suisse vacille : les jeunes sans emploi',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.excerpt': 'Le taux de chômage en Suisse est monté à 3,2% en janvier 2026, selon les données du Secrétariat d\'Etat à l\'économie (SECO)',
     'blog.article.svizzera-vacilla-mito-disoccupazione-frontalieri.imageAlt': 'Une scène de travail en Suisse avec des personnes de diverses âges et nationalités',
+    'blog.article.permessi-docenti-frontalieri-ticino.title': 'Enseignants frontaliers et permis : les règles du gouvernement',
+    'blog.article.permessi-docenti-frontalieri-ticino.excerpt': 'Le Conseil d\'État clarifie la procédure de recrutement des enseignants frontaliers : le début de l\'activité est licite après la demande du permis.',
+    'blog.article.permessi-docenti-frontalieri-ticino.imageAlt': 'Siège du gouvernement cantonal à Bellinzona, Tessin, Suisse.',
 };
 
 export default blogMetaChFr;

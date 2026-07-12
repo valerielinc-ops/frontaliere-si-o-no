@@ -4489,6 +4489,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-docenti-frontalieri-ticino-permessi-lavoro': { name: 'Docenti frontalieri senza permesso di', path: '/articoli-frontaliere/docenti-frontalieri-ticino-permessi-lavoro', parent: 'blog' },
     'blog-svizzera-vacilla-mito-disoccupazione-frontalieri': { name: 'Vacilla il mito della Svizzera', path: '/articoli-svizzera/svizzera-vacilla-mito-disoccupazione-frontalieri/', parent: 'blog' },
     'blog-franchigia-doganale-acquisti-svizzera': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera', parent: 'blog' },
+    'blog-permessi-docenti-frontalieri-ticino': { name: 'Permessi docenti frontalieri', path: '/articoli-svizzera/permessi-docenti-frontalieri-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
