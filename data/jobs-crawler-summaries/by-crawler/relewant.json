@@ -1,18 +1,48 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-07-12T10:59:04.853Z",
+  "generatedAt": "2026-07-12T22:24:37.997Z",
   "total": 19,
   "newCount": 5,
   "updatedCount": 3,
   "removedCount": 16,
   "unchangedCount": 0,
-  "durationMs": 9734,
-  "avgDurationMs": 9734,
+  "durationMs": 10082,
+  "avgDurationMs": 10082,
   "durationHistory": [
-    9734
+    10082
   ],
   "newJobs": [
+    {
+      "title": "Data Engineer",
+      "slug": "data-engineer-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019784004/Data-Engineer",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019784004/Data-Engineer/apply",
+      "company": "ReleWant",
+      "companyKey": "relewant",
+      "companyDomain": "zohorecruit.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "technology",
+      "sector": "Consulenza IT",
+      "source": "relewant-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Python Engineer",
       "slug": "python-engineer-relewant-chiasso",
@@ -137,36 +167,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "title": "Data Engineer",
-      "slug": "data-engineer-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019784004/Data-Engineer",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019784004/Data-Engineer/apply",
-      "company": "ReleWant",
-      "companyKey": "relewant",
-      "companyDomain": "zohorecruit.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technology",
-      "sector": "Consulenza IT",
-      "source": "relewant-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
       }
     }
   ],
