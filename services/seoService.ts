@@ -4496,6 +4496,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-codice-tributo-ritenute-rendite-avs-lpp': { name: 'Codice tributo pensioni', path: '/articoli-svizzera/codice-tributo-ritenute-rendite-avs-lpp/', parent: 'blog' },
     'blog-sconto-ticino-ticket': { name: 'Finanziamento Ticino Ticket', path: '/articoli-frontaliere/sconto-ticino-ticket', parent: 'blog' },
     'blog-cambio-cantone-di-lavoro-frontaliere-ticino-grigioni': { name: 'Cambio cantone di lavoro', path: '/articoli-frontaliere/cambio-cantone-di-lavoro-frontaliere-ticino-grigioni', parent: 'blog' },
+    'blog-frontalieri-ticino-calano': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-calano/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

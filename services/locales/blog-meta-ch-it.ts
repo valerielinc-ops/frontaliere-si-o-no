@@ -1063,6 +1063,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.title': 'Codice tributo rendite AVS e LPP: novità per i frontalieri',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.excerpt': 'Introdotto un codice tributo specifico per le ritenute sulle rendite AVS e LPP dalla Svizzera: cosa cambia per i lavoratori frontalieri.',
     'blog.article.codice-tributo-ritenute-rendite-avs-lpp.imageAlt': 'Edificio dell\'amministrazione federale delle contribuzioni a Berna',
+    'blog.article.frontalieri-ticino-calano.title': 'Ticino: i frontalieri calano, ma in Svizzera italiana ci sono paesi con forte presenza di lavoratori stranieri',
+    'blog.article.frontalieri-ticino-calano.excerpt': 'Secondo i dati dell\'Ufficio Federale di Statistica, i frontalieri italiani in Svizzera sono in calo.',
+    'blog.article.frontalieri-ticino-calano.imageAlt': 'Lavoratori frontalieri a Lugano',
 };
 
 export default blogMetaChIt;
