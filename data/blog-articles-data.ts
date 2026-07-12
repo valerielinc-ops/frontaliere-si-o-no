@@ -25325,6 +25325,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'franchigia-doganale-acquisti-svizzera-frontaliere-dogana',
+ category: 'pratico',
+ date: '2026-07-12T13:58:46.917Z',
+ image: '/images/blog/franchigia-doganale-acquisti-svizzera-frontaliere-dogana.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

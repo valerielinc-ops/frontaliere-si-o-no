@@ -8428,6 +8428,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riapertura-linea-gallarate-stabio.title': 'The Gallarate-Stabio line reopens: news for border workers',
     'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'After four weeks of work, the strategic railway connections for border workers between Varese, Ticino and Porto Ceresio resume.',
     'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'TILO train arriving at a station in the Canton of Ticino',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Swiss Customs Limits: Value Updates, Declaration, and Consequences',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'With the entry into force of the New Frontier Agreement, the rules for purchases in Switzerland have changed. Discover the new duty-free limits, the necessary declaration and the consequences of exceeding them.',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'A border worker waiting to shop in Switzerland.',
 };
 
 export default blogMetaEn;

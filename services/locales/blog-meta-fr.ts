@@ -8429,6 +8429,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riapertura-linea-gallarate-stabio.title': 'Réouverture de la ligne Gallarate-Stabio : nouveauté pour les frontaliers',
     'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Après quatre semaines de travaux, les liaisons ferroviaires stratégiques pour les frontaliers entre Varèse, le Tessin et Porto Ceresio reprennent.',
     'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'Train TILO arrivant dans une gare du canton du Tessin',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Actualités douanières en Suisse : valeurs, déclaration et conséquences sur le front',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Avec l\'entrée en vigueur du Nouvel Accord frontalier, les règles pour les achats en Suisse ont changé. Découvrez les nouvelles limites de franchise de douane, la déclaration nécessaire et les conséquences du dépassement.',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Un travailleur frontalier attend le moment de faire des achats en Suisse.',
 };
 
 export default blogMetaFr;

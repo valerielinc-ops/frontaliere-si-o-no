@@ -48432,6 +48432,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigia-doganale-acquisti-svizzera-frontaliere-dogana': {
+    title: 'Limiti doganali in Svizzera: aggiornamento dei valori, dichiarazione e conseguenze per il fronte',
+    description: 'Con l\'entrata in vigore del Nuovo Accordo Frontalieri, sono cambiate le regole per gli acquisti in Svizzera. Scopri i nuovi limiti di franchigia doganale, la',
+    keywords: 'frontalieri, ticino, svizzera, italia, limiti, doganali, aggiornamento, valori',
+    ogTitle: 'Limiti di franchigia doganale per gli acquisti in Svizzera: valori aggiornati, dichiarazione, conseguenze del superamento per il frontaliere',
+    ogDescription: 'Con l\'entrata in vigore del Nuovo Accordo Frontalieri, sono cambiate le regole per gli acquisti in Svizzera. Scopri i nuovi limiti di franchigia doganale, la',
+    canonicalPath: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Limiti doganali in Svizzera: aggiornamento dei valori, dichiarazione e conseguenze per il fronte",
+      "description": "Con l'entrata in vigore del Nuovo Accordo Frontalieri, sono cambiate le regole per gli acquisti in Svizzera. Scopri i nuovi limiti di franchigia doganale, la",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigia-doganale-acquisti-svizzera-frontaliere-dogana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa di fare shopping in Svizzera."
+      },
+      "datePublished": "2026-07-12T13:58:46+00:00",
+      "dateModified": "2026-07-12T13:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-doganale-acquisti-svizzera-frontaliere-dogana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

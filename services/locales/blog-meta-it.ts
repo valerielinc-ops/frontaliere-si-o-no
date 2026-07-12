@@ -8429,6 +8429,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riapertura-linea-gallarate-stabio.title': 'Riapre la linea Gallarate-Stabio: novità per frontalieri',
     'blog.article.riapertura-linea-gallarate-stabio.excerpt': 'Dopo quattro settimane di lavori, riprendono i collegamenti ferroviari strategici per i frontalieri tra Varese, il Ticino e Porto Ceresio.',
     'blog.article.riapertura-linea-gallarate-stabio.imageAlt': 'Treno TILO in transito presso una stazione del Canton Ticino',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.title': 'Limiti doganali in Svizzera: aggiornamento dei valori, dichiarazione e conseguenze per il fronte',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.excerpt': 'Con l\'entrata in vigore del Nuovo Accordo Frontalieri, sono cambiate le regole per gli acquisti in Svizzera. Scopri i nuovi limiti di franchigia doganale, la dichiarazione necessaria e le conseguenze del superamento.',
+    'blog.article.franchigia-doganale-acquisti-svizzera-frontaliere-dogana.imageAlt': 'Un frontaliere in attesa di fare shopping in Svizzera.',
 };
 
 export default blogMetaIt;
