@@ -608,8 +608,8 @@
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
         "it": "responsabile-del-team-picking-m-f-d-planzer-daniken",
-        "en": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "fr": "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        "en": "team-leader-picking-m-f-d-planzer-daniken",
+        "fr": "choix-du-chef-d-equipe-m-f-d-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -670,6 +670,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        ],
+        "en": [
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
         ]
       },
       "previousSlugs": [
@@ -682,8 +688,8 @@
       "slugByLocale": {
         "de": "disponent-stuckgut-m-w-d-planzer-buchs",
         "it": "spedizioniere-m-f-d-planzer-buchs",
-        "en": "disponent-stuckgut-m-w-d-planzer-buchs",
-        "fr": "disponent-stuckgut-m-w-d-planzer-buchs"
+        "en": "dispatch-of-general-cargo-m-f-d-planzer-buchs",
+        "fr": "expedition-de-marchandises-generales-m-f-d-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -743,6 +749,12 @@
       "firstSeenAt": "2026-07-12T10:41:07.315Z",
       "previousSlugsByLocale": {
         "it": [
+          "disponent-stuckgut-m-w-d-planzer-buchs"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-buchs"
+        ],
+        "fr": [
           "disponent-stuckgut-m-w-d-planzer-buchs"
         ]
       },

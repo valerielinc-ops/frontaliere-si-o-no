@@ -277,7 +277,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -294,14 +294,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-sigirino"
-      ],
       "needsRetranslation": true
     },
     {
@@ -2131,7 +2123,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -2149,14 +2141,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -5188,7 +5172,7 @@
       "slugByLocale": {
         "it": "idraulico-imp-sanitari-pemsa-manno",
         "en": "idraulico-imp-healthcare-pemsa-manno",
-        "de": "hydraulische-umwelt-pemsa-manno",
+        "de": "klempner-sanitarinstallationen-pemsa-manno",
         "fr": "idrautico-imp-sante-pemsa-manno"
       },
       "id": "pemsa-649599fdb807",
@@ -5213,12 +5197,12 @@
           "plumber-sanitary-installations-pemsa-manno"
         ],
         "de": [
-          "klempner-sanitarinstallationen-pemsa-manno"
+          "hydraulische-umwelt-pemsa-manno"
         ]
       },
       "previousSlugs": [
         "plumber-sanitary-installations-pemsa-manno",
-        "klempner-sanitarinstallationen-pemsa-manno"
+        "hydraulische-umwelt-pemsa-manno"
       ]
     },
     {
@@ -5796,9 +5780,9 @@
       },
       "slugByLocale": {
         "it": "operatore-metalmeccanico-afc-aep-m-f-d-pemsa-basel",
-        "en": "metalworker-afc-aep-m-f-d-pemsa-basel",
-        "de": "metallarbeiter-afc-aep-m-f-d-pemsa-basel",
-        "fr": "ouvrier-metallurgiste-afc-aep-m-f-d-pemsa-basel"
+        "en": "metalworker-afc-aep-operator-m-f-d-pemsa-basel",
+        "de": "metallarbeiter-afc-aep-m-w-d-pemsa-basel",
+        "fr": "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
       },
       "id": "pemsa-e8650ba34598",
       "salaryMin": 62000,
@@ -5818,19 +5802,19 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "metalworker-afc-aep-operator-m-f-d-pemsa-basel"
+          "metalworker-afc-aep-m-f-d-pemsa-basel"
         ],
         "de": [
-          "metallarbeiter-afc-aep-m-w-d-pemsa-basel"
+          "metallarbeiter-afc-aep-m-f-d-pemsa-basel"
         ],
         "fr": [
-          "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
+          "ouvrier-metallurgiste-afc-aep-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "metalworker-afc-aep-operator-m-f-d-pemsa-basel",
-        "metallarbeiter-afc-aep-m-w-d-pemsa-basel",
-        "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
+        "metalworker-afc-aep-m-f-d-pemsa-basel",
+        "metallarbeiter-afc-aep-m-f-d-pemsa-basel",
+        "ouvrier-metallurgiste-afc-aep-m-f-d-pemsa-basel"
       ]
     },
     {
