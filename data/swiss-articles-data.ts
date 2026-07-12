@@ -3176,6 +3176,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'codice-tributo-ritenute-rendite-avs-lpp',
+    category: 'fiscale',
+    date: '2026-07-12T16:11:27.337Z',
+    image: '/images/blog/codice-tributo-ritenute-rendite-avs-lpp.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
