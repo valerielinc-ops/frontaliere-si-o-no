@@ -3300,8 +3300,8 @@
       "slugByLocale": {
         "it": "ux-research-manager-youtube-shopping-google-switzerland-zurich",
         "en": "ux-research-manager-youtube-shopping-google-switzerland-zurich",
-        "de": "ux-research-manager-youtube-shopping-google-switzerland-zurich",
-        "fr": "ux-research-manager-youtube-shopping-google-switzerland-zurich"
+        "de": "ux-forschungsleiter-youtube-shopping-google-switzerland-zurich",
+        "fr": "directeur-de-recherche-ux-shopping-youtube-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -3379,7 +3379,7 @@
         "it": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich",
         "en": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich",
         "de": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich",
-        "fr": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-iii-ia-ml-google-cloud-automobile-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -3526,8 +3526,8 @@
       "slugByLocale": {
         "it": "senior-security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
         "en": "senior-security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
-        "de": "senior-security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
-        "fr": "senior-security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich"
+        "de": "leitender-sicherheitsingenieur-cloud-red-team-cloud-ciso-google-switzerland-zurich",
+        "fr": "ingenieur-securite-senior-equipe-rouge-cloud-ciso-cloud-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -3597,12 +3597,12 @@
     },
     {
       "id": "google-switzerland-d621cd07dd39",
-      "slug": "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich",
+      "slug": "ingegnere-del-software-di-sicurezza-remediation-sistemica-cloud-ciso-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich",
+        "it": "ingegnere-del-software-di-sicurezza-remediation-sistemica-cloud-ciso-google-switzerland-zurich",
         "en": "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich",
-        "de": "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich",
-        "fr": "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich"
+        "de": "sicherheitssoftware-ingenieur-systemische-behebung-cloud-ciso-google-switzerland-zurich",
+        "fr": "ingenieur-logiciel-securite-remediation-systemique-cloud-ciso-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -3671,7 +3671,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich"
+        ],
+        "de": [
+          "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich"
+        ],
+        "fr": [
+          "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "security-software-engineer-systemic-remediation-cloud-ciso-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-86203c9c3f13",
@@ -3751,12 +3765,12 @@
     },
     {
       "id": "google-switzerland-934656214903",
-      "slug": "software-engineer-iii-xr-world-context-google-switzerland-zurich",
+      "slug": "ingegnere-del-software-iii-contesto-xr-world-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "software-engineer-iii-xr-world-context-google-switzerland-zurich",
+        "it": "ingegnere-del-software-iii-contesto-xr-world-google-switzerland-zurich",
         "en": "software-engineer-iii-xr-world-context-google-switzerland-zurich",
-        "de": "software-engineer-iii-xr-world-context-google-switzerland-zurich",
-        "fr": "software-engineer-iii-xr-world-context-google-switzerland-zurich"
+        "de": "softwareingenieur-iii-xr-world-kontext-google-switzerland-zurich",
+        "fr": "ingenieur-logiciel-iii-contexte-xr-world-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -3820,7 +3834,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-iii-xr-world-context-google-switzerland-zurich"
+        ],
+        "de": [
+          "software-engineer-iii-xr-world-context-google-switzerland-zurich"
+        ],
+        "fr": [
+          "software-engineer-iii-xr-world-context-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-iii-xr-world-context-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-3132c73e9f14",
@@ -3919,7 +3947,7 @@
       "slugByLocale": {
         "it": "account-manager-senior-delle-vendite-sul-campo-google-cloud-google-switzerland-zurich",
         "en": "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich",
-        "de": "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich",
+        "de": "senior-kundenbetreuer-au-endienst-google-cloud-google-switzerland-zurich",
         "fr": "gestionnaire-principal-de-comptes-de-ventes-sur-le-terrain-google-cloud-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
@@ -3979,6 +4007,9 @@
           "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
         ],
         "fr": [
+          "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
+        ],
+        "de": [
           "senior-field-sales-account-manager-google-cloud-google-switzerland-zurich"
         ]
       },
@@ -4224,12 +4255,12 @@
     },
     {
       "id": "google-switzerland-41c9fce9a33f",
-      "slug": "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich",
+      "slug": "ingegnere-iii-ai-ml-calibrazione-online-xr-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich",
+        "it": "ingegnere-iii-ai-ml-calibrazione-online-xr-google-switzerland-zurich",
         "en": "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich",
-        "de": "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich",
-        "fr": "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich"
+        "de": "ingenieur-iii-ki-ml-online-kalibrierung-xr-google-switzerland-zurich",
+        "fr": "ingenieur-iii-ia-ml-calibration-en-ligne-xr-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -4295,16 +4326,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich"
+        ],
+        "de": [
+          "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich"
+        ],
+        "fr": [
+          "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "engineer-iii-ai-ml-online-calibration-xr-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-96b66654726e",
-      "slug": "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich",
+      "slug": "ingegnere-di-software-iii-ml-sviluppo-pipeline-xr-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich",
+        "it": "ingegnere-di-software-iii-ml-sviluppo-pipeline-xr-google-switzerland-zurich",
         "en": "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich",
         "de": "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich",
-        "fr": "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-iii-ml-pipeline-development-xr-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -4368,7 +4413,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich"
+        ],
+        "fr": [
+          "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-iii-ml-pipeline-development-xr-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-6ff753473436",
@@ -4535,12 +4591,12 @@
     },
     {
       "id": "google-switzerland-ce1ab7bd6e1e",
-      "slug": "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich",
+      "slug": "ingegnere-del-software-iii-modellazione-3d-xr-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich",
+        "it": "ingegnere-del-software-iii-modellazione-3d-xr-google-switzerland-zurich",
         "en": "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich",
-        "de": "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich",
-        "fr": "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich"
+        "de": "softwareingenieur-iii-3d-modellierung-xr-google-switzerland-zurich",
+        "fr": "ingenieur-logiciel-iii-modelisation-3d-xr-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -4604,7 +4660,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich"
+        ],
+        "de": [
+          "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich"
+        ],
+        "fr": [
+          "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-iii-3d-modelling-xr-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-38a661f39862",
