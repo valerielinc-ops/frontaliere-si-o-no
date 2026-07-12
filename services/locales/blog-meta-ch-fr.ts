@@ -1045,6 +1045,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.title': 'La naturalisation suisse après des années en tant que frontalier : exigences',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.excerpt': 'Pour obtenir la nationalité suisse après des années de travail en tant que frontalier, il est nécessaire de satisfaire aux exigences établies par la loi suisse.',
     'blog.article.naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti.imageAlt': 'Un travailleur frontalier qui se trouve dans une situation similaire peut chercher à obtenir la citoyenneté suisse après des années de travail comme travailleur frontalier.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.title': 'Deuxième emploi à temps partiel en Italie pour un frontalier suisse',
+    'blog.article.secondo-lavoro-part-time-frontaliere.excerpt': 'Guide fiscal et contractuel : comment gérer le double revenu entre la Suisse et l\'Italie dans le respect de l\'Accord sur les frontaliers en vigueur depuis 2024.',
+    'blog.article.secondo-lavoro-part-time-frontaliere.imageAlt': 'Vue panoramique de Lugano avec bâtiments modernes et lac, symbole du travail en Suisse',
 };
 
 export default blogMetaChFr;

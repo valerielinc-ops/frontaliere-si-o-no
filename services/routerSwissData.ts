@@ -371,6 +371,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'spesa-alimentare-svizzera-italia-convieni-frontaliere': { it: 'spesa-alimentare-svizzera-italia-convieni-frontaliere', en: 'swiss-italian-food-prices-frontier-workers', de: 'essen-swiss-italien-frontalier-arbeiter', fr: 'prix-alimentaire-suisse-italien-travailleurs-frontaliers' },
  'frontalieri-ticino-sondaggio': { it: 'frontalieri-ticino-sondaggio', en: 'frontalieri-ticino-survey', de: 'frontalieri-ticino-umfrage', fr: 'frontaliers-ticino-sondage' },
  'naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti': { it: 'naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti', en: 'swiss-citizenship-frontier-worker-requirements', de: 'schweizer-staatsburgerschaft-grenzganger-anforderungen', fr: 'citoyennete-suisse-travailleurs-frontaliers-exigences' },
+ 'secondo-lavoro-part-time-frontaliere': { it: 'secondo-lavoro-part-time-frontaliere', en: 'part-time-second-job-cross-border', de: 'nebenjob-teilzeit-grenzgaenger', fr: 'second-emploi-temps-partiel-frontalier' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
