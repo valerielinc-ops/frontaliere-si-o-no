@@ -4470,6 +4470,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-telelavoro': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-telelavoro', parent: 'blog' },
     'blog-frontalieri-regio-insubrica': { name: 'Frontalieri e mobilità in Svizzera', path: '/articoli-svizzera/frontalieri-regio-insubrica/', parent: 'blog' },
     'blog-frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni': { name: 'Frontalieri da remoto', path: '/articoli-frontaliere/frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni', parent: 'blog' },
+    'blog-sviluppatore-informatico-ticino-frontaliere': { name: 'Frontaliere informatico Ticino', path: '/articoli-svizzera/sviluppatore-informatico-ticino-frontaliere/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

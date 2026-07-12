@@ -1027,6 +1027,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-regio-insubrica.title': 'Les frontaliers et la mobilité au cœur du travail de la Regio Insubrica',
     'blog.article.frontalieri-regio-insubrica.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entrera en vigueur le 1er janvier 2024.',
     'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontaliers en route vers le travail en Suisse',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'Développeur informatique au Tessin : guide pour les frontaliers',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Guide pratique pour les développeurs informatiques frontaliers au Tessin : salaire, permis G, impôts et prévoyance selon les normes en vigueur.',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Bureau moderne avec vue sur Lugano',
 };
 
 export default blogMetaChFr;

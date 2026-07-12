@@ -1027,6 +1027,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-regio-insubrica.title': 'Frontier workers and mobility at the heart of Regio Insubrica\'s work',
     'blog.article.frontalieri-regio-insubrica.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and will be in force from 1 January 2024.',
     'blog.article.frontalieri-regio-insubrica.imageAlt': 'Frontaliers commuting to work in Switzerland',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.title': 'IT developer in Ticino: guide for border workers',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.excerpt': 'Practical guide for cross-border IT developers in Ticino: salary, G permit, taxes and pension according to current regulations.',
+    'blog.article.sviluppatore-informatico-ticino-frontaliere.imageAlt': 'Modern office with view of Lugano',
 };
 
 export default blogMetaChEn;
