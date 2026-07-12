@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-07-12T10:41:28.464Z",
+  "assembledAt": "2026-07-12T21:48:52.998Z",
   "jobs": [
     {
       "id": "efg-6336",
@@ -196,7 +196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.024Z",
+      "crawledAt": "2026-07-12T21:48:50.770Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -222,7 +222,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -353,7 +354,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.022Z",
+      "crawledAt": "2026-07-12T21:48:50.768Z",
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
@@ -387,7 +388,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -470,7 +472,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.021Z",
+      "crawledAt": "2026-07-12T21:48:50.767Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -513,7 +515,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -602,7 +605,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.019Z",
+      "crawledAt": "2026-07-12T21:48:50.765Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -639,7 +642,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -690,7 +694,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.018Z",
+      "crawledAt": "2026-07-12T21:48:50.764Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -733,7 +737,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -756,7 +761,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -784,7 +789,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.017Z",
+      "crawledAt": "2026-07-12T21:48:50.763Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
@@ -826,114 +831,8 @@
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
-    },
-    {
-      "id": "efg-6203",
-      "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-      "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
-        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
-        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
-      },
-      "descriptionByLocale": {
-        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
-        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
-        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-12T10:41:26.016Z",
-      "slugByLocale": {
-        "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
-        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
-        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
-        "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
       ],
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-27",
-      "previousSlugsByLocale": {
-        "it": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
-          "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "en": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "de": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1059,7 +958,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.015Z",
+      "crawledAt": "2026-07-12T21:48:50.762Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1104,7 +1003,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1257,7 +1157,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.014Z",
+      "crawledAt": "2026-07-12T21:48:50.761Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1485,7 +1385,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.013Z",
+      "crawledAt": "2026-07-12T21:48:50.760Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1620,7 +1520,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.012Z",
+      "crawledAt": "2026-07-12T21:48:50.759Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1802,7 +1702,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.010Z",
+      "crawledAt": "2026-07-12T21:48:50.758Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1840,7 +1740,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1891,7 +1792,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.009Z",
+      "crawledAt": "2026-07-12T21:48:50.757Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1935,7 +1836,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1986,7 +1888,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.008Z",
+      "crawledAt": "2026-07-12T21:48:50.756Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2029,7 +1931,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -2080,7 +1983,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.007Z",
+      "crawledAt": "2026-07-12T21:48:50.755Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2123,7 +2026,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2274,7 +2178,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.006Z",
+      "crawledAt": "2026-07-12T21:48:50.754Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2491,7 +2395,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.005Z",
+      "crawledAt": "2026-07-12T21:48:50.753Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2551,7 +2455,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2602,7 +2507,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.004Z",
+      "crawledAt": "2026-07-12T21:48:50.752Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2672,7 +2577,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2806,7 +2711,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.003Z",
+      "crawledAt": "2026-07-12T21:48:50.751Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2844,7 +2749,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -2983,7 +2889,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:26.001Z",
+      "crawledAt": "2026-07-12T21:48:50.749Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -3023,7 +2929,8 @@
       },
       "previousSlugs": [
         "cash-reconciliation-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6142",
@@ -3157,7 +3064,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:25.999Z",
+      "crawledAt": "2026-07-12T21:48:50.747Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -3193,7 +3100,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -3216,7 +3124,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -3244,7 +3152,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-12T10:41:25.995Z",
+      "crawledAt": "2026-07-12T21:48:50.743Z",
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
@@ -3282,7 +3190,116 @@
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6203",
+      "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-06-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
+        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
+      },
+      "descriptionByLocale": {
+        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
+        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
+        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-12T10:41:26.016Z",
+      "slugByLocale": {
+        "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
+        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
+        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
+        "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-27",
+      "previousSlugsByLocale": {
+        "it": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
+          "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "en": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "de": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -3542,7 +3559,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -3725,7 +3743,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3814,7 +3833,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4043,7 +4063,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4325,7 +4346,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -4526,7 +4548,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -4736,7 +4759,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4828,7 +4852,8 @@
       "previousSlugs": [
         "back-office-cash-reconciliation-specialist-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -5361,7 +5386,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
