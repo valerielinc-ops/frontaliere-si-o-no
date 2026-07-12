@@ -1241,12 +1241,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-lenzerheide-lai",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-lenzerheide-lai",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-lenzerheide-lai",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-lenzerheide-lai"
       },
       "sourceLang": "de",
       "department": "",
@@ -1280,7 +1280,18 @@
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-12T10:48:18.647Z"
+      "firstSeenAt": "2026-07-12T10:48:18.647Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",

@@ -232,8 +232,7 @@
         "it": [
           "galenica-galenica-ag-pharma-assistent-w-m-bern",
           "farmacia-assistente-w-m-galenica-ag-galenica-bern",
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b"
         ],
         "fr": [
           "galenica-galenica-ag-pharma-assistent-w-m-bern"
@@ -242,8 +241,7 @@
       "previousSlugs": [
         "galenica-galenica-ag-pharma-assistent-w-m-bern",
         "farmacia-assistente-w-m-galenica-ag-galenica-bern",
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "needsRetranslation": true,
@@ -345,9 +343,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-apotecherina-w-m-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-apotecherina-w-m-d-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
@@ -361,12 +359,14 @@
       "id": "galenica-3a9684ed280e",
       "previousSlugs": [
         "apotheker-apotherin-w-m-d-galenica-galenica-bern",
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "apotheker-apotherin-w-m-d-galenica-galenica-bern",
-          "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+          "apotheker-apotherin-w-m-d-galenica-galenica-bern"
+        ],
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -549,9 +549,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -564,12 +564,12 @@
       },
       "id": "galenica-b0193cc53432",
       "previousSlugs": [
-        "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
-        "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern"
+        "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern"
@@ -1222,13 +1222,11 @@
       "id": "galenica-da3efd9831f6",
       "previousSlugsByLocale": {
         "it": [
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern"
         ]
       },
       "previousSlugs": [
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "needsRetranslation": true,
@@ -1470,15 +1468,13 @@
         "it": [
           "proprietario-dell-applicazione-crm-m-g-galenica-ag-galenica-bern",
           "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-          "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+          "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "proprietario-dell-applicazione-crm-m-g-galenica-ag-galenica-bern",
         "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-        "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+        "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "needsRetranslation": true,
@@ -2628,14 +2624,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-4cbeb1",
-          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-4cbeb1",
-        "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+        "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,

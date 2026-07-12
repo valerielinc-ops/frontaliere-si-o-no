@@ -5198,7 +5198,7 @@
       "slugByLocale": {
         "it": "idraulico-imp-sanitari-pemsa-manno",
         "en": "idraulico-imp-healthcare-pemsa-manno",
-        "de": "idraulico-imp-sanitari-pemsa-manno",
+        "de": "klempner-sanitarinstallationen-pemsa-manno",
         "fr": "idrautico-imp-sante-pemsa-manno"
       },
       "id": "pemsa-649599fdb807",
@@ -5221,14 +5221,10 @@
       "previousSlugsByLocale": {
         "en": [
           "plumber-sanitary-installations-pemsa-manno"
-        ],
-        "de": [
-          "klempner-sanitarinstallationen-pemsa-manno"
         ]
       },
       "previousSlugs": [
-        "plumber-sanitary-installations-pemsa-manno",
-        "klempner-sanitarinstallationen-pemsa-manno"
+        "plumber-sanitary-installations-pemsa-manno"
       ]
     },
     {
@@ -5809,9 +5805,9 @@
       },
       "slugByLocale": {
         "it": "operatore-metalmeccanico-afc-aep-m-f-d-pemsa-basel",
-        "en": "operatore-metalmeccanico-afc-aep-m-f-d-pemsa-basel",
-        "de": "operatore-metalmeccanico-afc-aep-m-f-d-pemsa-basel",
-        "fr": "operatore-metalmeccanico-afc-aep-m-f-d-pemsa-basel"
+        "en": "metalworker-afc-aep-operator-m-f-d-pemsa-basel",
+        "de": "metallarbeiter-afc-aep-m-w-d-pemsa-basel",
+        "fr": "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
       },
       "id": "pemsa-e8650ba34598",
       "salaryMin": 62000,
@@ -5828,23 +5824,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "metalworker-afc-aep-operator-m-f-d-pemsa-basel"
-        ],
-        "de": [
-          "metallarbeiter-afc-aep-m-w-d-pemsa-basel"
-        ],
-        "fr": [
-          "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "metalworker-afc-aep-operator-m-f-d-pemsa-basel",
-        "metallarbeiter-afc-aep-m-w-d-pemsa-basel",
-        "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-07-03T22:39:11.228Z"
     },
     {
       "title": "Stuccatore EFZ / EBA (m/f/d)",
