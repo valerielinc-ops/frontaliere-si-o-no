@@ -8438,6 +8438,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere',
     'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10\'000 per i nuovi frontaliere.',
     'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'Una frontiera che attraversa il confine italo-svizzero con un carrello di acquisti.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Vita da studente frontaliere: iscrizione e costi a USI/SUPSI',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'I studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere lavoratore e quello di studente pendolare.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'Un studente universitario pendolare in Ticino, con l\'Università della Svizzera Italiana (USI) o la Scuola Universitaria Professionale della Svizzera Italiana (SUPSI) sullo sfondo.',
 };
 
 export default blogMetaIt;

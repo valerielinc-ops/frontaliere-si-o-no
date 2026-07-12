@@ -8436,6 +8436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Schweizer Einkaufszollbefreiung: Grenzen und Konsequenzen für Grenzgänger',
     'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'Die Zollbefreiung für Einkäufe in der Schweiz wurde für neue Grenzgänger auf € 10\'000 erhöht.',
     'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'Eine Grenze, die die italo-schweizerische Grenze mit einem Einkaufswagen überschreitet.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Leben als Grenzgängerstudent: Einschreibung und Kosten BEI USI/SUPSI',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Pendler-Universitätsstudenten können sich problemlos FÜR USI/SUPSI einschreiben, müssen sich jedoch der Unterschiede zwischen dem Status eines Grenzgängers und eines Pendlers bewusst sein.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'Ein Student pendular in der Schweiz, mit der Universität der italienischen Schweiz (USI) oder der Hochschule für angewandte Wissenschaften und Kunst Südschweiz (SUPSI) im Hintergrund.',
 };
 
 export default blogMetaDe;

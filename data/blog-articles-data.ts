@@ -25352,6 +25352,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'studente-universitario-pendolare-ticino-usi-supsi',
+ category: 'pratico',
+ date: '2026-07-12T15:29:14.180Z',
+ image: '/images/blog/studente-universitario-pendolare-ticino-usi-supsi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

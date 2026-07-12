@@ -8438,6 +8438,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franchigia-doganale-acquisti-svizzera.title': 'Franchise douanière achats suisse : limites et conséquences pour les frontaliers',
     'blog.article.franchigia-doganale-acquisti-svizzera.excerpt': 'La franchise douanière pour les achats en Suisse a été augmentée à 10\'000 € pour les nouveaux frontaliers.',
     'blog.article.franchigia-doganale-acquisti-svizzera.imageAlt': 'Une frontière qui traverse la frontière italo-suisse avec un chariot de courses.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.title': 'Vie d\'étudiant frontalier : inscription et coûts aux USAGES/SUPSI',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.excerpt': 'Les étudiants universitaires itinérants peuvent s\'inscrire à USI/SUPSI sans problème, mais ils doivent être conscients des différences entre le statut de travailleur frontalier et celui d\'étudiant itinérant.',
+    'blog.article.studente-universitario-pendolare-ticino-usi-supsi.imageAlt': 'Un étudiant pendulaire en Suisse, avec l\'Université de la Suisse italienne (USI) ou la Haute École spécialisée de la Suisse italienne (SUPSI) en arrière-plan.',
 };
 
 export default blogMetaFr;
