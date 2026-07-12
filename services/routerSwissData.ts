@@ -362,6 +362,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles': { it: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', en: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', de: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles', fr: 'sulla-disoccupazione-dei-frontalieri-si-apre-un-nuovo-fronte-con-bruxelles' },
  'ticino-nuovi-rincari': { it: 'ticino-nuovi-rincari', en: 'ticino-new-price-rises', de: 'ticino-neue-preissteigerungen', fr: 'ticino-nouveaux-augmentations-de-prix' },
  'canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu': { it: 'canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu', en: 'canton-ticino-historic-turning-point-g-permits-g-will-be-worth-a-lot-more', de: 'kanton-ticino-geschichtlicher-wendepunkt-g-berechtigungen-g-werden-sehr-wertvoll', fr: 'canton-ticino-tournee-historique-g-permis-g-sera-tres-valable' },
+ 'frontalieri-treni-bus': { it: 'frontalieri-treni-bus', en: 'frontalieri-treni-bus', de: 'frontalieri-zuge-busse', fr: 'frontaliers-trains-bus' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

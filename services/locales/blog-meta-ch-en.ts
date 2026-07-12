@@ -1018,6 +1018,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.title': 'Ticino: G Permit Now More Valuable Than Ever for Frontier Apprentices',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.excerpt': 'The National Council approved the measure extending the validity of the work permit G to cover the entire duration of the internship.',
     'blog.article.canton-ticino-svolta-storica-g-permessi-g-varranno-molto-di-piu.imageAlt': 'Walk in Lugano city center, with people of different ages and nationalities',
+    'blog.article.frontalieri-treni-bus.title': 'Frontier, more trains and buses. Agreement with the Canton of Ticino',
+    'blog.article.frontalieri-treni-bus.excerpt': 'The agreement between the Region and the Canton of Ticino provides for an increase in cross-border rail and road connections.',
+    'blog.article.frontalieri-treni-bus.imageAlt': 'Image of a bus crossing the border between Italy and Switzerland',
 };
 
 export default blogMetaChEn;
