@@ -141,7 +141,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -252,7 +251,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -365,7 +363,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -466,7 +463,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -586,7 +582,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -685,7 +680,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -887,7 +881,6 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-06-29T11:35:07.581Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -969,7 +962,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:25.033Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1063,7 +1055,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:03.601Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1154,7 +1145,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T12:57:11.547Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1240,7 +1230,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1343,7 +1332,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:49.331Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1447,7 +1435,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:48.032Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1536,7 +1523,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T22:57:28.118Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1625,7 +1611,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-07T11:57:58.242Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1729,7 +1714,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:12:18.194Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1820,7 +1804,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-09T22:23:16.448Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1916,7 +1899,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T11:59:02.798Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2007,7 +1989,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-10T11:59:01.922Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2111,8 +2092,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "srg-ssr-24aa89531c10",
@@ -2201,8 +2181,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-13T18:54:24.232Z",
+    "label": "before",
+    "total": 24579,
+    "needsRetranslation": 8265,
+    "suppressed": 78,
+    "incomplete": 276,
+    "complete": 24303,
+    "missingByLocale": {
+      "it": 238,
+      "en": 170,
+      "de": 82,
+      "fr": 203
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 47
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 17
+      },
+      {
+        "company": "Roche",
+        "pending": 16
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 11
+      },
+      {
+        "company": "LANDI Züri Unterland Genossenschaft",
+        "pending": 11
+      },
+      {
+        "company": "SIX Group",
+        "pending": 8
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-13T19:01:39.152Z",
+    "label": "after",
+    "total": 24579,
+    "needsRetranslation": 2141,
+    "suppressed": 78,
+    "incomplete": 276,
+    "complete": 24303,
+    "missingByLocale": {
+      "it": 238,
+      "en": 170,
+      "de": 82,
+      "fr": 203
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 47
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 17
+      },
+      {
+        "company": "Roche",
+        "pending": 16
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 11
+      },
+      {
+        "company": "LANDI Züri Unterland Genossenschaft",
+        "pending": 11
+      },
+      {
+        "company": "SIX Group",
+        "pending": 8
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 8
+      }
+    ]
   }
 ]
