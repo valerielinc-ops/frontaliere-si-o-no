@@ -10,6 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/accounting-compliance-advisor-m-w-d-produktion-personenverkehr/9561269e-15e6-430a-af3f-4242e0879e05",
+    "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/3c873ced-cb1f-4f3a-9913-3bb50465a5d7",
+    "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/7a3de5de-3501-44ce-8369-21e3923c31b5",
     "https://jobs.sbb.ch/v2/offene-stellen/projektadministrator-in-sap/a6a707b2-dc30-41c9-9729-04c12502da1c",
     "https://jobs.sbb.ch/v2/offene-stellen/produktmanager-in-fahrleitungsanlagen/44ce4ef0-290a-4e98-921e-82b5247ad5ff",
     "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-hr-beratung/bcd8468b-f5da-41f9-a788-dac0483bd528",
@@ -164,5 +167,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-13T12:28:13.429Z"
+  "updatedAt": "2026-07-13T22:31:24.861Z"
 }
