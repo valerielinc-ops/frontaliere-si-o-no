@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-07-13T12:21:24.439Z",
+  "assembledAt": "2026-07-13T22:45:27.440Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:21.715Z",
+      "crawledAt": "2026-07-13T22:45:24.448Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -77,15 +77,18 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
-          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
+          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -131,7 +134,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:20.680Z",
+      "crawledAt": "2026-07-13T22:45:23.470Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -184,14 +187,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-sportmedizin-100-spital-davos-ch"
+        "unterassistent-in-sportmedizin-100-spital-davos-ch",
+        "assistente-in-medicina-sportiva-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-sportmedizin-100-spital-davos-ch"
+          "unterassistent-in-sportmedizin-100-spital-davos-ch",
+          "assistente-in-medicina-sportiva-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -237,7 +243,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:19.662Z",
+      "crawledAt": "2026-07-13T22:45:22.494Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -281,14 +287,17 @@
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
         "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos"
+        "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-innere-medizin-100-spital-davos-ch"
+          "unterassistent-in-innere-medizin-100-spital-davos-ch",
+          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -334,7 +343,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:18.651Z",
+      "crawledAt": "2026-07-13T22:45:21.493Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -380,18 +389,21 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "sostanza-in-anestesia-100-spital-davos-davos",
-        "subassistance-in-anaesthesia-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "assistente-anestesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch",
-          "sostanza-in-anestesia-100-spital-davos-davos"
+          "sostanza-in-anestesia-100-spital-davos-davos",
+          "assistente-anestesia-100-spital-davos-davos"
         ],
         "en": [
           "subassistance-in-anaesthesia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -437,7 +449,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:17.635Z",
+      "crawledAt": "2026-07-13T22:45:20.514Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -461,11 +473,13 @@
       "previousSlugs": [
         "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
         "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+        "salute-professionale-80-100-inverno-2026-27-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+          "salute-professionale-80-100-inverno-2026-27-spital-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
@@ -475,6 +489,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -520,7 +535,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:16.581Z",
+      "crawledAt": "2026-07-13T22:45:19.455Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -543,12 +558,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "fachperson-gesundheit-80-100-spital-davos-ch",
-        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+        "salute-specialistica-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-80-100-spital-davos-ch",
-          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+          "salute-specialistica-80-100-spital-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-80-100-spital-davos-ch"
@@ -558,6 +575,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -603,7 +621,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:15.575Z",
+      "crawledAt": "2026-07-13T22:45:18.456Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -625,17 +643,20 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "salvataggio-suit-2027-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+          "salvataggio-suit-2027-50-100-spital-davos-davos"
         ],
         "fr": [
           "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -681,7 +702,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:14.579Z",
+      "crawledAt": "2026-07-13T22:45:17.466Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -704,12 +725,14 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-salute-specialistica-50-100-spital-davos-davos"
+        "spitex-salute-specialistica-50-100-spital-davos-davos",
+        "spitex-assistente-sanitario-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-          "spitex-salute-specialistica-50-100-spital-davos-davos"
+          "spitex-salute-specialistica-50-100-spital-davos-davos",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
@@ -758,7 +781,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:13.586Z",
+      "crawledAt": "2026-07-13T22:45:16.481Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -788,14 +811,16 @@
         "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
           "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
           "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
-          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
+          "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
         ],
         "en": [
           "surgery-orthopaedics-assistant-100-spital-davos-davos"
@@ -808,6 +833,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -853,7 +879,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:12.578Z",
+      "crawledAt": "2026-07-13T22:45:15.487Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -875,11 +901,13 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+        "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+          "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
@@ -889,6 +917,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -934,7 +963,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:11.568Z",
+      "crawledAt": "2026-07-13T22:45:14.501Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -958,12 +987,14 @@
       "previousSlugs": [
         "consulente-per-l-agenzia-generale-chur-100",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch",
+        "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-per-l-agenzia-generale-chur-100",
-          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch"
+          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch",
+          "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
         ],
         "en": [
           "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
@@ -976,6 +1007,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1021,7 +1053,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:10.565Z",
+      "crawledAt": "2026-07-13T22:45:13.506Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1071,6 +1103,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T22:19:31.942Z",
+      "needsRetranslation": true,
       "salaryMin": 63200,
       "salaryMax": 96000,
       "baseSalary": {
@@ -1116,7 +1149,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:09.512Z",
+      "crawledAt": "2026-07-13T22:45:12.505Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1138,11 +1171,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "hausarztin-hausarzt-60-100-spital-davos-ch"
+        "hausarztin-hausarzt-60-100-spital-davos-ch",
+        "home-medico-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausarztin-hausarzt-60-100-spital-davos-ch"
+          "hausarztin-hausarzt-60-100-spital-davos-ch",
+          "home-medico-60-100-spital-davos-davos"
         ],
         "en": [
           "hausarztin-hausarzt-60-100-spital-davos-ch"
@@ -1152,6 +1187,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1197,7 +1233,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:08.488Z",
+      "crawledAt": "2026-07-13T22:45:11.515Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1219,17 +1255,20 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "previousSlugs": [
-        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+        "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+          "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
         ],
         "en": [
           "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-28T11:37:05.341Z",
+      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -1275,7 +1314,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/708/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:07.493Z",
+      "crawledAt": "2026-07-13T22:45:10.525Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1297,11 +1336,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+        "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+          "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-05-29T13:58:41.353Z",
@@ -1350,7 +1391,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/709/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:06.483Z",
+      "crawledAt": "2026-07-13T22:45:09.448Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1378,13 +1419,15 @@
         "medical-practice-assistant-60-100-spital-davos-davos-e070f5",
         "assistant-de-pratique-medicale-60-100-spital-davos-davos",
         "assistant-e-medical-e-60-100-spital-davos-davos",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "assistente-medico-a-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-ambulatorio-medico-nel-60-100-spital-davos-davos",
           "assistente-medico-60-100-spital-davos-davos",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+          "assistente-medico-a-60-100-spital-davos-davos"
         ],
         "en": [
           "medical-practice-assistant-60-100-spital-davos-davos-e070f5"
@@ -1441,7 +1484,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/691/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:05.442Z",
+      "crawledAt": "2026-07-13T22:45:08.673Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1464,12 +1507,14 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+        "assistente-pratico-nel-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+          "assistente-pratico-nel-60-100-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
@@ -1524,7 +1569,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/712/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:04.456Z",
+      "crawledAt": "2026-07-13T22:45:07.638Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1603,7 +1648,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/716/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:03.460Z",
+      "crawledAt": "2026-07-13T22:45:06.648Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1625,11 +1670,13 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+        "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+          "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:35.039Z",
@@ -1678,7 +1725,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/718/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:02.416Z",
+      "crawledAt": "2026-07-13T22:45:05.659Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1700,11 +1747,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "mitarbeiter-in-office-kuche-100-spital-davos-ch"
+        "mitarbeiter-in-office-kuche-100-spital-davos-ch",
+        "collaboratore-trice-office-kuche-100-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-office-kuche-100-spital-davos-ch"
+          "mitarbeiter-in-office-kuche-100-spital-davos-ch",
+          "collaboratore-trice-office-kuche-100-spital-davos"
         ],
         "en": [
           "mitarbeiter-in-office-kuche-100-spital-davos-ch"
@@ -1714,6 +1763,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:23.258Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1759,7 +1809,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/714/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:01.392Z",
+      "crawledAt": "2026-07-13T22:45:04.660Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1813,9 +1863,9 @@
       "id": "spital-davos-1276eb37876c",
       "slug": "bereichsleitung-pflege-zentrum-guggerbach-mit-projektauftrag-uberfuhrung-pflegeheim",
       "slugByLocale": {
-        "de": "bereichsleitung-pflege-zentrum-guggerbach-mit-projektauftrag-uberfuhrung-pflegeheim",
         "it": "bereichsleitung-pflege-zentrum-guggerbach-mit-projektauftrag-uberfuhrung-pflegeheim",
         "en": "divisional-management-care-center-guggerbach-with-project-commission-transfer-nursing-home-alberti-spital-davos-davos",
+        "de": "bereichsleitung-pflege-zentrum-guggerbach-mit-projektauftrag-uberfuhrung-pflegeheim",
         "fr": "gestion-divisionnaire-centre-de-soins-guggerbach-avec-commission-de-projet-transfert-soins-infirmiers-maison-alberti"
       },
       "company": "Spital Davos",
@@ -1823,16 +1873,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Bereichsleitung Pflege Zentrum Guggerbach mit Projektauftrag Überführung Pflegeheim Alberti",
       "titleByLocale": {
-        "de": "Bereichsleitung Pflege Zentrum Guggerbach mit Projektauftrag Überführung Pflegeheim Alberti",
         "it": "Bereichsleitung Pflege Zentrum Guggerbach con Projektauftrag Überführung Pflegeheim Alberti",
         "en": "Divisional management Care Center Guggerbach with project commission Transfer Nursing Home Alberti",
+        "de": "Bereichsleitung Pflege Zentrum Guggerbach mit Projektauftrag Überführung Pflegeheim Alberti",
         "fr": "Gestion divisionnaire Centre de soins Guggerbach avec commission de projet Transfert Soins infirmiers Maison Alberti"
       },
       "description": "Das Pflegeheim Alberti der Spital Davos AG mit 16 Betten wird im 1. Quartal 2028 ins Zentrum Guggerbach überführt. Als Bereichsleitung Pflege im Zentrum Guggerbach übernehmen Sie ab 2027 sukzessive auch die Leitung des Pflegeheims Alberti und verantworten den Prozess der Überführung aktiv mit. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | In Zusammenarbeit mit dem Zentrum Guggerbach suchen wir per Herbst 2026 oder nach Vereinbarung in Voll- oder Teilzeit eine |\n• Personelle, fachliche und organisatorische Führung des Pflegebereiches I für 40 Bewohnende im Zentrum Guggerbach mit allen damit verbundenen Aufgaben\n• Mitverantwortung und Mitgestaltung des Prozesses der Überführung des Pflegeheims Alberti ins Zentrum Guggerbach per 1. Quartal 2028, enge Zusammenarbeit und Abstimmung mit den Spital- und Zentrumsleitungen, den betroffenen Mitarbeitenden, Bewohnenden und Angehörigen\n• Übernahme der fachlichen und organisatorischen Leitung des Pflegeheims Alberti und Führung eines aufgestellten Teams von rund zwölf Mitarbeitenden ab 2027 bis zur Überführung |\n• Abgeschlossene Ausbildung als Pflegefachperson (HF/DNI)\n• Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Berufserfahrung im Langzeitbereich\n• Zukunftsgerichtete Denk- und Handlungsweise, Lust am Mitdenken, Weiterentwickeln und Gestalten\n• Hohe Sozial- und Selbstkompetenz, loyale und teamorientierte Persönlichkeit, Flexibilität und Belastbarkeit\n• Gute PC-Anwenderkenntnisse |\n• Vielseitige, verantwortungsvolle und abwechslungsreiche Tätigkeit in einem dynamischen Umfeld\n• Chance für den Einstieg in eine Führungsposition mit konkreter Wachstumsperspektive\n• Mitgestaltung und Umsetzung eines für die Davoser Gesundheitsversorgung zukunftsweisenden Projekts\n• Motiviertes und kollegiales Team\n• Attraktive und zeitgemässe Anstellungsbedingungen\n• Vergünstigte Verpflegung in der hauseigenen Gastronomie\n• Eigener Fitnessraum | Für weitere Auskünfte stehen Ihnen gerne zur Verfügung: Gunnar Haldi und Simona Keller, Leitung Pflege und Betreuung Zentrum Guggerbach, Telefon +41 81 415 25 55 oder per E-Mail an g.haldi@guggerbach.ch bzw. s.keller@guggerbach.ch; Bea Heeb, Leitung Pflege und Querschnittsdisziplinen Spital Davos AG, Telefon +41 81 414 82 50 oder per E-Mail an bheeb@spitaldavos.ch; Gregor Bienz, Leiter HRM Spital Davos AG, Telefon +41 81 414 84 12 oder per E-Mail an jobs@spitaldavos.ch",
       "descriptionByLocale": {
-        "de": "Das Pflegeheim Alberti der Spital Davos AG mit 16 Betten wird im 1. Quartal 2028 ins Zentrum Guggerbach überführt. Als Bereichsleitung Pflege im Zentrum Guggerbach übernehmen Sie ab 2027 sukzessive auch die Leitung des Pflegeheims Alberti und verantworten den Prozess der Überführung aktiv mit. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | In Zusammenarbeit mit dem Zentrum Guggerbach suchen wir per Herbst 2026 oder nach Vereinbarung in Voll- oder Teilzeit eine |\n• Personelle, fachliche und organisatorische Führung des Pflegebereiches I für 40 Bewohnende im Zentrum Guggerbach mit allen damit verbundenen Aufgaben\n• Mitverantwortung und Mitgestaltung des Prozesses der Überführung des Pflegeheims Alberti ins Zentrum Guggerbach per 1. Quartal 2028, enge Zusammenarbeit und Abstimmung mit den Spital- und Zentrumsleitungen, den betroffenen Mitarbeitenden, Bewohnenden und Angehörigen\n• Übernahme der fachlichen und organisatorischen Leitung des Pflegeheims Alberti und Führung eines aufgestellten Teams von rund zwölf Mitarbeitenden ab 2027 bis zur Überführung |\n• Abgeschlossene Ausbildung als Pflegefachperson (HF/DNI)\n• Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Berufserfahrung im Langzeitbereich\n• Zukunftsgerichtete Denk- und Handlungsweise, Lust am Mitdenken, Weiterentwickeln und Gestalten\n• Hohe Sozial- und Selbstkompetenz, loyale und teamorientierte Persönlichkeit, Flexibilität und Belastbarkeit\n• Gute PC-Anwenderkenntnisse |\n• Vielseitige, verantwortungsvolle und abwechslungsreiche Tätigkeit in einem dynamischen Umfeld\n• Chance für den Einstieg in eine Führungsposition mit konkreter Wachstumsperspektive\n• Mitgestaltung und Umsetzung eines für die Davoser Gesundheitsversorgung zukunftsweisenden Projekts\n• Motiviertes und kollegiales Team\n• Attraktive und zeitgemässe Anstellungsbedingungen\n• Vergünstigte Verpflegung in der hauseigenen Gastronomie\n• Eigener Fitnessraum | Für weitere Auskünfte stehen Ihnen gerne zur Verfügung: Gunnar Haldi und Simona Keller, Leitung Pflege und Betreuung Zentrum Guggerbach, Telefon +41 81 415 25 55 oder per E-Mail an g.haldi@guggerbach.ch bzw. s.keller@guggerbach.ch; Bea Heeb, Leitung Pflege und Querschnittsdisziplinen Spital Davos AG, Telefon +41 81 414 82 50 oder per E-Mail an bheeb@spitaldavos.ch; Gregor Bienz, Leiter HRM Spital Davos AG, Telefon +41 81 414 84 12 oder per E-Mail an jobs@spitaldavos.ch",
         "it": "La Alberti Nursing Home di Spital Davos AG con 16 posti letto sarà trasferita al Guggerbach Centre nel primo trimestre del 2028. In qualità di capo della cura nel Guggerbach Center, si assumerà gradualmente la gestione della Alberti Nursing Home dal 2027 in poi e sono attivamente responsabili del processo di trasferimento. Come ospedale regionale / ospedale acuto con il servizio di ambulanza, la casa di cura e Spitex, siamo responsabili per l'assistenza medica di base per la popolazione di Davos e gli ospiti. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavori in una società gestibile, ma per la regione estremamente importante. Manteniamo un'atmosfera di lavoro collegiale e godiamo della vicinanza alla natura, così come le numerose opportunità sportive e ricreative di Davos. # In collaborazione con Zentrum Guggerbach, stiamo cercando una ricerca a tempo pieno o part-time entro l'autunno 2026 o per accordo\n• Personale, gestione professionale e organizzativa dell'area di cura I per 40 residenti nel centro di Guggerbach con tutti i compiti correlati\n• Co-responsabilità e co-creazione del processo di trasferimento della casa di cura Alberti al Guggerbach Center a 1. Quarto 2028, stretta collaborazione e coordinamento con l'ospedale e la gestione del centro, i dipendenti colpiti, residenti e parenti\n• Assumere la gestione professionale e organizzativa della casa di cura Alberti e guidare un team di circa dodici dipendenti dal 2027 fino al trasferimento |\n• Formazione completa come infermiera (HF/DNI)\n• Formazione di leadership o volontà di completarlo\n• Esperienza professionale a lungo termine\n• Il modo di pensare e di agire orientato al futuro, il desiderio di pensare lungo, ulteriore sviluppo e design\n• Alta competenza sociale e di sé, personalità leale e orientata al team, flessibilità e resilienza\n• Buona conoscenza dell'utente del PC |\n• Versatile, responsabile e variegata attività in un ambiente dinamico\n• Opportunità di entrare in una posizione di leadership con una prospettiva di crescita concreta\n• Co-design e realizzazione di un progetto previsionale per la salute Davos\n• Squadra motivata e collegiale\n• Condizioni di lavoro attraenti e contemporanee\n• Cibo scontato nella gastronomia interna\n• Sala fitness. Per ulteriori informazioni, rivolgersi a Gunnar Haldi e Simona Keller, Head of Care and Care Centre Guggerbach, telefono +41 81 415 25 55 o via e-mail a g.haldi@guggerbach.ch o s.keller@guggerbach.ch; Bea Heeb, Head of Care and Cross-Disciplines Spital Davos AG, telefono +41 81 414 82 50 o e-mail a bheRMda",
         "en": "The Alberti Nursing Home of Spital Davos AG with 16 beds will be transferred to the Guggerbach Centre in the first quarter of 2028. As Head of Care in the Guggerbach Center, you will gradually take over the management of the Alberti Nursing Home from 2027 onwards and are actively responsible for the transfer process. As a regional hospital/acute hospital with ambulance service, nursing home and Spitex, we are responsible for basic medical care for the Davos population and guests. Equally important to us is the well-being of our employees. With us you work in a manageable, but for the region extremely important company. We maintain a collegial working atmosphere and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. | In cooperation with Zentrum Guggerbach, we are looking for a full-time or part-time search by autumn 2026 or by agreement\n• Personnel, professional and organizational management of the care area I for 40 residents in the center of Guggerbach with all related tasks\n• Co-responsibility and co-creation of the process of transferring the Alberti nursing home to the Guggerbach Center as of 1. Quarter 2028, close cooperation and coordination with the hospital and center management, the affected employees, residents and relatives\n• Take over the professional and organizational management of the nursing home Alberti and lead a team of around twelve employees from 2027 until the transfer |\n• Completed training as a nurse (HF/DNI)\n• Leadership training or willingness to complete it\n• Long-term professional experience\n• Future-oriented way of thinking and acting, desire to think along, further development and design\n• High social and self-competence, loyal and team-oriented personality, flexibility and resilience\n• Good PC User Knowledge |\n• Versatile, responsible and varied activity in a dynamic environment\n• Opportunity to enter a leadership position with a concrete growth perspective\n• Co-design and implementation of a forward-looking project for Davos healthcare\n• Motivated and collegial team\n• Attractive and contemporary employment conditions\n• Discounted food in the in-house gastronomy\n• Own fitness room. For further information, please contact Gunnar Haldi and Simona Keller, Head of Care and Care Centre Guggerbach, telephone +41 81 415 25 55 or by e-mail to g.haldi@guggerbach.ch or s.keller@guggerbach.ch; Bea Heeb, Head of Care and Cross-Disciplines Spital Davos AG, telephone +41 81 414 82 50 or by e-mail to bheeb@spitaldavos.ch; Gregor Bienz, Head of HRM Spital Davos AG, telephone +41 81 414 84 12 or by e-mail to jobs@spitaldavos.ch",
+        "de": "Das Pflegeheim Alberti der Spital Davos AG mit 16 Betten wird im 1. Quartal 2028 ins Zentrum Guggerbach überführt. Als Bereichsleitung Pflege im Zentrum Guggerbach übernehmen Sie ab 2027 sukzessive auch die Leitung des Pflegeheims Alberti und verantworten den Prozess der Überführung aktiv mit. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | In Zusammenarbeit mit dem Zentrum Guggerbach suchen wir per Herbst 2026 oder nach Vereinbarung in Voll- oder Teilzeit eine |\n• Personelle, fachliche und organisatorische Führung des Pflegebereiches I für 40 Bewohnende im Zentrum Guggerbach mit allen damit verbundenen Aufgaben\n• Mitverantwortung und Mitgestaltung des Prozesses der Überführung des Pflegeheims Alberti ins Zentrum Guggerbach per 1. Quartal 2028, enge Zusammenarbeit und Abstimmung mit den Spital- und Zentrumsleitungen, den betroffenen Mitarbeitenden, Bewohnenden und Angehörigen\n• Übernahme der fachlichen und organisatorischen Leitung des Pflegeheims Alberti und Führung eines aufgestellten Teams von rund zwölf Mitarbeitenden ab 2027 bis zur Überführung |\n• Abgeschlossene Ausbildung als Pflegefachperson (HF/DNI)\n• Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Berufserfahrung im Langzeitbereich\n• Zukunftsgerichtete Denk- und Handlungsweise, Lust am Mitdenken, Weiterentwickeln und Gestalten\n• Hohe Sozial- und Selbstkompetenz, loyale und teamorientierte Persönlichkeit, Flexibilität und Belastbarkeit\n• Gute PC-Anwenderkenntnisse |\n• Vielseitige, verantwortungsvolle und abwechslungsreiche Tätigkeit in einem dynamischen Umfeld\n• Chance für den Einstieg in eine Führungsposition mit konkreter Wachstumsperspektive\n• Mitgestaltung und Umsetzung eines für die Davoser Gesundheitsversorgung zukunftsweisenden Projekts\n• Motiviertes und kollegiales Team\n• Attraktive und zeitgemässe Anstellungsbedingungen\n• Vergünstigte Verpflegung in der hauseigenen Gastronomie\n• Eigener Fitnessraum | Für weitere Auskünfte stehen Ihnen gerne zur Verfügung: Gunnar Haldi und Simona Keller, Leitung Pflege und Betreuung Zentrum Guggerbach, Telefon +41 81 415 25 55 oder per E-Mail an g.haldi@guggerbach.ch bzw. s.keller@guggerbach.ch; Bea Heeb, Leitung Pflege und Querschnittsdisziplinen Spital Davos AG, Telefon +41 81 414 82 50 oder per E-Mail an bheeb@spitaldavos.ch; Gregor Bienz, Leiter HRM Spital Davos AG, Telefon +41 81 414 84 12 oder per E-Mail an jobs@spitaldavos.ch",
         "fr": "La maison de soins infirmiers Alberti de Spital Davos AG avec 16 lits sera transférée au Centre Guggerbach au premier trimestre de 2028. En tant que responsable des soins au Centre Guggerbach, vous prendrez progressivement en charge la gestion de la maison de soins Alberti à partir de 2027 et serez activement responsable du processus de transfert. En tant qu'hôpital régional avec service d'ambulance, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base pour la population et les invités de Davos. Le bien-être de nos employés est tout aussi important pour nous. Avec nous vous travaillez dans une entreprise gérable, mais pour la région extrêmement importante. Nous maintenons une atmosphère de travail collégiale et profitons de la proximité de la nature ainsi que des nombreuses possibilités de sports et de loisirs de Davos. Autres En collaboration avec Zentrum Guggerbach, nous recherchons une recherche à temps plein ou à temps partiel d'ici l'automne 2026 ou par accord\n• Personnel, gestion professionnelle et organisationnelle de la zone de soins I pour 40 résidents dans le centre de Guggerbach avec toutes les tâches connexes\n• Coresponsabilité et co-création du processus de transfert de la maison de soins Alberti au Centre Guggerbach à partir de 1. Quartier 2028, étroite collaboration et coordination avec la direction de l'hôpital et du centre, les employés touchés, les résidents et les proches\n• Prendre en charge la gestion professionnelle et organisationnelle de la maison de retraite Alberti et diriger une équipe d'environ douze employés de 2027 jusqu'au transfert.\n• Formation terminée en tant qu'infirmière (HF/DNI)\n• Formation en leadership ou volonté de la compléter\n• Expérience professionnelle de longue durée\n• Une façon de penser et d'agir orientée vers l'avenir, le désir de penser, le développement et la conception\n• Personnalité, flexibilité et résilience sociales et autosuffisantes, loyales et axées sur l'équipe\n• Bonne connaissance utilisateur PC\n• Activité polyvalente, responsable et variée dans un environnement dynamique\n• Possibilité d'accéder à une position de leadership dans une perspective de croissance concrète\n• Co-conception et mise en œuvre d'un projet prospectif pour la santé de Davos\n• Équipe motivée et collégiale\n• Conditions d'emploi attrayantes et contemporaines\n• Alimentation réduite dans la gastronomie interne\n• Une salle de fitness. Pour de plus amples informations, veuillez contacter Gunnar Haldi et Simona Keller, responsable du centre de soins et de soins Guggerbach, téléphone +41 81 415 25 55 ou par e-mail à g.haldi@guggerbach.ch ou s.keller@guggerbach.ch; Bea Heeb, chef du centre de soins et des disciplines croisées Spital Davos AG, téléphone +41 81 414 82 50 ou par e-mail à bheeb@spitaldavos.ch; Gregor Bienz, chef de HRM Spital Davos AG, téléphone +41 81 414 84 12 ou par e-mail à jobs@spitaldavos.ch"
       },
       "location": "Davos",
@@ -1840,7 +1890,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/722/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:21:00.414Z",
+      "crawledAt": "2026-07-13T22:45:03.675Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1855,11 +1905,11 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/722/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Pflegeheim",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-07-13T12:21:00.414Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1872,16 +1922,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-13T12:21:00.414Z"
+      "addressRegion": "GR"
     },
     {
       "id": "spital-davos-cf136b0b6e70",
       "slug": "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos",
       "slugByLocale": {
-        "de": "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
         "it": "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos",
         "en": "paramedics-in-winter-season-2027-28-50-100-spital-davos-davos",
+        "de": "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
         "fr": "paramedicaux-en-hiver-2027-28-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -1889,16 +1938,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Rettungssanitäter:in Wintersaison 2027/28 (50-100%)",
       "titleByLocale": {
-        "de": "Rettungssanitäter:in Wintersaison 2027/28 (50-100%)",
         "it": "Paramedici: nella stagione invernale 2027/28 (50-100%)",
         "en": "Paramedics: in winter season 2027/28 (50-100%)",
+        "de": "Rettungssanitäter:in Wintersaison 2027/28 (50-100%)",
         "fr": "Paramédicaux: en hiver 2027/28 (50-100%)"
       },
       "description": "Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Wintersaison 2027/28 eine:n |\n• Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n• Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n• Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n• Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n• Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort nach Wunsch möglich |\n• Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n• Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenz\n• Führerausweis der Kategorie B/C1/D1 vorhanden |\n• Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n• Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässe)\n• Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n• Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
       "descriptionByLocale": {
-        "de": "Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Wintersaison 2027/28 eine:n |\n• Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n• Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n• Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n• Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n• Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort nach Wunsch möglich |\n• Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n• Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenz\n• Führerausweis der Kategorie B/C1/D1 vorhanden |\n• Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n• Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässe)\n• Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n• Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "it": "Il nostro servizio di ambulanza è approvato dall'IVR e fornisce circa 1.500 missioni primarie e secondarie con i suoi veicoli di emergenza. In inverno, il focus è sulla traumatologia e la stretta collaborazione con i servizi di soccorso pista si svolge. Come ospedale regionale / ospedale acuto con il servizio di ambulanza, la casa di cura e Spitex, siamo responsabili per l'assistenza medica di base per la popolazione di Davos e gli ospiti. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavori in una società gestibile, ma per la regione estremamente importante. Manteniamo un'atmosfera di lavoro collegiale e godiamo della vicinanza alla natura, così come le numerose opportunità sportive e ricreative di Davos. # Per rafforzare il nostro team di soccorso, stiamo cercando un:n |\n• Azione competente e assistenza medica primaria\n• Cura dei pazienti in base alla competenza delegazione, algoritmi e istruzioni\n• Valutazione del paziente e monitoraggio della situazione durante l'implementazione\n• Conformità alle linee guida e condivisione della responsabilità per l'assicurazione della qualità\n• Organizzazione divisa in dipartimenti, partecipazione in un dipartimento come desiderato |\n• Dipl. Paramedici: in HF o diploma straniero riconosciuto\n• Impegno e responsabilità con competenza professionale e sociale\n• Categoria B/C1/D1 patente di guida disponibile |\n• Team motivato e professionale in una rinomata destinazione turistica internazionale\n• Un ambiente emozionante con protezione di emergenza a vari eventi (tra cui WEF, Spengler Cup, partite di campionato degli eventi HCD e Coppa del Mondo)\n• Condizioni e prestazioni di lavoro interessanti; Casa personale\n• Per ulteriori informazioni, la nostra cogestione del servizio di soccorso Marcel Schawalder e Achim Thamm è disponibile al numero di telefono +41 81 414 84 18 e via email dp-reda@spitaldavos.ch. Naturalmente, il nostro team di reclutamento HRM risponde alle vostre domande chiamando +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Our hospital-bound ambulance service is IVR-approved and provides around 1,500 primary and secondary missions with its emergency vehicles. In winter, the focus is on traumatology and close cooperation with the slope rescue services takes place. As a regional hospital/acute hospital with ambulance service, nursing home and Spitex, we are responsible for basic medical care for the Davos population and guests. Equally important to us is the well-being of our employees. With us you work in a manageable, but for the region extremely important company. We maintain a collegial working atmosphere and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. | To strengthen our rescue team, we are looking for a:n |\n• Competent action and ensuring primary medical care\n• Patient care according to competence delegation, algorithms and instructions\n• Patient assessment and situational monitoring during deployment\n• Compliance with the guidelines and sharing responsibility for quality assurance\n• Organization divided into departments, participation in a department as desired |\n• Dipl. Paramedics: in HF or recognised foreign diploma\n• Commitment and responsibility with professional and social competence\n• Category B/C1/D1 driving licence available |\n• Motivated and professional team in a well-known international holiday destination\n• An exciting environment with emergency protection at various events (including WEF, Spengler Cup, league games of the HCD and world cup events)\n• Attractive employment conditions and benefits; Own staff house\n• Interesting further education and training opportunities | For further information, our co-management of the rescue service Marcel Schawalder and Achim Thamm is available at the telephone number +41 81 414 84 18 as well as by email dp-reda@spitaldavos.ch. Of course, our HRM recruitment team answers your questions by calling +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
+        "de": "Unser spitalgebundener Rettungsdienst ist IVR-anerkannt und leistet mit seinen Rettungsfahrzeugen rund 1'500 primäre und sekundäre Einsätze. Im Winter liegt der Schwerpunkt bei der Traumatologie und es findet eine enge Zusammenarbeit mit den Pistenrettungsdiensten statt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Zur Verstärkung unseres Rettungsteams suchen wir für die Wintersaison 2027/28 eine:n |\n• Kompetentes Handeln und Sicherstellen der medizinischen Erstversorgung\n• Patientenversorgung gemäss Kompetenzdelegation, Algorithmen und Weisungen\n• Patientenbeurteilung und situationsgerechte Überwachung während des Einsatzes\n• Einhaltung der Richtlinien und Mittragen der Verantwortung für die Qualitätssicherung\n• Organisation in Ressorts aufgeteilt, Mitarbeit in einem Ressort nach Wunsch möglich |\n• Dipl. Rettungssanitäter:in HF oder anerkanntes ausländisches Diplom\n• Engagement und Verantwortungsbewusstsein mit Fach- und Sozialkompetenz\n• Führerausweis der Kategorie B/C1/D1 vorhanden |\n• Motiviertes und professionelles Team in einer bekannten internationalen Feriendestination\n• Ein spannendes Umfeld mit rettungsdienstlicher Absicherung an diversen Events (u. a. WEF, Spengler Cup, Ligaspiele des HCD und Weltcupanlässe)\n• Attraktive Anstellungsbedingungen und Sozialleistungen; eigenes Personalhaus\n• Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen unsere Co-Leitung des Rettungsdienstes Marcel Schawalder und Achim Thamm unter der Telefonnummer +41 81 414 84 18 wie auch per Email dp-reda@spitaldavos.ch zur Verfügung. Selbstverständlich beantwortet unser HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder via Email jobs@spitaldavos.ch Ihre Fragen.",
         "fr": "Notre service d'ambulance à l'hôpital est approuvé par l'IVR et fournit environ 1 500 missions primaires et secondaires avec ses véhicules d'urgence. En hiver, l'accent est mis sur la traumatologie et une collaboration étroite avec les services de sauvetage en pente a lieu. En tant qu'hôpital régional avec service d'ambulance, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base pour la population et les invités de Davos. Le bien-être de nos employés est tout aussi important pour nous. Avec nous vous travaillez dans une entreprise gérable, mais pour la région extrêmement importante. Nous maintenons une atmosphère de travail collégiale et profitons de la proximité de la nature ainsi que des nombreuses possibilités de sports et de loisirs de Davos. Autres Pour renforcer notre équipe de secours, nous recherchons :\n• Mesures appropriées et soins médicaux primaires\n• Soins aux patients selon délégation de compétences, algorithmes et instructions\n• Évaluation du patient et surveillance de la situation pendant le déploiement\n• Respect des lignes directrices et partage des responsabilités en matière d'assurance de la qualité\n• Organisation divisée en départements, participation à un département selon les besoins.\n• Dipl. Paramédicaux: en HF ou diplôme étranger reconnu\n• Engagement et responsabilité avec compétence professionnelle et sociale\n• Permis de conduire de catégorie B/C1/D1 disponible\n• Équipe motivée et professionnelle dans une destination de vacances internationale bien connue\n• Un environnement passionnant avec une protection d'urgence à divers événements (y compris WEF, Spengler Cup, jeux de ligue du HCD et événements de la coupe du monde)\n• Des conditions d'emploi et des prestations attrayantes; Maison du personnel\n• Pour plus d'informations, notre cogestion du service de sauvetage Marcel Schawalder et Achim Thamm est disponible au numéro de téléphone +41 81 414 84 18 ainsi que par email dp-reda@spitaldavos.ch. Bien sûr, notre équipe de recrutement HRM répond à vos questions en appelant +41 81 414 84 12 ou par email jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -1906,7 +1955,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/724/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:20:59.620Z",
+      "crawledAt": "2026-07-13T22:45:02.703Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1921,14 +1970,33 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/724/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rettungsdienst",
       "contractDuration": "temporary",
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
+      "previousSlugs": [
+        "technicien-de-secours-medical-saison-hivernale-2026-27-50-100-spital-davos-davos",
+        "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
+        "emergency-medical-technician-winter-season-2026-27-50-100-spital-davos-davos",
+        "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
+        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+        "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+          "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
+        ],
+        "en": [
+          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+        ],
+        "fr": [
+          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T12:20:59.620Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1941,26 +2009,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-13T12:20:59.620Z",
-      "previousSlugs": [
-        "technicien-de-secours-medical-saison-hivernale-2026-27-50-100-spital-davos-davos",
-        "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
-        "emergency-medical-technician-winter-season-2026-27-50-100-spital-davos-davos",
-        "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
-        ],
-        "en": [
-          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
-        ],
-        "fr": [
-          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
-        ]
-      }
+      "addressRegion": "GR"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1993,7 +2042,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:20:58.826Z",
+      "crawledAt": "2026-07-13T22:45:01.693Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2035,14 +2084,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+        "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+        "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+          "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+          "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2088,7 +2140,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:20:57.810Z",
+      "crawledAt": "2026-07-13T22:45:00.714Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2141,14 +2193,17 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch"
+          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2194,7 +2249,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:20:56.797Z",
+      "crawledAt": "2026-07-13T22:44:59.743Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2244,14 +2299,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch"
+        "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch",
+        "ops-lagermedico-ina-per-la-stagione-invernale-2026-27-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch"
+          "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch",
+          "ops-lagermedico-ina-per-la-stagione-invernale-2026-27-80-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2297,7 +2355,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:20:55.772Z",
+      "crawledAt": "2026-07-13T22:44:58.756Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2326,13 +2384,15 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
         "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
           "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
-          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos",
+          "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
         ],
         "en": [
           "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos"
@@ -2346,6 +2406,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
