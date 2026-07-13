@@ -51,7 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-06T15:03:48.972Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -282,7 +281,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:57.435Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -358,7 +356,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:56.621Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -432,8 +429,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pictet-0e277c67c776",
@@ -664,8 +660,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pictet-5fe92c1758b2",

@@ -115224,7 +115224,7 @@
     "slugByLocale": {
       "de": "senior-network-security-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-1ardea",
       "en": "senior-network-security-engineer-m-w-d-migros-genossenschafts-bund-zurich-1ardea",
-      "fr": "senior-network-security-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-1ardea",
+      "fr": "ingenieur-securite-reseau-senior-h-f-d-migros-genossenschafts-bund-zurich",
       "it": "senior-network-security-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-1ardea"
     }
   },
@@ -147448,7 +147448,8 @@
     "slugByLocale": {
       "fr": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne",
       "en": "customer-service-centre-specialist-e-h-d-raiffeisen-lausanne",
-      "de": "customer-service-center-spezialist-e-h-d-raiffeisen-lausanne"
+      "de": "customer-service-center-spezialist-e-h-d-raiffeisen-lausanne",
+      "it": "specialista-centro-servizio-clienti-f-h-d-raiffeisen-lausanne"
     }
   },
   "id|raiffeisen.ch|6af1369a-e3d0-4c2b-a004-ee0ddde1ebb1": {
@@ -148054,7 +148055,9 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "de": "kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-baar",
-      "fr": "kaufmann-kauffrau-efz-branche-bank-apprentissage-debut-aout-2027-raiffeisen-baar"
+      "fr": "kaufmann-kauffrau-efz-branche-bank-apprentissage-debut-aout-2027-raiffeisen-baar",
+      "it": "impiegato-a-di-commercio-afc-settore-bancario-inizio-apprendistato-agosto-2027-raiffeisen-baar",
+      "en": "commercial-employee-efz-banking-sector-apprenticeship-start-august-2027-raiffeisen-baar"
     }
   },
   "id|raiffeisen.ch|ba400bf7-c835-4e1e-9ce4-ebff4a39d1e9": {
@@ -148465,7 +148468,8 @@
     "canton": "SG",
     "createdAt": "2026-07-03",
     "slugByLocale": {
-      "de": "senior-software-developer-fraud-detection-w-m-d-raiffeisen-st-gallen"
+      "de": "senior-software-developer-fraud-detection-w-m-d-raiffeisen-st-gallen",
+      "fr": "developpeur-logiciel-senior-fraud-detection-h-f-d-raiffeisen-st-gallen"
     }
   },
   "id|raiffeisen.ch|edbe9116-87f5-45b6-93ff-3d0d8c95c4ef": {
@@ -148515,7 +148519,10 @@
     "canton": "TI",
     "createdAt": "2026-07-03",
     "slugByLocale": {
-      "it": "responsabile-services-membro-della-direzione-raiffeisen-caslano"
+      "it": "responsabile-services-membro-della-direzione-raiffeisen-caslano",
+      "en": "head-of-services-member-of-management-raiffeisen-caslano",
+      "de": "leiter-services-mitglied-der-geschaftsleitung-raiffeisen-caslano",
+      "fr": "responsable-services-membre-de-la-direction-raiffeisen-caslano"
     }
   },
   "id|raiffeisen.ch|f4867a4a-8a82-4a4d-b6c5-3a0dc873d5c8": {
@@ -148561,7 +148568,10 @@
     "canton": "TI",
     "createdAt": "2026-07-03",
     "slugByLocale": {
-      "it": "collaboratore-trice-gestione-crediti-raiffeisen-caslano"
+      "it": "collaboratore-trice-gestione-crediti-raiffeisen-caslano",
+      "en": "credit-management-associate-raiffeisen-caslano",
+      "de": "mitarbeiter-in-kreditmanagement-raiffeisen-caslano",
+      "fr": "collaborateur-trice-gestion-des-credits-raiffeisen-caslano"
     }
   },
   "id|raiffeisen.ch|fbe2fa9e-ec4e-4e1f-b36d-cc4c33da3433": {
@@ -156386,7 +156396,7 @@
     "canton": "VD",
     "createdAt": "2026-07-01",
     "slugByLocale": {
-      "de": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
+      "de": "cookie-einwilligungsmanager-schindler-bussigny",
       "en": "cookie-consent-manager-schindler-bussigny",
       "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
       "it": "responsabile-del-consenso-ai-cookie-schindler-bussigny"
@@ -281143,7 +281153,8 @@
     "canonicalSlug": "forward-deployed-engineer-iii-generative-ai-french-german-google-switzerland-zurich",
     "slugByLocale": {
       "en": "forward-deployed-engineer-iii-generative-ai-french-german-google-switzerland-zurich",
-      "fr": "ingenieur-deploye-avance-iii-ia-generative-google-switzerland-zurich"
+      "fr": "ingenieur-deploye-avance-iii-ia-generative-google-switzerland-zurich",
+      "it": "ingegnere-forward-deployed-iii-generative-ai-google-switzerland-zurich"
     },
     "createdAt": "2026-07-08",
     "canton": "ZH"
@@ -281163,7 +281174,8 @@
     "canonicalSlug": "security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
     "slugByLocale": {
       "en": "security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
-      "fr": "ingenieur-securite-equipe-rouge-cloud-ciso-cloud-google-switzerland-zurich"
+      "fr": "ingenieur-securite-equipe-rouge-cloud-ciso-cloud-google-switzerland-zurich",
+      "it": "ingegnere-di-sicurezza-red-team-cloud-ciso-cloud-google-switzerland-zurich"
     },
     "createdAt": "2026-07-08",
     "canton": "ZH"
@@ -281421,7 +281433,8 @@
     "canonicalSlug": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich",
     "slugByLocale": {
       "en": "software-engineer-iii-ai-ml-google-cloud-automotive-google-switzerland-zurich",
-      "fr": "ingenieur-logiciel-iii-ia-ml-google-cloud-automobile-google-switzerland-zurich"
+      "fr": "ingenieur-logiciel-iii-ia-ml-google-cloud-automobile-google-switzerland-zurich",
+      "de": "softwareingenieur-iii-ki-ml-google-cloud-automotive-google-switzerland-zurich"
     },
     "createdAt": "2026-07-08",
     "canton": "ZH"
@@ -313433,5 +313446,387 @@
     },
     "createdAt": "2026-07-12",
     "canton": "ZH"
+  },
+  "id|belimo.com|1163258255": {
+    "canonicalSlug": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-12-stunden-prasenz-tag-o-nacht-belimo-hinwil",
+    "slugByLocale": {
+      "de": "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht",
+      "it": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-12-stunden-prasenz-tag-o-nacht-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|940422774": {
+    "canonicalSlug": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|940422674": {
+    "canonicalSlug": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil-2",
+      "en": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil-2",
+      "fr": "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164583155": {
+    "canonicalSlug": "systems-architect-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "systems-architect-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164975155": {
+    "canonicalSlug": "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil",
+    "slugByLocale": {
+      "de": "logistiker-in-wochenendschicht-belimo-hinwil",
+      "it": "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164974855": {
+    "canonicalSlug": "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "logistiker-in-nachtschicht-100-belimo-hinwil",
+      "it": "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1163094055": {
+    "canonicalSlug": "montagemitarbeiter-in-temporar-belimo-hinwil",
+    "slugByLocale": {
+      "de": "montagemitarbeiter-in-temporar-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165045055": {
+    "canonicalSlug": "intern-for-embedded-interpreter-design-belimo-hinwil",
+    "slugByLocale": {
+      "en": "intern-for-embedded-interpreter-design-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164981055": {
+    "canonicalSlug": "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165061455": {
+    "canonicalSlug": "it-project-manager-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "it-project-manager-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165010355": {
+    "canonicalSlug": "teamleiter-in-montage-abendschicht-belimo-hinwil",
+    "slugByLocale": {
+      "de": "teamleiter-in-montage-abendschicht-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165060755": {
+    "canonicalSlug": "export-specialista-belimo-hinwil",
+    "slugByLocale": {
+      "de": "export-specialist-belimo-hinwil",
+      "it": "export-specialista-belimo-hinwil",
+      "fr": "export-specialiste-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165060155": {
+    "canonicalSlug": "logistica-systems-specialista-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "logistics-systems-specialist-100-belimo-hinwil",
+      "it": "logistica-systems-specialista-100-belimo-hinwil",
+      "fr": "logistique-systems-specialiste-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164692355": {
+    "canonicalSlug": "strategic-buyer-valve-technology-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "strategic-buyer-valve-technology-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164692255": {
+    "canonicalSlug": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2",
+      "de": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2",
+      "fr": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165002455": {
+    "canonicalSlug": "senior-equipment-software-architect-belimo-hinwil",
+    "slugByLocale": {
+      "de": "senior-equipment-software-architect-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165043155": {
+    "canonicalSlug": "hse-manager-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "hse-manager-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165050855": {
+    "canonicalSlug": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
+    "slugByLocale": {
+      "de": "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165015355": {
+    "canonicalSlug": "teamleitung-fertigung-wochenende-tag-belimo-hinwil",
+    "slugByLocale": {
+      "de": "teamleitung-fertigung-wochenende-tag-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164781455": {
+    "canonicalSlug": "facility-manager-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "facility-manager-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165036455": {
+    "canonicalSlug": "sachbearbeiter-in-auftragsabwicklung-belimo-hinwil",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-auftragsabwicklung-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164976155": {
+    "canonicalSlug": "production-engineer-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "production-engineer-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164976255": {
+    "canonicalSlug": "production-engineer-80-100-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "production-engineer-80-100-belimo-hinwil-2",
+      "de": "production-engineer-80-100-belimo-hinwil-2",
+      "fr": "production-engineer-80-100-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164810655": {
+    "canonicalSlug": "trade-compliance-expert-belimo-hinwil",
+    "slugByLocale": {
+      "de": "trade-compliance-expert-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164183055": {
+    "canonicalSlug": "mes-process-engineer-manufacturing-execution-system-belimo-hinwil",
+    "slugByLocale": {
+      "de": "mes-process-engineer-manufacturing-execution-system-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164383855": {
+    "canonicalSlug": "senior-project-manager-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "senior-project-manager-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164383755": {
+    "canonicalSlug": "senior-project-manager-80-100-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "senior-project-manager-80-100-belimo-hinwil-2",
+      "de": "senior-project-manager-80-100-belimo-hinwil-2",
+      "fr": "senior-project-manager-80-100-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164920355": {
+    "canonicalSlug": "specialist-purchasing-electronic-components-belimo-hinwil",
+    "slugByLocale": {
+      "de": "specialist-purchasing-electronic-components-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164918555": {
+    "canonicalSlug": "strategic-procurement-project-expert-mechanics-belimo-hinwil",
+    "slugByLocale": {
+      "de": "strategic-procurement-project-expert-mechanics-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164800455": {
+    "canonicalSlug": "experienced-professional-procurement-sensors-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "experienced-professional-procurement-sensors-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165002555": {
+    "canonicalSlug": "master-data-specialist-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "master-data-specialist-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164955155": {
+    "canonicalSlug": "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
+    "slugByLocale": {
+      "de": "global-team-leader-procurement-plastic-solutions-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164470155": {
+    "canonicalSlug": "hvac-building-automation-expert-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "hvac-building-automation-expert-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164470055": {
+    "canonicalSlug": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+      "en": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+      "fr": "hvac-building-automation-expert-80-100-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164975055": {
+    "canonicalSlug": "marketing-communications-manager-emea-con-schwerpunkt-event-e-messemarketing-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "marketing-communications-manager-emea-mit-schwerpunkt-event-und-messemarketing-80-100",
+      "it": "marketing-communications-manager-emea-con-schwerpunkt-event-e-messemarketing-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164972755": {
+    "canonicalSlug": "working-student-ipx-40-belimo-hinwil",
+    "slugByLocale": {
+      "en": "working-student-ipx-40-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1164972655": {
+    "canonicalSlug": "instandhaltungsfachmann-frau-100-belimo-hinwil",
+    "slugByLocale": {
+      "de": "instandhaltungsfachmann-frau-100-belimo-hinwil"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|migros.ch|0618cd71-6539-43dd-962c-3610f3b61d16": {
+    "canonicalSlug": "fachleiter-in-blumen-kundendienst-80-100-genossenschaft-migros-luzern-ebikon-u5cy1o",
+    "slugByLocale": {
+      "de": "fachleiter-in-blumen-kundendienst-80-100-genossenschaft-migros-luzern-ebikon-u5cy1o"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "id|migros.ch|32c26fe7-ce4e-438f-9b36-c69a57358d6d": {
+    "canonicalSlug": "online-marketing-manager-m-w-d-migrol-ag-adliswil-d0xs3w",
+    "slugByLocale": {
+      "de": "online-marketing-manager-m-w-d-migrol-ag-adliswil-d0xs3w"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|migros.ch|ad0b4111-e5ac-42d7-bd9b-7f05e22b7fc0": {
+    "canonicalSlug": "2-vendeurs-specialise-m-w-d-societe-cooperative-migros-geneve-lancy-24ezzc",
+    "slugByLocale": {
+      "fr": "2-vendeurs-specialise-m-w-d-societe-cooperative-migros-geneve-lancy-24ezzc"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "id|migros.ch|65b6230d-03a7-4f33-abca-d70c47346d18": {
+    "canonicalSlug": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy",
+    "slugByLocale": {
+      "it": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy",
+      "fr": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "id|migros.ch|f62f6f62-4008-475f-81b7-5bc3b4a3b903": {
+    "canonicalSlug": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland",
+    "slugByLocale": {
+      "it": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland",
+      "fr": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "VD"
+  },
+  "id|so.ch|59a889fc-b9eb-4001-aeec-364541b8e561": {
+    "canonicalSlug": "sachbearbeiter-in-stipendien-e-rechnungswesen-50-kanton-solothurn",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-stipendien-und-rechnungswesen-50-kanton-solothurn-solothurn",
+      "it": "sachbearbeiter-in-stipendien-e-rechnungswesen-50-kanton-solothurn"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SO"
+  },
+  "id|so.ch|fc6e7cda-70de-4072-9de4-202c9d07a001": {
+    "canonicalSlug": "alimentenfachmann-frau-60-80-kanton-solothurn-olten",
+    "slugByLocale": {
+      "de": "alimentenfachmann-frau-60-80-kanton-solothurn-olten"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SO"
+  },
+  "id|schindler.com|1373001933": {
+    "canonicalSlug": "manager-per-cookie-einwilligungen-schindler-ebikon",
+    "slugByLocale": {
+      "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
+      "it": "manager-per-cookie-einwilligungen-schindler-ebikon"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
   }
 }
