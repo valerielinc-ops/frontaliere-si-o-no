@@ -1105,6 +1105,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'L\'AI verso la bancarotta: invalidità a 18 anni',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'L\'Assicurazione Invalidità svizzera rischia la bancarotta entro i primi anni del 2030.',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Una foto della città di Lugano con la montagna sullo sfondo, con una scena di lavoro in primo piano.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Di più Svizzera-GB: fine negoziati su accordo aggiornato libero scambio',
+    'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'La Confederazione e il Regno Unito hanno concluso i negoziati per un accordo di libero scambio aggiornato. L\'intesa rafforza la certezza del diritto per le imprese e ridurrà gli ostacoli amministrativi.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Una foto realistica di una città o monumento svizzero, come la torre dell\'orologio Zytglogge di Berna.',
 };
 
 export default blogMetaChIt;

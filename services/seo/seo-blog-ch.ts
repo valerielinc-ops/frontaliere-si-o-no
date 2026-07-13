@@ -14253,6 +14253,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-switzerland-uk-free-trade-agreement-update': {
+    title: 'Di più Svizzera-GB: fine negoziati su accordo aggiornato libero scambio',
+    description: 'La Confederazione e il Regno Unito hanno concluso i negoziati per un accordo di libero scambio aggiornato. L\'intesa rafforza la certezza del diritto per le',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-gb, fine, negoziati, accordo',
+    ogTitle: 'Di più Svizzera-GB: fine negoziati su accordo aggiornato libero scambio',
+    ogDescription: 'La Confederazione e il Regno Unito hanno concluso i negoziati per un accordo di libero scambio aggiornato. L\'intesa rafforza la certezza del diritto per le',
+    canonicalPath: '/articoli-svizzera/switzerland-uk-free-trade-agreement-update/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Svizzera-GB: fine negoziati su accordo aggiornato libero scambio",
+      "description": "La Confederazione e il Regno Unito hanno concluso i negoziati per un accordo di libero scambio aggiornato. L'intesa rafforza la certezza del diritto per le",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/switzerland-uk-free-trade-agreement-update.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto realistica di una città o monumento svizzero, come la torre dell'orologio Zytglogge di Berna."
+      },
+      "datePublished": "2026-07-13T22:25:15+00:00",
+      "dateModified": "2026-07-13T22:25:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/switzerland-uk-free-trade-agreement-update/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

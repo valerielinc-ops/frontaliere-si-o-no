@@ -1105,6 +1105,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'AI into Bankruptcy: Disability at 18',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'Swiss Disability Insurance risks bankruptcy by the early 2030s.',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'A photo of Lugano with the mountains in the background, with a work scene in the foreground.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.title': 'More Switzerland-GB: end of negotiations on updated free trade agreement',
+    'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'The Confederation and the United Kingdom have concluded negotiations for an updated free trade agreement. The cartel strengthens legal certainty for businesses and will reduce administrative obstacles.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'A realistic photo of a Swiss city or landmark, such as Bern\'s Zytglogge clock tower.',
 };
 
 export default blogMetaChEn;

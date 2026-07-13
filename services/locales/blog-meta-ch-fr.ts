@@ -1105,6 +1105,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'L\'AI vers la faillite : invalidité à 18 ans',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'L\'assurance-invalidité suisse risque la faillite au début des années 2030.',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Une photo de Lugano avec les montagnes à l\'arrière-plan, avec une scène de travail en avant-plan.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Plus Suisse-GB : fin des négociations sur l\'accord de libre-échange actualisé',
+    'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'La Confédération et le Royaume-Uni ont conclu les négociations en vue d\'un accord de libre-échange actualisé. L\'entente renforce la sécurité juridique pour les entreprises et réduira les obstacles administratifs.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Une photo réaliste d\'une ville ou monument suisse, comme la tour de l\'horloge Zytglogge de Berne.',
 };
 
 export default blogMetaChFr;
