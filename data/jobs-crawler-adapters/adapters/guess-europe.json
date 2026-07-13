@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://apply.workable.com/guess-europe-sagl/j/41EDEA5CFA/",
     "https://apply.workable.com/guess-europe-sagl/j/ACF63C9D30/",
     "https://apply.workable.com/guess-europe-sagl/j/9E0D6A0C56/",
     "https://apply.workable.com/guess-europe-sagl/j/AFEB3F4F52/",
@@ -20,8 +21,14 @@
     "https://apply.workable.com/guess-europe-sagl/j/ACECC0A61B/"
   ],
   "notes": "Dedicated Guess crawler uses Workable widget API + Workable v2 job detail API for Ticino jobs.",
-  "updatedAt": "2026-07-12T22:35:26.727Z",
+  "updatedAt": "2026-07-13T22:18:05.984Z",
   "seedMetaByUrl": {
+    "https://apply.workable.com/guess-europe-sagl/j/41EDEA5CFA/": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-07-13"
+    },
     "https://apply.workable.com/guess-europe-sagl/j/ACF63C9D30/": {
       "location": "Bioggio",
       "canton": "TI",
