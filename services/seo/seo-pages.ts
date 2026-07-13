@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3207,
+ "numberOfItems": 3208,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7882,7 +7882,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3204, "name": "Ticino, rincari e commercianti in crisi: il car...", "url": `${BASE_URL}/articoli-frontaliere/ticino-rincari-caro-vita-commercianti-2025` },
           { "@type": "ListItem", "position": 3205, "name": "Credito imposte estere parametrato al reddito: ...", "url": `${BASE_URL}/articoli-frontaliere/credito-imposte-estere-parametrato-al-reddito-le-casistiche` },
           { "@type": "ListItem", "position": 3206, "name": "Servizi per chi lavora in Svizzera, ogni marted...", "url": `${BASE_URL}/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese` },
-          { "@type": "ListItem", "position": 3207, "name": "Ticino: i frontalieri calano", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-calano-ticino` }
+          { "@type": "ListItem", "position": 3207, "name": "Ticino: i frontalieri calano", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-calano-ticino` },
+          { "@type": "ListItem", "position": 3208, "name": "Di più posti di lavoro, la situazione resta cri...", "url": `${BASE_URL}/articoli-frontaliere/di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario` }
  ]
  },
  {

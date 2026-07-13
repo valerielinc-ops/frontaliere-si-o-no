@@ -8479,6 +8479,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-calano-ticino.title': 'Ticino: border crossers fall',
     'blog.article.frontalieri-calano-ticino.excerpt': 'Italian border workers in Switzerland are on the decline, but in some countries of Italian Switzerland they represent more than 50% of the workforce',
     'blog.article.frontalieri-calano-ticino.imageAlt': 'People crossing the Italian-Swiss border',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'More jobs, the situation remains critical in the banking sector',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'The number of unemployed in the banking sector is on the rise, according to statistics from the State Secretariat for the Economy (SECO).',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'A scene of Lugano with a queue of people in front of a job agency.',
 };
 
 export default blogMetaEn;
