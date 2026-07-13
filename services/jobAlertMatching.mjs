@@ -63,6 +63,45 @@ const SWISS_CANTONS = new Set([
 export const GEO_PREFERENCE_MIN_LOCAL = 5;
 
 /**
+ * Freshness-boost windows for {@link freshnessBoost}. The 48h outer window
+ * deliberately matches the "✨ NUOVA" badge window in the alert email
+ * (send-job-alerts.mjs) so a boosted job and a badged job are the same thing.
+ */
+export const FRESHNESS_BOOST_24H_MS = 24 * 60 * 60 * 1000;
+export const FRESHNESS_BOOST_48H_MS = 48 * 60 * 60 * 1000;
+
+/**
+ * Relevance bonus for GENUINELY new jobs, keyed on `firstSeenAt` — the only
+ * recency field the crawlers set once and never refresh (`crawledAt` updates on
+ * every re-crawl, `postedDate` is employer-declared and often missing/stale).
+ *
+ * Why: the alert sender's candidate pool is a rolling `crawledAt` window, which
+ * re-admits the ENTIRE re-crawled inventory every day (~16k jobs vs ~400
+ * actually new). Score ties were previously broken by `firstSeenAt` recency,
+ * but a stale job with a marginally higher relevance score still headlined the
+ * email over a just-published equally-relevant one. This graduated boost
+ * (+2 within 24h, +1 within 48h) lets truly fresh listings win those near-ties
+ * without letting an irrelevant-but-new job outrank a strong old match.
+ *
+ * Pure: caller supplies `nowMs`. Returns 0 for jobs with no parseable
+ * `firstSeenAt` (never resurrects a 0-score job — callers must only add the
+ * boost to already-positive scores).
+ *
+ * @param {object} job    Job from data/jobs.json.
+ * @param {number} nowMs  Current epoch ms.
+ * @returns {0|1|2}
+ */
+export function freshnessBoost(job, nowMs) {
+  const ts = Date.parse(String(job?.firstSeenAt || ''));
+  if (!Number.isFinite(ts)) return 0;
+  const age = nowMs - ts;
+  if (age < 0) return 0; // malformed future timestamp — no boost
+  if (age <= FRESHNESS_BOOST_24H_MS) return 2;
+  if (age <= FRESHNESS_BOOST_48H_MS) return 1;
+  return 0;
+}
+
+/**
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.

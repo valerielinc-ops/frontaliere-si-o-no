@@ -25,7 +25,7 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
-import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
+import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference, freshnessBoost } from '../services/jobAlertMatching.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -51,7 +51,16 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+// Candidate-pool gate: jobs whose crawledAt (or postedDate fallback) falls
+// inside this window. NOTE: crawledAt refreshes on every re-crawl, so this is
+// an "inventory still listed as of the last day" gate, NOT a "new jobs" gate —
+// genuine novelty is keyed on firstSeenAt (freshnessBoost + the NEW badge),
+// and per-user novelty is enforced by the sentJobIds dedup (alert-sent-jobs.mjs).
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+// Max job cards rendered in one alert email. Also the honest basis for the
+// subject/hero counts and for the sentJobIds rotation (only what the user
+// actually SAW is marked as sent).
+const MAX_JOB_CARDS = 10;
 const MAX_RETRY_COUNT = 2; // Max 2 retries (original + 2 = 3 total attempts)
 const RETRY_COLLECTION = 'job_alert_retry_queue';
 
@@ -634,6 +643,15 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
   const subjectLabel = keyword || locationLabel || s.subjectDefault;
 
+  // Honest counts (live report: "186 nuove offerte per te" on an email showing
+  // 10 cards). Every count the email states — subject "(+N more)", hero,
+  // preheader — is based on the jobs actually RENDERED in this email, not the
+  // full match-pool size: the pool is a rolling crawledAt window that re-admits
+  // the whole re-crawled inventory daily, so its size says nothing about
+  // novelty. What makes the rendered jobs "new for you" is the sentJobIds
+  // dedup (never emailed to this alert before) + the freshness-first ranking.
+  const shownJobs = matchedJobs.slice(0, MAX_JOB_CARDS);
+
   // Subject: lead with the most relevant job (LinkedIn-style personalization).
   // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
   // Capped at 78 characters total. Empty matches fall back to the legacy generic subject.
@@ -694,10 +712,10 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   if (matchedJobs.length === 0) {
     subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
   } else {
-    const topJob = matchedJobs[0];
+    const topJob = shownJobs[0];
     const topTitle = stripTitleNoise(cleanTitle(topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle));
     const topCompany = (topJob.company || '').trim();
-    const extra = matchedJobs.length - 1;
+    const extra = shownJobs.length - 1;
     const bell = '\ud83d\udd14';
     const suffix = extra > 0 ? ` (+${extra} ${s.more})` : '';
     // Build: "🔔 {title} at {company}{suffix}"
@@ -757,7 +775,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     return `<span style="font-size:10px;background:${bg};color:${color};padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${label}</span>`;
   };
 
-  const jobCards = matchedJobs.slice(0, 10).map((job) => {
+  const jobCards = shownJobs.map((job) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
@@ -832,7 +850,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(matchedJobs.length, subjectLabel)}&nbsp;\u200c\u200c\u200c\u200c</div>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(shownJobs.length, subjectLabel)}&nbsp;\u200c\u200c\u200c\u200c</div>
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
@@ -853,7 +871,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
         <!-- Hero -->
         <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
-          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(matchedJobs.length)}</div>
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(shownJobs.length)}</div>
           <div style="font-size:13px;color:#94a3b8;margin-top:6px;">${s.filters}: ${filterSummary}</div>
         </td></tr>
 
@@ -912,8 +930,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
   // ── Plaintext alternative (multipart/alternative) ──────────
   // Built from the same data source as the HTML — never regex-stripped.
-  const heroLine = s.heroTitle(matchedJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
-  const textJobs = matchedJobs.slice(0, 10).map((job) => {
+  const heroLine = s.heroTitle(shownJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
+  const textJobs = shownJobs.map((job) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
@@ -1425,8 +1443,17 @@ async function main() {
     // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
     // so a test listing can't reach real alert subscribers.
     const eligibleJobs = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+    // Relevance score + graduated freshness boost: a job first seen within
+    // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
+    // near-ties against the re-crawled backlog (the pool re-admits the whole
+    // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
+    // 0-score job: relevance still decides IF a job surfaces, freshness only
+    // decides how high.
     const sorted = eligibleJobs
-      .map((job) => ({ job, score: scoreJobForAlert(job, profile) }))
+      .map((job) => {
+        const relevance = scoreJobForAlert(job, profile);
+        return { job, score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0 };
+      })
       .filter((m) => m.score > 0)
       .sort((a, b) => {
         // Primary: higher score first.
@@ -1498,9 +1525,9 @@ async function main() {
     const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, liveMatched, autologinEnabled);
 
     // Mark the jobs actually shown (the rendered cards) as sent so they rotate
-    // out next run. buildAlertEmail renders up to 10 cards. References, not
-    // copies — cheap to carry to the post-send persistence step.
-    const sentJobs = liveMatched.slice(0, 10);
+    // out next run. buildAlertEmail renders up to MAX_JOB_CARDS cards.
+    // References, not copies — cheap to carry to the post-send persistence step.
+    const sentJobs = liveMatched.slice(0, MAX_JOB_CARDS);
 
     // Per-user send-time (#3798): this channel's own preferred hour first
     // (job_alert_subscribers/{email}), falling back to the subscriber's
