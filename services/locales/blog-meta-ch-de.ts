@@ -1090,6 +1090,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Lächeln für Grenzgänger, 1,7 Millionen für Grenzmobilität',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Ein Projekt namens SMILE soll die Mobilität zwischen den Provinzen Como und Varese und dem Kanton Tessin verbessern.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier auf Fahrrad, Grenze Schweiz',
+    'blog.article.ticino-frontalieri-como.title': 'Tessin, Grenzgänger von Como punktiert auf zwei Zonen',
+    'blog.article.ticino-frontalieri-como.excerpt': '65% der Grenzgänger und Studenten, die in das Tessin einreisen, kommen aus Como und Varese',
+    'blog.article.ticino-frontalieri-como.imageAlt': 'Eine Szene der Autobahn zwischen Lugano und Chiasso mit einer Reihe von Fahrzeugen in Richtung Ticino',
 };
 
 export default blogMetaChDe;

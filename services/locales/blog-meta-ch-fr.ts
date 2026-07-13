@@ -1090,6 +1090,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smile pour les frontaliers, 1,7 million pour la mobilité frontalière',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un projet appelé SMILE cherche à améliorer la mobilité entre les provinces de Côme et de Varèse et le canton du Tessin.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier en vélo, frontière Suisse',
+    'blog.article.ticino-frontalieri-como.title': 'Tessin, frontalier de Côme pointe sur deux zones',
+    'blog.article.ticino-frontalieri-como.excerpt': '65% des frontaliers et des étudiants qui entrent dans le Tessin viennent de Côme et de Varèse',
+    'blog.article.ticino-frontalieri-como.imageAlt': 'Une scène de route entre Lugano et Chiasso avec une file de véhicules dans la direction du Tessin',
 };
 
 export default blogMetaChFr;

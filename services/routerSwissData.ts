@@ -386,6 +386,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'secondo-pilastro-previdenza-professionale-lpp-svizzera': { it: 'secondo-pilastro-previdenza-professionale-lpp-svizzera', en: 'how-second-pillar-occupational-pension-lpp-works', de: 'wie-zweite-saeule-berufliche-vorsorge-bvg-funktioniert', fr: 'comment-deuxieme-pilier-prevoyance-professionnelle-lpp-fonctionne' },
  'credito-imposte-estere-parametrato-al-reddito-le-casistiche': { it: 'credito-imposte-estere-parametrato-al-reddito-le-casistiche', en: 'foreign-tax-credit-parameterized-on-income', de: 'auslandsteuer-credit-parameterisiert-gegen-renten', fr: 'credit-impot-etranger-parameterise-sur-revenu' },
  'frontalieri-bicicletta-smile': { it: 'frontalieri-bicicletta-smile', en: 'frontaliers-bike-smile', de: 'frontalier-fahrrad-smile', fr: 'frontalier-velo-smile' },
+ 'ticino-frontalieri-como': { it: 'ticino-frontalieri-como', en: 'ticino-frontaliers-como', de: 'ticino-frontalieri-como', fr: 'ticino-frontaliers-como' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

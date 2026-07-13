@@ -1090,6 +1090,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smiles for border workers, 1.7 million for border mobility',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'A project called SMILE seeks to improve mobility between the provinces of Como and Varese and the Canton of Ticino.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier on a bike crossing the border in Switzerland',
+    'blog.article.ticino-frontalieri-como.title': 'Ticino, border crossing from Como focuses on two areas',
+    'blog.article.ticino-frontalieri-como.excerpt': '65% of border crossers and students entering Ticino come from Como and Varese',
+    'blog.article.ticino-frontalieri-como.imageAlt': 'A scene of highway between Lugano and Chiasso with a line of vehicles in the direction of Ticino',
 };
 
 export default blogMetaChEn;
