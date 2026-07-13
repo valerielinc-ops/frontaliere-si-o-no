@@ -6656,6 +6656,13 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
   const mergedPostedDate = pickMergedPostedDate(a, b);
   if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
+  // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
+  // the two colliding records are the SAME posting, so whichever side loses
+  // preferJob() must not take the fresher "seen live" proof down with it —
+  // quality outranks recency in preferJob, so the winner can carry the
+  // STALER timestamp.
+  const mergedCrawledAt = pickMergedCrawledAt(a, b);
+  if (mergedCrawledAt) chosen.crawledAt = mergedCrawledAt;
 
   // Whichever side didn't win, its currently-active slug/slugByLocale must
   // not vanish untracked — journal it via the shared capture helper.
@@ -6714,6 +6721,32 @@ export function pickMergedPostedDate(prev = {}, next = {}) {
     !Number.isNaN(prevD.getTime())
     && (Number.isNaN(nextD.getTime()) || prevD.getTime() < nextD.getTime())
   ) {
+    return prevVal;
+  }
+  return nextVal;
+}
+
+// Pick the merged crawledAt for a duplicate pair. Semantics contract:
+// crawledAt = the LAST time the posting was seen live on the source site —
+// NEWEST wins, the mirror image of pickMergedPostedDate's older-wins rule
+// above (postedDate is immutable history; crawledAt is a liveness heartbeat).
+// Every consumer reads it that way: send-job-alerts' 24h MATCH_WINDOW_MS,
+// jobsSeoPagesPlugin's validThrough = crawledAt+60d ("verified active at
+// crawl time") and sitemap lastmod, cleanup-jobs' STALE_DAYS age-out,
+// backfill-expired-from-history ("when we last saw it alive"), recencyTs
+// ranking. mergePreserveLocaleData (the dedicated-crawler merge) already
+// behaves this way because the fresh job wins wholesale; mergeAndDeduplicate
+// below historically kept prev's (oldest) crawledAt forever, so shared-
+// pipeline jobs aged out of every freshness window a day after first crawl
+// even though each run re-verified them live (~7k of 25.7k jobs stale).
+export function pickMergedCrawledAt(prev = {}, next = {}) {
+  const prevVal = prev.crawledAt || '';
+  const nextVal = next.crawledAt || '';
+  if (!prevVal) return nextVal;
+  if (!nextVal) return prevVal;
+  const prevT = new Date(prevVal).getTime();
+  const nextT = new Date(nextVal).getTime();
+  if (!Number.isNaN(prevT) && (Number.isNaN(nextT) || prevT > nextT)) {
     return prevVal;
   }
   return nextVal;
@@ -6801,7 +6834,12 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...next,
       id: prev.id || next.id,
       postedDate: pickMergedPostedDate(prev, next) || nowIsoDate,
-      crawledAt: prev.crawledAt || next.crawledAt || nowIsoTs,
+      // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
+      // `next` was scraped THIS run (stamped nowIsoTs above), which proves
+      // the posting is still up. The old `prev.crawledAt || …` order froze
+      // the FIRST crawl's timestamp forever, silently aging re-verified jobs
+      // out of send-job-alerts' 24h window and validThrough refresh.
+      crawledAt: pickMergedCrawledAt(prev, next) || nowIsoTs,
       firstSeenAt: prev.firstSeenAt || next.firstSeenAt || nowIsoTs,
       description: (next.description?.length || 0) >= (prev.description?.length || 0) ? next.description : prev.description,
       requirements: (next.requirements?.length || 0) >= (prev.requirements?.length || 0) ? next.requirements : prev.requirements,
@@ -6886,6 +6924,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // postedDate would silently win — force the merged date onto whichever
     // side was picked.
     chosen.postedDate = best.postedDate;
+    // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
+    // already holds the newest-wins last-seen-live timestamp; if preferJob
+    // returned `prev` wholesale (e.g. higher quality score), prev's stale
+    // crawledAt would win and the freshly re-verified job would drop out of
+    // every crawledAt-based freshness window — force the merged timestamp
+    // onto whichever side was picked.
+    chosen.crawledAt = best.crawledAt;
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');
