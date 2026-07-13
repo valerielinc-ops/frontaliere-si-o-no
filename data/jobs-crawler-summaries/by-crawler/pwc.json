@@ -1,49 +1,18 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-13T12:20:15.315Z",
+  "generatedAt": "2026-07-13T22:04:29.092Z",
   "total": 136,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 96,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 2915,
-  "avgDurationMs": 2915,
+  "unchangedCount": 9,
+  "durationMs": 2610,
+  "avgDurationMs": 2610,
   "durationHistory": [
-    2915
+    2610
   ],
-  "newJobs": [
-    {
-      "title": "Senior Associate - Marketing Senior Consultant Financial Services",
-      "slug": "senior-associate-marketing-senior-consultant-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-senior-consultant-financial-services/9984d496-8a05-4369-86f7-e748851850f7",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Marketing-Senior-Consultant-Financial-Services_735045WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-13",
-      "validThrough": "2036-07-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Praktikum Digital Assurance, IT Audit and Process Analytics (Sept-Feb, Financial Services)",
@@ -347,12 +316,17 @@
       "validThrough": "2036-06-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-378fe9f673e4",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-30T23:00:56.592Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -449,12 +423,17 @@
       "validThrough": "2036-06-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-2960bacdbee1",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T13:41:36.881Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -905,12 +884,17 @@
       "validThrough": "2036-06-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-7f6ee3851b03",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-10T12:50:57.954Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -1090,6 +1074,41 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Senior Associate - Marketing Senior Consultant Financial Services",
+      "slug": "senior-associate-marketing-senior-consultant-financial-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-senior-consultant-financial-services/9984d496-8a05-4369-86f7-e748851850f7",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Marketing-Senior-Consultant-Financial-Services_735045WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-13",
+      "validThrough": "2036-07-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-4f0a7e549851",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-13T12:20:15.295Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "title": "(Senior) Manager - Transfer Pricing",
       "slug": "senior-manager-transfer-pricing-pwc-zurich",
