@@ -8460,6 +8460,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-smart-working.title': 'Die Schweiz ist europäischer Marktführer im Bereich Smart Working',
     'blog.article.svizzera-smart-working.excerpt': 'Der Anteil der Arbeitsplätze, die die Möglichkeit bieten, aus der Ferne zu arbeiten, ist im Jahr 2023 um 12,7% gestiegen',
     'blog.article.svizzera-smart-working.imageAlt': 'Panoramablick auf Bellinzona',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Deutsch- und Französischkurse für italienischsprachige Grenzgänger',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Konkrete Informationen zu den Deutsch- und Französischkursen für italienischsprachige Grenzgänger im Tessin, mit verfügbaren Schulen und Fördermitteln.',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Bild einer italienisch-schweizerischen Grenzgängerin, die Deutsch oder Französisch in einer Schule des Kantons Tessin lernt.',
 };
 
 export default blogMetaDe;

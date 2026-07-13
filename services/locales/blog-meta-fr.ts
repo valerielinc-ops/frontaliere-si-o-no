@@ -8462,6 +8462,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-smart-working.title': 'La Suisse est le leader européen du smart working',
     'blog.article.svizzera-smart-working.excerpt': 'Le pourcentage de postes de travail offrant la possibilité de travailler à distance a augmenté de 12,7 % en 2023',
     'blog.article.svizzera-smart-working.imageAlt': 'Vue panoramique de Bellinzona',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Cours d\'allemand et de français pour frontaliers italophones',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Informations concrètes sur les cours d\'allemand et de français pour frontaliers italophones au Tessin, avec les écoles et les financements disponibles.',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Image d\'un travailleur frontalier italo-suisse apprenant l\'allemand ou le français dans une école du canton du Tessin.',
 };
 
 export default blogMetaFr;

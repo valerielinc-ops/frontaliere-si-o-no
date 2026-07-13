@@ -8462,6 +8462,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-smart-working.title': 'La Svizzera è leader europeo dello smart working',
     'blog.article.svizzera-smart-working.excerpt': 'La percentuale di posizioni lavorative che prevedono la possibilità di lavorare da remoto è aumentata del 12,7% nel 2023',
     'blog.article.svizzera-smart-working.imageAlt': 'Vista panoramica di Bellinzona',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Corsi tedesco e francese per frontalieri italofoni',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Informazioni concrete sui corsi di tedesco e francese per frontalieri italofoni in Ticino, con scuole e finanziamenti disponibili.',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Immagine fotorealistica di un frontaliere italofono che studia tedesco o francese in una scuola del Canton Ticino.',
 };
 
 export default blogMetaIt;

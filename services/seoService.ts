@@ -4504,6 +4504,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-doppio-lavoro-incastrato-ticino': { name: 'Frontaliere doppio lavoro', path: '/articoli-svizzera/frontaliere-doppio-lavoro-incastrato-ticino/', parent: 'blog' },
     'blog-svizzera-smart-working': { name: 'La Svizzera è leader europeo dello smart', path: '/articoli-frontaliere/svizzera-smart-working', parent: 'blog' },
     'blog-corsi-tedesco-francese-frontalieri-italofoni-ticino': { name: 'Corsi lingue frontalieri', path: '/articoli-svizzera/corsi-tedesco-francese-frontalieri-italofoni-ticino/', parent: 'blog' },
+    'blog-corsi-di-tedesco-o-francese-per-frontalieri-italofoni': { name: 'corsi-di-tedesco-o-francese', path: '/articoli-frontaliere/corsi-di-tedesco-o-francese-per-frontalieri-italofoni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
