@@ -8474,6 +8474,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Ticino, rincari e commercianti in crisi: il caro vita colpisce anche la Svizzera',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'Aumenti LAMal +8% in Ticino, commercianti in difficoltà. Il vicesindaco di Chiasso: non è più la Svizzera di una volta. Cosa cambia per i frontalieri.',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Via principale di Chiasso con negozi e caffè, pendolari frontalieri in transito verso la Svizzera',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Servizi per chi lavora in Svizzera, ogni martedì a Varese',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'Il servizio gestito da CGIL, CISL e UIL, in collaborazione con il Comune, sarà attivo nella sede centrale di via Como. Offre consulenze su fisco, previdenza, permessi e sicurezza sociale per chi lavora oltreconfine.',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Sede dell\'Informagiovani a Lugano.',
 };
 
 export default blogMetaIt;

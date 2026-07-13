@@ -4512,6 +4512,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-luino-lavorare-ticino': { name: 'Frontaliere Luino Ticino', path: '/articoli-frontaliere/vivere-luino-lavorare-ticino', parent: 'blog' },
     'blog-ticino-rincari-caro-vita-commercianti-2025': { name: 'Ticino, rincari e commercianti in crisi', path: '/articoli-frontaliere/ticino-rincari-caro-vita-commercianti-2025', parent: 'blog' },
     'blog-credito-imposte-estere-parametrato-al-reddito-le-casistiche': { name: 'Benefici fiscali per i frontalieri', path: '/articoli-svizzera/credito-imposte-estere-parametrato-al-reddito-le-casistiche/', parent: 'blog' },
+    'blog-sportello-frontalieri-si-sposta-allinformagiovani-di-varese': { name: 'Sportello Frontalieri', path: '/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

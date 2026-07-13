@@ -25460,6 +25460,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sportello-frontalieri-si-sposta-allinformagiovani-di-varese',
+ category: 'pratico',
+ date: '2026-07-13T09:26:50.908Z',
+ image: '/images/blog/sportello-frontalieri-si-sposta-allinformagiovani-di-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

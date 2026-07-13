@@ -49017,6 +49017,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sportello-frontalieri-si-sposta-allinformagiovani-di-varese': {
+    title: 'Servizi per chi lavora in Svizzera, ogni martedì a Varese',
+    description: 'Il servizio gestito da CGIL, CISL e UIL, in collaborazione con il Comune, sarà attivo nella sede centrale di via Como. Offre consulenze su fisco, previdenza',
+    keywords: 'frontalieri, ticino, svizzera, italia, servizi, lavora, ogni, martedì',
+    ogTitle: 'Lo Sportello Frontalieri si sposta all\'Informagiovani di Varese',
+    ogDescription: 'Il servizio gestito da CGIL, CISL e UIL, in collaborazione con il Comune, sarà attivo nella sede centrale di via Como. Offre consulenze su fisco, previdenza',
+    canonicalPath: '/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Servizi per chi lavora in Svizzera, ogni martedì a Varese",
+      "description": "Il servizio gestito da CGIL, CISL e UIL, in collaborazione con il Comune, sarà attivo nella sede centrale di via Como. Offre consulenze su fisco, previdenza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sportello-frontalieri-si-sposta-allinformagiovani-di-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede dell'Informagiovani a Lugano."
+      },
+      "datePublished": "2026-07-13T09:26:50+00:00",
+      "dateModified": "2026-07-13T09:26:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
