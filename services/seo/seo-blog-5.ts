@@ -49056,6 +49056,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-calano-ticino': {
+    title: 'Ticino: i frontalieri calano | Frontaliere Ticino',
+    description: 'I frontalieri italiani in Svizzera sono in calo, ma in alcuni paesi della Svizzera italiana essi rappresentano più del 50% della forza lavoro. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, calano, italiani, sono, calo',
+    ogTitle: 'Frontalieri in Ticino calano: cosa significa per gli italiani',
+    ogDescription: 'I frontalieri italiani in Svizzera sono in calo, ma in alcuni paesi della Svizzera italiana essi rappresentano più del 50% della forza lavoro',
+    canonicalPath: '/articoli-frontaliere/frontalieri-calano-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: i frontalieri calano",
+      "description": "I frontalieri italiani in Svizzera sono in calo, ma in alcuni paesi della Svizzera italiana essi rappresentano più del 50% della forza lavoro. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-calano-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagini di persone che attraversano il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-13T09:46:57+00:00",
+      "dateModified": "2026-07-13T09:46:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-calano-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

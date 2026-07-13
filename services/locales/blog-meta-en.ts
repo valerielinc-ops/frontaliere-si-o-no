@@ -8476,6 +8476,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Services for those who work in Switzerland, every Tuesday in Varese',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'The service managed by CGIL, CISL and UIL, in collaboration with the Municipality, will be active at the headquarters in Via Como. It offers advice on tax, social security, permits and social security for those who work abroad.',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Informagiovani headquarters in Lugano.',
+    'blog.article.frontalieri-calano-ticino.title': 'Ticino: border crossers fall',
+    'blog.article.frontalieri-calano-ticino.excerpt': 'Italian border workers in Switzerland are on the decline, but in some countries of Italian Switzerland they represent more than 50% of the workforce',
+    'blog.article.frontalieri-calano-ticino.imageAlt': 'People crossing the Italian-Swiss border',
 };
 
 export default blogMetaEn;
