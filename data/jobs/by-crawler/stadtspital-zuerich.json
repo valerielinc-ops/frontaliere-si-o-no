@@ -73,10 +73,10 @@
     },
     {
       "id": "stadtspital-zuerich-ba47a63b7319",
-      "slug": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
+      "slug": "oberarztin-oberarzt-orthopala-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
-        "it": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
+        "it": "oberarztin-oberarzt-orthopala-stadtspital-zurich-zurich",
         "en": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
         "fr": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
       },
@@ -138,7 +138,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
+      ]
     },
     {
       "id": "stadtspital-zuerich-7959b1fca8d4",
@@ -3394,12 +3402,12 @@
     },
     {
       "id": "stadtspital-zuerich-3eaa619fe71c",
-      "slug": "business-intelligence-specialist-stadtspital-zuerich-49573",
+      "slug": "business-intelligence-specialista-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "business-intelligence-specialist-stadtspital-zuerich-49573",
-        "it": "business-intelligence-specialist-stadtspital-zuerich-49573",
+        "it": "business-intelligence-specialista-stadtspital-zurich-zurich",
         "en": "business-intelligence-specialist-stadtspital-zurich-zurich",
-        "fr": "business-intelligence-specialist-stadtspital-zuerich-49573"
+        "fr": "business-intelligence-specialiste-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3459,7 +3467,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-intelligence-specialist-stadtspital-zuerich-49573"
+        ],
+        "fr": [
+          "business-intelligence-specialist-stadtspital-zuerich-49573"
+        ]
+      },
+      "previousSlugs": [
+        "business-intelligence-specialist-stadtspital-zuerich-49573"
+      ]
     },
     {
       "id": "stadtspital-zuerich-9ffebb693f1c",
