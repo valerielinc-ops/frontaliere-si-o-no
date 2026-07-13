@@ -8484,6 +8484,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': '...',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Minister Farandou vor der Nationalversammlung: Frankreich verliert mit dem derzeitigen System jährlich 860 Millionen Euro. Das Europa-Abkommen sieht vor, dass die Zulagen vom Arbeitsland gezahlt werden.',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Grenzübergang Brogeda mit Grenzgängern am Morgen',
+    'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Schweiz: Das Zeitalter der Mega-Batterien beginnt',
+    'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'Die Schweiz baut das Netz mit neuen Speicheranlagen aus. Erfahren Sie, wie sie funktionieren und welche Auswirkungen sie auf den privaten Strommarkt haben.',
+    'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Energiespeicheranlage in der Schweiz',
 };
 
 export default blogMetaDe;

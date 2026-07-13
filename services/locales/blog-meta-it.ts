@@ -8486,6 +8486,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'Francia fa pressione su Svizzera per indennità disoccupazione frontalieri',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Il ministro Farandou all\'Assemblea nazionale: la Francia perde 860 milioni di euro l\'anno con l\'attuale sistema. L\'accordo europeo prevede che le indennità siano pagate dal Paese di lavoro.',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Valico di Brogeda con frontalieri al mattino presto',
+    'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Svizzera: al via l\'era delle mega batterie',
+    'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'La Svizzera potenzia la rete con nuovi impianti di accumulo. Scopri come funzionano e l\'impatto sul mercato elettrico privato.',
+    'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Impianto di accumulo energia in Svizzera',
 };
 
 export default blogMetaIt;

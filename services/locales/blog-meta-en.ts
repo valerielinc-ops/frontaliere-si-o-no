@@ -8485,6 +8485,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'France puts pressure on Switzerland for frontier unemployment benefits',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Minister Farandou at the National Assembly: France loses 860 million euros a year under the current system. The European agreement provides for allowances to be paid by the country of employment.',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Brogeda border crossing with cross-border workers in the morning',
+    'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Switzerland: The era of mega batteries begins',
+    'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'Switzerland is upgrading the network with new storage systems. Find out how they work and the impact on the private electricity market.',
+    'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Energy storage facility in Switzerland',
 };
 
 export default blogMetaEn;
