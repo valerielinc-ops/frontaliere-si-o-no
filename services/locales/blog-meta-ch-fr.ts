@@ -1096,6 +1096,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegno-inclusione-luglio-2026.title': 'Chèque d\'Inclusion juillet 2026 : quand arrivent les paiements',
     'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Les travaux de la mi-juillet du chèque d\'inclusion ont commencé. Les paiements seront arrangés autour du 15 juillet.',
     'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: les gens vérifient leurs portefeuilles pour Assegno di Inclusione.',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Indemnité frontalière : la réforme de l\'UE qui coûte des milliards',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Bruxelles réforme les allocations chômage : la Suisse risque jusqu\'à 1 milliard de francs de plus par an',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse, face au drapeau de l\'UE',
 };
 
 export default blogMetaChFr;

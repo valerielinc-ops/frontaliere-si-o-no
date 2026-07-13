@@ -4519,6 +4519,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-frontalieri-como': { name: 'Ticino', path: '/articoli-svizzera/ticino-frontalieri-como/', parent: 'blog' },
     'blog-assegno-inclusione-luglio-2026': { name: 'Assegno di Inclusione luglio 2026', path: '/articoli-svizzera/assegno-inclusione-luglio-2026/', parent: 'blog' },
     'blog-francia-pressione-svizzera-disoccupazione-frontalieri': { name: 'Francia fa pressione su Svizzera per ind', path: '/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri', parent: 'blog' },
+    'blog-frontalieri-disoccupati-riforma-bruxelles': { name: 'Indennità frontalieri', path: '/articoli-svizzera/frontalieri-disoccupati-riforma-bruxelles/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
