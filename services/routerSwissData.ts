@@ -390,6 +390,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'assegno-inclusione-luglio-2026': { it: 'assegno-inclusione-luglio-2026', en: 'luglio-2026-assegno-inclusione', de: 'luglio-2026-assegno-inclusione', fr: 'luglio-2026-assegno-inclusione' },
  'frontalieri-disoccupati-riforma-bruxelles': { it: 'frontalieri-disoccupati-riforma-bruxelles', en: 'cross-border-workers-unemployment-reform-brussels', de: 'grenzgaenger-arbeitslosenleistungen-reform-bruessel', fr: 'travailleurs-frontieres-chomage-reforme-bruxelles' },
  'redditi-estero-controllo-fiscale': { it: 'redditi-estero-controllo-fiscale', en: 'foreign-income-tax-controls-switzerland', de: 'auslaendische-einkuenfte-steuerkontrollen-schweiz', fr: 'revenus-etrangers-controles-fiscaux-suisse' },
+ 'ai-verso-la-bancarotta-forse-gia-nel-2030': { it: 'ai-verso-la-bancarotta-forse-gia-nel-2030', en: 'ai-verso-la-bancarotta-forse-gia-nel-2030', de: 'ai-verso-la-bancarotta-forse-gia-nel-2030', fr: 'ai-verso-la-bancarotta-forse-gia-nel-2030' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

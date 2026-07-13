@@ -1102,6 +1102,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.redditi-estero-controllo-fiscale.title': 'Auslandseinkommen: Wie man mit der Besteuerung umgeht',
     'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Praktischer Leitfaden zu Steuerkontrollen für im Ausland erzielte Einkommen und Regeln zur Vermeidung der Doppelbesteuerung zwischen Italien und der Schweiz.',
     'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Schweizer Steuerunterlagen auf einem Schreibtisch mit Taschenrechner',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'AI auf dem Weg in den Konkurs: Invalidität mit 18 Jahren',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'Der Schweizer Invalidenversicherung droht bis Anfang 2030 der Bankrott.',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Eine Foto von Lugano mit den Bergen im Hintergrund, mit einer Arbeitsszene im Vordergrund.',
 };
 
 export default blogMetaChDe;

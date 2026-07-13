@@ -14214,6 +14214,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ai-verso-la-bancarotta-forse-gia-nel-2030': {
+    title: 'L\'AI verso la bancarotta: invalidità a 18 anni',
+    description: 'L\'Assicurazione Invalidità svizzera rischia la bancarotta entro i primi anni del 2030. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, verso, bancarotta, invalidità, anni',
+    ogTitle: 'L\'AI verso la bancarotta, forse già nel 2030',
+    ogDescription: 'L\'Assicurazione Invalidità svizzera rischia la bancarotta entro i primi anni del 2030.',
+    canonicalPath: '/articoli-svizzera/ai-verso-la-bancarotta-forse-gia-nel-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'AI verso la bancarotta: invalidità a 18 anni",
+      "description": "L'Assicurazione Invalidità svizzera rischia la bancarotta entro i primi anni del 2030. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ai-verso-la-bancarotta-forse-gia-nel-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto della città di Lugano con la montagna sullo sfondo, con una scena di lavoro in primo piano."
+      },
+      "datePublished": "2026-07-13T20:11:16+00:00",
+      "dateModified": "2026-07-13T20:11:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ai-verso-la-bancarotta-forse-gia-nel-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

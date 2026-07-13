@@ -3302,6 +3302,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'ai-verso-la-bancarotta-forse-gia-nel-2030',
+    category: 'fiscale',
+    date: '2026-07-13T20:11:16.342Z',
+    image: '/images/blog/ai-verso-la-bancarotta-forse-gia-nel-2030.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
