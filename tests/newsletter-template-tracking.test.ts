@@ -284,6 +284,18 @@ describe('popularity decay (anti-evergreen-freeze)', () => {
     expect(decayFactor(job, NOW)).toBeCloseTo(1, 5);
     expect(decayFactor({ postedDate: '30/13/26', firstSeenAt: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
   });
+
+  it('a daily re-crawl cannot reset a job\'s age (firstSeenAt beats crawledAt)', () => {
+    // crawledAt refreshes on EVERY re-crawl; with it ahead of firstSeenAt in
+    // the date-field order, every re-crawled postedDate-less job "aged" ~0 days
+    // forever and the anti-evergreen decay never kicked in.
+    const evergreen = { firstSeenAt: daysAgoIso(90), crawledAt: daysAgoIso(0) };
+    expect(decayFactor(evergreen, NOW)).toBeCloseTo(0.125, 5);
+  });
+
+  it('still uses crawledAt as the last-resort date when nothing else parses', () => {
+    expect(decayFactor({ crawledAt: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
+  });
 });
 
 describe('no-profile job blend + backfill-slug relevance', () => {

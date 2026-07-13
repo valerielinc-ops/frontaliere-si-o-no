@@ -3,6 +3,7 @@ import {
   buildAlertProfile,
   scoreJobForAlert,
   partitionByGeoPreference,
+  freshnessBoost,
   GEO_PREFERENCE_MIN_LOCAL,
 } from '../services/jobAlertMatching.mjs';
 
@@ -388,5 +389,37 @@ describe('jobAlertMatching — profile geo preference (issue #2993)', () => {
     const profile = buildAlertProfile({ keywords: ['infermiere'] }, {}, { cityToCanton });
     const ranked = [baselNurse(0), tiNurse(0)];
     expect(partitionByGeoPreference(ranked, profile)).toEqual(ranked);
+  });
+});
+
+describe('jobAlertMatching — freshnessBoost (genuinely-new jobs win near-ties)', () => {
+  const NOW = Date.parse('2026-07-13T08:00:00Z');
+  const hoursAgo = (h: number) => new Date(NOW - h * 3600 * 1000).toISOString();
+
+  it('+2 for a job first seen within 24h', () => {
+    expect(freshnessBoost(job({ firstSeenAt: hoursAgo(3) }), NOW)).toBe(2);
+  });
+
+  it('+1 for a job first seen between 24h and 48h ago', () => {
+    expect(freshnessBoost(job({ firstSeenAt: hoursAgo(36) }), NOW)).toBe(1);
+  });
+
+  it('0 for a job first seen more than 48h ago', () => {
+    expect(freshnessBoost(job({ firstSeenAt: hoursAgo(72) }), NOW)).toBe(0);
+  });
+
+  it('0 when firstSeenAt is missing or unparseable (never invents freshness)', () => {
+    expect(freshnessBoost(job({ firstSeenAt: undefined }), NOW)).toBe(0);
+    expect(freshnessBoost(job({ firstSeenAt: 'not-a-date' }), NOW)).toBe(0);
+    expect(freshnessBoost(null as unknown as Record<string, unknown>, NOW)).toBe(0);
+  });
+
+  it('0 for a malformed FUTURE firstSeenAt', () => {
+    expect(freshnessBoost(job({ firstSeenAt: hoursAgo(-5) }), NOW)).toBe(0);
+  });
+
+  it('is keyed on firstSeenAt only — a fresh crawledAt on an old job earns nothing', () => {
+    const recrawled = job({ firstSeenAt: hoursAgo(24 * 30), crawledAt: hoursAgo(1) });
+    expect(freshnessBoost(recrawled, NOW)).toBe(0);
   });
 });

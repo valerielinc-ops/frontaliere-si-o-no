@@ -78,6 +78,61 @@ describe('job alert email — subject personalization', () => {
   });
 });
 
+describe('job alert email — honest counts (shown jobs, never the raw pool size)', () => {
+  // Live regression (July 2026): "🔔 186 nuove offerte per te" on an email
+  // rendering 10 cards. The candidate pool is a rolling crawledAt window that
+  // re-admits the whole re-crawled inventory daily (~16k jobs, only ~400
+  // genuinely new), so the raw match count is meaningless as a "new" claim.
+  // Every stated count must describe what the email actually shows.
+  it('hero and preheader count the rendered cards (max 10), not all matches', () => {
+    const jobs = Array.from({ length: 186 }, (_, i) => fixtureJob({ title: `Job ${i + 1}` }));
+    const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
+    expect(result.html).toContain('10 nuove offerte per te');
+    expect(result.html).not.toContain('186 nuove');
+    // Preheader too.
+    expect(result.html).toContain('10 nuove offerte:');
+    // Plaintext hero line.
+    expect(result.text).toContain('10 nuove offerte per te');
+  });
+
+  it('subject "+N more" counts the other rendered cards, not the pool', () => {
+    const jobs = Array.from({ length: 186 }, (_, i) => fixtureJob({ title: `Job ${i + 1}` }));
+    const result = buildAlertEmail(fixtureAlert('en'), jobs, true);
+    expect(result.subject).toContain('(+9 more)');
+    expect(result.subject).not.toContain('185');
+  });
+
+  it('counts stay exact when fewer than 10 jobs match', () => {
+    const jobs = Array.from({ length: 3 }, (_, i) => fixtureJob({ title: `Job ${i + 1}` }));
+    const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
+    expect(result.html).toContain('3 nuove offerte per te');
+    expect(result.subject).toContain('(+2 altre offerte)');
+  });
+});
+
+describe('job alert email — ✨ NUOVA badge keyed on firstSeenAt (48h)', () => {
+  it('badges a job first seen within 48h', () => {
+    const job = fixtureJob({ firstSeenAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString() });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toContain('✨ NUOVA');
+  });
+
+  it('does NOT badge a job first seen 5 days ago, even if just re-crawled', () => {
+    const job = fixtureJob({
+      firstSeenAt: new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString(),
+      crawledAt: new Date().toISOString(), // re-crawl must not fake novelty
+    });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).not.toContain('✨ NUOVA');
+  });
+
+  it('does NOT badge a job with no firstSeenAt at all', () => {
+    const job = fixtureJob({ firstSeenAt: undefined });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).not.toContain('✨ NUOVA');
+  });
+});
+
 describe('job alert email — plaintext alternative', () => {
   it('returns text alongside html', () => {
     const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
@@ -215,9 +270,10 @@ describe('job alert email — subject truncation polish', () => {
     expect(result.subject.length).toBeLessThanOrEqual(78);
     // No dangling punctuation directly before the ellipsis.
     expect(result.subject).not.toMatch(/[,;:\-]\u2026/);
-    // Full title preserved (+57 altre offerte) — company was dropped.
+    // Full title preserved (+9 altre offerte: honest shown-count, 10 cards
+    // rendered — never the raw match-pool size) — company was dropped.
     expect(result.subject).toContain('Revisori dei conti, esperti tecnici e clinici');
-    expect(result.subject).toContain('(+57 altre offerte)');
+    expect(result.subject).toContain('(+9 altre offerte)');
     // No "presso ..." segment when company was dropped.
     expect(result.subject).not.toMatch(/\bpresso\b/);
   });
@@ -265,7 +321,8 @@ describe('job alert email — subject title noise (Pensum / gender markers)', ()
     // No unbalanced "(" left anywhere in the subject.
     expect((result.subject.match(/\(/g) || []).length).toBe((result.subject.match(/\)/g) || []).length);
     expect(result.subject).toContain('Senior Technical Product Manager - Portafogli');
-    expect(result.subject).toContain('(+48 altre offerte)');
+    // Honest shown-count: 10 cards rendered → +9, not the raw pool size (+48).
+    expect(result.subject).toContain('(+9 altre offerte)');
   });
 
   it('strips range Pensum "(80-100%)" and gender markers "(m/w/d)"', () => {
