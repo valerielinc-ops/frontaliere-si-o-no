@@ -47,7 +47,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
-import { fetchWithRetry, isConnectionLevelFetchError } from './transient-fetch.mjs';
+import { fetchWithRetry, isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {
   decodeEntities,
@@ -96,7 +96,15 @@ async function fetchListingHtml(url, { timeoutMs } = {}) {
     }, { label: `fondation-soins-lausanne listing ${url}` });
     return await rescueHtmlIfChallenged(html, url, { timeoutMs: t });
   } catch (err) {
-    if (isConnectionLevelFetchError(err)) {
+    // Two cases route to the Jina proxy: (a) connection-level failures (no HTTP
+    // response received), and (b) an IP-reputation WAF hard status (403/406/
+    // 415/451, WAF_IP_BLOCK_STATUS) — the server DID respond but with an
+    // anti-bot fence keyed on the datacenter egress IP, which Jina's clean IP
+    // clears. cms-vaud.ch started 403-ing the GitHub Actions egress IP (issue
+    // #4143: 3 consecutive empty runs) while a clean IP still gets a normal
+    // 200 with the real listing — this was previously only checking (a), so
+    // the 403 fell straight through to `return []`.
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
       const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: t });
       if (html != null) return html;
     }

@@ -335,6 +335,28 @@ describe('Fondation Soins Lausanne crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
+    it('rescues an IP-reputation WAF 403 on the listing via the Jina proxy (#4143)', async () => {
+      // cms-vaud.ch started 403-ing the GitHub Actions egress IP while a clean
+      // IP still gets a normal 200 with the real listing (verified live,
+      // #4143: 3 consecutive empty runs). The direct fetch must fall through
+      // to the Jina-proxied fetch instead of returning [] on the 403.
+      globalThis.fetch = vi.fn(async (url: any) => {
+        const u = String(url);
+        if (u.startsWith('https://r.jina.ai/')) {
+          return new Response(SAMPLE_LISTING_HTML, { status: 200 });
+        }
+        if (u.startsWith(LISTING_URL_PREFIX)) {
+          return new Response('', { status: 403 });
+        }
+        // jobup.ch detail enrichment — not the point of this test.
+        return new Response('', { status: 404 });
+      }) as any;
+
+      const jobs = await fetchAllFondationSoinsLausanneJobs();
+      expect(jobs).toHaveLength(2);
+      expect(jobs[0].company).toBe('Fondation Soins Lausanne');
+    });
+
     it('returns [] when the listing has no job-item articles', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
