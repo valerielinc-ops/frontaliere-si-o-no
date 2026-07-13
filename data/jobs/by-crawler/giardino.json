@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-07-12T21:59:06.320Z",
+  "assembledAt": "2026-07-13T12:29:56.842Z",
   "jobs": [
     {
       "id": "giardino-16a607a0c202",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.818Z",
+      "crawledAt": "2026-07-13T12:29:54.060Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -73,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.639Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -117,7 +118,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.818Z",
+      "crawledAt": "2026-07-13T12:29:54.060Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -163,87 +164,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.640Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "giardino-fa048f90699b",
-      "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
-      "slugByLocale": {
-        "it": "reservations-front-office-specialist-m-w-giardino-group-champfer",
-        "en": "reservations-front-office-specialist-m-w-giardino-group-champfer",
-        "de": "reservations-front-office-specialist-m-w-giardino-group-champfer",
-        "fr": "reservations-front-office-specialist-m-w-giardino-group-champfer"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Reservations & Front Office Specialist (m/w)",
-      "titleByLocale": {
-        "it": "Reservations & Front Office Specialista (m/w)",
-        "en": "Reservations & Front Office Specialist (m/f)",
-        "de": "Reservations & Front Office Spezialist (m/w)",
-        "fr": "Reservations & Front Office Spécialiste (m/w)"
-      },
-      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Reservations & Front Office Specialist (m/w). Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nZu Deinen vielseitigen Aufgaben zählen die Annahme und Bearbeitung von Zimmerreservierungen für unsere derzeit drei Hotels, eine professionelle und herzliche Telefonbetreuung sowie kompetente Beratung und aktiver Verkauf. Darüber hinaus bist Du für das Ein- und Auschecken der Gäste, die Betreuung vor Ort sowie Kassenabrechnungen zuständig. Mit Deinem authentischen Auftreten und Deiner natürlichen Freundlichkeit gelingt es Dir mühelos, unsere Gäste auf höchstem Niveau zu betreuen – persönlich, professionell und mit echter Begeisterung\n\n## Anforderungen\n- Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor\n- Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Sicherer Umgang mit MS Office und Protel PMS\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen\n- Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Trinkgeldbeteiligung\n- Schulungen nach Deinen Interessen und zukünftigen Plänen\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Giardino è alla ricerca di uno specialista di prenotazioni e uffici per la montagna del Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno. ## Compiti I vostri compiti versatili includono l'accettazione e l'elaborazione di prenotazioni in camera per i nostri attualmente tre hotel, supporto telefonico professionale e caldo, nonché consulenza competente e vendite attive. Inoltre, sei responsabile del check-in e out degli ospiti, della cura sul sito e dei rapporti di checkout. Con il vostro aspetto autentico e la vostra cordialità naturale, si può facilmente badare ai nostri ospiti al più alto livello – personalmente, professionalmente e con vero entusiasmo. ##\n• Requisiti - Apprendistato completato nel settore dell'ospitalità o commerciale - Esperienza in una posizione paragonabile nel settore alberghiero di lusso - Gestione sicura di MS Office e Protel PMS - Un senso di dovere, resilienza, flessibilità ed entusiasmo - Forte caratteristiche di hosting e un senso di consentire ai nostri ospiti indimenticabili 5* vacanze - Competenze linguistiche eccellenti in tedesco (lingua nativa o C1) e inglese, qualsiasi altra lingua come italiano o francese è vantaggiosa - Trattare con rispetto con colleghi e superiori - Un aspetto ben curato e un aspetto sicuro ## Vantaggi - Un luogo di lavoro innovativo e ben organizzato - L'opportunità di partecipare al business quotidiano e allo sviluppo aziendale - Comunicazione aperta e trasparente - Tipping partecipazione - Formazione secondo i vostri interessi e piani futuri - Facendo parte di un gruppo alberghiero svizzero contemporaneo e di carattere",
-        "en": "Giardino Group is looking for a Reservations & Front Office Specialist for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno. ## Tasks Your versatile tasks include the acceptance and processing of room reservations for our currently three hotels, professional and warm telephone support as well as competent advice and active sales. In addition, you are responsible for checking in and out the guests, the care on site and checkout reports. With your authentic appearance and your natural friendliness, you can easily look after our guests at the highest level – personally, professionally and with real enthusiasm. ##\n• Requirements - Completed apprenticeship in the hospitality or commercial sector - Experience in a comparable position in the luxury hotel industry - Safe handling of MS Office and Protel PMS - A sense of duty, resilience, flexibility and enthusiasm - Strong hosting characteristics and a sense of allowing our guests unforgettable 5* holidays - Excellent language skills in German (native language or C1) and English, any other language such as Italian or French is advantageous - Dealing respectfully with colleagues and superiors - A well-groomed appearance and safe appearance ## Benefits - An innovative and well-organized workplace - The opportunity to participate in everyday business and corporate development - Open and transparent communication - Tipping participation - Training according to your interests and future plans - Being part of a contemporary and characterful Swiss hotel group",
-        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Reservations & Front Office Specialist (m/w). Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nZu Deinen vielseitigen Aufgaben zählen die Annahme und Bearbeitung von Zimmerreservierungen für unsere derzeit drei Hotels, eine professionelle und herzliche Telefonbetreuung sowie kompetente Beratung und aktiver Verkauf. Darüber hinaus bist Du für das Ein- und Auschecken der Gäste, die Betreuung vor Ort sowie Kassenabrechnungen zuständig. Mit Deinem authentischen Auftreten und Deiner natürlichen Freundlichkeit gelingt es Dir mühelos, unsere Gäste auf höchstem Niveau zu betreuen – persönlich, professionell und mit echter Begeisterung\n\n## Anforderungen\n- Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor\n- Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Sicherer Umgang mit MS Office und Protel PMS\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen\n- Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Trinkgeldbeteiligung\n- Schulungen nach Deinen Interessen und zukünftigen Plänen\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-        "fr": "Giardino Group est à la recherche d'un spécialiste des Réservations & Front Office pour la montagne Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno. ## Tâche\n• Vos tâches polyvalentes comprennent l'acceptation et le traitement des réservations de chambres pour nos trois hôtels actuels, un support téléphonique professionnel et chaleureux ainsi que des conseils compétents et des ventes actives. En outre, vous êtes responsable de l'enregistrement et de la sortie des clients, les soins sur place et les rapports de caisse. Avec votre apparence authentique et votre convivialité naturelle, vous pouvez facilement prendre soin de nos invités au plus haut niveau – personnellement, professionnellement et avec un véritable enthousiasme. ##\n• Exigences - Apprentissage terminé dans le secteur de l'hôtellerie ou du commerce - Expérience dans une position comparable dans l'industrie hôtelière de luxe - Gestion sécuritaire du MS Office et du Protel PMS - Sens du devoir, résilience, flexibilité et enthousiasme - Des caractéristiques d'hébergement fortes et un sentiment de permettre à nos clients inoubliable 5* vacances - Excellentes compétences linguistiques en allemand (langue maternelle ou C1) et en anglais, toute autre langue telle que l'italien ou le français est avantageuse - Respecter les collègues et les supérieurs - Une apparence soignée et sûre ## Avantages - Un milieu de travail novateur et bien organisé - La possibilité de participer au développement quotidien des affaires et des entreprises - Communication ouverte et transparente - Participation aux jeux - Formation en fonction de vos intérêts et de vos projets futurs - Faire partie d'un groupe hôtelier suisse contemporain et de caractère"
-      },
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.818Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
-      "requirements": [
-        "Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor",
-        "Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
-        "Sicherer Umgang mit MS Office und Protel PMS",
-        "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen",
-        "Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil",
-        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
-        "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor",
-          "Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
-          "Sicherer Umgang mit MS Office und Protel PMS",
-          "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen",
-          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
-          "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T22:17:48.134Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -274,7 +195,7 @@
         "it": "Addetto alle pulizie",
         "en": "Housekeeping Waiting",
         "de": "Housekeeping Attendant",
-        "fr": "Employé de ménage"
+        "fr": "Housekeeping Attendant"
       },
       "description": "Giardino Group sucht für das Giardino Ascona in Ascona eine/n Housekeeping Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du für die Reinigung von Hotelzimmern zuständig und hilfst in der Lingerie mit. Bei Bedarf hilfst du deinen Kollegen bei der Reinigung von öffentlichen Räumen.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position in der Luxushotellerie\n- Freude an der Pflege von schönen Materialien\n- Exaktes und verantwortungsbewusstes Arbeiten\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Gute Deutsch-und Englischkenntnisse\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
       "descriptionByLocale": {
@@ -288,7 +209,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.818Z",
+      "crawledAt": "2026-07-13T12:29:54.060Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -339,6 +260,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:49:01.621Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -348,6 +270,88 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "giardino-fa048f90699b",
+      "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
+      "slugByLocale": {
+        "it": "reservations-front-office-specialist-m-w-giardino-group-champfer",
+        "en": "reservations-front-office-specialist-m-w-giardino-group-champfer",
+        "de": "reservations-front-office-specialist-m-w-giardino-group-champfer",
+        "fr": "reservations-front-office-specialist-m-w-giardino-group-champfer"
+      },
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Reservations & Front Office Specialist (m/w)",
+      "titleByLocale": {
+        "it": "Reservations & Front Office Specialista (m/w)",
+        "en": "Reservations & Front Office Specialist (m/w)",
+        "de": "Reservations & Front Office Spezialist (m/w)",
+        "fr": "Reservations & Front Office Spécialiste (m/w)"
+      },
+      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Reservations & Front Office Specialist (m/w). Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nZu Deinen vielseitigen Aufgaben zählen die Annahme und Bearbeitung von Zimmerreservierungen für unsere derzeit drei Hotels, eine professionelle und herzliche Telefonbetreuung sowie kompetente Beratung und aktiver Verkauf. Darüber hinaus bist Du für das Ein- und Auschecken der Gäste, die Betreuung vor Ort sowie Kassenabrechnungen zuständig. Mit Deinem authentischen Auftreten und Deiner natürlichen Freundlichkeit gelingt es Dir mühelos, unsere Gäste auf höchstem Niveau zu betreuen – persönlich, professionell und mit echter Begeisterung\n\n## Anforderungen\n- Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor\n- Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Sicherer Umgang mit MS Office und Protel PMS\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen\n- Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Trinkgeldbeteiligung\n- Schulungen nach Deinen Interessen und zukünftigen Plänen\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Giardino è alla ricerca di uno specialista di prenotazioni e uffici per la montagna del Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno. ## Compiti I vostri compiti versatili includono l'accettazione e l'elaborazione di prenotazioni in camera per i nostri attualmente tre hotel, supporto telefonico professionale e caldo, nonché consulenza competente e vendite attive. Inoltre, sei responsabile del check-in e out degli ospiti, della cura sul sito e dei rapporti di checkout. Con il vostro aspetto autentico e la vostra cordialità naturale, si può facilmente badare ai nostri ospiti al più alto livello – personalmente, professionalmente e con vero entusiasmo. ##\n• Requisiti - Apprendistato completato nel settore dell'ospitalità o commerciale - Esperienza in una posizione paragonabile nel settore alberghiero di lusso - Gestione sicura di MS Office e Protel PMS - Un senso di dovere, resilienza, flessibilità ed entusiasmo - Forte caratteristiche di hosting e un senso di consentire ai nostri ospiti indimenticabili 5* vacanze - Competenze linguistiche eccellenti in tedesco (lingua nativa o C1) e inglese, qualsiasi altra lingua come italiano o francese è vantaggiosa - Trattare con rispetto con colleghi e superiori - Un aspetto ben curato e un aspetto sicuro ## Vantaggi - Un luogo di lavoro innovativo e ben organizzato - L'opportunità di partecipare al business quotidiano e allo sviluppo aziendale - Comunicazione aperta e trasparente - Tipping partecipazione - Formazione secondo i vostri interessi e piani futuri - Facendo parte di un gruppo alberghiero svizzero contemporaneo e di carattere",
+        "en": "Giardino Group is looking for a Reservations & Front Office Specialist for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno. ## Tasks Your versatile tasks include the acceptance and processing of room reservations for our currently three hotels, professional and warm telephone support as well as competent advice and active sales. In addition, you are responsible for checking in and out the guests, the care on site and checkout reports. With your authentic appearance and your natural friendliness, you can easily look after our guests at the highest level – personally, professionally and with real enthusiasm. ##\n• Requirements - Completed apprenticeship in the hospitality or commercial sector - Experience in a comparable position in the luxury hotel industry - Safe handling of MS Office and Protel PMS - A sense of duty, resilience, flexibility and enthusiasm - Strong hosting characteristics and a sense of allowing our guests unforgettable 5* holidays - Excellent language skills in German (native language or C1) and English, any other language such as Italian or French is advantageous - Dealing respectfully with colleagues and superiors - A well-groomed appearance and safe appearance ## Benefits - An innovative and well-organized workplace - The opportunity to participate in everyday business and corporate development - Open and transparent communication - Tipping participation - Training according to your interests and future plans - Being part of a contemporary and characterful Swiss hotel group",
+        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Reservations & Front Office Specialist (m/w). Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nZu Deinen vielseitigen Aufgaben zählen die Annahme und Bearbeitung von Zimmerreservierungen für unsere derzeit drei Hotels, eine professionelle und herzliche Telefonbetreuung sowie kompetente Beratung und aktiver Verkauf. Darüber hinaus bist Du für das Ein- und Auschecken der Gäste, die Betreuung vor Ort sowie Kassenabrechnungen zuständig. Mit Deinem authentischen Auftreten und Deiner natürlichen Freundlichkeit gelingt es Dir mühelos, unsere Gäste auf höchstem Niveau zu betreuen – persönlich, professionell und mit echter Begeisterung\n\n## Anforderungen\n- Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor\n- Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Sicherer Umgang mit MS Office und Protel PMS\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen\n- Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Trinkgeldbeteiligung\n- Schulungen nach Deinen Interessen und zukünftigen Plänen\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+        "fr": "Giardino Group est à la recherche d'un spécialiste des Réservations & Front Office pour la montagne Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno. ## Tâche\n• Vos tâches polyvalentes comprennent l'acceptation et le traitement des réservations de chambres pour nos trois hôtels actuels, un support téléphonique professionnel et chaleureux ainsi que des conseils compétents et des ventes actives. En outre, vous êtes responsable de l'enregistrement et de la sortie des clients, les soins sur place et les rapports de caisse. Avec votre apparence authentique et votre convivialité naturelle, vous pouvez facilement prendre soin de nos invités au plus haut niveau – personnellement, professionnellement et avec un véritable enthousiasme. ##\n• Exigences - Apprentissage terminé dans le secteur de l'hôtellerie ou du commerce - Expérience dans une position comparable dans l'industrie hôtelière de luxe - Gestion sécuritaire du MS Office et du Protel PMS - Sens du devoir, résilience, flexibilité et enthousiasme - Des caractéristiques d'hébergement fortes et un sentiment de permettre à nos clients inoubliable 5* vacances - Excellentes compétences linguistiques en allemand (langue maternelle ou C1) et en anglais, toute autre langue telle que l'italien ou le français est avantageuse - Respecter les collègues et les supérieurs - Une apparence soignée et sûre ## Avantages - Un milieu de travail novateur et bien organisé - La possibilité de participer au développement quotidien des affaires et des entreprises - Communication ouverte et transparente - Participation aux jeux - Formation en fonction de vos intérêts et de vos projets futurs - Faire partie d'un groupe hôtelier suisse contemporain et de caractère"
+      },
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T12:29:54.059Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
+      "requirements": [
+        "Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor",
+        "Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
+        "Sicherer Umgang mit MS Office und Protel PMS",
+        "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+        "Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen",
+        "Ausgezeichnete Sprachkenntnisse in Deutsch (Muttersprache oder C1) und Englisch, jede weitere Sprache wie z.B. Italienisch oder Französisch von Vorteil",
+        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
+        "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossene Berufslehre in der Hotellerie oder im kaufmännischen Sektor",
+          "Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
+          "Sicherer Umgang mit MS Office und Protel PMS",
+          "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+          "Ausgeprägte Gastgebereigenschaften und ein Gespür dafür unseren Gästen unvergessliche 5* Ferien zu ermöglichen",
+          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
+          "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
+        ]
+      },
+      "firstSeenAt": "2026-07-01T22:17:48.134Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -383,7 +387,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.817Z",
+      "crawledAt": "2026-07-13T12:29:54.057Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -419,6 +423,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.637Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -447,7 +452,7 @@
       "title": "Marketing & PR Manager",
       "titleByLocale": {
         "it": "Marketing e PR Manager",
-        "en": "Marketing and PR Manager",
+        "en": "Marketing & PR Manager",
         "de": "Marketing & PR Manager",
         "fr": "Directeur du marketing et des relations publiques"
       },
@@ -463,7 +468,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:59:03.816Z",
+      "crawledAt": "2026-07-13T12:29:54.056Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -499,6 +504,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:14:52.237Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
