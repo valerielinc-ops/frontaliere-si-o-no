@@ -8461,6 +8461,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-smart-working.title': 'Switzerland is the European leader in smart working',
     'blog.article.svizzera-smart-working.excerpt': 'The percentage of jobs that include the possibility of working remotely increased by 12.7% in 2023',
     'blog.article.svizzera-smart-working.imageAlt': 'Panoramic view of Bellinzona',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'German and French courses for Italian-speaking border workers',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Concrete information on German and French courses for Italian-speaking border workers in Ticino, with schools and funding available.',
+    'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Image of a Swiss-Italian cross-border worker studying German or French in a school in the canton of Ticino.',
 };
 
 export default blogMetaEn;

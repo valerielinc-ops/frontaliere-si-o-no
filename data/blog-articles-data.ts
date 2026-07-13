@@ -25424,6 +25424,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'corsi-di-tedesco-o-francese-per-frontalieri-italofoni',
+ category: 'pratico',
+ date: '2026-07-13T01:41:52.388Z',
+ image: '/images/blog/corsi-di-tedesco-o-francese-per-frontalieri-italofoni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
