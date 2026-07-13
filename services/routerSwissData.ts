@@ -388,6 +388,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-bicicletta-smile': { it: 'frontalieri-bicicletta-smile', en: 'frontaliers-bike-smile', de: 'frontalier-fahrrad-smile', fr: 'frontalier-velo-smile' },
  'ticino-frontalieri-como': { it: 'ticino-frontalieri-como', en: 'ticino-frontaliers-como', de: 'ticino-frontalieri-como', fr: 'ticino-frontaliers-como' },
  'assegno-inclusione-luglio-2026': { it: 'assegno-inclusione-luglio-2026', en: 'luglio-2026-assegno-inclusione', de: 'luglio-2026-assegno-inclusione', fr: 'luglio-2026-assegno-inclusione' },
+ 'frontalieri-disoccupati-riforma-bruxelles': { it: 'frontalieri-disoccupati-riforma-bruxelles', en: 'cross-border-workers-unemployment-reform-brussels', de: 'grenzgaenger-arbeitslosenleistungen-reform-bruessel', fr: 'travailleurs-frontieres-chomage-reforme-bruxelles' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

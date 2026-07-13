@@ -1096,6 +1096,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegno-inclusione-luglio-2026.title': 'Assegno di Inclusione luglio 2026: quando arrivano i pagamenti',
     'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Sono iniziate le lavorazioni di metà luglio dell\'Assegno di Inclusione. I pagamenti saranno disposti intorno al 15 luglio.',
     'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Immagine di una scena di Lugano con persone che controllano le loro tasche.',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Indennità frontalieri: la riforma Ue che costa miliardi',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Bruxelles riforma le indennità di disoccupazione: la Svizzera rischia fino a 1 miliardo di franchi in più all\'anno',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Il Palazzo federale di Berna, sede del Parlamento svizzero, di fronte alla bandiera dell\'UE',
 };
 
 export default blogMetaChIt;

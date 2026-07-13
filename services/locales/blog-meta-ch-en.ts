@@ -1096,6 +1096,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegno-inclusione-luglio-2026.title': 'Inclusion Check July 2026: When Payments Arrive',
     'blog.article.assegno-inclusione-luglio-2026.excerpt': 'The mid-July processing of the Inclusion Check has begun. Payments will be arranged around July 15.',
     'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: people checking their wallets for Assegno di Inclusione.',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Border allowances: the EU reform that costs billions',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Brussels reforms unemployment benefits: Switzerland risks up to CHF 1 billion more per year',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Federal Palace in Bern, headquarters of Swiss Parliament, facing the EU flag',
 };
 
 export default blogMetaChEn;

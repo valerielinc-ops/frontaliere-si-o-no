@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3212,
+ "numberOfItems": 3213,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7887,7 +7887,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3209, "name": "Smile per i frontalieri, 1,7 milioni per la mob...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-bicicletta-smile` },
           { "@type": "ListItem", "position": 3210, "name": "Ticino, frontaliere da Como punta su due zone", "url": `${BASE_URL}/articoli-frontaliere/ticino-frontalieri-como` },
           { "@type": "ListItem", "position": 3211, "name": "Assegno di Inclusione luglio 2026: quando arriv...", "url": `${BASE_URL}/articoli-frontaliere/assegno-inclusione-luglio-2026` },
-          { "@type": "ListItem", "position": 3212, "name": "Francia fa pressione su Svizzera per indennità ...", "url": `${BASE_URL}/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri` }
+          { "@type": "ListItem", "position": 3212, "name": "Francia fa pressione su Svizzera per indennità ...", "url": `${BASE_URL}/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri` },
+          { "@type": "ListItem", "position": 3213, "name": "Indennità frontalieri: la riforma Ue che costa ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-riforma-bruxelles` }
  ]
  },
  {

@@ -1096,6 +1096,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegno-inclusione-luglio-2026.title': 'Eingliederungsscheck Juli 2026: Wann kommen die Zahlungen',
     'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Mitte Juli begannen die Arbeiten an der Eingliederungsbeihilfe. Die Zahlungen werden um den 15. Juli veranlasst.',
     'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: Menschen überprüfen ihre Brieftaschen auf Assegno di Inclusione.',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Grenzabfertigungen: Die Milliarden teure EU-Reform',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Brüssel reformiert Arbeitslosengeld: Die Schweiz riskiert bis zu 1 Milliarde Franken mehr pro Jahr',
+    'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments, vor der EU-Flagge',
 };
 
 export default blogMetaChDe;
