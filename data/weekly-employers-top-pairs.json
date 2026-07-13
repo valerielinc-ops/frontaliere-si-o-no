@@ -1,24 +1,30 @@
 {
-  "generatedAt": "2026-06-29T10:28:16.876Z",
-  "totalQualifyingPairs": 32,
+  "generatedAt": "2026-07-13T08:53:08.067Z",
+  "totalQualifyingPairs": 34,
   "topPairs": [
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "bellinzona",
-      "active": 79
+      "active": 86
+    },
+    {
+      "company": "Zurich Insurance (sede Ticino)",
+      "companySlug": "zurich-insurance-sede-ticino",
+      "city": "lugano",
+      "active": 58
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "lugano",
-      "active": 39
+      "active": 43
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "locarno",
-      "active": 19
+      "active": 20
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
@@ -33,34 +39,28 @@
       "active": 17
     },
     {
-      "company": "USI – Università della Svizzera italiana",
-      "companySlug": "usi-universita-della-svizzera-italiana",
-      "city": "lugano",
-      "active": 15
+      "company": "Delvitech SA",
+      "companySlug": "delvitech-sa",
+      "city": "mendrisio",
+      "active": 10
     },
     {
       "company": "PEMSA",
       "companySlug": "pemsa",
       "city": "locarno",
-      "active": 13
-    },
-    {
-      "company": "Rapelli - ORIOR Food AG",
-      "companySlug": "rapelli-orior-food-ag",
-      "city": "stabio",
-      "active": 8
-    },
-    {
-      "company": "PEMSA",
-      "companySlug": "pemsa",
-      "city": "bellinzona",
-      "active": 7
+      "active": 6
     },
     {
       "company": "Amministrazione Cantonale Ticino",
       "companySlug": "amministrazione-cantonale-ticino",
-      "city": "mendrisio",
-      "active": 7
+      "city": "bellinzona",
+      "active": 5
+    },
+    {
+      "company": "PEMSA",
+      "companySlug": "pemsa",
+      "city": "chiasso",
+      "active": 3
     }
   ]
 }
