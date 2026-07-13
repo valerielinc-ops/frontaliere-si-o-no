@@ -8480,6 +8480,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-calano-ticino.title': 'Tessin : les frontaliers baissent',
     'blog.article.frontalieri-calano-ticino.excerpt': 'Les frontaliers italiens en Suisse sont en baisse, mais dans certains pays de la Suisse italienne, ils représentent plus de 50% de la main-d\' œuvre',
     'blog.article.frontalieri-calano-ticino.imageAlt': 'Personnes traversant la frontière italienne-suisse',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Plus d\'emplois, la situation reste critique dans le secteur bancaire',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Le nombre de chômeurs dans le secteur bancaire est en augmentation, selon les statistiques du Secrétariat d\'Etat à l\'économie (SECO).',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Une scène de Lugano avec une file de personnes devant une agence de placement.',
 };
 
 export default blogMetaFr;

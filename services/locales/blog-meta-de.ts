@@ -8478,6 +8478,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-calano-ticino.title': 'Tessin: Grenzgänger sinken',
     'blog.article.frontalieri-calano-ticino.excerpt': 'Italienische Grenzgänger in der Schweiz sind rückläufig, aber in einigen Ländern der italienischen Schweiz machen sie mehr als 50% der Erwerbsbevölkerung aus',
     'blog.article.frontalieri-calano-ticino.imageAlt': 'Personen, die die italienisch-schweizerische Grenze überschreiten',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Mehr Arbeitsplätze, die Situation im Bankensektor bleibt kritisch',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Die Zahl der Arbeitslosen im Bankensektor steigt laut Statistik des Staatssekretariats für Wirtschaft (Seco).',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Eine Szene von Lugano mit einer Schlange von Menschen vor einer Arbeitsvermittlung.',
 };
 
 export default blogMetaDe;

@@ -8480,6 +8480,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-calano-ticino.title': 'Ticino: i frontalieri calano',
     'blog.article.frontalieri-calano-ticino.excerpt': 'I frontalieri italiani in Svizzera sono in calo, ma in alcuni paesi della Svizzera italiana essi rappresentano più del 50% della forza lavoro',
     'blog.article.frontalieri-calano-ticino.imageAlt': 'Immagini di persone che attraversano il confine tra Italia e Svizzera',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Di più posti di lavoro, la situazione resta critica nel settore bancario',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Il numero di disoccupati nel settore bancario è in aumento, secondo le statistiche della Segreteria di Stato dell\'economia (SECO).',
+    'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Una scena di Lugano con una fila di persone davanti a un ufficio di collocamento.',
 };
 
 export default blogMetaIt;
