@@ -25433,6 +25433,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'doppio-lavoro-incastrato-video',
+ category: 'pratico',
+ date: '2026-07-13T02:41:21.227Z',
+ image: '/images/blog/doppio-lavoro-incastrato-video.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8463,6 +8463,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Deutsch- und Französischkurse für italienischsprachige Grenzgänger',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Konkrete Informationen zu den Deutsch- und Französischkursen für italienischsprachige Grenzgänger im Tessin, mit verfügbaren Schulen und Fördermitteln.',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Bild einer italienisch-schweizerischen Grenzgängerin, die Deutsch oder Französisch in einer Schule des Kantons Tessin lernt.',
+    'blog.article.doppio-lavoro-incastrato-video.title': 'Doppelarbeit und falsche Stempelungen: Grenzgänger eingeklemmt',
+    'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Ein Angestellter der Gemeinde Varese wurde wegen Betrugs und falscher Behauptungen angezeigt, nachdem er während der Arbeitszeit im Tessin gearbeitet hatte.',
+    'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Grenze zwischen Italien und der Schweiz im Tessin',
 };
 
 export default blogMetaDe;

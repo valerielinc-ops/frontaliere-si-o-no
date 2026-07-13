@@ -8465,6 +8465,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Cours d\'allemand et de français pour frontaliers italophones',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Informations concrètes sur les cours d\'allemand et de français pour frontaliers italophones au Tessin, avec les écoles et les financements disponibles.',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Image d\'un travailleur frontalier italo-suisse apprenant l\'allemand ou le français dans une école du canton du Tessin.',
+    'blog.article.doppio-lavoro-incastrato-video.title': 'Double travail et fausses estampilles : frontalière encastrée',
+    'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Un employé municipal de Varesotto a été dénoncé pour escroquerie et fausses déclarations après avoir travaillé au Tessin pendant les heures de service.',
+    'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Frontière entre l\'Italie et la Suisse au Tessin',
 };
 
 export default blogMetaFr;

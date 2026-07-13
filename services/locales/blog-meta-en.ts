@@ -8464,6 +8464,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'German and French courses for Italian-speaking border workers',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Concrete information on German and French courses for Italian-speaking border workers in Ticino, with schools and funding available.',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Image of a Swiss-Italian cross-border worker studying German or French in a school in the canton of Ticino.',
+    'blog.article.doppio-lavoro-incastrato-video.title': 'Double work and false stamping: jammed frontier',
+    'blog.article.doppio-lavoro-incastrato-video.excerpt': 'A Varese municipal employee was reported for fraud and false attestations after working in Ticino during working hours.',
+    'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Border between Italy and Switzerland in Ticino',
 };
 
 export default blogMetaEn;
