@@ -98,7 +98,6 @@
         "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -209,7 +208,6 @@
         "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -320,7 +318,6 @@
         "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -431,7 +428,6 @@
         "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -460,7 +456,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper/in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -522,7 +518,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:21:06.855Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -761,7 +756,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:15.179Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1125,7 +1119,7 @@
       "companyDomain": "gr.ch",
       "title": "Juristisches Praktikum am Regionalgericht Landquart",
       "titleByLocale": {
-        "it": "Juristisches Praktikum am Regionalgericht Landquart",
+        "it": "Stage giuridico presso il Landgericht",
         "en": "Legal internship at the Regionalgericht Landquart",
         "de": "Juristisches Praktikum am Regionalgericht Landquart",
         "fr": "Stage juridique au Regionalgericht Landquart"
@@ -1184,7 +1178,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:12.050Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1686,7 +1679,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:00.957Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2049,7 +2041,6 @@
         "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2172,7 +2163,7 @@
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Infermiere Laureato in HF",
-        "en": "Dipl. Pflegefachperson HF",
+        "en": "Dipl. Care professional HF",
         "de": "Dipl. Pflegefachperson HF",
         "fr": "Infirmière diplômée en HF"
       },
@@ -2243,8 +2234,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
