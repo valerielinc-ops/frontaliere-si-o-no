@@ -4509,6 +4509,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-doppio-lavoro-incastrato-video': { name: 'Doppio lavoro e timbrature false', path: '/articoli-frontaliere/doppio-lavoro-incastrato-video', parent: 'blog' },
     'blog-frontalieri-disoccupati-riforma-ue': { name: 'La riforma UE e la Svizzera', path: '/articoli-svizzera/frontalieri-disoccupati-riforma-ue/', parent: 'blog' },
     'blog-secondo-pilastro-previdenza-professionale-lpp-svizzera': { name: 'Come funziona il secondo pilastro della', path: '/articoli-svizzera/secondo-pilastro-previdenza-professionale-lpp-svizzera/', parent: 'blog' },
+    'blog-vivere-luino-lavorare-ticino': { name: 'Frontaliere Luino Ticino', path: '/articoli-frontaliere/vivere-luino-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

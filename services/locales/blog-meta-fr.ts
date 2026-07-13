@@ -8468,6 +8468,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.doppio-lavoro-incastrato-video.title': 'Double travail et fausses estampilles : frontalière encastrée',
     'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Un employé municipal de Varesotto a été dénoncé pour escroquerie et fausses déclarations après avoir travaillé au Tessin pendant les heures de service.',
     'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Frontière entre l\'Italie et la Suisse au Tessin',
+    'blog.article.vivere-luino-lavorare-ticino.title': 'Vivre à Luino et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Guide pratique des déplacements entre Luino et le Tessin : liaisons, fiscalité pour les frontaliers et gestion du coût de la vie entre l\'Italie et la Suisse.',
+    'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'Vue du bord du lac de Locarno, destination pour de nombreux frontaliers travaillant au Tessin.',
 };
 
 export default blogMetaFr;
