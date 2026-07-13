@@ -1174,10 +1174,10 @@
     },
     {
       "id": "sonova-a1c64bfeb6a5",
-      "slug": "mechanical-testing-lab-technician-sonova-ch",
+      "slug": "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "mechanical-testing-lab-technician-sonova-ch",
-        "it": "mechanical-testing-lab-technician-sonova-ch",
+        "it": "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
         "de": "mechanical-testing-lab-technician-sonova-ch",
         "fr": "mechanical-testing-lab-technician-sonova-ch"
       },
@@ -1232,7 +1232,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:12:06.044Z"
+      "firstSeenAt": "2026-07-13T12:12:06.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-testing-lab-technician-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-testing-lab-technician-sonova-ch"
+      ]
     }
   ]
 }
