@@ -1087,6 +1087,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Credito imposte estere parametrato al reddito: le casistiche',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Il credito imposte estere parametrato al reddito è un beneficio fiscale disponibile per i frontalieri che lavorano in Svizzera.',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontaliere mentre riempie la dichiarazione delle imposte',
+    'blog.article.frontalieri-bicicletta-smile.title': 'Smile per i frontalieri, 1,7 milioni per la mobilità di confine',
+    'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un progetto chiamato SMILE cerca di migliorare la mobilità tra le province di Como e Varese e il Cantone Ticino.',
+    'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontaliere in bicicletta che attraversa la dogana in Svizzera',
 };
 
 export default blogMetaChIt;

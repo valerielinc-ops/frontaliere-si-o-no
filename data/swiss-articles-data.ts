@@ -3257,6 +3257,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontalieri-bicicletta-smile',
+    category: 'novita',
+    date: '2026-07-13T10:15:03.501Z',
+    image: '/images/blog/frontalieri-bicicletta-smile.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
