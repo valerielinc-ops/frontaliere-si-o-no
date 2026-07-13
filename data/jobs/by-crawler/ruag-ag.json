@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ruag-ag",
-  "assembledAt": "2026-07-13T12:52:00.341Z",
+  "assembledAt": "2026-07-13T22:22:37.219Z",
   "jobs": [
     {
       "title": "Facility Manager Technics / BetriebselektrikerIn 80 - 100% (w/m/d)",
@@ -68,7 +68,8 @@
       },
       "previousSlugs": [
         "facility-manager-technics-betriebselektrikerin-80-100-w-m-d-ruag-ag-altdorf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "AssistentIn Construction Management West 80-100 % (w/m/d)",
@@ -128,18 +129,19 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
       "previousSlugsByLocale": {
-        "it": [
-          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
-        ],
         "fr": [
           "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
+        ],
+        "it": [
           "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
         ]
       },
       "previousSlugs": [
-        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun",
-        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun"
-      ]
+        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Professional ICT Architect 80-100 % (w/m/d)",
@@ -197,7 +199,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-24T12:06:34.961Z"
+      "firstSeenAt": "2026-06-24T12:06:34.961Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Automatiker/in EFZ 2027 100% (w/m/d)",
@@ -603,7 +606,8 @@
         "manager-business-development-80-100-w-m-d-ruag-ag-bern",
         "manager-geschaftsentwicklung-80-100-w-m-d-ruag-ag-bern",
         "gestionnaire-developpement-des-affaires-80-100-m-j-ruag-ag-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker 80-100 (w/m/d)",
@@ -864,7 +868,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-07-01T23:08:13.002Z"
+      "firstSeenAt": "2026-07-01T23:08:13.002Z",
+      "needsRetranslation": true
     },
     {
       "title": "Administrative Coordinator C5I 100 (w/m/d)",
@@ -991,7 +996,8 @@
       },
       "previousSlugs": [
         "governance-risk-compliance-manager-100-w-m-d-ruag-ag-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "TestmanagerIn 60-100% (w/m/d)",
@@ -1051,11 +1057,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
       "previousSlugsByLocale": {
-        "it": [
-          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
-        ],
         "fr": [
           "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
+        ],
+        "it": [
           "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
         ],
         "en": [
@@ -1063,9 +1069,10 @@
         ]
       },
       "previousSlugs": [
-        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach",
-        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach"
-      ]
+        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Head of Strategic & Project Pocurement Real Estate 80-100% (w/m/d)",
@@ -1123,7 +1130,8 @@
         }
       },
       "postalCode": "3600",
-      "firstSeenAt": "2026-07-02T22:37:51.768Z"
+      "firstSeenAt": "2026-07-02T22:37:51.768Z",
+      "needsRetranslation": true
     },
     {
       "title": "Strategische/r EinkäuferIn Immobilien (Bauleistungen, Generalplaner. Generalunternehmer) 80-100% (w/m/d)",
@@ -1752,6 +1760,64 @@
         }
       },
       "firstSeenAt": "2026-07-10T12:22:23.029Z"
+    },
+    {
+      "title": "ICT System Administrator C5I 100 (w/m/d)",
+      "slug": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh",
+      "url": "https://jobs.ruag.ch/offene-stellen/ict-system-administrator-c5i/eb0c421b-aeb4-4b83-80a3-20586766217c",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/eb0c421b-aeb4-4b83-80a3-20586766217c",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Dübendorf ZH",
+      "addressLocality": "Dübendorf ZH",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2053-11-26",
+      "description": "## Responsabilita\n\n- Verantworten des Betriebs, der Überwachung und der Weiterentwicklung von Vorproduktionsumgebungen für sicherheitsrelevante Systeme und Anwendungen\n- Sicherstellen einer stabilen und effizienten Systemlandschaft während der Integrations- und Qualitätsphase vor der Produktionsfreigabe\n- Administrieren und Betreiben von Linux-basierten Systemen sowie containerisierten Plattformen auf Basis von Kubernetes\n- Konfigurieren, Überwachen und Optimieren von Netzwerkkomponenten und Kommunikationsinfrastrukturen im Cisco-Umfeld\n- Erstellen und Pflegen technischer Dokumentationen sowie Unterstützen bei der kontinuierlichen Verbesserung von Betriebsprozessen\n- Mitarbeit im Incident-, Problem- und Change-Management (1st, 2nd und 3rd Level Support)\n\n## Requisiti\n\n- Ausbildung oder höhere Berufsbildung im Bereich Informatik oder mehrjährige praktische Erfahrung als System Administrator/in\n- Erfahrung im Betrieb und der Administration von Linux-Systemen\n- Erfahrung im Umgang mit Kubernetes und containerisierten Umgebungen\n- Gute Kenntnisse im Netzwerkumfeld, vorzugsweise mit Cisco-Technologien\n- Verständnis von Integrations-, Test- und Betriebsprozessen in komplexen ICT-Umgebungen\n- Erfahrung mit Automatisierungs- und Skriptsprachen von Vorteil\n- Selbständige Persönlichkeit mit ausgeprägten Kommunikations- und Organisationsfähigkeiten\n- Hohe Kunden- und Serviceorientierung sowie Gespür für Nutzerbedürfnisse\n- Sehr gute Deutschkenntnisse sowie Englischkenntnisse (Level B1-B2)\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+      "titleByLocale": {
+        "it": "ICT System Administrator C5I 100 (w/m/d)",
+        "de": "ICT System Administrator C5I 100 (w/m/d)",
+        "en": "ICT System Administrator C5I 100 (w/m/d)",
+        "fr": "ICT System Administrator C5I 100 (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "it": "## Responsabilita\n\n- Verantworten des Betriebs, der Überwachung und der Weiterentwicklung von Vorproduktionsumgebungen für sicherheitsrelevante Systeme und Anwendungen\n- Sicherstellen einer stabilen und effizienten Systemlandschaft während der Integrations- und Qualitätsphase vor der Produktionsfreigabe\n- Administrieren und Betreiben von Linux-basierten Systemen sowie containerisierten Plattformen auf Basis von Kubernetes\n- Konfigurieren, Überwachen und Optimieren von Netzwerkkomponenten und Kommunikationsinfrastrukturen im Cisco-Umfeld\n- Erstellen und Pflegen technischer Dokumentationen sowie Unterstützen bei der kontinuierlichen Verbesserung von Betriebsprozessen\n- Mitarbeit im Incident-, Problem- und Change-Management (1st, 2nd und 3rd Level Support)\n\n## Requisiti\n\n- Ausbildung oder höhere Berufsbildung im Bereich Informatik oder mehrjährige praktische Erfahrung als System Administrator/in\n- Erfahrung im Betrieb und der Administration von Linux-Systemen\n- Erfahrung im Umgang mit Kubernetes und containerisierten Umgebungen\n- Gute Kenntnisse im Netzwerkumfeld, vorzugsweise mit Cisco-Technologien\n- Verständnis von Integrations-, Test- und Betriebsprozessen in komplexen ICT-Umgebungen\n- Erfahrung mit Automatisierungs- und Skriptsprachen von Vorteil\n- Selbständige Persönlichkeit mit ausgeprägten Kommunikations- und Organisationsfähigkeiten\n- Hohe Kunden- und Serviceorientierung sowie Gespür für Nutzerbedürfnisse\n- Sehr gute Deutschkenntnisse sowie Englischkenntnisse (Level B1-B2)\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "de": "## Responsabilita\n\n- Verantworten des Betriebs, der Überwachung und der Weiterentwicklung von Vorproduktionsumgebungen für sicherheitsrelevante Systeme und Anwendungen\n- Sicherstellen einer stabilen und effizienten Systemlandschaft während der Integrations- und Qualitätsphase vor der Produktionsfreigabe\n- Administrieren und Betreiben von Linux-basierten Systemen sowie containerisierten Plattformen auf Basis von Kubernetes\n- Konfigurieren, Überwachen und Optimieren von Netzwerkkomponenten und Kommunikationsinfrastrukturen im Cisco-Umfeld\n- Erstellen und Pflegen technischer Dokumentationen sowie Unterstützen bei der kontinuierlichen Verbesserung von Betriebsprozessen\n- Mitarbeit im Incident-, Problem- und Change-Management (1st, 2nd und 3rd Level Support)\n\n## Requisiti\n\n- Ausbildung oder höhere Berufsbildung im Bereich Informatik oder mehrjährige praktische Erfahrung als System Administrator/in\n- Erfahrung im Betrieb und der Administration von Linux-Systemen\n- Erfahrung im Umgang mit Kubernetes und containerisierten Umgebungen\n- Gute Kenntnisse im Netzwerkumfeld, vorzugsweise mit Cisco-Technologien\n- Verständnis von Integrations-, Test- und Betriebsprozessen in komplexen ICT-Umgebungen\n- Erfahrung mit Automatisierungs- und Skriptsprachen von Vorteil\n- Selbständige Persönlichkeit mit ausgeprägten Kommunikations- und Organisationsfähigkeiten\n- Hohe Kunden- und Serviceorientierung sowie Gespür für Nutzerbedürfnisse\n- Sehr gute Deutschkenntnisse sowie Englischkenntnisse (Level B1-B2)\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "en": "## Responsabilita\n\n- Verantworten des Betriebs, der Überwachung und der Weiterentwicklung von Vorproduktionsumgebungen für sicherheitsrelevante Systeme und Anwendungen\n- Sicherstellen einer stabilen und effizienten Systemlandschaft während der Integrations- und Qualitätsphase vor der Produktionsfreigabe\n- Administrieren und Betreiben von Linux-basierten Systemen sowie containerisierten Plattformen auf Basis von Kubernetes\n- Konfigurieren, Überwachen und Optimieren von Netzwerkkomponenten und Kommunikationsinfrastrukturen im Cisco-Umfeld\n- Erstellen und Pflegen technischer Dokumentationen sowie Unterstützen bei der kontinuierlichen Verbesserung von Betriebsprozessen\n- Mitarbeit im Incident-, Problem- und Change-Management (1st, 2nd und 3rd Level Support)\n\n## Requisiti\n\n- Ausbildung oder höhere Berufsbildung im Bereich Informatik oder mehrjährige praktische Erfahrung als System Administrator/in\n- Erfahrung im Betrieb und der Administration von Linux-Systemen\n- Erfahrung im Umgang mit Kubernetes und containerisierten Umgebungen\n- Gute Kenntnisse im Netzwerkumfeld, vorzugsweise mit Cisco-Technologien\n- Verständnis von Integrations-, Test- und Betriebsprozessen in komplexen ICT-Umgebungen\n- Erfahrung mit Automatisierungs- und Skriptsprachen von Vorteil\n- Selbständige Persönlichkeit mit ausgeprägten Kommunikations- und Organisationsfähigkeiten\n- Hohe Kunden- und Serviceorientierung sowie Gespür für Nutzerbedürfnisse\n- Sehr gute Deutschkenntnisse sowie Englischkenntnisse (Level B1-B2)\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "fr": "## Responsabilita\n\n- Verantworten des Betriebs, der Überwachung und der Weiterentwicklung von Vorproduktionsumgebungen für sicherheitsrelevante Systeme und Anwendungen\n- Sicherstellen einer stabilen und effizienten Systemlandschaft während der Integrations- und Qualitätsphase vor der Produktionsfreigabe\n- Administrieren und Betreiben von Linux-basierten Systemen sowie containerisierten Plattformen auf Basis von Kubernetes\n- Konfigurieren, Überwachen und Optimieren von Netzwerkkomponenten und Kommunikationsinfrastrukturen im Cisco-Umfeld\n- Erstellen und Pflegen technischer Dokumentationen sowie Unterstützen bei der kontinuierlichen Verbesserung von Betriebsprozessen\n- Mitarbeit im Incident-, Problem- und Change-Management (1st, 2nd und 3rd Level Support)\n\n## Requisiti\n\n- Ausbildung oder höhere Berufsbildung im Bereich Informatik oder mehrjährige praktische Erfahrung als System Administrator/in\n- Erfahrung im Betrieb und der Administration von Linux-Systemen\n- Erfahrung im Umgang mit Kubernetes und containerisierten Umgebungen\n- Gute Kenntnisse im Netzwerkumfeld, vorzugsweise mit Cisco-Technologien\n- Verständnis von Integrations-, Test- und Betriebsprozessen in komplexen ICT-Umgebungen\n- Erfahrung mit Automatisierungs- und Skriptsprachen von Vorteil\n- Selbständige Persönlichkeit mit ausgeprägten Kommunikations- und Organisationsfähigkeiten\n- Hohe Kunden- und Serviceorientierung sowie Gespür für Nutzerbedürfnisse\n- Sehr gute Deutschkenntnisse sowie Englischkenntnisse (Level B1-B2)\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch"
+      },
+      "slugByLocale": {
+        "it": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh",
+        "en": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh",
+        "de": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh",
+        "fr": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh"
+      },
+      "id": "ruag-ag-d7240e40d186",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-13T22:22:37.217Z"
     }
   ]
 }
