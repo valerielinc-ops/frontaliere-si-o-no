@@ -1090,6 +1090,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smile per i frontalieri, 1,7 milioni per la mobilità di confine',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un progetto chiamato SMILE cerca di migliorare la mobilità tra le province di Como e Varese e il Cantone Ticino.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontaliere in bicicletta che attraversa la dogana in Svizzera',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.title': 'Frontalieri disoccupati: la riforma Ue che costa fino a 1 miliardo alla Svizzera',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.excerpt': 'Bruxelles ha dato il primo via libera alla riforma sulle indennità di disoccupazione dei frontalieri. La Svizzera potrebbe dover sborsare fino a un miliardo di franchi in più all\'anno.',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.imageAlt': 'Il Palazzo federale di Berna, sede del Parlamento svizzero, dove si discutono le ripercussioni della riforma UE sulle indennità di disoccupazione dei frontalieri',
 };
 
 export default blogMetaChIt;

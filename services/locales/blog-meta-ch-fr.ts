@@ -1090,6 +1090,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smile pour les frontaliers, 1,7 million pour la mobilité frontalière',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un projet appelé SMILE cherche à améliorer la mobilité entre les provinces de Côme et de Varèse et le canton du Tessin.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier en vélo, frontière Suisse',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.title': '...',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.excerpt': 'Bruxelles a donné le premier feu vert à la réforme des allocations de chômage des frontaliers. La Suisse pourrait devoir débourser jusqu\'à un milliard de francs de plus par an.',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.imageAlt': 'Le Palais fédéral à Berne, siège du Parlement suisse, où se tiennent les discussions sur la réforme UE des allocations de chômage des frontaliers',
 };
 
 export default blogMetaChFr;

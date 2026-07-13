@@ -1090,6 +1090,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Lächeln für Grenzgänger, 1,7 Millionen für Grenzmobilität',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Ein Projekt namens SMILE soll die Mobilität zwischen den Provinzen Como und Varese und dem Kanton Tessin verbessern.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier auf Fahrrad, Grenze Schweiz',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.title': 'Arbeitslose Grenzgänger: Die EU-Reform kostet die Schweiz bis zu 1 Milliarde',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.excerpt': 'Brüssel hat der Reform der Arbeitslosenunterstützung für Grenzgänger erstmals grünes Licht gegeben. Die Schweiz könnte bis zu einer Milliarde Franken mehr pro Jahr ausgeben müssen.',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.imageAlt': 'Das Bundeshaus in Bern, Sitz des Schweizer Parlaments, wo die Diskussionen über die EU-Reform zur Grenzgänger-Arbeitslosenunterstützung stattfinden',
 };
 
 export default blogMetaChDe;
