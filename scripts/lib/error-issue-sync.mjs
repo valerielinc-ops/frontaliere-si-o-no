@@ -61,6 +61,16 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // User-cancelled navigation / fetch abort (#4147 class): "AbortError: The
+  // user aborted a request." (WebKit), "AbortError: The operation was aborted."
+  // (standard), "AbortError: signal is aborted…", bare "AbortError: AbortError".
+  // We never throw AbortError deliberately → every shape is benign cancellation.
+  // Mirrors UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts; the
+  // client-side GA4 filter already drops most at source, but pre-filter GA4
+  // data and edge-case paths still produce events → must not create backlog
+  // issues that no code change can close. Parity-pinned by
+  // tests/error-issue-sync.test.ts ("deny-list parity" describe block).
+  /AbortError: (?:The user aborted a request|The operation was aborted|signal is aborted|AbortError)/i,
 ];
 
 /**
