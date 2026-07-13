@@ -391,6 +391,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-disoccupati-riforma-bruxelles': { it: 'frontalieri-disoccupati-riforma-bruxelles', en: 'cross-border-workers-unemployment-reform-brussels', de: 'grenzgaenger-arbeitslosenleistungen-reform-bruessel', fr: 'travailleurs-frontieres-chomage-reforme-bruxelles' },
  'redditi-estero-controllo-fiscale': { it: 'redditi-estero-controllo-fiscale', en: 'foreign-income-tax-controls-switzerland', de: 'auslaendische-einkuenfte-steuerkontrollen-schweiz', fr: 'revenus-etrangers-controles-fiscaux-suisse' },
  'ai-verso-la-bancarotta-forse-gia-nel-2030': { it: 'ai-verso-la-bancarotta-forse-gia-nel-2030', en: 'ai-verso-la-bancarotta-forse-gia-nel-2030', de: 'ai-verso-la-bancarotta-forse-gia-nel-2030', fr: 'ai-verso-la-bancarotta-forse-gia-nel-2030' },
+ 'switzerland-uk-free-trade-agreement-update': { it: 'switzerland-uk-free-trade-agreement-update', en: 'switzerland-uk-free-trade-agreement-update', de: 'aktualisierung-des-freihandelsabkommens-schweiz-uk', fr: 'mise-a-jour-de-laccord-de-libre-echange-suisse-uk' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

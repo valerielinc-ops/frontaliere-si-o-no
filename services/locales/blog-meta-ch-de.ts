@@ -1105,6 +1105,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'AI auf dem Weg in den Konkurs: Invalidität mit 18 Jahren',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'Der Schweizer Invalidenversicherung droht bis Anfang 2030 der Bankrott.',
     'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Eine Foto von Lugano mit den Bergen im Hintergrund, mit einer Arbeitsszene im Vordergrund.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Mehr Schweiz-GB: Ende Verhandlungen über aktualisiertes Freihandelsabkommen',
+    'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'Die Eidgenossenschaft und das Vereinigte Königreich haben die Verhandlungen über ein aktualisiertes Freihandelsabkommen abgeschlossen. Die Vereinbarung stärkt die Rechtssicherheit für Unternehmen und wird administrative Hürden abbauen.',
+    'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Ein realistisches Foto einer Schweizer Stadt oder Sehenswürdigkeit, wie dem Zytglogge-Uhrturm in Bern.',
 };
 
 export default blogMetaChDe;
