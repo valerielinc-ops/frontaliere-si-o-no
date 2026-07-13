@@ -773,12 +773,12 @@
     },
     {
       "id": "belimo-81e82ee6a372",
-      "slug": "export-specialist-belimo-hinwil",
+      "slug": "export-specialista-belimo-hinwil",
       "slugByLocale": {
         "de": "export-specialist-belimo-hinwil",
-        "it": "export-specialist-belimo-hinwil",
+        "it": "export-specialista-belimo-hinwil",
         "en": "export-specialist-belimo-hinwil",
-        "fr": "export-specialist-belimo-hinwil"
+        "fr": "export-specialiste-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -836,16 +836,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:18:12.400Z"
+      "firstSeenAt": "2026-07-12T22:18:12.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "export-specialist-belimo-hinwil"
+        ],
+        "fr": [
+          "export-specialist-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "export-specialist-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-b9398d3a7985",
-      "slug": "logistics-systems-specialist-100-belimo-hinwil",
+      "slug": "logistica-systems-specialista-100-belimo-hinwil",
       "slugByLocale": {
         "de": "logistics-systems-specialist-100-belimo-hinwil",
-        "it": "logistics-systems-specialist-100-belimo-hinwil",
+        "it": "logistica-systems-specialista-100-belimo-hinwil",
         "en": "logistics-systems-specialist-100-belimo-hinwil",
-        "fr": "logistics-systems-specialist-100-belimo-hinwil"
+        "fr": "logistique-systems-specialiste-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -903,7 +914,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:18:11.867Z"
+      "firstSeenAt": "2026-07-12T22:18:11.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-systems-specialist-100-belimo-hinwil"
+        ],
+        "fr": [
+          "logistics-systems-specialist-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-systems-specialist-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-68c315ecd01b",
