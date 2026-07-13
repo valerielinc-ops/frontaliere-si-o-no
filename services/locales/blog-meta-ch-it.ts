@@ -1090,6 +1090,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smile per i frontalieri, 1,7 milioni per la mobilità di confine',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un progetto chiamato SMILE cerca di migliorare la mobilità tra le province di Como e Varese e il Cantone Ticino.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontaliere in bicicletta che attraversa la dogana in Svizzera',
+    'blog.article.ticino-frontalieri-como.title': 'Ticino, frontaliere da Como punta su due zone',
+    'blog.article.ticino-frontalieri-como.excerpt': 'Il 65% dei frontalieri e studenti che entrano nel Ticino proviene da Como e Varese',
+    'blog.article.ticino-frontalieri-como.imageAlt': 'Una scena di autostrada tra Lugano e Chiasso con una file di veicoli in direzione Ticino',
 };
 
 export default blogMetaChIt;
