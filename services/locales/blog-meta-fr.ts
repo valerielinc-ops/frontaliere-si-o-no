@@ -8474,6 +8474,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Tessin: prix en hausse et commerçants en difficulté',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'Augmentations LAMal +8% au Tessin, commerçants en difficulté. L\'adjoint au maire de Chiasso : ce n\'est plus la Suisse d\'autrefois. Ce qui change pour les frontaliers.',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Rue principale de Chiasso avec boutiques et cafés, navetteurs frontaliers se dirigeant vers la Suisse',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Services pour ceux qui travaillent en Suisse, tous les mardis à Varèse',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'Le service géré par CGIL, CISL et UIL, en collaboration avec la municipalité, sera actif au siège social de via Como. Il offre des conseils en matière de fiscalité, de prévoyance, de permis et de sécurité sociale aux personnes qui travaillent au-delà des frontières.',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Siège de l\'Informagiovani à Lugano.',
 };
 
 export default blogMetaFr;

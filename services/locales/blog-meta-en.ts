@@ -8473,6 +8473,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Rising Prices and Crisis in Ticino and Switzerland',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'LAMal increases +8% in Ticino, merchants in difficulty. The deputy mayor of Chiasso: it is no longer the Switzerland of yesteryear. What changes for border workers.',
     'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Main street in Chiasso with shops and cafes, cross-border commuters heading to Switzerland',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Services for those who work in Switzerland, every Tuesday in Varese',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'The service managed by CGIL, CISL and UIL, in collaboration with the Municipality, will be active at the headquarters in Via Como. It offers advice on tax, social security, permits and social security for those who work abroad.',
+    'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Informagiovani headquarters in Lugano.',
 };
 
 export default blogMetaEn;
