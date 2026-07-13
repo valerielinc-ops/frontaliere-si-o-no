@@ -1,6 +1,6 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-07-13T11:26:07.563Z",
+  "assembledAt": "2026-07-13T21:57:05.108Z",
   "jobs": [
     {
       "id": "felfel-23dd23f14b99",
@@ -33,7 +33,7 @@
       "url": "https://felfel.jobs.personio.de/job/2703033",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.953Z",
+      "crawledAt": "2026-07-13T21:57:00.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -81,7 +81,7 @@
       "title": "Senior Maintenance & Reliability Engineer (Kältetechnik)",
       "titleByLocale": {
         "it": "Senior Maintenance & Reliability Ingegnere (Kältetechnik)",
-        "en": "Senior Maintenance & Reliability Engineer",
+        "en": "Senior Maintenance & Reliability Engineer (Kältetechnik)",
         "de": "Senior Maintenance & Reliability Ingenieur (Kältetechnik)",
         "fr": "Senior Maintenance & Reliability Ingénieur (Kältetechnik)"
       },
@@ -97,7 +97,7 @@
       "url": "https://felfel.jobs.personio.de/job/2697640",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:12:10.947Z",
+      "crawledAt": "2026-07-13T21:57:00.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -117,6 +117,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-06T14:46:18.541Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -126,84 +127,6 @@
           "@type": "QuantitativeValue",
           "minValue": 121500,
           "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "felfel-d53bc6443895",
-      "slug": "project-ingegnere-tirocinante-cooling-optimization-asap-felfel-zurich",
-      "slugByLocale": {
-        "it": "project-ingegnere-tirocinante-cooling-optimization-asap-felfel-zurich",
-        "en": "project-engineer-intern-cooling-optimization-asap-felfel-zurich",
-        "de": "project-ingenieur-praktikant-cooling-optimization-asap-felfel-zurich",
-        "fr": "project-ingenieur-stagiaire-cooling-optimization-asap-felfel-zurich"
-      },
-      "company": "FELFEL",
-      "companyKey": "felfel",
-      "companyDomain": "felfel.ch",
-      "title": "Project Engineer Intern - Cooling Optimization (ASAP)",
-      "titleByLocale": {
-        "it": "Project Ingegnere Tirocinante - Cooling Optimization (ASAP)",
-        "en": "Project Engineer Intern - Cooling Optimization (ASAP)",
-        "de": "Project Ingenieur Praktikant - Cooling Optimization (ASAP)",
-        "fr": "Project Ingénieur Stagiaire - Cooling Optimization (ASAP)"
-      },
-      "description": "NICE TO MEET YOU!\n\nIN SHORT\n Are you a hands-on engineering student who enjoys a mix of deep analytical work and getting out of the office to solve real-world problems? As our new Project Engineer Intern (ASAP, 2-3 months, 100%) based in Zurich Wiedikon, you will be right in the middle of the action. Balancing your time between our office and on-site field visits, you will investigate root causes and optimize the performance and reliability of our smart hardware fleet across Switzerland.\n\nYOUR RESPONSIBILITIES\n\n• Diagnose current fridge cooling systems across various site conditions and usage patterns\n\n• Identify root causes behind cooling instability, from compressor performance and door-opening frequency to ambient heat load and airflow design\n\n• Develop and propose effective solutions for each identified issue, ranging from quick fixes to long-term structural improvements\n\n• Improve overall cooling stability, factoring in the real-world effects of climate change and rising office temperatures\n\n• Ensure maximum food safety by keeping our fridges reliably within required temperature ranges, even under severe heat stress\n\n• Work both hands-on (testing, measuring, and visiting fridges on-site) and strategically (conducting analysis, providing recommendations, and creating documentation)\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• Currently studying engineering (mechanical, process, thermal, or a related field) with around 3 years of academic experience\n\n• Solid understanding of thermodynamics, heat transfer, and mechanical systems\n\n• Practical and curious mindset, with the ability to move fluidly between hands-on diagnostics and structured problem-solving\n\n• Availability to commit to a 2–3 month project over the summer\n\n• Fluency in either German or English; speaking both is a distinct advantage\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Hourly rate of CHF 27.00\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Work in a collaborative, friendly, and down-to-earth team based in central Zürich that values initiative and gives you the space to contribute your ideas.\n\n• Take on a real, meaningful project at the center of our business, with the chance to see your solutions implemented across a live fridge fleet, not just in a report.\n\n• Work closely with and gain direct exposure to our operations, technical team, and management.\n Does this sound like the job for you? We can't wait to learn more about you! APPLY NOW with your complete documents in either German or English.\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;). FELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York. www.felfel.ch\n\nFELFEL VALUES",
-      "descriptionByLocale": {
-        "it": "- Piacere di conoscerti! IN FOTO Sei uno studente di ingegneria pratico che gode di un mix di lavoro analitico profondo e uscire dall'ufficio per risolvere problemi del mondo reale? Come il nostro nuovo Project Engineer Intern (ASAP, 2-3 mesi, 100%) con sede a Zurigo Wiedikon, sarete proprio al centro dell'azione. Bilanciando il vostro tempo tra il nostro ufficio e le visite sul campo in loco, potrete indagare sulle cause principali e ottimizzare le prestazioni e l'affidabilità della nostra flotta hardware intelligente in tutta la Svizzera. LE RISPOSTE\n• Diagnosi dei sistemi di raffreddamento del frigorifero attuali in varie condizioni del sito e modelli di utilizzo\n• Identificare le cause della radice dietro l'instabilità del raffreddamento, dalle prestazioni del compressore e dalla frequenza di apertura della porta alla progettazione del carico termico ambientale e del flusso d'aria\n• Sviluppare e proporre soluzioni efficaci per ogni problema identificato, che vanno da correzioni rapide a miglioramenti strutturali a lungo termine\n• Migliorare la stabilità generale di raffreddamento, fattorizzando gli effetti reali dei cambiamenti climatici e le temperature crescenti dell'ufficio\n• Assicurare la massima sicurezza alimentare mantenendo i nostri frigoriferi in modo affidabile all'interno di intervalli di temperatura richiesti, anche sotto stress termico grave\n• Lavorare sia hands-on (testing, misurazione e visita dei frigoriferi in loco) sia strategicamente (condurre analisi, fornire raccomandazioni e creare documentazione) COSA SPECIALE Il tuo progetto\n• Attualmente studiare ingegneria (meccanica, processo, termica o un campo correlato) con circa 3 anni di esperienza accademica\n• Solida comprensione della termodinamica, del trasferimento di calore e dei sistemi meccanici\n• Pratico e curioso mindset, con la capacità di muoversi fluidamente tra diagnostica hands-on e problem-solving strutturato\n• Disponibilità di impegnarsi a un progetto di 2-3 mesi durante l'estate\n• Fluency in tedesco o inglese; parlare entrambi è un vantaggio distinto\n• Non fumatore - non vogliamo che puzzi di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n• Permesso di lavoro valido o passaporto svizzero. Sarai sicuro I nostri servizi\n• Tasso orario di CHF 27.00\n• Deliziosi pasti al vostro Fingertips: Godetevi pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro – ogni giorno.\n• Barista-Style Coffee & Premium Tea: giornata con caffè in stile barista e tè premium, grazie alla nostra macchina Gavetti.\n• Lavorare in un team collaborativo, amichevole e down-to-earth con sede nel centro di Zurigo che valorizza l'iniziativa e ti dà lo spazio per contribuire alle tue idee.\n• Prendere un progetto reale e significativo al centro del nostro business, con la possibilità di vedere le vostre soluzioni implementate attraverso una flotta di frigo in diretta, non solo in un rapporto.\n• Lavorare a stretto contatto con e ottenere l'esposizione diretta alle nostre operazioni, team tecnico e gestione. Ti sembra il lavoro? Non vediamo l'ora di saperne di più su di te! APPLICAZIONE ORA con i vostri documenti completi in tedesco o in inglese. APPLICAZIONE ORA A proposito di FELFEL si occupa di buon cibo e caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità. Con il nostro intelligente frigorifero 'FELFEL' e delizioso caffè barista 'Gavetti', permettiamo alle aziende di fornire ai propri dipendenti cibo e bevande ultra-freschi di prima classe durante tutta la giornata. Che siano ricche e tradizionali, moderne e vegane o ad alto contenuto di proteine - il nostro menu di modifica settimanale assicura che tutti i dipendenti abbiano sempre qualcosa di cui essere entusiasti;). FELFEL è un'azienda di famiglia fondata nel 2013. Oggi ci occupiamo di circa 1000 sedi in Svizzera, e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York. www.felfel.ch VALORE DEL FELFEL",
-        "en": "NICE TO MEET YOU!\n\nIN SHORT\nAre you a hands-on engineering student who enjoys a mix of deep analytical work and getting out of the office to solve real-world problems? As our new Project Engineer Intern (ASAP, 2-3 months, 100%) based in Zurich Wiedikon, you will be right in the middle of the action. Balancing your time between our office and on-site field visits, you will investigate root causes and optimize the performance and reliability of our smart hardware fleet across Switzerland.\n\nYOUR RESPONSIBILITIES\n\n• Diagnose current fridge cooling systems across various site conditions and usage patterns\n\n• Identify root causes behind cooling instability, from compressor performance and door-opening frequency to ambient heat load and airflow design\n\n• Develop and propose effective solutions for each identified issue, ranging from quick fixes to long-term structural improvements\n\n• Improve overall cooling stability, factoring in the real-world effects of climate change and rising office temperatures\n\n• Ensure maximum food safety by keeping our fridges reliably within required temperature ranges, even under severe heat stress\n\n• Work both hands-on (testing, measuring, and visiting fridges on-site) and strategically (conducting analysis, providing recommendations, and creating documentation)\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• Currently studying engineering (mechanical, process, thermal, or a related field) with around 3 years of academic experience\n\n• Solid understanding of thermodynamics, heat transfer, and mechanical systems\n\n• Practical and curious mindset, with the ability to move fluidly between hands-on diagnostics and structured problem-solving\n\n• Availability to commit to a 2–3 month project over the summer\n\n• Fluency in either German or English; speaking both is a distinct advantage\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Hourly rate of CHF 27.00\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Work in a collaborative, friendly, and down-to-earth team based in central Zürich that values initiative and gives you the space to contribute your ideas.\n\n• Take on a real, meaningful project at the center of our business, with the chance to see your solutions implemented across a live fridge fleet, not just in a report.\n\n• Work closely with and gain direct exposure to our operations, technical team, and management.\nDoes this sound like the job for you? We can't wait to learn more about you! APPLY NOW with your complete documents in either German or English.\n\nAPPLY NOW\n\nABOUT US\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;). FELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York. www.felfel.ch\n\nFELFEL VALUES",
-        "de": "Schön, dich zu treffen! IN KURZ Sind Sie ein praktischer Ingenieurstudent, der eine Mischung aus tiefer analytischer Arbeit und dem Verlassen des Büros genießt, um reale Probleme zu lösen? Als unser neuer Project Engineer Intern (ASAP, 2-3 Monate, 100%) mit Sitz in Zürich Wiedikon sind Sie mitten im Geschehen. Wenn Sie Ihre Zeit zwischen unseren Büro- und Vor-Ort-Besuchen abwägen, werden Sie die Ursachen untersuchen und die Leistung und Zuverlässigkeit unserer intelligenten Hardwareflotte in der ganzen Schweiz optimieren. IHRE VERANTWORTUNGEN\n• Diagnose von aktuellen Kühlschrankkühlsystemen über verschiedene Standortbedingungen und Nutzungsmuster hinweg\n• Identifizieren Sie die Ursachen für die Kühlinstabilität, von der Kompressorleistung und der Türöffnungsfrequenz bis hin zur Umgebungswärmelast und dem Luftstromdesign\n• Entwicklung und Vorschlag effektiver Lösungen für jedes identifizierte Problem, von schnellen Lösungen bis hin zu langfristigen strukturellen Verbesserungen\n• Verbesserung der allgemeinen Kühlstabilität unter Berücksichtigung der realen Auswirkungen des Klimawandels und steigender Bürotemperaturen\n• Gewährleisten Sie maximale Lebensmittelsicherheit, indem Sie unsere Kühlschränke zuverlässig innerhalb der erforderlichen Temperaturbereiche halten, auch unter starker Hitzebelastung\n• Arbeiten Sie sowohl praxisnah (Testen, Messen und Besuchen von Kühlschränken vor Ort) als auch strategisch (Analysen durchführen, Empfehlungen abgeben und Dokumentation erstellen) WAS ERWARTET WIRD IHR PROFIL\n• Derzeit Studium der Ingenieurwissenschaften (Mechanik, Prozess, Thermik oder ein verwandtes Gebiet) mit rund 3 Jahren akademischer Erfahrung\n• Solides Verständnis von Thermodynamik, Wärmeübertragung und mechanischen Systemen\n• Praktische und neugierige Denkweise, mit der Fähigkeit, sich fließend zwischen praktischer Diagnose und strukturierter Problemlösung zu bewegen\n• Verfügbarkeit für ein 2- bis 3-monatiges Projekt im Sommer\n• fließend in Deutsch oder Englisch; beides zu sprechen ist ein deutlicher Vorteil\n• Nichtraucher - wir möchten nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundenbesprechungen. Schließlich geht es bei FELFEL um gutes Essen.\n• Gültige Arbeitserlaubnis oder Schweizer Pass. SIE WERDEN MESSEN UNSERE LEISTUNGEN\n• Stundensatz von CHF 27.00\n• Köstliche Mahlzeiten an Ihren Fingerspitzen: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n• Kaffee & Premium Tee im Barista-Stil: Betanken Sie Ihren Tag mit Kaffee im Barista-Stil und Premium-Tee dank unserer Gavetti-Maschine.\n• Arbeiten Sie in einem kooperativen, freundlichen und bodenständigen Team mit Sitz im Zentrum von Zürich, das Initiative schätzt und Ihnen den Raum gibt, Ihre Ideen einzubringen.\n• Übernehmen Sie ein echtes, sinnvolles Projekt im Zentrum unseres Geschäfts, mit der Chance, Ihre Lösungen in einer Live-Kühlschrankflotte zu sehen, nicht nur in einem Bericht.\n• Arbeiten Sie eng mit unserem Betrieb, unserem technischen Team und unserem Management zusammen und erhalten Sie direkte Kontakte. Klingt das nach dem Job für dich? Wir können es kaum erwarten, mehr über Sie zu erfahren! Bewerben Sie sich JETZT mit Ihren vollständigen Dokumenten auf Deutsch oder Englisch. JETZT ANWENDBAR Über uns Bei FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden. Mit unserem smarten Kühlschrank „FELFEL“ und dem köstlichen Barista-Kaffee „Gavetti“ ermöglichen wir es Unternehmen, ihren Mitarbeitern den ganzen Tag über erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder proteinreich - unser wöchentliches Wechselmenü sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;. FELFEL ist ein Familienunternehmen, das 2013 gegründet wurde. Heute betreuen wir rund 1000 Standorte in der Schweiz und beschäftigen 150 Mitarbeiter in unseren Büros in Lausanne, Zürich und New York. www.felfel.ch FELFELWERTE",
-        "fr": "C'est gentil de vous rencontrer ! À SUIVRE Êtes-vous un étudiant en génie pratique qui aime un mélange de travail analytique profond et sortir du bureau pour résoudre des problèmes réels? En tant que nouveau stagiaire ingénieur de projet (ASAP, 2-3 mois, 100%) basé à Zurich Wiedikon, vous serez en plein milieu de l'action. Équilibrant votre temps entre notre bureau et les visites sur place, vous étudierez les causes profondes et optimiserez la performance et la fiabilité de notre parc de matériel intelligent à travers la Suisse. Vos responsabilités\n• Diagnostiquer les systèmes de refroidissement du réfrigérateur en fonction des conditions et des modes d'utilisation du site\n• Identifier les causes profondes de l'instabilité du refroidissement, de la performance du compresseur et de la fréquence d'ouverture des portes à la conception de la charge thermique ambiante et du débit d'air\n• Élaborer et proposer des solutions efficaces pour chaque problème identifié, allant des correctifs rapides aux améliorations structurelles à long terme\n• Améliorer la stabilité globale du refroidissement, en tenant compte des effets réels du changement climatique et de la hausse des températures de bureau\n• Assurer une sécurité alimentaire maximale en maintenant nos réfrigérateurs fiables dans les plages de température requises, même sous un stress thermique sévère\n• Travaillez à la fois sur place (essai, mesure et visite des réfrigérateurs sur place) et sur le plan stratégique (analyse, formulation de recommandations et création de documentation). QUELLES SONT LES INFORMATIONS VOTRE PROFIL\n• En cours d'études en génie (mécanique, process, thermique ou un domaine connexe) avec environ 3 ans d'expérience académique\n• Compréhension solide de la thermodynamique, du transfert thermique et des systèmes mécaniques\n• L'état d'esprit pratique et curieux, avec la capacité de se déplacer fluidement entre diagnostics pratiques et résolution structurée de problèmes\n• Disponibilité à s'engager dans un projet de 2 à 3 mois durant l'été\n• Connaissance de l'allemand ou de l'anglais; parler les deux est un avantage distinct\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail, ni aux réunions de clients. Après tout, FELFEL est une bonne nourriture.\n• Permis de travail valide ou passeport suisse. Vous serez mesuré par Nos avantages\n• Taux horaire de CHF 27.00\n• Delicious Meals at Your Fingertips: Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n• Café Barista-Style & Thé Premium: Faites le plein de café barista et de thé premium grâce à notre machine Gavetti.\n• Travaillez dans une équipe collaborative, amicale et terre à terre basée dans le centre de Zurich qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n• Prenez un projet réel et significatif au centre de notre entreprise, avec la chance de voir vos solutions mises en œuvre dans une flotte de réfrigérateurs en direct, pas seulement dans un rapport.\n• Travaillez en étroite collaboration avec nos opérations, notre équipe technique et notre gestion. Ça ressemble au boulot pour toi ? Nous avons hâte d'en savoir plus sur vous ! APPLIQUEZ MAINTENANT avec vos documents complets en allemand ou en anglais. APPLIQUEZ MAINTENANT À propos de nous FELFEL s'intéresse à la bonne alimentation et au café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité. Avec notre réfrigérateur intelligent « FELFEL » et notre délicieux café barista « Gavetti » nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-frais toute la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire assure que tous les employés ont toujours quelque chose à être excités ;). FELFEL est une entreprise familiale fondée en 2013. Aujourd'hui, nous nous occupons d'environ 1000 implantations en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York. www.felfel.ch VALEURS FELFELLES"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://felfel.jobs.personio.de/job/2696330",
-      "source": "FELFEL Dedicated Parser (Personio)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.942Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Räffelstrasse 24",
-      "postalCode": "8045",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Foodtech / Catering aziendale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://felfel.jobs.personio.de/job/2696330",
-      "jobReqId": "2696330",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "project-engineer-intern-cooling-optimization-asap-felfel-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "project-engineer-intern-cooling-optimization-asap-felfel-zurich"
-        ],
-        "de": [
-          "project-engineer-intern-cooling-optimization-asap-felfel-zurich"
-        ],
-        "fr": [
-          "project-engineer-intern-cooling-optimization-asap-felfel-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T22:11:59.687Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -239,7 +162,7 @@
       "url": "https://felfel.jobs.personio.de/job/2142463",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.937Z",
+      "crawledAt": "2026-07-13T21:57:00.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -259,11 +182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+        "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
+        "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
+          "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich",
+          "lavoro-a-tempo-parziale-commissione-nella-cella-frigorifera-2-giorni-a-settimana-felfel-zurich"
         ],
         "fr": [
           "part-time-job-commission-in-the-cool-cell-2-days-per-week-felfel-zurich"
@@ -281,7 +206,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "felfel-4c42b5faed3a",
@@ -314,7 +240,7 @@
       "url": "https://felfel.jobs.personio.de/job/2696431",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.933Z",
+      "crawledAt": "2026-07-13T21:57:00.751Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -335,11 +261,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "operations-assistant-50-60-felfel-zurich"
+          "operations-assistant-50-60-felfel-zurich",
+          "operations-coordinator-60-felfel-zurich"
         ],
         "it": [
           "operations-coordinator-60-felfel-zurich",
-          "operations-assistant-50-60-felfel-zurich"
+          "operations-assistant-50-60-felfel-zurich",
+          "operations-coordinatore-60-felfel-zurich"
         ],
         "de": [
           "operations-coordinator-60-felfel-zurich"
@@ -350,7 +278,8 @@
       },
       "previousSlugs": [
         "operations-coordinator-60-felfel-zurich",
-        "operations-assistant-50-60-felfel-zurich"
+        "operations-assistant-50-60-felfel-zurich",
+        "operations-coordinatore-60-felfel-zurich"
       ],
       "firstSeenAt": "2026-07-03T21:45:10.726Z",
       "salaryMin": 44100,
@@ -362,84 +291,6 @@
           "@type": "QuantitativeValue",
           "minValue": 44100,
           "maxValue": 66900,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "felfel-19fe401f8534",
-      "slug": "tirocinante-ingegneria-meccanica-lavoro-estivo-asap-felfel-zurich",
-      "slugByLocale": {
-        "it": "tirocinante-ingegneria-meccanica-lavoro-estivo-asap-felfel-zurich",
-        "en": "mechanical-engineering-intern-summer-job-asap-felfel-zurich",
-        "de": "praktikant-maschinenbau-sommerjob-asap-felfel-zurich",
-        "fr": "stagiaire-en-genie-mecanique-job-d-ete-asap-felfel-zurich"
-      },
-      "company": "FELFEL",
-      "companyKey": "felfel",
-      "companyDomain": "felfel.ch",
-      "title": "Mechanical Engineering Intern (Summer Job – ASAP)",
-      "titleByLocale": {
-        "it": "Mechanical Engineering Tirocinante (Summer Job – ASAP)",
-        "en": "Mechanical Engineering Intern (Summer Job – ASAP)",
-        "de": "Praktikant Maschinenbau (Sommerjob – ASAP)",
-        "fr": "Stagiaire en Génie Mécanique (Job d'été – ASAP)"
-      },
-      "description": "NICE TO MEET YOU!\n\nIN SHORT\n Are you a hands-on engineering student who enjoys a mix of deep analytical work and getting out of the office to solve real-world problems? As our new Engineering Intern (ASAP, 2-3 months, 100%) based in Zurich Wiedikon, you will be right in the middle of the action. Balancing your time between our office and on-site field visits, you will investigate root causes and optimize the performance and reliability of our smart hardware fleet across Switzerland.\n\nYOUR RESPONSIBILITIES\n\n• Diagnose our current fridge cooling systems across various site conditions and usage patterns\n\n• Analyze root causes behind possible issues such as cooling instability\n\n• Develop and propose pragmatic solutions for each identified issue, ranging from on-site fixes to long-term structural improvements\n\n• Work both hands-on (testing, measuring, being on-site with our fridges) and strategically (analysis, recommendations, documentation)\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• Currently studying, between degrees, or recently graduated in an engineering field (e.g., mechanical, process, thermal)\n\n• 3 years of academic experience\n\n• Solid understanding of thermodynamics, heat transfer, and mechanical systems\n\n• Practical and curious mindset\n\n• Valid Swiss driver's license (Category B) and willingness to travel to client sites across Switzerland\n\n• Fluency in either German or English (both is an advantage)\n\n• Availability to commit to a 2–3-month project over the summer\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Hourly rate of CHF 27.00\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Work in a collaborative, friendly, and down-to-earth team based in central Zürich that values initiative and gives you the space to contribute your ideas.\n\n• Take on a real, meaningful project at the center of our business, with the chance to see your solutions implemented across a live fridge fleet, not just in a report.\n\n• Work closely with and gain direct exposure to our operations, technical team, and management.\n Does this sound like the job for you? We can't wait to learn more about you! APPLY NOW with your complete documents in either German or English.\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;). FELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York. www.felfel.ch\n\nFELFEL VALUES",
-      "descriptionByLocale": {
-        "it": "Nizza per incontrarti!\n\nIN ORDINE Sei uno studente di ingegneria che si avvale di un mix di lavoro analitico profondo e di uscire dall'ufficio per risolvere problemi reali? Come il nostro nuovo stagista di ingegneria (ASAP, 2-3 mesi, 100%) con sede a Zurigo Wiedikon, sarete proprio nel bel mezzo dell'azione. Squilibrando il vostro tempo tra il nostro ufficio e le visite sul campo in loco, si studieranno le cause root e ottimizzare le prestazioni e l'affidabilità della nostra flotta hardware intelligente in tutta la Svizzera.\n\nLE VOSTRE RESPONSIBILITA'\n\n• Diagnosticare i nostri sistemi di raffreddamento del frigorifero attuali attraverso varie condizioni del sito e modelli di utilizzo\n\n• Analizzare le cause della radice dietro possibili problemi come l'instabilità di raffreddamento\n\n• Sviluppare e proporre soluzioni pragmatiche per ogni questione individuata, che vanno dalle correzioni in loco ai miglioramenti strutturali a lungo termine\n\n• Lavorare sia sul campo (testing, misurazione, essendo in loco con i nostri frigoriferi) che strategicamente (analisi, raccomandazioni, documentazione)\n\nCOSA ESPEDERE\n\nIL TUO PROFILO\n\n• Attualmente studia, tra i gradi, o si laurea di recente in un campo di ingegneria (ad esempio, meccanico, di processo, termico)\n\n• 3 anni di esperienza accademica\n\n• Comprensione solida della termodinamica, del trasferimento termico e dei sistemi meccanici\n\n• Una mentalità pratica e curiosa\n\n• Patente di guida svizzera valida (categoria B) e disponibilità a viaggiare verso siti clienti in tutta la Svizzera\n\n• Fluenza in tedesco o inglese (entrambi sono un vantaggio)\n\n• Disponibilità ad impegnarsi in un progetto di 2,3-mese durante l'estate\n\n• Non-Sommersore - non vogliamo che si puzza di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n\n• Permesso di lavoro valido o passaporto svizzero.\n\nSarete valutati da\n\nLE NOSTRE VANTAGGI\n\n• Tariffa oraria di CHF 27.00\n\n• Deliziosi pasti a portata di mano: Gustate pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro. ogni giorno.\n\n• Barista-Style Coffee & Premium Tea: Alimenta la tua giornata con il caffè barista-style e tè premium, grazie alla nostra macchina Gavetti.\n\n• Lavorare in un team collaborativo, amichevole e di basso livello con sede a Zurigo centrale che valorizza l'iniziativa e vi dà lo spazio per contribuire alle vostre idee.\n\n• Assuma un progetto reale e significativo al centro della nostra attività, con la possibilità di vedere le tue soluzioni implementate attraverso una flotta di frigoriferi dal vivo, non solo in un reportage.\n\n• Lavorare a stretto contatto con noi e ottenere l'esposizione diretta alle nostre operazioni, team tecnico e gestione. Ti sembra il lavoro che fa per te? Non vediamo l'ora di saperne di più su di te! APPLICHI ORA con i tuoi documenti completi in tedesco o in inglese.\n\nAPPLICATI ADESSO\n\nCHI SIAMO FELFEL è tutto sulla buona cucina e il caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità.Con il nostro frigo intelligente.FELFEL. e delizioso caffè barista.Gavetti., permettiamo alle aziende di fornire ai propri dipendenti cibi e bevande freschissimi e di prima classe durante tutta la giornata. Che siano abbondanti e tradizionali, moderni e vegan o ricchi di proteine - il nostro menù settimanale cambia sempre, assicura che tutti i dipendenti abbiano sempre qualcosa da entusiasmare;). FELFEL è un'azienda di famiglia che è stata fondata nel 2013.\n\nOggi ci occupiamo di circa 1000 sedi in Svizzera e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York. www.felfel.ch\n\nValori di Felfel",
-        "en": "NICE TO MEET YOU!\n\nIN SHORT\nAre you a hands-on engineering student who enjoys a mix of deep analytical work and getting out of the office to solve real-world problems? As our new Engineering Intern (ASAP, 2-3 months, 100%) based in Zurich Wiedikon, you will be right in the middle of the action. Balancing your time between our office and on-site field visits, you will investigate root causes and optimize the performance and reliability of our smart hardware fleet across Switzerland.\n\nYOUR RESPONSIBILITIES\n\n• Diagnose our current fridge cooling systems across various site conditions and usage patterns\n\n• Analyze root causes behind possible issues such as cooling instability\n\n• Develop and propose pragmatic solutions for each identified issue, ranging from on-site fixes to long-term structural improvements\n\n• Work both hands-on (testing, measuring, being on-site with our fridges) and strategically (analysis, recommendations, documentation)\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• Currently studying, between degrees, or recently graduated in an engineering field (e.g., mechanical, process, thermal)\n\n• 3 years of academic experience\n\n• Solid understanding of thermodynamics, heat transfer, and mechanical systems\n\n• Practical and curious mindset\n\n• Valid Swiss driver's license (Category B) and willingness to travel to client sites across Switzerland\n\n• Fluency in either German or English (both is an advantage)\n\n• Availability to commit to a 2–3-month project over the summer\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Hourly rate of CHF 27.00\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Work in a collaborative, friendly, and down-to-earth team based in central Zürich that values initiative and gives you the space to contribute your ideas.\n\n• Take on a real, meaningful project at the center of our business, with the chance to see your solutions implemented across a live fridge fleet, not just in a report.\n\n• Work closely with and gain direct exposure to our operations, technical team, and management.\nDoes this sound like the job for you? We can't wait to learn more about you! APPLY NOW with your complete documents in either German or English.\n\nAPPLY NOW\n\nABOUT US\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;). FELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York. www.felfel.ch\n\nFELFEL VALUES",
-        "de": "- Nett, dich zu treffen!\n\nIN SHORT Sind Sie ein praktischer Ingenieur, der sich durch eine Mischung aus tiefer analytischer Arbeit und dem Verlassen des Büros aus der Praxis zusammensetzt? Als unsere neue Engineering Intern (ASAP, 2-3 Monate, 100%) mit Sitz in Zürich Wiedikon sind Sie mitten in der Aktion. Sie werden Ihre Zeit zwischen unserem Büro und vor Ort vor Ort abwägen und die Ursachen der Grundlegenden untersuchen und die Leistung und Zuverlässigkeit unserer Smart Hardware Flotte in der ganzen Schweiz optimieren.\n\nIHRE VERANTWORTUNGEN\n\n• Unsere aktuellen Kühlsysteme für den Kühlschrank über verschiedene Standortbedingungen und Nutzungsmuster\n\n• Analyse der Ursachen hinter möglichen Problemen wie Kühlinstabilität\n\n• Entwicklung und Vorschlag pragmatischer Lösungen für jedes identifizierte Thema, von der Lösung vor Ort bis hin zu langfristigen strukturellen Verbesserungen\n\n• Arbeiten Sie sowohl mit der Hand (Testen, Messen, mit unseren Kühlschränken vor Ort) als auch strategisch (Analyse, Empfehlungen, Dokumentation)\n\nWAS GESCHICHTE UM ZU ERWERBEN\n\nIHRES PROFIL\n\n• Derzeit Studium, zwischen den Abschlüssen oder vor kurzem Abschluss in einem technischen Bereich (z.B. mechanische, Prozess, thermische)\n\n• 3 Jahre akademische Erfahrung\n\n• Solides Verständnis der Thermodynamik, Wärmeübertragung und mechanische Systeme\n\n• Praktische und neugierige Denkweise\n\n• Gültiger Schweizer Führerschein (Kategorie B) und Bereitschaft, zu Kundenstandorten in der Schweiz zu reisen\n\n• Fließfähigkeit in Deutsch oder Englisch (beide sind ein Vorteil)\n\n• Verfügbarkeit für ein 2- bis 3-monatiges Projekt im Sommer\n\n• Nichtraucher - wir wollen nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundentreffen. FELFEL geht es schließlich um gutes Essen.\n\n• Gültige Arbeitserlaubnis oder Schweizer Pass.\n\nDu wirst von mir MASSURIERT werden\n\nUNSERE BENEFITS\n\n• Stundensatz von CHF 27.00\n\n• Delicious Meals at Your Fingertips: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n\n• Barista-Style Kaffee & Premium Tee: Mit unserer Gabetti-Maschine können Sie Ihren Tag mit Barista-Kaffee und Premium-Tee tanken.\n\n• Arbeiten Sie in einem kollaborativen, freundlichen und bodenständigen Team mit Sitz im Zentrum von Zürich, das Initiative schätzt und Ihnen Raum gibt, um Ihre Ideen einzubringen.\n\n• Nehmen Sie ein echtes, sinnvolles Projekt im Zentrum unseres Geschäfts mit der Möglichkeit, Ihre Lösungen über eine Live-Kühlschrankflotte hinweg umzusetzen, nicht nur in einem Bericht.\n\n• Arbeiten Sie eng mit unseren Geschäftsbereichen, unserem technischen Team und unserem Management zusammen und nehmen Sie diese direkt wahr. Klingt das für Sie wie der Job? Wir freuen uns, mehr über Sie zu erfahren!\n\nJETZT ANTRAG\n\nÜber uns FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden. Mit unserem smarten Kühlschrank „FELFEL\" und köstlichem Barista-Kaffee „Gavetti\" ermöglichen wir Unternehmen, ihren Mitarbeitern über den Tag hinweg erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder hoch an Proteinen – unsere wöchentliche wechselnde Speisekarte sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;). FELFEL ist ein Familienunternehmen, das 2013 gegründet wurde.\n\nHeute kümmern wir uns um rund 1000 Standorte in der Schweiz und haben 150 Mitarbeiter in unseren Niederlassungen in Lausanne, Zürich und New York. www.felfel.ch\n\nFELFELWERTE",
-        "fr": "Content de vous rencontrer!\n\nIN SHORT Êtes-vous un étudiant en ingénierie pratique qui profite d'un mélange de travail analytique profond et de sortir du bureau pour résoudre des problèmes réels? En tant que nouveau stagiaire en ingénierie (ASAP, 2-3 mois, 100%) basé à Zurich Wiedikon, vous serez en plein milieu de l'action. Balancant votre temps entre notre bureau et les visites sur place, vous étudierez les causes profondes et optimiserez la performance et la fiabilité de notre parc de matériel intelligent à travers la Suisse.\n\nVOS RESPONSABILITÉS\n\n• Diagnostiquez nos systèmes de refroidissement actuels au réfrigérateur dans différentes conditions de site et les modèles d'utilisation\n\n• Analyser les causes profondes des problèmes éventuels tels que l'instabilité du refroidissement\n\n• Élaborer et proposer des solutions pragmatiques pour chaque question identifiée, allant des corrections sur place aux améliorations structurelles à long terme\n\n• Travaillez à la fois sur mesure (test, mesure, sur place avec nos réfrigérateurs) et stratégiquement (analyse, recommandations, documentation)\n\nQUE ÊTRE-CE QU'IL FAUT ÉVITER\n\nVOTRE PROFIL\n\n• En cours d'études, entre les diplômes ou récemment diplômés dans un domaine d'ingénierie (par exemple, mécanique, process, thermique)\n\n• 3 ans d'expérience académique\n\n• Une solide compréhension de la thermodynamique, du transfert de chaleur et des systèmes mécaniques\n\n• Une attitude pratique et curieuse\n\n• Permis de conduire suisse valide (catégorie B) et volonté de voyager sur les sites clients à travers la Suisse\n\n• La maîtrise de l'allemand ou de l'anglais (les deux sont un avantage)\n\n• Disponibilité à s'engager dans un projet de 2 à 3 mois durant l'été\n\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail ni lors des réunions de clients. Après tout, FELFEL est une bonne nourriture.\n\n• Permis de travail valide ou passeport suisse.\n\nVous serez mesuré par\n\nNos bienfets\n\n• Taux horaire de CHF 27.00\n\n• Repas délicieux au bout des doigts : Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n\n• Café Barista-Style & Thé Premium: Faites votre journée avec du café Barista et du thé premium, grâce à notre machine Gavetti.\n\n• Travailler dans une équipe collaborative, amicale et terre à terre basée dans le centre de Zurich qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n\n• Prenez un projet réel et significatif au centre de notre entreprise, avec la chance de voir vos solutions mises en œuvre dans une flotte de réfrigérateurs en direct, pas seulement dans un rapport.\n\n• Travailler en étroite collaboration avec nos opérations, notre équipe technique et notre management et en tirer directement parti. Cela vous ressemble-t-il? Nous avons hâte d'en savoir plus sur vous!\n\nAPPLIQUEZ-NOUS\n\nÀ PROPOS DE NOUS FELFEL est une bonne cuisine et café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité. Avec notre réfrigérateur intelligent « FELFEL, et délicieux café barista « Gavetti », nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-fraîchissants tout au long de la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire garantit que tous les employés ont toujours quelque chose à énerver ;). FELFEL est une entreprise familiale qui a été fondée en 2013.\n\nAujourd'hui, nous nous occupons d'environ 1000 sites en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York. www.felfel.ch\n\nVALEURS FELFELLES"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://felfel.jobs.personio.de/job/2693407",
-      "source": "FELFEL Dedicated Parser (Personio)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.929Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Räffelstrasse 24",
-      "postalCode": "8045",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Foodtech / Catering aziendale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://felfel.jobs.personio.de/job/2693407",
-      "jobReqId": "2693407",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mechanical-engineering-intern-summer-job-asap-felfel-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mechanical-engineering-intern-summer-job-asap-felfel-zurich"
-        ],
-        "de": [
-          "mechanical-engineering-intern-summer-job-asap-felfel-zurich"
-        ],
-        "fr": [
-          "mechanical-engineering-intern-summer-job-asap-felfel-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:45:10.724Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -475,7 +326,7 @@
       "url": "https://felfel.jobs.personio.de/job/2703147",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.925Z",
+      "crawledAt": "2026-07-13T21:57:00.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -495,6 +346,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:11:59.671Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -539,7 +391,7 @@
       "url": "https://felfel.jobs.personio.de/job/2687300",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.920Z",
+      "crawledAt": "2026-07-13T21:57:00.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -559,11 +411,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "iot-platform-engineer-felfel-zurich"
+        "iot-platform-engineer-felfel-zurich",
+        "iot-platform-ingegnere-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-platform-engineer-felfel-zurich"
+          "iot-platform-engineer-felfel-zurich",
+          "iot-platform-ingegnere-felfel-zurich"
         ],
         "de": [
           "iot-platform-engineer-felfel-zurich"
@@ -573,6 +427,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.723Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -590,8 +445,8 @@
       "id": "felfel-351e007ed778",
       "slug": "gestione-delle-entrate-felfel-zurich",
       "slugByLocale": {
-        "en": "internship-revenue-management-felfel-zurich",
         "it": "gestione-delle-entrate-felfel-zurich",
+        "en": "internship-revenue-management-felfel-zurich",
         "de": "internship-revenue-management-felfel-zurich",
         "fr": "gestion-des-recettes-des-stages-felfel-zurich"
       },
@@ -600,24 +455,24 @@
       "companyDomain": "felfel.ch",
       "title": "Internship Revenue Management",
       "titleByLocale": {
-        "en": "Internship Revenue Management",
         "it": "Gestione delle entrate",
+        "en": "Internship Revenue Management",
         "de": "Internship Revenue Management",
         "fr": "Gestion des recettes des stages"
       },
       "description": "NICE TO MEET YOU!\n\nIN SHORT\n Are you passionate about data, optimization, and minimizing food waste? As an Intern in Revenue Management (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\n Daily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\n Projects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
       "descriptionByLocale": {
-        "en": "NICE TO MEET YOU!\n\nIN SHORT\n Are you passionate about data, optimization, and minimizing food waste? As an Intern in Revenue Management (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\n Daily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\n Projects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
-        "it": "- Piacere di conoscerti!\n\nIN FOTO\n Sei appassionato di dati, ottimizzazione e riduzione dei rifiuti alimentari? Come Intern in Revenue Management (a partire da agosto o settembre, 100%, termine fisso per 6 mesi) a Zurigo Wiedikon, si svolgerà un ruolo cruciale nell'assegnazione della perfetta quantità di cibo e caffè ai nostri frigoriferi FELFEL e alle macchine Gavetti. Lavorando a stretto contatto con il nostro team di vendita, valuterai le richieste dei clienti e continuerai a sforzarti di soddisfare i clienti.\n\nLE RISPOSTE\n Compiti giornalieri\n\n• Eseguire il nostro algoritmo di stoccaggio giornaliero e analizzare le statistiche delle prestazioni chiave per ottimizzare l'inventario nei nostri frigoriferi FELFEL e macchine da caffè Gavetti.\n\n• Prendere decisioni proattive e basate sui dati per avviare modifiche, ridurre i rifiuti alimentari e massimizzare la soddisfazione del cliente.\n\n• Gestire e coordinare richieste speciali del cliente, come le regolazioni di vacanza o ordini aggiuntivi.\n Progetti\n\n• Contribuisci attivamente a progetti in corso identificando punti di dolore, proponendo miglioramenti creativi e tracciando l'impatto di nuove iniziative.\n\n• Mantenere l'accuratezza e l'integrità dei nostri strumenti interni e database di informazioni.\n\nCOSA SPECIALE\n\nIl tuo progetto\n\n• Hai appena completato il tuo Bachelor e sono attualmente in tra studi, o alla ricerca di un'opportunità pratica per acquisire esperienza pratica.\n\n• Proficienza in MS Office, particolarmente sentirsi a proprio agio con Excel e PowerPoint.\n\n• Mindset Entrepreneurial – curioso su come le cose funzionano e sempre alla ricerca di modi per aiutare il business a crescere.\n\n• Eccezionale attenzione al dettaglio combinato con la capacità di bilanciare simultaneamente più compiti.\n\n• Fluenza in inglese; conoscenza aggiuntiva del tedesco e/o del francese è un plus.\n\n• Non fumatore - non vogliamo che puzzi di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n\n• Permesso di lavoro valido o passaporto svizzero.\n\nSarai sicuro\n\nI nostri servizi\n\n• Deliziosi pasti al vostro Fingertips: Godetevi pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro – ogni giorno.\n\n• Barista-Style Coffee & Premium Tea: Combusti la tua giornata con caffè in stile barista illimitato e tè premium, grazie alla nostra macchina Gavetti.\n\n• Copertura di viaggio Halbtax: copriamo il costo del tuo biglietto di viaggio svizzero Halbtax (half-fare) per sostenere il pendolarismo sostenibile.\n\n• A Supportive, Dynamic Team Culture: Lavora in un ambiente collaborativo che valorizza l'iniziativa e ti dà lo spazio per contribuire alle tue idee.\n\nSe questo suona come il ruolo perfetto per voi, applica ora con i vostri documenti in tedesco o in inglese. Non vediamo l'ora di sentirti!\n\nAPPLICAZIONE ORA\n\nA proposito di\n FELFEL si occupa di buon cibo e caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità.\nCon il nostro intelligente frigorifero 'FELFEL' e delizioso caffè barista 'Gavetti', permettiamo alle aziende di fornire ai propri dipendenti cibo e bevande ultra-freschi di prima classe durante tutta la giornata. Che siano ricche e tradizionali, moderne e vegane o ad alto contenuto di proteine - il nostro menu di modifica settimanale assicura che tutti i dipendenti abbiano sempre qualcosa di cui essere entusiasti;).\nFELFEL è un'azienda di famiglia fondata nel 2013. Oggi ci occupiamo di circa 1000 sedi in Svizzera, e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York.\nwww.felfel.ch\n\nVALORE DEL FELFEL",
-        "de": "Schön, dich zu treffen!\n\nIN KURZ\n Sie interessieren sich für Daten, Optimierung und Minimierung von Lebensmittelabfällen? Als Praktikant im Revenue Management (ab August oder September, 100%, feste Laufzeit 6 Monate) in Zürich Wiedikon spielen Sie eine entscheidende Rolle bei der Zuteilung der perfekten Menge an Speisen und Kaffee für unsere FELFEL Kühlschränke und Gavetti-Maschinen. In enger Zusammenarbeit mit unserem Verkaufsteam bewerten Sie Kundenanfragen und streben ständig nach hoher Kundenzufriedenheit.\n\nIHRE VERANTWORTUNGEN\n Tägliche Aufgaben\n\n• Führen Sie unseren täglichen Lagerbestandsalgorithmus aus und analysieren Sie die wichtigsten Leistungsstatistiken, um den Bestand in unseren FELFEL-Kühlschränken und Gavetti-Kaffeemaschinen zu optimieren.\n\n• Treffen Sie proaktive, datengesteuerte Entscheidungen, um Änderungen einzuleiten, Lebensmittelabfälle zu reduzieren und die Kundenzufriedenheit zu maximieren.\n\n• Verwalten und koordinieren Sie spezielle Kundenanfragen wie Urlaubsanpassungen oder zusätzliche Bestellungen.\n Projekte\n\n• Tragen Sie aktiv zu laufenden Projekten bei, indem Sie Schwachstellen identifizieren, kreative Verbesserungen vorschlagen und die Auswirkungen neuer Initiativen verfolgen.\n\n• Pflegen Sie die Genauigkeit und Integrität unserer internen Tools und Informationsdatenbanken.\n\nWAS ERWARTET WIRD\n\nIHR PROFIL\n\n• Sie haben gerade Ihren Bachelor abgeschlossen und befinden sich derzeit zwischen dem Studium oder suchen nach einer praktischen Gelegenheit, praktische Erfahrungen zu sammeln.\n\n• Kenntnisse in MS Office, insbesondere mit Excel und PowerPoint.\n\n• Unternehmerische Denkweise - neugierig darauf, wie die Dinge funktionieren und immer nach Möglichkeiten suchen, dem Unternehmen beim Wachstum zu helfen.\n\n• Außergewöhnliche Liebe zum Detail kombiniert mit der Fähigkeit, mehrere Aufgaben gleichzeitig auszugleichen.\n\n• Englisch fließend; zusätzliche Deutsch- und/oder Französischkenntnisse sind ein Plus.\n\n• Nichtraucher - wir möchten nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundenbesprechungen. Schließlich geht es bei FELFEL um gutes Essen.\n\n• Gültige Arbeitserlaubnis oder Schweizer Pass.\n\nSIE WERDEN MESSEN\n\nUNSERE LEISTUNGEN\n\n• Köstliche Mahlzeiten an Ihren Fingerspitzen: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n\n• Kaffee & Premium Tee im Barista-Stil: Betanken Sie Ihren Tag mit unbegrenztem Kaffee im Barista-Stil und Premium-Tee dank unserer Gavetti-Maschine.\n\n• Halbtax Travel Pass Coverage: Wir übernehmen die Kosten für Ihren Schweizer Halbtax (Halbtax) Reisepass, um nachhaltiges Pendeln zu unterstützen.\n\n• Eine unterstützende, dynamische Teamkultur: Arbeiten Sie in einer kollaborativen Umgebung, die Initiative schätzt und Ihnen den Raum gibt, Ihre Ideen einzubringen.\n\nWenn dies nach der perfekten Rolle für Sie klingt, bewerben Sie sich jetzt mit Ihren Dokumenten auf Deutsch oder Englisch. Wir freuen uns darauf, von Ihnen zu hören!\n\nJETZT ANWENDBAR\n\nÜber uns\n Bei FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden.\nMit unserem smarten Kühlschrank „FELFEL“ und dem köstlichen Barista-Kaffee „Gavetti“ ermöglichen wir es Unternehmen, ihren Mitarbeitern den ganzen Tag über erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder proteinreich - unser wöchentliches Wechselmenü sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;.\nFELFEL ist ein Familienunternehmen, das 2013 gegründet wurde. Heute betreuen wir rund 1000 Standorte in der Schweiz und beschäftigen 150 Mitarbeiter in unseren Büros in Lausanne, Zürich und New York.\nwww.felfel.ch\n\nFELFELWERTE",
-        "fr": "C'est gentil de vous rencontrer !\n\nÀ SUIVRE\n Êtes-vous passionné par les données, l'optimisation et la réduction des déchets alimentaires? En tant que stagiaire en gestion des recettes (à partir d'août ou de septembre, 100%, durée déterminée pour 6 mois) à Zurich Wiedikon, vous jouerez un rôle crucial dans l'attribution de la quantité parfaite de nourriture et de café à nos réfrigérateurs FELFEL et machines Gavetti. En étroite collaboration avec notre équipe commerciale, vous évaluerez les demandes des clients et vous vous efforcerez constamment d'obtenir une grande satisfaction de la clientèle.\n\nVos responsabilités\n Tâches quotidiennes\n\n• Exécutez notre algorithme de stockage quotidien et analysez les principales statistiques de performance pour optimiser l'inventaire de nos réfrigérateurs FELFEL et machines à café Gavetti.\n\n• Prendre des décisions proactives axées sur les données pour amorcer des changements, réduire le gaspillage alimentaire et maximiser la satisfaction des clients.\n\n• Gérer et coordonner les demandes spéciales des clients, comme les rajustements de jours fériés ou les commandes supplémentaires.\n Projets\n\n• Contribuer activement aux projets en cours en identifiant les points de douleur, en proposant des améliorations créatives et en suivant l'impact des nouvelles initiatives.\n\n• Maintenir l'exactitude et l'intégrité de nos outils internes et de nos bases de données d'information.\n\nQUELLES SONT LES INFORMATIONS\n\nVOTRE PROFIL\n\n• Vous venez de terminer votre baccalauréat et êtes actuellement entre les études, ou à la recherche d'une occasion pratique d'acquérir une expérience pratique.\n\n• Compétence en MS Office, particulièrement à l'aise avec Excel et PowerPoint.\n\n• L'esprit d'entreprise – curieux de savoir comment les choses fonctionnent et toujours à la recherche de moyens pour aider l'entreprise à croître.\n\n• Une attention exceptionnelle au détail associée à la capacité d'équilibrer simultanément plusieurs tâches.\n\n• Connaissance de l'anglais; une connaissance supplémentaire de l'allemand et/ou du français est un plus.\n\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail, ni aux réunions de clients. Après tout, FELFEL est une bonne nourriture.\n\n• Permis de travail valide ou passeport suisse.\n\nVous serez mesuré par\n\nNos avantages\n\n• Delicious Meals at Your Fingertips: Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n\n• Café Barista-Style & Thé Premium: Carburant votre journée avec un café barista illimité et du thé premium, grâce à notre machine Gavetti.\n\n• Couverture de votre carte de voyage Halbtax : Nous couvrons le coût de votre carte de voyage Swiss Halbtax (demi-tarif) pour soutenir des déplacements durables.\n\n• Une culture d'équipe stimulante et dynamique : travaillez dans un environnement collaboratif qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n\nSi cela semble être le rôle parfait pour vous, appliquez maintenant avec vos documents en allemand ou en anglais. Nous avons hâte de vous entendre!\n\nAPPLIQUEZ MAINTENANT\n\nÀ propos de nous\n FELFEL s'intéresse à la bonne alimentation et au café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité.\nAvec notre réfrigérateur intelligent « FELFEL » et notre délicieux café barista « Gavetti » nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-frais toute la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire assure que tous les employés ont toujours quelque chose à être excités ;).\nFELFEL est une entreprise familiale fondée en 2013. Aujourd'hui, nous nous occupons d'environ 1000 implantations en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York.\nwww.felfel.ch\n\nVALEURS FELFELLES"
+        "it": "- Piacere di conoscerti!\n\nIN FOTO\nSei appassionato di dati, ottimizzazione e riduzione dei rifiuti alimentari? Come Intern in Revenue Management (a partire da agosto o settembre, 100%, termine fisso per 6 mesi) a Zurigo Wiedikon, si svolgerà un ruolo cruciale nell'assegnazione della perfetta quantità di cibo e caffè ai nostri frigoriferi FELFEL e alle macchine Gavetti. Lavorando a stretto contatto con il nostro team di vendita, valuterai le richieste dei clienti e continuerai a sforzarti di soddisfare i clienti.\n\nLE RISPOSTE\nCompiti giornalieri\n\n• Eseguire il nostro algoritmo di stoccaggio giornaliero e analizzare le statistiche delle prestazioni chiave per ottimizzare l'inventario nei nostri frigoriferi FELFEL e macchine da caffè Gavetti.\n\n• Prendere decisioni proattive e basate sui dati per avviare modifiche, ridurre i rifiuti alimentari e massimizzare la soddisfazione del cliente.\n\n• Gestire e coordinare richieste speciali del cliente, come le regolazioni di vacanza o ordini aggiuntivi.\nProgetti\n\n• Contribuisci attivamente a progetti in corso identificando punti di dolore, proponendo miglioramenti creativi e tracciando l'impatto di nuove iniziative.\n\n• Mantenere l'accuratezza e l'integrità dei nostri strumenti interni e database di informazioni.\n\nCOSA SPECIALE\n\nIl tuo progetto\n\n• Hai appena completato il tuo Bachelor e sono attualmente in tra studi, o alla ricerca di un'opportunità pratica per acquisire esperienza pratica.\n\n• Proficienza in MS Office, particolarmente sentirsi a proprio agio con Excel e PowerPoint.\n\n• Mindset Entrepreneurial – curioso su come le cose funzionano e sempre alla ricerca di modi per aiutare il business a crescere.\n\n• Eccezionale attenzione al dettaglio combinato con la capacità di bilanciare simultaneamente più compiti.\n\n• Fluenza in inglese; conoscenza aggiuntiva del tedesco e/o del francese è un plus.\n\n• Non fumatore - non vogliamo che puzzi di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n\n• Permesso di lavoro valido o passaporto svizzero.\n\nSarai sicuro\n\nI nostri servizi\n\n• Deliziosi pasti al vostro Fingertips: Godetevi pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro – ogni giorno.\n\n• Barista-Style Coffee & Premium Tea: Combusti la tua giornata con caffè in stile barista illimitato e tè premium, grazie alla nostra macchina Gavetti.\n\n• Copertura di viaggio Halbtax: copriamo il costo del tuo biglietto di viaggio svizzero Halbtax (half-fare) per sostenere il pendolarismo sostenibile.\n\n• A Supportive, Dynamic Team Culture: Lavora in un ambiente collaborativo che valorizza l'iniziativa e ti dà lo spazio per contribuire alle tue idee.\n\nSe questo suona come il ruolo perfetto per voi, applica ora con i vostri documenti in tedesco o in inglese. Non vediamo l'ora di sentirti!\n\nAPPLICAZIONE ORA\n\nA proposito di\nFELFEL si occupa di buon cibo e caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità.\nCon il nostro intelligente frigorifero 'FELFEL' e delizioso caffè barista 'Gavetti', permettiamo alle aziende di fornire ai propri dipendenti cibo e bevande ultra-freschi di prima classe durante tutta la giornata. Che siano ricche e tradizionali, moderne e vegane o ad alto contenuto di proteine - il nostro menu di modifica settimanale assicura che tutti i dipendenti abbiano sempre qualcosa di cui essere entusiasti;).\nFELFEL è un'azienda di famiglia fondata nel 2013. Oggi ci occupiamo di circa 1000 sedi in Svizzera, e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York.\nwww.felfel.ch\n\nVALORE DEL FELFEL",
+        "en": "NICE TO MEET YOU!\n\nIN SHORT\nAre you passionate about data, optimization, and minimizing food waste? As an Intern in Revenue Management (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\nDaily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\nProjects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
+        "de": "Schön, dich zu treffen!\n\nIN KURZ\nSie interessieren sich für Daten, Optimierung und Minimierung von Lebensmittelabfällen? Als Praktikant im Revenue Management (ab August oder September, 100%, feste Laufzeit 6 Monate) in Zürich Wiedikon spielen Sie eine entscheidende Rolle bei der Zuteilung der perfekten Menge an Speisen und Kaffee für unsere FELFEL Kühlschränke und Gavetti-Maschinen. In enger Zusammenarbeit mit unserem Verkaufsteam bewerten Sie Kundenanfragen und streben ständig nach hoher Kundenzufriedenheit.\n\nIHRE VERANTWORTUNGEN\nTägliche Aufgaben\n\n• Führen Sie unseren täglichen Lagerbestandsalgorithmus aus und analysieren Sie die wichtigsten Leistungsstatistiken, um den Bestand in unseren FELFEL-Kühlschränken und Gavetti-Kaffeemaschinen zu optimieren.\n\n• Treffen Sie proaktive, datengesteuerte Entscheidungen, um Änderungen einzuleiten, Lebensmittelabfälle zu reduzieren und die Kundenzufriedenheit zu maximieren.\n\n• Verwalten und koordinieren Sie spezielle Kundenanfragen wie Urlaubsanpassungen oder zusätzliche Bestellungen.\nProjekte\n\n• Tragen Sie aktiv zu laufenden Projekten bei, indem Sie Schwachstellen identifizieren, kreative Verbesserungen vorschlagen und die Auswirkungen neuer Initiativen verfolgen.\n\n• Pflegen Sie die Genauigkeit und Integrität unserer internen Tools und Informationsdatenbanken.\n\nWAS ERWARTET WIRD\n\nIHR PROFIL\n\n• Sie haben gerade Ihren Bachelor abgeschlossen und befinden sich derzeit zwischen dem Studium oder suchen nach einer praktischen Gelegenheit, praktische Erfahrungen zu sammeln.\n\n• Kenntnisse in MS Office, insbesondere mit Excel und PowerPoint.\n\n• Unternehmerische Denkweise - neugierig darauf, wie die Dinge funktionieren und immer nach Möglichkeiten suchen, dem Unternehmen beim Wachstum zu helfen.\n\n• Außergewöhnliche Liebe zum Detail kombiniert mit der Fähigkeit, mehrere Aufgaben gleichzeitig auszugleichen.\n\n• Englisch fließend; zusätzliche Deutsch- und/oder Französischkenntnisse sind ein Plus.\n\n• Nichtraucher - wir möchten nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundenbesprechungen. Schließlich geht es bei FELFEL um gutes Essen.\n\n• Gültige Arbeitserlaubnis oder Schweizer Pass.\n\nSIE WERDEN MESSEN\n\nUNSERE LEISTUNGEN\n\n• Köstliche Mahlzeiten an Ihren Fingerspitzen: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n\n• Kaffee & Premium Tee im Barista-Stil: Betanken Sie Ihren Tag mit unbegrenztem Kaffee im Barista-Stil und Premium-Tee dank unserer Gavetti-Maschine.\n\n• Halbtax Travel Pass Coverage: Wir übernehmen die Kosten für Ihren Schweizer Halbtax (Halbtax) Reisepass, um nachhaltiges Pendeln zu unterstützen.\n\n• Eine unterstützende, dynamische Teamkultur: Arbeiten Sie in einer kollaborativen Umgebung, die Initiative schätzt und Ihnen den Raum gibt, Ihre Ideen einzubringen.\n\nWenn dies nach der perfekten Rolle für Sie klingt, bewerben Sie sich jetzt mit Ihren Dokumenten auf Deutsch oder Englisch. Wir freuen uns darauf, von Ihnen zu hören!\n\nJETZT ANWENDBAR\n\nÜber uns\nBei FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden.\nMit unserem smarten Kühlschrank „FELFEL“ und dem köstlichen Barista-Kaffee „Gavetti“ ermöglichen wir es Unternehmen, ihren Mitarbeitern den ganzen Tag über erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder proteinreich - unser wöchentliches Wechselmenü sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;.\nFELFEL ist ein Familienunternehmen, das 2013 gegründet wurde. Heute betreuen wir rund 1000 Standorte in der Schweiz und beschäftigen 150 Mitarbeiter in unseren Büros in Lausanne, Zürich und New York.\nwww.felfel.ch\n\nFELFELWERTE",
+        "fr": "C'est gentil de vous rencontrer !\n\nÀ SUIVRE\nÊtes-vous passionné par les données, l'optimisation et la réduction des déchets alimentaires? En tant que stagiaire en gestion des recettes (à partir d'août ou de septembre, 100%, durée déterminée pour 6 mois) à Zurich Wiedikon, vous jouerez un rôle crucial dans l'attribution de la quantité parfaite de nourriture et de café à nos réfrigérateurs FELFEL et machines Gavetti. En étroite collaboration avec notre équipe commerciale, vous évaluerez les demandes des clients et vous vous efforcerez constamment d'obtenir une grande satisfaction de la clientèle.\n\nVos responsabilités\nTâches quotidiennes\n\n• Exécutez notre algorithme de stockage quotidien et analysez les principales statistiques de performance pour optimiser l'inventaire de nos réfrigérateurs FELFEL et machines à café Gavetti.\n\n• Prendre des décisions proactives axées sur les données pour amorcer des changements, réduire le gaspillage alimentaire et maximiser la satisfaction des clients.\n\n• Gérer et coordonner les demandes spéciales des clients, comme les rajustements de jours fériés ou les commandes supplémentaires.\nProjets\n\n• Contribuer activement aux projets en cours en identifiant les points de douleur, en proposant des améliorations créatives et en suivant l'impact des nouvelles initiatives.\n\n• Maintenir l'exactitude et l'intégrité de nos outils internes et de nos bases de données d'information.\n\nQUELLES SONT LES INFORMATIONS\n\nVOTRE PROFIL\n\n• Vous venez de terminer votre baccalauréat et êtes actuellement entre les études, ou à la recherche d'une occasion pratique d'acquérir une expérience pratique.\n\n• Compétence en MS Office, particulièrement à l'aise avec Excel et PowerPoint.\n\n• L'esprit d'entreprise – curieux de savoir comment les choses fonctionnent et toujours à la recherche de moyens pour aider l'entreprise à croître.\n\n• Une attention exceptionnelle au détail associée à la capacité d'équilibrer simultanément plusieurs tâches.\n\n• Connaissance de l'anglais; une connaissance supplémentaire de l'allemand et/ou du français est un plus.\n\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail, ni aux réunions de clients. Après tout, FELFEL est une bonne nourriture.\n\n• Permis de travail valide ou passeport suisse.\n\nVous serez mesuré par\n\nNos avantages\n\n• Delicious Meals at Your Fingertips: Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n\n• Café Barista-Style & Thé Premium: Carburant votre journée avec un café barista illimité et du thé premium, grâce à notre machine Gavetti.\n\n• Couverture de votre carte de voyage Halbtax : Nous couvrons le coût de votre carte de voyage Swiss Halbtax (demi-tarif) pour soutenir des déplacements durables.\n\n• Une culture d'équipe stimulante et dynamique : travaillez dans un environnement collaboratif qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n\nSi cela semble être le rôle parfait pour vous, appliquez maintenant avec vos documents en allemand ou en anglais. Nous avons hâte de vous entendre!\n\nAPPLIQUEZ MAINTENANT\n\nÀ propos de nous\nFELFEL s'intéresse à la bonne alimentation et au café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité.\nAvec notre réfrigérateur intelligent « FELFEL » et notre délicieux café barista « Gavetti » nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-frais toute la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire assure que tous les employés ont toujours quelque chose à être excités ;).\nFELFEL est une entreprise familiale fondée en 2013. Aujourd'hui, nous nous occupons d'environ 1000 implantations en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York.\nwww.felfel.ch\n\nVALEURS FELFELLES"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://felfel.jobs.personio.de/job/2709324",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.906Z",
+      "crawledAt": "2026-07-13T21:57:00.739Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -635,9 +490,22 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2709324",
       "jobReqId": "2709324",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "internship-revenue-management-felfel-zurich",
+        "gestione-delle-entrate-felfel-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-revenue-management-felfel-zurich",
+          "gestione-delle-entrate-felfel-zurich"
+        ],
+        "fr": [
+          "internship-revenue-management-felfel-zurich"
+        ]
       },
+      "firstSeenAt": "2026-07-13T12:12:10.906Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -649,26 +517,14 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-13T12:12:10.906Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-revenue-management-felfel-zurich"
-        ],
-        "fr": [
-          "internship-revenue-management-felfel-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "internship-revenue-management-felfel-zurich"
-      ]
+      }
     },
     {
       "id": "felfel-25c2a29b5585",
       "slug": "intern-data-analytics-operations-felfel-zurich",
       "slugByLocale": {
-        "en": "intern-data-analytics-operations-felfel-zurich",
         "it": "intern-data-analytics-operations-felfel-zurich",
+        "en": "intern-data-analytics-operations-felfel-zurich",
         "de": "intern-data-analytics-operations-felfel-zurich",
         "fr": "intern-data-analytics-operations-felfel-zurich"
       },
@@ -677,24 +533,24 @@
       "companyDomain": "felfel.ch",
       "title": "Intern Data Analytics & Operations",
       "titleByLocale": {
-        "en": "Intern Data Analytics & Operations",
         "it": "Tirocinante Data Analytics & Operations",
+        "en": "Intern Data Analytics & Operations",
         "de": "Praktikant Data Analytics & Operations",
         "fr": "Stagiaire Data Analytics & Operations"
       },
       "description": "NICE TO MEET YOU!\n\nIN SHORT\n Are you passionate about data, optimization, and minimizing food waste? As an Intern in Data Analytics & Operations (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\n Daily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\n Projects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
       "descriptionByLocale": {
-        "en": "NICE TO MEET YOU!\n\nIN SHORT\n Are you passionate about data, optimization, and minimizing food waste? As an Intern in Data Analytics & Operations (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\n Daily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\n Projects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\n FELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
-        "it": "- Piacere di conoscerti!\n\nIN FOTO\n Sei appassionato di dati, ottimizzazione e riduzione dei rifiuti alimentari? In qualità di Intern in Data Analytics & Operations (a partire da agosto o settembre, 100%, termine fisso per 6 mesi) a Zurigo Wiedikon, si svolgerà un ruolo cruciale nell'assegnazione della perfetta quantità di cibo e caffè ai nostri frigoriferi FELFEL e alle macchine Gavetti. Lavorando a stretto contatto con il nostro team di vendita, valuterai le richieste dei clienti e continuerai a sforzarti di soddisfare i clienti.\n\nLE RISPOSTE\n Compiti giornalieri\n\n• Eseguire il nostro algoritmo di stoccaggio giornaliero e analizzare le statistiche delle prestazioni chiave per ottimizzare l'inventario nei nostri frigoriferi FELFEL e macchine da caffè Gavetti.\n\n• Prendere decisioni proattive e basate sui dati per avviare modifiche, ridurre i rifiuti alimentari e massimizzare la soddisfazione del cliente.\n\n• Gestire e coordinare richieste speciali del cliente, come le regolazioni di vacanza o ordini aggiuntivi.\n Progetti\n\n• Contribuisci attivamente a progetti in corso identificando punti di dolore, proponendo miglioramenti creativi e tracciando l'impatto di nuove iniziative.\n\n• Mantenere l'accuratezza e l'integrità dei nostri strumenti interni e database di informazioni.\n\nCOSA SPECIALE\n\nIl tuo progetto\n\n• Hai appena completato il tuo Bachelor e sono attualmente in tra studi, o alla ricerca di un'opportunità pratica per acquisire esperienza pratica.\n\n• Proficienza in MS Office, particolarmente sentirsi a proprio agio con Excel e PowerPoint.\n\n• Mindset Entrepreneurial – curioso su come le cose funzionano e sempre alla ricerca di modi per aiutare il business a crescere.\n\n• Eccezionale attenzione al dettaglio combinato con la capacità di bilanciare simultaneamente più compiti.\n\n• Fluenza in inglese; conoscenza aggiuntiva del tedesco e/o del francese è un plus.\n\n• Non fumatore - non vogliamo che puzzi di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n\n• Permesso di lavoro valido o passaporto svizzero.\n\nSarai sicuro\n\nI nostri servizi\n\n• Deliziosi pasti al vostro Fingertips: Godetevi pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro – ogni giorno.\n\n• Barista-Style Coffee & Premium Tea: Combusti la tua giornata con caffè in stile barista illimitato e tè premium, grazie alla nostra macchina Gavetti.\n\n• Copertura di viaggio Halbtax: copriamo il costo del tuo biglietto di viaggio svizzero Halbtax (half-fare) per sostenere il pendolarismo sostenibile.\n\n• A Supportive, Dynamic Team Culture: Lavora in un ambiente collaborativo che valorizza l'iniziativa e ti dà lo spazio per contribuire alle tue idee.\n\nSe questo suona come il ruolo perfetto per voi, applica ora con i vostri documenti in tedesco o in inglese. Non vediamo l'ora di sentirti!\n\nAPPLICAZIONE ORA\n\nA proposito di\n FELFEL si occupa di buon cibo e caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità.\nCon il nostro intelligente frigorifero 'FELFEL' e delizioso caffè barista 'Gavetti', permettiamo alle aziende di fornire ai propri dipendenti cibo e bevande ultra-freschi di prima classe durante tutta la giornata. Che siano ricche e tradizionali, moderne e vegane o ad alto contenuto di proteine - il nostro menu di modifica settimanale assicura che tutti i dipendenti abbiano sempre qualcosa di cui essere entusiasti;).\nFELFEL è un'azienda di famiglia fondata nel 2013. Oggi ci occupiamo di circa 1000 sedi in Svizzera, e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York.\nwww.felfel.ch\n\nVALORE DEL FELFEL",
-        "de": "Schön, dich zu treffen!\n\nIN KURZ\n Sie interessieren sich für Daten, Optimierung und Minimierung von Lebensmittelabfällen? Als Praktikant in Data Analytics & Operations (ab August oder September, 100%, feste Laufzeit für 6 Monate) in Zürich Wiedikon spielen Sie eine entscheidende Rolle bei der Zuteilung der perfekten Menge an Speisen und Kaffee für unsere FELFEL Kühlschränke und Gavetti-Maschinen. In enger Zusammenarbeit mit unserem Verkaufsteam bewerten Sie Kundenanfragen und streben ständig nach hoher Kundenzufriedenheit.\n\nIHRE VERANTWORTUNGEN\n Tägliche Aufgaben\n\n• Führen Sie unseren täglichen Lagerbestandsalgorithmus aus und analysieren Sie die wichtigsten Leistungsstatistiken, um den Bestand in unseren FELFEL-Kühlschränken und Gavetti-Kaffeemaschinen zu optimieren.\n\n• Treffen Sie proaktive, datengesteuerte Entscheidungen, um Änderungen einzuleiten, Lebensmittelabfälle zu reduzieren und die Kundenzufriedenheit zu maximieren.\n\n• Verwalten und koordinieren Sie spezielle Kundenanfragen wie Urlaubsanpassungen oder zusätzliche Bestellungen.\n Projekte\n\n• Tragen Sie aktiv zu laufenden Projekten bei, indem Sie Schwachstellen identifizieren, kreative Verbesserungen vorschlagen und die Auswirkungen neuer Initiativen verfolgen.\n\n• Pflegen Sie die Genauigkeit und Integrität unserer internen Tools und Informationsdatenbanken.\n\nWAS ERWARTET WIRD\n\nIHR PROFIL\n\n• Sie haben gerade Ihren Bachelor abgeschlossen und befinden sich derzeit zwischen dem Studium oder suchen nach einer praktischen Gelegenheit, praktische Erfahrungen zu sammeln.\n\n• Kenntnisse in MS Office, insbesondere mit Excel und PowerPoint.\n\n• Unternehmerische Denkweise - neugierig darauf, wie die Dinge funktionieren und immer nach Möglichkeiten suchen, dem Unternehmen beim Wachstum zu helfen.\n\n• Außergewöhnliche Liebe zum Detail kombiniert mit der Fähigkeit, mehrere Aufgaben gleichzeitig auszugleichen.\n\n• Englisch fließend; zusätzliche Deutsch- und/oder Französischkenntnisse sind ein Plus.\n\n• Nichtraucher - wir möchten nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundenbesprechungen. Schließlich geht es bei FELFEL um gutes Essen.\n\n• Gültige Arbeitserlaubnis oder Schweizer Pass.\n\nSIE WERDEN MESSEN\n\nUNSERE LEISTUNGEN\n\n• Köstliche Mahlzeiten an Ihren Fingerspitzen: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n\n• Kaffee & Premium Tee im Barista-Stil: Betanken Sie Ihren Tag mit unbegrenztem Kaffee im Barista-Stil und Premium-Tee dank unserer Gavetti-Maschine.\n\n• Halbtax Travel Pass Coverage: Wir übernehmen die Kosten für Ihren Schweizer Halbtax (Halbtax) Reisepass, um nachhaltiges Pendeln zu unterstützen.\n\n• Eine unterstützende, dynamische Teamkultur: Arbeiten Sie in einer kollaborativen Umgebung, die Initiative schätzt und Ihnen den Raum gibt, Ihre Ideen einzubringen.\n\nWenn dies nach der perfekten Rolle für Sie klingt, bewerben Sie sich jetzt mit Ihren Dokumenten auf Deutsch oder Englisch. Wir freuen uns darauf, von Ihnen zu hören!\n\nJETZT ANWENDBAR\n\nÜber uns\n Bei FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden.\nMit unserem smarten Kühlschrank „FELFEL“ und dem köstlichen Barista-Kaffee „Gavetti“ ermöglichen wir es Unternehmen, ihren Mitarbeitern den ganzen Tag über erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder proteinreich - unser wöchentliches Wechselmenü sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;.\nFELFEL ist ein Familienunternehmen, das 2013 gegründet wurde. Heute betreuen wir rund 1000 Standorte in der Schweiz und beschäftigen 150 Mitarbeiter in unseren Büros in Lausanne, Zürich und New York.\nwww.felfel.ch\n\nFELFELWERTE",
-        "fr": "C'est gentil de vous rencontrer !\n\nÀ SUIVRE\n Êtes-vous passionné par les données, l'optimisation et la réduction des déchets alimentaires? En tant que stagiaire en Data Analytics & Operations (à partir d'août ou septembre, 100%, durée fixe de 6 mois) à Zurich Wiedikon, vous jouerez un rôle crucial dans l'allocation de la quantité parfaite de nourriture et de café à nos réfrigérateurs FELFEL et machines Gavetti. En étroite collaboration avec notre équipe commerciale, vous évaluerez les demandes des clients et vous vous efforcerez constamment d'obtenir une grande satisfaction de la clientèle.\n\nVos responsabilités\n Tâches quotidiennes\n\n• Exécutez notre algorithme de stockage quotidien et analysez les principales statistiques de performance pour optimiser l'inventaire de nos réfrigérateurs FELFEL et machines à café Gavetti.\n\n• Prendre des décisions proactives axées sur les données pour amorcer des changements, réduire le gaspillage alimentaire et maximiser la satisfaction des clients.\n\n• Gérer et coordonner les demandes spéciales des clients, comme les rajustements de jours fériés ou les commandes supplémentaires.\n Projets\n\n• Contribuer activement aux projets en cours en identifiant les points de douleur, en proposant des améliorations créatives et en suivant l'impact des nouvelles initiatives.\n\n• Maintenir l'exactitude et l'intégrité de nos outils internes et de nos bases de données d'information.\n\nQUELLES SONT LES INFORMATIONS\n\nVOTRE PROFIL\n\n• Vous venez de terminer votre baccalauréat et êtes actuellement entre les études, ou à la recherche d'une occasion pratique d'acquérir une expérience pratique.\n\n• Compétence en MS Office, particulièrement à l'aise avec Excel et PowerPoint.\n\n• L'esprit d'entreprise – curieux de savoir comment les choses fonctionnent et toujours à la recherche de moyens pour aider l'entreprise à croître.\n\n• Une attention exceptionnelle au détail associée à la capacité d'équilibrer simultanément plusieurs tâches.\n\n• Connaissance de l'anglais; une connaissance supplémentaire de l'allemand et/ou du français est un plus.\n\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail, ni aux réunions de clients. Après tout, FELFEL est une bonne nourriture.\n\n• Permis de travail valide ou passeport suisse.\n\nVous serez mesuré par\n\nNos avantages\n\n• Delicious Meals at Your Fingertips: Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n\n• Café Barista-Style & Thé Premium: Carburant votre journée avec un café barista illimité et du thé premium, grâce à notre machine Gavetti.\n\n• Couverture de votre carte de voyage Halbtax : Nous couvrons le coût de votre carte de voyage Swiss Halbtax (demi-tarif) pour soutenir des déplacements durables.\n\n• Une culture d'équipe stimulante et dynamique : travaillez dans un environnement collaboratif qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n\nSi cela semble être le rôle parfait pour vous, appliquez maintenant avec vos documents en allemand ou en anglais. Nous avons hâte de vous entendre!\n\nAPPLIQUEZ MAINTENANT\n\nÀ propos de nous\n FELFEL s'intéresse à la bonne alimentation et au café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité.\nAvec notre réfrigérateur intelligent « FELFEL » et notre délicieux café barista « Gavetti » nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-frais toute la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire assure que tous les employés ont toujours quelque chose à être excités ;).\nFELFEL est une entreprise familiale fondée en 2013. Aujourd'hui, nous nous occupons d'environ 1000 implantations en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York.\nwww.felfel.ch\n\nVALEURS FELFELLES"
+        "it": "- Piacere di conoscerti!\n\nIN FOTO\nSei appassionato di dati, ottimizzazione e riduzione dei rifiuti alimentari? In qualità di Intern in Data Analytics & Operations (a partire da agosto o settembre, 100%, termine fisso per 6 mesi) a Zurigo Wiedikon, si svolgerà un ruolo cruciale nell'assegnazione della perfetta quantità di cibo e caffè ai nostri frigoriferi FELFEL e alle macchine Gavetti. Lavorando a stretto contatto con il nostro team di vendita, valuterai le richieste dei clienti e continuerai a sforzarti di soddisfare i clienti.\n\nLE RISPOSTE\nCompiti giornalieri\n\n• Eseguire il nostro algoritmo di stoccaggio giornaliero e analizzare le statistiche delle prestazioni chiave per ottimizzare l'inventario nei nostri frigoriferi FELFEL e macchine da caffè Gavetti.\n\n• Prendere decisioni proattive e basate sui dati per avviare modifiche, ridurre i rifiuti alimentari e massimizzare la soddisfazione del cliente.\n\n• Gestire e coordinare richieste speciali del cliente, come le regolazioni di vacanza o ordini aggiuntivi.\nProgetti\n\n• Contribuisci attivamente a progetti in corso identificando punti di dolore, proponendo miglioramenti creativi e tracciando l'impatto di nuove iniziative.\n\n• Mantenere l'accuratezza e l'integrità dei nostri strumenti interni e database di informazioni.\n\nCOSA SPECIALE\n\nIl tuo progetto\n\n• Hai appena completato il tuo Bachelor e sono attualmente in tra studi, o alla ricerca di un'opportunità pratica per acquisire esperienza pratica.\n\n• Proficienza in MS Office, particolarmente sentirsi a proprio agio con Excel e PowerPoint.\n\n• Mindset Entrepreneurial – curioso su come le cose funzionano e sempre alla ricerca di modi per aiutare il business a crescere.\n\n• Eccezionale attenzione al dettaglio combinato con la capacità di bilanciare simultaneamente più compiti.\n\n• Fluenza in inglese; conoscenza aggiuntiva del tedesco e/o del francese è un plus.\n\n• Non fumatore - non vogliamo che puzzi di sigarette, né al lavoro né alle riunioni dei clienti. Dopo tutto, FELFEL è circa il buon cibo.\n\n• Permesso di lavoro valido o passaporto svizzero.\n\nSarai sicuro\n\nI nostri servizi\n\n• Deliziosi pasti al vostro Fingertips: Godetevi pasti freschi e di alta qualità a pochi passi dal vostro spazio di lavoro – ogni giorno.\n\n• Barista-Style Coffee & Premium Tea: Combusti la tua giornata con caffè in stile barista illimitato e tè premium, grazie alla nostra macchina Gavetti.\n\n• Copertura di viaggio Halbtax: copriamo il costo del tuo biglietto di viaggio svizzero Halbtax (half-fare) per sostenere il pendolarismo sostenibile.\n\n• A Supportive, Dynamic Team Culture: Lavora in un ambiente collaborativo che valorizza l'iniziativa e ti dà lo spazio per contribuire alle tue idee.\n\nSe questo suona come il ruolo perfetto per voi, applica ora con i vostri documenti in tedesco o in inglese. Non vediamo l'ora di sentirti!\n\nAPPLICAZIONE ORA\n\nA proposito di\nFELFEL si occupa di buon cibo e caffè sul posto di lavoro: aiutiamo i datori di lavoro svizzeri a diventare maestri dell'ospitalità.\nCon il nostro intelligente frigorifero 'FELFEL' e delizioso caffè barista 'Gavetti', permettiamo alle aziende di fornire ai propri dipendenti cibo e bevande ultra-freschi di prima classe durante tutta la giornata. Che siano ricche e tradizionali, moderne e vegane o ad alto contenuto di proteine - il nostro menu di modifica settimanale assicura che tutti i dipendenti abbiano sempre qualcosa di cui essere entusiasti;).\nFELFEL è un'azienda di famiglia fondata nel 2013. Oggi ci occupiamo di circa 1000 sedi in Svizzera, e abbiamo 150 dipendenti nei nostri uffici a Losanna, Zurigo e New York.\nwww.felfel.ch\n\nVALORE DEL FELFEL",
+        "en": "NICE TO MEET YOU!\n\nIN SHORT\nAre you passionate about data, optimization, and minimizing food waste? As an Intern in Data Analytics & Operations (starting in August or September, 100%, fixed term for 6 months) in Zurich Wiedikon, you will play a crucial role in allocating the perfect amount of food and coffee to our FELFEL fridges and Gavetti machines. Working closely with our sales team, you will evaluate client requests and constantly strive for high customer satisfaction.\n\nYOUR RESPONSIBILITIES\nDaily Tasks\n\n• Run our daily stocking algorithm and analyze key performance statistics to optimize the inventory in our FELFEL fridges and Gavetti coffee machines.\n\n• Make proactive, data-driven decisions to initiate changes, reduce food waste, and maximize customer satisfaction.\n\n• Manage and coordinate special client requests, such as holiday adjustments or additional orders.\nProjects\n\n• Contribute actively to ongoing projects by identifying pain points, proposing creative improvements, and tracking the impact of new initiatives.\n\n• Maintain the accuracy and integrity of our internal tools and information databases.\n\nWHAT TO EXPECT\n\nYOUR PROFILE\n\n• You just completed your Bachelor and are currently in between studies, or looking for a hands-on opportunity to gain practical experience.\n\n• Proficiency in MS Office, particularly feeling comfortable with Excel and PowerPoint.\n\n• Entrepreneurial mindset – curious about how things work and always looking for ways to help the business grow.\n\n• Exceptional attention to detail combined with the ability to simultaneously balance multiple tasks.\n\n• Fluency in English; additional knowledge of German and/or French is a plus.\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\nYOU WILL BE MEASURED BY\n\nOUR BENEFITS\n\n• Delicious Meals at Your Fingertips: Enjoy fresh, high-quality meals just steps away from your workspace – every day.\n\n• Barista-Style Coffee & Premium Tea: Fuel your day with unlimited barista-style coffee and premium tea, thanks to our Gavetti machine.\n\n• Halbtax Travel Pass Coverage: We cover the cost of your Swiss Halbtax (half-fare) travel pass to support sustainable commuting.\n\n• A Supportive, Dynamic Team Culture: Work in a collaborative environment that values initiative and gives you the space to contribute your ideas.\n\nIf this sounds like the perfect role for you, apply now with your documents in German or English. We look forward to hearing from you!\n\nAPPLY NOW\n\nABOUT US\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality.\nWith our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\nwww.felfel.ch\n\nFELFEL VALUES",
+        "de": "Schön, dich zu treffen!\n\nIN KURZ\nSie interessieren sich für Daten, Optimierung und Minimierung von Lebensmittelabfällen? Als Praktikant in Data Analytics & Operations (ab August oder September, 100%, feste Laufzeit für 6 Monate) in Zürich Wiedikon spielen Sie eine entscheidende Rolle bei der Zuteilung der perfekten Menge an Speisen und Kaffee für unsere FELFEL Kühlschränke und Gavetti-Maschinen. In enger Zusammenarbeit mit unserem Verkaufsteam bewerten Sie Kundenanfragen und streben ständig nach hoher Kundenzufriedenheit.\n\nIHRE VERANTWORTUNGEN\nTägliche Aufgaben\n\n• Führen Sie unseren täglichen Lagerbestandsalgorithmus aus und analysieren Sie die wichtigsten Leistungsstatistiken, um den Bestand in unseren FELFEL-Kühlschränken und Gavetti-Kaffeemaschinen zu optimieren.\n\n• Treffen Sie proaktive, datengesteuerte Entscheidungen, um Änderungen einzuleiten, Lebensmittelabfälle zu reduzieren und die Kundenzufriedenheit zu maximieren.\n\n• Verwalten und koordinieren Sie spezielle Kundenanfragen wie Urlaubsanpassungen oder zusätzliche Bestellungen.\nProjekte\n\n• Tragen Sie aktiv zu laufenden Projekten bei, indem Sie Schwachstellen identifizieren, kreative Verbesserungen vorschlagen und die Auswirkungen neuer Initiativen verfolgen.\n\n• Pflegen Sie die Genauigkeit und Integrität unserer internen Tools und Informationsdatenbanken.\n\nWAS ERWARTET WIRD\n\nIHR PROFIL\n\n• Sie haben gerade Ihren Bachelor abgeschlossen und befinden sich derzeit zwischen dem Studium oder suchen nach einer praktischen Gelegenheit, praktische Erfahrungen zu sammeln.\n\n• Kenntnisse in MS Office, insbesondere mit Excel und PowerPoint.\n\n• Unternehmerische Denkweise - neugierig darauf, wie die Dinge funktionieren und immer nach Möglichkeiten suchen, dem Unternehmen beim Wachstum zu helfen.\n\n• Außergewöhnliche Liebe zum Detail kombiniert mit der Fähigkeit, mehrere Aufgaben gleichzeitig auszugleichen.\n\n• Englisch fließend; zusätzliche Deutsch- und/oder Französischkenntnisse sind ein Plus.\n\n• Nichtraucher - wir möchten nicht, dass Sie nach Zigaretten riechen, weder bei der Arbeit noch bei Kundenbesprechungen. Schließlich geht es bei FELFEL um gutes Essen.\n\n• Gültige Arbeitserlaubnis oder Schweizer Pass.\n\nSIE WERDEN MESSEN\n\nUNSERE LEISTUNGEN\n\n• Köstliche Mahlzeiten an Ihren Fingerspitzen: Genießen Sie frische, hochwertige Mahlzeiten nur wenige Schritte von Ihrem Arbeitsplatz entfernt – jeden Tag.\n\n• Kaffee & Premium Tee im Barista-Stil: Betanken Sie Ihren Tag mit unbegrenztem Kaffee im Barista-Stil und Premium-Tee dank unserer Gavetti-Maschine.\n\n• Halbtax Travel Pass Coverage: Wir übernehmen die Kosten für Ihren Schweizer Halbtax (Halbtax) Reisepass, um nachhaltiges Pendeln zu unterstützen.\n\n• Eine unterstützende, dynamische Teamkultur: Arbeiten Sie in einer kollaborativen Umgebung, die Initiative schätzt und Ihnen den Raum gibt, Ihre Ideen einzubringen.\n\nWenn dies nach der perfekten Rolle für Sie klingt, bewerben Sie sich jetzt mit Ihren Dokumenten auf Deutsch oder Englisch. Wir freuen uns darauf, von Ihnen zu hören!\n\nJETZT ANWENDBAR\n\nÜber uns\nBei FELFEL dreht sich alles um gutes Essen und Kaffee am Arbeitsplatz: Wir helfen Schweizer Arbeitgebern, Meister der Gastfreundschaft zu werden.\nMit unserem smarten Kühlschrank „FELFEL“ und dem köstlichen Barista-Kaffee „Gavetti“ ermöglichen wir es Unternehmen, ihren Mitarbeitern den ganzen Tag über erstklassige, ultrafrische Speisen und Getränke zu bieten. Ob herzhaft und traditionell, modern und vegan oder proteinreich - unser wöchentliches Wechselmenü sorgt dafür, dass alle Mitarbeiter immer etwas zu begeistern haben ;.\nFELFEL ist ein Familienunternehmen, das 2013 gegründet wurde. Heute betreuen wir rund 1000 Standorte in der Schweiz und beschäftigen 150 Mitarbeiter in unseren Büros in Lausanne, Zürich und New York.\nwww.felfel.ch\n\nFELFELWERTE",
+        "fr": "C'est gentil de vous rencontrer !\n\nÀ SUIVRE\nÊtes-vous passionné par les données, l'optimisation et la réduction des déchets alimentaires? En tant que stagiaire en Data Analytics & Operations (à partir d'août ou septembre, 100%, durée fixe de 6 mois) à Zurich Wiedikon, vous jouerez un rôle crucial dans l'allocation de la quantité parfaite de nourriture et de café à nos réfrigérateurs FELFEL et machines Gavetti. En étroite collaboration avec notre équipe commerciale, vous évaluerez les demandes des clients et vous vous efforcerez constamment d'obtenir une grande satisfaction de la clientèle.\n\nVos responsabilités\nTâches quotidiennes\n\n• Exécutez notre algorithme de stockage quotidien et analysez les principales statistiques de performance pour optimiser l'inventaire de nos réfrigérateurs FELFEL et machines à café Gavetti.\n\n• Prendre des décisions proactives axées sur les données pour amorcer des changements, réduire le gaspillage alimentaire et maximiser la satisfaction des clients.\n\n• Gérer et coordonner les demandes spéciales des clients, comme les rajustements de jours fériés ou les commandes supplémentaires.\nProjets\n\n• Contribuer activement aux projets en cours en identifiant les points de douleur, en proposant des améliorations créatives et en suivant l'impact des nouvelles initiatives.\n\n• Maintenir l'exactitude et l'intégrité de nos outils internes et de nos bases de données d'information.\n\nQUELLES SONT LES INFORMATIONS\n\nVOTRE PROFIL\n\n• Vous venez de terminer votre baccalauréat et êtes actuellement entre les études, ou à la recherche d'une occasion pratique d'acquérir une expérience pratique.\n\n• Compétence en MS Office, particulièrement à l'aise avec Excel et PowerPoint.\n\n• L'esprit d'entreprise – curieux de savoir comment les choses fonctionnent et toujours à la recherche de moyens pour aider l'entreprise à croître.\n\n• Une attention exceptionnelle au détail associée à la capacité d'équilibrer simultanément plusieurs tâches.\n\n• Connaissance de l'anglais; une connaissance supplémentaire de l'allemand et/ou du français est un plus.\n\n• Non-fumeur - nous ne voulons pas que vous sentiez comme des cigarettes, ni au travail, ni aux réunions de clients. Après tout, FELFEL est une bonne nourriture.\n\n• Permis de travail valide ou passeport suisse.\n\nVous serez mesuré par\n\nNos avantages\n\n• Delicious Meals at Your Fingertips: Profitez de repas frais et de haute qualité à quelques pas de votre espace de travail – tous les jours.\n\n• Café Barista-Style & Thé Premium: Carburant votre journée avec un café barista illimité et du thé premium, grâce à notre machine Gavetti.\n\n• Couverture de votre carte de voyage Halbtax : Nous couvrons le coût de votre carte de voyage Swiss Halbtax (demi-tarif) pour soutenir des déplacements durables.\n\n• Une culture d'équipe stimulante et dynamique : travaillez dans un environnement collaboratif qui valorise l'initiative et vous donne l'espace pour contribuer à vos idées.\n\nSi cela semble être le rôle parfait pour vous, appliquez maintenant avec vos documents en allemand ou en anglais. Nous avons hâte de vous entendre!\n\nAPPLIQUEZ MAINTENANT\n\nÀ propos de nous\nFELFEL s'intéresse à la bonne alimentation et au café sur le lieu de travail : nous aidons les employeurs suisses à devenir maîtres de l'hospitalité.\nAvec notre réfrigérateur intelligent « FELFEL » et notre délicieux café barista « Gavetti » nous permettons aux entreprises de fournir à leurs employés des aliments et boissons de première classe et ultra-frais toute la journée. Que ce soit copieux et traditionnel, moderne et végétalien ou riche en protéines - notre menu change hebdomadaire assure que tous les employés ont toujours quelque chose à être excités ;).\nFELFEL est une entreprise familiale fondée en 2013. Aujourd'hui, nous nous occupons d'environ 1000 implantations en Suisse et avons 150 employés dans nos bureaux à Lausanne, Zurich et New York.\nwww.felfel.ch\n\nVALEURS FELFELLES"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://felfel.jobs.personio.de/job/2709408",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.901Z",
+      "crawledAt": "2026-07-13T21:57:00.736Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -712,9 +568,8 @@
       "applyUrl": "https://felfel.jobs.personio.de/job/2709408",
       "jobReqId": "2709408",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-13T12:12:10.901Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "baseSalary": {
@@ -726,8 +581,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-13T12:12:10.901Z"
+      }
     },
     {
       "id": "felfel-fad1b905af75",
@@ -760,7 +614,7 @@
       "url": "https://felfel.jobs.personio.de/job/2685922",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.897Z",
+      "crawledAt": "2026-07-13T21:57:00.732Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -780,11 +634,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "edge-platform-engineer-felfel-zurich"
+        "edge-platform-engineer-felfel-zurich",
+        "edge-platform-ingegnere-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "edge-platform-engineer-felfel-zurich"
+          "edge-platform-engineer-felfel-zurich",
+          "edge-platform-ingegnere-felfel-zurich"
         ],
         "de": [
           "edge-platform-engineer-felfel-zurich"
@@ -794,6 +650,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.720Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -838,7 +695,7 @@
       "url": "https://felfel.jobs.personio.de/job/2692840",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:12:10.891Z",
+      "crawledAt": "2026-07-13T21:57:00.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -858,17 +715,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-service-manager-60-felfel-zurich"
+        "customer-service-manager-60-felfel-zurich",
+        "servizio-clienti-manager-60-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-manager-60-felfel-zurich"
+          "customer-service-manager-60-felfel-zurich",
+          "servizio-clienti-manager-60-felfel-zurich"
         ],
         "fr": [
           "customer-service-manager-60-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.717Z",
+      "needsRetranslation": true,
       "salaryMin": 60900,
       "salaryMax": 92400,
       "baseSalary": {
@@ -913,7 +773,7 @@
       "url": "https://felfel.jobs.personio.de/job/2656265",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.882Z",
+      "crawledAt": "2026-07-13T21:57:00.725Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -933,17 +793,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-felfel-zurich"
+        "business-development-manager-felfel-zurich",
+        "responsabile-dello-sviluppo-commerciale-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-felfel-zurich"
+          "business-development-manager-felfel-zurich",
+          "responsabile-dello-sviluppo-commerciale-felfel-zurich"
         ],
         "fr": [
           "business-development-manager-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.712Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -988,7 +851,7 @@
       "url": "https://felfel.jobs.personio.de/job/2633164",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:12:10.869Z",
+      "crawledAt": "2026-07-13T21:57:00.711Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -1009,11 +872,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "account-manager-felfel-zurich",
-        "gestionnaire-de-compte-felfel-zurich"
+        "gestionnaire-de-compte-felfel-zurich",
+        "gestione-account-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-felfel-zurich"
+          "account-manager-felfel-zurich",
+          "gestione-account-felfel-zurich"
         ],
         "fr": [
           "account-manager-felfel-zurich",
@@ -1021,6 +886,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T10:51:07.062Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1065,7 +931,7 @@
       "url": "https://felfel.jobs.personio.de/job/2668071",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:12:10.816Z",
+      "crawledAt": "2026-07-13T21:57:00.672Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -1085,17 +951,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "account-executive-felfel-zurich"
+        "account-executive-felfel-zurich",
+        "account-esecutivo-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-executive-felfel-zurich"
+          "account-executive-felfel-zurich",
+          "account-esecutivo-felfel-zurich"
         ],
         "fr": [
           "account-executive-felfel-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.682Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
