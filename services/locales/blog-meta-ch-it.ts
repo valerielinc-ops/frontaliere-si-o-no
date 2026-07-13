@@ -1102,6 +1102,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.redditi-estero-controllo-fiscale.title': 'Redditi esteri: come gestire la tassazione',
     'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Guida pratica sui controlli fiscali per i redditi prodotti all\'estero e le regole per evitare la doppia imposizione tra Italia e Svizzera.',
     'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Documenti fiscali svizzeri su una scrivania da ufficio con calcolatrice',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'L\'AI verso la bancarotta: invalidità a 18 anni',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'L\'Assicurazione Invalidità svizzera rischia la bancarotta entro i primi anni del 2030.',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Una foto della città di Lugano con la montagna sullo sfondo, con una scena di lavoro in primo piano.',
 };
 
 export default blogMetaChIt;

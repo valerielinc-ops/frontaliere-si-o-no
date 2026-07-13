@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3215,
+ "numberOfItems": 3216,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7890,7 +7890,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3212, "name": "Francia fa pressione su Svizzera per indennità ...", "url": `${BASE_URL}/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri` },
           { "@type": "ListItem", "position": 3213, "name": "Indennità frontalieri: la riforma Ue che costa ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-riforma-bruxelles` },
           { "@type": "ListItem", "position": 3214, "name": "Svizzera: al via l'era delle mega batterie", "url": `${BASE_URL}/articoli-frontaliere/svizzera-era-mega-batterie-elettriche` },
-          { "@type": "ListItem", "position": 3215, "name": "Redditi esteri: come gestire la tassazione", "url": `${BASE_URL}/articoli-frontaliere/redditi-estero-controllo-fiscale` }
+          { "@type": "ListItem", "position": 3215, "name": "Redditi esteri: come gestire la tassazione", "url": `${BASE_URL}/articoli-frontaliere/redditi-estero-controllo-fiscale` },
+          { "@type": "ListItem", "position": 3216, "name": "L'AI verso la bancarotta: invalidità a 18 anni", "url": `${BASE_URL}/articoli-frontaliere/ai-verso-la-bancarotta-forse-gia-nel-2030` }
  ]
  },
  {

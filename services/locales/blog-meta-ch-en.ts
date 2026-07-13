@@ -1102,6 +1102,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.redditi-estero-controllo-fiscale.title': 'Foreign income: how to manage taxation',
     'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Practical guide on tax controls for income produced abroad and rules to avoid double taxation between Italy and Switzerland.',
     'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Swiss tax documents on an office desk with a calculator',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'AI into Bankruptcy: Disability at 18',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'Swiss Disability Insurance risks bankruptcy by the early 2030s.',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'A photo of Lugano with the mountains in the background, with a work scene in the foreground.',
 };
 
 export default blogMetaChEn;

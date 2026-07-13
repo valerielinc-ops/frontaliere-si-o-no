@@ -1102,6 +1102,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.redditi-estero-controllo-fiscale.title': 'Revenus étrangers : comment gérer la fiscalité',
     'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Guide pratique sur les contrôles fiscaux pour les revenus produits à l\'étranger et les règles pour éviter la double imposition entre l\'Italie et la Suisse.',
     'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Documents fiscaux suisses sur un bureau avec une calculatrice',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.title': 'L\'AI vers la faillite : invalidité à 18 ans',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.excerpt': 'L\'assurance-invalidité suisse risque la faillite au début des années 2030.',
+    'blog.article.ai-verso-la-bancarotta-forse-gia-nel-2030.imageAlt': 'Une photo de Lugano avec les montagnes à l\'arrière-plan, avec une scène de travail en avant-plan.',
 };
 
 export default blogMetaChFr;
