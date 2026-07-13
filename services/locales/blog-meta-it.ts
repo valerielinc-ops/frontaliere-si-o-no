@@ -8465,6 +8465,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.title': 'Corsi tedesco e francese per frontalieri italofoni',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.excerpt': 'Informazioni concrete sui corsi di tedesco e francese per frontalieri italofoni in Ticino, con scuole e finanziamenti disponibili.',
     'blog.article.corsi-di-tedesco-o-francese-per-frontalieri-italofoni.imageAlt': 'Immagine fotorealistica di un frontaliere italofono che studia tedesco o francese in una scuola del Canton Ticino.',
+    'blog.article.doppio-lavoro-incastrato-video.title': 'Doppio lavoro e timbrature false: frontaliere incastrato',
+    'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Un dipendente comunale varesotto è stato denunciato per truffa e false attestazioni dopo aver lavorato in Ticino durante l\'orario di servizio.',
+    'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Confine tra Italia e Svizzera in Ticino',
 };
 
 export default blogMetaIt;

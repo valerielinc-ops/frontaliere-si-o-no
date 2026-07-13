@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3199,
+ "numberOfItems": 3200,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7874,7 +7874,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3196, "name": "La Svizzera è leader europeo dello smart working", "url": `${BASE_URL}/articoli-frontaliere/svizzera-smart-working` },
           { "@type": "ListItem", "position": 3197, "name": "Corsi di tedesco o francese per frontalieri: gu...", "url": `${BASE_URL}/articoli-frontaliere/corsi-tedesco-francese-frontalieri-italofoni-ticino` },
           { "@type": "ListItem", "position": 3198, "name": "Corsi tedesco e francese per frontalieri italofoni", "url": `${BASE_URL}/articoli-frontaliere/corsi-di-tedesco-o-francese-per-frontalieri-italofoni` },
-          { "@type": "ListItem", "position": 3199, "name": "Costo della vita a Lugano confrontato con Milan...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-confronto-milano-frontalieri` }
+          { "@type": "ListItem", "position": 3199, "name": "Costo della vita a Lugano confrontato con Milan...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-confronto-milano-frontalieri` },
+          { "@type": "ListItem", "position": 3200, "name": "Doppio lavoro e timbrature false: frontaliere i...", "url": `${BASE_URL}/articoli-frontaliere/doppio-lavoro-incastrato-video` }
  ]
  },
  {
