@@ -1,6 +1,6 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-07-12T10:59:20.089Z",
+  "assembledAt": "2026-07-13T12:56:23.162Z",
   "jobs": [
     {
       "id": "new-yorker-27003",
@@ -33,7 +33,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27003.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:17.136Z",
+      "crawledAt": "2026-07-13T12:56:10.511Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -113,7 +113,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j26851.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:16.407Z",
+      "crawledAt": "2026-07-13T12:56:09.814Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -193,7 +193,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j25798.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:15.727Z",
+      "crawledAt": "2026-07-13T12:56:09.075Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -273,7 +273,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j27418.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:15.041Z",
+      "crawledAt": "2026-07-13T12:56:08.311Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -351,7 +351,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j27161.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:14.321Z",
+      "crawledAt": "2026-07-13T12:56:07.516Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -435,7 +435,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27435.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:13.621Z",
+      "crawledAt": "2026-07-13T12:56:06.783Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 23",
@@ -469,6 +469,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:34:32.300Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -513,7 +514,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27376.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:12.865Z",
+      "crawledAt": "2026-07-13T12:56:06.037Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -547,84 +548,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:33.862Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "new-yorker-26803",
-      "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-      "slugByLocale": {
-        "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
-        "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-        "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken"
-      },
-      "company": "New Yorker",
-      "companyKey": "new-yorker",
-      "companyDomain": "newyorker.de",
-      "title": "MITARBEITER (M/W/D) IM VERKAUF 80%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice (M/W/D) IM vendita 80%",
-        "en": "MITARBEITER (M/W/D) IM Sales 80%",
-        "de": "MITARBEITER (M/W/D) IM VERKAUF 80%",
-        "fr": "MITARBEITER (M/W/D) IM Vente 80%"
-      },
-      "description": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
-      "descriptionByLocale": {
-        "it": "Come una giovane azienda di moda di successo, NEW YORKER è rappresentato in tutto il mondo con oltre 1.100 negozi in oltre 46 paesi ed è continuamente in corso per la crescita. Con un team di oltre 19.000 dipendenti, lavoriamo sul polso dei tempi e attribuiamo importanza ad una collaborazione amichevole. Attraverso la nostra passione per la moda, la nostra spontaneità e velocità, siamo riusciti ad essere parte integrante del mondo della moda da oltre 40 anni. Diventa parte della nostra squadra! Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Trattare con indicatori operativi che ci conquista\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• L'affinità e l'identificazione della moda con i newyorkesi LA SPIACE PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Quindi siamo raggiungibili Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora della vostra applicazione online. Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Gestione degli indicatori operativi Questo ci convince\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• Affinità e identificazione della moda con i newyorkesi LA SPEECH PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Area: Distribuzione",
-        "en": "As a successful young fashion company, NEW YORKER is represented worldwide with more than 1,100 stores in over 46 countries and is continuously on course for growth. With a team of over 19,000 employees, we work on the pulse of the times and attach importance to a friendly cooperation. Through our passion for fashion, our spontaneity and speed, we have managed to be an integral part of the fashion world for over 40 years. Become part of our team! This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Dealing with operational indicators that conquers us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEAK FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. So we are reachable Have we aroused your interest? Then we look forward to your online application. This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Management of operational indicators That convinces us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEECH FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. Area: Distribution",
-        "de": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
-        "fr": "En tant que jeune entreprise de mode prospère, NEW YORKER est représenté dans le monde entier avec plus de 1 100 magasins dans plus de 46 pays et est en constante évolution. Avec une équipe de plus de 19 000 employés, nous travaillons sur le pouls des temps et attachons de l'importance à une coopération amicale. Grâce à notre passion pour la mode, notre spontanéité et notre rapidité, nous sommes parvenus à faire partie intégrante du monde de la mode depuis plus de 40 ans. Faites partie de notre équipe ! C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Faire face aux indicateurs opérationnels qui nous convainquent\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• L'affinité de la mode et l'identification avec les New Yorkais THE SPEAK FOR US NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Alors, nous sommes accessibles Nous avons suscité votre intérêt? Ensuite, nous nous réjouissons de votre demande en ligne. C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Gestion des indicateurs opérationnels Cela nous convainc\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• affinité de la mode et identification avec les New Yorkais LE DISCOURS POUR NOUS NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Domaine: Distribution"
-      },
-      "location": "Interlaken",
-      "canton": "BE",
-      "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26803.html",
-      "source": "New Yorker Dedicated Parser (rexx systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:12.115Z",
-      "addressLocality": "Interlaken",
-      "addressRegion": "BE",
-      "streetAddress": "Rugenparkstrasse 8-10",
-      "postalCode": "3800",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Retail / Fashion (abbigliamento)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26803.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
-        ],
-        "en": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
-        ],
-        "fr": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T11:40:33.085Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -669,7 +593,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26482.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:11.381Z",
+      "crawledAt": "2026-07-13T12:56:05.290Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -703,6 +627,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:32.367Z",
+      "needsRetranslation": true,
       "salaryMin": 55600,
       "salaryMax": 84800,
       "baseSalary": {
@@ -747,7 +672,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26477.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:10.592Z",
+      "crawledAt": "2026-07-13T12:56:04.536Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -781,6 +706,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:31.474Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -825,7 +751,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26245.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:09.817Z",
+      "crawledAt": "2026-07-13T12:56:03.756Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -859,6 +785,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:30.635Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -903,7 +830,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26043.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:09.088Z",
+      "crawledAt": "2026-07-13T12:56:03.011Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -937,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:29.787Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -981,7 +909,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26021.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:08.335Z",
+      "crawledAt": "2026-07-13T12:56:02.233Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -1015,6 +943,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:29.012Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -1059,7 +988,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j24561.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:07.640Z",
+      "crawledAt": "2026-07-13T12:56:01.392Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -1093,6 +1022,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:28.245Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -1137,7 +1067,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25735.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:06.872Z",
+      "crawledAt": "2026-07-13T12:56:00.598Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -1171,6 +1101,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:27.493Z",
+      "needsRetranslation": true,
       "salaryMin": 43400,
       "salaryMax": 65800,
       "baseSalary": {
@@ -1215,7 +1146,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25733.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:06.112Z",
+      "crawledAt": "2026-07-13T12:55:59.853Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1249,6 +1180,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:26.650Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 78100,
       "baseSalary": {
@@ -1293,7 +1225,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25731.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:05.349Z",
+      "crawledAt": "2026-07-13T12:55:59.090Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -1327,6 +1259,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 78100,
       "baseSalary": {
@@ -1371,7 +1304,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j27434.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:04.595Z",
+      "crawledAt": "2026-07-13T12:55:58.430Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 23",
@@ -1405,6 +1338,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:34:23.430Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -1449,7 +1383,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26860.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:03.825Z",
+      "crawledAt": "2026-07-13T12:55:57.763Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1483,6 +1417,88 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:25.058Z",
+      "needsRetranslation": true,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41100,
+          "maxValue": 62400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "new-yorker-26804",
+      "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
+      "slugByLocale": {
+        "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
+        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-interlaken",
+        "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-interlaken"
+      },
+      "company": "New Yorker",
+      "companyKey": "new-yorker",
+      "companyDomain": "newyorker.de",
+      "title": "MITARBEITER (M/W/D) IM VERKAUF 60%",
+      "titleByLocale": {
+        "it": "Collaboratore/trice (M/W/D) IM vendita 50%",
+        "en": "MITARBEITER (M/W/D) IM Sales 60%",
+        "de": "MITARBEITER (M/W/D) IM VERKAUF 60%",
+        "fr": "MITARBEITER (M/W/D) IM Vente 60%"
+      },
+      "description": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+      "descriptionByLocale": {
+        "it": "Come una giovane azienda di moda di successo, NEW YORKER è rappresentato in tutto il mondo con oltre 1.100 negozi in oltre 46 paesi ed è continuamente in corso per la crescita. Con un team di oltre 19.000 dipendenti, lavoriamo sul polso dei tempi e attribuiamo importanza ad una collaborazione amichevole. Attraverso la nostra passione per la moda, la nostra spontaneità e velocità, siamo riusciti ad essere parte integrante del mondo della moda da oltre 40 anni. Diventa parte della nostra squadra! Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Trattare con indicatori operativi che ci conquista\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• L'affinità e l'identificazione della moda con i newyorkesi LA SPIACE PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Quindi siamo raggiungibili Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora della vostra applicazione online. Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Gestione degli indicatori operativi Questo ci convince\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• Affinità e identificazione della moda con i newyorkesi LA SPEECH PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Area: Distribuzione",
+        "en": "As a successful young fashion company, NEW YORKER is represented worldwide with more than 1,100 stores in over 46 countries and is continuously on course for growth. With a team of over 19,000 employees, we work on the pulse of the times and attach importance to a friendly cooperation. Through our passion for fashion, our spontaneity and speed, we have managed to be an integral part of the fashion world for over 40 years. Become part of our team! This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Dealing with operational indicators that conquers us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEAK FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. So we are reachable Have we aroused your interest? Then we look forward to your online application. This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Management of operational indicators That convinces us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEECH FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. Area: Distribution",
+        "de": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+        "fr": "En tant que jeune entreprise de mode prospère, NEW YORKER est représenté dans le monde entier avec plus de 1 100 magasins dans plus de 46 pays et est en constante évolution. Avec une équipe de plus de 19 000 employés, nous travaillons sur le pouls des temps et attachons de l'importance à une coopération amicale. Grâce à notre passion pour la mode, notre spontanéité et notre rapidité, nous sommes parvenus à faire partie intégrante du monde de la mode depuis plus de 40 ans. Faites partie de notre équipe ! C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Faire face aux indicateurs opérationnels qui nous convainquent\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• L'affinité de la mode et l'identification avec les New Yorkais THE SPEAK FOR US NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Alors, nous sommes accessibles Nous avons suscité votre intérêt? Ensuite, nous nous réjouissons de votre demande en ligne. C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Gestion des indicateurs opérationnels Cela nous convainc\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• affinité de la mode et identification avec les New Yorkais LE DISCOURS POUR NOUS NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Domaine: Distribution"
+      },
+      "location": "Interlaken",
+      "canton": "BE",
+      "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26804.html",
+      "source": "New Yorker Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T12:55:57.015Z",
+      "addressLocality": "Interlaken",
+      "addressRegion": "BE",
+      "streetAddress": "Rugenparkstrasse 8-10",
+      "postalCode": "3800",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Retail / Fashion (abbigliamento)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26804.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-interlaken",
+        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-interlaken",
+          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken"
+        ],
+        "fr": [
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T11:40:21.973Z",
+      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "baseSalary": {
@@ -1527,7 +1543,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26802.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:03.023Z",
+      "crawledAt": "2026-07-13T12:55:56.321Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -1561,6 +1577,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:24.245Z",
+      "needsRetranslation": true,
       "salaryMin": 41700,
       "salaryMax": 63600,
       "baseSalary": {
@@ -1605,7 +1622,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j27419.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:02.293Z",
+      "crawledAt": "2026-07-13T12:55:55.590Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "La Maladitre Centre, Rue Pierre-á-Mazel",
@@ -1639,6 +1656,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:35:52.916Z",
+      "needsRetranslation": true,
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -1683,7 +1701,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26861.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:01.533Z",
+      "crawledAt": "2026-07-13T12:55:54.793Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1717,6 +1735,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:23.432Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1761,7 +1780,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26854.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:00.815Z",
+      "crawledAt": "2026-07-13T12:55:54.115Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -1795,84 +1814,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:22.701Z",
-      "salaryMin": 34300,
-      "salaryMax": 52000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34300,
-          "maxValue": 52000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "new-yorker-26804",
-      "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
-      "slugByLocale": {
-        "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
-        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-interlaken",
-        "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
-        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-interlaken"
-      },
-      "company": "New Yorker",
-      "companyKey": "new-yorker",
-      "companyDomain": "newyorker.de",
-      "title": "MITARBEITER (M/W/D) IM VERKAUF 50%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice (M/W/D) IM vendita 50%",
-        "en": "MITARBEITER (M/W/D) IM Sales 50%",
-        "de": "MITARBEITER (M/W/D) IM VERKAUF 50%",
-        "fr": "MITARBEITER (M/W/D) IM Vente 50%"
-      },
-      "description": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
-      "descriptionByLocale": {
-        "it": "Come una giovane azienda di moda di successo, NEW YORKER è rappresentato in tutto il mondo con oltre 1.100 negozi in oltre 46 paesi ed è continuamente in corso per la crescita. Con un team di oltre 19.000 dipendenti, lavoriamo sul polso dei tempi e attribuiamo importanza ad una collaborazione amichevole. Attraverso la nostra passione per la moda, la nostra spontaneità e velocità, siamo riusciti ad essere parte integrante del mondo della moda da oltre 40 anni. Diventa parte della nostra squadra! Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Trattare con indicatori operativi che ci conquista\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• L'affinità e l'identificazione della moda con i newyorkesi LA SPIACE PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Quindi siamo raggiungibili Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora della vostra applicazione online. Questo è il lavoro\n• Consulenza e vendita dei clienti\n• Attuazione delle operazioni di cassa\n• Manutenzione e presentazione\n• Gestione degli indicatori operativi Questo ci convince\n• Formazione completa\n• Esperienza professionale nel commercio al dettaglio\n• L'orientamento del cliente e del servizio\n• Flessibilità e impegno\n• Lavoro di squadra e forza di comunicazione\n• Affinità e identificazione della moda con i newyorkesi LA SPEECH PER NOI NEW YORKER vi offre un ambiente di lavoro attraente con sfide emozionanti e un sacco di portata per le vostre idee. Un team aperto e dinamico con gerarchie piatte e brevi percorsi di voto vi aspetta. Area: Distribuzione",
-        "en": "As a successful young fashion company, NEW YORKER is represented worldwide with more than 1,100 stores in over 46 countries and is continuously on course for growth. With a team of over 19,000 employees, we work on the pulse of the times and attach importance to a friendly cooperation. Through our passion for fashion, our spontaneity and speed, we have managed to be an integral part of the fashion world for over 40 years. Become part of our team! This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Dealing with operational indicators that conquers us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEAK FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. So we are reachable Have we aroused your interest? Then we look forward to your online application. This is the job\n• Customer advice and sales\n• Implementation of cash operations\n• Goods maintenance and presentation\n• Management of operational indicators That convinces us\n• Training completed\n• Professional experience in the retail trade\n• Customer and service orientation\n• Flexibility and commitment\n• Teamwork and communication strength\n• Fashion affinity and identification with New Yorkers THE SPEECH FOR US NEW YORKER offers you an attractive working environment with exciting challenges as well as plenty of scope for your own ideas. An open and dynamic team with flat hierarchies and short voting paths awaits you. Area: Distribution",
-        "de": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
-        "fr": "En tant que jeune entreprise de mode prospère, NEW YORKER est représenté dans le monde entier avec plus de 1 100 magasins dans plus de 46 pays et est en constante évolution. Avec une équipe de plus de 19 000 employés, nous travaillons sur le pouls des temps et attachons de l'importance à une coopération amicale. Grâce à notre passion pour la mode, notre spontanéité et notre rapidité, nous sommes parvenus à faire partie intégrante du monde de la mode depuis plus de 40 ans. Faites partie de notre équipe ! C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Faire face aux indicateurs opérationnels qui nous convainquent\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• L'affinité de la mode et l'identification avec les New Yorkais THE SPEAK FOR US NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Alors, nous sommes accessibles Nous avons suscité votre intérêt? Ensuite, nous nous réjouissons de votre demande en ligne. C'est le boulot.\n• Conseils clients et ventes\n• Exécution des opérations de trésorerie\n• Entretien et présentation des biens\n• Gestion des indicateurs opérationnels Cela nous convainc\n• Formation terminée\n• Expérience professionnelle dans le commerce de détail\n• Orientation client et service\n• Souplesse et engagement\n• Travail d'équipe et force de communication\n• affinité de la mode et identification avec les New Yorkais LE DISCOURS POUR NOUS NEW YORKER vous offre un environnement de travail attrayant avec des défis passionnants ainsi que beaucoup de possibilités pour vos propres idées. Une équipe ouverte et dynamique avec des hiérarchies plates et des chemins de vote courts vous attend. Domaine: Distribution"
-      },
-      "location": "Interlaken",
-      "canton": "BE",
-      "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26804.html",
-      "source": "New Yorker Dedicated Parser (rexx systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:59:00.148Z",
-      "addressLocality": "Interlaken",
-      "addressRegion": "BE",
-      "streetAddress": "Rugenparkstrasse 8-10",
-      "postalCode": "3800",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Retail / Fashion (abbigliamento)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26804.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
-        ],
-        "en": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken"
-        ],
-        "fr": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T11:40:21.973Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1917,7 +1859,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26244.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:59.407Z",
+      "crawledAt": "2026-07-13T12:55:53.420Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -1951,6 +1893,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:21.125Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -1995,7 +1938,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-40-de-j27420.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:58.683Z",
+      "crawledAt": "2026-07-13T12:55:52.651Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "La Maladitre Centre, Rue Pierre-á-Mazel",
@@ -2029,6 +1972,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:35:49.096Z",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -2073,7 +2017,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27006.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:58.005Z",
+      "crawledAt": "2026-07-13T12:55:51.969Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -2101,6 +2045,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:20.362Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2145,7 +2090,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j26592.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:57.333Z",
+      "crawledAt": "2026-07-13T12:55:51.285Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
@@ -2173,6 +2118,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:19.551Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2217,7 +2163,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/LERNENDE-FACHFRAU-MANN-IM-DETAILHANDEL-EFZ-START-01082026-de-j27304.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:56.598Z",
+      "crawledAt": "2026-07-13T12:55:50.580Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -2296,7 +2242,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j27422.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:55.838Z",
+      "crawledAt": "2026-07-13T12:55:49.798Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "Shoppi Tivoli - Landstrasse",
@@ -2374,7 +2320,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j27057.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:55.089Z",
+      "crawledAt": "2026-07-13T12:55:49.071Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahhostrasse 140",
@@ -2452,7 +2398,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26795.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:54.375Z",
+      "crawledAt": "2026-07-13T12:55:48.339Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -2530,7 +2476,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26540.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:53.618Z",
+      "crawledAt": "2026-07-13T12:55:47.612Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -2608,7 +2554,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26491.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:52.917Z",
+      "crawledAt": "2026-07-13T12:55:46.863Z",
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "streetAddress": "Grabenstrasse 2",
@@ -2686,7 +2632,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26406.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:52.183Z",
+      "crawledAt": "2026-07-13T12:55:46.053Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Oberstadt 5/7",
@@ -2764,7 +2710,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26339.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:51.479Z",
+      "crawledAt": "2026-07-13T12:55:45.349Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -2842,7 +2788,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25984.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:50.791Z",
+      "crawledAt": "2026-07-13T12:55:44.591Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -2920,7 +2866,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25476.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:50.114Z",
+      "crawledAt": "2026-07-13T12:55:43.889Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -2998,7 +2944,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25212.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:49.386Z",
+      "crawledAt": "2026-07-13T12:55:43.104Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -3076,7 +3022,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25211.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:48.695Z",
+      "crawledAt": "2026-07-13T12:55:42.316Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Bahnhofstrasse 7",
@@ -3154,7 +3100,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j24321.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:47.933Z",
+      "crawledAt": "2026-07-13T12:55:41.605Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -3232,7 +3178,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j23768.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T10:58:47.185Z",
+      "crawledAt": "2026-07-13T12:55:40.805Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 54",
