@@ -1,16 +1,55 @@
 {
   "key": "franklin-university",
   "label": "Franklin University Switzerland",
-  "generatedAt": "2026-07-12T22:07:06.339Z",
-  "total": 0,
+  "generatedAt": "2026-07-13T13:27:02.517Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 2265,
+  "avgDurationMs": 2265,
+  "durationHistory": [
+    2265
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "franklin-university-c41fb337efaa",
+      "slug": "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
+      "company": "Franklin University Switzerland",
+      "companyKey": "franklin-university",
+      "companyDomain": "fus.edu",
+      "title": "Senior Advisor for Academic Strategy and Accreditation (Temporary Assignment)",
+      "location": "Sorengo",
+      "canton": "TI",
+      "addressLocality": "Sorengo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6924",
+      "category": "Altro",
+      "sector": "Istruzione / Universita",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://www.fus.edu/about-franklin/job-opportunities",
+      "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities",
+      "source": "Franklin University Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-13T13:27:00.934Z",
+      "firstSeenAt": "2026-07-08T11:31:39.336Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
