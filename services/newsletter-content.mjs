@@ -128,7 +128,12 @@ function toDateValue(job) {
   // carry a malformed/ambiguous postedDate (European DD/MM/YY) that would
   // otherwise shadow a perfectly good firstSeenAt and force the job into
   // decayFactor's neutral UNDATED branch (date present ≠ date usable).
-  for (const raw of [job?.postedDate, job?.crawledAt, job?.publishedAt, job?.firstSeenAt]) {
+  // Order matters: firstSeenAt (set once at discovery, never refreshed) must
+  // come BEFORE crawledAt — crawledAt refreshes on every re-crawl, so with it
+  // first every re-crawled job "aged" ~0 days forever, which both defeated the
+  // anti-evergreen popularity decay below and made the no-profile "fresh
+  // slots" rotation in matchJobsForSubscriber treat stale inventory as new.
+  for (const raw of [job?.postedDate, job?.firstSeenAt, job?.publishedAt, job?.crawledAt]) {
     if (!raw) continue;
     const ts = parseDateField(raw);
     if (Number.isFinite(ts)) return ts;
