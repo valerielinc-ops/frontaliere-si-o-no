@@ -61,6 +61,12 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // User-cancelled AbortError (navigated away / pressed back mid-fetch) —
+  // confirmed-benign noise; we never throw AbortError deliberately so every
+  // variant is a browser-native cancellation. Anchored mirror of the
+  // UNIVERSAL_BENIGN_PATTERNS entry in services/benignErrorPatterns.ts;
+  // parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
+  /^AbortError:/i,
 ];
 
 /**

@@ -1033,7 +1033,14 @@ export const Analytics = {
  // Drop empty + all confirmed-benign environmental noise (cross-origin
  // "Script error", ResizeObserver loops, browser-extension globals, etc.)
  // via the shared deny-list in services/benignErrorPatterns.ts.
- if (!msg || isBenignErrorMessage(msg)) return;
+ if (!msg) return;
+ // event.message lacks the error-name prefix in some browsers (e.g. AbortError
+ // fires as "The user aborted a request." without "AbortError:"). Build the
+ // prefixed form so /^AbortError:/i and similar anchored patterns match —
+ // mirrors the same prefix check in reportCaughtError().
+ const _errName = (event.error as any)?.name;
+ const _prefixedMsg = _errName && _errName !== 'Error' ? `${_errName}: ${msg}` : msg;
+ if (isBenignErrorMessage(msg) || isBenignErrorMessage(_prefixedMsg)) return;
  // Drop errors from browser extension scripts — they run in page context
  // but are third-party; no fix is possible on our end.
  if (event.filename && /(?:chrome|moz|safari)-extension:\/\//.test(event.filename)) return;
