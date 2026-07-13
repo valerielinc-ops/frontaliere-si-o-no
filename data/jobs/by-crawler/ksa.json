@@ -1101,8 +1101,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 62000,
@@ -4759,8 +4758,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -4916,8 +4914,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6"
+        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -5072,8 +5069,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
+        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -5229,8 +5225,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -5973,8 +5968,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "logi-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
       "salaryMin": 62000,
@@ -7749,12 +7743,12 @@
     },
     {
       "id": "ksa-e5bccfeb18f3",
-      "slug": "fachfrau-fachmann-gesundheit-ksa-ch",
+      "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-7dbf5e",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "it": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "en": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fr": "fachfrau-fachmann-gesundheit-ksa-ch"
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-7dbf5e",
+        "en": "professional-health-kantonsspital-aarau-ksa-aarau-7dbf5e",
+        "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-7dbf5e"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7810,16 +7804,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T13:10:48.036Z"
+      "firstSeenAt": "2026-07-13T13:10:48.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ksa-ch"
+      ]
     },
     {
       "id": "ksa-4bebb7661cc0",
-      "slug": "teamleitung-ksa-ch",
+      "slug": "gestione-del-team-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "teamleitung-ksa-ch",
-        "it": "teamleitung-ksa-ch",
-        "en": "teamleitung-ksa-ch",
-        "fr": "teamleitung-ksa-ch"
+        "it": "gestione-del-team-kantonsspital-aarau-ksa-aarau",
+        "en": "team-management-kantonsspital-aarau-ksa-aarau",
+        "fr": "gestion-de-l-equipe-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7875,7 +7883,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T13:10:48.036Z"
+      "firstSeenAt": "2026-07-13T13:10:48.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-ksa-ch"
+        ],
+        "en": [
+          "teamleitung-ksa-ch"
+        ],
+        "fr": [
+          "teamleitung-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-ksa-ch"
+      ]
     },
     {
       "id": "ksa-50d01a54c105",

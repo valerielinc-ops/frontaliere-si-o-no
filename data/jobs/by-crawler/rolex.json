@@ -7869,8 +7869,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "decolleteur-h-f-rolex-ch",
-        "decoller-h-f-rolex-bienne"
+        "decolleteur-h-f-rolex-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8664,10 +8663,10 @@
     },
     {
       "id": "rolex-dc05f9d2069c",
-      "slug": "assistant-de-direction-h-f-rolex-ch",
+      "slug": "senior-management-assistant-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "assistant-de-direction-h-f-rolex-ch",
-        "it": "assistant-de-direction-h-f-rolex-ch",
+        "it": "senior-management-assistant-h-f-rolex-geneve",
         "en": "assistant-de-direction-h-f-rolex-ch",
         "de": "assistent-de-direction-h-f-rolex-geneve"
       },
@@ -8733,8 +8732,14 @@
         "administrative-assistant-h-f-rolex-geneve",
         "assistent-administratif-h-f-rolex-geneve",
         "assistant-administratif-h-f-rolex-ch",
-        "assistant-administratif-h-f-rolex-geneve"
-      ]
+        "assistant-administratif-h-f-rolex-geneve",
+        "assistant-de-direction-h-f-rolex-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-de-direction-h-f-rolex-ch"
+        ]
+      }
     },
     {
       "id": "rolex-ef2bb62c51ba",

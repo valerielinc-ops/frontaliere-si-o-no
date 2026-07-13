@@ -4915,9 +4915,9 @@
     },
     {
       "id": "jumbo-aca7d254-05d",
-      "slug": "collaboratrice-collaborateur-vente-administration-sav-f-h-d-jumbo-marin",
+      "slug": "collaboratore-sales-administrative-vas-collaboratore-e-h-d-jumbo-marin",
       "slugByLocale": {
-        "it": "collaboratrice-collaborateur-vente-administration-sav-f-h-d-jumbo-marin",
+        "it": "collaboratore-sales-administrative-vas-collaboratore-e-h-d-jumbo-marin",
         "en": "collaborator-sales-administrative-vas-collaborator-e-h-d-jumbo-marin",
         "de": "mitarbeiter-vertriebs-verwaltungs-vas-mitarbeiter-e-h-d-jumbo-marin",
         "fr": "collaboratrice-collaborateur-vente-administration-sav-f-h-d-jumbo-marin"
@@ -4976,11 +4976,11 @@
         ]
       },
       "previousSlugs": [
-        "collaboratore-sales-administrative-vas-collaboratore-e-h-d-jumbo-marin"
+        "collaboratrice-collaborateur-vente-administration-sav-f-h-d-jumbo-marin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-sales-administrative-vas-collaboratore-e-h-d-jumbo-marin"
+          "collaboratrice-collaborateur-vente-administration-sav-f-h-d-jumbo-marin"
         ]
       },
       "firstSeenAt": "2026-07-02T22:30:33.591Z",
@@ -9469,12 +9469,12 @@
     },
     {
       "id": "jumbo-9e5ccb42-811",
-      "slug": "verkausberater-in-do-it-jumbo-rumlang",
+      "slug": "consulente-a-do-it-jumbo-rumlang",
       "slugByLocale": {
         "de": "verkausberater-in-do-it-jumbo-rumlang",
-        "it": "verkausberater-in-do-it-jumbo-rumlang",
-        "en": "verkausberater-in-do-it-jumbo-rumlang",
-        "fr": "verkausberater-in-do-it-jumbo-rumlang"
+        "it": "consulente-a-do-it-jumbo-rumlang",
+        "en": "consultant-in-do-it-jumbo-rumlang",
+        "fr": "consultant-en-do-it-jumbo-rumlang"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -9543,16 +9543,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:15:40.849Z"
+      "firstSeenAt": "2026-07-13T12:15:40.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkausberater-in-do-it-jumbo-rumlang"
+        ],
+        "en": [
+          "verkausberater-in-do-it-jumbo-rumlang"
+        ],
+        "fr": [
+          "verkausberater-in-do-it-jumbo-rumlang"
+        ]
+      },
+      "previousSlugs": [
+        "verkausberater-in-do-it-jumbo-rumlang"
+      ]
     },
     {
       "id": "jumbo-7b8fc9ef-6a6",
-      "slug": "verkaufsberater-in-do-it-jumbo-eyholz",
+      "slug": "consulente-di-vendita-in-do-it-jumbo-eyholz",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "it": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "en": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "fr": "verkaufsberater-in-do-it-jumbo-eyholz"
+        "it": "consulente-di-vendita-in-do-it-jumbo-eyholz",
+        "en": "sales-consultant-in-do-it-jumbo-eyholz",
+        "fr": "consultant-en-ventes-a-do-it-jumbo-eyholz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -9621,7 +9635,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:15:40.848Z"
+      "firstSeenAt": "2026-07-13T12:15:40.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-eyholz"
+      ]
     },
     {
       "id": "jumbo-b29fa924-2d3",
@@ -9721,12 +9749,12 @@
     },
     {
       "id": "jumbo-c52c0327-2a8",
-      "slug": "verkaufsberater-in-garden-jumbo-volketswil",
+      "slug": "consulente-vendite-in-garden-jumbo-volketswil",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-volketswil",
-        "it": "verkaufsberater-in-garden-jumbo-volketswil",
-        "en": "verkaufsberater-in-garden-jumbo-volketswil",
-        "fr": "verkaufsberater-in-garden-jumbo-volketswil"
+        "it": "consulente-vendite-in-garden-jumbo-volketswil",
+        "en": "sales-advisor-in-garden-jumbo-volketswil",
+        "fr": "conseiller-commercial-a-garden-jumbo-volketswil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -9795,16 +9823,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:15:40.839Z"
+      "firstSeenAt": "2026-07-13T12:15:40.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-volketswil"
+      ]
     },
     {
       "id": "jumbo-8374e236-ab7",
-      "slug": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
+      "slug": "conduttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
       "slugByLocale": {
         "de": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "it": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "en": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "fr": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        "it": "conduttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
+        "en": "rayon-conductor-in-do-it-incl-deputy-management-jumbo-eyholz",
+        "fr": "conducteur-de-rayon-en-do-it-incl-gestion-adjointe-jumbo-eyholz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -9873,16 +9915,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:15:40.828Z"
+      "firstSeenAt": "2026-07-13T12:15:40.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ],
+        "en": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ],
+        "fr": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+      ]
     },
     {
       "id": "jumbo-50110e55-83b",
-      "slug": "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
+      "slug": "consulente-vendite-in-jumbo-garden-jumbo-st-gallen",
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
-        "it": "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
-        "en": "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
-        "fr": "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+        "it": "consulente-vendite-in-jumbo-garden-jumbo-st-gallen",
+        "en": "sales-consultant-in-jumbo-garden-jumbo-st-gallen",
+        "fr": "consultant-en-ventes-a-jumbo-garden-jumbo-st-gallen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -9951,7 +10007,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:15:40.827Z"
+      "firstSeenAt": "2026-07-13T12:15:40.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+        ],
+        "en": [
+          "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+        ],
+        "fr": [
+          "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+      ]
     },
     {
       "id": "jumbo-e1c8577a-b29",
