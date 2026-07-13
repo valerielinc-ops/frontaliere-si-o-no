@@ -387,6 +387,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'credito-imposte-estere-parametrato-al-reddito-le-casistiche': { it: 'credito-imposte-estere-parametrato-al-reddito-le-casistiche', en: 'foreign-tax-credit-parameterized-on-income', de: 'auslandsteuer-credit-parameterisiert-gegen-renten', fr: 'credit-impot-etranger-parameterise-sur-revenu' },
  'frontalieri-bicicletta-smile': { it: 'frontalieri-bicicletta-smile', en: 'frontaliers-bike-smile', de: 'frontalier-fahrrad-smile', fr: 'frontalier-velo-smile' },
  'ticino-frontalieri-como': { it: 'ticino-frontalieri-como', en: 'ticino-frontaliers-como', de: 'ticino-frontalieri-como', fr: 'ticino-frontaliers-como' },
+ 'assegno-inclusione-luglio-2026': { it: 'assegno-inclusione-luglio-2026', en: 'luglio-2026-assegno-inclusione', de: 'luglio-2026-assegno-inclusione', fr: 'luglio-2026-assegno-inclusione' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1093,6 +1093,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-frontalieri-como.title': 'Ticino, frontaliere da Como punta su due zone',
     'blog.article.ticino-frontalieri-como.excerpt': 'Il 65% dei frontalieri e studenti che entrano nel Ticino proviene da Como e Varese',
     'blog.article.ticino-frontalieri-como.imageAlt': 'Una scena di autostrada tra Lugano e Chiasso con una file di veicoli in direzione Ticino',
+    'blog.article.assegno-inclusione-luglio-2026.title': 'Assegno di Inclusione luglio 2026: quando arrivano i pagamenti',
+    'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Sono iniziate le lavorazioni di metà luglio dell\'Assegno di Inclusione. I pagamenti saranno disposti intorno al 15 luglio.',
+    'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Immagine di una scena di Lugano con persone che controllano le loro tasche.',
 };
 
 export default blogMetaChIt;

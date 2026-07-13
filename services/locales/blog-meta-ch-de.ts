@@ -1093,6 +1093,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-frontalieri-como.title': 'Tessin, Grenzgänger von Como punktiert auf zwei Zonen',
     'blog.article.ticino-frontalieri-como.excerpt': '65% der Grenzgänger und Studenten, die in das Tessin einreisen, kommen aus Como und Varese',
     'blog.article.ticino-frontalieri-como.imageAlt': 'Eine Szene der Autobahn zwischen Lugano und Chiasso mit einer Reihe von Fahrzeugen in Richtung Ticino',
+    'blog.article.assegno-inclusione-luglio-2026.title': 'Eingliederungsscheck Juli 2026: Wann kommen die Zahlungen',
+    'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Mitte Juli begannen die Arbeiten an der Eingliederungsbeihilfe. Die Zahlungen werden um den 15. Juli veranlasst.',
+    'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: Menschen überprüfen ihre Brieftaschen auf Assegno di Inclusione.',
 };
 
 export default blogMetaChDe;
