@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
@@ -1194,6 +1194,124 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
       { datePosted: '2026-06-01' },
     )).toBe('2026-06-01');
     expect(pickMergedPostedDate({}, {})).toBe('');
+  });
+});
+
+// Regression tests for the crawledAt semantics fix (follow-up announced in
+// PR #4137). crawledAt = last time the posting was seen LIVE on the source
+// site (newest-wins) — the mirror image of postedDate's older-wins rule.
+// mergeAndDeduplicate previously did `prev.crawledAt || next.crawledAt`
+// (oldest-wins-forever) on the incoming-vs-existing merge, so every job that
+// flows through the shared pipeline (shared-jobs-crawler.mjs) fell out of
+// send-job-alerts' 24h MATCH_WINDOW_MS a day after FIRST crawl even though
+// each subsequent run re-verified it live (~7k of 25.7k jobs stale), while
+// the dedicated-crawler path (mergePreserveLocaleData) correctly refreshed it.
+describe('mergeAndDeduplicate — crawledAt is last-seen-live, refreshed on every re-crawl (newest-wins)', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath;
+  let prevOverride;
+
+  beforeEach(() => {
+    prevOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-slug-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (prevOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
+  });
+
+  const STALE_CRAWLED_AT = '2026-06-01T00:00:00.000Z';
+
+  const baseJob = (over = {}) => ({
+    id: 'job-crawledat-1',
+    title: 'Infermiere diplomato',
+    company: 'Clinica Test',
+    location: 'Lugano, Ticino',
+    url: 'https://example.com/jobs/crawledat-1',
+    description: 'D'.repeat(60),
+    slug: 'infermiere-diplomato-clinica-test',
+    ...over,
+  });
+
+  it('a re-crawled existing job exits the merge with the FRESH crawledAt, with firstSeenAt and postedDate preserved', () => {
+    const testStart = Date.now();
+    const prev = baseJob({
+      crawledAt: STALE_CRAWLED_AT,
+      firstSeenAt: '2026-05-20T08:00:00.000Z',
+      postedDate: '2026-05-18',
+    });
+    const next = baseJob({}); // incoming re-crawl; merge stamps crawledAt=now
+    const { merged } = mergeAndDeduplicate([prev], [next], cfg);
+    expect(merged).toHaveLength(1);
+    // Before the fix: merged[0].crawledAt === STALE_CRAWLED_AT, forever.
+    expect(merged[0].crawledAt).not.toBe(STALE_CRAWLED_AT);
+    expect(Date.parse(merged[0].crawledAt)).toBeGreaterThanOrEqual(testStart);
+    // set-once / older-wins fields must NOT churn with the heartbeat:
+    expect(merged[0].firstSeenAt).toBe('2026-05-20T08:00:00.000Z');
+    expect(merged[0].postedDate).toBe('2026-05-18');
+  });
+
+  it('refreshes crawledAt even when preferJob returns prev wholesale (bare-preferJob discard pattern, as #3284/#3843)', () => {
+    const testStart = Date.now();
+    // featured + longer description ⇒ prev outscores the incoming job in
+    // preferJob, so `chosen` is prev wholesale — the fresh timestamp must
+    // still be forced onto it.
+    const prev = baseJob({
+      crawledAt: STALE_CRAWLED_AT,
+      firstSeenAt: '2026-05-20T08:00:00.000Z',
+      featured: true,
+      description: 'D'.repeat(400),
+    });
+    const next = baseJob({ description: 'D'.repeat(60) });
+    const { merged } = mergeAndDeduplicate([prev], [next], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].featured).toBe(true); // prev really won preferJob
+    expect(merged[0].crawledAt).not.toBe(STALE_CRAWLED_AT);
+    expect(Date.parse(merged[0].crawledAt)).toBeGreaterThanOrEqual(testStart);
+    expect(merged[0].firstSeenAt).toBe('2026-05-20T08:00:00.000Z');
+  });
+
+  it('existing-vs-existing collapse (mergeDuplicateJobPreservingSlugHistory path) keeps the NEWER crawledAt even when the staler record wins preferJob', () => {
+    const winner = baseJob({
+      crawledAt: STALE_CRAWLED_AT,
+      firstSeenAt: '2026-05-20T08:00:00.000Z',
+      featured: true, // outscores loser ⇒ wins preferJob despite staler crawledAt
+      description: 'D'.repeat(400),
+    });
+    const loser = baseJob({
+      crawledAt: '2026-06-25T12:00:00.000Z',
+      featured: false,
+      description: 'D'.repeat(60),
+    });
+    const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].featured).toBe(true);
+    expect(merged[0].crawledAt).toBe('2026-06-25T12:00:00.000Z');
+    expect(merged[0].firstSeenAt).toBe('2026-05-20T08:00:00.000Z');
+  });
+
+  it('pickMergedCrawledAt: newest wins, real timestamps beat unparseable ones, blank sides fall through, both blank returns empty', () => {
+    expect(pickMergedCrawledAt(
+      { crawledAt: '2026-06-01T00:00:00.000Z' },
+      { crawledAt: '2026-07-01T00:00:00.000Z' },
+    )).toBe('2026-07-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt(
+      { crawledAt: '2026-07-01T00:00:00.000Z' },
+      { crawledAt: '2026-06-01T00:00:00.000Z' },
+    )).toBe('2026-07-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt(
+      { crawledAt: '2026-06-01T00:00:00.000Z' },
+      { crawledAt: 'not-a-date' },
+    )).toBe('2026-06-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt(
+      { crawledAt: 'not-a-date' },
+      { crawledAt: '2026-06-01T00:00:00.000Z' },
+    )).toBe('2026-06-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt({}, { crawledAt: '2026-06-01T00:00:00.000Z' })).toBe('2026-06-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt({ crawledAt: '2026-06-01T00:00:00.000Z' }, {})).toBe('2026-06-01T00:00:00.000Z');
+    expect(pickMergedCrawledAt({}, {})).toBe('');
   });
 });
 
