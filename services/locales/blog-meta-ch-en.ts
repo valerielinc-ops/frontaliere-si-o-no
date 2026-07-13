@@ -1087,6 +1087,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Foreign tax credit parameterized to income: case studies',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'The foreign income tax credit is a tax benefit available to border workers working in Switzerland.',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier filling tax return',
+    'blog.article.frontalieri-bicicletta-smile.title': 'Smiles for border workers, 1.7 million for border mobility',
+    'blog.article.frontalieri-bicicletta-smile.excerpt': 'A project called SMILE seeks to improve mobility between the provinces of Como and Varese and the Canton of Ticino.',
+    'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier on a bike crossing the border in Switzerland',
 };
 
 export default blogMetaChEn;

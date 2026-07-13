@@ -1087,6 +1087,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Gutschrift ausländischer Steuern parametriert auf das Einkommen: die Fälle',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Die auf das Einkommen parametrierte ausländische Steuergutschrift ist ein Steuervorteil, der Grenzgängern, die in der Schweiz arbeiten, zur Verfügung steht.',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier füllt Steuererklärung',
+    'blog.article.frontalieri-bicicletta-smile.title': 'Lächeln für Grenzgänger, 1,7 Millionen für Grenzmobilität',
+    'blog.article.frontalieri-bicicletta-smile.excerpt': 'Ein Projekt namens SMILE soll die Mobilität zwischen den Provinzen Como und Varese und dem Kanton Tessin verbessern.',
+    'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier auf Fahrrad, Grenze Schweiz',
 };
 
 export default blogMetaChDe;

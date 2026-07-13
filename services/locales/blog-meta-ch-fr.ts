@@ -1087,6 +1087,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Crédit d\'impôt étranger paramétré sur le revenu : les cas',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Le crédit d\'impôt étranger paramétré sur le revenu est un avantage fiscal disponible pour les frontaliers travaillant en Suisse.',
     'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier en train de remplir la déclaration d\'impôt',
+    'blog.article.frontalieri-bicicletta-smile.title': 'Smile pour les frontaliers, 1,7 million pour la mobilité frontalière',
+    'blog.article.frontalieri-bicicletta-smile.excerpt': 'Un projet appelé SMILE cherche à améliorer la mobilité entre les provinces de Côme et de Varèse et le canton du Tessin.',
+    'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier en vélo, frontière Suisse',
 };
 
 export default blogMetaChFr;

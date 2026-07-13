@@ -4515,6 +4515,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sportello-frontalieri-si-sposta-allinformagiovani-di-varese': { name: 'Sportello Frontalieri', path: '/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese', parent: 'blog' },
     'blog-frontalieri-calano-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/frontalieri-calano-ticino', parent: 'blog' },
     'blog-di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario': { name: 'Di più posti di lavoro, la situazione', path: '/articoli-frontaliere/di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario', parent: 'blog' },
+    'blog-frontalieri-bicicletta-smile': { name: 'Frontalieri, si potrà andare a lavorare in', path: '/articoli-svizzera/frontalieri-bicicletta-smile/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
