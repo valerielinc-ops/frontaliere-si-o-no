@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-13T06:18:29.935Z",
+  "updatedAt": "2026-07-13T06:47:07.165Z",
   "perCrossing": {
     "biegno-indemini": {
       "waitTimeMinutes": 0,
@@ -7,15 +7,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "bizzarone-novazzano": {
-      "waitTimeMinutes": 3,
+      "waitTimeMinutes": 1,
       "approachMinutes": 1,
-      "totalCrossingMinutes": 4,
+      "totalCrossingMinutes": 2,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "camedo": {
       "waitTimeMinutes": 0,
@@ -23,23 +23,23 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "campione-d-italia-bissone": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "chiasso-brogeda": {
       "waitTimeMinutes": 8,
-      "approachMinutes": 2,
-      "totalCrossingMinutes": 10,
+      "approachMinutes": 1,
+      "totalCrossingMinutes": 9,
       "status": "yellow",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "chiasso-centro": {
       "waitTimeMinutes": 0,
@@ -47,15 +47,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "chiasso-strada": {
-      "waitTimeMinutes": 1,
-      "approachMinutes": 21,
-      "totalCrossingMinutes": 22,
+      "waitTimeMinutes": 0,
+      "approachMinutes": 4,
+      "totalCrossingMinutes": 4,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 0,
@@ -63,7 +63,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "cremenaga-ponte-cremenaga": {
       "waitTimeMinutes": 0,
@@ -71,7 +71,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "crociale-dei-mulini": {
       "waitTimeMinutes": 0,
@@ -79,7 +79,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "drezzo-pedrinate": {
       "waitTimeMinutes": 0,
@@ -87,7 +87,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "dumenza-cassinone": {
       "waitTimeMinutes": 0,
@@ -95,15 +95,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "gaggiolo": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 4,
       "approachMinutes": 1,
-      "totalCrossingMinutes": 9,
-      "status": "yellow",
+      "totalCrossingMinutes": 5,
+      "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "lanzo-d-intelvi-arogno": {
       "waitTimeMinutes": 1,
@@ -111,7 +111,7 @@
       "totalCrossingMinutes": 1,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "luino-fornasette": {
       "waitTimeMinutes": 0,
@@ -119,15 +119,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "maslianico-pizzamiglio": {
-      "waitTimeMinutes": 1,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 1,
+      "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "oria-gandria": {
       "waitTimeMinutes": 1,
@@ -135,7 +135,7 @@
       "totalCrossingMinutes": 1,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "piaggio-valmara": {
       "waitTimeMinutes": 0,
@@ -143,23 +143,23 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "ponte-tresa": {
-      "waitTimeMinutes": 35,
+      "waitTimeMinutes": 2,
       "approachMinutes": 1,
-      "totalCrossingMinutes": 36,
-      "status": "red",
-      "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
-    },
-    "porto-ceresio-brusino": {
-      "waitTimeMinutes": 3,
-      "approachMinutes": 0,
       "totalCrossingMinutes": 3,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
+    },
+    "porto-ceresio-brusino": {
+      "waitTimeMinutes": 2,
+      "approachMinutes": 0,
+      "totalCrossingMinutes": 2,
+      "status": "green",
+      "source": "tomtom",
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "ronago-novazzano": {
       "waitTimeMinutes": 0,
@@ -167,7 +167,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "saltrio-arzo": {
       "waitTimeMinutes": 0,
@@ -175,15 +175,15 @@
       "totalCrossingMinutes": 1,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "san-pietro": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "sempione": {
       "waitTimeMinutes": 0,
@@ -191,7 +191,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     },
     "zenna-dirinella": {
       "waitTimeMinutes": 0,
@@ -199,7 +199,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "tomtom",
-      "lastUpdate": "2026-07-13T06:18:29.935Z"
+      "lastUpdate": "2026-07-13T06:47:07.165Z"
     }
   }
 }
