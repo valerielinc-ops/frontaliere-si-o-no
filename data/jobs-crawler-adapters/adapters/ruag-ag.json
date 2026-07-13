@@ -10,7 +10,6 @@
     "generic_ats"
   ],
   "seedUrls": [
-    "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437",
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965",
     "https://jobs.ruag.ch/offene-stellen/assistentin-construction-management-west/81b4936b-bb5a-4a41-9298-336b3dc084a5",
     "https://jobs.ruag.ch/offene-stellen/professional-ict-architect/d4302aa0-afaa-4a3c-81c4-e6e41ab1de92",
@@ -40,14 +39,8 @@
     "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/664c7bc4-ab96-4abe-ba17-1444128f1a2f"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-12T21:57:15.010Z",
+  "updatedAt": "2026-07-13T12:52:00.043Z",
   "seedMetaByUrl": {
-    "https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437": {
-      "location": "Altdorf",
-      "canton": "UR",
-      "company": "RUAG AG",
-      "postedDate": "2026-06-29"
-    },
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
       "canton": "UR",
