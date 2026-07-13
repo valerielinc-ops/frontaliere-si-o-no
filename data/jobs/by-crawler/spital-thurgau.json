@@ -1008,7 +1008,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
+        "it": "Dipl. Specialista HF/FH Medizin",
         "en": "Dipl. Nursing specialist HF/FH Medizin",
         "de": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH Medizin"
@@ -1586,7 +1586,7 @@
       "title": "Dipl. Pflegefachmann/-frau Palliativstation",
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in cure palliative",
-        "en": "Dipl. Pflegefachmann/-frau Palliativstation",
+        "en": "Dipl. Nursing professional/woman palliative care unit",
         "de": "Dipl. Pflegefachmann/-frau Palliativstation",
         "fr": "Dipl. Spécialiste des soins/unité de soins palliatifs pour femmes"
       },
@@ -1773,7 +1773,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1853,7 +1852,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2388,7 +2386,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2589,7 +2586,7 @@
         "it": "Fachärztin/-arzt per Radiologie con Schwerpunkt muskuloskelettale Radiologie (OA o OAmbF)",
         "en": "Radiology specialist with a focus on musculoskeletal radiology (OA or OAmbF)",
         "de": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF)",
-        "fr": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF)"
+        "fr": "Spécialiste de radiologie mettant l'accent sur la radiologie musculo-squelettique (OA ou OAmbF)"
       },
       "description": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
@@ -2722,7 +2719,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2920,7 +2916,6 @@
         ]
       },
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3098,7 +3093,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3183,7 +3177,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:47:16.696Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3270,8 +3263,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spital-thurgau-a0208fe239d2",
@@ -3346,7 +3338,6 @@
           "dipl-radiologiefachmann-frau-hf-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3590,7 +3581,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3682,7 +3672,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3766,7 +3755,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3926,7 +3914,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5614,14 +5601,14 @@
       "titleByLocale": {
         "it": "Applikations-Manager/-in amministrativo Fachapplikationen",
         "en": "Applikations-Manager/-in administrative Fachapplikationen",
-        "de": "Applikations-Manager/-in administrative Fachapplikationen",
+        "de": "Anwendungen-Manager/-in administrativen Fachapplikationen",
         "fr": "Applikations-Gestionnaire/-en administration Fachapplikationen"
       },
       "description": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
         "it": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
         "en": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
-        "de": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+        "de": "Anwendungen-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
         "fr": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026"
       },
       "location": "Kantonsspital Frauenfeld",
@@ -5932,7 +5919,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a dipl. Cure d'emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Experts in Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Dipl. Experts en soins d'urgence NDS HF"
       },
@@ -6169,7 +6156,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.616Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6255,7 +6241,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6348,7 +6333,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6600,7 +6584,6 @@
         ]
       },
       "firstSeenAt": "2026-05-29T00:40:28.280Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6947,7 +6930,6 @@
         "fachfrau-mann-betreuung-fachbereich-kinder-come-springer-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "firstSeenAt": "2026-05-18T22:46:00.089Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7058,7 +7040,7 @@
       "title": "Vorpraktikant/-in Physio-/Ergotherapie",
       "titleByLocale": {
         "it": "Tirocinante fisioterapista/ergoterapista",
-        "en": "Vorpraktikant/-in Physio-/Ergotherapie",
+        "en": "Pre-practical/in physio/occupational therapy",
         "de": "Vorpraktikant/-in Physio-/Ergotherapie",
         "fr": "Traitement pré-pratique/inphysiologique/professionnel"
       },
@@ -7362,7 +7344,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7460,7 +7441,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7489,7 +7469,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a dipl. Cure d'emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Experts in Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Dipl. Experts en soins d'urgence NDS HF"
       },
@@ -7976,7 +7956,6 @@
         "occupational-therapists-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8138,7 +8117,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8224,7 +8202,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8466,7 +8443,6 @@
         "unterassistent-in-stgag-ch"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8625,7 +8601,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:06:19.082Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -8706,7 +8681,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:06:19.082Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -8947,7 +8921,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:06:19.085Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9124,7 +9097,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:29:36.575Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9216,7 +9188,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T22:38:11.533Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9306,7 +9277,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:27:30.964Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9406,8 +9376,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spital-thurgau-ffe2755f0666",
@@ -9570,7 +9539,6 @@
         "arztsekretar-in-orthopadie-stgag-ch"
       ],
       "firstSeenAt": "2026-06-30T12:58:00.356Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9658,7 +9626,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:58:00.357Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9838,8 +9805,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spital-thurgau-ed502116e0dc",
@@ -10247,7 +10213,6 @@
         "nursing-experts-in-apn-psychiatry-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "firstSeenAt": "2026-06-16T14:30:56.839Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10410,7 +10375,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T13:01:39.781Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10439,16 +10403,16 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
-        "it": "Dipl. Pflegefachmann/-frau Forensik",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+        "en": "Dipl. Nursing professional forensics",
+        "it": "Dipl. Infermieristica professionale forense",
+        "fr": "Dipl. Services de médecine légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "it": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "en": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026"
+        "it": "Dipl. Specialista infermieristica forense — Spital Thurgau (STGAG).\n\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: a tempo pieno\n• Occupazione: permanente\n• Data di entrata: 01.09.2026",
+        "en": "Dipl. Nursing specialist forensics — Spital Thurgau (STGAG).\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (including midwife)\n• Area: Psychiatric Services Thurgau\n• Pensum: Full-time\n• Employment: Permanent\n• Date of entry: 01.09.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers — Spital Thurgau (STGAG).\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris la sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: Temps plein\n• Emploi permanent\n• Date d'entrée: 01.09.2026"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -10484,7 +10448,6 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-stgag-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10585,7 +10548,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T13:01:39.781Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10863,7 +10825,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.977Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10970,7 +10931,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11185,7 +11145,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:46:00.094Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11269,7 +11228,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12228,7 +12186,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:06:19.081Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -12310,7 +12267,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12738,7 +12694,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12912,7 +12867,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12941,16 +12895,16 @@
       "title": "Arztsekretär/-in Pathologie",
       "titleByLocale": {
         "de": "Arztsekretär/-in Pathologie",
-        "it": "Arztsekretär/-in Pathologie",
-        "en": "Arztsekretär/-in Pathologie",
-        "fr": "Arztsekretär/-in Pathologie"
+        "it": "Segretario medico/patologia",
+        "en": "Medical Secretary/-in Pathology",
+        "fr": "Secrétaire médical/-en pathologie"
       },
       "description": "Arztsekretär/-in Pathologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
       "descriptionByLocale": {
         "de": "Arztsekretär/-in Pathologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "it": "Arztsekretär/-in Pathologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "en": "Arztsekretär/-in Pathologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "fr": "Arztsekretär/-in Pathologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026"
+        "it": "Segreteria medica/in Patologia — Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Münsterlingen\n• Dipartimento: Amministrazione\n• Divisione: Spital Thurgau AG\n• Carico di lavoro a tempo parziale\n• Occupazione: permanente\n• Data di entrata: 01.09.2026",
+        "en": "Medical secretary/in Pathology — Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Münsterlingen\n• Department: Administration\n• Division: Spital Thurgau AG\n• Part-time workload\n• Employment: Permanent\n• Date of entry: 01.09.2026",
+        "fr": "Secrétaire médical/en pathologie — Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Münsterlingen\n• Département : Administration\n• Division: Spital Thurgau AG\n• Charge de travail à temps partiel\n• Emploi permanent\n• Date d'entrée: 01.09.2026"
       },
       "location": "Kantonsspital Münsterlingen",
       "canton": "TG",
@@ -12978,7 +12932,6 @@
       },
       "department": "Administration",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -13008,16 +12961,16 @@
       "title": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
-        "it": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
-        "en": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
-        "fr": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett"
+        "it": "Dipl. Infermieristica/donna HF/FH, ostetrica postpartum",
+        "en": "Dipl. Nursing specialist/woman HF/FH, midwife postpartum",
+        "fr": "Dipl. Spécialiste des soins infirmiers/femme HF/FH, sage-femme postpartum"
       },
       "description": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
-        "it": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
-        "en": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
-        "fr": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026"
+        "it": "Dipl. Specialista infermieristico HF/FH, letto postpartum ostetrico — Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Ospedale cantonale Frauenfeld\n• Pensum: a tempo pieno\n• Occupazione: permanente\n• Data di entrata: 01.08.2026",
+        "en": "Dipl. Nursing specialist HF/FH, midwife postpartum bed — Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Care (including midwife)\n• Area: Cantonal Hospital Frauenfeld\n• Pensum: Full-time\n• Employment: Permanent\n• Date of entry: 01.08.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH, sage-femme lit post-partum — Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département: Soins (y compris la sage-femme)\n• Région : Hôpital cantonal de Frauenfeld\n• Pensum: Temps plein\n• Emploi permanent\n• Date d'entrée: 01.08.2026"
       },
       "location": "Kantonsspital Frauenfeld",
       "canton": "TG",
@@ -13045,7 +12998,6 @@
       },
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-ch"
@@ -13084,15 +13036,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter/-in Empfang",
         "it": "Collaboratore/trice/-in Empfang",
-        "en": "Mitarbeiter/-in Empfang",
-        "fr": "Mitarbeiter/-in Empfang"
+        "en": "Staff Reception",
+        "fr": "Réception du personnel"
       },
       "description": "Mitarbeiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
       "descriptionByLocale": {
         "de": "Mitarbeiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "it": "Mitarbeiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "en": "Mitarbeiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "fr": "Mitarbeiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026"
+        "it": "Staff Reception – Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Amministrazione\n• Divisione: Spital Thurgau AG\n• Carico di lavoro a tempo parziale\n• Occupazione: permanente\n• Data di entrata: 01.10.2026",
+        "en": "Staff Reception – Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Administration\n• Division: Spital Thurgau AG\n• Part-time workload\n• Employment: Permanent\n• Date of entry: 01.10.2026",
+        "fr": "Réception du personnel – Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département : Administration\n• Division: Spital Thurgau AG\n• Charge de travail à temps partiel\n• Emploi permanent\n• Date d'entrée: 01.10.2026"
       },
       "location": "Kantonsspital Frauenfeld",
       "canton": "TG",
@@ -13120,7 +13072,6 @@
       },
       "department": "Administration",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-stgag-ch"
@@ -13487,7 +13438,7 @@
         "it": "Facharzt/-ärztin per Radiologie con Schwerpunkt abdominelle Radiologie (OA o OA mbF)",
         "en": "Specialist in radiology with focus on abdominal radiology (OA or OA mbF)",
         "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)",
-        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)"
+        "fr": "Spécialiste en radiologie avec un accent sur la radiologie abdominale (OA ou OA mbF)"
       },
       "description": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {

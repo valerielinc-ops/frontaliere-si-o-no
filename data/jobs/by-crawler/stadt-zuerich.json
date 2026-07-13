@@ -488,8 +488,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-959f49892bca",
@@ -558,7 +557,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -639,7 +637,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1219,8 +1216,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-38a11c6be2bb",
@@ -2083,7 +2079,6 @@
       "unit": "Support Sozialdepartement",
       "referenceNumber": "50665",
       "firstSeenAt": "2026-07-12T23:04:39.658Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "it-change-manager-in-it-requirement-engineer-in-stadt-zuerich-zurigo-50665"
@@ -2177,7 +2172,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T12:59:08.265Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2269,8 +2263,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-c36365451fbf",
@@ -2888,7 +2881,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2972,7 +2964,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3217,7 +3208,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "baseSalary": {
@@ -3298,7 +3288,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3387,7 +3376,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3709,7 +3697,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3791,7 +3778,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3954,7 +3940,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4278,7 +4263,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4523,7 +4507,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4604,7 +4587,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5172,7 +5154,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5254,7 +5235,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:44:12.738Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5644,7 +5624,12 @@
       "unit": "Sonderpädagogik",
       "referenceNumber": "48662",
       "previousSlugs": [
-        "dipl-logopad-innen-stadt-zuerich-zurigo-48662"
+        "dipl-logopad-innen-stadt-zuerich-zurigo-48662",
+        "dipl-psychomotoriktherapeut-innen-per-stellvertretungen-stadt-zurich",
+        "dipl-psychomotor-therapists-for-deputies-stadt-zurich-zurich",
+        "dipl-psychomotoriktherapeut-innen-fur-stellvertretungen-stadt-zuerich-zurigo-50325",
+        "dipl-psychomotherapeutes-pour-adjoints-stadt-zurich-zurich",
+        "dipl-psychomotoriktherapeut-innen-fur-stellvertretungen-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6040,7 +6025,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.728Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6123,7 +6107,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.729Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6533,7 +6516,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.728Z",
-      "needsRetranslation": true,
       "salaryMin": 38200,
       "salaryMax": 58000,
       "baseSalary": {
@@ -6615,7 +6597,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.729Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7264,7 +7245,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.730Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7419,7 +7399,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.730Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8070,7 +8049,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.727Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8233,7 +8211,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.727Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -9199,7 +9176,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.724Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9847,7 +9823,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.727Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10177,7 +10152,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:24:35.198Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10340,7 +10314,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:23.900Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10415,7 +10388,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:23.900Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -10496,7 +10468,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:23.900Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -10575,7 +10546,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:23.900Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12841,7 +12811,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:24:35.199Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12990,7 +12959,6 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "50829",
       "firstSeenAt": "2026-07-07T22:24:35.198Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -13153,7 +13121,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.747Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13318,7 +13285,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.747Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13649,7 +13615,6 @@
         "teamleiter-in-spitex-pflege-zurich-saw-sud-stadt-zuerich-zurigo-50495"
       ],
       "firstSeenAt": "2026-07-04T12:20:07.747Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -14058,7 +14023,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:09.278Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -14381,7 +14345,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:24:35.219Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -14604,7 +14567,11 @@
       "unit": "Kreisschulbehörde Uto",
       "referenceNumber": "50492",
       "previousSlugs": [
-        "sozialpadagog-in-schule-leimbach-stadt-zuerich-zurigo-50492"
+        "sozialpadagog-in-schule-leimbach-stadt-zuerich-zurigo-50492",
+        "pedagogici-sociali-nella-scuola-holderbach-stadt-zurich-zurich",
+        "social-pedagogics-in-school-holderbach-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-holderbach-stadt-zuerich-zurigo-50370",
+        "pedagogie-sociale-a-holderbach-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14618,7 +14585,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:24:35.219Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15023,7 +14989,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.746Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15185,7 +15150,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.746Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15741,7 +15705,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:36:10.027Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15982,7 +15945,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:36:10.027Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16145,7 +16107,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:12.849Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16309,7 +16270,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:12.849Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16790,7 +16750,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:57.399Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16865,7 +16824,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:57.399Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -17351,7 +17309,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:57.399Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -17523,7 +17480,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T12:59:08.275Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -17601,7 +17557,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -17929,7 +17884,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.746Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -18565,7 +18519,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -18890,7 +18843,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -18968,7 +18920,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:23.917Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -19209,7 +19160,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19290,7 +19240,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19372,7 +19321,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19776,7 +19724,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -20100,7 +20047,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20181,7 +20127,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -20505,7 +20450,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20587,7 +20531,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20670,7 +20613,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20749,7 +20691,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20940,15 +20881,15 @@
       "titleByLocale": {
         "de": "Fachbearbeiter*in Kundenservice und Administration",
         "it": "Fachbearbeiter*in Kundenservice e Administration",
-        "en": "Fachbearbeiter*in Kundenservice und Administration",
-        "fr": "Fachbearbeiter*in Kundenservice und Administration"
+        "en": "Specialist in Customer Service and Administration",
+        "fr": "Spécialiste du service à la clientèle et de l'administration"
       },
       "description": "Fachbearbeiter*in Kundenservice und Administration bei der Stadtverwaltung Zürich, Sozialdepartement – Laufbahnzentrum. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50903. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Fachbearbeiter*in Kundenservice und Administration bei der Stadtverwaltung Zürich, Sozialdepartement – Laufbahnzentrum. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50903. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Fachbearbeiter*in Kundenservice und Administration bei der Stadtverwaltung Zürich, Sozialdepartement – Laufbahnzentrum. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50903. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Fachbearbeiter*in Kundenservice und Administration bei der Stadtverwaltung Zürich, Sozialdepartement – Laufbahnzentrum. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50903. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Fachbearbeiter*in Kundenservice und Administration bei der Stadtverwaltung Zürich, Sozialdepartement – Laufbahnzentrum. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50903. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Specialista nel servizio clienti e amministrazione presso l'Amministrazione Comunale di Zurigo, Dipartimento Sociale – Centro Carriera. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50903. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Specialist in customer service and administration at the City Administration of Zurich, Social Department – Career Center. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50903. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Spécialiste du service à la clientèle et de l'administration à l'administration municipale de Zurich, Département social – Centre de carrière. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50903. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -20978,7 +20919,6 @@
       "department": "Sozialdepartement",
       "unit": "Laufbahnzentrum",
       "referenceNumber": "50903",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903"
@@ -21016,16 +20956,16 @@
       "title": "Sozialarbeiter*in Erwachsenenprofil",
       "titleByLocale": {
         "de": "Sozialarbeiter*in Erwachsenenprofil",
-        "it": "Sozialarbeiter*in Erwachsenenprofil",
-        "en": "Sozialarbeiter*in Erwachsenenprofil",
-        "fr": "Sozialarbeiter*in Erwachsenenprofil"
+        "it": "Lavoratore sociale*in profilo adulto",
+        "en": "Social worker*in adult profile",
+        "fr": "Travailleur social*en profil adulte"
       },
       "description": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50904. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50904. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50904. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50904. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50904. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Profilo sociale per adulti presso l'Amministrazione Comunale di Zurigo, Dipartimento Sociale – Servizi Sociali. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50904. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Social worker adult profile at the City Administration of Zurich, Social Department – Social Services. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50904. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Profil des travailleurs sociaux adultes à l'administration municipale de Zurich, Département social – Services sociaux. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50904. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21055,7 +20995,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "50904",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-50904"
@@ -21301,7 +21240,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -21538,7 +21476,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -21649,15 +21586,15 @@
       "titleByLocale": {
         "de": "HR-Fachfrau/-Fachmann",
         "it": "Risorse Umane-Fachfrau/-Fachmann",
-        "en": "HR-Fachfrau/-Fachmann",
+        "en": "HR specialist",
         "fr": "Ressources Humaines-Fachfrau/-Fachmann"
       },
       "description": "HR-Fachfrau/-Fachmann bei der Stadtverwaltung Zürich, Finanzdepartement – Liegenschaften Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50749. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "HR-Fachfrau/-Fachmann bei der Stadtverwaltung Zürich, Finanzdepartement – Liegenschaften Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50749. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "HR-Fachfrau/-Fachmann bei der Stadtverwaltung Zürich, Finanzdepartement – Liegenschaften Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50749. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "HR-Fachfrau/-Fachmann bei der Stadtverwaltung Zürich, Finanzdepartement – Liegenschaften Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50749. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "HR-Fachfrau/-Fachmann bei der Stadtverwaltung Zürich, Finanzdepartement – Liegenschaften Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50749. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Specialista HR presso l'Amministrazione Comunale di Zurigo, Dipartimento Finanziario – Città Immobiliare di Zurigo. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50749. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "HR specialist at the City Administration of Zurich, Financial Department – Real Estate City of Zurich. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50749. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Spécialiste des RH à l'administration municipale de Zurich, Département financier – Ville immobilière de Zurich. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50749. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21687,7 +21624,6 @@
       "department": "Finanzdepartement",
       "unit": "Liegenschaften Stadt Zürich",
       "referenceNumber": "50749",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -21728,16 +21664,16 @@
       "title": "Schulleitungsassistenz, Schule Untermoos",
       "titleByLocale": {
         "de": "Schulleitungsassistenz, Schule Untermoos",
-        "it": "Schulleitungsassistenz, Schule Untermoos",
-        "en": "Schulleitungsassistenz, Schule Untermoos",
-        "fr": "Schulleitungsassistenz, Schule Untermoos"
+        "it": "Assistente di gestione scolastica, scuola Untermoos",
+        "en": "School management assistant, school Untermoos",
+        "fr": "Assistant de gestion scolaire, école Untermoos"
       },
       "description": "Schulleitungsassistenz, Schule Untermoos bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50909. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Schulleitungsassistenz, Schule Untermoos bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50909. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Schulleitungsassistenz, Schule Untermoos bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50909. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Schulleitungsassistenz, Schule Untermoos bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50909. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Schulleitungsassistenz, Schule Untermoos bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50909. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Assistente di gestione della scuola, scuola Untermoos presso l'amministrazione comunale di Zurigo, dipartimento scolastico e sportivo – l'autorità della scuola di distretto Letzi. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50909. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "School management assistant, school Untermoos at the city administration of Zurich, school and sports department – district school authority Letzi. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50909. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Assistant de gestion scolaire, école Untermoos à l'administration municipale de Zurich, département scolaire et sportif – autorité scolaire de district Letzi. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50909. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21767,14 +21703,17 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "50909",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schulleitungsassistenz-schule-untermoos-stadt-zuerich-zurigo-50909"
         ]
       },
       "previousSlugs": [
-        "schulleitungsassistenz-schule-untermoos-stadt-zuerich-zurigo-50909"
+        "schulleitungsassistenz-schule-untermoos-stadt-zuerich-zurigo-50909",
+        "assistenza-scolastica-scuola-untermoos-stadt-zurich-zurich",
+        "school-assistance-school-untermoos-stadt-zurich-zurich",
+        "schulassistenz-schule-untermoos-stadt-zuerich-zurigo-50819",
+        "aide-scolaire-untermoos-scolaire-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21805,16 +21744,16 @@
       "title": "Hortleitung / erfahrene Fachperson Betreuung",
       "titleByLocale": {
         "de": "Hortleitung / erfahrene Fachperson Betreuung",
-        "it": "Hortleitung / erfahrene Fachperson Betreuung",
-        "en": "Hortleitung / erfahrene Fachperson Betreuung",
-        "fr": "Hortleitung / erfahrene Fachperson Betreuung"
+        "it": "Hortleitung / esperto supporto specialistico",
+        "en": "Hortleitung / experienced specialist support",
+        "fr": "Hortleitung / soutien spécialisé expérimenté"
       },
       "description": "Hortleitung / erfahrene Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50920. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Hortleitung / erfahrene Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50920. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Hortleitung / erfahrene Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50920. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Hortleitung / erfahrene Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50920. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Hortleitung / erfahrene Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50920. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Hortleitung / esperto supporto specialistico presso l'amministrazione della città di Zurigo, la scuola e il dipartimento sportivo – l'autorità della scuola di distretto Limmattal. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50920. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Hortleitung / experienced specialist support at the city administration of Zurich, school and sports department – district school authority Limmattal. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50920. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Hortleitung / assistance spécialisée expérimentée à l'administration municipale de Zurich, département scolaire et sportif – autorité scolaire de district Limmattal. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50920. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21844,7 +21783,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "50920",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -21874,16 +21812,16 @@
       "title": "Co-Leitung Betreuung",
       "titleByLocale": {
         "de": "Co-Leitung Betreuung",
-        "it": "Co-Leitung Betreuung",
-        "en": "Co-Leitung Betreuung",
-        "fr": "Co-Leitung Betreuung"
+        "it": "Co-direzione Assistenza",
+        "en": "Co-direction Assistance",
+        "fr": "Aide à la codirection"
       },
       "description": "Co-Leitung Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50928. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Co-Leitung Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50928. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Co-Leitung Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50928. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Co-Leitung Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50928. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Co-Leitung Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50928. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Co-direzione Assistenza presso l'Amministrazione Comunale di Zurigo, Dipartimento Scuola e Sport – Dipartimento Scuola distrettuale di Zurigoberg. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50928. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Co-direction Assistance at the City Administration of Zurich, School and Sports Department – District School Authority Zurichberg. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50928. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Co-direction Assistance à l'administration municipale de Zurich, département scolaire et sportif – Administration scolaire de district Zurichberg. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50928. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21913,7 +21851,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Zürichberg",
       "referenceNumber": "50928",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -21926,7 +21863,14 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:22:59.808Z"
+      "firstSeenAt": "2026-07-13T12:22:59.808Z",
+      "previousSlugs": [
+        "capo-di-supporto-sihlweid-rappresentazione-di-maternita-stadt-zurich-zurich",
+        "head-of-support-sihlweid-maternity-representation-stadt-zurich-zurich",
+        "leitung-betreuung-sihlweid-mutterschaftsvertretung-stadt-zuerich-zurigo-50278",
+        "chef-du-soutien-sihlweid-representation-de-la-maternite-stadt-zurich-zurich",
+        "leitung-betreuung-sihlweid-mutterschaftsvertretung-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-6603b3c99776",
@@ -22491,8 +22435,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-47da322a9022",
@@ -22649,8 +22592,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-61cdf15e7c50",
@@ -22995,7 +22937,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Betriebselektriker*in",
+        "en": "Business electrician*",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -23061,8 +23003,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-2e06eff9a572",
@@ -23145,8 +23086,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1aa3c7f11bd0",
@@ -23229,8 +23169,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-09cc2e567206",
@@ -23788,8 +23727,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-cce9acdc05a7",
@@ -23953,8 +23891,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-dccaa6638925",
@@ -24444,8 +24381,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-f378baa973f1",
@@ -24528,8 +24464,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-70e1f8e077a9",
@@ -24611,8 +24546,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-5eb9e524d329",
@@ -24861,8 +24795,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-3ddae05e60d2",
@@ -24943,8 +24876,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-29c84c27c534",
@@ -25191,8 +25123,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-8659255938a2",
@@ -25602,8 +25533,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-20274729818e",
@@ -25764,8 +25694,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-30d96b8ff83d",
@@ -25928,8 +25857,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-075335435654",
@@ -26093,8 +26021,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c88b1632711b",
@@ -26579,8 +26506,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-8246f2390c37",
@@ -26833,8 +26759,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-7e93f20fd87d",
@@ -26915,8 +26840,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-0c4890e08f28",
@@ -27156,8 +27080,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c480557e03db",
@@ -27481,8 +27404,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-6ee98676c902",
@@ -27731,8 +27653,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-67af2926775a",
@@ -28058,8 +27979,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c4f0c6fd1f08",
@@ -28225,8 +28145,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-e501e68540c3",
@@ -29131,8 +29050,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c88a24589bbb",
@@ -29296,8 +29214,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-b8a23526024b",
@@ -29707,8 +29624,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1d834098bcd7",
@@ -29954,8 +29870,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-e9bbe2f99253",
@@ -30282,8 +30197,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-565e93c619f4",
@@ -30522,8 +30436,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-6beb9f052535",
@@ -30686,8 +30599,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-5311ce17af15",
@@ -31256,8 +31168,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-f8c463669b34",
@@ -31357,7 +31268,7 @@
       "title": "Physiotherapeut*in",
       "titleByLocale": {
         "it": "Fisioterapista*",
-        "en": "Physiotherapeut*in",
+        "en": "Physiotherapist*",
         "de": "Physiotherapeut*in",
         "fr": "Physiothérapeute*"
       },
@@ -31423,8 +31334,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-bd0bab3d101d",
@@ -31502,8 +31412,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-8b9423137fb3",
@@ -31828,8 +31737,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stadt-zuerich-84ef88228e09",
