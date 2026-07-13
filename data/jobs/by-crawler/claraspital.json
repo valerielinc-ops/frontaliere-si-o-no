@@ -61,11 +61,13 @@
       },
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische",
-        "medizinproduktetechnik-medizinproduktetechnik-oder-technische-sterilisationsassistenz-st-claraspital-basel"
+        "medizinproduktetechnik-medizinproduktetechnik-oder-technische-sterilisationsassistenz-st-claraspital-basel",
+        "tecnologo-a-di-dispositivi-medici-o-assistente-alla-sterilizzazione-tecnica-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische"
+          "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische",
+          "tecnologo-a-di-dispositivi-medici-o-assistente-alla-sterilizzazione-tecnica-st-claraspital-basel"
         ],
         "de": [
           "medizinproduktetechnik-medizinproduktetechnik-oder-technische-sterilisationsassistenz-st-claraspital-basel"
@@ -90,7 +92,7 @@
       "slug": "elettricista-industriale-st-claraspital-basel",
       "slugByLocale": {
         "it": "elettricista-industriale-st-claraspital-basel",
-        "en": "business-electrician-st-claraspital-basel",
+        "en": "company-electrician-st-claraspital-basel",
         "de": "betriebselektriker-in-claraspital-basel",
         "fr": "electricien-industriel-st-claraspital-basel"
       },
@@ -100,7 +102,7 @@
       "title": "Betriebselektriker/in",
       "titleByLocale": {
         "it": "Elettricista Industriale",
-        "en": "Business electrician",
+        "en": "Company electrician",
         "de": "Betriebselektriker/in",
         "fr": "Électricien Industriel"
       },
@@ -137,15 +139,17 @@
       "previousSlugs": [
         "betriebselektriker-in-claraspital-basel",
         "betriebsleiter-st-claraspital-basel",
-        "company-electrician-st-claraspital-basel"
+        "business-electrician-st-claraspital-basel",
+        "elettricista-industriale-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-claraspital-basel"
+          "betriebselektriker-in-claraspital-basel",
+          "elettricista-industriale-st-claraspital-basel"
         ],
         "en": [
           "betriebselektriker-in-claraspital-basel",
-          "company-electrician-st-claraspital-basel"
+          "business-electrician-st-claraspital-basel"
         ],
         "de": [
           "betriebsleiter-st-claraspital-basel"
@@ -393,11 +397,13 @@
         ]
       },
       "previousSlugs": [
-        "stationsoberarztin-stationsoberarzt-palliativmedizin-claraspital-basel"
+        "stationsoberarztin-stationsoberarzt-palliativmedizin-claraspital-basel",
+        "medico-primario-di-reparto-oberarzt-cure-palliative-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsoberarztin-stationsoberarzt-palliativmedizin-claraspital-basel"
+          "stationsoberarztin-stationsoberarzt-palliativmedizin-claraspital-basel",
+          "medico-primario-di-reparto-oberarzt-cure-palliative-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.148Z",
@@ -493,11 +499,13 @@
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson"
+        "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
+        "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson"
+          "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
+          "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.147Z",
@@ -594,11 +602,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-claraspital-basel"
+        "dipl-radiologiefachperson-hf-claraspital-basel",
+        "specialista-di-radiologia-dipl-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-claraspital-basel"
+          "dipl-radiologiefachperson-hf-claraspital-basel",
+          "specialista-di-radiologia-dipl-st-claraspital-basel"
         ],
         "en": [
           "dipl-radiologiefachperson-hf-claraspital-basel"
@@ -690,11 +700,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-claraspital-basel"
+        "fachperson-gesundheit-claraspital-basel",
+        "specialista-della-salute-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-claraspital-basel"
+          "fachperson-gesundheit-claraspital-basel",
+          "specialista-della-salute-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.138Z",
@@ -728,7 +740,7 @@
         "it": "Prakticante/praticante di assistenza infermieristica",
         "en": "Nursing Practice Student",
         "de": "Pflegepraktikant/in",
-        "fr": "Spécialiste des soins infirmiers"
+        "fr": "Soins infirmiers"
       },
       "description": "<b>Das Claraspital bietet im Bereich Pflegedienst auf den Bettenstationen die Möglichkeit diverser Praktika für einen befristeten Zeitraum von zwei bis sechs Monate. Dazu gehört das Pflegepraktikum für Medizin- und Physiotherapiestudenten, das FMS-Praktikum wie auch ein Praktikum zur beruflichen Orientierung.</b>\n\nAufgaben:\n• aktive Mithilfe bei der Pflege und Betreuung der Patienten in enger Zusammenarbeit mit unserem Fachpersonal (u.a. Betten, Lagern, Körperpflege, Ernährung)\n\n• hauswirtschaftliche Tätigkeiten und Botengänge\n Als Häfelipraktikant/in haben Sie Gelegenheit mit einem Arzt ein Gespräch zu führen und/oder an Visiten, bei einer Operation oder Interventionen teilzunehmen.\n\nAnforderungen:\n• Abschluss der Sekundarschule\n\n• mindestens 17 Jahre alt\n\n• Interesse am Gesundheitswesen\n\n• sehr gute Umgangsformen sowie gute Deutschkenntnisse in Wort und Schrift\n Fühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Onlinebewerbung. Bitte teilen Sie uns mit, in welchem Zeitraum Sie das Praktikum absolvieren möchten.\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
       "descriptionByLocale": {
@@ -783,11 +795,13 @@
       },
       "previousSlugs": [
         "pflegepraktikant-in-claraspital-basel",
-        "soins-infirmiers-st-claraspital-basel"
+        "soins-infirmiers-st-claraspital-basel",
+        "prakticante-praticante-di-assistenza-infermieristica-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikant-in-claraspital-basel"
+          "pflegepraktikant-in-claraspital-basel",
+          "prakticante-praticante-di-assistenza-infermieristica-st-claraspital-basel"
         ],
         "fr": [
           "soins-infirmiers-st-claraspital-basel",
@@ -881,11 +895,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pneumologie-claraspital-basel"
+        "oberarztin-oberarzt-pneumologie-claraspital-basel",
+        "primario-a-di-pneumologia-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pneumologie-claraspital-basel"
+          "oberarztin-oberarzt-pneumologie-claraspital-basel",
+          "primario-a-di-pneumologia-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.134Z",
@@ -981,11 +997,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+        "impiegato-a-servizi-a-termine-fino-al-31-12-2026-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+          "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+          "impiegato-a-servizi-a-termine-fino-al-31-12-2026-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.136Z",
@@ -1160,11 +1178,13 @@
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-fh-claraspital-basel"
+        "sozialarbeiter-in-fh-claraspital-basel",
+        "assistente-sociale-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-fh-claraspital-basel"
+          "sozialarbeiter-in-fh-claraspital-basel",
+          "assistente-sociale-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.120Z",
@@ -1334,11 +1354,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-claraspital-basel"
+        "dipl-pflegefachperson-hf-fh-claraspital-basel",
+        "diplomato-a-della-professione-infermieristica-hf-fh-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-claraspital-basel"
+          "dipl-pflegefachperson-hf-fh-claraspital-basel",
+          "diplomato-a-della-professione-infermieristica-hf-fh-st-claraspital-basel"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-claraspital-basel"
@@ -1408,11 +1430,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologin-psychologe-claraspital-basel"
+        "psychologin-psychologe-claraspital-basel",
+        "psicologo-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-claraspital-basel"
+          "psychologin-psychologe-claraspital-basel",
+          "psicologo-st-claraspital-basel"
         ],
         "en": [
           "psychologin-psychologe-claraspital-basel"
@@ -1668,12 +1692,14 @@
         "assistenzarztin-assistenzarzt-aim-claraspital-basel",
         "assistente-medico-aim-st-claraspital-basel",
         "assistant-physician-aim-st-claraspital-basel",
-        "medecin-adjoint-aim-st-claraspital-basel"
+        "medecin-adjoint-aim-st-claraspital-basel",
+        "medico-specializzando-aim-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-aim-claraspital-basel",
-          "assistente-medico-aim-st-claraspital-basel"
+          "assistente-medico-aim-st-claraspital-basel",
+          "medico-specializzando-aim-st-claraspital-basel"
         ],
         "en": [
           "assistant-physician-aim-st-claraspital-basel"
@@ -1856,7 +1882,7 @@
       "title": "Amb. Case Manager/in Gynäkologie (MPA)",
       "titleByLocale": {
         "it": "Case Manager/in Ginecologia (MPA)",
-        "en": "Amb. Case Manager in Gynecology (MPA)",
+        "en": "Amb. Case Manager/in Gynecology (MPA)",
         "de": "Amb. Case Manager/in Gynäkologie (MPA)",
         "fr": "Gestionnaire de dossiers en gynécologie (MPA)"
       },
@@ -1914,11 +1940,13 @@
       },
       "previousSlugs": [
         "amb-case-manager-in-gynakologie-mpa-claraspital-basel",
-        "amb-fallmanager-in-gynakologie-mpa-st-claraspital-basel"
+        "amb-fallmanager-in-gynakologie-mpa-st-claraspital-basel",
+        "case-manager-in-ginecologia-mpa-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amb-case-manager-in-gynakologie-mpa-claraspital-basel"
+          "amb-case-manager-in-gynakologie-mpa-claraspital-basel",
+          "case-manager-in-ginecologia-mpa-st-claraspital-basel"
         ],
         "de": [
           "amb-fallmanager-in-gynakologie-mpa-st-claraspital-basel"
@@ -2087,16 +2115,19 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachleitung-pflege-chirurgie-claraspital-basel"
+          "fachleitung-pflege-chirurgie-claraspital-basel",
+          "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel"
         ],
         "it": [
           "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel",
-          "fachleitung-pflege-chirurgie-claraspital-basel"
+          "fachleitung-pflege-chirurgie-claraspital-basel",
+          "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel"
         ]
       },
       "previousSlugs": [
         "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel",
-        "fachleitung-pflege-chirurgie-claraspital-basel"
+        "fachleitung-pflege-chirurgie-claraspital-basel",
+        "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel"
       ],
       "firstSeenAt": "2026-05-19T12:23:42.138Z",
       "salaryMin": 62000,

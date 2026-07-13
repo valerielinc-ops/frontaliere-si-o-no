@@ -4771,7 +4771,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann im Nachtdienst (Kinderstation)",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale nel servizio notturno (stazione dei bambini)",
-        "en": "Dipl. Nursing professional / Dipl. Nursing professional in night service (children's station)",
+        "en": "Dipl. Nursing professional / Dipl. Nursing professional in the night service (children's station)",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann im Nachtdienst (Kinderstation)",
         "fr": "Infirmière certifiée de garde de nuit (service pédiatrique)"
       },
@@ -4934,7 +4934,7 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 70-100 % - ZSFT",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Professionista 70-100 % - ZSFT",
+        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale 70-100 % - ZSFT",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional 70-100 % - ZSFT",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 70-100 % - ZSFT",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 70-100% - À vendre"
@@ -5809,10 +5809,10 @@
       "id": "puk-zuerich-fadca51159cb",
       "slug": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
-        "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "fr": "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5911,16 +5911,20 @@
         "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
+        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-          "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
+          "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:16.918Z",

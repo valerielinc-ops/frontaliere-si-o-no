@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-13T08:15:16.399Z",
+    "label": "before",
+    "total": 24332,
+    "needsRetranslation": 8187,
+    "suppressed": 78,
+    "incomplete": 128,
+    "complete": 24204,
+    "missingByLocale": {
+      "it": 103,
+      "en": 84,
+      "de": 40,
+      "fr": 84
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 47
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 10
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-13T08:21:56.667Z",
+    "label": "after",
+    "total": 24332,
+    "needsRetranslation": 2071,
+    "suppressed": 78,
+    "incomplete": 128,
+    "complete": 24204,
+    "missingByLocale": {
+      "it": 103,
+      "en": 84,
+      "de": 40,
+      "fr": 84
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 47
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 10
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
   }
 ]
