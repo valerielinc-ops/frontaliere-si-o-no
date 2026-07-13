@@ -170,8 +170,8 @@
       },
       "slugByLocale": {
         "it": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland",
-        "en": "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland",
-        "de": "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland",
+        "en": "specialised-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland",
+        "de": "spezialisierte-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland",
         "fr": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
       },
       "requirementsByLocale": {
@@ -192,10 +192,12 @@
           "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
         ],
         "en": [
-          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
+          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni",
+          "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland"
         ],
         "de": [
-          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
+          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni",
+          "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland"
         ]
       },
       "previousSlugs": [
@@ -204,7 +206,9 @@
         "specialized-salesperson-for-checkout-and-customer-service-m-w-d-societe-cooperative-migros-geneve-gland-7nil90",
         "fachverkaufer-kasse-und-kundenservice-m-w-d-societe-cooperative-migros-geneve-gland-7nil90",
         "vendeur-specialise-caisse-et-service-clients-m-w-d-societe-cooperative-migros-geneve-gland-7nil90",
-        "vendeur-specialise-caisse-et-service-clients-m-w-d-societe-cooperative-migros-geneve-gland"
+        "vendeur-specialise-caisse-et-service-clients-m-w-d-societe-cooperative-migros-geneve-gland",
+        "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland",
+        "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -280,8 +284,8 @@
       },
       "slugByLocale": {
         "it": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy",
-        "en": "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-lancy",
-        "de": "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-lancy",
+        "en": "specialised-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-lancy",
+        "de": "spezialisierte-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-lancy",
         "fr": "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
       },
       "requirementsByLocale": {
@@ -302,14 +306,18 @@
           "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
         ],
         "en": [
-          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
+          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe",
+          "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-lancy"
         ],
         "de": [
-          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
+          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe",
+          "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-lancy"
         ]
       },
       "previousSlugs": [
-        "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe"
+        "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-lancy-o3epbe",
+        "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-lancy",
+        "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-lancy"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -495,7 +503,7 @@
         "it": "online-marketing-manager-m-w-d-migrol-ag-adliswil-d0xs3w",
         "en": "online-marketing-manager-m-w-d-migrol-ag-adliswil-d0xs3w",
         "de": "online-marketing-manager-m-w-d-migrol-ag-adliswil-d0xs3w",
-        "fr": "directeur-du-marketing-en-ligne-m-f-d-migrol-ag-adliswil"
+        "fr": "gestionnaire-du-marketing-en-ligne-m-f-d-migrol-ag-adliswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -516,10 +524,14 @@
       "previousSlugsByLocale": {
         "it": [
           "online-marketing-manager-m-w-d-migrol-ag-adliswil"
+        ],
+        "fr": [
+          "directeur-du-marketing-en-ligne-m-f-d-migrol-ag-adliswil"
         ]
       },
       "previousSlugs": [
-        "online-marketing-manager-m-w-d-migrol-ag-adliswil"
+        "online-marketing-manager-m-w-d-migrol-ag-adliswil",
+        "directeur-du-marketing-en-ligne-m-f-d-migrol-ag-adliswil"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
