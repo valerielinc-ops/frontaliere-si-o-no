@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-13T12:43:55.719Z",
+  "assembledAt": "2026-07-13T22:33:44.805Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5476",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:52.877Z",
+      "crawledAt": "2026-07-13T22:33:41.191Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -85,6 +85,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5473",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:52.398Z",
+      "crawledAt": "2026-07-13T22:33:40.736Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,6 +178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.207Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -221,7 +223,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:51.923Z",
+      "crawledAt": "2026-07-13T22:33:40.283Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -281,6 +283,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -325,7 +328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:51.437Z",
+      "crawledAt": "2026-07-13T22:33:39.816Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -387,6 +390,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.624Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -431,7 +435,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:50.963Z",
+      "crawledAt": "2026-07-13T22:33:39.359Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -485,6 +489,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -529,7 +534,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5494",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:50.484Z",
+      "crawledAt": "2026-07-13T22:33:38.869Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -589,6 +594,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.367Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -633,7 +639,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5381",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:50.009Z",
+      "crawledAt": "2026-07-13T22:33:38.404Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -681,6 +687,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.647Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -725,7 +732,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:49.542Z",
+      "crawledAt": "2026-07-13T22:33:37.960Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -777,6 +784,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.234Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -821,7 +829,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:49.049Z",
+      "crawledAt": "2026-07-13T22:33:37.501Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -878,6 +886,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.788Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -922,7 +931,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:48.578Z",
+      "crawledAt": "2026-07-13T22:33:37.049Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -971,6 +980,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1003,19 +1013,19 @@
         "de": "Direktor der Waadischen Migrantenaufnahmeeinrichtung (EVAM)",
         "fr": "Directeur·trice de l’Établissement vaudois d’accueil des migrants (EVAM)"
       },
-      "description": "À la tête de l’EVAM, vous dirigez une institution publique d’envergure au cœur de la politique vaudoise d’accueil, d’hébergement, d’accompagnement et d’intégration des personnes migrantes. Dans un contexte exigeant marqué par l'évolution des flux migratoires et une croissance significative de ses capacités d'accueil, vous définissez et pilotez les orientations stratégiques de l'établissement et conduisez les évolutions nécessaires à son développement. Par votre leadership, vous fédérez et faites évoluer les équipes dirigeantes et développez des relations de confiance avec les autorités et les partenaires institutionnels au service de l’intérêt général.\n\n• Définir et porter la stratégie de l’établissement en cohérence avec les orientations du Conseil d’État et le cadre légal applicable.\n• Assurer la gouvernance générale de l’institution, sa soutenabilité financière, la maîtrise des risques ainsi que l’utilisation efficiente et responsable des ressources publiques.\n• Diriger le Conseil de direction et conduire les transformations organisationnelles, numériques et culturelles nécessaires au développement de l’établissement.\n• Garantir l’amélioration continue des prestations d’accueil, d’hébergement, d’accompagnement et d’intégration, adaptées aux besoins et conformes aux missions de l’institution.\n• Piloter la mise en œuvre de la stratégie immobilière de l’établissement afin de garantir, dans la durée, des capacités d’accueil adaptées à l’évolution des besoins.\n• Représenter l’EVAM auprès des autorités et des partenaires, développer des relations de confiance avec les parties prenantes et assurer une communication institutionnelle crédible et cohérente. Pour plus de détails, veuillez consulter le cahier des charges en cliquant ici ou contacter Vinciane Frund, Cheffe de service adjointe auprès du Service de la population (SPOP) au + 41 21 316 46 96 / les Ressources humaines du Département de l’économie, de l’innovation, de l’emploi et du patrimoine (DEIEP) à l’adresse e-mail : rh-deiep@vd.ch.\n\n• Formation de niveau tertiaire de type master en droit, en économie ou en administration publique.\n• Formation complémentaire en management.\n• Expérience confirmée à la tête d’une organisation de grande envergure soumise à des standards élevés de gouvernance.\n• Réalisations probantes en termes de pilotage stratégique, de conduite du changement et de mise en œuvre de transformations organisationnelles.\n• Solides compétences en gestion financière et aptitude à conduire une institution évoluant dans un environnement institutionnel et politique particulièrement exposé.\n• Connaissance des enjeux politiques liés à la migration et à l’asile, ainsi que des problématiques immobilières, sociales et d’intégration propres au domaine.\n• Vision globale et stratégique, excellentes capacités d’analyse, de synthèse et de rédaction, forte capacité de décision, sens des responsabilités et éthique du service public.\n• Excellentes aptitudes relationnelles, leadership reconnu, sens politique développé, sens marqué pour les collaborations transversales et excellentes aptitudes en communication, négociation et représentation.\n• Maîtrise du français ainsi que très bonnes connaissances de l’allemand et de l’anglais. Divers\n• Le poste implique une disponibilité particulière, s'inscrivant dans un dispositif de piquet partagé au sein de la direction.\n• Le processus de recrutement comprend une vérification des antécédents des candidat·e·s.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "description": "À la tête de l’EVAM, vous dirigez une institution publique d’envergure au cœur de la politique vaudoise d’accueil, d’hébergement, d’accompagnement et d’intégration des personnes migrantes. Dans un contexte exigeant marqué par l'évolution des flux migratoires et une croissance significative de ses capacités d'accueil, vous définissez et pilotez les orientations stratégiques de l'établissement et conduisez les évolutions nécessaires à son développement. Par votre leadership, vous fédérez et faites évoluer les équipes dirigeantes et développez des relations de confiance avec les autorités et les partenaires institutionnels au service de l’intérêt général.\n\n• Définir et porter la stratégie de l’établissement en cohérence avec les orientations du Conseil d’État et le cadre légal applicable.\n• Assurer la gouvernance générale de l’institution, sa soutenabilité financière, la maîtrise des risques ainsi que l’utilisation efficiente et responsable des ressources publiques.\n• Diriger le Conseil de direction et conduire les transformations organisationnelles, numériques et culturelles nécessaires au développement de l’établissement.\n• Garantir l’amélioration continue des prestations d’accueil, d’hébergement, d’accompagnement et d’intégration, adaptées aux besoins et conformes aux missions de l’institution.\n• Piloter la mise en œuvre de la stratégie immobilière de l’établissement afin de garantir, dans la durée, des capacités d’accueil adaptées à l’évolution des besoins.\n• Représenter l’EVAM auprès des autorités et des partenaires, développer des relations de confiance avec les parties prenantes et assurer une communication institutionnelle crédible et cohérente. Pour plus de détails, veuillez consulter le cahier des charges en cliquant ici ou contacter Vinciane Frund, Cheffe de service adjointe auprès du Service de la population (SPOP) au + 41 21 316 46 96 / les Ressources humaines du Département de l’économie, de l’innovation, de l’emploi et du patrimoine (DEIEP) à l’adresse e-mail : rh-deiep@vd.ch.\n\n• Formation de niveau tertiaire de type master en droit, en économie ou en administration publique.\n• Formation complémentaire en management.\n• Expérience confirmée à la tête d’une organisation de grande envergure soumise à des standards élevés de gouvernance.\n• Réalisations probantes en termes de pilotage stratégique, de conduite du changement et de mise en œuvre de transformations organisationnelles.\n• Solides compétences en gestion financière et aptitude à conduire une institution évoluant dans un environnement institutionnel et politique particulièrement exposé.\n• Connaissance des enjeux politiques liés à la migration et à l’asile, ainsi que des problématiques immobilières, sociales et d’intégration propres au domaine.\n• Vision globale et stratégique, excellentes capacités d’analyse, de synthèse et de rédaction, forte capacité de décision, sens des responsabilités et éthique du service public.\n• Excellentes aptitudes relationnelles, leadership reconnu, sens politique développé, sens marqué pour les collaborations transversales et excellentes aptitudes en communication, négociation et représentation.\n• Maîtrise du français ainsi que très bonnes connaissances de l’allemand et de l’anglais. Cette procédure de recrutement est menée en parallèle avec l'appui d'un cabinet spécialisé, qui peut être amené à contacter directement certain·e·s candidat·e·s. Divers\n• Le poste implique une disponibilité particulière, s'inscrivant dans un dispositif de piquet partagé au sein de la direction.\n• Le processus de recrutement comprend une vérification des antécédents des candidat·e·s.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
         "it": "A capo dell'EVAM, dirigete una grande istituzione pubblica nel cuore della politica vaudiana di accoglienza, accoglienza, accompagnamento e integrazione dei migranti. In un contesto esigente caratterizzato dall'evoluzione dei flussi migratori e da un significativo aumento delle capacità di ricezione, si definiscono e indirizzano le direzioni strategiche dell'istituzione e guidano i cambiamenti necessari per il suo sviluppo. Attraverso la vostra leadership, federazioni ed evolute i team di leadership e sviluppate relazioni di fiducia con le autorità e partner istituzionali al servizio dell'interesse generale.\n• Definire e portare la strategia di creazione in linea con gli orientamenti del Consiglio di Stato e del quadro giuridico applicabile.\n• Assicurare la governance globale dell'istituzione, la sostenibilità finanziaria, il controllo dei rischi e l'uso efficiente e responsabile delle risorse pubbliche.\n• Dirigere il Consiglio di Amministrazione e guidare le trasformazioni organizzative, digitali e culturali necessarie per lo sviluppo dello stabilimento.\n• Assicurare un miglioramento continuo dei servizi di accoglienza, accoglienza, supporto e integrazione, adattati alle esigenze e in linea con i compiti dell'istituzione.\n• Pilota l'attuazione della strategia immobiliare dello stabilimento al fine di garantire la capacità di ricezione a lungo termine adattata alle mutevoli esigenze.\n• Rappresentare EVAM con autorità e partner, sviluppare relazioni di fiducia con gli stakeholder e garantire una comunicazione istituzionale credibile e coerente. Per maggiori dettagli, consultare le specifiche cliccando qui o contattare Vinciane Frund, Vice Capo Servizio presso il Servizio Popolazione (SPOP) al numero + 41 21 316 46 96 / Risorse Umane del Dipartimento di Economia, Innovazione, Occupazione e Patrimonio (DEIEP) all'indirizzo e-mail: rh-deiep@vd.ch.\n• Laurea magistrale in diritto, economia o pubblica amministrazione.\n• Ulteriori formazione nella gestione.\n• Esperienza a capo di una grande organizzazione soggetta ad elevati standard di governance.\n• Prove in termini di leadership strategica, gestione dei cambiamenti e trasformazione organizzativa.\n• Forte capacità di gestione finanziaria e capacità di condurre un'istituzione in un ambiente istituzionale e politico particolarmente esposto.\n• Conoscenza delle questioni politiche relative alla migrazione e asilo, così come questioni immobiliari, sociali e di integrazione specifici per il settore.\n• Visione globale e strategica, eccellenti capacità analitiche, di sintesi e di redazione, forte capacità decisionale, senso di responsabilità e etica del servizio pubblico.\n• Eccellente capacità relazionali, leadership riconosciuta, senso politico sviluppato, forte senso per collaborazioni trasversali e eccellenti capacità di comunicazione, negoziazione e rappresentanza.\n• Mastery di francese così come la conoscenza molto buona di tedesco e inglese. Varie\n• La posizione comporta una disponibilità speciale, come parte di un sistema di picket condiviso all'interno della gestione.\n• Il processo di reclutamento comprende un controllo di fondo dei candidati. Posizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "At the head of the EVAM, you run a major public institution at the heart of the Vaudian policy of welcoming, hosting, accompanying and integrating migrants. In a demanding context marked by the evolution of migration flows and a significant increase in its reception capacities, you define and direct the strategic directions of the establishment and drive the changes necessary for its development. Through your leadership, you federate and evolve the leadership teams and develop trusting relationships with the authorities and institutional partners in the service of the general interest.\n• To define and bring the establishment strategy into line with the guidelines of the State Council and the applicable legal framework.\n• Ensure the institution's overall governance, financial sustainability, risk control and efficient and responsible use of public resources.\n• Direct the Board of Directors and lead the organizational, digital and cultural transformations necessary for the establishment's development.\n• Ensure continuous improvement of reception, accommodation, support and integration services, adapted to the needs and in line with the tasks of the institution.\n• Pilot the implementation of the establishment's real estate strategy in order to ensure long-term reception capacity adapted to changing needs.\n• Represent EVAM with authorities and partners, develop trust relations with stakeholders and ensure credible and coherent institutional communication. For more details, please consult the specifications by clicking here or contact Vinciane Frund, Deputy Head of Service at the Population Service (SPOP) at + 41 21 316 46 96 / Human Resources of the Department of Economics, Innovation, Employment and Heritage (DEIEP) at the e-mail address: rh-deiep@vd.ch.\n• Master's degree in law, economics or public administration.\n• Further training in management.\n• Experience at the head of a large organisation subject to high standards of governance.\n• Evidence in terms of strategic leadership, change management and organizational transformation.\n• Strong financial management skills and ability to lead an institution in a particularly exposed institutional and political environment.\n• Knowledge of policy issues related to migration and asylum, as well as real estate, social and integration issues specific to the field.\n• Global and strategic vision, excellent analytical, synthesis and editorial capabilities, strong decision-making capacity, sense of responsibility and public service ethics.\n• Excellent relational skills, recognized leadership, developed political sense, strong sense for cross-sectional collaborations and excellent communication, negotiation and representation skills.\n• Mastery of French as well as very good knowledge of German and English. Miscellaneous\n• The position involves special availability, as part of a shared picket system within management.\n• The recruitment process includes a background check of candidates. Position in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
         "de": "An der Spitze des EVAM steht eine wichtige öffentliche Institution, die im Zentrum der Waadt-Politik steht, Migranten aufzunehmen, aufzunehmen, zu begleiten und zu integrieren. In einem anspruchsvollen Kontext, der von der Entwicklung der Migrationsströme und einer deutlichen Erhöhung ihrer Aufnahmekapazitäten geprägt ist, definieren und lenken Sie die strategischen Richtungen des Establishments und treiben die für seine Entwicklung notwendigen Veränderungen voran. Durch Ihre Führung bündeln und entwickeln Sie die Führungsteams und entwickeln vertrauensvolle Beziehungen zu den Behörden und institutionellen Partnern im Dienste des Allgemeininteresses.\n• Festlegung und Anpassung der Einrichtungsstrategie an die Leitlinien des Staatsrates und den geltenden Rechtsrahmen.\n• Gewährleistung der allgemeinen Governance des Instituts, der finanziellen Tragfähigkeit, der Risikokontrolle und der effizienten und verantwortungsvollen Verwendung öffentlicher Mittel.\n• Leitet den Verwaltungsrat und leitet die organisatorischen, digitalen und kulturellen Transformationen, die für die Entwicklung des Unternehmens notwendig sind.\n• Gewährleistung einer kontinuierlichen Verbesserung der Aufnahme-, Unterbringungs-, Unterstützungs- und Integrationsdienste, die auf die Bedürfnisse und die Aufgaben der Einrichtung abgestimmt sind.\n• Pilotierung der Umsetzung der Immobilienstrategie der Einrichtung, um eine langfristige Aufnahmekapazität zu gewährleisten, die an die sich ändernden Bedürfnisse angepasst ist.\n• Vertretung von EVAM gegenüber Behörden und Partnern, Aufbau von Vertrauensbeziehungen zu Stakeholdern und Gewährleistung einer glaubwürdigen und kohärenten institutionellen Kommunikation. Für weitere Details konsultieren Sie bitte die Spezifikationen, indem Sie hier klicken oder wenden Sie sich an Vinciane Frund, stellvertretende Leiterin des Dienstes Bevölkerung (SPOP) unter + 41 21 316 46 96 / Personal der Abteilung für Wirtschaft, Innovation, Beschäftigung und Kulturerbe (DEIEP) unter der E-Mail-Adresse: rh-deiep@vd.ch.\n• Master-Abschluss in Recht, Wirtschaft oder öffentlicher Verwaltung.\n• Weiterbildung im Management.\n• Erfahrung an der Spitze einer großen Organisation, die hohen Governance-Standards unterliegt.\n• Evidenz in Bezug auf strategische Führung, Change Management und organisatorische Transformation.\n• Starke Fähigkeiten im Finanzmanagement und die Fähigkeit, ein Institut in einem besonders exponierten institutionellen und politischen Umfeld zu führen.\n• Kenntnis politischer Fragen im Zusammenhang mit Migration und Asyl sowie Immobilien-, Sozial- und Integrationsfragen.\n• Globale und strategische Vision, exzellente Analyse-, Synthese- und redaktionelle Fähigkeiten, starke Entscheidungsfähigkeit, Verantwortungsbewusstsein und Ethik des öffentlichen Dienstes.\n• Hervorragende relationale Fähigkeiten, anerkannte Führung, entwickelter politischer Sinn, starker Sinn für Querschnittskooperationen und ausgezeichnete Kommunikations-, Verhandlungs- und Repräsentationsfähigkeiten.\n• Beherrschung von Französisch sowie sehr gute Deutsch- und Englischkenntnisse. Verschiedenes\n• Die Position beinhaltet eine spezielle Verfügbarkeit als Teil eines gemeinsamen Streikpostensystems innerhalb des Managements.\n• Der Rekrutierungsprozess beinhaltet eine Hintergrundprüfung der Kandidaten. Funktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
-        "fr": "À la tête de l’EVAM, vous dirigez une institution publique d’envergure au cœur de la politique vaudoise d’accueil, d’hébergement, d’accompagnement et d’intégration des personnes migrantes. Dans un contexte exigeant marqué par l'évolution des flux migratoires et une croissance significative de ses capacités d'accueil, vous définissez et pilotez les orientations stratégiques de l'établissement et conduisez les évolutions nécessaires à son développement. Par votre leadership, vous fédérez et faites évoluer les équipes dirigeantes et développez des relations de confiance avec les autorités et les partenaires institutionnels au service de l’intérêt général.\n\n• Définir et porter la stratégie de l’établissement en cohérence avec les orientations du Conseil d’État et le cadre légal applicable.\n• Assurer la gouvernance générale de l’institution, sa soutenabilité financière, la maîtrise des risques ainsi que l’utilisation efficiente et responsable des ressources publiques.\n• Diriger le Conseil de direction et conduire les transformations organisationnelles, numériques et culturelles nécessaires au développement de l’établissement.\n• Garantir l’amélioration continue des prestations d’accueil, d’hébergement, d’accompagnement et d’intégration, adaptées aux besoins et conformes aux missions de l’institution.\n• Piloter la mise en œuvre de la stratégie immobilière de l’établissement afin de garantir, dans la durée, des capacités d’accueil adaptées à l’évolution des besoins.\n• Représenter l’EVAM auprès des autorités et des partenaires, développer des relations de confiance avec les parties prenantes et assurer une communication institutionnelle crédible et cohérente. Pour plus de détails, veuillez consulter le cahier des charges en cliquant ici ou contacter Vinciane Frund, Cheffe de service adjointe auprès du Service de la population (SPOP) au + 41 21 316 46 96 / les Ressources humaines du Département de l’économie, de l’innovation, de l’emploi et du patrimoine (DEIEP) à l’adresse e-mail : rh-deiep@vd.ch.\n\n• Formation de niveau tertiaire de type master en droit, en économie ou en administration publique.\n• Formation complémentaire en management.\n• Expérience confirmée à la tête d’une organisation de grande envergure soumise à des standards élevés de gouvernance.\n• Réalisations probantes en termes de pilotage stratégique, de conduite du changement et de mise en œuvre de transformations organisationnelles.\n• Solides compétences en gestion financière et aptitude à conduire une institution évoluant dans un environnement institutionnel et politique particulièrement exposé.\n• Connaissance des enjeux politiques liés à la migration et à l’asile, ainsi que des problématiques immobilières, sociales et d’intégration propres au domaine.\n• Vision globale et stratégique, excellentes capacités d’analyse, de synthèse et de rédaction, forte capacité de décision, sens des responsabilités et éthique du service public.\n• Excellentes aptitudes relationnelles, leadership reconnu, sens politique développé, sens marqué pour les collaborations transversales et excellentes aptitudes en communication, négociation et représentation.\n• Maîtrise du français ainsi que très bonnes connaissances de l’allemand et de l’anglais. Divers\n• Le poste implique une disponibilité particulière, s'inscrivant dans un dispositif de piquet partagé au sein de la direction.\n• Le processus de recrutement comprend une vérification des antécédents des candidat·e·s.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+        "fr": "À la tête de l’EVAM, vous dirigez une institution publique d’envergure au cœur de la politique vaudoise d’accueil, d’hébergement, d’accompagnement et d’intégration des personnes migrantes. Dans un contexte exigeant marqué par l'évolution des flux migratoires et une croissance significative de ses capacités d'accueil, vous définissez et pilotez les orientations stratégiques de l'établissement et conduisez les évolutions nécessaires à son développement. Par votre leadership, vous fédérez et faites évoluer les équipes dirigeantes et développez des relations de confiance avec les autorités et les partenaires institutionnels au service de l’intérêt général.\n\n• Définir et porter la stratégie de l’établissement en cohérence avec les orientations du Conseil d’État et le cadre légal applicable.\n• Assurer la gouvernance générale de l’institution, sa soutenabilité financière, la maîtrise des risques ainsi que l’utilisation efficiente et responsable des ressources publiques.\n• Diriger le Conseil de direction et conduire les transformations organisationnelles, numériques et culturelles nécessaires au développement de l’établissement.\n• Garantir l’amélioration continue des prestations d’accueil, d’hébergement, d’accompagnement et d’intégration, adaptées aux besoins et conformes aux missions de l’institution.\n• Piloter la mise en œuvre de la stratégie immobilière de l’établissement afin de garantir, dans la durée, des capacités d’accueil adaptées à l’évolution des besoins.\n• Représenter l’EVAM auprès des autorités et des partenaires, développer des relations de confiance avec les parties prenantes et assurer une communication institutionnelle crédible et cohérente. Pour plus de détails, veuillez consulter le cahier des charges en cliquant ici ou contacter Vinciane Frund, Cheffe de service adjointe auprès du Service de la population (SPOP) au + 41 21 316 46 96 / les Ressources humaines du Département de l’économie, de l’innovation, de l’emploi et du patrimoine (DEIEP) à l’adresse e-mail : rh-deiep@vd.ch.\n\n• Formation de niveau tertiaire de type master en droit, en économie ou en administration publique.\n• Formation complémentaire en management.\n• Expérience confirmée à la tête d’une organisation de grande envergure soumise à des standards élevés de gouvernance.\n• Réalisations probantes en termes de pilotage stratégique, de conduite du changement et de mise en œuvre de transformations organisationnelles.\n• Solides compétences en gestion financière et aptitude à conduire une institution évoluant dans un environnement institutionnel et politique particulièrement exposé.\n• Connaissance des enjeux politiques liés à la migration et à l’asile, ainsi que des problématiques immobilières, sociales et d’intégration propres au domaine.\n• Vision globale et stratégique, excellentes capacités d’analyse, de synthèse et de rédaction, forte capacité de décision, sens des responsabilités et éthique du service public.\n• Excellentes aptitudes relationnelles, leadership reconnu, sens politique développé, sens marqué pour les collaborations transversales et excellentes aptitudes en communication, négociation et représentation.\n• Maîtrise du français ainsi que très bonnes connaissances de l’allemand et de l’anglais. Cette procédure de recrutement est menée en parallèle avec l'appui d'un cabinet spécialisé, qui peut être amené à contacter directement certain·e·s candidat·e·s. Divers\n• Le poste implique une disponibilité particulière, s'inscrivant dans un dispositif de piquet partagé au sein de la direction.\n• Le processus de recrutement comprend une vérification des antécédents des candidat·e·s.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:48.111Z",
+      "crawledAt": "2026-07-13T22:33:36.600Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1094,7 +1104,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5582",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:47.644Z",
+      "crawledAt": "2026-07-13T22:33:36.147Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1173,7 +1183,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5565",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:47.168Z",
+      "crawledAt": "2026-07-13T22:33:35.692Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1252,7 +1262,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:46.700Z",
+      "crawledAt": "2026-07-13T22:33:35.234Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1331,7 +1341,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5543",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:46.231Z",
+      "crawledAt": "2026-07-13T22:33:34.781Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1410,7 +1420,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:45.729Z",
+      "crawledAt": "2026-07-13T22:33:34.323Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1489,7 +1499,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:45.264Z",
+      "crawledAt": "2026-07-13T22:33:33.872Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1568,7 +1578,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:44.792Z",
+      "crawledAt": "2026-07-13T22:33:33.403Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1631,7 +1641,7 @@
       "title": "Juriste au support juridique",
       "titleByLocale": {
         "it": "Aiuti di Stato",
-        "en": "Legal aid",
+        "en": "Juriste au support juridique",
         "de": "Prozesskostenhilfe",
         "fr": "Juriste au support juridique"
       },
@@ -1647,7 +1657,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:44.328Z",
+      "crawledAt": "2026-07-13T22:33:32.949Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1682,6 +1692,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1726,7 +1737,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:43.859Z",
+      "crawledAt": "2026-07-13T22:33:32.488Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1805,7 +1816,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:43.371Z",
+      "crawledAt": "2026-07-13T22:33:32.030Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1886,7 +1897,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5603",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:42.896Z",
+      "crawledAt": "2026-07-13T22:33:31.565Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1967,7 +1978,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5588",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:42.380Z",
+      "crawledAt": "2026-07-13T22:33:31.108Z",
       "addressLocality": "Crassier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2046,7 +2057,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5641",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:41.891Z",
+      "crawledAt": "2026-07-13T22:33:30.576Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2125,7 +2136,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:41.408Z",
+      "crawledAt": "2026-07-13T22:33:30.121Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2204,7 +2215,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5629",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:40.918Z",
+      "crawledAt": "2026-07-13T22:33:29.577Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2283,7 +2294,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5571",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:43:40.445Z",
+      "crawledAt": "2026-07-13T22:33:29.100Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2330,676 +2341,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "etat-de-vaud-5452",
-      "slug": "responsabile-di-gruppo-unita-comune-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly",
-      "slugByLocale": {
-        "it": "responsabile-di-gruppo-unita-comune-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly",
-        "en": "group-leader-common-unit-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly",
-        "de": "gruppenleiter-in-gemeinsame-einheit-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly",
-        "fr": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-prilly"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Chef·fe de groupe unité commune (ORP-CSR)",
-      "titleByLocale": {
-        "it": "Responsabile di gruppo unità comune (ORP-CSR)",
-        "en": "Group Leader Common Unit (ORP-CSR)",
-        "de": "Gruppenleiter:in Gemeinsame Einheit (ORP-CSR)",
-        "fr": "Chef·fe de groupe unité commune (ORP-CSR)"
-      },
-      "description": "L'Unité commune ORP-CSR, rattachée à l'Office régional de placement (ORP) de l’Ouest lausannois, vise à prendre en charge des bénéficiaires du Revenu d'Insertion (RI) selon des modalités, combinant les compétences d'assistant·e·s sociaux·ales du Centre social régional (CSR) et des conseiller·ère·s en personnel de l'ORP. Dans ce cadre, vous organisez et soutenez l'activité des collaborateur·trice·s de l'Unité commune. Vous accompagnez la création d'une pratique professionnelle qui s'appuie sur les actions de deux corps de métiers complémentaires et impactez le déploiement de pratiques innovantes dans le domaine de l'insertion socio-professionnelle. Vous assurez le développement des compétences des collaborateur·trice·s de votre unité, tout en contrôlant la qualité du service fourni aux bénéficiaires et le respect du cadre légal. Vous soutenez le chef de l'ORP et le·la chef·fe du CSR et contribuez à la qualité des relations entre l'ORP et le CSR. Vous suivez et conseillez chaque bénéficiaire avec pour objectif d'optimiser une prise d'emploi. Vous sélectionnez les stratégies de placement appropriées pour chacun·e et disposez pour cela de mesures spécifiques permettant un développement de leur employabilité.\n\n• Diriger et souvenir l’activité des collaborateur·trice·s de l’Unité commune ;\n• Organiser, optimiser et contrôler la qualité du travail de l’Unité commune ;\n• Assurer le développement des compétences des collaborateur·trice·s de l’Unité commune ;\n• Soutenir le·la chef·fe de l’ORP ainsi que les chef·fe·s du CSR et contribuer à la qualité des relations entre l’ORP et le CSR ;\n• Assurer une activité de conseiller·ère en personnel ORP et suppléer au·à la chef·fe d’office dans la gestion de l’office. Compétences-clés\n• Capacité à conduire et motiver une équipe de collaborateur·trice·s en adoptant un leadership participatif. Vous valorisez les contributions individuelles tout en promouvant un esprit d'équipe solide.\n• Vous faites preuve de flexibilité et d'adaptabilité face aux changements, tout en inspirant ces qualités au sein de l'équipe.\n• Votre capacité d'écoute et votre orientation client vous rendent performant·e dans le cadre d'entretiens individuels.\n• Vous êtes résistant·e au stress, rigoureux·se et précis·e dans l'exécution des tâches.\n• Vous savez soutenir les initiatives de changement et démontrez une aptitude à comprendre et à promouvoir les changements organisationnels. Vous contribuez activement à la mise en œuvre de nouvelles pratiques et procédures.\n• Vos compétences relationnelles et sociales sont au service d'une orientation résultats. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel.\n• Plusieurs années dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle, des RH et du management.\n• Vous avez été sensibilisé·e aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Vous avez une bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "L'Unità comune ORP-CSR, collegata all'Ufficio regionale di collocamento (ORP) dell'Ovest lausannois, ha l'obiettivo di prendersi cura dei beneficiari del Reddito di Inserimento (RI) secondo modalità che combinano le competenze degli assistenti sociali del Centro sociale regionale (CSR) e dei consulenti del personale dell'ORP. In questo contesto, organizzi e supporti l'attività dei collaboratori dell'Unità comune. Accompagni la creazione di una pratica professionale che si basa sulle azioni di due corpi professionali complementari e influisci sullo sviluppo di pratiche innovative nel campo dell'inserimento socio-professionale. Assicuri lo sviluppo delle competenze dei collaboratori della tua unità, controllando al contempo la qualità del servizio fornito ai beneficiari e il rispetto del quadro legale. Supporti il capo dell'ORP e il capo del CSR e contribuisci alla qualità delle relazioni tra l'ORP e il CSR. Segui e consiglia ogni beneficiario con l'obiettivo di ottimizzare l'inserimento lavorativo. Selezioni le strategie di collocamento appropriate per ciascuno e disponi di misure specifiche per sviluppare la loro occupabilità.\n• Dirigere e sostenere l'attività dei collaboratori dell'Unità comune;\n• Organizzare, ottimizzare e controllare la qualità del lavoro dell'Unità comune;\n• Assicurare lo sviluppo delle competenze dei collaboratori dell'Unità comune;\n• Supportare il capo dell'ORP e i capi del CSR e contribuire alla qualità delle relazioni tra l'ORP e il CSR;\n• Assicurare un'attività di consulente del personale ORP e supplire il capo d'ufficio nella gestione dell'ufficio. Competenze chiave\n• Capacità di guidare e motivare un team di collaboratori adottando una leadership partecipativa. Valorizzi i contributi individuali promuovendo al contempo uno spirito di squadra solido.\n• Dimostri flessibilità e adattabilità di fronte ai cambiamenti, ispirando queste qualità all'interno del team.\n• La tua capacità di ascolto e la tua orientamento al cliente ti rendono performante durante i colloqui individuali.\n• Sei resistente allo stress, rigoroso e preciso nell'esecuzione dei compiti.\n• Sai sostenere le iniziative di cambiamento e dimostri un'abilità nel comprendere e promuovere i cambiamenti organizzativi. Contribuisci attivamente all'implementazione di nuove pratiche e procedure.\n• Le tue competenze relazionali e sociali sono al servizio di un orientamento ai risultati. Per ulteriori informazioni, consulta il capitolato cliccando qui o contatta la signora Teodora Ciobanu, consulente HR, al 021 316 61 93.\n• Diploma federale di specialista HR, di specialista in assicurazioni sociali o di consulente del personale.\n• Diversi anni di esperienza nei settori della consulenza e del collocamento, del reinserimento socio-professionale, delle risorse umane e della gestione.\n• Sei stato sensibilizzato agli aspetti legali del monitoraggio HR nel corso delle tue esperienze.\n• Hai una buona conoscenza del mercato del lavoro e del tessuto economico vaudese. Posto all'interno dell'Amministrazione cantonale vaudese (Stato di Vaud), Svizzera. Candidatura online sul portale ufficiale delle offerte di lavoro offerte-emploi.vd.ch.",
-        "en": "The Common Unit ORP-CSR, attached to the Regional Employment Office (ORP) of the Western Lausanne area, aims to take care of beneficiaries of the Insertion Income (RI) according to modalities that combine the skills of social workers from the Regional Social Center (CSR) and personnel advisors from the ORP. In this context, you organize and support the activity of the collaborators of the Common Unit. You accompany the creation of a professional practice based on the actions of two complementary professions and impact the deployment of innovative practices in the field of socio-professional integration. You ensure the development of the skills of the collaborators in your unit while controlling the quality of the service provided to the beneficiaries and compliance with the legal framework. You support the head of the ORP and the head of the CSR and contribute to the quality of the relationships between the ORP and the CSR. You follow and advise each beneficiary with the aim of optimizing job placement. You select appropriate placement strategies for each individual and have specific measures to develop their employability.\n• Lead and support the activity of the collaborators of the Common Unit;\n• Organize, optimize, and control the quality of the work of the Common Unit;\n• Ensure the development of the skills of the collaborators of the Common Unit;\n• Support the head of the ORP as well as the heads of the CSR and contribute to the quality of the relationships between the ORP and the CSR;\n• Ensure an activity as an ORP personnel advisor and substitute for the head of the office in managing the office. Key skills\n• Ability to lead and motivate a team of collaborators by adopting a participative leadership style. You value individual contributions while promoting a strong team spirit.\n• You demonstrate flexibility and adaptability in the face of changes while inspiring these qualities within the team.\n• Your listening skills and client orientation make you effective in individual interviews.\n• You are stress-resistant, rigorous, and precise in executing tasks.\n• You know how to support change initiatives and demonstrate an ability to understand and promote organizational changes. You actively contribute to the implementation of new practices and procedures.\n• Your relational and social skills serve a results-oriented approach. For more information, please consult the specifications by clicking here or contact Ms. Teodora Ciobanu, HR advisor, at 021 316 61 93.\n• Federal diploma as an HR specialist, social insurance specialist, or personnel advisor.\n• Several years of experience in the fields of consulting and placement, socio-professional reintegration, HR, and management.\n• You have been made aware of the legal aspects of HR monitoring in your experiences.\n• You have a good knowledge of the job market and the economic fabric of Vaud. Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Apply online on the official career portal offers-emploi.vd.ch.",
-        "de": "Die Gemeinsame Einheit ORP-CSR, die dem Regionalen Arbeitsamt (ORP) des Westlausanner Gebiets zugeordnet ist, hat das Ziel, sich um die Empfänger des Integrationsgeldes (RI) zu kümmern, und zwar nach Modalitäten, die die Kompetenzen von Sozialarbeitenden des Regionalen Sozialzentrums (CSR) und Personalberatenden des ORP kombinieren. In diesem Rahmen organisieren und unterstützen Sie die Aktivitäten der Mitarbeitenden der Gemeinsamen Einheit. Sie begleiten die Schaffung einer beruflichen Praxis, die auf den Aktionen von zwei komplementären Berufen basiert, und beeinflussen die Einführung innovativer Praktiken im Bereich der sozialberuflichen Integration. Sie gewährleisten die Entwicklung der Kompetenzen der Mitarbeitenden Ihrer Einheit, während Sie gleichzeitig die Qualität des an die Empfänger erbrachten Dienstes und die Einhaltung des rechtlichen Rahmens kontrollieren. Sie unterstützen den Leiter des ORP und die Leiterin des CSR und tragen zur Qualität der Beziehungen zwischen dem ORP und dem CSR bei. Sie begleiten und beraten jeden Empfänger mit dem Ziel, die Arbeitsaufnahme zu optimieren. Sie wählen die geeigneten Platzierungsstrategien für jede:n Einzelne:n aus und verfügen über spezifische Maßnahmen zur Entwicklung ihrer Beschäftigungsfähigkeit.\n• Leitung und Unterstützung der Aktivitäten der Mitarbeitenden der Gemeinsamen Einheit;\n• Organisation, Optimierung und Kontrolle der Qualität der Arbeit der Gemeinsamen Einheit;\n• Gewährleistung der Entwicklung der Kompetenzen der Mitarbeitenden der Gemeinsamen Einheit;\n• Unterstützung des Leiters des ORP sowie der Leiter:innen des CSR und Beitrag zur Qualität der Beziehungen zwischen dem ORP und dem CSR;\n• Sicherstellung einer Tätigkeit als Personalberater:in ORP und Vertretung der Amtsleitung in der Amtsführung. Schlüsselkompetenzen\n• Fähigkeit, ein Team von Mitarbeitenden zu führen und zu motivieren, indem Sie einen partizipativen Führungsstil anwenden. Sie schätzen individuelle Beiträge und fördern gleichzeitig einen starken Teamgeist.\n• Sie zeigen Flexibilität und Anpassungsfähigkeit gegenüber Veränderungen und inspirieren diese Qualitäten im Team.\n• Ihre Zuhörfähigkeiten und Ihre Kundenorientierung machen Sie in Einzelgesprächen effektiv.\n• Sie sind stressresistent, gewissenhaft und präzise bei der Ausführung von Aufgaben.\n• Sie wissen, wie Sie Veränderungsinitiativen unterstützen und zeigen die Fähigkeit, organisatorische Veränderungen zu verstehen und zu fördern. Sie tragen aktiv zur Umsetzung neuer Praktiken und Verfahren bei.\n• Ihre zwischenmenschlichen und sozialen Fähigkeiten dienen einem ergebnisorientierten Ansatz. Für weitere Informationen konsultieren Sie bitte das Lastenheft, indem Sie hier klicken, oder kontaktieren Sie Frau Teodora Ciobanu, HR-Beraterin, unter 021 316 61 93.\n• Eidgenössisches Diplom als HR-Spezialist:in, Spezialist:in für soziale Versicherungen oder Personalberater:in.\n• Mehrere Jahre Erfahrung in den Bereichen Beratung und Platzierung, sozialberufliche Reintegration, HR und Management.\n• Sie wurden auf die rechtlichen Aspekte der HR-Überwachung in Ihren Erfahrungen sensibilisiert.\n• Sie haben gute Kenntnisse des Arbeitsmarktes und des wirtschaftlichen Gefüges des Kantons Waadt. Stelle innerhalb der Waadtländer Kantonsverwaltung (Kanton Waadt), Schweiz. Bewerbung online über das offizielle Karriereportal offres-emploi.vd.ch.",
-        "fr": "L'Unité commune ORP-CSR, rattachée à l'Office régional de placement (ORP) de l’Ouest lausannois, vise à prendre en charge des bénéficiaires du Revenu d'Insertion (RI) selon des modalités, combinant les compétences d'assistant·e·s sociaux·ales du Centre social régional (CSR) et des conseiller·ère·s en personnel de l'ORP. Dans ce cadre, vous organisez et soutenez l'activité des collaborateur·trice·s de l'Unité commune. Vous accompagnez la création d'une pratique professionnelle qui s'appuie sur les actions de deux corps de métiers complémentaires et impactez le déploiement de pratiques innovantes dans le domaine de l'insertion socio-professionnelle. Vous assurez le développement des compétences des collaborateur·trice·s de votre unité, tout en contrôlant la qualité du service fourni aux bénéficiaires et le respect du cadre légal. Vous soutenez le chef de l'ORP et le·la chef·fe du CSR et contribuez à la qualité des relations entre l'ORP et le CSR. Vous suivez et conseillez chaque bénéficiaire avec pour objectif d'optimiser une prise d'emploi. Vous sélectionnez les stratégies de placement appropriées pour chacun·e et disposez pour cela de mesures spécifiques permettant un développement de leur employabilité.\n\n• Diriger et souvenir l’activité des collaborateur·trice·s de l’Unité commune ;\n• Organiser, optimiser et contrôler la qualité du travail de l’Unité commune ;\n• Assurer le développement des compétences des collaborateur·trice·s de l’Unité commune ;\n• Soutenir le·la chef·fe de l’ORP ainsi que les chef·fe·s du CSR et contribuer à la qualité des relations entre l’ORP et le CSR ;\n• Assurer une activité de conseiller·ère en personnel ORP et suppléer au·à la chef·fe d’office dans la gestion de l’office. Compétences-clés\n• Capacité à conduire et motiver une équipe de collaborateur·trice·s en adoptant un leadership participatif. Vous valorisez les contributions individuelles tout en promouvant un esprit d'équipe solide.\n• Vous faites preuve de flexibilité et d'adaptabilité face aux changements, tout en inspirant ces qualités au sein de l'équipe.\n• Votre capacité d'écoute et votre orientation client vous rendent performant·e dans le cadre d'entretiens individuels.\n• Vous êtes résistant·e au stress, rigoureux·se et précis·e dans l'exécution des tâches.\n• Vous savez soutenir les initiatives de changement et démontrez une aptitude à comprendre et à promouvoir les changements organisationnels. Vous contribuez activement à la mise en œuvre de nouvelles pratiques et procédures.\n• Vos compétences relationnelles et sociales sont au service d'une orientation résultats. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel.\n• Plusieurs années dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle, des RH et du management.\n• Vous avez été sensibilisé·e aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Vous avez une bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Prilly",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5452",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:22.579Z",
-      "addressLocality": "Prilly",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1008",
-      "streetAddress": "Place du Château 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5452",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma federale di specialista HR, di specialista in assicurazioni sociali o di consulente del personale.",
-          "Sensibilizzazione agli aspetti legali del monitoraggio HR.",
-          "Buona conoscenza del mercato del lavoro e del tessuto economico vaudese."
-        ],
-        "en": [
-          "Federal diploma as an HR specialist, social insurance specialist, or personnel advisor.",
-          "Awareness of the legal aspects of HR monitoring.",
-          "Good knowledge of the job market and the economic fabric of Vaud."
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-prilly",
-        "responsabile-di-gruppo-unita-comune-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-prilly",
-          "responsabile-di-gruppo-unita-comune-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-prilly"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:22.128Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5413",
-      "slug": "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-morges",
-      "slugByLocale": {
-        "it": "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-morges",
-        "en": "personnel-advisor-etat-de-vaud-administration-cantonale-vaudoise-morges",
-        "de": "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-morges",
-        "fr": "conseiller-ere-en-personnel-etat-de-vaud-morges"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Conseiller·ère en personnel",
-      "titleByLocale": {
-        "it": "Consulente del personale",
-        "en": "Personnel Advisor",
-        "de": "Personalberater·in",
-        "fr": "Conseiller·ère en personnel"
-      },
-      "description": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité de vos propositions de candidat·e·s, vous êtes un·e acteur·trice clé pour les entreprises en recherche de personnel.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Gli uffici regionali di collocamento (ORP) del cantone di Vaud, collegati alla Direzione generale dell'occupazione e del mercato del lavoro (DGEM), sono incaricati di assistere i clienti nella ricerca di lavoro e di supportare i datori di lavoro nel reclutamento di personale. Svolgono un ruolo chiave nell'attuazione della politica dell'occupazione e nella lotta contro la disoccupazione. In qualità di consulente del personale, operi nel contesto del supporto all'inserimento professionale delle persone in cerca di lavoro. In questa prospettiva, segui e consigli ogni cliente del Servizio pubblico dell'occupazione, con l'obiettivo del suo collocamento rapido e duraturo nel mercato del lavoro. Selezioni le strategie di collocamento appropriate e dispone di misure specifiche che consentono a ciascuno di sviluppare la propria occupabilità. Sei anche responsabile del rispetto delle prescrizioni legali per le persone all'interno del tuo portafoglio. Grazie alla qualità delle tue proposte di candidati, sei un attore chiave per le aziende in cerca di personale.\n• Stabilire una strategia di reinserimento per ogni cliente in modo personalizzato e sempre adattata alle loro esigenze e al loro profilo;\n• Attivare e consigliare ogni cliente attraverso colloqui di consulenza e monitoraggio;\n• Realizzare bilanci professionali e di sviluppo delle competenze professionali e personali delle persone all'interno del suo portafoglio mediante l'assegnazione di misure di perfezionamento e formazione;\n• Sostenere attivamente la proposta di posti vacanti ai clienti del servizio pubblico dell'occupazione;\n• Assicurare, conformemente alle leggi federali e cantonali sull'assicurazione contro la disoccupazione, il rispetto degli obblighi e dell'idoneità al collocamento degli utenti;\n• Effettuare un aggiornamento permanente del database informatico (Plasta) e della gestione corrente delle attività amministrative per ogni cliente;\n• Rafforzare la collaborazione con i diversi partner interistituzionali (Servizi sociali, Ufficio dell'assicurazione invalidità, ecc.). Per ulteriori informazioni, consultare il capitolato cliccando qui o contattare la signora Teodora Ciobanu, consulente HR, al 021 316 61 93.\n• Diploma federale di specialista in HR, di specialista in assicurazioni sociali o di consulente del personale completato o in corso.\n• Diversi anni di esperienza nei settori della consulenza e del collocamento, del reinserimento socio-professionale o delle risorse umane.\n• Buona conoscenza del mercato del lavoro e del tessuto economico vaudese.\n• Sensibilità agli aspetti legali del monitoraggio HR nel contesto delle tue esperienze.\n• Competenze relazionali e sociali orientate ai risultati.\n• Rigorosità e precisione nell'esecuzione dei compiti.\n• Capacità di ascolto e orientamento al cliente comprovati.\n• Buona resistenza allo stress. L'assenza di un diploma riconosciuto come menzionato nel capitolato comporta l'applicazione della classe salariale 9. Posizione all'interno dell'Amministrazione cantonale vaudese (Stato di Vaud), Svizzera. Candidatura online sul portale ufficiale delle offerte di lavoro offerte-emploi.vd.ch.",
-        "en": "The regional employment offices (ORP) of the canton of Vaud, linked to the General Directorate of Employment and the Labor Market (DGEM), are responsible for assisting clients in their job search and supporting employers in recruiting personnel. They play a key role in implementing employment policy and combating unemployment. As a personnel advisor, you work within the framework of supporting the professional integration of job seekers. In this perspective, you follow and advise each client of the Public Employment Service, with the aim of their rapid and sustainable placement in the labor market. You select appropriate placement strategies and have specific measures that allow each individual to develop their employability. You are also responsible for ensuring compliance with legal requirements for the individuals in your portfolio. Thanks to the quality of your candidate proposals, you are a key player for companies looking for personnel.\n• Establish a reintegration strategy for each client in a personalized manner, always adapted to their needs and profile;\n• Activate and advise each client through counseling and follow-up interviews;\n• Conduct professional assessments and develop the professional and personal skills of individuals in your portfolio by providing training and development measures;\n• Actively support the proposal of job vacancies to clients of the public employment service;\n• Ensure, in accordance with federal and cantonal unemployment insurance laws, compliance with obligations and placement suitability of users;\n• Maintain a permanent update of the computer database (Plasta) and the ongoing management of administrative tasks for each client;\n• Strengthen collaboration with various inter-institutional partners (Social Services, Disability Insurance Office, etc.). For more information, please consult the specifications by clicking here or contact Ms. Teodora Ciobanu, HR advisor, at 021 316 61 93.\n• Federal diploma as a specialist in HR, social insurance specialist, or personnel advisor completed or in progress.\n• Several years of experience in the fields of consulting and placement, socio-professional reintegration, or HR.\n• Good knowledge of the labor market and the Vaud economic fabric.\n• Sensitivity to the legal aspects of HR monitoring in the context of your experiences.\n• Results-oriented interpersonal and social skills.\n• Rigor and precision in task execution.\n• Proven listening skills and customer orientation.\n• Good stress resistance. The absence of a recognized diploma as mentioned in the specifications will result in the application of salary class 9. Position within the Vaud cantonal administration (State of Vaud), Switzerland. Online application on the official career portal offres-emploi.vd.ch.",
-        "de": "Die regionalen Arbeitsvermittlungsstellen (ORP) des Kantons Waadt, die der Generalsektion für Arbeit und Arbeitsmarkt (DGEM) unterstellt sind, sind dafür verantwortlich, die Kunden bei ihrer Jobsuche zu unterstützen und die Arbeitgeber bei der Rekrutierung von Personal zu unterstützen. Sie spielen eine Schlüsselrolle bei der Umsetzung der Arbeitsmarktpolitik und im Kampf gegen die Arbeitslosigkeit. In Ihrer Funktion als Personalberater·in arbeiten Sie im Rahmen der Unterstützung der beruflichen Eingliederung von Arbeitssuchenden. In diesem Zusammenhang betreuen und beraten Sie jeden Kunden des öffentlichen Arbeitsdienstes, mit dem Ziel, eine schnelle und nachhaltige Vermittlung auf dem Arbeitsmarkt zu erreichen. Sie wählen geeignete Vermittlungsstrategien aus und verfügen über spezifische Maßnahmen, die es jedem Einzelnen ermöglichen, seine Beschäftigungsfähigkeit zu entwickeln. Sie sind auch dafür verantwortlich, die gesetzlichen Vorgaben für die Personen in Ihrem Portfolio einzuhalten. Dank der Qualität Ihrer Kandidatenvorschläge sind Sie ein Schlüsselakteur für Unternehmen, die Personal suchen.\n• Eine individuelle Reintegrationstrategie für jeden Kunden festlegen, die immer an deren Bedürfnisse und Profile angepasst ist;\n• Jeden Kunden durch Beratungs- und Folgetermine aktivieren und beraten;\n• Berufliche Bewertungen und die Entwicklung der beruflichen und persönlichen Fähigkeiten der Personen in Ihrem Portfolio durch die Bereitstellung von Weiterbildungs- und Entwicklungsmaßnahmen durchführen;\n• Die aktive Unterstützung der Vorschläge für offene Stellen an die Kunden des öffentlichen Arbeitsdienstes;\n• Sicherstellen, dass die gesetzlichen Anforderungen der Bundes- und Kantonsgesetze zur Arbeitslosenversicherung eingehalten werden und die Vermittlungsfähigkeit der Nutzer gegeben ist;\n• Eine permanente Aktualisierung der Datenbank (Plasta) und die laufende Verwaltung der administrativen Aufgaben für jeden Kunden durchführen;\n• Die Zusammenarbeit mit verschiedenen interinstitutionellen Partnern (Soziale Dienste, Invalidenversicherung, usw.) stärken. Für weitere Informationen konsultieren Sie bitte das Lastenheft, indem Sie hier klicken oder kontaktieren Sie Frau Teodora Ciobanu, HR-Beraterin, unter 021 316 61 93.\n• Eidgenössisches Diplom als HR-Spezialist·in, Spezialist·in für soziale Versicherungen oder Personalberater·in, abgeschlossen oder in Bearbeitung.\n• Mehrere Jahre Erfahrung in den Bereichen Beratung und Vermittlung, sozialberufliche Reintegration oder HR.\n• Gute Kenntnisse des Arbeitsmarktes und des wirtschaftlichen Gefüges im Waadt.\n• Sensibilität für die rechtlichen Aspekte der HR-Überwachung im Rahmen Ihrer Erfahrungen.\n• Ergebnisorientierte zwischenmenschliche und soziale Fähigkeiten.\n• Sorgfalt und Genauigkeit bei der Ausführung der Aufgaben.\n• Nachgewiesene Zuhörfähigkeiten und Kundenorientierung.\n• Gute Stressresistenz. Das Fehlen eines anerkannten Diploms, wie im Lastenheft erwähnt, führt zur Anwendung der Gehaltsklasse 9. Position innerhalb der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch.",
-        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité de vos propositions de candidat·e·s, vous êtes un·e acteur·trice clé pour les entreprises en recherche de personnel.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5413",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:22.112Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1110",
-      "streetAddress": "Place du Château 1",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5413",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Buona conoscenza del mercato del lavoro e del tessuto economico vaudese.",
-          "Sensibilità agli aspetti legali del monitoraggio HR nel contesto delle tue esperienze.",
-          "Competenze relazionali e sociali orientate ai risultati.",
-          "Rigorosità e precisione nell'esecuzione dei compiti.",
-          "Capacità di ascolto e orientamento al cliente comprovati.",
-          "Buona resistenza allo stress."
-        ],
-        "en": [
-          "Federal diploma as a specialist in HR, social insurance specialist, or personnel advisor completed or in progress.",
-          "Several years of experience in the fields of consulting and placement, socio-professional reintegration, or HR.",
-          "Good knowledge of the labor market and the Vaud economic fabric.",
-          "Sensitivity to the legal aspects of HR monitoring in the context of your experiences.",
-          "Results-oriented interpersonal and social skills.",
-          "Rigor and precision in task execution.",
-          "Proven listening skills and customer orientation.",
-          "Good stress resistance."
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-morges",
-        "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-morges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-morges",
-          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-morges"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:21.700Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5380",
-      "slug": "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-aigle",
-      "slugByLocale": {
-        "it": "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-aigle",
-        "en": "personnel-advisor-etat-de-vaud-administration-cantonale-vaudoise-aigle",
-        "de": "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle",
-        "fr": "conseiller-ere-en-personnel-etat-de-vaud-aigle"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Conseiller·ère en personnel",
-      "titleByLocale": {
-        "it": "Consulente del personale",
-        "en": "Personnel Advisor",
-        "de": "Personalberater·in",
-        "fr": "Conseiller·ère en personnel"
-      },
-      "description": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité de vos propositions de candidat·e·s, vous êtes un·e acteur·trice clé pour les entreprises en recherche de personnel.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Gli uffici regionali di collocamento (ORP) del cantone di Vaud, collegati alla Direzione generale dell'occupazione e del mercato del lavoro (DGEM), sono incaricati di assistere i clienti nella loro ricerca di lavoro e di supportare i datori di lavoro nel reclutamento di personale. Svolgono un ruolo chiave nell'attuazione della politica dell'occupazione e nella lotta contro la disoccupazione. In qualità di consulente del personale, operi nel contesto del supporto all'inserimento professionale delle persone in cerca di lavoro. In questa prospettiva, segui e consigli ogni cliente del Servizio pubblico dell'occupazione, con l'obiettivo del suo collocamento rapido e duraturo nel mercato del lavoro. Selezioni le strategie di collocamento appropriate e dispone di misure specifiche che consentono a ciascuno di sviluppare la propria occupabilità. Sei anche responsabile del rispetto delle prescrizioni legali per le persone all'interno del tuo portafoglio. Grazie alla qualità delle tue proposte di candidati, sei un attore chiave per le aziende in cerca di personale.\n• Stabilire una strategia di reinserimento per ogni cliente in modo personalizzato e sempre adattata alle loro esigenze e al loro profilo;\n• Attivare e consigliare ogni cliente attraverso colloqui di consulenza e monitoraggio;\n• Realizzare bilanci professionali e di sviluppo delle competenze professionali e personali delle persone all'interno del proprio portafoglio mediante l'assegnazione di misure di perfezionamento e formazione;\n• Sostenere attivamente la proposta di posti vacanti ai clienti del servizio pubblico dell'occupazione;\n• Assicurare, conformemente alle leggi federali e cantonali sull'assicurazione contro la disoccupazione, il rispetto degli obblighi e dell'idoneità al collocamento degli utenti;\n• Effettuare un aggiornamento permanente del database informatico (Plasta) e della gestione corrente delle attività amministrative per ogni cliente;\n• Rafforzare la collaborazione con i diversi partner interistituzionali (Servizi sociali, Ufficio dell'assicurazione invalidità, ecc.). Per ulteriori informazioni, si prega di consultare il capitolato cliccando qui o contattare la signora Teodora Ciobanu, consulente HR, al 021 316 61 93.\n• Diploma federale di specialista in HR, di specialista in assicurazioni sociali o di consulente del personale completato o in corso.\n• Diversi anni di esperienza nei settori della consulenza e del collocamento, del reinserimento socio-professionale o delle risorse umane.\n• Buona conoscenza del mercato del lavoro e del tessuto economico vaudese.\n• Sensibilità agli aspetti legali del monitoraggio HR nel contesto delle tue esperienze.\n• Competenze relazionali e sociali orientate ai risultati.\n• Rigorosità e precisione nell'esecuzione delle attività.\n• Capacità di ascolto e orientamento al cliente comprovati.\n• Buona resistenza allo stress. L'assenza di un diploma riconosciuto come menzionato nel capitolato comporta l'applicazione della classe salariale 9. Posizione all'interno dell'Amministrazione cantonale vaudese (Stato di Vaud), Svizzera. Candidatura online sul portale ufficiale delle offerte di lavoro offerte-emploi.vd.ch.",
-        "en": "The regional employment offices (ORP) of the canton of Vaud, linked to the General Directorate of Employment and the Labor Market (DGEM), are responsible for assisting clients in their job search and supporting employers in recruiting personnel. They play a key role in implementing employment policy and combating unemployment. As a personnel advisor, you work within the framework of supporting the professional integration of job seekers. In this perspective, you follow and advise each client of the Public Employment Service, with the aim of their rapid and sustainable placement in the labor market. You select appropriate placement strategies and have specific measures that allow each individual to develop their employability. You are also responsible for ensuring compliance with legal requirements for the individuals in your portfolio. Thanks to the quality of your candidate proposals, you are a key player for companies seeking personnel.\n• Establish a reintegration strategy for each client in a personalized manner, always adapted to their needs and profile;\n• Activate and advise each client through counseling and follow-up interviews;\n• Conduct professional assessments and develop the professional and personal skills of individuals in your portfolio by providing training and development measures;\n• Actively support the proposal of job vacancies to clients of the public employment service;\n• Ensure compliance with federal and cantonal unemployment insurance laws regarding obligations and placement suitability of users;\n• Maintain an up-to-date database (Plasta) and manage ongoing administrative tasks for each client;\n• Strengthen collaboration with various inter-institutional partners (Social Services, Disability Insurance Office, etc.). For more information, please consult the specifications by clicking here or contact Ms. Teodora Ciobanu, HR advisor, at 021 316 61 93.\n• Federal diploma as a specialist in HR, social insurance specialist, or personnel advisor completed or in progress.\n• Several years of experience in consulting and placement, socio-professional reintegration, or HR.\n• Good knowledge of the labor market and the economic fabric of Vaud.\n• Sensitivity to the legal aspects of HR monitoring in your experiences.\n• Results-oriented interpersonal and social skills.\n• Rigor and precision in task execution.\n• Proven listening skills and customer orientation.\n• Good stress resistance. The absence of a recognized diploma as mentioned in the specifications will result in the application of salary class 9. Position within the Vaud cantonal administration (State of Vaud), Switzerland. Apply online on the official job portal offres-emploi.vd.ch.",
-        "de": "Die regionalen Arbeitsvermittlungsstellen (ORP) des Kantons Waadt, die der Direktion für Arbeit und Arbeitsmarkt (DGEM) unterstellt sind, sind dafür verantwortlich, die Kunden bei ihrer Jobsuche zu unterstützen und die Arbeitgeber bei der Rekrutierung von Personal zu unterstützen. Sie spielen eine Schlüsselrolle bei der Umsetzung der Beschäftigungspolitik und im Kampf gegen die Arbeitslosigkeit. In Ihrer Funktion als Personalberater·in arbeiten Sie im Rahmen der Unterstützung der beruflichen Eingliederung von Arbeitssuchenden. In dieser Perspektive begleiten und beraten Sie jeden Kunden des öffentlichen Arbeitsdienstes, mit dem Ziel, eine schnelle und nachhaltige Vermittlung auf dem Arbeitsmarkt zu erreichen. Sie wählen die geeigneten Vermittlungsstrategien aus und verfügen über spezifische Maßnahmen, die es jedem Einzelnen ermöglichen, seine Beschäftigungsfähigkeit zu entwickeln. Sie sind auch dafür verantwortlich, die gesetzlichen Vorgaben für die Personen in Ihrem Portfolio einzuhalten. Dank der Qualität Ihrer Kandidatenvorschläge sind Sie ein·e Schlüsselakteur·in für Unternehmen, die Personal suchen.\n• Eine individuelle Reintegrationstrategie für jeden Kunden festlegen, die immer an deren Bedürfnisse und Profile angepasst ist;\n• Jeden Kunden durch Beratungs- und Folgetermine aktivieren und beraten;\n• Berufliche Bewertungen und die Entwicklung der beruflichen und persönlichen Kompetenzen der Personen in Ihrem Portfolio durch die Bereitstellung von Weiterbildungs- und Entwicklungsmaßnahmen durchführen;\n• Aktiv die Vorschläge für offene Stellen an die Kunden des öffentlichen Arbeitsdienstes unterstützen;\n• Sicherstellen, dass die Verpflichtungen und die Vermittlungsfähigkeit der Nutzer gemäß den Bundes- und Kantonsgesetzen zur Arbeitslosenversicherung eingehalten werden;\n• Eine permanente Aktualisierung der Datenbank (Plasta) und der laufenden Verwaltungstätigkeiten für jeden Kunden durchführen;\n• Die Zusammenarbeit mit verschiedenen interinstitutionellen Partnern (Soziale Dienste, Invalidenversicherung, usw.) stärken. Für weitere Informationen konsultieren Sie bitte das Lastenheft, indem Sie hier klicken oder Frau Teodora Ciobanu, HR-Beraterin, unter 021 316 61 93 kontaktieren.\n• Eidgenössisches Diplom als HR-Spezialist·in, Spezialist·in für soziale Versicherungen oder Personalberater·in, abgeschlossen oder im Gange.\n• Mehrere Jahre Erfahrung in den Bereichen Beratung und Vermittlung, sozialberufliche Reintegration oder HR.\n• Gute Kenntnisse des Arbeitsmarktes und des wirtschaftlichen Gefüges des Kantons Waadt.\n• Sensibilität für die rechtlichen Aspekte der HR-Überwachung im Rahmen Ihrer Erfahrungen.\n• Ergebnisorientierte zwischenmenschliche und soziale Fähigkeiten.\n• Sorgfalt und Präzision bei der Ausführung der Aufgaben.\n• Nachgewiesene Zuhörfähigkeiten und Kundenorientierung.\n• Gute Stressresistenz. Das Fehlen eines anerkannten Diploms, wie im Lastenheft erwähnt, führt zur Anwendung der Gehaltsklasse 9. Position innerhalb der Kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Bewerbung online über das offizielle Stellenportal offres-emploi.vd.ch.",
-        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité de vos propositions de candidat·e·s, vous êtes un·e acteur·trice clé pour les entreprises en recherche de personnel.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, conseillère RH, au 021 316 61 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Aigle",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5380",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:21.644Z",
-      "addressLocality": "Aigle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1860",
-      "streetAddress": "Place du Château 1",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5380",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma federale di specialista in HR o in assicurazioni sociali completato o in corso.",
-          "Diversi anni di esperienza in consulenza e collocamento.",
-          "Buona conoscenza del mercato del lavoro vaudese.",
-          "Sensibilità agli aspetti legali del monitoraggio HR.",
-          "Competenze relazionali orientate ai risultati.",
-          "Rigorosità e precisione nelle attività.",
-          "Capacità di ascolto e orientamento al cliente.",
-          "Buona resistenza allo stress."
-        ],
-        "en": [
-          "Federal diploma as a specialist in HR or social insurance completed or in progress.",
-          "Several years of experience in consulting and placement.",
-          "Good knowledge of the Vaud labor market.",
-          "Sensitivity to legal aspects of HR monitoring.",
-          "Results-oriented interpersonal skills.",
-          "Rigor and precision in task execution.",
-          "Proven listening skills and customer orientation.",
-          "Good stress resistance."
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-aigle",
-        "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-aigle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-aigle",
-          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-aigle"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:21.283Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5513",
-      "slug": "ingegnere-di-sistemi-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-      "slugByLocale": {
-        "it": "ingegnere-di-sistemi-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "systems-engineer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "systemingenieur-in-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "fr": "ingenieur-e-systemes-etat-de-vaud-lausanne"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Ingénieur·e systèmes",
-      "titleByLocale": {
-        "it": "Ingegnere di sistemi",
-        "en": "Systems Engineer",
-        "de": "Systemingenieur·in",
-        "fr": "Ingénieur·e systèmes"
-      },
-      "description": "La Direction générale de l'enseignement postobligatoire (DGEP) est chargée des formations qui se situent entre la fin de l'enseignement obligatoire et l'enseignement supérieur. Elle propose des formations au sein de 16 gymnases et 13 écoles professionnelles et regroupe plus de 3'400 collaborateurs·trices. Afin de venir renforcer l'Unité des systèmes d'information (USI), nous sommes à la recherche d'un·e Ingénieur·e systèmes.\n\n• Concevoir et piloter l’évolution des architectures IT en intégrant des technologies avancées, en garantissant leur sécurisation, interopérabilité et évolutivité tout en définissant des standards technologiques et en intégrant les meilleures pratiques IT.\n• Garantir la disponibilité et la résilience des services IT en mettant en place des stratégies de supervision avancée, des plans de reprise d’activité et des mécanismes d’optimisation pour prévenir les interruptions de service et assurer la continuité des opérations.\n• Concevoir et déployer les projets d’évolution et de transformation numérique en définissant les spécifications techniques, en garantissant l’interopérabilité des systèmes, et en intégrant des technologies innovantes pour améliorer la scalabilité, la performance et la cybersécurité des services IT.\n• Superviser et harmoniser les opérations IT au sein des établissements en standardisant les configurations, en optimisant l’administration, et en développant une documentation technique complète pour assurer la pérennité des technologies et faciliter la collaboration entre les équipes techniques.\n• Contribuer à la gestion des incidents, piloter la gestion des problèmes et l’amélioration continue en assurant un support technique avancé, en identifiant et en corrigeant les causes profondes des dysfonctionnements, et en automatisant les processus pour améliorer la stabilité et la sécurité des environnements IT. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou appeler M. Frédéric Roduit au 021 316 35 26.\n\n• Bachelor ou Master dans le domaine IT (ou titre jugé équivalent).\n• Certification ou formation dans une ou plusieurs technologies.\n• Architecture / Expertise systèmes : 5 ans d'expérience.\n• Sécurité informatique systèmes : 5 ans d'expérience.\n• Anglais lu, parlé et écrit (niveau B2).\n• Excellentes connaissances des processus ITIL\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Descrizione La Direzione generale dell'istruzione post-obbligatoria (DGEP) è responsabile della formazione che si colloca tra la fine dell'istruzione obbligatoria e l'istruzione superiore. Propone corsi all'interno di 16 licei e 13 scuole professionali e raggruppa oltre 3.400 collaboratori e collaboratrici. Al fine di rafforzare l'Unità dei sistemi informativi (USI), siamo alla ricerca di un'Ingegnere di sistemi. Missioni - Progettare e guidare l'evoluzione delle architetture IT integrando tecnologie avanzate, garantendo la loro sicurezza, interoperabilità ed evolvibilità, definendo standard tecnologici e integrando le migliori pratiche IT. - Garantire la disponibilità e la resilienza dei servizi IT implementando strategie di supervisione avanzata, piani di ripristino dell'attività e meccanismi di ottimizzazione per prevenire interruzioni del servizio e garantire la continuità delle operazioni. - Progettare e implementare progetti di evoluzione e trasformazione digitale definendo le specifiche tecniche, garantendo l'interoperabilità dei sistemi e integrando tecnologie innovative per migliorare la scalabilità, le prestazioni e la cybersicurezza dei servizi IT. - Supervisare e armonizzare le operazioni IT all'interno degli stabilimenti standardizzando le configurazioni, ottimizzando l'amministrazione e sviluppando una documentazione tecnica completa per garantire la sostenibilità delle tecnologie e facilitare la collaborazione tra i team tecnici. - Contribuire alla gestione degli incidenti, guidare la gestione dei problemi e il miglioramento continuo fornendo supporto tecnico avanzato, identificando e correggendo le cause profonde dei malfunzionamenti e automatizzando i processi per migliorare la stabilità e la sicurezza degli ambienti IT.\n• Profilo ricercato - Laurea triennale o magistrale nel campo IT (o titolo ritenuto equivalente). - Certificazione o formazione in una o più tecnologie. - Architettura / Esperienza nei sistemi: 5 anni di esperienza. - Sicurezza informatica dei sistemi: 5 anni di esperienza. - Inglese letto, parlato e scritto (livello B2). - Eccellenti conoscenze dei processi ITIL.\n• Cosa offriamo Posizione all'interno dell'Amministrazione cantonale vaudese (Stato di Vaud), Svizzera. Contatto Per ulteriori informazioni, è possibile consultare il capitolato qui o chiamare il Sig. Frédéric Roduit al 021 316 35 26. Candidatura online sul portale ufficiale delle carriere offerte-emploi.vd.ch.",
-        "en": "Description The Directorate General of Post-Compulsory Education (DGEP) is responsible for training that takes place between the end of compulsory education and higher education. It offers training within 16 high schools and 13 vocational schools and brings together more than 3,400 employees. To strengthen the Information Systems Unit (USI), we are looking for a Systems Engineer. Missions - Design and manage the evolution of IT architectures by integrating advanced technologies, ensuring their security, interoperability, and scalability while defining technological standards and integrating best IT practices. - Ensure the availability and resilience of IT services by implementing advanced monitoring strategies, business continuity plans, and optimization mechanisms to prevent service interruptions and ensure operational continuity. - Design and deploy digital transformation and evolution projects by defining technical specifications, ensuring system interoperability, and integrating innovative technologies to improve scalability, performance, and cybersecurity of IT services. - Supervise and harmonize IT operations within establishments by standardizing configurations, optimizing administration, and developing comprehensive technical documentation to ensure the sustainability of technologies and facilitate collaboration between technical teams. - Contribute to incident management, lead problem management and continuous improvement by providing advanced technical support, identifying and correcting root causes of malfunctions, and automating processes to improve stability and security of IT environments. Desired\n• Profile - Bachelor’s or Master’s degree in IT (or equivalent qualification). - Certification or training in one or more technologies. - Architecture / Systems expertise: 5 years of experience. - IT systems security: 5 years of experience. - English read, spoken, and written (B2 level). - Excellent knowledge of ITIL processes. What We Offer Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Contact For more information, you can consult the specifications here or call Mr. Frédéric Roduit at 021 316 35 26. Online application on the official career portal offres-emploi.vd.ch.",
-        "de": "Beschreibung Die Direktion für die nachobligatorische Bildung (DGEP) ist verantwortlich für die Ausbildungen, die zwischen dem Ende der obligatorischen Schulbildung und der Hochschulbildung liegen. Sie bietet Ausbildungen in 16 Gymnasien und 13 Berufsschulen an und vereint mehr als 3.400 Mitarbeitende. Um die Einheit für Informationssysteme (USI) zu verstärken, suchen wir eine·n Systemingenieur·in.\n• Aufgaben - Entwerfen und steuern Sie die Entwicklung der IT-Architekturen, indem Sie fortschrittliche Technologien integrieren, deren Sicherheit, Interoperabilität und Skalierbarkeit gewährleisten und technologische Standards definieren sowie die besten IT-Praktiken integrieren. - Gewährleisten Sie die Verfügbarkeit und Resilienz der IT-Dienste, indem Sie fortschrittliche Überwachungsstrategien, Notfallpläne und Optimierungsmechanismen implementieren, um Dienstunterbrechungen zu verhindern und die Kontinuität der Operationen sicherzustellen. - Entwerfen und implementieren Sie Projekte zur digitalen Transformation und Evolution, indem Sie technische Spezifikationen definieren, die Interoperabilität der Systeme gewährleisten und innovative Technologien integrieren, um die Skalierbarkeit, Leistung und Cybersicherheit der IT-Dienste zu verbessern. - Überwachen und harmonisieren Sie die IT-Betriebe innerhalb der Einrichtungen, indem Sie Konfigurationen standardisieren, die Verwaltung optimieren und umfassende technische Dokumentationen entwickeln, um die Nachhaltigkeit der Technologien zu gewährleisten und die Zusammenarbeit zwischen den technischen Teams zu erleichtern. - Tragen Sie zur Incident-Management bei, leiten Sie das Problemmanagement und die kontinuierliche Verbesserung, indem Sie fortgeschrittenen technischen Support bereitstellen, die Ursachen von Störungen identifizieren und beheben und Prozesse automatisieren, um die Stabilität und Sicherheit der IT-Umgebungen zu verbessern. Gesuchtes Profil - Bachelor- oder Masterabschluss im IT-Bereich (oder gleichwertiger Abschluss). - Zertifizierung oder Schulung in einer oder mehreren Technologien. - Architektur / Systemexpertise: 5 Jahre Erfahrung. - IT-System-Sicherheit: 5 Jahre Erfahrung. - Englisch in Wort und Schrift (B2-Niveau). - Ausgezeichnete Kenntnisse der ITIL-Prozesse.\n• Was wir bieten Position innerhalb der Kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Kontakt Für weitere Informationen können Sie das Pflichtenheft hier einsehen oder Herrn Frédéric Roduit unter 021 316 35 26 anrufen. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch.",
-        "fr": "La Direction générale de l'enseignement postobligatoire (DGEP) est chargée des formations qui se situent entre la fin de l'enseignement obligatoire et l'enseignement supérieur. Elle propose des formations au sein de 16 gymnases et 13 écoles professionnelles et regroupe plus de 3'400 collaborateurs·trices. Afin de venir renforcer l'Unité des systèmes d'information (USI), nous sommes à la recherche d'un·e Ingénieur·e systèmes.\n\n• Concevoir et piloter l’évolution des architectures IT en intégrant des technologies avancées, en garantissant leur sécurisation, interopérabilité et évolutivité tout en définissant des standards technologiques et en intégrant les meilleures pratiques IT.\n• Garantir la disponibilité et la résilience des services IT en mettant en place des stratégies de supervision avancée, des plans de reprise d’activité et des mécanismes d’optimisation pour prévenir les interruptions de service et assurer la continuité des opérations.\n• Concevoir et déployer les projets d’évolution et de transformation numérique en définissant les spécifications techniques, en garantissant l’interopérabilité des systèmes, et en intégrant des technologies innovantes pour améliorer la scalabilité, la performance et la cybersécurité des services IT.\n• Superviser et harmoniser les opérations IT au sein des établissements en standardisant les configurations, en optimisant l’administration, et en développant une documentation technique complète pour assurer la pérennité des technologies et faciliter la collaboration entre les équipes techniques.\n• Contribuer à la gestion des incidents, piloter la gestion des problèmes et l’amélioration continue en assurant un support technique avancé, en identifiant et en corrigeant les causes profondes des dysfonctionnements, et en automatisant les processus pour améliorer la stabilité et la sécurité des environnements IT. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou appeler M. Frédéric Roduit au 021 316 35 26.\n\n• Bachelor ou Master dans le domaine IT (ou titre jugé équivalent).\n• Certification ou formation dans une ou plusieurs technologies.\n• Architecture / Expertise systèmes : 5 ans d'expérience.\n• Sécurité informatique systèmes : 5 ans d'expérience.\n• Anglais lu, parlé et écrit (niveau B2).\n• Excellentes connaissances des processus ITIL\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5513",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:20.691Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1000",
-      "streetAddress": "Place du Château 1",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5513",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea triennale o magistrale nel campo IT (o titolo ritenuto equivalente)",
-          "Certificazione o formazione in una o più tecnologie",
-          "Architettura / Esperienza nei sistemi: 5 anni di esperienza",
-          "Sicurezza informatica dei sistemi: 5 anni di esperienza",
-          "Inglese letto, parlato e scritto (livello B2)",
-          "Eccellenti conoscenze dei processi ITIL"
-        ],
-        "en": [
-          "Bachelor’s or Master’s degree in IT (or equivalent qualification)",
-          "Certification or training in one or more technologies",
-          "Architecture / Systems expertise: 5 years of experience",
-          "IT systems security: 5 years of experience",
-          "English read, spoken, and written (B2 level)",
-          "Excellent knowledge of ITIL processes"
-        ],
-        "de": [
-          "Bachelor- oder Masterabschluss im IT-Bereich (oder gleichwertiger Abschluss)",
-          "Zertifizierung oder Schulung in einer oder mehreren Technologien",
-          "Architektur / Systemexpertise: 5 Jahre Erfahrung",
-          "IT-System-Sicherheit: 5 Jahre Erfahrung",
-          "Englisch in Wort und Schrift (B2-Niveau)",
-          "Ausgezeichnete Kenntnisse der ITIL-Prozesse"
-        ]
-      },
-      "previousSlugs": [
-        "ingenieur-e-systemes-etat-de-vaud-lausanne",
-        "ingegnere-di-sistemi-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-e-systemes-etat-de-vaud-lausanne",
-          "ingegnere-di-sistemi-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:19.206Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5528",
-      "slug": "giurista-stagista-post-master-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-      "slugByLocale": {
-        "it": "giurista-stagista-post-master-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-        "en": "post-master-intern-lawyer-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-        "de": "praktikant-jurist-nach-dem-master-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-        "fr": "juriste-stagiaire-post-master-h-f-etat-de-vaud-penthalaz"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Juriste stagiaire post-master (H/F)",
-      "titleByLocale": {
-        "it": "Giurista stagista post-master (H/F)",
-        "en": "Post-Master Intern Lawyer (H/F)",
-        "de": "Praktikant Jurist nach dem Master (H/F)",
-        "fr": "Juriste stagiaire post-master (H/F)"
-      },
-      "description": "En votre qualité de juriste stagiaire post-master au sein de l’office d’exécution des peines, vous analysez et suivez des dossiers de personnes condamnées depuis la mise en œuvre de la condamnation pénale jusqu’à la libération définitive. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Collaborer à la gestion de l’exécution des peines et des mesures pénales et traiter des problèmes juridiques concernant les personnes condamnées.\n• Fournir un appui à la Direction de l’OEP en ce qui concerne les questions juridiques liées à la gestion des condamnations pénales, notamment en rédigeant des décisions ou des saisines des autorités judiciaires.\n• Accompagner les juristes aux réunions interdisciplinaires concernant les personnes condamnées placées sous l’autorité de l’OEP ainsi que les auditions de ces dernières Pour de plus amples informations, veuillez contacter Madame Eliane Cornu, juriste, au 021 316 48 07.\n\n• Titulaire d’un Bachelor et d'un Master universitaire en droit, respectivement en magistrature ou en criminologie.\n• Excellentes capacités rédactionnelles et de synthèse.\n• Très à l’aise avec les outils informatiques\n• Connaissance d'une langue étrangère souhaitée.\n• Fort intérêt du domaine pénal et de l'exécution des peines et des mesures et possédez déjà de bonnes connaissances théoriques en lien.\n• Faisant preuve d’empathie, de rigueur, très bonne résistance au stress, vous savez conserver la distance nécessaire avec les personnes détenues. Stage de 6 mois, rémunéré CHF 1'810.- / mois Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Missioni - Analizzare e seguire i fascicoli di persone condannate dalla messa in atto della condanna penale fino alla liberazione definitiva. - Collaborare alla gestione dell'esecuzione delle pene e delle misure penali e trattare questioni giuridiche riguardanti le persone condannate. - Fornire supporto alla Direzione dell'OEP riguardo a questioni legali legate alla gestione delle condanne penali, in particolare redigendo decisioni o richieste alle autorità giudiziarie. - Affiancare i giuristi nelle riunioni interdisciplinari riguardanti le persone condannate poste sotto l'autorità dell'OEP e nelle audizioni di queste ultime.\n• Profilo ricercato - Laurea triennale e magistrale in giurisprudenza, rispettivamente in magistratura o criminologia. - Eccellenti capacità di scrittura e sintesi. - Ottima padronanza degli strumenti informatici. - Conoscenza di una lingua straniera desiderata. - Forte interesse per il settore penale e l'esecuzione delle pene e delle misure e già buone conoscenze teoriche in merito. - Dimostrare empatia, rigore, ottima resistenza allo stress, sapendo mantenere la distanza necessaria con le persone detenute.\n• Cosa offriamo - Tirocinio di 6 mesi, retribuito CHF 1'810.- / mese. Condizioni di impiego - Svizzero/a o titolare di un permesso C, esente da atti di difetto di beni (un estratto dell'Ufficio delle esecuzioni dovrà essere presentato durante il processo). - Casellario giudiziale pulito. - Esiste un diritto di consultazione del casellario giudiziale ai sensi della Legge federale sul casellario giudiziale da parte dell'autorità di assunzione per questa funzione. Posto - Posto all'interno dell'Amministrazione cantonale vodese (Stato di Vaud), Svizzera. Candidatura - Candidatura online sul portale ufficiale delle carriere offerte-emploi.vd.ch.",
-        "en": "Missions - Analyze and follow up on cases of convicted individuals from the implementation of the criminal sentence until their definitive release. - Collaborate in the management of the execution of sentences and penal measures and address legal issues concerning convicted individuals. - Provide support to the OEP Management regarding legal questions related to the management of criminal convictions, notably by drafting decisions or submissions to judicial authorities. - Accompany lawyers to interdisciplinary meetings concerning convicted individuals placed under the authority of the OEP as well as their hearings.\n• Profile sought - Holder of a Bachelor’s and a Master’s degree in law, respectively in magistracy or criminology. - Excellent writing and synthesis skills. - Very comfortable with computer tools. - Knowledge of a foreign language desired. - Strong interest in the penal field and the execution of sentences and measures, and already possess good theoretical knowledge related to it. - Demonstrate empathy, rigor, very good stress resistance, and know how to maintain the necessary distance with detained individuals.\n• What we offer - 6-month internship, paid CHF 1,810.- / month. Employment conditions - Swiss citizen or holder of a C permit, exempt from acts of default of assets (an extract from the Office of Debt Collection must be presented during the process). - Clean criminal record. - There is a right to consult the criminal record under the Federal Law on Criminal Records by the hiring authority for this position. Position - Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Application - Online application on the official career portal offres-emploi.vd.ch.",
-        "de": "Aufgaben - Analysieren und Verfolgen von Akten von verurteilten Personen von der Umsetzung der strafrechtlichen Verurteilung bis zur endgültigen Entlassung. - Zusammenarbeit bei der Verwaltung der Vollstreckung von Strafen und strafrechtlichen Maßnahmen sowie Bearbeitung rechtlicher Fragen zu verurteilten Personen. - Unterstützung der Leitung der OEP in rechtlichen Fragen im Zusammenhang mit der Verwaltung von strafrechtlichen Verurteilungen, insbesondere durch das Verfassen von Entscheidungen oder Anträgen an die Justizbehörden. - Begleitung von Juristen zu interdisziplinären Sitzungen über verurteilte Personen, die unter der Aufsicht der OEP stehen, sowie zu deren Anhörungen. Gesuchtes Profil - Inhaber eines Bachelor- und Masterabschlusses in Rechtswissenschaften, jeweils in Magistratur oder Kriminologie. - Ausgezeichnete Schreib- und Synthesefähigkeiten. - Sehr sicher im Umgang mit Computerwerkzeugen. - Kenntnisse einer Fremdsprache gewünscht. - Starkes Interesse am Strafrecht und an der Vollstreckung von Strafen und Maßnahmen sowie bereits gute theoretische Kenntnisse in diesem Bereich. - Empathie, Sorgfalt, sehr gute Stressresistenz zeigen und in der Lage sein, den notwendigen Abstand zu inhaftierten Personen zu wahren.\n• Was wir bieten - 6-monatiges Praktikum, vergütet mit CHF 1'810.- / Monat. Beschäftigungsbedingungen - Schweizer/in oder Inhaber/in einer C-Bewilligung, frei von Vermögensverfügungen (ein Auszug aus dem Betreibungsamt muss im Verlauf des Verfahrens vorgelegt werden). - Sauberes Strafregister. - Es besteht ein Recht auf Einsichtnahme in das Strafregister gemäß dem Bundesgesetz über das Strafregister durch die Einstellungsbehörde für diese Funktion. Stelle - Stelle innerhalb der Waadtländer Kantonsverwaltung (Staat Waadt), Schweiz. Bewerbung - Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch.",
-        "fr": "En votre qualité de juriste stagiaire post-master au sein de l’office d’exécution des peines, vous analysez et suivez des dossiers de personnes condamnées depuis la mise en œuvre de la condamnation pénale jusqu’à la libération définitive. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Collaborer à la gestion de l’exécution des peines et des mesures pénales et traiter des problèmes juridiques concernant les personnes condamnées.\n• Fournir un appui à la Direction de l’OEP en ce qui concerne les questions juridiques liées à la gestion des condamnations pénales, notamment en rédigeant des décisions ou des saisines des autorités judiciaires.\n• Accompagner les juristes aux réunions interdisciplinaires concernant les personnes condamnées placées sous l’autorité de l’OEP ainsi que les auditions de ces dernières Pour de plus amples informations, veuillez contacter Madame Eliane Cornu, juriste, au 021 316 48 07.\n\n• Titulaire d’un Bachelor et d'un Master universitaire en droit, respectivement en magistrature ou en criminologie.\n• Excellentes capacités rédactionnelles et de synthèse.\n• Très à l’aise avec les outils informatiques\n• Connaissance d'une langue étrangère souhaitée.\n• Fort intérêt du domaine pénal et de l'exécution des peines et des mesures et possédez déjà de bonnes connaissances théoriques en lien.\n• Faisant preuve d’empathie, de rigueur, très bonne résistance au stress, vous savez conserver la distance nécessaire avec les personnes détenues. Stage de 6 mois, rémunéré CHF 1'810.- / mois Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Penthalaz",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5528",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:19.268Z",
-      "addressLocality": "Penthalaz",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1305",
-      "streetAddress": "Place du Château 1",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5528",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea triennale e magistrale in giurisprudenza",
-          "Eccellenti capacità di scrittura e sintesi",
-          "Ottima padronanza degli strumenti informatici",
-          "Conoscenza di una lingua straniera desiderata",
-          "Forte interesse per il settore penale",
-          "Buone conoscenze teoriche in merito",
-          "Dimostrare empatia e rigore",
-          "Ottima resistenza allo stress"
-        ],
-        "en": [
-          "Holder of a Bachelor’s and a Master’s degree in law",
-          "Excellent writing and synthesis skills",
-          "Very comfortable with computer tools",
-          "Knowledge of a foreign language desired",
-          "Strong interest in the penal field",
-          "Good theoretical knowledge related to it",
-          "Demonstrate empathy and rigor",
-          "Very good stress resistance"
-        ],
-        "de": [
-          "Inhaber eines Bachelor- und Masterabschlusses in Rechtswissenschaften",
-          "Ausgezeichnete Schreib- und Synthesefähigkeiten",
-          "Sehr sicher im Umgang mit Computerwerkzeugen",
-          "Kenntnisse einer Fremdsprache gewünscht",
-          "Starkes Interesse am Strafrecht",
-          "Gute theoretische Kenntnisse in diesem Bereich",
-          "Empathie und Sorgfalt zeigen",
-          "Sehr gute Stressresistenz"
-        ]
-      },
-      "previousSlugs": [
-        "juriste-stagiaire-post-master-h-f-etat-de-vaud-penthalaz",
-        "giurista-stagista-post-master-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juriste-stagiaire-post-master-h-f-etat-de-vaud-penthalaz",
-          "giurista-stagista-post-master-h-f-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:17.523Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5519",
-      "slug": "amministratore-trice-workstation-mac-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-      "slugByLocale": {
-        "it": "amministratore-trice-workstation-mac-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "mac-workstation-administrator-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "mac-workstation-administrator-in-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "fr": "administrateur-trice-poste-de-travail-mac-etat-de-vaud-lausanne"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Administrateur-trice poste de travail Mac",
-      "titleByLocale": {
-        "it": "Amministratore-trice workstation Mac",
-        "en": "Mac Workstation Administrator",
-        "de": "Mac-Workstation-Administrator/in",
-        "fr": "Administrateur-trice poste de travail Mac"
-      },
-      "description": "La Direction générale de l'enseignement postobligatoire (DGEP) est chargée des formations qui se situent entre la fin de l'enseignement obligatoire et l'enseignement supérieur. Elle propose des formations au sein de 16 gymnases et 13 écoles professionnelles et regroupe plus de 3'400 collaborateurs·trices. Afin de venir renforcer l'Unité des systèmes d'information (USI), nous sommes à la recherche d'un·e Administrateur·trice poste de travail Mac.\n\n• Assurer le bon fonctionnement des systèmes d’information de notre environnement MacOS en garantissant le maintien à niveau des différents composants informatiques, dans un objectif de qualité, de productivité et de sécurité.\n• Garantir le support aux utilisateurs et aux collègues de son entité dans le cadre des activités de résolution d’incident et traitement de demande de service.\n• Participer à la phase de conception, de réalisation et de déploiement des projets liés aux nouveaux systèmes d'information ou à l’évolution de ceux existants.\n• Coordonner les activités des responsables / répondants informatiques au sein des établissements dans le cadre des opérations d’exploitation et standardisation des systèmes d’information.\n• Contribuer à la définition de l'architecture technique des systèmes d’information, des standards, des dépendances, des procédures d’exploitation et, selon la criticité des systèmes d’information, identifier les actions permettant d’assurer la continuité du service. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter M. Frédéric Roduit au 021 316 35 26.\n\n• Bachelor dans le domaine IT ou formation jugée équivalente.\n• Maîtrise d’environnement MacOS et des solutions Jamf Pro\n• Certification ou formation dans une ou plusieurs technologies.\n• Maîtrise technique générale et expérience dans les domaines MacOS de 5 ans.\n• Excellentes connaissances des processus ITIL.\n• Connaissance de la gestion d’un parc Windows via Microsoft Intune et SCCM serait un plus\n• Anglais lu, parlé et écrit (niveau B2).\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Descrizione La Direzione generale dell'istruzione post-obbligatoria (DGEP) è responsabile della formazione che si colloca tra la fine dell'istruzione obbligatoria e l'istruzione superiore. Propone corsi all'interno di 16 licei e 13 scuole professionali e raggruppa oltre 3.400 collaboratori e collaboratrici. Per rafforzare l'Unità dei sistemi informativi (USI), siamo alla ricerca di un·a Amministratore·trice workstation Mac. Mansioni - Assicurare il buon funzionamento dei sistemi informativi del nostro ambiente MacOS garantendo il mantenimento a livello dei diversi componenti informatici, con l'obiettivo di qualità, produttività e sicurezza. - Garantire supporto agli utenti e ai colleghi della propria entità nell'ambito delle attività di risoluzione degli incidenti e trattamento delle richieste di servizio. - Partecipare alla fase di progettazione, realizzazione e distribuzione dei progetti legati ai nuovi sistemi informativi o all'evoluzione di quelli esistenti. - Coordinare le attività dei responsabili / referenti informatici all'interno degli istituti nell'ambito delle operazioni di sfruttamento e standardizzazione dei sistemi informativi. - Contribuire alla definizione dell'architettura tecnica dei sistemi informativi, degli standard, delle dipendenze, delle procedure operative e, a seconda della criticità dei sistemi informativi, identificare le azioni necessarie per garantire la continuità del servizio.\n• Profilo ricercato - Laurea nel campo IT o formazione ritenuta equivalente. - Padronanza dell'ambiente MacOS e delle soluzioni Jamf Pro. - Certificazione o formazione in una o più tecnologie. - Padronanza tecnica generale ed esperienza nei settori MacOS di 5 anni. - Eccellenti conoscenze dei processi ITIL. - Conoscenza della gestione di un parco Windows tramite Microsoft Intune e SCCM sarebbe un plus. - Inglese letto, parlato e scritto (livello B2).\n• Cosa offriamo - Posizione all'interno dell'Amministrazione cantonale vaudese (Stato di Vaud), Svizzera. - Candidatura online sul portale ufficiale delle carriere offerte-emploi.vd.ch. Contatto Per ulteriori informazioni, è possibile consultare il capitolato qui o contattare il Sig. Frédéric Roduit al 021 316 35 26.",
-        "en": "Description The Directorate General of Post-Compulsory Education (DGEP) is responsible for training that takes place between the end of compulsory education and higher education. It offers training within 16 high schools and 13 vocational schools and brings together more than 3,400 employees. To strengthen the Information Systems Unit (USI), we are looking for a Mac Workstation Administrator.\n• Responsibilities - Ensure the proper functioning of the information systems in our MacOS environment by maintaining the various IT components, with a focus on quality, productivity, and security. - Provide support to users and colleagues within the entity for incident resolution and service request processing activities. - Participate in the design, implementation, and deployment phases of projects related to new information systems or the evolution of existing ones. - Coordinate the activities of IT managers/contacts within the institutions regarding the operation and standardization of information systems. - Contribute to defining the technical architecture of information systems, standards, dependencies, operating procedures, and, depending on the criticality of the information systems, identify actions to ensure service continuity.\n• Profile sought - Bachelor's degree in IT or equivalent training. - Mastery of the MacOS environment and Jamf Pro solutions. - Certification or training in one or more technologies. - General technical mastery and 5 years of experience in MacOS areas. - Excellent knowledge of ITIL processes. - Knowledge of managing a Windows environment via Microsoft Intune and SCCM would be a plus. - English reading, speaking, and writing (B2 level).\n• What we offer - Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. - Online application on the official career portal offres-emploi.vd.ch. Contact For more information, you can consult the specifications here or contact Mr. Frédéric Roduit at 021 316 35 26.",
-        "de": "Beschreibung Die Direktion für die nachobligatorische Bildung (DGEP) ist verantwortlich für die Ausbildungen, die zwischen dem Ende der obligatorischen Schulbildung und der höheren Bildung liegen. Sie bietet Ausbildungen in 16 Gymnasien und 13 Berufsschulen an und vereint über 3.400 Mitarbeitende. Zur Verstärkung der Einheit für Informationssysteme (USI) suchen wir eine/n Mac-Workstation-Administrator/in.\n• Aufgaben - Sicherstellen des reibungslosen Betriebs der Informationssysteme in unserer MacOS-Umgebung durch die Wartung der verschiedenen IT-Komponenten mit dem Ziel von Qualität, Produktivität und Sicherheit. - Gewährleisten des Supports für Benutzer und Kollegen innerhalb der Einheit im Rahmen der Aktivitäten zur Incident-Behebung und Bearbeitung von Serviceanfragen. - Teilnahme an der Planungs-, Realisierungs- und Implementierungsphase von Projekten, die mit neuen Informationssystemen oder der Weiterentwicklung bestehender Systeme verbunden sind. - Koordination der Aktivitäten der IT-Verantwortlichen/Kontaktpersonen innerhalb der Institutionen im Rahmen der Betriebsabläufe und Standardisierung der Informationssysteme. - Mitwirkung an der Definition der technischen Architektur der Informationssysteme, der Standards, der Abhängigkeiten, der Betriebsverfahren und, je nach Kritikalität der Informationssysteme, Identifizierung von Maßnahmen zur Gewährleistung der Dienstkontinuität. Gesuchtes Profil - Bachelor im IT-Bereich oder gleichwertige Ausbildung. - Beherrschung der MacOS-Umgebung und der Jamf Pro-Lösungen. - Zertifizierung oder Schulung in einer oder mehreren Technologien. - Allgemeine technische Beherrschung und 5 Jahre Erfahrung in MacOS-Bereichen. - Ausgezeichnete Kenntnisse der ITIL-Prozesse. - Kenntnisse im Management eines Windows-Parks über Microsoft Intune und SCCM wären von Vorteil. - Englisch in Wort und Schrift (Niveau B2).\n• Was wir bieten - Stelle innerhalb der Kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. - Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch. Kontakt Für weitere Informationen können Sie hier das Pflichtenheft einsehen oder Herrn Frédéric Roduit unter 021 316 35 26 kontaktieren.",
-        "fr": "La Direction générale de l'enseignement postobligatoire (DGEP) est chargée des formations qui se situent entre la fin de l'enseignement obligatoire et l'enseignement supérieur. Elle propose des formations au sein de 16 gymnases et 13 écoles professionnelles et regroupe plus de 3'400 collaborateurs·trices. Afin de venir renforcer l'Unité des systèmes d'information (USI), nous sommes à la recherche d'un·e Administrateur·trice poste de travail Mac.\n\n• Assurer le bon fonctionnement des systèmes d’information de notre environnement MacOS en garantissant le maintien à niveau des différents composants informatiques, dans un objectif de qualité, de productivité et de sécurité.\n• Garantir le support aux utilisateurs et aux collègues de son entité dans le cadre des activités de résolution d’incident et traitement de demande de service.\n• Participer à la phase de conception, de réalisation et de déploiement des projets liés aux nouveaux systèmes d'information ou à l’évolution de ceux existants.\n• Coordonner les activités des responsables / répondants informatiques au sein des établissements dans le cadre des opérations d’exploitation et standardisation des systèmes d’information.\n• Contribuer à la définition de l'architecture technique des systèmes d’information, des standards, des dépendances, des procédures d’exploitation et, selon la criticité des systèmes d’information, identifier les actions permettant d’assurer la continuité du service. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter M. Frédéric Roduit au 021 316 35 26.\n\n• Bachelor dans le domaine IT ou formation jugée équivalente.\n• Maîtrise d’environnement MacOS et des solutions Jamf Pro\n• Certification ou formation dans une ou plusieurs technologies.\n• Maîtrise technique générale et expérience dans les domaines MacOS de 5 ans.\n• Excellentes connaissances des processus ITIL.\n• Connaissance de la gestion d’un parc Windows via Microsoft Intune et SCCM serait un plus\n• Anglais lu, parlé et écrit (niveau B2).\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5519",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:18.761Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1000",
-      "streetAddress": "Place du Château 1",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5519",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea nel campo IT o formazione equivalente",
-          "Padronanza dell'ambiente MacOS e delle soluzioni Jamf Pro",
-          "Certificazione o formazione in tecnologie pertinenti",
-          "Esperienza di 5 anni in MacOS",
-          "Eccellenti conoscenze dei processi ITIL",
-          "Conoscenza della gestione di Windows tramite Microsoft Intune e SCCM è un plus",
-          "Inglese letto, parlato e scritto (livello B2)"
-        ],
-        "en": [
-          "Bachelor's degree in IT or equivalent training",
-          "Mastery of the MacOS environment and Jamf Pro solutions",
-          "Certification or training in relevant technologies",
-          "5 years of experience in MacOS areas",
-          "Excellent knowledge of ITIL processes",
-          "Knowledge of managing Windows via Microsoft Intune and SCCM is a plus",
-          "English reading, speaking, and writing (B2 level)"
-        ],
-        "de": [
-          "Bachelor im IT-Bereich oder gleichwertige Ausbildung",
-          "Beherrschung der MacOS-Umgebung und der Jamf Pro-Lösungen",
-          "Zertifizierung oder Schulung in relevanten Technologien",
-          "5 Jahre Erfahrung in MacOS-Bereichen",
-          "Ausgezeichnete Kenntnisse der ITIL-Prozesse",
-          "Kenntnisse im Management von Windows über Microsoft Intune und SCCM sind von Vorteil",
-          "Englisch in Wort und Schrift (Niveau B2)"
-        ]
-      },
-      "previousSlugs": [
-        "administrateur-trice-poste-de-travail-mac-etat-de-vaud-lausanne",
-        "amministratore-trice-workstation-mac-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "administrateur-trice-poste-de-travail-mac-etat-de-vaud-lausanne",
-          "amministratore-trice-workstation-mac-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:17.090Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-vaud-5550",
-      "slug": "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-      "slugByLocale": {
-        "it": "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "legal-intern-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "rechtspraktikant-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "fr": "stagiaire-juriste-etat-de-vaud-lausanne"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Stagiaire juriste",
-      "titleByLocale": {
-        "it": "Tirocinante legale",
-        "en": "Legal Intern",
-        "de": "Rechtspraktikant",
-        "fr": "Stagiaire juriste"
-      },
-      "description": "Dans le cadre de vos études, vous intégrez la Direction générale du territoire et du logement (DGTL) et participez activement aux travaux liés à la loi sur l'aménagement du territoire et les constructions (LATC). Vous pourriez également contribuer aux missions courantes du domaine de l'aménagement du territoire, en lien avec les dossiers traités par les équipes de la direction. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux, ainsi qu’une flexibilité appréciable grâce à la possibilité de télétravail.\n\n• Apporter un appui à l'analyse de la révision de la LATC (plans d'affectation, projets de construction, demandes d'autorisation, etc.) ;\n• Apporter un appui à la préparation des documents nécessaires à la révision de la LATC ;\n• Effectuer des recherches juridiques et documentaires en lien avec la révision de la LATC et/ou les dossiers traités ;\n• Contribuer ponctuellement à des travaux transversaux au sein de la direction.\n\n• Vous êtes titulaire d'un Master, ou actuellement en cours de dernière année de Master, idéalement dans le domaine du droit de l'aménagement du territoire ;\n• Vous portez un intérêt marqué pour les problématiques liées à l'aménagement du territoire et au droit de la construction ;\n• Vous disposez de bonnes capacités d'analyse et de rédaction ;\n• Vous êtes rigoureux-se, autonome et faites preuve d'un bon esprit de collaboration ;\n• Vous maîtrisez les outils informatiques courants (Word, Excel) Nous vous offrons :\n• Un stage formateur au sein d'une direction générale de l'administration cantonale, offrant une immersion concrète dans les enjeux de l'aménagement du territoire vaudois ;\n• Un encadrement par des professionnel-le-s du domaine ;\n• Une rémunération selon le barème de l'État de Vaud. Les candidatures sont à adresser, accompagnées d'une lettre de motivation, d'un curriculum vitae, des copies de diplômes et certificats de travail, ainsi que d'une attestation d'immatriculation en cours, via le portail. Pour tout renseignement complémentaire, vous pouvez contacter Me David Boulaz, directeur juridique par courriel david.boulaz@vd.ch.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Descrizione Nell'ambito dei tuoi studi, entrerai a far parte della Direzione generale del territorio e dell'alloggio (DGTL) e parteciperai attivamente ai lavori legati alla legge sulla pianificazione del territorio e le costruzioni (LATC). Potresti anche contribuire alle missioni correnti del settore della pianificazione del territorio, in relazione ai fascicoli trattati dai team della direzione. Ti muoverai in un ambiente di lavoro dinamico, dotato di uffici moderni e luminosi, nonché di una flessibilità apprezzabile grazie alla possibilità di lavoro da remoto. - Fornire supporto all'analisi della revisione della LATC (piani di assegnazione, progetti di costruzione, richieste di autorizzazione, ecc.); - Fornire supporto alla preparazione dei documenti necessari per la revisione della LATC; - Effettuare ricerche giuridiche e documentarie in relazione alla revisione della LATC e/o ai fascicoli trattati; - Contribuire occasionalmente a lavori trasversali all'interno della direzione.\n• Profilo ricercato - Sei in possesso di un Master, o attualmente in corso di ultima anno di Master, idealmente nel campo del diritto della pianificazione del territorio; - Hai un interesse marcato per le problematiche legate alla pianificazione del territorio e al diritto delle costruzioni; - Possiedi buone capacità di analisi e redazione; - Sei rigoroso/a, autonomo/a e dimostri un buon spirito di collaborazione; - Hai padronanza degli strumenti informatici comuni (Word, Excel).\n• Cosa offriamo - Un tirocinio formativo all'interno di una direzione generale dell'amministrazione cantonale, offrendo un'immersione concreta nelle questioni della pianificazione del territorio vodese; - Un supporto da parte di professionisti del settore; - Una retribuzione secondo il tariffario dello Stato di Vaud. Contatto Le candidature devono essere inviate, accompagnate da una lettera di motivazione, un curriculum vitae, copie di diplomi e certificati di lavoro, nonché un'attestazione di immatricolazione in corso, tramite il portale. Per ulteriori informazioni, puoi contattare il sig. David Boulaz, direttore legale, via email david.boulaz@vd.ch. Posizione all'interno dell'Amministrazione cantonale vodese (Stato di Vaud), Svizzera. Candidatura online sul portale ufficiale delle offerte di lavoro offerte-emploi.vd.ch.",
-        "en": "Description As part of your studies, you will join the General Directorate of Land and Housing (DGTL) and actively participate in the work related to the law on land use planning and construction (LATC). You may also contribute to the ongoing missions in the field of land use planning, in connection with the files handled by the teams of the directorate. You will work in a dynamic work environment, equipped with modern and bright offices, as well as appreciated flexibility thanks to the possibility of remote work. - Provide support for the analysis of the LATC revision (zoning plans, construction projects, permit applications, etc.); - Assist in the preparation of the documents necessary for the LATC revision; - Conduct legal and documentary research related to the LATC revision and/or the files being processed; - Occasionally contribute to cross-cutting work within the directorate.\n• Profile sought - You hold a Master's degree, or are currently in the final year of a Master's program, ideally in the field of land use planning law; - You have a strong interest in issues related to land use planning and construction law; - You possess good analytical and writing skills; - You are rigorous, autonomous, and demonstrate a good spirit of collaboration; - You are proficient in common computer tools (Word, Excel).\n• What we offer - A formative internship within a general directorate of the cantonal administration, providing concrete immersion in the challenges of Vaud's land use planning; - Guidance from professionals in the field; - Compensation according to the salary scale of the State of Vaud. Contact Applications should be sent, accompanied by a cover letter, a curriculum vitae, copies of diplomas and work certificates, as well as a current enrollment certificate, via the portal. For any further information, you can contact Mr. David Boulaz, legal director, by email at david.boulaz@vd.ch. Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Beschreibung Im Rahmen Ihres Studiums werden Sie Teil der Generaldirektion für Raumplanung und Wohnungswesen (DGTL) und nehmen aktiv an den Arbeiten zur Gesetzgebung über die Raumplanung und den Bau (LATC) teil. Sie könnten auch zu den laufenden\n• Aufgaben im Bereich der Raumplanung beitragen, in Verbindung mit den von den Teams der Direktion bearbeiteten Akten. Sie werden in einem dynamischen Arbeitsumfeld arbeiten, das mit modernen und hellen Büros ausgestattet ist, sowie über eine geschätzte Flexibilität dank der Möglichkeit von Homeoffice. - Unterstützung bei der Analyse der Überarbeitung der LATC (Zonierungspläne, Bauprojekte, Genehmigungsanträge usw.); - Unterstützung bei der Vorbereitung der für die Überarbeitung der LATC erforderlichen Dokumente; - Durchführung von rechtlichen und dokumentarischen Recherchen im Zusammenhang mit der Überarbeitung der LATC und/oder den bearbeiteten Akten; - Gelegentliche Mitwirkung an bereichsübergreifenden Arbeiten innerhalb der Direktion. Gesuchtes Profil - Sie besitzen einen Master-Abschluss oder sind derzeit im letzten Jahr eines Master-Studiums, idealerweise im Bereich des Rechts der Raumplanung; - Sie haben ein starkes Interesse an Fragen der Raumplanung und des Baurechts; - Sie verfügen über gute Analyse- und Schreibfähigkeiten; - Sie sind gewissenhaft, selbstständig und zeigen einen guten Teamgeist; - Sie beherrschen gängige Computerwerkzeuge (Word, Excel).\n• Was wir bieten - Ein lehrreicher Praktikumsplatz innerhalb einer Generaldirektion der kantonalen Verwaltung, der eine konkrete Einarbeitung in die Herausforderungen der Raumplanung im Kanton Waadt bietet; - Betreuung durch Fachleute auf diesem Gebiet; - Vergütung gemäß dem Tarif des Kantons Waadt. Kontakt Bewerbungen sind zusammen mit einem Motivationsschreiben, einem Lebenslauf, Kopien von Diplomen und Arbeitszeugnissen sowie einer aktuellen Immatrikulationsbescheinigung über das Portal einzureichen. Für weitere Informationen können Sie Herrn David Boulaz, den juristischen Direktor, per E-Mail unter david.boulaz@vd.ch kontaktieren. Position innerhalb der Kantonalen Verwaltung Waadt (Kanton Waadt), Schweiz. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch.",
-        "fr": "Dans le cadre de vos études, vous intégrez la Direction générale du territoire et du logement (DGTL) et participez activement aux travaux liés à la loi sur l'aménagement du territoire et les constructions (LATC). Vous pourriez également contribuer aux missions courantes du domaine de l'aménagement du territoire, en lien avec les dossiers traités par les équipes de la direction. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux, ainsi qu’une flexibilité appréciable grâce à la possibilité de télétravail.\n\n• Apporter un appui à l'analyse de la révision de la LATC (plans d'affectation, projets de construction, demandes d'autorisation, etc.) ;\n• Apporter un appui à la préparation des documents nécessaires à la révision de la LATC ;\n• Effectuer des recherches juridiques et documentaires en lien avec la révision de la LATC et/ou les dossiers traités ;\n• Contribuer ponctuellement à des travaux transversaux au sein de la direction.\n\n• Vous êtes titulaire d'un Master, ou actuellement en cours de dernière année de Master, idéalement dans le domaine du droit de l'aménagement du territoire ;\n• Vous portez un intérêt marqué pour les problématiques liées à l'aménagement du territoire et au droit de la construction ;\n• Vous disposez de bonnes capacités d'analyse et de rédaction ;\n• Vous êtes rigoureux-se, autonome et faites preuve d'un bon esprit de collaboration ;\n• Vous maîtrisez les outils informatiques courants (Word, Excel) Nous vous offrons :\n• Un stage formateur au sein d'une direction générale de l'administration cantonale, offrant une immersion concrète dans les enjeux de l'aménagement du territoire vaudois ;\n• Un encadrement par des professionnel-le-s du domaine ;\n• Une rémunération selon le barème de l'État de Vaud. Les candidatures sont à adresser, accompagnées d'une lettre de motivation, d'un curriculum vitae, des copies de diplômes et certificats de travail, ainsi que d'une attestation d'immatriculation en cours, via le portail. Pour tout renseignement complémentaire, vous pouvez contacter Me David Boulaz, directeur juridique par courriel david.boulaz@vd.ch.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T11:05:16.866Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1000",
-      "streetAddress": "Place du Château 1",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5550",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Possesso di un Master o in corso di ultima anno di Master",
-          "Interesse per la pianificazione del territorio e il diritto delle costruzioni",
-          "Buone capacità di analisi e redazione",
-          "Rigoroso/a e autonomo/a",
-          "Buon spirito di collaborazione",
-          "Padronanza di strumenti informatici comuni (Word, Excel)"
-        ],
-        "en": [
-          "Holding a Master's degree or currently in the final year of a Master's program",
-          "Interest in land use planning and construction law",
-          "Good analytical and writing skills",
-          "Rigorous and autonomous",
-          "Good spirit of collaboration",
-          "Proficient in common computer tools (Word, Excel)"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-juriste-etat-de-vaud-lausanne",
-        "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-juriste-etat-de-vaud-lausanne",
-          "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:15.359Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
