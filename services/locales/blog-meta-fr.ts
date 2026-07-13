@@ -8471,6 +8471,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-luino-lavorare-ticino.title': 'Vivre à Luino et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Guide pratique des déplacements entre Luino et le Tessin : liaisons, fiscalité pour les frontaliers et gestion du coût de la vie entre l\'Italie et la Suisse.',
     'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'Vue du bord du lac de Locarno, destination pour de nombreux frontaliers travaillant au Tessin.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Tessin: prix en hausse et commerçants en difficulté',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'Augmentations LAMal +8% au Tessin, commerçants en difficulté. L\'adjoint au maire de Chiasso : ce n\'est plus la Suisse d\'autrefois. Ce qui change pour les frontaliers.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Rue principale de Chiasso avec boutiques et cafés, navetteurs frontaliers se dirigeant vers la Suisse',
 };
 
 export default blogMetaFr;

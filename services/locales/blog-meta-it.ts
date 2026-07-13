@@ -8471,6 +8471,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-luino-lavorare-ticino.title': 'Vivere a Luino e lavorare in Ticino da frontaliere',
     'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Guida pratica al pendolarismo tra Luino e il Ticino: collegamenti, fiscalità per i frontalieri e gestione del costo della vita tra Italia e Svizzera.',
     'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'Vista del lungolago di Locarno, punto di arrivo per molti frontalieri che lavorano in Ticino.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Ticino, rincari e commercianti in crisi: il caro vita colpisce anche la Svizzera',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'Aumenti LAMal +8% in Ticino, commercianti in difficoltà. Il vicesindaco di Chiasso: non è più la Svizzera di una volta. Cosa cambia per i frontalieri.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Via principale di Chiasso con negozi e caffè, pendolari frontalieri in transito verso la Svizzera',
 };
 
 export default blogMetaIt;
