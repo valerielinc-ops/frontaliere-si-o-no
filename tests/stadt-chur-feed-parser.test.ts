@@ -61,6 +61,16 @@ describe('stadt-chur feed parser', () => {
       expect(parsed.length).toBe(1);
       expect(parsed[0].title).toBe('Real');
     });
+
+    it('rejects an off-domain link even if it matches the job-detail pattern (untrusted proxy safety)', () => {
+      const withForeignLink = `<rss><channel><title>Jobportal</title>
+        <item><title>Spoofed</title><link>https://evil.example.com/Spoofed-de-j123.html</link><description>a real description here</description></item>
+        <item><title>Real</title><link>https://jobs.chur.ch/Real-de-j999.html</link><description>a real description here</description></item>
+      </channel></rss>`;
+      const parsed = parseRssItems(withForeignLink);
+      expect(parsed.length).toBe(1);
+      expect(parsed[0].title).toBe('Real');
+    });
   });
 
   describe('parseAtomEntries (direct-fetch dialect)', () => {
