@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oetiker",
-  "assembledAt": "2026-07-13T12:17:01.244Z",
+  "assembledAt": "2026-07-13T21:59:14.839Z",
   "jobs": [
     {
       "id": "oetiker-a9477d03bf4c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000129430049-teamleiter-cnc-frasen-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:16:57.776Z",
+      "crawledAt": "2026-07-13T21:59:11.813Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -107,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135449649-team-leader-procurement-planning-logistics-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:16:57.774Z",
+      "crawledAt": "2026-07-13T21:59:11.809Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -137,6 +137,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:28:43.862Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -181,7 +182,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T12:16:57.733Z",
+      "crawledAt": "2026-07-13T21:59:11.778Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -216,6 +217,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
