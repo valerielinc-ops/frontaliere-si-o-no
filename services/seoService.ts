@@ -4503,6 +4503,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-remoto-terzo-paese-frontaliere-fiscalita': { name: 'Lavoro remoto terzo paese', path: '/articoli-frontaliere/lavoro-remoto-terzo-paese-frontaliere-fiscalita', parent: 'blog' },
     'blog-frontaliere-doppio-lavoro-incastrato-ticino': { name: 'Frontaliere doppio lavoro', path: '/articoli-svizzera/frontaliere-doppio-lavoro-incastrato-ticino/', parent: 'blog' },
     'blog-svizzera-smart-working': { name: 'La Svizzera è leader europeo dello smart', path: '/articoli-frontaliere/svizzera-smart-working', parent: 'blog' },
+    'blog-corsi-tedesco-francese-frontalieri-italofoni-ticino': { name: 'Corsi lingue frontalieri', path: '/articoli-svizzera/corsi-tedesco-francese-frontalieri-italofoni-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

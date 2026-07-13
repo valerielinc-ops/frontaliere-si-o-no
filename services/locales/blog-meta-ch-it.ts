@@ -1072,6 +1072,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontaliere con doppio lavoro: incastrato dalle telecamere',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Un dipendente comunale italiano lavorava in Ticino durante l\'orario di servizio. Incastrato dalla Guardia di Finanza grazie a video e dati telefonici.',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Confine tra Italia e Svizzera con veicoli in transito e montagne',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.title': 'Corsi di tedesco o francese per frontalieri: guida completa',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.excerpt': 'Dove seguire corsi di tedesco o francese utili al frontaliere italofono: scuole in Ticino, corsi online e finanziamenti disponibili.',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.imageAlt': 'Professionista che lavora al laptop con il lago Lugano sullo sfondo, illuminazione naturale',
 };
 
 export default blogMetaChIt;
