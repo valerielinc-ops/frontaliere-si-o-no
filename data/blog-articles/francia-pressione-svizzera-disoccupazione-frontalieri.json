@@ -1,0 +1,19 @@
+{
+  "id": "francia-pressione-svizzera-disoccupazione-frontalieri",
+  "slug": "francia-pressione-svizzera-disoccupazione-frontalieri",
+  "publishedAt": "2026-07-13T18:37:43.136Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 39.016623333333335,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

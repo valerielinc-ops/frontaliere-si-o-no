@@ -49134,6 +49134,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-francia-pressione-svizzera-disoccupazione-frontalieri': {
+    title: 'Francia fa pressione su Svizzera per indennità disoccupazione frontalieri',
+    description: 'Il ministro Farandou all\'Assemblea nazionale: la Francia perde 860 milioni di euro l\'anno con l\'attuale sistema. L\'accordo europeo prevede che le indennità sian',
+    keywords: 'frontalieri, ticino, svizzera, italia, francia, pressione, indennità, disoccupazione',
+    ogTitle: 'Francia fa pressione su Svizzera per indennità disoccupaz',
+    ogDescription: 'Il ministro Farandou all\'Assemblea nazionale: la Francia perde 860 milioni di euro l\'anno con l\'attuale sistema. L\'accordo europeo prevede che le indennità sian',
+    canonicalPath: '/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Francia fa pressione su Svizzera per indennità disoccupazione frontalieri",
+      "description": "Il ministro Farandou all'Assemblea nazionale: la Francia perde 860 milioni di euro l'anno con l'attuale sistema. L'accordo europeo prevede che le indennità sian",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/francia-pressione-svizzera-disoccupazione-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Brogeda con frontalieri al mattino presto"
+      },
+      "datePublished": "2026-07-13T18:37:38+00:00",
+      "dateModified": "2026-07-13T18:37:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

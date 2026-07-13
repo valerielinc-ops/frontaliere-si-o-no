@@ -8482,6 +8482,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'More jobs, the situation remains critical in the banking sector',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'The number of unemployed in the banking sector is on the rise, according to statistics from the State Secretariat for the Economy (SECO).',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'A scene of Lugano with a queue of people in front of a job agency.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'France puts pressure on Switzerland for frontier unemployment benefits',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Minister Farandou at the National Assembly: France loses 860 million euros a year under the current system. The European agreement provides for allowances to be paid by the country of employment.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Brogeda border crossing with cross-border workers in the morning',
 };
 
 export default blogMetaEn;

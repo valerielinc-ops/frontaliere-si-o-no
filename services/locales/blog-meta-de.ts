@@ -8481,6 +8481,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Mehr Arbeitsplätze, die Situation im Bankensektor bleibt kritisch',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Die Zahl der Arbeitslosen im Bankensektor steigt laut Statistik des Staatssekretariats für Wirtschaft (Seco).',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Eine Szene von Lugano mit einer Schlange von Menschen vor einer Arbeitsvermittlung.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': '...',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Minister Farandou vor der Nationalversammlung: Frankreich verliert mit dem derzeitigen System jährlich 860 Millionen Euro. Das Europa-Abkommen sieht vor, dass die Zulagen vom Arbeitsland gezahlt werden.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Grenzübergang Brogeda mit Grenzgängern am Morgen',
 };
 
 export default blogMetaDe;
