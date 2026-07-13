@@ -382,6 +382,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-doppio-lavoro-incastrato-ticino': { it: 'frontaliere-doppio-lavoro-incastrato-ticino', en: 'cross-border-worker-double-job-caught-cameras', de: 'grenzgaenger-doppelarbeit-ueberwachungskameras-erwischt', fr: 'frontalier-double-travail-piege-cameras' },
  'corsi-tedesco-francese-frontalieri-italofoni-ticino': { it: 'corsi-tedesco-francese-frontalieri-italofoni-ticino', en: 'german-french-courses-italophone-cross-border-workers-ticino', de: 'deutsch-franzoesisch-kurse-grenzgaenger-italophon-tessin', fr: 'cours-allemand-francais-travailleurs-frontieres-italophones-tessin' },
  'costo-vita-lugano-confronto-milano-frontalieri': { it: 'costo-vita-lugano-confronto-milano-frontalieri', en: 'cost-of-living-lugano-comparison-milan-frontaliers', de: 'lebenshaltungskosten-lugano-vergleich-mailand-frontalier', fr: 'cout-de-vie-lugano-comparaison-milan-frontaliers' },
+ 'frontalieri-disoccupati-riforma-ue': { it: 'frontalieri-disoccupati-riforma-ue', en: 'frontalier-disoccupati-riforma-ue', de: 'frontalier-ohne-arbeit-riforma-eu', fr: 'frontalier-sans-travail-reforme-ue' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

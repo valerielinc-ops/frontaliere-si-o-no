@@ -1078,6 +1078,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.title': 'Coût de la vie à Lugano comparé à Milan : loyers, transports, dépenses',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.excerpt': 'Découvrez comment le coût de la vie à Lugano se compare à celui de Milan, en particulier pour les frontaliers.',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.imageAlt': 'Vue panoramique de Lugano avec les montagnes et le lac',
+    'blog.article.frontalieri-disoccupati-riforma-ue.title': 'La réforme de l\'UE peut coûter cher à la Suisse',
+    'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'La réforme pourrait entraîner une augmentation des coûts pour la Suisse',
+    'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontalier sans travail avec indemnité',
 };
 
 export default blogMetaChFr;
