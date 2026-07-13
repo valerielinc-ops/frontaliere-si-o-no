@@ -1,6 +1,6 @@
 {
   "crawlerKey": "franklin-university",
-  "assembledAt": "2026-07-13T13:27:02.517Z",
+  "assembledAt": "2026-07-13T22:36:20.430Z",
   "jobs": [
     {
       "id": "franklin-university-c41fb337efaa",
@@ -46,15 +46,20 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T13:27:00.934Z",
+      "crawledAt": "2026-07-13T22:36:18.960Z",
+      "previousSlugs": [
+        "director-of-marketing-and-communications-sorengo-franklin-university",
+        "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
+        "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "director-of-marketing-and-communications-sorengo-franklin-university"
-        ],
         "it": [
           "director-of-marketing-and-communications-sorengo-franklin-university",
           "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
           "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo"
+        ],
+        "en": [
+          "director-of-marketing-and-communications-sorengo-franklin-university"
         ],
         "de": [
           "director-of-marketing-and-communications-sorengo-franklin-university"
@@ -63,11 +68,6 @@
           "director-of-marketing-and-communications-sorengo-franklin-university"
         ]
       },
-      "previousSlugs": [
-        "director-of-marketing-and-communications-sorengo-franklin-university",
-        "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
-        "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo"
-      ],
       "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -81,7 +81,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
