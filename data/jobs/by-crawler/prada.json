@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-07-13T12:27:34.595Z",
+  "assembledAt": "2026-07-13T22:09:14.049Z",
   "jobs": [
     {
       "id": "prada-0906f5cb166c",
@@ -43,7 +43,7 @@
       "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-13T12:27:31.991Z",
+      "crawledAt": "2026-07-13T22:09:12.284Z",
       "firstSeenAt": "2026-07-12T11:51:17.908Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -101,7 +101,7 @@
       "url": "https://jobs.pradagroup.com/job/Boston-PRADA-Client-Advisor-Saks-Fifth-Avenue-Boston-MI/1393924433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:31.290Z",
+      "crawledAt": "2026-07-13T22:09:11.834Z",
       "firstSeenAt": "2026-07-12T11:51:16.754Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -116,7 +116,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "prada-332f237b0ca4",
@@ -159,8 +160,9 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:28.450Z",
+      "crawledAt": "2026-07-13T22:09:09.502Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -242,7 +244,7 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
