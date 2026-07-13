@@ -1,18 +1,19 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-07-12T21:49:50.894Z",
+  "generatedAt": "2026-07-13T12:27:10.885Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 56985,
-  "avgDurationMs": 56985,
+  "durationMs": 55949,
+  "avgDurationMs": 55949,
   "durationHistory": [
-    56985
+    55949
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-44c85d0d10bb",
       "slug": "group-fp-a-lead-galderma-ch",
@@ -20,13 +21,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Group FP&A Lead",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-FP-A-Lead_JR018246-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T21:49:46.665Z",
+      "crawledAt": "2026-07-13T12:27:06.557Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "postedDate": "2026-07-12",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-FP-A-Lead_JR018246-1",
       "jobReqId": "JR018246",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-12T21:49:46.665Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "galderma-09b2bf38ae6c",
       "slug": "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
@@ -64,7 +64,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T21:49:47.780Z",
+      "crawledAt": "2026-07-13T12:27:07.498Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",

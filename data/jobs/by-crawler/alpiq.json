@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-12T22:28:35.764Z",
+  "assembledAt": "2026-07-13T13:08:37.067Z",
   "jobs": [
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T22:28:33.131Z",
+      "crawledAt": "2026-07-13T13:08:34.681Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -108,7 +108,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:28:33.131Z",
+      "crawledAt": "2026-07-13T13:08:34.681Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -169,7 +169,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T22:28:33.129Z",
+      "crawledAt": "2026-07-13T13:08:34.680Z",
       "previousSlugs": [
         "anlageningenieur-all-100-alpiq-niedergosgen"
       ],
@@ -189,6 +189,67 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-dbe206690861",
+      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "project-manager-pianificazione-strategica-del-portfolio-alpiq-olten",
+        "en": "project-manager-in-strategic-project-portfolio-planning-all-100-alpiq-olten",
+        "de": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
+        "fr": "gestionnaire-de-projet-dans-la-planification-du-portefeuille-de-projets-strategiques-tous-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
+      "titleByLocale": {
+        "it": "Responsabile della pianificazione strategica del portafoglio progetti Asset Nucleari (all) 100%",
+        "en": "Project Manager Strategic Project Portfolio Planning Nuclear Assets (all) 100%",
+        "de": "Projektleiter:in strategische Projektportfolioplanung (all) 100%",
+        "fr": "Chef de projet planification stratégique du portefeuille de projets Actifs nucléaires (all) 100%"
+      },
+      "description": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%\n\nAnstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reiset&auml;tigkeit: ca. 10% Unser Unternehmen Alpiq ist ein f&uuml;hrendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Descrizione Responsabile di progetto:nella pianificazione strategica del portafoglio di progetti Asset nucleari (all) 100% Tipo di impiego: impiego fisso | Luogo di lavoro: Olten | Modello di lavoro: ibrido | Attività di viaggio: circa il 10% La nostra azienda Alpiq è un'azienda energetica leader in Svizzera e un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un forte portafoglio di... Olten - 100% permanente",
+        "en": "Description Project manager:in strategic project portfolio planning Nuclear Assets(all) 100% Employment type: Permanent, Place of work: Olten, Working model: Hybrid, Travel activity: approx. 10% Our company is a leading Swiss energy company and an important provider of energy services in Europe. Headquartered in Lausanne and a strong portfolio of... Olten - 100% Permanent",
+        "de": "Beschreibung Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100% Anstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reisetätigkeit: ca. 10% Unser Unternehmen Alpiq ist ein führendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus… Olten - 100% Permanent",
+        "fr": "Description Project manager:in strategic project portfolio planning Nuclear Actif(all) 100% Type d'emploi: Permanent, Lieu de travail: Olten, Modèle de travail: Hybrid, Activité de voyage: env. 10% Notre entreprise est une entreprise leader suisse de l'énergie et un important fournisseur de services énergétiques en Europe. Basé à Lausanne et un portefeuille... Olten - 100% Permanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T13:08:34.680Z",
+      "firstSeenAt": "2026-06-29T21:34:24.960Z",
+      "country": "CH",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
           "unitText": "YEAR"
         }
       }
@@ -252,68 +313,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "alpiq-dbe206690861",
-      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "project-manager-pianificazione-strategica-del-portfolio-alpiq-olten",
-        "en": "project-manager-in-strategic-project-portfolio-planning-all-100-alpiq-olten",
-        "de": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-        "fr": "gestionnaire-de-projet-dans-la-planification-du-portefeuille-de-projets-strategiques-tous-100-alpiq-olten"
       },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
-      "titleByLocale": {
-        "it": "Responsabile della pianificazione strategica del portafoglio progetti Asset Nucleari (all) 100%",
-        "en": "Project Manager Strategic Project Portfolio Planning Nuclear Assets (all) 100%",
-        "de": "Projektleiter:in strategische Projektportfolioplanung (all) 100%",
-        "fr": "Chef de projet planification stratégique du portefeuille de projets Actifs nucléaires (all) 100%"
-      },
-      "description": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%\n\nAnstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reiset&auml;tigkeit: ca. 10% Unser Unternehmen Alpiq ist ein f&uuml;hrendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Descrizione Responsabile di progetto:nella pianificazione strategica del portafoglio di progetti Asset nucleari (all) 100% Tipo di impiego: impiego fisso | Luogo di lavoro: Olten | Modello di lavoro: ibrido | Attività di viaggio: circa il 10% La nostra azienda Alpiq è un'azienda energetica leader in Svizzera e un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un forte portafoglio di... Olten - 100% permanente",
-        "en": "Description Project manager:in strategic project portfolio planning Nuclear Assets(all) 100% Employment type: Permanent, Place of work: Olten, Working model: Hybrid, Travel activity: approx. 10% Our company is a leading Swiss energy company and an important provider of energy services in Europe. Headquartered in Lausanne and a strong portfolio of... Olten - 100% Permanent",
-        "de": "Beschreibung Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100% Anstellungsart: Festanstellung | Arbeitsort: Olten | Arbeitsmodell: Hybrid | Reisetätigkeit: ca. 10% Unser Unternehmen Alpiq ist ein führendes Schweizer Energieunternehmen und ein wichtiger Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus… Olten - 100% Permanent",
-        "fr": "Description Project manager:in strategic project portfolio planning Nuclear Actif(all) 100% Type d'emploi: Permanent, Lieu de travail: Olten, Modèle de travail: Hybrid, Activité de voyage: env. 10% Notre entreprise est une entreprise leader suisse de l'énergie et un important fournisseur de services énergétiques en Europe. Basé à Lausanne et un portefeuille... Olten - 100% Permanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-12T22:28:33.130Z",
-      "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "country": "CH",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -357,7 +358,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:28:33.127Z",
+      "crawledAt": "2026-07-13T13:08:34.678Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",

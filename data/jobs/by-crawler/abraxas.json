@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-12T21:55:51.766Z",
+  "assembledAt": "2026-07-13T13:13:11.393Z",
   "jobs": [
     {
       "id": "abraxas-5dccc3b1e7f6",
@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Working student Customer Service (Sales Support) 60–70%",
+        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudent-customer-service-sales-support-60-70-1268",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:49.436Z",
+      "crawledAt": "2026-07-13T13:13:08.991Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -94,7 +95,7 @@
       "title": "System Engineer – DevOps (Deutsch) 80–100 %",
       "titleByLocale": {
         "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
-        "en": "System Engineer – DevOps (German) 80-100%",
+        "en": "System Engineer – DevOps (Deutsch) 80–100 %",
         "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
         "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
       },
@@ -110,7 +111,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:48.971Z",
+      "crawledAt": "2026-07-13T13:13:08.460Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -174,7 +176,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -190,7 +192,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:48.504Z",
+      "crawledAt": "2026-07-13T13:13:07.923Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -254,7 +257,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -270,7 +273,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:48.040Z",
+      "crawledAt": "2026-07-13T13:13:07.354Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -333,7 +337,7 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Architekt:in 80–100 %",
       "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
+        "it": "Software Architekt:in 80–100 %",
         "en": "Software Architect: in 80-100%",
         "de": "Software Architekt:in 80–100 %",
         "fr": "Architecte logiciel: en 80-100%"
@@ -350,7 +354,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:47.571Z",
+      "crawledAt": "2026-07-13T13:13:06.820Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -401,7 +406,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -417,7 +422,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:47.107Z",
+      "crawledAt": "2026-07-13T13:13:06.263Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -481,7 +487,7 @@
       "title": "Senior Software Engineer C#/.NET 80–100 %",
       "titleByLocale": {
         "it": "Senior Software Ingegnere C#/.NET 80–100 %",
-        "en": "Senior Software Engineer C#/.NET 80-100%",
+        "en": "Senior Software Engineer C#/.NET 80–100 %",
         "de": "Senior Software Ingenieur C#/.NET 80–100 %",
         "fr": "Senior Software Ingénieur C#/.NET 80–100 %"
       },
@@ -497,7 +503,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-cnet-80-100-3342",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:46.642Z",
+      "crawledAt": "2026-07-13T13:13:05.727Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -577,7 +584,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:46.158Z",
+      "crawledAt": "2026-07-13T13:13:05.153Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -645,7 +652,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -661,7 +668,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:45.693Z",
+      "crawledAt": "2026-07-13T13:13:04.604Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -725,7 +733,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -741,7 +749,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-9650",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:45.209Z",
+      "crawledAt": "2026-07-13T13:13:04.034Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -791,6 +800,76 @@
       }
     },
     {
+      "id": "abraxas-ba9e19c5a748",
+      "slug": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+        "it": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+        "en": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+        "fr": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Security Architect mit Schwerpunkt AI Security 80–100 %",
+      "titleByLocale": {
+        "de": "Security Architect mit Schwerpunkt AI Security 80–100 %",
+        "it": "Security Architetto con Schwerpunkt AI Security 80–100 %",
+        "en": "Security Architect mit Schwerpunkt AI Security 80–100 %",
+        "fr": "Security Architecte mit Schwerpunkt AI Security 80–100 %"
+      },
+      "description": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T13:13:03.495Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://apply.refline.ch/215876/2498/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2498",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-13T13:13:03.495Z"
+    },
+    {
       "id": "abraxas-860636d19004",
       "slug": "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -821,7 +900,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:44.667Z",
+      "crawledAt": "2026-07-13T13:13:02.954Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -905,7 +984,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:44.183Z",
+      "crawledAt": "2026-07-13T13:13:02.384Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -987,7 +1066,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:43.698Z",
+      "crawledAt": "2026-07-13T13:13:01.838Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1071,7 +1150,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:43.197Z",
+      "crawledAt": "2026-07-13T13:13:01.297Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1122,7 +1202,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -1138,7 +1218,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:42.709Z",
+      "crawledAt": "2026-07-13T13:13:00.747Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1188,6 +1269,76 @@
       }
     },
     {
+      "id": "abraxas-21833f0532a3",
+      "slug": "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+        "it": "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+        "en": "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+        "fr": "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "ICT-Sicherheitsbeauftragte:r 60–90 %",
+      "titleByLocale": {
+        "de": "ICT-Sicherheitsbeauftragte:r 60–90 %",
+        "it": "ICT-Sicherheitsbeauftragte:r 60–90 %",
+        "en": "ICT-Sicherheitsbeauftragte:r 60–90 %",
+        "fr": "ICT-Sicherheitsbeauftragte:r 60–90 %"
+      },
+      "description": "Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit als ICT-Sicherheitsbeauftragte:r, die unseren internen Organisationseinheiten bei der Umsetzung und Weiterentwicklung von Informationssicherheit und Business Continuity Management unterstützt. In dieser vielseitigen Rolle prüfst du Sicherheits- und Datenschutzkonzepte, begleitest Audits und stellst die Einhaltung regulatorischer Anforderungen sicher. Dabei verbindest du Fachkompetenz mit Beratungsgeschick und gestaltest die Sicherheitsstandards von morgen massgeblich mit.\nDeine Rolle\n• Fachliche Prüfung von Informationssicherheits- und Datenschutzkonzepten (ISDS-Konzepten) sowie Schutzbedarfsanalysen für Projekte, Produkte und Services\n• Sicherstellung der Einhaltung von Sicherheitsvorgaben, Standards und regulatorischen Anforderungen\n• Verantwortung für den ISDS-Abnahmeprozess inklusive Qualitätssicherung und Freigabeempfehlungen\n• Beratung von Projektleitenden und Fachbereichen in Sicherheits- und Datenschutzfragen\n• Weiterentwicklung von Vorlagen, Methoden und Prozessen im Bereich ISDS\n• Vorbereitung, Begleitung und Nachbearbeitung interner und externer Audits (z.B. ISO-27001, ISAE-3402)\n• Koordination von Audit-Nachweisen sowie Nachverfolgung von Audit-Feststellungen und Verbesserungsmassnahmen\n• Mitarbeit bei Risikoanalysen sowie bei der Weiterentwicklung von Prozessen, Methoden und dem internen Kontrollsystem (IKS)\nDein Profil\n• Abgeschlossene Ausbildung oder Studium in Informatik, Wirtschaftsinformatik, Informationssicherheit oder einem vergleichbaren Bereich\n• Mehrjährige Berufserfahrung in Informationssicherheit, GRC, BCM oder Audit-Unterstützung\n• Gute Kenntnisse von Standards und Frameworks wie ISO 27001, ISO 22301, NIST oder BSI-Grundschutz\n• Zertifizierungen wie CISSP, CISM, CRISC, ISO 27001 Lead Auditor oder ISO 22301\n• Erfahrung in der Erstellung, Prüfung oder Freigabe von Sicherheitskonzepten\n• Strukturierte und selbstständige Arbeitsweise sowie hohe Qualitätsorientierung\n• Ausgeprägte Kommunikations- und Beratungskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit als ICT-Sicherheitsbeauftragte:r, die unseren internen Organisationseinheiten bei der Umsetzung und Weiterentwicklung von Informationssicherheit und Business Continuity Management unterstützt. In dieser vielseitigen Rolle prüfst du Sicherheits- und Datenschutzkonzepte, begleitest Audits und stellst die Einhaltung regulatorischer Anforderungen sicher. Dabei verbindest du Fachkompetenz mit Beratungsgeschick und gestaltest die Sicherheitsstandards von morgen massgeblich mit.\nDeine Rolle\n• Fachliche Prüfung von Informationssicherheits- und Datenschutzkonzepten (ISDS-Konzepten) sowie Schutzbedarfsanalysen für Projekte, Produkte und Services\n• Sicherstellung der Einhaltung von Sicherheitsvorgaben, Standards und regulatorischen Anforderungen\n• Verantwortung für den ISDS-Abnahmeprozess inklusive Qualitätssicherung und Freigabeempfehlungen\n• Beratung von Projektleitenden und Fachbereichen in Sicherheits- und Datenschutzfragen\n• Weiterentwicklung von Vorlagen, Methoden und Prozessen im Bereich ISDS\n• Vorbereitung, Begleitung und Nachbearbeitung interner und externer Audits (z.B. ISO-27001, ISAE-3402)\n• Koordination von Audit-Nachweisen sowie Nachverfolgung von Audit-Feststellungen und Verbesserungsmassnahmen\n• Mitarbeit bei Risikoanalysen sowie bei der Weiterentwicklung von Prozessen, Methoden und dem internen Kontrollsystem (IKS)\nDein Profil\n• Abgeschlossene Ausbildung oder Studium in Informatik, Wirtschaftsinformatik, Informationssicherheit oder einem vergleichbaren Bereich\n• Mehrjährige Berufserfahrung in Informationssicherheit, GRC, BCM oder Audit-Unterstützung\n• Gute Kenntnisse von Standards und Frameworks wie ISO 27001, ISO 22301, NIST oder BSI-Grundschutz\n• Zertifizierungen wie CISSP, CISM, CRISC, ISO 27001 Lead Auditor oder ISO 22301\n• Erfahrung in der Erstellung, Prüfung oder Freigabe von Sicherheitskonzepten\n• Strukturierte und selbstständige Arbeitsweise sowie hohe Qualitätsorientierung\n• Ausgeprägte Kommunikations- und Beratungskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit als ICT-Sicherheitsbeauftragte:r, die unseren internen Organisationseinheiten bei der Umsetzung und Weiterentwicklung von Informationssicherheit und Business Continuity Management unterstützt. In dieser vielseitigen Rolle prüfst du Sicherheits- und Datenschutzkonzepte, begleitest Audits und stellst die Einhaltung regulatorischer Anforderungen sicher. Dabei verbindest du Fachkompetenz mit Beratungsgeschick und gestaltest die Sicherheitsstandards von morgen massgeblich mit.\nDeine Rolle\n• Fachliche Prüfung von Informationssicherheits- und Datenschutzkonzepten (ISDS-Konzepten) sowie Schutzbedarfsanalysen für Projekte, Produkte und Services\n• Sicherstellung der Einhaltung von Sicherheitsvorgaben, Standards und regulatorischen Anforderungen\n• Verantwortung für den ISDS-Abnahmeprozess inklusive Qualitätssicherung und Freigabeempfehlungen\n• Beratung von Projektleitenden und Fachbereichen in Sicherheits- und Datenschutzfragen\n• Weiterentwicklung von Vorlagen, Methoden und Prozessen im Bereich ISDS\n• Vorbereitung, Begleitung und Nachbearbeitung interner und externer Audits (z.B. ISO-27001, ISAE-3402)\n• Koordination von Audit-Nachweisen sowie Nachverfolgung von Audit-Feststellungen und Verbesserungsmassnahmen\n• Mitarbeit bei Risikoanalysen sowie bei der Weiterentwicklung von Prozessen, Methoden und dem internen Kontrollsystem (IKS)\nDein Profil\n• Abgeschlossene Ausbildung oder Studium in Informatik, Wirtschaftsinformatik, Informationssicherheit oder einem vergleichbaren Bereich\n• Mehrjährige Berufserfahrung in Informationssicherheit, GRC, BCM oder Audit-Unterstützung\n• Gute Kenntnisse von Standards und Frameworks wie ISO 27001, ISO 22301, NIST oder BSI-Grundschutz\n• Zertifizierungen wie CISSP, CISM, CRISC, ISO 27001 Lead Auditor oder ISO 22301\n• Erfahrung in der Erstellung, Prüfung oder Freigabe von Sicherheitskonzepten\n• Strukturierte und selbstständige Arbeitsweise sowie hohe Qualitätsorientierung\n• Ausgeprägte Kommunikations- und Beratungskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit als ICT-Sicherheitsbeauftragte:r, die unseren internen Organisationseinheiten bei der Umsetzung und Weiterentwicklung von Informationssicherheit und Business Continuity Management unterstützt. In dieser vielseitigen Rolle prüfst du Sicherheits- und Datenschutzkonzepte, begleitest Audits und stellst die Einhaltung regulatorischer Anforderungen sicher. Dabei verbindest du Fachkompetenz mit Beratungsgeschick und gestaltest die Sicherheitsstandards von morgen massgeblich mit.\nDeine Rolle\n• Fachliche Prüfung von Informationssicherheits- und Datenschutzkonzepten (ISDS-Konzepten) sowie Schutzbedarfsanalysen für Projekte, Produkte und Services\n• Sicherstellung der Einhaltung von Sicherheitsvorgaben, Standards und regulatorischen Anforderungen\n• Verantwortung für den ISDS-Abnahmeprozess inklusive Qualitätssicherung und Freigabeempfehlungen\n• Beratung von Projektleitenden und Fachbereichen in Sicherheits- und Datenschutzfragen\n• Weiterentwicklung von Vorlagen, Methoden und Prozessen im Bereich ISDS\n• Vorbereitung, Begleitung und Nachbearbeitung interner und externer Audits (z.B. ISO-27001, ISAE-3402)\n• Koordination von Audit-Nachweisen sowie Nachverfolgung von Audit-Feststellungen und Verbesserungsmassnahmen\n• Mitarbeit bei Risikoanalysen sowie bei der Weiterentwicklung von Prozessen, Methoden und dem internen Kontrollsystem (IKS)\nDein Profil\n• Abgeschlossene Ausbildung oder Studium in Informatik, Wirtschaftsinformatik, Informationssicherheit oder einem vergleichbaren Bereich\n• Mehrjährige Berufserfahrung in Informationssicherheit, GRC, BCM oder Audit-Unterstützung\n• Gute Kenntnisse von Standards und Frameworks wie ISO 27001, ISO 22301, NIST oder BSI-Grundschutz\n• Zertifizierungen wie CISSP, CISM, CRISC, ISO 27001 Lead Auditor oder ISO 22301\n• Erfahrung in der Erstellung, Prüfung oder Freigabe von Sicherheitskonzepten\n• Strukturierte und selbstständige Arbeitsweise sowie hohe Qualitätsorientierung\n• Ausgeprägte Kommunikations- und Beratungskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Zur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit als ICT-Sicherheitsbeauftragte:r, die unseren internen Organisationseinheiten bei der Umsetzung und Weiterentwicklung von Informationssicherheit und Business Continuity Management unterstützt. In dieser vielseitigen Rolle prüfst du Sicherheits- und Datenschutzkonzepte, begleitest Audits und stellst die Einhaltung regulatorischer Anforderungen sicher. Dabei verbindest du Fachkompetenz mit Beratungsgeschick und gestaltest die Sicherheitsstandards von morgen massgeblich mit.\nDeine Rolle\n• Fachliche Prüfung von Informationssicherheits- und Datenschutzkonzepten (ISDS-Konzepten) sowie Schutzbedarfsanalysen für Projekte, Produkte und Services\n• Sicherstellung der Einhaltung von Sicherheitsvorgaben, Standards und regulatorischen Anforderungen\n• Verantwortung für den ISDS-Abnahmeprozess inklusive Qualitätssicherung und Freigabeempfehlungen\n• Beratung von Projektleitenden und Fachbereichen in Sicherheits- und Datenschutzfragen\n• Weiterentwicklung von Vorlagen, Methoden und Prozessen im Bereich ISDS\n• Vorbereitung, Begleitung und Nachbearbeitung interner und externer Audits (z.B. ISO-27001, ISAE-3402)\n• Koordination von Audit-Nachweisen sowie Nachverfolgung von Audit-Feststellungen und Verbesserungsmassnahmen\n• Mitarbeit bei Risikoanalysen sowie bei der Weiterentwicklung von Prozessen, Methoden und dem internen Kontrollsystem (IKS)\nDein Profil\n• Abgeschlossene Ausbildung oder Studium in Informatik, Wirtschaftsinformatik, Informationssicherheit oder einem vergleichbaren Bereich\n• Mehrjährige Berufserfahrung in Informationssicherheit, GRC, BCM oder Audit-Unterstützung\n• Gute Kenntnisse von Standards und Frameworks wie ISO 27001, ISO 22301, NIST oder BSI-Grundschutz\n• Zertifizierungen wie CISSP, CISM, CRISC, ISO 27001 Lead Auditor oder ISO 22301\n• Erfahrung in der Erstellung, Prüfung oder Freigabe von Sicherheitskonzepten\n• Strukturierte und selbstständige Arbeitsweise sowie hohe Qualitätsorientierung\n• Ausgeprägte Kommunikations- und Beratungskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-sicherheitsbeauftragter-60-90-4777",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T13:13:00.178Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://apply.refline.ch/215876/2487/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2487",
+      "pensumMin": 60,
+      "pensumMax": 90,
+      "pensum": "60 - 90%",
+      "salaryMin": 51800,
+      "salaryMax": 78300,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51800,
+          "maxValue": 78300,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-13T13:13:00.178Z"
+    },
+    {
       "id": "abraxas-1acbe596f23a",
       "slug": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
@@ -1202,7 +1353,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1218,7 +1369,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:42.234Z",
+      "crawledAt": "2026-07-13T13:12:59.618Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1285,7 +1437,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:41.766Z",
+      "crawledAt": "2026-07-13T13:12:59.085Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1336,7 +1489,7 @@
       "title": "ICT System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT System Engineer 80–100 %",
         "de": "ICT System Ingenieur 80–100 %",
         "fr": "ICT System Ingénieur 80–100 %"
       },
@@ -1352,7 +1505,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-5708",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:41.301Z",
+      "crawledAt": "2026-07-13T13:12:58.556Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1416,7 +1570,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1432,7 +1586,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:40.828Z",
+      "crawledAt": "2026-07-13T13:12:57.989Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1483,7 +1638,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1499,7 +1654,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:40.354Z",
+      "crawledAt": "2026-07-13T13:12:57.446Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1579,7 +1735,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-1052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:39.820Z",
+      "crawledAt": "2026-07-13T13:12:56.903Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1660,7 +1816,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:39.333Z",
+      "crawledAt": "2026-07-13T13:12:56.367Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1728,7 +1884,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "AIOps Trasformazione Piombo 80-100 %",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80-100 %"
       },
@@ -1744,7 +1900,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:38.855Z",
+      "crawledAt": "2026-07-13T13:12:55.820Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1824,7 +1981,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:38.386Z",
+      "crawledAt": "2026-07-13T13:12:55.280Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1908,7 +2065,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:37.917Z",
+      "crawledAt": "2026-07-13T13:12:54.742Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1992,7 +2149,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:37.449Z",
+      "crawledAt": "2026-07-13T13:12:54.201Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2076,7 +2233,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-12T21:55:36.875Z",
+      "crawledAt": "2026-07-13T13:12:53.500Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",

@@ -1,16 +1,16 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-07-12T22:36:35.780Z",
+  "generatedAt": "2026-07-13T13:39:19.170Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2990,
-  "avgDurationMs": 2990,
+  "durationMs": 2752,
+  "avgDurationMs": 2752,
   "durationHistory": [
-    2990
+    2752
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134436784-technicien-ne-en-radiologie-medicale-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:36:33.888Z",
+      "crawledAt": "2026-07-13T13:39:17.528Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -44,11 +44,11 @@
       "postedDate": "2026-06-26",
       "datePosted": "2026-06-26",
       "firstSeenAt": "2026-07-10T10:52:39.224Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134271539-collaborateur-trice-au-service-technique-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:36:33.890Z",
+      "crawledAt": "2026-07-13T13:39:17.530Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",

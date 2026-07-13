@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitaeler-schaffhausen",
-  "assembledAt": "2026-07-12T22:39:37.752Z",
+  "assembledAt": "2026-07-13T12:05:35.395Z",
   "jobs": [
     {
       "id": "spitaeler-schaffhausen-9ce8de628880",
@@ -2396,87 +2396,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:21:28.380Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spitaeler-schaffhausen-3ac343793fe8",
-      "slug": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
-      "slugByLocale": {
-        "it": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen"
-      },
-      "company": "Spitäler Schaffhausen",
-      "companyKey": "spitaeler-schaffhausen",
-      "companyDomain": "spitaeler-sh.ch",
-      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
-      "titleByLocale": {
-        "it": "Dipl. Infermiera / Infermiera specialista HF",
-        "en": "Dipl. Nurse HF",
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
-        "fr": "Infirmière diplômée en HF"
-      },
-      "description": "Für eine interdisziplinäre Grossstation mit den Fachbereichen Chirurgie, Urologie, sowie geriatrische und akutgeriatrische Rehabilitation mit 30 Betten suchen wir ab sofort oder nach Vereinbarung eine Diplomierte Pflegefachperson HF.\n\nAufgaben:\n• Pflege und Betreuung unserer Patienten und deren Umfeld nach festgelegten Qualitätskriterien / Richtlinien / Standards\n\n• Planung, Steuerung und Evaluation sämtlicher Teilschritte im Pflegeprozess von Eintritt bis Austritt\n\n• Verantwortung für eine professionelle Kommunikation mit den Patienten und den interprofessionellen Diensten\n\n• Mitverantwortung für die auszubildenden \"Fachmann/-frau Gesundheit EFZ\" und \"Pflegefachmann/-frau HF\"\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH oder ein ausländisches Diplom mit SRK Anerkennung\n\n• Einige Jahre Berufserfahrung in der Schweiz bezüglich Pflegeprozesse sind von Vorteil\n\n• Ein ausgeprägtes Verantwortungsbewusstsein\n\n• Grosse Flexibilität und starke Belastbarkeit\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-      "descriptionByLocale": {
-        "it": "Per un grande reparto interdisciplinare con i reparti di chirurgia, urologia e riabilitazione geriatrica e geriatrica acuta con 30 posti letto, cerchiamo uno specialista infermieristico HF qualificato con effetto immediato o su appuntamento. Compiti:\n• Cura e sostegno dei nostri pazienti e del loro ambiente secondo criteri di qualità/linee guida/standard definiti\n• Pianificazione, controllo e valutazione di tutte le fasi secondarie del processo infermieristico dall'ingresso all'uscita\n• Responsabilità della comunicazione professionale con i pazienti e i servizi interprofessionali\n• Corresponsabilità per gli apprendisti \"Specialista della salute EFZ\" e \"Specialista infermieristico HF\" Requisiti:\n• Formazione completata come infermiere qualificato HF/FH o diploma estero Riconoscimento SRK\n• Alcuni anni di esperienza professionale in La Svizzera per quanto riguarda i processi infermieristici è un vantaggio\n• Un forte senso di responsabilità\n• Grande flessibilità e forte resilienza Offriamo: Vuoi conciliare bene famiglia e lavoro? Con il nostro asilo nido interno direttamente nell'area dell'Ospedale Cantonale vi aiutiamo a raggiungere un sano equilibrio tra lavoro e vita privata che non solo funziona, ma vi fa bene. Gli ospedali di Sciaffusa comprendono l'ospedale cantonale, i servizi psichiatrici, gli studi di radiologia e cardiologia Posthof Neuhausen e lo studio di neurologia del Centro di Sciaffusa. Con oltre 1.700 collaboratori garantiamo un'assistenza medica e infermieristica di base ampliata nella regione di Sciaffusa. Ogni anno assistiamo circa 11.000 pazienti ricoverati e 90.000 ambulatoriali. Siamo anche un importante centro di formazione nel cantone.",
-        "en": "For an interdisciplinary large ward with the departments of surgery, urology, as well as geriatric and acute geriatric rehabilitation with 30 beds, we are looking for a qualified HF nursing specialist with immediate effect or by appointment. Tasks:\n• Care and support of our patients and their environment according to defined quality criteria / guidelines / standards\n• Planning, control and evaluation of all sub-steps in the nursing process from entry to exit\n• Responsibility for professional communication with patients and the interprofessional services\n• Co-responsibility for the trainees \"Health Specialist EFZ\" and \"Nursing Specialist HF\" Requirements:\n• Completed training as a qualified nurse HF/FH or a foreign diploma SRK recognition\n• A few years of professional experience in Switzerland regarding nursing processes is an advantage\n• A strong sense of responsibility\n• Great flexibility and strong resilience We offer: Do you want to balance family and work well? With our in-house crèche directly on the grounds of the Cantonal Hospital, we support you in achieving a healthy work-life balance that not only works, but is good for you. The Schaffhausen hospitals include the cantonal hospital, the psychiatric services, the Posthof Neuhausen radiology and cardiology practices and the Schaffhausen Center neurology practice. With over 1,700 employees, we ensure expanded basic medical and nursing care in the Schaffhausen region. Every year we care for around 11,000 inpatients and 90,000 outpatients. We are also an important training center in the canton.",
-        "de": "Für eine interdisziplinäre Grossstation mit den Fachbereichen Chirurgie, Urologie, sowie geriatrische und akutgeriatrische Rehabilitation mit 30 Betten suchen wir ab sofort oder nach Vereinbarung eine Diplomierte Pflegefachperson HF.\n\nAufgaben:\n• Pflege und Betreuung unserer Patienten und deren Umfeld nach festgelegten Qualitätskriterien / Richtlinien / Standards\n\n• Planung, Steuerung und Evaluation sämtlicher Teilschritte im Pflegeprozess von Eintritt bis Austritt\n\n• Verantwortung für eine professionelle Kommunikation mit den Patienten und den interprofessionellen Diensten\n\n• Mitverantwortung für die auszubildenden \"Fachmann/-frau Gesundheit EFZ\" und \"Pflegefachmann/-frau HF\"\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH oder ein ausländisches Diplom mit SRK Anerkennung\n\n• Einige Jahre Berufserfahrung in der Schweiz bezüglich Pflegeprozesse sind von Vorteil\n\n• Ein ausgeprägtes Verantwortungsbewusstsein\n\n• Grosse Flexibilität und starke Belastbarkeit\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "fr": "Pour un grand service interdisciplinaire comprenant les services de chirurgie, d'urologie ainsi que de rééducation gériatrique et gériatrique aiguë de 30 lits, nous recherchons un infirmier spécialisé qualifié en HF avec effet immédiat ou sur rendez-vous. Tâches :\n• Soins et accompagnement de nos patients et de leur environnement selon des critères/directives/normes de qualité définis\n• Planification, contrôle et évaluation de toutes les sous-étapes du processus de soins, de l'entrée à la sortie\n• Responsabilité de la communication professionnelle avec les patients et les services interprofessionnels\n• Co-responsabilité des stagiaires « Health Specialist EFZ » et « Nursing Specialist HF » Exigences :\n• Formation complète d'infirmière qualifiée HF/FH ou diplôme étranger Reconnaissance SRK\n• Quelques années d'expérience professionnelle en Suisse concernant les processus de soins infirmiers est un avantage\n• Un fort sens des responsabilités\n• Une grande flexibilité et une forte résilience Nous vous proposons : Vous souhaitez bien concilier famille et travail ? Avec notre crèche interne située directement sur le terrain de l'hôpital cantonal, nous vous aidons à atteindre un équilibre sain entre vie professionnelle et vie privée qui non seulement fonctionne, mais qui est également bon pour vous. Les hôpitaux de Schaffhouse comprennent l'hôpital cantonal, les services psychiatriques, les cabinets de radiologie et de cardiologie du Posthof Neuhausen et le cabinet de neurologie du Centre de Schaffhouse. Avec plus de 1 700 collaborateurs, nous assurons des soins médicaux et infirmiers de base étendus dans la région de Schaffhouse. Chaque année, nous soignons environ 11 000 patients hospitalisés et 90 000 patients ambulatoires. Nous sommes également un centre de formation important dans le canton."
-      },
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf/93ce6cfc-e825-4633-b5eb-51261096b6f9",
-      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-12T22:39:34.850Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8208",
-      "streetAddress": "Geissbergstrasse 81",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf/93ce6cfc-e825-4633-b5eb-51261096b6f9",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-          "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-          "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T13:06:31.793Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

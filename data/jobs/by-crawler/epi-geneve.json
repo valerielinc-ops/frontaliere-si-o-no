@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epi-geneve",
-  "assembledAt": "2026-07-12T21:48:49.685Z",
+  "assembledAt": "2026-07-13T12:12:55.425Z",
   "jobs": [
     {
       "id": "epi-geneve-f0b0f2420013",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110721167-un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.811Z",
+      "crawledAt": "2026-07-13T12:12:50.722Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -52,11 +52,12 @@
       "jobReqId": "744000110721167",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
+        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
-          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
-        ],
         "it": [
           "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
           "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
@@ -66,13 +67,12 @@
         ],
         "de": [
           "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
+        ],
+        "fr": [
+          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
+          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
         ]
       },
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
-        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
-      ],
       "firstSeenAt": "2026-07-03T22:53:33.328Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
@@ -85,7 +85,8 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-43f367a7bcb3",
@@ -118,7 +119,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.808Z",
+      "crawledAt": "2026-07-13T12:12:50.716Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -137,11 +138,12 @@
       "jobReqId": "744000110722240",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
+        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
+        "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
-          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge"
-        ],
         "it": [
           "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
           "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
@@ -151,13 +153,12 @@
         ],
         "de": [
           "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge"
+        ],
+        "fr": [
+          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
+          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge"
         ]
       },
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
-        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
-        "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
-      ],
       "firstSeenAt": "2026-07-03T22:53:33.321Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -170,7 +171,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-d87c3fc6ce44",
@@ -203,7 +205,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.803Z",
+      "crawledAt": "2026-07-13T12:12:50.710Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance",
@@ -222,11 +224,12 @@
       "jobReqId": "744000133017305",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
+        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
+        "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
-        ],
         "it": [
           "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
           "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
@@ -236,13 +239,12 @@
         ],
         "de": [
           "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
+        ],
+        "fr": [
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
         ]
       },
-      "previousSlugs": [
-        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
-        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
-        "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
-      ],
       "firstSeenAt": "2026-07-03T22:53:33.323Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
@@ -288,7 +290,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.789Z",
+      "crawledAt": "2026-07-13T12:12:50.704Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -335,7 +337,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-f609a8ad8590",
@@ -368,7 +371,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135223568-un-e-assistant-e-socioprofessionnel-e-cuisinier-iere-tournant-100-cdm-jusqu-au-31-decembre-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.784Z",
+      "crawledAt": "2026-07-13T12:12:50.696Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -418,91 +421,6 @@
       }
     },
     {
-      "id": "epi-geneve-c943e742815e",
-      "slug": "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
-      "slugByLocale": {
-        "it": "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
-        "en": "director-of-administration-and-finance-services-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
-        "de": "director-of-administration-and-finance-services-100-cdi-etablissements-publics-pour-l-integration-geneve",
-        "fr": "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
-      },
-      "company": "Établissements publics pour l'intégration",
-      "companyKey": "epi-geneve",
-      "companyDomain": "epi.ge.ch",
-      "title": "Une Directrice ou un Directeur des Services administration et finances, 100%, CDI",
-      "titleByLocale": {
-        "it": "Direttore Amministrazione e Finanza Servizi, 100%, CDI",
-        "en": "Director of Administration and Finance Services, 100%, CDI",
-        "de": "Director of Administration and Finance Services, 100%, CDI",
-        "fr": "Une Directrice ou un Directeur des Services administration et finances, 100%, CDI"
-      },
-      "description": "Dans votre rôle de directeur-trice de service, vous inspirez, fédérez, dirigez et faites adhérer les équipes autour d’une vision et des objectifs communs découlant de la stratégie institutionnelle et en étroite collaboration avec les directions métiers de l’Institution, vous dirigez et coordonnez l’ensemble des services qui compose cette direction, et en garantissez l’efficience des prestations fournies.\n Mission\n\n• Piloter la direction des services et en assurer la coordination.\n\n• Élaborer et mettre en œuvre les politiques financières de l’institution.\n\n• Assurer la gestion et l’analyse financière de l’ensemble des EPI.\n\n• Superviser l’élaboration des rapports financiers annuels destinés aux organes de surveillance.\n\n• Assurer la collaboration avec l’organe de révision externe et lui fournir l’appui nécessaire à la réalisation de son mandat.\n\n• En collaboration avec le-la directeur-trice général-e, préparer les auditions de la commission des finances du Grand Conseil, représenter les EPI lors de ces auditions.\n\n• Être partie prenante dans l’élaboration et le suivi des projets de loi (fonctionnement et investissement) avec l’Etat de Genève.\n\n• Identifier et obtenir les financements (publics et privés) nécessaires aux prestations et aux investissements prévus.\n\n• Participer aux négociations du contrat de prestations de l’institution.\n Activités et responsabilités principales\n Responsabilité comptable et financière des EPI :\n\n• Assurer le contrôle du patrimoine des EPI (mobilier, immobilier, équipements, outil de production) en collaboration avec les services.\n\n• Garantir l’ensemble des opérations comptables et des opérations de consolidation dans le respect de l’agenda de l’institution, des règles de l’Administration et des normes comptables.\n\n• Assurer les bouclements annuels, la publication des comptes, la consolidation des comptes dans le périmètre de l’Etat, dans le respect des consignes, des lois et des procédures du DCS et du DF.\n Responsabilité du contrôle de gestion, système de contrôle interne et du système de management qualité des EPI :\n\n• Élaborer les politiques institutionnelles, définir et garantir l’exécution de la stratégie du contrôle de gestion, du SCI et du SMQ.\n\n• Piloter le processus d’établissement et de contrôle des budgets, proposer les arbitrages nécessaires.\n\n• Développer et faire évoluer les outils de pilotage, les tableaux de bord et les indicateurs de performance afin de soutenir la prise de décision.\n\n• Piloter les exercices de prévisions financières (estimé) et formuler des recommandations permettant d'anticiper les risques et d'orienter les décisions.\n\n• Optimiser le financement des prestations des services.\n Responsabilité des achats des EPI :\n\n• Définir et garantir l’exécution de la stratégie des achats des EPI, dans le respect du droit des marchés publics.\n\n• Optimiser les actes d’achats en garantissant les meilleurs critères qualité, prix et délais d’approvisionnement.\n\n• Élaborer et faire évoluer la politique des achats.\n\n• Garantir l’exécution des appels d’offres selon les règles AIMP.\n Responsabilité de la gestion des assurances :\n\n• Garantir l'adéquation des couvertures d'assurance aux risques de l'institution.\n\n• Piloter le portefeuille des contrats d'assurance et optimiser les coûts.\n\n• Formation HES niveau master en management d’entreprise ou jugée équivalente, ou diplôme Fédéral de Spécialiste en finance et comptabilité, ou Master of science in business administration (MBA)\n\n• Expérience de 10 ans dans le domaine de la comptabilité et des finances dont 5 ans dans une fonction de direction\n\n• Expérience confirmée dans l’analyse financière, le controlling, le contrôle interne et le management qualité\n\n• Orientation « client » et résultats\n\n• Aisance dans le contact, écoute, pragmatisme et communication\n\n• Esprit de synthèse et d'analyse, sens de l'organisation et de la rigueur\n\n• Capacité à anticiper et prioriser les urgences et les besoins (bonne gestion du stress)\n\n• Respect des délais, polyvalence et disponibilité\n\n• Maîtriser les procédures et contraintes fixées par l’Etat\n\n• Excellentes qualités relationnelles avec un leadership facilitateur, mobilisateur et fédérateur\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31 août 2026\n Entrée en fonction : 1er janvier 2027 ou à convenir\n Classe de fonction : 27\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
-      "descriptionByLocale": {
-        "it": "Nel vostro ruolo di service manager, ispirate, federazioni, dirette e unite i team intorno a una visione comune e obiettivi che derivano dalla strategia istituzionale e in stretta collaborazione con le divisioni aziendali dell'istituzione, dirigete e coordinate tutti i servizi che compongono questa filiale, e assicurate che i servizi forniti siano efficienti. Missione\n• Guidare e coordinare la direzione dei servizi.\n• Sviluppare e attuare le politiche finanziarie dell'istituzione.\n• Fornire la gestione finanziaria e l'analisi di tutti i DPI.\n• Supervisione della preparazione delle relazioni finanziarie annuali per gli organismi di controllo.\n• Assicurare la collaborazione e sostenere l'organo di revisione esterno nell'adempimento del suo mandato.\n• In collaborazione con il direttore generale, preparare le audizioni del Comitato delle Finanze del Gran Consiglio, rappresentare il PPE a queste audizioni.\n• Essere coinvolti nella redazione e monitoraggio dei progetti di legge (operazione e investimento) con lo Stato di Ginevra.\n• Identificare e ottenere i finanziamenti (pubblici e privati) necessari per i benefici e gli investimenti previsti.\n• Partecipazione ai negoziati sul contratto di prestazioni dell'istituzione. Principali attività e responsabilità Responsabilità finanziaria e contabile del DPI:\n• Assicurare il controllo del patrimonio di PPE (mobilità, immobili, attrezzature, strumenti di produzione) in collaborazione con i servizi.\n• Assicurare tutte le operazioni di contabilità e consolidamento in conformità con l'agenda dell'istituzione, le norme amministrative e le norme contabili.\n• Assicurare i primi piani annuali, la pubblicazione dei conti, il consolidamento dei conti all'interno del confine di Stato, in conformità con le direttive, le leggi e le procedure del DCS e del DF. Responsabilità per il controllo della gestione, il sistema di controllo interno e il sistema di gestione della qualità PPE:\n• Sviluppare politiche istituzionali, definire e garantire l'attuazione della strategia di controllo di gestione, l'ICS e il QMS.\n• Condurre il processo di stabilire e controllare i bilanci, proporre gli arbitrati necessari.\n• Sviluppare e sviluppare strumenti di guida, dashboard e indicatori di performance per supportare il processo decisionale.\n• Esercizi di previsione finanziaria pilota (stimati) e formula raccomandazioni per anticipare i rischi e le decisioni guida.\n• Ottimizzare i finanziamenti per i servizi. Responsabilità degli appalti:\n• Definire e garantire l'attuazione della strategia di approvvigionamento per il DPI, in conformità con la legge sugli appalti pubblici.\n• Ottimizzare le azioni di acquisto garantendo i migliori criteri di qualità, prezzi e tempi di fornitura.\n• Sviluppo ed evoluzione della politica di approvvigionamento.\n• Assicurarsi che le offerte siano eseguite secondo le regole AIMP. Responsabilità per la gestione delle assicurazioni:\n• Assicurare l'adeguatezza della copertura assicurativa ai rischi dell'istituzione.\n• Pilota il portafoglio di contratti assicurativi e ottimizzare i costi.\n• HES livello master in gestione aziendale o considerato equivalente, o laurea federale in finanza e specializzazione contabile, o Master of Science in Business Administration (MBA)\n• 10 anni di esperienza in contabilità e finanza, tra cui 5 anni in gestione\n• Esperienza confermata nell'analisi finanziaria, nel controllo, nel controllo interno e nella gestione della qualità\n• L'orientamento e i risultati del cliente\n• Collegamento, ascolto, pragmatismo e comunicazione\n• Spirito di sintesi e di analisi, senso di organizzazione e rigore\n• Capacità di anticipare e dare priorità alle emergenze e alle esigenze (buona gestione dello stress)\n• Timeliness, versatilità e disponibilità\n• Padroneggiare le procedure e i vincoli stabiliti dallo Stato\n• Qualità relazionali eccellenti con la guida facilitante, mobilizzante e unificante PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato.\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 31 agosto 2026 Entrata in carica: 1° gennaio 2027 o da concordare Classe di funzionamento: 27 CONCLUSIONI DOPO SOLO Sarà CONSIDERATO (deve essere allegato: lettera di copertura, curriculum vitae, copie di diplomi e certificati/certificati di lavoro). OCE candidato / esterno: Un estratto di record criminale vuoto, così come un estratto di record criminale speciale, sarà sistematicamente richiesto per il reclutamento. In base alla direttiva trasversale \"Procedura di reclutamento in istituzioni di diritto pubblico e enti sovvenzionati - collaborazione con l'ufficio cantonale dell'occupazione\", sarà data priorità ai candidati domiciliati nel cantone di Ginevra. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
-        "en": "In your role as service manager, you inspire, federate, direct and join the teams around a common vision and objectives stemming from the institutional strategy and in close collaboration with the business divisions of the Institution, you direct and coordinate all the services that make up this branch, and ensure that the services provided are efficient. Mission\n• Lead and coordinate the direction of services.\n• Develop and implement the institution's financial policies.\n• Provide financial management and analysis of all PPE.\n• Supervise the preparation of annual financial reports for oversight bodies.\n• Ensure collaboration with and support the external review body in the fulfilment of its mandate.\n• In collaboration with the Director-General, prepare the hearings of the Finance Committee of the Grand Council, represent the PPE at these hearings.\n• Be involved in the drafting and monitoring of draft laws (operation and investment) with the State of Geneva.\n• Identify and obtain the funding (public and private) needed for the planned benefits and investments.\n• Participate in negotiations on the institution's contract of benefits. Main activities and responsibilities Financial and Accounting Responsibility of PPE:\n• Ensure control of the heritage of PPE (mobility, real estate, equipment, production tool) in collaboration with the services.\n• Ensure all accounting and consolidation operations in accordance with the institution's agenda, administrative rules and accounting standards.\n• Ensure annual close-ups, the publication of accounts, the consolidation of accounts within the State boundary, in accordance with the directives, laws and procedures of the DCS and the DF. Responsibility for management control, internal control system and PPE quality management system:\n• Develop institutional policies, define and ensure the implementation of the Management Control Strategy, the ICS and the QMS.\n• Lead the process of establishing and controlling budgets, propose the necessary arbitrations.\n• Develop and develop steering tools, dashboards and performance indicators to support decision-making.\n• Pilot financial forecasting exercises (estimated) and make recommendations to anticipate risks and guide decisions.\n• Optimize funding for services. PPE Procurement Responsibility:\n• To define and ensure the implementation of the procurement strategy for PPE, in accordance with public procurement law.\n• Optimize purchasing actions by guaranteeing the best quality criteria, prices and supply times.\n• Develop and evolve procurement policy.\n• Ensure that tenders are executed in accordance with AIMP rules. Responsibility for insurance management:\n• Ensure the adequacy of insurance coverage to the risks of the institution.\n• Pilot the portfolio of insurance contracts and optimize costs.\n• HES level master's degree in business management or deemed equivalent, or Federal degree in Finance and Accounting Specialist, or Master of Science in Business Administration (MBA)\n• 10 years' experience in accounting and finance including 5 years in management\n• Experience confirmed in financial analysis, controlling, internal control and quality management\n• Customer orientation and results\n• Connection, listening, pragmatism and communication\n• Spirit of synthesis and analysis, sense of organization and rigour\n• Ability to anticipate and prioritize emergencies and needs (good stress management)\n• Timeliness, versatility and availability\n• Mastering the procedures and constraints set by the State\n• Excellent relational qualities with facilitating, mobilizing and unifying leadership PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing education process.\n• The working conditions of the public service. Deadline for application: 31 August 2026 Entry into office: 1 January 2027 or to be agreed Function class: 27 COMPLETE CANDIDATURES ONLY WILL BE CONSIDERED (must be attached: cover letter, curriculum vitae, copies of diplomas and certificates/certificates of work). OCE candidate / External: A blank criminal record extract, as well as a special criminal record extract, will be systematically required for recruitment. Under the transversal directive \"Recruitment procedure in public law institutions and subsidized entities - collaboration with the cantonal employment office\", priority will be given to candidates domiciled in the canton of Geneva. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
-        "de": "In Ihrer Rolle als Service Manager inspirieren, verbinden, leiten und schließen Sie sich den Teams um eine gemeinsame Vision und Ziele, die sich aus der institutionellen Strategie ergeben, und in enger Zusammenarbeit mit den Geschäftsbereichen der Institution leiten und koordinieren Sie alle Dienstleistungen, die diese Branche ausmachen, und stellen sicher, dass die angebotenen Dienstleistungen effizient sind. Mission\n• Führen und koordinieren Sie die Richtung der Dienste.\n• Entwicklung und Umsetzung der Finanzpolitik der Institution.\n• Bereitstellung von Finanzmanagement und Analyse aller PSA.\n• Überwachung der Erstellung der jährlichen Finanzberichte für Aufsichtsgremien.\n• Gewährleistung der Zusammenarbeit mit dem externen Überprüfungsgremium und Unterstützung bei der Erfüllung seines Auftrags.\n• Bereiten Sie in Zusammenarbeit mit dem Generaldirektor die Anhörungen des Finanzausschusses des Großen Rates vor und vertreten Sie die PPE bei diesen Anhörungen.\n• Beteiligen Sie sich an der Ausarbeitung und Überwachung von Gesetzesentwürfen (Operation und Investition) mit dem Staat Genf.\n• Identifizieren und erhalten Sie die Finanzierung (öffentlich und privat), die für die geplanten Vorteile und Investitionen erforderlich ist.\n• Beteiligen Sie sich an den Verhandlungen über den Leistungsvertrag der Institution. Haupttätigkeiten und Zuständigkeiten Finanzielle und buchhalterische Verantwortung der PSA:\n• Gewährleistung der Kontrolle des Erbes von PSA (Mobilität, Immobilien, Ausrüstung, Produktionswerkzeug) in Zusammenarbeit mit den Diensten.\n• Gewährleistung aller Rechnungsführungs- und Konsolidierungsvorgänge im Einklang mit der Tagesordnung, den Verwaltungsvorschriften und den Rechnungslegungsstandards des Instituts.\n• Jährliche Close-ups, die Veröffentlichung von Konten, die Konsolidierung von Konten innerhalb der Staatsgrenze gemäß den Richtlinien, Gesetzen und Verfahren der DCS und der DF. Zuständigkeit für die Verwaltungskontrolle, das interne Kontrollsystem und das PSA-Qualitätsmanagementsystem:\n• Entwicklung institutioneller Strategien, Festlegung und Gewährleistung der Umsetzung der Management Control Strategy, des ICS und des QMS.\n• Führen Sie den Prozess der Einrichtung und Kontrolle von Budgets, schlagen Sie die notwendigen Schiedsverfahren vor.\n• Entwicklung und Entwicklung von Steuerungsinstrumenten, Dashboards und Leistungsindikatoren zur Unterstützung der Entscheidungsfindung.\n• Pilot-Finanzprognoseübungen (geschätzt) und geben Empfehlungen, um Risiken zu antizipieren und Entscheidungen zu leiten.\n• Optimieren Sie die Finanzierung von Dienstleistungen. PSA-Beschaffungsverantwortung:\n• Festlegung und Gewährleistung der Umsetzung der Beschaffungsstrategie für PSA im Einklang mit dem Vergaberecht.\n• Optimieren Sie Einkaufsaktionen, indem Sie die besten Qualitätskriterien, Preise und Lieferzeiten garantieren.\n• Entwicklung und Weiterentwicklung der Beschaffungspolitik.\n• Gewährleistung, dass die Ausschreibungen gemäß den AIMP-Regeln durchgeführt werden. Verantwortung für das Versicherungsmanagement:\n• Gewährleistung, dass der Versicherungsschutz den Risiken des Instituts angemessen ist.\n• Pilotieren Sie das Portfolio von Versicherungsverträgen und optimieren Sie die Kosten.\n• HES-Master-Abschluss in Business Management oder als gleichwertig angesehen, oder Federal Degree in Finance and Accounting Specialist, oder Master of Science in Business Administration (MBA)\n• 10 Jahre Erfahrung in Buchhaltung und Finanzen, davon 5 Jahre im Management\n• Erfahrung bestätigt in Finanzanalyse, Controlling, interner Kontrolle und Qualitätsmanagement\n• Kundenorientierung und Ergebnisse\n• Verbindung, Zuhören, Pragmatismus und Kommunikation\n• Geist der Synthese und Analyse, Sinn für Organisation und Strenge\n• Fähigkeit, Notfälle und Bedürfnisse zu antizipieren und zu priorisieren (gutes Stressmanagement)\n• Aktualität, Vielseitigkeit und Verfügbarkeit\n• Beherrschung der vom Staat festgelegten Verfahren und Zwänge\n• Hervorragende relationale Qualitäten mit Erleichterung, Mobilisierung und Vereinigung von Führung PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess.\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 31. August 2026 Amtsantritt: 1. Januar 2027 oder noch zu vereinbaren Funktionsklasse: 27 VOLLSTÄNDIGE KANDIDATEN SIND NUR ZU ERWÄGEN (muss beigefügt werden: Anschreiben, Lebenslauf, Kopien von Diplomen und Bescheinigungen/Arbeitsurkunden). OCE Kandidat / Extern: Ein Blankoauszug aus dem Strafregister sowie ein spezieller Strafregisterauszug werden für die Rekrutierung systematisch benötigt. Im Rahmen der Querschnittsrichtlinie \"Einstellungsverfahren in Einrichtungen des öffentlichen Rechts und geförderten Einrichtungen - Zusammenarbeit mit dem kantonalen Arbeitsamt\" werden Bewerber mit Sitz im Kanton Genf vorrangig behandelt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
-        "fr": "Dans votre rôle de directeur-trice de service, vous inspirez, fédérez, dirigez et faites adhérer les équipes autour d’une vision et des objectifs communs découlant de la stratégie institutionnelle et en étroite collaboration avec les directions métiers de l’Institution, vous dirigez et coordonnez l’ensemble des services qui compose cette direction, et en garantissez l’efficience des prestations fournies.\nMission\n\n• Piloter la direction des services et en assurer la coordination.\n\n• Élaborer et mettre en œuvre les politiques financières de l’institution.\n\n• Assurer la gestion et l’analyse financière de l’ensemble des EPI.\n\n• Superviser l’élaboration des rapports financiers annuels destinés aux organes de surveillance.\n\n• Assurer la collaboration avec l’organe de révision externe et lui fournir l’appui nécessaire à la réalisation de son mandat.\n\n• En collaboration avec le-la directeur-trice général-e, préparer les auditions de la commission des finances du Grand Conseil, représenter les EPI lors de ces auditions.\n\n• Être partie prenante dans l’élaboration et le suivi des projets de loi (fonctionnement et investissement) avec l’Etat de Genève.\n\n• Identifier et obtenir les financements (publics et privés) nécessaires aux prestations et aux investissements prévus.\n\n• Participer aux négociations du contrat de prestations de l’institution.\nActivités et responsabilités principales\nResponsabilité comptable et financière des EPI :\n\n• Assurer le contrôle du patrimoine des EPI (mobilier, immobilier, équipements, outil de production) en collaboration avec les services.\n\n• Garantir l’ensemble des opérations comptables et des opérations de consolidation dans le respect de l’agenda de l’institution, des règles de l’Administration et des normes comptables.\n\n• Assurer les bouclements annuels, la publication des comptes, la consolidation des comptes dans le périmètre de l’Etat, dans le respect des consignes, des lois et des procédures du DCS et du DF.\nResponsabilité du contrôle de gestion, système de contrôle interne et du système de management qualité des EPI :\n\n• Élaborer les politiques institutionnelles, définir et garantir l’exécution de la stratégie du contrôle de gestion, du SCI et du SMQ.\n\n• Piloter le processus d’établissement et de contrôle des budgets, proposer les arbitrages nécessaires.\n\n• Développer et faire évoluer les outils de pilotage, les tableaux de bord et les indicateurs de performance afin de soutenir la prise de décision.\n\n• Piloter les exercices de prévisions financières (estimé) et formuler des recommandations permettant d'anticiper les risques et d'orienter les décisions.\n\n• Optimiser le financement des prestations des services.\nResponsabilité des achats des EPI :\n\n• Définir et garantir l’exécution de la stratégie des achats des EPI, dans le respect du droit des marchés publics.\n\n• Optimiser les actes d’achats en garantissant les meilleurs critères qualité, prix et délais d’approvisionnement.\n\n• Élaborer et faire évoluer la politique des achats.\n\n• Garantir l’exécution des appels d’offres selon les règles AIMP.\nResponsabilité de la gestion des assurances :\n\n• Garantir l'adéquation des couvertures d'assurance aux risques de l'institution.\n\n• Piloter le portefeuille des contrats d'assurance et optimiser les coûts.\n\n• Formation HES niveau master en management d’entreprise ou jugée équivalente, ou diplôme Fédéral de Spécialiste en finance et comptabilité, ou Master of science in business administration (MBA)\n\n• Expérience de 10 ans dans le domaine de la comptabilité et des finances dont 5 ans dans une fonction de direction\n\n• Expérience confirmée dans l’analyse financière, le controlling, le contrôle interne et le management qualité\n\n• Orientation « client » et résultats\n\n• Aisance dans le contact, écoute, pragmatisme et communication\n\n• Esprit de synthèse et d'analyse, sens de l'organisation et de la rigueur\n\n• Capacité à anticiper et prioriser les urgences et les besoins (bonne gestion du stress)\n\n• Respect des délais, polyvalence et disponibilité\n\n• Maîtriser les procédures et contraintes fixées par l’Etat\n\n• Excellentes qualités relationnelles avec un leadership facilitateur, mobilisateur et fédérateur\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 31 août 2026\nEntrée en fonction : 1er janvier 2027 ou à convenir\nClasse de fonction : 27\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
-      },
-      "location": "Genève, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135741814-une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi?oga=true",
-      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.777Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Route de Chêne 48",
-      "postalCode": "1208",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135741814-une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi?oga=true",
-      "jobReqId": "744000135741814",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-etablissements-publics-pour-l-integration",
-          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
-        ],
-        "it": [
-          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve",
-          "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland"
-        ],
-        "en": [
-          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
-        ],
-        "de": [
-          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve",
-        "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-etablissements-publics-pour-l-integration",
-        "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland"
-      ],
-      "firstSeenAt": "2026-07-03T22:53:33.319Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "epi-geneve-67aa6eccbf46",
       "slug": "un-assistente-socio-educativo-appartamento-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex-ge-switzerland",
       "slugByLocale": {
@@ -533,7 +451,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135650769--un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.765Z",
+      "crawledAt": "2026-07-13T12:12:50.675Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -552,11 +470,12 @@
       "jobReqId": "744000135650769",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge",
+        "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex",
+        "un-assistente-socio-educativo-appartamento-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex-ge-switzerland"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex",
-          "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge"
-        ],
         "it": [
           "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge",
           "un-assistente-socio-educativo-appartamento-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex-ge-switzerland"
@@ -566,13 +485,12 @@
         ],
         "de": [
           "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge"
+        ],
+        "fr": [
+          "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex",
+          "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge"
         ]
       },
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-epi-geneve-thonex-ge",
-        "un-e-assistant-e-socio-educatif-tive-appartement-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex",
-        "un-assistente-socio-educativo-appartamento-mikado-80-cdi-etablissements-publics-pour-l-integration-thonex-ge-switzerland"
-      ],
       "firstSeenAt": "2026-07-03T22:53:33.301Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -586,6 +504,158 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "epi-geneve-c943e742815e",
+      "slug": "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
+      "slugByLocale": {
+        "it": "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
+        "en": "director-of-administration-and-finance-services-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
+        "de": "director-of-administration-and-finance-services-100-cdi-etablissements-publics-pour-l-integration-geneve",
+        "fr": "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Une Directrice ou un Directeur des Services administration et finances, 100%, CDI",
+      "titleByLocale": {
+        "it": "Direttore Amministrazione e Finanza Servizi, 100%, CDI",
+        "en": "Director of Administration and Finance Services, 100%, CDI",
+        "de": "Director of Administration and Finance Services, 100%, CDI",
+        "fr": "Une Directrice ou un Directeur des Services administration et finances, 100%, CDI"
+      },
+      "description": "Dans votre rôle de directeur-trice de service, vous inspirez, fédérez, dirigez et faites adhérer les équipes autour d’une vision et des objectifs communs découlant de la stratégie institutionnelle et en étroite collaboration avec les directions métiers de l’Institution, vous dirigez et coordonnez l’ensemble des services qui compose cette direction, et en garantissez l’efficience des prestations fournies.\n Mission\n\n• Piloter la direction des services et en assurer la coordination.\n\n• Élaborer et mettre en œuvre les politiques financières de l’institution.\n\n• Assurer la gestion et l’analyse financière de l’ensemble des EPI.\n\n• Superviser l’élaboration des rapports financiers annuels destinés aux organes de surveillance.\n\n• Assurer la collaboration avec l’organe de révision externe et lui fournir l’appui nécessaire à la réalisation de son mandat.\n\n• En collaboration avec le-la directeur-trice général-e, préparer les auditions de la commission des finances du Grand Conseil, représenter les EPI lors de ces auditions.\n\n• Être partie prenante dans l’élaboration et le suivi des projets de loi (fonctionnement et investissement) avec l’Etat de Genève.\n\n• Identifier et obtenir les financements (publics et privés) nécessaires aux prestations et aux investissements prévus.\n\n• Participer aux négociations du contrat de prestations de l’institution.\n Activités et responsabilités principales\n Responsabilité comptable et financière des EPI :\n\n• Assurer le contrôle du patrimoine des EPI (mobilier, immobilier, équipements, outil de production) en collaboration avec les services.\n\n• Garantir l’ensemble des opérations comptables et des opérations de consolidation dans le respect de l’agenda de l’institution, des règles de l’Administration et des normes comptables.\n\n• Assurer les bouclements annuels, la publication des comptes, la consolidation des comptes dans le périmètre de l’Etat, dans le respect des consignes, des lois et des procédures du DCS et du DF.\n Responsabilité du contrôle de gestion, système de contrôle interne et du système de management qualité des EPI :\n\n• Élaborer les politiques institutionnelles, définir et garantir l’exécution de la stratégie du contrôle de gestion, du SCI et du SMQ.\n\n• Piloter le processus d’établissement et de contrôle des budgets, proposer les arbitrages nécessaires.\n\n• Développer et faire évoluer les outils de pilotage, les tableaux de bord et les indicateurs de performance afin de soutenir la prise de décision.\n\n• Piloter les exercices de prévisions financières (estimé) et formuler des recommandations permettant d'anticiper les risques et d'orienter les décisions.\n\n• Optimiser le financement des prestations des services.\n Responsabilité des achats des EPI :\n\n• Définir et garantir l’exécution de la stratégie des achats des EPI, dans le respect du droit des marchés publics.\n\n• Optimiser les actes d’achats en garantissant les meilleurs critères qualité, prix et délais d’approvisionnement.\n\n• Élaborer et faire évoluer la politique des achats.\n\n• Garantir l’exécution des appels d’offres selon les règles AIMP.\n Responsabilité de la gestion des assurances :\n\n• Garantir l'adéquation des couvertures d'assurance aux risques de l'institution.\n\n• Piloter le portefeuille des contrats d'assurance et optimiser les coûts.\n\n• Formation HES niveau master en management d’entreprise ou jugée équivalente, ou diplôme Fédéral de Spécialiste en finance et comptabilité, ou Master of science in business administration (MBA)\n\n• Expérience de 10 ans dans le domaine de la comptabilité et des finances dont 5 ans dans une fonction de direction\n\n• Expérience confirmée dans l’analyse financière, le controlling, le contrôle interne et le management qualité\n\n• Orientation « client » et résultats\n\n• Aisance dans le contact, écoute, pragmatisme et communication\n\n• Esprit de synthèse et d'analyse, sens de l'organisation et de la rigueur\n\n• Capacité à anticiper et prioriser les urgences et les besoins (bonne gestion du stress)\n\n• Respect des délais, polyvalence et disponibilité\n\n• Maîtriser les procédures et contraintes fixées par l’Etat\n\n• Excellentes qualités relationnelles avec un leadership facilitateur, mobilisateur et fédérateur\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31 août 2026\n Entrée en fonction : 1er janvier 2027 ou à convenir\n Classe de fonction : 27\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "it": "Nel vostro ruolo di service manager, ispirate, federazioni, dirette e unite i team intorno a una visione comune e obiettivi che derivano dalla strategia istituzionale e in stretta collaborazione con le divisioni aziendali dell'istituzione, dirigete e coordinate tutti i servizi che compongono questa filiale, e assicurate che i servizi forniti siano efficienti. Missione\n• Guidare e coordinare la direzione dei servizi.\n• Sviluppare e attuare le politiche finanziarie dell'istituzione.\n• Fornire la gestione finanziaria e l'analisi di tutti i DPI.\n• Supervisione della preparazione delle relazioni finanziarie annuali per gli organismi di controllo.\n• Assicurare la collaborazione e sostenere l'organo di revisione esterno nell'adempimento del suo mandato.\n• In collaborazione con il direttore generale, preparare le audizioni del Comitato delle Finanze del Gran Consiglio, rappresentare il PPE a queste audizioni.\n• Essere coinvolti nella redazione e monitoraggio dei progetti di legge (operazione e investimento) con lo Stato di Ginevra.\n• Identificare e ottenere i finanziamenti (pubblici e privati) necessari per i benefici e gli investimenti previsti.\n• Partecipazione ai negoziati sul contratto di prestazioni dell'istituzione. Principali attività e responsabilità Responsabilità finanziaria e contabile del DPI:\n• Assicurare il controllo del patrimonio di PPE (mobilità, immobili, attrezzature, strumenti di produzione) in collaborazione con i servizi.\n• Assicurare tutte le operazioni di contabilità e consolidamento in conformità con l'agenda dell'istituzione, le norme amministrative e le norme contabili.\n• Assicurare i primi piani annuali, la pubblicazione dei conti, il consolidamento dei conti all'interno del confine di Stato, in conformità con le direttive, le leggi e le procedure del DCS e del DF. Responsabilità per il controllo della gestione, il sistema di controllo interno e il sistema di gestione della qualità PPE:\n• Sviluppare politiche istituzionali, definire e garantire l'attuazione della strategia di controllo di gestione, l'ICS e il QMS.\n• Condurre il processo di stabilire e controllare i bilanci, proporre gli arbitrati necessari.\n• Sviluppare e sviluppare strumenti di guida, dashboard e indicatori di performance per supportare il processo decisionale.\n• Esercizi di previsione finanziaria pilota (stimati) e formula raccomandazioni per anticipare i rischi e le decisioni guida.\n• Ottimizzare i finanziamenti per i servizi. Responsabilità degli appalti:\n• Definire e garantire l'attuazione della strategia di approvvigionamento per il DPI, in conformità con la legge sugli appalti pubblici.\n• Ottimizzare le azioni di acquisto garantendo i migliori criteri di qualità, prezzi e tempi di fornitura.\n• Sviluppo ed evoluzione della politica di approvvigionamento.\n• Assicurarsi che le offerte siano eseguite secondo le regole AIMP. Responsabilità per la gestione delle assicurazioni:\n• Assicurare l'adeguatezza della copertura assicurativa ai rischi dell'istituzione.\n• Pilota il portafoglio di contratti assicurativi e ottimizzare i costi.\n• HES livello master in gestione aziendale o considerato equivalente, o laurea federale in finanza e specializzazione contabile, o Master of Science in Business Administration (MBA)\n• 10 anni di esperienza in contabilità e finanza, tra cui 5 anni in gestione\n• Esperienza confermata nell'analisi finanziaria, nel controllo, nel controllo interno e nella gestione della qualità\n• L'orientamento e i risultati del cliente\n• Collegamento, ascolto, pragmatismo e comunicazione\n• Spirito di sintesi e di analisi, senso di organizzazione e rigore\n• Capacità di anticipare e dare priorità alle emergenze e alle esigenze (buona gestione dello stress)\n• Timeliness, versatilità e disponibilità\n• Padroneggiare le procedure e i vincoli stabiliti dallo Stato\n• Qualità relazionali eccellenti con la guida facilitante, mobilizzante e unificante PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato.\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 31 agosto 2026 Entrata in carica: 1° gennaio 2027 o da concordare Classe di funzionamento: 27 CONCLUSIONI DOPO SOLO Sarà CONSIDERATO (deve essere allegato: lettera di copertura, curriculum vitae, copie di diplomi e certificati/certificati di lavoro). OCE candidato / esterno: Un estratto di record criminale vuoto, così come un estratto di record criminale speciale, sarà sistematicamente richiesto per il reclutamento. In base alla direttiva trasversale \"Procedura di reclutamento in istituzioni di diritto pubblico e enti sovvenzionati - collaborazione con l'ufficio cantonale dell'occupazione\", sarà data priorità ai candidati domiciliati nel cantone di Ginevra. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
+        "en": "In your role as service manager, you inspire, federate, direct and join the teams around a common vision and objectives stemming from the institutional strategy and in close collaboration with the business divisions of the Institution, you direct and coordinate all the services that make up this branch, and ensure that the services provided are efficient. Mission\n• Lead and coordinate the direction of services.\n• Develop and implement the institution's financial policies.\n• Provide financial management and analysis of all PPE.\n• Supervise the preparation of annual financial reports for oversight bodies.\n• Ensure collaboration with and support the external review body in the fulfilment of its mandate.\n• In collaboration with the Director-General, prepare the hearings of the Finance Committee of the Grand Council, represent the PPE at these hearings.\n• Be involved in the drafting and monitoring of draft laws (operation and investment) with the State of Geneva.\n• Identify and obtain the funding (public and private) needed for the planned benefits and investments.\n• Participate in negotiations on the institution's contract of benefits. Main activities and responsibilities Financial and Accounting Responsibility of PPE:\n• Ensure control of the heritage of PPE (mobility, real estate, equipment, production tool) in collaboration with the services.\n• Ensure all accounting and consolidation operations in accordance with the institution's agenda, administrative rules and accounting standards.\n• Ensure annual close-ups, the publication of accounts, the consolidation of accounts within the State boundary, in accordance with the directives, laws and procedures of the DCS and the DF. Responsibility for management control, internal control system and PPE quality management system:\n• Develop institutional policies, define and ensure the implementation of the Management Control Strategy, the ICS and the QMS.\n• Lead the process of establishing and controlling budgets, propose the necessary arbitrations.\n• Develop and develop steering tools, dashboards and performance indicators to support decision-making.\n• Pilot financial forecasting exercises (estimated) and make recommendations to anticipate risks and guide decisions.\n• Optimize funding for services. PPE Procurement Responsibility:\n• To define and ensure the implementation of the procurement strategy for PPE, in accordance with public procurement law.\n• Optimize purchasing actions by guaranteeing the best quality criteria, prices and supply times.\n• Develop and evolve procurement policy.\n• Ensure that tenders are executed in accordance with AIMP rules. Responsibility for insurance management:\n• Ensure the adequacy of insurance coverage to the risks of the institution.\n• Pilot the portfolio of insurance contracts and optimize costs.\n• HES level master's degree in business management or deemed equivalent, or Federal degree in Finance and Accounting Specialist, or Master of Science in Business Administration (MBA)\n• 10 years' experience in accounting and finance including 5 years in management\n• Experience confirmed in financial analysis, controlling, internal control and quality management\n• Customer orientation and results\n• Connection, listening, pragmatism and communication\n• Spirit of synthesis and analysis, sense of organization and rigour\n• Ability to anticipate and prioritize emergencies and needs (good stress management)\n• Timeliness, versatility and availability\n• Mastering the procedures and constraints set by the State\n• Excellent relational qualities with facilitating, mobilizing and unifying leadership PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing education process.\n• The working conditions of the public service. Deadline for application: 31 August 2026 Entry into office: 1 January 2027 or to be agreed Function class: 27 COMPLETE CANDIDATURES ONLY WILL BE CONSIDERED (must be attached: cover letter, curriculum vitae, copies of diplomas and certificates/certificates of work). OCE candidate / External: A blank criminal record extract, as well as a special criminal record extract, will be systematically required for recruitment. Under the transversal directive \"Recruitment procedure in public law institutions and subsidized entities - collaboration with the cantonal employment office\", priority will be given to candidates domiciled in the canton of Geneva. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
+        "de": "In Ihrer Rolle als Service Manager inspirieren, verbinden, leiten und schließen Sie sich den Teams um eine gemeinsame Vision und Ziele, die sich aus der institutionellen Strategie ergeben, und in enger Zusammenarbeit mit den Geschäftsbereichen der Institution leiten und koordinieren Sie alle Dienstleistungen, die diese Branche ausmachen, und stellen sicher, dass die angebotenen Dienstleistungen effizient sind. Mission\n• Führen und koordinieren Sie die Richtung der Dienste.\n• Entwicklung und Umsetzung der Finanzpolitik der Institution.\n• Bereitstellung von Finanzmanagement und Analyse aller PSA.\n• Überwachung der Erstellung der jährlichen Finanzberichte für Aufsichtsgremien.\n• Gewährleistung der Zusammenarbeit mit dem externen Überprüfungsgremium und Unterstützung bei der Erfüllung seines Auftrags.\n• Bereiten Sie in Zusammenarbeit mit dem Generaldirektor die Anhörungen des Finanzausschusses des Großen Rates vor und vertreten Sie die PPE bei diesen Anhörungen.\n• Beteiligen Sie sich an der Ausarbeitung und Überwachung von Gesetzesentwürfen (Operation und Investition) mit dem Staat Genf.\n• Identifizieren und erhalten Sie die Finanzierung (öffentlich und privat), die für die geplanten Vorteile und Investitionen erforderlich ist.\n• Beteiligen Sie sich an den Verhandlungen über den Leistungsvertrag der Institution. Haupttätigkeiten und Zuständigkeiten Finanzielle und buchhalterische Verantwortung der PSA:\n• Gewährleistung der Kontrolle des Erbes von PSA (Mobilität, Immobilien, Ausrüstung, Produktionswerkzeug) in Zusammenarbeit mit den Diensten.\n• Gewährleistung aller Rechnungsführungs- und Konsolidierungsvorgänge im Einklang mit der Tagesordnung, den Verwaltungsvorschriften und den Rechnungslegungsstandards des Instituts.\n• Jährliche Close-ups, die Veröffentlichung von Konten, die Konsolidierung von Konten innerhalb der Staatsgrenze gemäß den Richtlinien, Gesetzen und Verfahren der DCS und der DF. Zuständigkeit für die Verwaltungskontrolle, das interne Kontrollsystem und das PSA-Qualitätsmanagementsystem:\n• Entwicklung institutioneller Strategien, Festlegung und Gewährleistung der Umsetzung der Management Control Strategy, des ICS und des QMS.\n• Führen Sie den Prozess der Einrichtung und Kontrolle von Budgets, schlagen Sie die notwendigen Schiedsverfahren vor.\n• Entwicklung und Entwicklung von Steuerungsinstrumenten, Dashboards und Leistungsindikatoren zur Unterstützung der Entscheidungsfindung.\n• Pilot-Finanzprognoseübungen (geschätzt) und geben Empfehlungen, um Risiken zu antizipieren und Entscheidungen zu leiten.\n• Optimieren Sie die Finanzierung von Dienstleistungen. PSA-Beschaffungsverantwortung:\n• Festlegung und Gewährleistung der Umsetzung der Beschaffungsstrategie für PSA im Einklang mit dem Vergaberecht.\n• Optimieren Sie Einkaufsaktionen, indem Sie die besten Qualitätskriterien, Preise und Lieferzeiten garantieren.\n• Entwicklung und Weiterentwicklung der Beschaffungspolitik.\n• Gewährleistung, dass die Ausschreibungen gemäß den AIMP-Regeln durchgeführt werden. Verantwortung für das Versicherungsmanagement:\n• Gewährleistung, dass der Versicherungsschutz den Risiken des Instituts angemessen ist.\n• Pilotieren Sie das Portfolio von Versicherungsverträgen und optimieren Sie die Kosten.\n• HES-Master-Abschluss in Business Management oder als gleichwertig angesehen, oder Federal Degree in Finance and Accounting Specialist, oder Master of Science in Business Administration (MBA)\n• 10 Jahre Erfahrung in Buchhaltung und Finanzen, davon 5 Jahre im Management\n• Erfahrung bestätigt in Finanzanalyse, Controlling, interner Kontrolle und Qualitätsmanagement\n• Kundenorientierung und Ergebnisse\n• Verbindung, Zuhören, Pragmatismus und Kommunikation\n• Geist der Synthese und Analyse, Sinn für Organisation und Strenge\n• Fähigkeit, Notfälle und Bedürfnisse zu antizipieren und zu priorisieren (gutes Stressmanagement)\n• Aktualität, Vielseitigkeit und Verfügbarkeit\n• Beherrschung der vom Staat festgelegten Verfahren und Zwänge\n• Hervorragende relationale Qualitäten mit Erleichterung, Mobilisierung und Vereinigung von Führung PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess.\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 31. August 2026 Amtsantritt: 1. Januar 2027 oder noch zu vereinbaren Funktionsklasse: 27 VOLLSTÄNDIGE KANDIDATEN SIND NUR ZU ERWÄGEN (muss beigefügt werden: Anschreiben, Lebenslauf, Kopien von Diplomen und Bescheinigungen/Arbeitsurkunden). OCE Kandidat / Extern: Ein Blankoauszug aus dem Strafregister sowie ein spezieller Strafregisterauszug werden für die Rekrutierung systematisch benötigt. Im Rahmen der Querschnittsrichtlinie \"Einstellungsverfahren in Einrichtungen des öffentlichen Rechts und geförderten Einrichtungen - Zusammenarbeit mit dem kantonalen Arbeitsamt\" werden Bewerber mit Sitz im Kanton Genf vorrangig behandelt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
+        "fr": "Dans votre rôle de directeur-trice de service, vous inspirez, fédérez, dirigez et faites adhérer les équipes autour d’une vision et des objectifs communs découlant de la stratégie institutionnelle et en étroite collaboration avec les directions métiers de l’Institution, vous dirigez et coordonnez l’ensemble des services qui compose cette direction, et en garantissez l’efficience des prestations fournies.\nMission\n\n• Piloter la direction des services et en assurer la coordination.\n\n• Élaborer et mettre en œuvre les politiques financières de l’institution.\n\n• Assurer la gestion et l’analyse financière de l’ensemble des EPI.\n\n• Superviser l’élaboration des rapports financiers annuels destinés aux organes de surveillance.\n\n• Assurer la collaboration avec l’organe de révision externe et lui fournir l’appui nécessaire à la réalisation de son mandat.\n\n• En collaboration avec le-la directeur-trice général-e, préparer les auditions de la commission des finances du Grand Conseil, représenter les EPI lors de ces auditions.\n\n• Être partie prenante dans l’élaboration et le suivi des projets de loi (fonctionnement et investissement) avec l’Etat de Genève.\n\n• Identifier et obtenir les financements (publics et privés) nécessaires aux prestations et aux investissements prévus.\n\n• Participer aux négociations du contrat de prestations de l’institution.\nActivités et responsabilités principales\nResponsabilité comptable et financière des EPI :\n\n• Assurer le contrôle du patrimoine des EPI (mobilier, immobilier, équipements, outil de production) en collaboration avec les services.\n\n• Garantir l’ensemble des opérations comptables et des opérations de consolidation dans le respect de l’agenda de l’institution, des règles de l’Administration et des normes comptables.\n\n• Assurer les bouclements annuels, la publication des comptes, la consolidation des comptes dans le périmètre de l’Etat, dans le respect des consignes, des lois et des procédures du DCS et du DF.\nResponsabilité du contrôle de gestion, système de contrôle interne et du système de management qualité des EPI :\n\n• Élaborer les politiques institutionnelles, définir et garantir l’exécution de la stratégie du contrôle de gestion, du SCI et du SMQ.\n\n• Piloter le processus d’établissement et de contrôle des budgets, proposer les arbitrages nécessaires.\n\n• Développer et faire évoluer les outils de pilotage, les tableaux de bord et les indicateurs de performance afin de soutenir la prise de décision.\n\n• Piloter les exercices de prévisions financières (estimé) et formuler des recommandations permettant d'anticiper les risques et d'orienter les décisions.\n\n• Optimiser le financement des prestations des services.\nResponsabilité des achats des EPI :\n\n• Définir et garantir l’exécution de la stratégie des achats des EPI, dans le respect du droit des marchés publics.\n\n• Optimiser les actes d’achats en garantissant les meilleurs critères qualité, prix et délais d’approvisionnement.\n\n• Élaborer et faire évoluer la politique des achats.\n\n• Garantir l’exécution des appels d’offres selon les règles AIMP.\nResponsabilité de la gestion des assurances :\n\n• Garantir l'adéquation des couvertures d'assurance aux risques de l'institution.\n\n• Piloter le portefeuille des contrats d'assurance et optimiser les coûts.\n\n• Formation HES niveau master en management d’entreprise ou jugée équivalente, ou diplôme Fédéral de Spécialiste en finance et comptabilité, ou Master of science in business administration (MBA)\n\n• Expérience de 10 ans dans le domaine de la comptabilité et des finances dont 5 ans dans une fonction de direction\n\n• Expérience confirmée dans l’analyse financière, le controlling, le contrôle interne et le management qualité\n\n• Orientation « client » et résultats\n\n• Aisance dans le contact, écoute, pragmatisme et communication\n\n• Esprit de synthèse et d'analyse, sens de l'organisation et de la rigueur\n\n• Capacité à anticiper et prioriser les urgences et les besoins (bonne gestion du stress)\n\n• Respect des délais, polyvalence et disponibilité\n\n• Maîtriser les procédures et contraintes fixées par l’Etat\n\n• Excellentes qualités relationnelles avec un leadership facilitateur, mobilisateur et fédérateur\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 31 août 2026\nEntrée en fonction : 1er janvier 2027 ou à convenir\nClasse de fonction : 27\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Genève, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135741814-une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-13T12:12:50.667Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "streetAddress": "Route de Chêne 48",
+      "postalCode": "1208",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135741814-une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi?oga=true",
+      "jobReqId": "744000135741814",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve",
+        "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-etablissements-publics-pour-l-integration",
+        "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve",
+          "direttore-amministrazione-e-finanza-servizi-100-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland"
+        ],
+        "en": [
+          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
+        ],
+        "de": [
+          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
+        ],
+        "fr": [
+          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-etablissements-publics-pour-l-integration",
+          "une-directrice-ou-un-directeur-des-services-administration-et-finances-100-cdi-epi-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:53:33.319Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-geneve-4d39709dd3e9",
+      "slug": "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+      "slugByLocale": {
+        "fr": "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+        "it": "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+        "en": "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+        "de": "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Assistant-e socio-éducatif-ve, 60%, CDI, pool E",
+      "titleByLocale": {
+        "fr": "Assistant-e socio-éducatif-ve, 60%, CDI, pool E",
+        "it": "Assistant-e socio-éducatif-ve, 60%, CDI, pool E",
+        "en": "Assistant-e socio-éducatif-ve, 60%, CDI, pool E",
+        "de": "Assistent-e socio-éducatif-ve, 60%, CDI, pool E"
+      },
+      "description": "• Accompagner des personnes présentant un TSA et des comportements défis dans leur quotidien, en mobilisant des approches adaptées et évolutives.\n\n• Co-construire et mettre en œuvre des projets d’accompagnement individualisé, en collaboration avec une équipe interdisciplinaire engagée.\n\n• Participer activement à l’expérimentation, l’évaluation et l’amélioration continue des pratiques : vous serez acteur-trice de l’innovation.\n\n• Favoriser la socialisation, les activités culturelles et les loisirs, en ouvrant les bénéficiaires vers la cité.\n\n• Apporter votre regard professionnel et créatif pour faire de ce projet une réussite collective et durable.\n\n• Pour la fonction d’assistant socio-éducatif-ve : CFC d’assistant-e socio-éducatif et reconnaissance SEFRI\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction : dès que possible\n Classe de fonction :  10\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "fr": "• Accompagner des personnes présentant un TSA et des comportements défis dans leur quotidien, en mobilisant des approches adaptées et évolutives.\n\n• Co-construire et mettre en œuvre des projets d’accompagnement individualisé, en collaboration avec une équipe interdisciplinaire engagée.\n\n• Participer activement à l’expérimentation, l’évaluation et l’amélioration continue des pratiques : vous serez acteur-trice de l’innovation.\n\n• Favoriser la socialisation, les activités culturelles et les loisirs, en ouvrant les bénéficiaires vers la cité.\n\n• Apporter votre regard professionnel et créatif pour faire de ce projet une réussite collective et durable.\n\n• Pour la fonction d’assistant socio-éducatif-ve : CFC d’assistant-e socio-éducatif et reconnaissance SEFRI\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction : dès que possible\n Classe de fonction :  10\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "it": "• Accompagner des personnes présentant un TSA et des comportements défis dans leur quotidien, en mobilisant des approches adaptées et évolutives.\n\n• Co-construire et mettre en œuvre des projets d’accompagnement individualisé, en collaboration avec une équipe interdisciplinaire engagée.\n\n• Participer activement à l’expérimentation, l’évaluation et l’amélioration continue des pratiques : vous serez acteur-trice de l’innovation.\n\n• Favoriser la socialisation, les activités culturelles et les loisirs, en ouvrant les bénéficiaires vers la cité.\n\n• Apporter votre regard professionnel et créatif pour faire de ce projet une réussite collective et durable.\n\n• Pour la fonction d’assistant socio-éducatif-ve : CFC d’assistant-e socio-éducatif et reconnaissance SEFRI\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction : dès que possible\n Classe de fonction :  10\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "en": "• Accompagner des personnes présentant un TSA et des comportements défis dans leur quotidien, en mobilisant des approches adaptées et évolutives.\n\n• Co-construire et mettre en œuvre des projets d’accompagnement individualisé, en collaboration avec une équipe interdisciplinaire engagée.\n\n• Participer activement à l’expérimentation, l’évaluation et l’amélioration continue des pratiques : vous serez acteur-trice de l’innovation.\n\n• Favoriser la socialisation, les activités culturelles et les loisirs, en ouvrant les bénéficiaires vers la cité.\n\n• Apporter votre regard professionnel et créatif pour faire de ce projet une réussite collective et durable.\n\n• Pour la fonction d’assistant socio-éducatif-ve : CFC d’assistant-e socio-éducatif et reconnaissance SEFRI\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction : dès que possible\n Classe de fonction :  10\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "de": "• Accompagner des personnes présentant un TSA et des comportements défis dans leur quotidien, en mobilisant des approches adaptées et évolutives.\n\n• Co-construire et mettre en œuvre des projets d’accompagnement individualisé, en collaboration avec une équipe interdisciplinaire engagée.\n\n• Participer activement à l’expérimentation, l’évaluation et l’amélioration continue des pratiques : vous serez acteur-trice de l’innovation.\n\n• Favoriser la socialisation, les activités culturelles et les loisirs, en ouvrant les bénéficiaires vers la cité.\n\n• Apporter votre regard professionnel et créatif pour faire de ce projet une réussite collective et durable.\n\n• Pour la fonction d’assistant socio-éducatif-ve : CFC d’assistant-e socio-éducatif et reconnaissance SEFRI\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction : dès que possible\n Classe de fonction :  10\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Collonge-Bellerive, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000137370690-assistant-e-socio-educatif-ve-60-cdi-pool-e?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-13T12:12:50.659Z",
+      "addressLocality": "Collonge-Bellerive",
+      "addressRegion": "GE",
+      "streetAddress": "Route d'Hermance 63",
+      "postalCode": "1245",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000137370690-assistant-e-socio-educatif-ve-60-cdi-pool-e?oga=true",
+      "jobReqId": "744000137370690",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-13T12:12:50.659Z"
     },
     {
       "id": "epi-geneve-613760b0e46a",
@@ -618,7 +688,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000135736379-un-e-chef-fe-de-secteur-service-a-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T21:48:45.723Z",
+      "crawledAt": "2026-07-13T12:12:50.645Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -637,11 +707,12 @@
       "jobReqId": "744000135736379",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland",
+        "un-e-chef-fe-de-secteur-service-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "capo-settore-servizio-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "un-e-chef-fe-de-secteur-service-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
-          "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland"
-        ],
         "it": [
           "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland",
           "capo-settore-servizio-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland"
@@ -651,14 +722,14 @@
         ],
         "de": [
           "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland"
+        ],
+        "fr": [
+          "un-e-chef-fe-de-secteur-service-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
+          "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland"
         ]
       },
-      "previousSlugs": [
-        "un-e-chef-fe-de-secteur-service-a-80-cdi-epi-geneve-collonge-bellerive-ge-switzerland",
-        "un-e-chef-fe-de-secteur-service-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "capo-settore-servizio-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland"
-      ],
       "firstSeenAt": "2026-07-03T22:53:33.314Z",
+      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
@@ -671,6 +742,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "epi-geneve-42ff71bfbff1",
+      "slug": "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+      "slugByLocale": {
+        "fr": "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+        "it": "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+        "en": "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+        "de": "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Plusieurs socio-éducateurs-trices et assistants-es socio-éducatifs-ves, 70-90%, Microstructure, CDI",
+      "titleByLocale": {
+        "fr": "Plusieurs socio-éducateurs-trices et assistants-es socio-éducatifs-ves, 70-90%, Microstructure, CDI",
+        "it": "Plusieurs socio-éducateurs-trices et assistants-es socio-éducatifs-ves, 70-90%, Microstructure, CDI",
+        "en": "Plusieurs socio-éducateurs-trices et assistants-es socio-éducatifs-ves, 70-90%, Microstructure, CDI",
+        "de": "Plusieurs socio-éducateurs-trices et assistants-es socio-éducatifs-ves, 70-90%, Microstructure, CDI"
+      },
+      "description": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• Profil socio-éducateur : diplôme suisse en travail social (HES) ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Profil assistant socio-éducatif : CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction :  1er septembre ou 1er octobre 2026\n Classe de fonction :  15 pour un profil socio-éducateur et 10 pour un profil assistant socio-éducatif\n Informations pratiques\n\n• Type de contrat : CDI\n\n• Taux d’activité : entre 70% et 90%\n\n• Lieu de travail : site de la Combe, Rte d’Hermance 63, 1245 Collonges-Bellerive\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site  www.epi.ge.ch",
+      "descriptionByLocale": {
+        "fr": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• Profil socio-éducateur : diplôme suisse en travail social (HES) ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Profil assistant socio-éducatif : CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction :  1er septembre ou 1er octobre 2026\n Classe de fonction :  15 pour un profil socio-éducateur et 10 pour un profil assistant socio-éducatif\n Informations pratiques\n\n• Type de contrat : CDI\n\n• Taux d’activité : entre 70% et 90%\n\n• Lieu de travail : site de la Combe, Rte d’Hermance 63, 1245 Collonges-Bellerive\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site  www.epi.ge.ch",
+        "it": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• Profil socio-éducateur : diplôme suisse en travail social (HES) ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Profil assistant socio-éducatif : CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction :  1er septembre ou 1er octobre 2026\n Classe de fonction :  15 pour un profil socio-éducateur et 10 pour un profil assistant socio-éducatif\n Informations pratiques\n\n• Type de contrat : CDI\n\n• Taux d’activité : entre 70% et 90%\n\n• Lieu de travail : site de la Combe, Rte d’Hermance 63, 1245 Collonges-Bellerive\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site  www.epi.ge.ch",
+        "en": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• Profil socio-éducateur : diplôme suisse en travail social (HES) ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Profil assistant socio-éducatif : CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction :  1er septembre ou 1er octobre 2026\n Classe de fonction :  15 pour un profil socio-éducateur et 10 pour un profil assistant socio-éducatif\n Informations pratiques\n\n• Type de contrat : CDI\n\n• Taux d’activité : entre 70% et 90%\n\n• Lieu de travail : site de la Combe, Rte d’Hermance 63, 1245 Collonges-Bellerive\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site  www.epi.ge.ch",
+        "de": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• Profil socio-éducateur : diplôme suisse en travail social (HES) ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Profil assistant socio-éducatif : CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 31  juillet 2026\n Entrée en fonction :  1er septembre ou 1er octobre 2026\n Classe de fonction :  15 pour un profil socio-éducateur et 10 pour un profil assistant socio-éducatif\n Informations pratiques\n\n• Type de contrat : CDI\n\n• Taux d’activité : entre 70% et 90%\n\n• Lieu de travail : site de la Combe, Rte d’Hermance 63, 1245 Collonges-Bellerive\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site  www.epi.ge.ch"
+      },
+      "location": "Collonge-Bellerive, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000137370479--plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90-microstructure-cdi?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-13T12:12:50.584Z",
+      "addressLocality": "Collonge-Bellerive",
+      "addressRegion": "GE",
+      "streetAddress": "Route d'Hermance 63",
+      "postalCode": "1245",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000137370479--plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90-microstructure-cdi?oga=true",
+      "jobReqId": "744000137370479",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 54500,
+      "salaryMax": 82400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54500,
+          "maxValue": 82400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-13T12:12:50.584Z"
     }
   ]
 }

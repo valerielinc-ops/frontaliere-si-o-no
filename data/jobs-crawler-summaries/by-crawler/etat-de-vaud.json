@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-12T22:25:33.350Z",
+  "generatedAt": "2026-07-13T12:43:55.722Z",
   "total": 34,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 15996,
-  "avgDurationMs": 15996,
+  "unchangedCount": 1,
+  "durationMs": 17804,
+  "avgDurationMs": 17804,
   "durationHistory": [
-    15996
+    17804
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5550",
       "slug": "tirocinante-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:15.359Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
