@@ -12,7 +12,7 @@
     "https://www.alten.ch/career/jobs/?pagenum=1&per_page=100"
   ],
   "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts CH-wide jobs (all 26 cantons) from the ALTEN Switzerland job board, keeping only rows whose location resolves to a Swiss canton.",
-  "updatedAt": "2026-07-07T16:12:14.856Z",
+  "updatedAt": "2026-07-13T13:03:43.791Z",
   "seedMetaByUrl": {
     "https://www.alten.ch/jobs/903-pipe-project-manager-it/": {
       "location": "Switzerland",
