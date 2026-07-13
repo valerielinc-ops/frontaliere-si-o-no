@@ -1081,6 +1081,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-ue.title': 'Die EU-Reform kann die Schweiz teuer zu stehen kommen',
     'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'Die Reform könnte zu höheren Kosten für die Schweiz führen',
     'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontalier ohne Arbeit mit Entschädigung',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'Wie funktioniert die zweite Säule der schweizerischen Vorsorge?',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'Alles rund um das BVG: 894 \'000 Begünstigte, Medianrente 1.744 Franken, Umwandlungssatz 6,8%. Vollständiger Leitfaden zur Pflichtsäule.',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Gebäude einer Schweizer Pensionskasse im Finanzviertel Zürich',
 };
 
 export default blogMetaChDe;

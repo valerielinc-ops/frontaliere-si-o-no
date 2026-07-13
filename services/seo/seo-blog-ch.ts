@@ -13941,6 +13941,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-previdenza-professionale-lpp-svizzera': {
+    title: 'Come funziona il secondo pilastro della previdenza svizzera',
+    description: 'Tutto sulla LPP: 894mila beneficiari, rendita mediana 1.744 franchi, aliquota conversione 6,8%. Guida completa al pilastro obbligatorio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, funziona, secondo, pilastro, previdenza',
+    ogTitle: 'Come funziona il secondo pilastro della previdenza svizze',
+    ogDescription: 'Tutto sulla LPP: 894mila beneficiari, rendita mediana 1.744 franchi, aliquota conversione 6,8%. Guida completa al pilastro obbligatorio.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-previdenza-professionale-lpp-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come funziona il secondo pilastro della previdenza svizzera",
+      "description": "Tutto sulla LPP: 894mila beneficiari, rendita mediana 1.744 franchi, aliquota conversione 6,8%. Guida completa al pilastro obbligatorio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-previdenza-professionale-lpp-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio di una cassa pensioni svizzera nel quartiere finanziario di Zurigo"
+      },
+      "datePublished": "2026-07-13T07:28:57+00:00",
+      "dateModified": "2026-07-13T07:28:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-previdenza-professionale-lpp-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

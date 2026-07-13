@@ -1081,6 +1081,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-ue.title': 'EU reform may cost Switzerland dearly',
     'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'The reform could lead to increased costs for Switzerland',
     'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontaliere disoccupato with indennity',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'How the second pillar of Swiss pension works',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'All about the LPP: 894 thousand beneficiaries, median income 1,744 francs, conversion rate 6.8%. Complete guide to the mandatory pillar.',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Swiss pension fund building in Zurich financial district',
 };
 
 export default blogMetaChEn;

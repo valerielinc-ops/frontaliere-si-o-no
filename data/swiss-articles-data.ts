@@ -3239,6 +3239,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'secondo-pilastro-previdenza-professionale-lpp-svizzera',
+    category: 'pensione',
+    date: '2026-07-13T07:28:57.819Z',
+    image: '/images/blog/secondo-pilastro-previdenza-professionale-lpp-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
