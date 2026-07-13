@@ -169,6 +169,17 @@ if [ "$SLICE_ONLY" = true ]; then
       data/translation-cache/
       data/jobs-ai-cache.json
     )
+    # Sequential callers (e.g. translate-pending.yml, cleanup-stale-jobs.yml,
+    # backfill-expired-from-history.yml) also use the isolated commit path (git
+    # plumbing, no stash/rebase) so concurrent crawler pushes to main no longer
+    # cause multi-hour retry storms that exhaust MAX_PUSH_ATTEMPTS and fail the
+    # workflow (issue #4157). The isolated path rebuilds the commit tree
+    # atomically from origin/main on every retry — the same approach used by
+    # grouped crawlers. Safe here because these callers are sequential: no
+    # sibling writers share the checkout, so the stable-base_sha invariant (that
+    # prevents grouped crawlers from accidentally 3-way-merging a sibling's
+    # not-yet-committed worktree changes as their own merge base) does not apply.
+    GROUPED_ISOLATED=true
   fi
 else
   # Legacy mode: commit all shared files (used by non-migrated crawlers).
