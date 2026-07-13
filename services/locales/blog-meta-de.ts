@@ -8457,6 +8457,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Fernarbeit im Drittland: Besteuerung von Grenzgängern',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Urlaub und Smart Working im Ausland für Grenzgänger: steuerliche Auswirkungen, KVG-Versicherungsschutz und Meldepflichten gegenüber dem Arbeitgeber.',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Luganersee mit Alpenkulisse, Darstellung der grenzüberschreitenden Fernarbeit',
+    'blog.article.svizzera-smart-working.title': 'Die Schweiz ist europäischer Marktführer im Bereich Smart Working',
+    'blog.article.svizzera-smart-working.excerpt': 'Der Anteil der Arbeitsplätze, die die Möglichkeit bieten, aus der Ferne zu arbeiten, ist im Jahr 2023 um 12,7% gestiegen',
+    'blog.article.svizzera-smart-working.imageAlt': 'Panoramablick auf Bellinzona',
 };
 
 export default blogMetaDe;
