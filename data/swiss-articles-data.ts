@@ -3266,6 +3266,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-disoccupazione-riforma-ue-costi',
+    category: 'pratico',
+    date: '2026-07-13T14:14:33.953Z',
+    image: '/images/blog/frontalieri-disoccupazione-riforma-ue-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

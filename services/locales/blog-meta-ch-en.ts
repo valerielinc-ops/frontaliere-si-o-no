@@ -1090,6 +1090,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-bicicletta-smile.title': 'Smiles for border workers, 1.7 million for border mobility',
     'blog.article.frontalieri-bicicletta-smile.excerpt': 'A project called SMILE seeks to improve mobility between the provinces of Como and Varese and the Canton of Ticino.',
     'blog.article.frontalieri-bicicletta-smile.imageAlt': 'frontalier on a bike crossing the border in Switzerland',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.title': 'Unemployed frontier workers: the EU reform costs Switzerland up to 1 billion',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.excerpt': 'Brussels has given the first green light to the reform on unemployment benefits for border workers. Switzerland may have to shell out up to CHF 1 billion more per year.',
+    'blog.article.frontalieri-disoccupazione-riforma-ue-costi.imageAlt': 'The Federal Palace in Bern, seat of Swiss Parliament, where discussions on EU reform of cross-border unemployment benefits take place',
 };
 
 export default blogMetaChEn;

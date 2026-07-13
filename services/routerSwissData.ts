@@ -386,6 +386,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'secondo-pilastro-previdenza-professionale-lpp-svizzera': { it: 'secondo-pilastro-previdenza-professionale-lpp-svizzera', en: 'how-second-pillar-occupational-pension-lpp-works', de: 'wie-zweite-saeule-berufliche-vorsorge-bvg-funktioniert', fr: 'comment-deuxieme-pilier-prevoyance-professionnelle-lpp-fonctionne' },
  'credito-imposte-estere-parametrato-al-reddito-le-casistiche': { it: 'credito-imposte-estere-parametrato-al-reddito-le-casistiche', en: 'foreign-tax-credit-parameterized-on-income', de: 'auslandsteuer-credit-parameterisiert-gegen-renten', fr: 'credit-impot-etranger-parameterise-sur-revenu' },
  'frontalieri-bicicletta-smile': { it: 'frontalieri-bicicletta-smile', en: 'frontaliers-bike-smile', de: 'frontalier-fahrrad-smile', fr: 'frontalier-velo-smile' },
+ 'frontalieri-disoccupazione-riforma-ue-costi': { it: 'frontalieri-disoccupazione-riforma-ue-costi', en: 'cross-border-workers-unemployment-reform-eu-costs', de: 'grenzgaenger-arbeitslosigkeit-eu-reform-kosten', fr: 'frontaliers-chomage-reforme-ue-couts' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
