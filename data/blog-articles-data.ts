@@ -25496,6 +25496,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-era-mega-batterie-elettriche',
+ category: 'pratico',
+ date: '2026-07-13T19:36:12.801Z',
+ image: '/images/blog/svizzera-era-mega-batterie-elettriche.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

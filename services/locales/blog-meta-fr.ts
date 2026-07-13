@@ -8486,6 +8486,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'La France fait pression sur la Suisse pour des allocations chômage frontalières',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Le ministre Farandou à l\'Assemblée nationale : la France perd 860 millions d\'euros par an avec le système actuel. L\'accord européen prévoit que les indemnités sont versées par le pays de travail.',
     'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Passage frontalier de Brogeda avec les frontaliers le matin',
+    'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Suisse : au début de l\'ère des méga-batteries',
+    'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'La Suisse renforce le réseau avec de nouvelles installations de stockage. Découvrez comment ils fonctionnent et leur impact sur le marché privé de l\'électricité.',
+    'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Installation de stockage d\'énergie en Suisse',
 };
 
 export default blogMetaFr;
