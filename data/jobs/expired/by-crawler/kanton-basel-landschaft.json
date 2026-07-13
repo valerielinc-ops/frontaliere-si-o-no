@@ -25,7 +25,7 @@
       "fr": "senior-ressources-humaines-beraterin-senior-ressources-humaines-berater-kantonale-verwaltung-basel-landschaft-liestal"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-13T12:21:28.390Z",
+    "expiredAt": "2026-07-13T11:37:41.239Z",
     "previousSlugs": [
       "senior-hr-beraterin-senior-hr-berater-kanton-basel-landschaft-liestal",
       "senior-risorse-umane-beraterin-senior-risorse-umane-berater-kantonale-verwaltung-basel-landschaft-liestal"
@@ -495,6 +495,109 @@
     },
     "postalCode": "4402",
     "streetAddress": "Bächliackerstrasse 2",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg",
+    "title": "Sozialpädagogin/Sozialpädagoge",
+    "titleByLocale": {
+      "it": "Pedagogico sociale",
+      "en": "Social Pedagogue/Social Pedagogue",
+      "de": "Sozialpädagogin/Sozialpädagoge",
+      "fr": "Pédagogue sociale/Pédagogue sociale"
+    },
+    "company": "Kantonale Verwaltung Basel-Landschaft",
+    "companyKey": "kanton-basel-landschaft",
+    "location": "Lampenberg",
+    "addressLocality": "Lampenberg",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Essi accompagnano e sostengono gli studenti: donne impegnate nell'educazione sociale quotidiana.\n• Siete attivamente coinvolti nel team, assumete la responsabilità e rappresentate la vostra opinione costruttivamente.\n• Fanno la collaborazione con i genitori professionali, aperti e fiduciosi. Requisiti\n• Hai un diploma in educazione sociale o stai cercando di ottenerlo.\n• I bambini e la loro diversità si incontrano con entusiasmo, motivazione e pazienza. La scuola Lampeberg è un affascinante, piccola scuola di villaggio. In quattro classi pluriennali, circa 60 studenti sono insegnati da un team aperto e caldo di insegnanti.",
+      "en": "Tasks:\n• They accompany and support the students: women engaged in everyday social education.\n• You are actively involved in the team, take responsibility and represent your opinion constructively.\n• They make the cooperation with parents professional, open and trusting. Requirements\n• You have a diploma in social education or are in the process of obtaining it.\n• Children and their diversity are met with enthusiasm, motivation and patience. The school Lampeberg is a charming, small village school. In four multi-year classes, around 60 students are taught by an open and warm team of teachers.",
+      "de": "Aufgaben:\n• Sie begleiten und unterstützen die Schüler:innen engagiert im sozialpädagogischen Alltag.\n\n• Sie bringen sich aktiv ins Team ein, übernehmen Verantwortung und vertreten Ihre Meinung konstruktiv.\n\n• Sie gestalten die Zusammenarbeit mit Eltern professionell, offen und vertrauensvoll.\n\nAnforderungen:\n• Sie verfügen über ein Diplom in Sozialpädagogik oder sind daran, dieses zu erwerben.\n\n• Kindern und ihrer Vielfalt begegnen Sie mit Begeisterung, Motivation und Geduld.\n\nDie Schule Lampenberg ist eine charmante, kleine Dorfschule. In vier Mehrjahrgangsklassen werden rund 60 Schüler:innen von einem offenen und herzlichen Lehrpersonenteam unterrichtet.",
+      "fr": "Tâches :\n• Ils accompagnent et soutiennent les étudiants : les femmes engagées dans l'éducation sociale quotidienne.\n• Vous participez activement à l'équipe, prenez vos responsabilités et représentez votre opinion de manière constructive.\n• Ils rendent la coopération avec les parents professionnelle, ouverte et confiante. Exigences\n• Vous avez un diplôme en éducation sociale ou êtes en train de l'obtenir.\n• Les enfants et leur diversité sont accueillis avec enthousiasme, motivation et patience. L'école Lampeberg est une charmante petite école de village. Dans quatre classes pluriannuelles, une soixantaine d'élèves sont enseignés par une équipe ouverte et chaleureuse d'enseignants."
+    },
+    "slugByLocale": {
+      "it": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg",
+      "en": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-lampenberg",
+      "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
+      "fr": "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-lampenberg"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-13T11:37:41.239Z",
+    "previousSlugs": [
+      "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
+      "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg",
+      "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg",
+        "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg"
+      ],
+      "en": [
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg"
+      ],
+      "fr": [
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg"
+      ]
+    },
+    "postalCode": "4432",
+    "streetAddress": "Hauptstrasse 46",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "berufs-studien-e-laufbahnberaterin-berufs-studien-e-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln",
+    "title": "Berufs-, Studien- und Laufbahnberaterin/Berufs-, Studien- und Laufbahnberater",
+    "titleByLocale": {
+      "it": "Berufs-, Studien- e Laufbahnberaterin/Berufs-, Studien- e Laufbahnberater",
+      "en": "Professional, study and career consultant",
+      "de": "Berufs-, Studien- und Laufbahnberaterin/Berufs-, Studien- und Laufbahnberater",
+      "fr": "Consultant professionnel, étudiant et professionnel"
+    },
+    "company": "Kantonale Verwaltung Basel-Landschaft",
+    "companyKey": "kanton-basel-landschaft",
+    "location": "Pratteln",
+    "addressLocality": "Pratteln",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Essi consigliano e informano gli adulti in questioni di pianificazione professionale, di studio e di carriera.\n• Focus del progetto federale \"Perspecta\": accompagnano le persone nel processo di riunificazione familiare e li sostengono intensamente nell'integrazione dell'istruzione e del mercato del lavoro (ad esempio nel riconoscimento dei diplomi e delle domande sulla compatibilità della famiglia e del lavoro).\n• Lavorano interdisciplinari con partner cantonali (ad esempio Ufficio per la migrazione, l'integrazione e i diritti civili, Centro per la promozione dell'integrazione, RAV). Essi specificatamente triage client per ulteriori offerte di supporto e scrivere raccomandazioni e rapporti per gli organismi specializzati.\n• Partecipano a eventi informativi e workshop di gruppo o li conducono in modo indipendente.\n• Accetti i servizi di infothek, comprese le brevi consultazioni e contribuisci alla tua esperienza nel progetto interno e nei gruppi specializzati. Requisiti\n• Hai un Master of Advanced Studies in consulenza professionale, di studio e di carriera e diversi anni di esperienza professionale in questo campo.\n• Rispondono empaticamente ai clienti e hanno forti capacità di comunicazione.\n• La cooperazione interdisciplinare con autorità e istituzioni vi dà piacere.\n• Funzionano in modo indipendente e strutturato.\n• Portano con loro la volontà di parlare davanti a gruppi. Il centro di carriera (LBZ BL) a Pratteln, tra cui il mentoring e l'ulteriore istruzione generale, è un dipartimento principale del Dipartimento di Educazione Professionale, Scuola Secondaria e Università (BMH). L'LBZ BL consiglia e informa i giovani e gli adulti su tutte le questioni di scelta professionale, scolastica e di studio, nonché sulla pianificazione della carriera e mantiene una biblioteca pubblica di informazioni. Il centro di carriera collabora con scuole, formazione pubblica e istituzioni partner e conduce consultazioni e corsi per conto di terzi.",
+      "en": "Tasks:\n• They advise and inform adults in questions of vocational, study and career planning.\n• Focus of the federal project \"Perspecta\": They accompany people in family reunification process and support them intensively in the integration of education and the labour market (e.g. in the recognition of diplomas and questions about the compatibility of family and work).\n• They work interdisciplinary with cantonal partners (e.g. Office for Migration, Integration and Civil Rights, Centre for Integration Promotion, RAV). They specifically triage clients for further support offers and write recommendations and reports for specialist bodies.\n• They participate in information events and group workshops or lead them independently.\n• You take on infothek services, including short consultations and contribute your expertise to internal project and specialist groups. Requirements\n• You have a Master of Advanced Studies in professional, study and career counselling and several years of professional experience in this field.\n• They respond empathetically to clients and have strong communication skills.\n• The interdisciplinary cooperation with authorities and institutions gives you pleasure.\n• They work independently and structured.\n• They bring with them the willingness to speak in front of groups. The career centre (LBZ BL) in Pratteln, including mentoring and general further education, is a main department of the Department of Vocational Education, Secondary Schools and Universities (BMH). The LBZ BL advises and informs young people and adults on all questions of vocational, school and study choice as well as career planning and maintains a public information library. The career centre cooperates with schools, public training and partner institutions and conducts consultations and courses on behalf of third parties.",
+      "de": "Aufgaben:\n• Sie beraten und informieren Erwachsene in Fragen der Berufs-, Studien- und Laufbahnplanung.\n\n• Schwerpunkt Bundesprojekt \"Perspecta\": Sie begleiten Menschen im Familiennachzug prozesshaft und unterstützen sie intensiv bei der Bildungs- und Arbeitsmarktintegration (u. a. bei Diplomanerkennungen sowie Fragen zur Vereinbarkeit von Familie und Beruf).\n\n• Sie arbeiten interdisziplinär mit kantonalen Partnern zusammen (z. B. Amt für Migration, Integration und Bürgerrecht, Zentrum für Integrationsförderung, RAV). Sie triagieren die Klientinnen und Klienten gezielt zu weiteren Unterstützungsangeboten und verfassen Empfehlungen sowie Berichte für Fachinstanzen.\n\n• Sie wirken bei Informationsanlässen und Gruppen-Workshops mit oder leiten diese eigenständig.\n\n• Sie übernehmen Infotheksdienste, inklusive Kurzberatungen und bringen Ihr Fachwissen in internen Projekt- und Fachgruppen ein.\n\nAnforderungen:\n• Sie haben einen Master of Advanced Studies in Berufs-, Studien- und Laufbahnberatung und mehrjährige Berufserfahrung in diesem Bereich.\n\n• Sie gehen empathisch auf Klientinnen und Klienten ein und haben ausgeprägte Kommunikationsfähigkeiten.\n\n• Die interdisziplinäre Zusammenarbeit mit Behörden und Institutionen bereitet Ihnen Freude.\n\n• Sie arbeiten selbstständig und strukturiert.\n\n• Sie bringen die Bereitschaft mit, vor Gruppen zu referieren.\n\nDas Laufbahnzentrum (LBZ BL) in Pratteln, inkl. Mentoring und allgemeine Weiterbildung, ist eine Hauptabteilung der Dienststelle Berufsbildung, Mittelschulen und Hochschulen (BMH). Das LBZ BL berät und informiert Jugendliche und Erwachsene zu allen Fragen der Berufs-, Schul- und Studienwahl sowie der Laufbahnplanung und führt eine öffentliche Infothek. Das Laufbahnzentrum arbeitet mit Schulen, öffentlichen Ausbildungs- und Partnerinstitutionen zusammen und führt Beratungen und Kurse durch im Auftrag Dritter.",
+      "fr": "Tâches :\n• Ils conseillent et informent les adultes en matière de planification professionnelle, d'études et de carrière.\n• Focus du projet fédéral Perspecta: Ils accompagnent les personnes dans le processus de regroupement familial et les soutiennent intensément dans l'intégration de l'éducation et du marché du travail (par exemple dans la reconnaissance des diplômes et des questions sur la compatibilité de la famille et du travail).\n• Ils travaillent interdisciplinairement avec des partenaires cantonaux (par exemple l'Office des migrations, de l'intégration et des droits civils, le Centre de promotion de l'intégration, RAV). Ils trient spécifiquement les clients pour d'autres offres de soutien et rédigent des recommandations et des rapports pour les organismes spécialisés.\n• Ils participent à des événements d'information et à des ateliers de groupe ou les dirigent indépendamment.\n• Vous prenez des services infothek, y compris de courtes consultations et apportez votre expertise à des groupes internes de projets et de spécialistes. Exigences\n• Vous avez une maîtrise en études supérieures en conseil professionnel, d'études et de carrière et plusieurs années d'expérience professionnelle dans ce domaine.\n• Ils répondent avec empathie aux clients et possèdent de solides compétences en communication.\n• La coopération interdisciplinaire avec les autorités et les institutions vous fait plaisir.\n• Ils travaillent de manière indépendante et structurée.\n• Ils apportent avec eux la volonté de parler devant les groupes. Le centre de carrière (LBZ BL) de Pratteln, y compris le mentorat et l'enseignement complémentaire général, est un département principal du Département de l'enseignement professionnel, des écoles secondaires et des universités (BMH). La LBZ BL conseille et informe les jeunes et les adultes sur toutes les questions de choix professionnel, scolaire et d'études ainsi que sur la planification de carrière et gère une bibliothèque d'information publique. Le centre de carrières coopère avec les écoles, la formation publique et les institutions partenaires et organise des consultations et des cours pour le compte de tiers."
+    },
+    "slugByLocale": {
+      "it": "berufs-studien-e-laufbahnberaterin-berufs-studien-e-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln",
+      "en": "professional-study-and-career-consultant-kantonale-verwaltung-basel-landschaft-pratteln",
+      "de": "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kanton-basel",
+      "fr": "consultant-professionnel-etudiant-et-professionnel-kantonale-verwaltung-basel-landschaft-pratteln"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-13T11:37:41.239Z",
+    "previousSlugs": [
+      "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kanton-basel",
+      "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln",
+      "berufs-studien-e-laufbahnberaterin-berufs-studien-e-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kanton-basel",
+        "berufs-studien-e-laufbahnberaterin-berufs-studien-e-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln"
+      ],
+      "en": [
+        "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln"
+      ],
+      "fr": [
+        "berufs-studien-und-laufbahnberaterin-berufs-studien-und-laufbahnberater-kantonale-verwaltung-basel-landschaft-pratteln"
+      ]
+    },
+    "postalCode": "4133",
+    "streetAddress": "Schlossstrasse 1",
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
