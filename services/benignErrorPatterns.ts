@@ -77,11 +77,12 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
 
   // ── User-cancelled requests (navigated away / pressed back mid-fetch) ──
-  // 211 events/3d. We never throw AbortError deliberately, so every shape is a
-  // benign cancellation. Covers WebKit "The user aborted a request.", the
-  // standard "The operation was aborted.", "signal is aborted…", and the bare
-  // DOMException "AbortError: AbortError".
-  /AbortError: (?:The user aborted a request|The operation was aborted|signal is aborted|AbortError)/i,
+  // We never throw AbortError deliberately, so every shape is a benign
+  // cancellation. Anchored at ^AbortError: so any browser variant is covered
+  // without enumerating specific messages that browsers extend over time
+  // (WebKit "The user aborted a request.", standard "The operation was
+  // aborted.", "signal is aborted without reason", bare "AbortError: AbortError").
+  /^AbortError:/i,
 
   // ── Cross-origin iframe access blocked by SOP — typically an extension ──
   /SecurityError.*Blocked a frame.*cross-origin/i,
