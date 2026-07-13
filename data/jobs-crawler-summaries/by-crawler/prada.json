@@ -1,16 +1,16 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-13T12:27:34.596Z",
+  "generatedAt": "2026-07-13T22:09:14.050Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9251,
-  "avgDurationMs": 9251,
+  "durationMs": 6697,
+  "avgDurationMs": 6697,
   "durationHistory": [
-    9251
+    6697
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/Boston-PRADA-Client-Advisor-Saks-Fifth-Avenue-Boston-MI/1393924433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:31.290Z",
+      "crawledAt": "2026-07-13T22:09:11.834Z",
       "firstSeenAt": "2026-07-12T11:51:16.754Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-13T12:27:31.991Z",
+      "crawledAt": "2026-07-13T22:09:12.284Z",
       "firstSeenAt": "2026-07-12T11:51:17.908Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:28.450Z",
+      "crawledAt": "2026-07-13T22:09:09.502Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -105,43 +105,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-b90a5bad3e34",
-      "slug": "prada-client-consulente-taichung-prada-group-taichung",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA, Client Advisor, Taichung",
-      "location": "Taichung",
-      "canton": "TI",
-      "addressLocality": "Taichung",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-11",
-      "url": "https://jobs.pradagroup.com/job/Taichung-PRADA%2C-Client-Advisor%2C-Taichung/1392153033/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-11T22:54:39.577Z",
-      "firstSeenAt": "2026-07-11T11:16:12.064Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "country": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-0906f5cb166c",
@@ -163,7 +127,7 @@
       "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-13T12:27:31.991Z",
+      "crawledAt": "2026-07-13T22:09:12.284Z",
       "firstSeenAt": "2026-07-12T11:51:17.908Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -197,7 +161,7 @@
       "url": "https://jobs.pradagroup.com/job/Boston-PRADA-Client-Advisor-Saks-Fifth-Avenue-Boston-MI/1393924433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:31.290Z",
+      "crawledAt": "2026-07-13T22:09:11.834Z",
       "firstSeenAt": "2026-07-12T11:51:16.754Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -232,7 +196,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T12:27:28.450Z",
+      "crawledAt": "2026-07-13T22:09:09.502Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "needsRetranslation": true,
       "salaryMin": 79000,
@@ -274,7 +238,7 @@
       "salaryMax": 103000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
