@@ -447,13 +447,11 @@
         "mitarbeiter-in-reinigung-allrounder-50-60-szb-chb-biel-bienne",
         "mitarbeiterin-collaboratore-trice-gastronomie-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "mitarbeiterin-mitarbeiter-gastronomie-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "mitarbeiterin-mitarbeiter-gastronomie-60-80-szb-chb-biel-bienne",
-        "collaboratore-trice-reinigung-allrounder-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "mitarbeiterin-mitarbeiter-gastronomie-60-80-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-allrounder-50-60-szb-chb-biel-bienne",
-          "collaboratore-trice-reinigung-allrounder-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "mitarbeiter-in-reinigung-allrounder-50-60-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-08T11:21:05.518Z",
@@ -596,13 +594,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hochschulpraktikant-in-hr-controlling-payroll-30-70-szb-chb-biel-bienne",
-        "hochschulpraktikant-in-hr-controlling-payroll-30-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "hochschulpraktikant-in-hr-controlling-payroll-30-70-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-hr-controlling-payroll-30-70-szb-chb-biel-bienne",
-          "hochschulpraktikant-in-hr-controlling-payroll-30-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "hochschulpraktikant-in-hr-controlling-payroll-30-70-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-10T12:03:25.093Z",
@@ -670,20 +666,16 @@
       "previousSlugsByLocale": {
         "de": [
           "facharzt-hamatologie-und-oder-onkologie-60-100-szb-chb-biel-bienne",
-          "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne",
-          "facharzt-hamatologie-und-oder-onkologie-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne"
         ],
         "it": [
           "facharzt-hamatologie-und-oder-onkologie-60-100-szb-chb-biel-bienne",
-          "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne",
-          "facharzt-hamatologie-e-o-onco-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne"
         ]
       },
       "previousSlugs": [
         "facharzt-hamatologie-und-oder-onkologie-60-100-szb-chb-biel-bienne",
-        "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne",
-        "facharzt-hamatologie-und-oder-onkologie-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "facharzt-hamatologie-e-o-onco-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "facharzt-facharztin-hamatologie-60-100-szb-chb-biel-bienne"
       ],
       "firstSeenAt": "2026-07-09T12:26:52.985Z",
       "salaryMin": 68500,
@@ -701,12 +693,12 @@
     },
     {
       "id": "szb-chb-94d9da27e645",
-      "slug": "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne",
+      "slug": "oncologia-specialistica-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne",
-        "it": "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne",
-        "en": "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne",
-        "fr": "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne"
+        "it": "oncologia-specialistica-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "specialist-oncology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "oncologie-specialisee-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -761,7 +753,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:26:33.074Z"
+      "firstSeenAt": "2026-07-12T22:26:33.074Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-onkologie-60-100-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-2bfee86c788c",

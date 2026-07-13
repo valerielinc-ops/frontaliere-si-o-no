@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stadtspital-zuerich-dd5b8f5b6962",
-      "slug": "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064",
+      "slug": "infezioni-mediche-senior-e-igiene-ospedaliera-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064",
-        "it": "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064",
-        "en": "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064",
-        "fr": "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064"
+        "it": "infezioni-mediche-senior-e-igiene-ospedaliera-stadtspital-zurich-zurich",
+        "en": "senior-physician-infectiology-hospital-hygiene-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-infectiologie-et-hygiene-hospitaliere-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -68,7 +68,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064"
+        ],
+        "en": [
+          "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-infektiologie-spitalhygiene-stadtspital-zuerich-36064"
+      ]
     },
     {
       "id": "stadtspital-zuerich-ba47a63b7319",
@@ -76,8 +90,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
         "it": "oberarztin-oberarzt-orthopala-stadtspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279",
-        "fr": "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
+        "en": "senior-doctor-practitioner-orthopaedics-stadtspital-zurich-zurich",
+        "fr": "orthopedie-de-medecin-ou-de-praticien-principal-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -140,6 +154,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
+        ],
+        "en": [
+          "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-orthopadie-stadtspital-zuerich-8279"
         ]
       },
       "previousSlugs": [
@@ -152,8 +172,8 @@
       "slugByLocale": {
         "de": "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485",
         "it": "facharzt-in-oberarzt-in-kinder-e-jugendmedizin-stadtspital-zurich",
-        "en": "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485",
-        "fr": "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485"
+        "en": "specialist-doctor-superior-doctor-in-paediatrics-and-adolescent-medicine-stadtspital-zurich-zurich",
+        "fr": "specialiste-en-pediatrie-et-medecine-des-adolescents-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -203,6 +223,12 @@
       "previousSlugsByLocale": {
         "it": [
           "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485"
+        ],
+        "en": [
+          "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485"
+        ],
+        "fr": [
+          "facharzt-in-oberarzt-in-kinder-und-jugendmedizin-stadtspital-zuerich-4485"
         ]
       },
       "previousSlugs": [
@@ -224,11 +250,11 @@
     },
     {
       "id": "stadtspital-zuerich-abfe17ccce19",
-      "slug": "z-talentpool-radiologie-stadtspital-zuerich-4680",
+      "slug": "z-talentpool-radiologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "z-talentpool-radiologie-stadtspital-zuerich-4680",
-        "it": "z-talentpool-radiologie-stadtspital-zuerich-4680",
-        "en": "z-talentpool-radiologie-stadtspital-zuerich-4680",
+        "it": "z-talentpool-radiologia-stadtspital-zurich-zurich",
+        "en": "z-talentpool-radiology-stadtspital-zurich-zurich",
         "fr": "z-talentpool-radiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -288,7 +314,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "z-talentpool-radiologie-stadtspital-zuerich-4680"
+        ],
+        "en": [
+          "z-talentpool-radiologie-stadtspital-zuerich-4680"
+        ]
+      },
+      "previousSlugs": [
+        "z-talentpool-radiologie-stadtspital-zuerich-4680"
+      ]
     },
     {
       "id": "stadtspital-zuerich-c659de1ed096",
@@ -296,8 +333,8 @@
       "slugByLocale": {
         "de": "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zuerich-4701",
         "it": "z-talentpool-dipl-pflegefachperson-per-das-nds-anasthesiepflege-stadtspital-zurich",
-        "en": "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zurich-zurich",
-        "fr": "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zurich-zurich"
+        "en": "z-talentpool-dipl-nds-anesthesia-care-professional-stadtspital-zurich-zurich",
+        "fr": "z-talentpool-dipl-nds-anesthesie-professionnel-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -347,10 +384,17 @@
       "previousSlugsByLocale": {
         "it": [
           "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zuerich-4701"
+        ],
+        "en": [
+          "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zuerich-4701"
+        "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zuerich-4701",
+        "z-talentpool-dipl-pflegefachperson-fur-das-nds-anasthesiepflege-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -436,12 +480,12 @@
     },
     {
       "id": "stadtspital-zuerich-505f286db7fc",
-      "slug": "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich",
+      "slug": "medico-senior-superior-emergenza-interdisciplinare-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zuerich-3442",
-        "it": "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich"
+        "it": "medico-senior-superior-emergenza-interdisciplinare-stadtspital-zurich-zurich",
+        "en": "senior-physician-superior-interdisciplinary-emergency-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-superior-urgence-interdisciplinaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -490,11 +534,19 @@
       "referenceNumber": "3442",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zuerich-3442"
+          "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zuerich-3442",
+          "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zuerich-3442"
+        "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zuerich-3442",
+        "oberarztin-oberarzt-interdisziplinarer-notfall-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -512,12 +564,12 @@
     },
     {
       "id": "stadtspital-zuerich-482c66bb6ce5",
-      "slug": "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich",
+      "slug": "specialista-senior-nell-amministrazione-dei-pazienti-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "senior-spezialist-in-patientenadministration-stadtspital-zuerich-50609",
-        "it": "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich",
-        "en": "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich",
-        "fr": "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich"
+        "it": "specialista-senior-nell-amministrazione-dei-pazienti-stadtspital-zurich-zurich",
+        "en": "senior-specialist-in-patient-administration-stadtspital-zurich-zurich",
+        "fr": "specialiste-principal-en-administration-des-patients-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -566,11 +618,19 @@
       "referenceNumber": "50609",
       "previousSlugsByLocale": {
         "it": [
-          "senior-spezialist-in-patientenadministration-stadtspital-zuerich-50609"
+          "senior-spezialist-in-patientenadministration-stadtspital-zuerich-50609",
+          "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-spezialist-in-patientenadministration-stadtspital-zuerich-50609"
+        "senior-spezialist-in-patientenadministration-stadtspital-zuerich-50609",
+        "senior-spezialist-in-patientenadministration-stadtspital-zurich-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -592,8 +652,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zuerich-47352",
         "it": "dipl-pflegefachperson-come-dauernachtwache-befristet-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-as-a-permanent-night-watch-temporary-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-comme-veille-de-nuit-permanente-temporaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -643,10 +703,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zuerich-47352"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zuerich-47352"
+        "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zuerich-47352",
+        "dipl-pflegefachperson-als-dauernachtwache-befristet-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -664,12 +731,12 @@
     },
     {
       "id": "stadtspital-zuerich-d00886ad8c25",
-      "slug": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
+      "slug": "segreteria-medica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-arztsekretariat-stadtspital-zuerich-49637",
-        "it": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
-        "en": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
-        "fr": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        "it": "segreteria-medica-stadtspital-zurich-zurich",
+        "en": "trainee-in-medical-secretariat-stadtspital-zurich-zurich",
+        "fr": "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -718,11 +785,19 @@
       "referenceNumber": "49637",
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-arztsekretariat-stadtspital-zuerich-49637"
+          "praktikant-in-arztsekretariat-stadtspital-zuerich-49637",
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-arztsekretariat-stadtspital-zuerich-49637"
+        "praktikant-in-arztsekretariat-stadtspital-zuerich-49637",
+        "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -740,12 +815,12 @@
     },
     {
       "id": "stadtspital-zuerich-67511454f2ec",
-      "slug": "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
+      "slug": "senior-medico-senior-medico-gastroenterology-hepatology-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zuerich-12601",
-        "it": "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        "it": "senior-medico-senior-medico-gastroenterology-hepatology-stadtspital-zurich-zurich",
+        "en": "senior-physician-senior-physician-gastroenterology-hepatology-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-medecin-principal-gastroenterologie-et-hepatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -794,11 +869,19 @@
       "referenceNumber": "12601",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zuerich-12601"
+          "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zuerich-12601",
+          "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zuerich-12601"
+        "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zuerich-12601",
+        "oberarztin-oberarzt-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -816,12 +899,12 @@
     },
     {
       "id": "stadtspital-zuerich-5a5c1bf4df7b",
-      "slug": "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962",
+      "slug": "assistente-medico-in-chirurgia-vtg-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962",
-        "it": "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962",
-        "en": "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962",
-        "fr": "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962"
+        "it": "assistente-medico-in-chirurgia-vtg-triemli-stadtspital-zurich-zurich",
+        "en": "assistant-physician-in-surgery-vtg-triemli-stadtspital-zurich-zurich",
+        "fr": "medecin-assistant-en-chirurgie-vtg-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -880,16 +963,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962"
+        ],
+        "en": [
+          "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962"
+        ],
+        "fr": [
+          "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-chirurgie-vtg-triemli-stadtspital-zuerich-13962"
+      ]
     },
     {
       "id": "stadtspital-zuerich-807f5951c384",
-      "slug": "betriebselektriker-in-stadtspital-zurich-zurich",
+      "slug": "elettricista-aziendale-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "betriebselektriker-in-stadtspital-zuerich-50590",
-        "it": "betriebselektriker-in-stadtspital-zurich-zurich",
-        "en": "betriebselektriker-in-stadtspital-zurich-zurich",
-        "fr": "betriebselektriker-in-stadtspital-zurich-zurich"
+        "it": "elettricista-aziendale-stadtspital-zurich-zurich",
+        "en": "business-electrician-stadtspital-zurich-zurich",
+        "fr": "electricien-d-affaires-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -938,11 +1035,19 @@
       "referenceNumber": "50590",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-stadtspital-zuerich-50590"
+          "betriebselektriker-in-stadtspital-zuerich-50590",
+          "betriebselektriker-in-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "betriebselektriker-in-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "betriebselektriker-in-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-in-stadtspital-zuerich-50590"
+        "betriebselektriker-in-stadtspital-zuerich-50590",
+        "betriebselektriker-in-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1036,12 +1141,12 @@
     },
     {
       "id": "stadtspital-zuerich-66530ec24de2",
-      "slug": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989",
+      "slug": "specialista-nella-manutenzione-elettrica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989",
-        "it": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989",
-        "en": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989",
-        "fr": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989"
+        "it": "specialista-nella-manutenzione-elettrica-stadtspital-zurich-zurich",
+        "en": "specialist-in-electrical-maintenance-stadtspital-zurich-zurich",
+        "fr": "specialiste-de-l-entretien-electrique-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1100,7 +1205,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989"
+        ],
+        "en": [
+          "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989"
+        ],
+        "fr": [
+          "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-49989"
+      ]
     },
     {
       "id": "stadtspital-zuerich-3744ef8645b0",
@@ -1108,8 +1227,8 @@
       "slugByLocale": {
         "de": "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970",
         "it": "oberarzt-oberarztin-per-medizinische-onkologie-stadtspital-zurich",
-        "en": "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970",
-        "fr": "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970"
+        "en": "senior-physician-for-medical-oncology-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-en-oncologie-medicale-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1159,6 +1278,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970"
+        ],
+        "en": [
+          "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-fur-medizinische-onkologie-stadtspital-zuerich-49970"
         ]
       },
       "previousSlugs": [
@@ -1184,8 +1309,8 @@
       "slugByLocale": {
         "de": "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991",
         "it": "oberarzt-oberarztin-per-hamatologie-stadtspital-zurich",
-        "en": "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991",
-        "fr": "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991"
+        "en": "senior-physician-for-hematology-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-en-hematologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1235,6 +1360,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991"
+        ],
+        "en": [
+          "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-fur-hamatologie-stadtspital-zuerich-49991"
         ]
       },
       "previousSlugs": [
@@ -1260,8 +1391,8 @@
       "slugByLocale": {
         "de": "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993",
         "it": "assistenzarzt-in-per-hamatologie-stadtspital-zurich",
-        "en": "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993",
-        "fr": "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993"
+        "en": "assistant-doctor-for-hematology-stadtspital-zurich-zurich",
+        "fr": "assistant-medecin-en-hematologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1311,6 +1442,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993"
+        ],
+        "en": [
+          "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993"
+        ],
+        "fr": [
+          "assistenzarzt-in-fur-hamatologie-stadtspital-zuerich-49993"
         ]
       },
       "previousSlugs": [
@@ -1332,12 +1469,12 @@
     },
     {
       "id": "stadtspital-zuerich-01e3babd308d",
-      "slug": "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860",
+      "slug": "assistente-medico-in-nefrologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860",
-        "it": "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860",
-        "en": "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860",
-        "fr": "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
+        "it": "assistente-medico-in-nefrologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-nephrology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-nephrologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1396,16 +1533,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.245Z"
+      "firstSeenAt": "2026-07-12T22:04:54.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
+        ],
+        "en": [
+          "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
+        ],
+        "fr": [
+          "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
+      ]
     },
     {
       "id": "stadtspital-zuerich-dfc14d024993",
-      "slug": "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-nephrology-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-nephrologie-stadtspital-zuerich-18880",
-        "it": "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-nephrology-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-nephrology-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-oa-la-nephrologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1454,11 +1605,19 @@
       "referenceNumber": "18880",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-nephrologie-stadtspital-zuerich-18880"
+          "spontanbewerbung-oa-la-nephrologie-stadtspital-zuerich-18880",
+          "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-nephrologie-stadtspital-zuerich-18880"
+        "spontanbewerbung-oa-la-nephrologie-stadtspital-zuerich-18880",
+        "spontanbewerbung-oa-la-nephrologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1476,12 +1635,12 @@
     },
     {
       "id": "stadtspital-zuerich-063df3ef4817",
-      "slug": "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818",
+      "slug": "assistente-medico-paxis-mpa-angiologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818",
-        "it": "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818",
-        "en": "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818",
-        "fr": "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818"
+        "it": "assistente-medico-paxis-mpa-angiologia-stadtspital-zurich-zurich",
+        "en": "medical-paxis-assistant-mpa-angiology-stadtspital-zurich-zurich",
+        "fr": "assistant-a-la-pratique-medicale-amp-angiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1540,16 +1699,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818"
+        ],
+        "en": [
+          "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818"
+        ],
+        "fr": [
+          "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-paxisassistent-in-mpa-angiologie-stadtspital-zuerich-45818"
+      ]
     },
     {
       "id": "stadtspital-zuerich-38a6f853d722",
-      "slug": "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
+      "slug": "training-care-hf-primavera-27-focus-esom-kjff-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zuerich-49334",
-        "it": "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
-        "en": "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
-        "fr": "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        "it": "training-care-hf-primavera-27-focus-esom-kjff-stadtspital-zurich-zurich",
+        "en": "training-care-hf-spring-27-focus-esom-kjff-stadtspital-zurich-zurich",
+        "fr": "soins-de-formation-hf-printemps-27-focus-esom-kjff-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1598,11 +1771,19 @@
       "referenceNumber": "49334",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zuerich-49334"
+          "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zuerich-49334",
+          "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zuerich-49334"
+        "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zuerich-49334",
+        "ausbildung-pflege-hf-fruhling-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1620,12 +1801,12 @@
     },
     {
       "id": "stadtspital-zuerich-999d05736fa2",
-      "slug": "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340",
+      "slug": "assistente-medico-in-ginecologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340",
-        "it": "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340",
-        "en": "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340",
-        "fr": "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
+        "it": "assistente-medico-in-ginecologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-gynecology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-gynecologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1684,16 +1865,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
+        ],
+        "en": [
+          "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
+        ],
+        "fr": [
+          "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
+      ]
     },
     {
       "id": "stadtspital-zuerich-91a217225cdd",
-      "slug": "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338",
+      "slug": "expert-expert-emergency-care-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338",
-        "it": "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338",
+        "it": "expert-expert-emergency-care-waid-stadtspital-zurich-zurich",
         "en": "expertin-experte-notfallpflege-waid-stadtspital-zurich-zurich",
-        "fr": "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338"
+        "fr": "expert-expert-soins-d-urgence-aide-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1752,7 +1947,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338"
+        ],
+        "fr": [
+          "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-notfallpflege-waid-stadtspital-zuerich-49338"
+      ]
     },
     {
       "id": "stadtspital-zuerich-d2b3052d4655",
@@ -1760,8 +1966,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital",
         "it": "dipl-pflegefachperson-hf-fh-universitare-klinik-per-altersmedizin-frei-wahlbar-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital",
-        "fr": "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital"
+        "en": "dipl-nursing-specialist-hf-fh-university-clinic-for-old-age-medicine-freely-selectable-stadtspital-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-universitaire-de-medecine-de-la-vieillesse-selection-libre"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1811,6 +2017,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-universitare-klinik-fur-altersmedizin-frei-wahlbar-stadtspital"
         ]
       },
       "previousSlugs": [
@@ -1832,12 +2044,12 @@
     },
     {
       "id": "stadtspital-zuerich-9840100120c9",
-      "slug": "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital",
+      "slug": "optista-assistente-medico-assistente-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital",
-        "it": "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital",
-        "en": "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital",
-        "fr": "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital"
+        "it": "optista-assistente-medico-assistente-medico-stadtspital-zurich-zurich",
+        "en": "optician-medical-assistant-medical-assistant-stadtspital-zurich-zurich",
+        "fr": "opticien-assistant-medical-assistant-medical-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1896,16 +2108,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital"
+        ],
+        "en": [
+          "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital"
+        ],
+        "fr": [
+          "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital"
+        ]
+      },
+      "previousSlugs": [
+        "optiker-in-medizintechnische-r-assistent-in-medizinische-r-praxisassistent-in-stadtspital"
+      ]
     },
     {
       "id": "stadtspital-zuerich-41845324a7ab",
-      "slug": "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284",
+      "slug": "assistente-medico-in-dermatologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284",
-        "it": "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284",
-        "en": "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284",
-        "fr": "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
+        "it": "assistente-medico-in-dermatologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-dermatology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-dermatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1964,16 +2190,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
+        ],
+        "en": [
+          "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
+        ],
+        "fr": [
+          "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
+      ]
     },
     {
       "id": "stadtspital-zuerich-da34dc78222b",
-      "slug": "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-dermatologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-dermatologie-stadtspital-zuerich-37287",
-        "it": "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-dermatologia-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-dermatology-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-dermatologie-oa-la-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2022,11 +2262,19 @@
       "referenceNumber": "37287",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-dermatologie-stadtspital-zuerich-37287"
+          "spontanbewerbung-oa-la-dermatologie-stadtspital-zuerich-37287",
+          "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-dermatologie-stadtspital-zuerich-37287"
+        "spontanbewerbung-oa-la-dermatologie-stadtspital-zuerich-37287",
+        "spontanbewerbung-oa-la-dermatologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2044,12 +2292,12 @@
     },
     {
       "id": "stadtspital-zuerich-c96aaf1e8083",
-      "slug": "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-in-medicina-di-emergenza-interdisciplinare-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249",
-        "it": "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich",
-        "en": "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich",
-        "fr": "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
+        "it": "assistente-medico-in-medicina-di-emergenza-interdisciplinare-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-interdisciplinary-emergency-medicine-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-medecine-d-urgence-interdisciplinaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2098,11 +2346,19 @@
       "referenceNumber": "4249",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249"
+          "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249",
+          "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249"
+        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249",
+        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2124,8 +2380,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-padiatrie-stadtspital-zuerich-50030",
         "it": "fachperson-gesundheit-efz-padiatrie-stadtspital-zuerich-50030",
-        "en": "fachperson-gesundheit-efz-padiatrie-stadtspital-zuerich-50030",
-        "fr": "fachperson-gesundheit-efz-padiatrie-stadtspital-zuerich-50030"
+        "en": "health-professional-efz-paediatrics-stadtspital-zurich-zurich",
+        "fr": "pediatrie-efz-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2188,12 +2444,12 @@
     },
     {
       "id": "stadtspital-zuerich-8cb20ff501a1",
-      "slug": "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-chirurgia-cardiaca-trieml-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zuerich-11781",
-        "it": "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-chirurgia-cardiaca-trieml-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-heart-surgery-trieml-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-oa-la-chirurgie-cardiaque-trieml-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2242,11 +2498,19 @@
       "referenceNumber": "11781",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zuerich-11781"
+          "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zuerich-11781",
+          "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zuerich-11781"
+        "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zuerich-11781",
+        "spontanbewerbung-oa-la-herzchirurgie-trieml-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2264,12 +2528,12 @@
     },
     {
       "id": "stadtspital-zuerich-f4fb67ff970f",
-      "slug": "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-assistente-medico-straniero-anno-cardiochirurgia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zuerich-11764",
-        "it": "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich"
+        "it": "assistente-medico-assistente-medico-straniero-anno-cardiochirurgia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-assistant-doctor-foreign-year-heart-surgery-stadtspital-zurich-zurich",
+        "fr": "assistant-medecin-assistant-medecin-annee-etrangere-chirurgie-cardiaque-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2318,11 +2582,19 @@
       "referenceNumber": "11764",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zuerich-11764"
+          "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zuerich-11764",
+          "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zuerich-11764"
+        "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zuerich-11764",
+        "assistenzarztin-assistenzarzt-fremdjahr-herzchirurgie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2340,12 +2612,12 @@
     },
     {
       "id": "stadtspital-zuerich-32f400420a70",
-      "slug": "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132",
+      "slug": "assistente-medico-nella-clinica-oculare-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132",
-        "it": "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132",
-        "en": "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132",
-        "fr": "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132"
+        "it": "assistente-medico-nella-clinica-oculare-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-eye-clinic-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-clinique-oculaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2404,7 +2676,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132"
+        ],
+        "en": [
+          "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132"
+        ],
+        "fr": [
+          "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-augenklinik-stadtspital-zuerich-14132"
+      ]
     },
     {
       "id": "stadtspital-zuerich-5a2b061390bf",
@@ -2412,8 +2698,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
+        "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2463,10 +2749,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
+        ],
+        "en": [
+          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
+        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
+        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2484,12 +2777,12 @@
     },
     {
       "id": "stadtspital-zuerich-b5f339037696",
-      "slug": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220",
+      "slug": "specialista-di-chirurgia-sanitaria-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220",
-        "it": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220",
-        "en": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220",
-        "fr": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220"
+        "it": "specialista-di-chirurgia-sanitaria-stadtspital-zurich-zurich",
+        "en": "health-surgery-specialist-stadtspital-zurich-zurich",
+        "fr": "specialiste-de-la-chirurgie-de-la-sante-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2548,16 +2841,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220"
+        ],
+        "en": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220"
+        ],
+        "fr": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-chirurgie-stadtspital-zuerich-45220"
+      ]
     },
     {
       "id": "stadtspital-zuerich-24c2950125f3",
-      "slug": "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-radiologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-radiologie-stadtspital-zuerich-4596",
-        "it": "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-radiologia-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-radiology-stadtspital-zurich-zurich",
+        "fr": "demande-spontanee-oa-la-radiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2606,11 +2913,19 @@
       "referenceNumber": "4596",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-radiologie-stadtspital-zuerich-4596"
+          "spontanbewerbung-oa-la-radiologie-stadtspital-zuerich-4596",
+          "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-radiologie-stadtspital-zuerich-4596"
+        "spontanbewerbung-oa-la-radiologie-stadtspital-zuerich-4596",
+        "spontanbewerbung-oa-la-radiologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2632,8 +2947,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital",
         "it": "dipl-pflegefachpersonen-e-fachpersonen-gesundheit-per-unseren-pflegepool-stadtspital-zurich",
-        "en": "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital",
-        "fr": "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital"
+        "en": "dipl-nurses-and-health-professionals-for-our-care-pool-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmieres-et-professionnels-de-la-sante-pour-notre-bassin-de-soins-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2683,6 +2998,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital"
+        ],
+        "en": [
+          "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital"
+        ],
+        "fr": [
+          "dipl-pflegefachpersonen-und-fachpersonen-gesundheit-fur-unseren-pflegepool-stadtspital"
         ]
       },
       "previousSlugs": [
@@ -2708,7 +3029,7 @@
       "slugByLocale": {
         "de": "praktikant-in-hr-schwerpunkt-friendly-work-space-zertifizierung-stadtspital-zuerich-50654",
         "it": "praktikant-in-hr-schwerpunkt-friendly-work-space-zertifizierung-stadtspital-zuerich-50654",
-        "en": "praktikant-in-hr-schwerpunkt-friendly-work-space-zertifizierung-stadtspital-zuerich-50654",
+        "en": "intern-hr-focus-on-friendly-work-space-certification-stadtspital-zurich-zurich",
         "fr": "praktikant-in-hr-schwerpunkt-friendly-work-space-zertifizierung-stadtspital-zuerich-50654"
       },
       "company": "Stadtspital Zürich",
@@ -2772,12 +3093,12 @@
     },
     {
       "id": "stadtspital-zuerich-791a3b8a5aa5",
-      "slug": "fachperson-operationstechnik-stadtspital-zurich-zurich",
+      "slug": "tecnologia-chirurgica-specialistica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-operationstechnik-stadtspital-zuerich-50648",
-        "it": "fachperson-operationstechnik-stadtspital-zurich-zurich",
-        "en": "fachperson-operationstechnik-stadtspital-zurich-zurich",
-        "fr": "fachperson-operationstechnik-stadtspital-zurich-zurich"
+        "it": "tecnologia-chirurgica-specialistica-stadtspital-zurich-zurich",
+        "en": "specialist-surgical-technology-stadtspital-zurich-zurich",
+        "fr": "technologie-chirurgicale-specialisee-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2826,11 +3147,19 @@
       "referenceNumber": "50648",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-operationstechnik-stadtspital-zuerich-50648"
+          "fachperson-operationstechnik-stadtspital-zuerich-50648",
+          "fachperson-operationstechnik-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "fachperson-operationstechnik-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-operationstechnik-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-operationstechnik-stadtspital-zuerich-50648"
+        "fachperson-operationstechnik-stadtspital-zuerich-50648",
+        "fachperson-operationstechnik-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2852,8 +3181,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation",
         "it": "dipl-pflegefachperson-con-zusatzaufgabe-come-tagesbezugsperson-per-la-ausbildungsstation-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation",
-        "fr": "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation"
+        "en": "dipl-nurse-with-additional-task-as-a-day-care-provider-for-the-training-station-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-ayant-une-tache-supplementaire-en-tant-que-prestataire-de-garderie-pour-le-poste-de-formation"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2903,6 +3232,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-zusatzaufgabe-als-tagesbezugsperson-fur-die-ausbildungsstation"
         ]
       },
       "previousSlugs": [
@@ -2928,8 +3263,8 @@
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-ausbildungsstation-mit-waidsicht-stadtspital-zuerich-50003",
         "it": "berufsbildner-in-pflege-ausbildungsstation-mit-waidsicht-stadtspital-zurich-zurich",
-        "en": "berufsbildner-in-pflege-ausbildungsstation-mit-waidsicht-stadtspital-zurich-zurich",
-        "fr": "berufsbildner-in-pflege-ausbildungsstation-mit-waidsicht-stadtspital-zurich-zurich"
+        "en": "vocational-trainer-in-nursing-training-station-with-waid-vision-stadtspital-zurich-zurich",
+        "fr": "entraineur-professionnel-au-poste-de-formation-infirmiere-avec-vision-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3000,12 +3335,12 @@
     },
     {
       "id": "stadtspital-zuerich-394e6c0f52b6",
-      "slug": "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962",
+      "slug": "senior-medico-senior-medico-oftalmologia-strabologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962",
-        "it": "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962",
-        "en": "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962",
-        "fr": "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962"
+        "it": "senior-medico-senior-medico-oftalmologia-strabologia-stadtspital-zurich-zurich",
+        "en": "senior-physician-senior-physician-ophthalmology-strabology-stadtspital-zurich-zurich",
+        "fr": "medecin-superieur-medecin-superieur-ophtalmologie-stratologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3064,16 +3399,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ophthalmologie-strabologie-stadtspital-zuerich-49962"
+      ]
     },
     {
       "id": "stadtspital-zuerich-8c66d21f8b7f",
-      "slug": "talentpool-ernahrungsberatung-stadtspital-zurich-zurich",
+      "slug": "talent-pool-consulenza-nutrizionale-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "talentpool-ernahrungsberatung-stadtspital-zuerich-40331",
-        "it": "talentpool-ernahrungsberatung-stadtspital-zurich-zurich",
-        "en": "talentpool-ernahrungsberatung-stadtspital-zurich-zurich",
-        "fr": "talentpool-ernahrungsberatung-stadtspital-zurich-zurich"
+        "it": "talent-pool-consulenza-nutrizionale-stadtspital-zurich-zurich",
+        "en": "talent-pool-nutritional-advice-stadtspital-zurich-zurich",
+        "fr": "conseils-nutritionnels-en-piscine-de-talents-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3122,11 +3471,19 @@
       "referenceNumber": "40331",
       "previousSlugsByLocale": {
         "it": [
-          "talentpool-ernahrungsberatung-stadtspital-zuerich-40331"
+          "talentpool-ernahrungsberatung-stadtspital-zuerich-40331",
+          "talentpool-ernahrungsberatung-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "talentpool-ernahrungsberatung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "talentpool-ernahrungsberatung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "talentpool-ernahrungsberatung-stadtspital-zuerich-40331"
+        "talentpool-ernahrungsberatung-stadtspital-zuerich-40331",
+        "talentpool-ernahrungsberatung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3144,12 +3501,12 @@
     },
     {
       "id": "stadtspital-zuerich-f36c655373d8",
-      "slug": "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201",
+      "slug": "oftalmologia-del-medico-superiore-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201",
-        "it": "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201",
-        "en": "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201",
-        "fr": "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201"
+        "it": "oftalmologia-del-medico-superiore-stadtspital-zurich-zurich",
+        "en": "superior-physician-ophthalmology-stadtspital-zurich-zurich",
+        "fr": "medecin-superieur-ophtalmologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3208,16 +3565,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ophthalmologie-stadtspital-zuerich-14201"
+      ]
     },
     {
       "id": "stadtspital-zuerich-46454e50df26",
-      "slug": "praktikant-in-pflege-stadtspital-zuerich-3441",
+      "slug": "allenamento-in-allattamento-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-pflege-stadtspital-zuerich-3441",
-        "it": "praktikant-in-pflege-stadtspital-zuerich-3441",
-        "en": "praktikant-in-pflege-stadtspital-zuerich-3441",
-        "fr": "praktikant-in-pflege-stadtspital-zuerich-3441"
+        "it": "allenamento-in-allattamento-stadtspital-zurich-zurich",
+        "en": "trainee-in-nursing-stadtspital-zurich-zurich",
+        "fr": "stage-en-soins-infirmiers-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3276,16 +3647,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-stadtspital-zuerich-3441"
+        ],
+        "en": [
+          "praktikant-in-pflege-stadtspital-zuerich-3441"
+        ],
+        "fr": [
+          "praktikant-in-pflege-stadtspital-zuerich-3441"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-stadtspital-zuerich-3441"
+      ]
     },
     {
       "id": "stadtspital-zuerich-0252f7924a49",
-      "slug": "ernahrungsberater-in-svde-stadtspital-zurich-zurich",
+      "slug": "nutrizionista-in-svde-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "ernahrungsberater-in-svde-stadtspital-zuerich-50642",
-        "it": "ernahrungsberater-in-svde-stadtspital-zurich-zurich",
-        "en": "ernahrungsberater-in-svde-stadtspital-zurich-zurich",
-        "fr": "ernahrungsberater-in-svde-stadtspital-zurich-zurich"
+        "it": "nutrizionista-in-svde-stadtspital-zurich-zurich",
+        "en": "nutritionist-in-svde-stadtspital-zurich-zurich",
+        "fr": "nutritionniste-en-svde-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3334,11 +3719,19 @@
       "referenceNumber": "50642",
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-svde-stadtspital-zuerich-50642"
+          "ernahrungsberater-in-svde-stadtspital-zuerich-50642",
+          "ernahrungsberater-in-svde-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "ernahrungsberater-in-svde-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "ernahrungsberater-in-svde-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-in-svde-stadtspital-zuerich-50642"
+        "ernahrungsberater-in-svde-stadtspital-zuerich-50642",
+        "ernahrungsberater-in-svde-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3439,7 +3832,7 @@
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-notfallstation-mit-mscn-clinical-nurse-specialist-stadtspital",
         "it": "pflegeexpertin-pflegeexperte-notfallstation-mit-mscn-clinical-nurse-specialist-stadtspital",
-        "en": "pflegeexpertin-pflegeexperte-notfallstation-mit-mscn-clinical-nurse-specialist-stadtspital",
+        "en": "care-expert-emergency-department-with-mscn-clinical-nurse-specialist-stadtspital-zurich-zurich",
         "fr": "pflegeexpertin-pflegeexperte-notfallstation-mit-mscn-clinical-nurse-specialist-stadtspital"
       },
       "company": "Stadtspital Zürich",
@@ -3503,12 +3896,12 @@
     },
     {
       "id": "stadtspital-zuerich-f597df812971",
-      "slug": "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371",
+      "slug": "modulo-di-tirocinio-c-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371",
-        "it": "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371",
-        "en": "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371",
-        "fr": "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371"
+        "it": "modulo-di-tirocinio-c-stadtspital-zurich-zurich",
+        "en": "internship-module-c-student-care-stadtspital-zurich-zurich",
+        "fr": "module-sur-les-stages-c-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3567,16 +3960,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371"
+        ],
+        "en": [
+          "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371"
+        ],
+        "fr": [
+          "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-modul-c-studierende-pflege-stadtspital-zuerich-3371"
+      ]
     },
     {
       "id": "stadtspital-zuerich-3f3e616b31d6",
-      "slug": "sap-sachbereichsleitung-stadtspital-zurich-zurich",
+      "slug": "gestione-delle-divisioni-sap-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "sap-sachbereichsleitung-stadtspital-zuerich-50399",
-        "it": "sap-sachbereichsleitung-stadtspital-zurich-zurich",
-        "en": "sap-sachbereichsleitung-stadtspital-zurich-zurich",
-        "fr": "sap-sachbereichsleitung-stadtspital-zurich-zurich"
+        "it": "gestione-delle-divisioni-sap-stadtspital-zurich-zurich",
+        "en": "sap-division-management-stadtspital-zurich-zurich",
+        "fr": "gestion-de-la-division-sap-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3625,11 +4032,19 @@
       "referenceNumber": "50399",
       "previousSlugsByLocale": {
         "it": [
-          "sap-sachbereichsleitung-stadtspital-zuerich-50399"
+          "sap-sachbereichsleitung-stadtspital-zuerich-50399",
+          "sap-sachbereichsleitung-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "sap-sachbereichsleitung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "sap-sachbereichsleitung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sap-sachbereichsleitung-stadtspital-zuerich-50399"
+        "sap-sachbereichsleitung-stadtspital-zuerich-50399",
+        "sap-sachbereichsleitung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3647,12 +4062,12 @@
     },
     {
       "id": "stadtspital-zuerich-894f2fe9334e",
-      "slug": "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich",
+      "slug": "internship-in-ammissione-dei-pazienti-e-garanzia-dei-costi-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zuerich-50121",
-        "it": "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich",
-        "en": "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich",
-        "fr": "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich"
+        "it": "internship-in-ammissione-dei-pazienti-e-garanzia-dei-costi-stadtspital-zurich-zurich",
+        "en": "internship-in-patient-admission-cost-assurance-stadtspital-zurich-zurich",
+        "fr": "stage-dans-l-admission-des-patients-et-assurance-des-couts-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3701,11 +4116,19 @@
       "referenceNumber": "50121",
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zuerich-50121"
+          "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zuerich-50121",
+          "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zuerich-50121"
+        "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zuerich-50121",
+        "praktikant-in-patientenaufnahme-kostensicherung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3723,12 +4146,12 @@
     },
     {
       "id": "stadtspital-zuerich-fb521aac24ae",
-      "slug": "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
+      "slug": "assistente-medico-in-oncologia-medica-medici-dim-oncologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
-        "it": "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
-        "en": "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
-        "fr": "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343"
+        "it": "assistente-medico-in-oncologia-medica-medici-dim-oncologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-medical-oncology-doctors-dim-oncology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-oncologie-medicale-medecins-dim-oncologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3787,16 +4210,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343"
+        ],
+        "en": [
+          "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343"
+        ],
+        "fr": [
+          "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343"
+      ]
     },
     {
       "id": "stadtspital-zuerich-ee9c8b1d2196",
-      "slug": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich",
+      "slug": "dipl-infermieristica-clinica-femminile-concentrarsi-sul-letto-post-partum-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718",
-        "it": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich"
+        "it": "dipl-infermieristica-clinica-femminile-concentrarsi-sul-letto-post-partum-stadtspital-zurich-zurich",
+        "en": "dipl-nursing-specialist-women-s-clinic-focus-on-postpartum-bed-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-specialiste-clinique-pour-femmes-se-concentrer-sur-le-lit-post-partum-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3845,11 +4282,19 @@
       "referenceNumber": "45718",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718"
+          "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718",
+          "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718"
+        "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718",
+        "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3867,12 +4312,12 @@
     },
     {
       "id": "stadtspital-zuerich-02a77a351f43",
-      "slug": "praktikant-in-frauenklinik-stadtspital-zuerich-47801",
+      "slug": "stage-in-clinica-femminile-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-frauenklinik-stadtspital-zuerich-47801",
-        "it": "praktikant-in-frauenklinik-stadtspital-zuerich-47801",
-        "en": "praktikant-in-frauenklinik-stadtspital-zuerich-47801",
-        "fr": "praktikant-in-frauenklinik-stadtspital-zuerich-47801"
+        "it": "stage-in-clinica-femminile-stadtspital-zurich-zurich",
+        "en": "internship-in-women-s-clinic-stadtspital-zurich-zurich",
+        "fr": "stages-a-la-clinique-pour-femmes-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3931,16 +4376,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-frauenklinik-stadtspital-zuerich-47801"
+        ],
+        "en": [
+          "praktikant-in-frauenklinik-stadtspital-zuerich-47801"
+        ],
+        "fr": [
+          "praktikant-in-frauenklinik-stadtspital-zuerich-47801"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-frauenklinik-stadtspital-zuerich-47801"
+      ]
     },
     {
       "id": "stadtspital-zuerich-b56ce3bd8275",
-      "slug": "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922",
+      "slug": "assistente-medico-in-cardiologia-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922",
-        "it": "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922",
-        "en": "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922",
-        "fr": "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
+        "it": "assistente-medico-in-cardiologia-triemli-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-cardiology-triemli-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-cardiologie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3999,16 +4458,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
+        ],
+        "en": [
+          "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
+        ],
+        "fr": [
+          "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
+      ]
     },
     {
       "id": "stadtspital-zuerich-739a9604b185",
-      "slug": "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
+      "slug": "formazione-hf-autunno-26-focus-esom-kjff-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zuerich-47482",
-        "it": "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
-        "en": "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
-        "fr": "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        "it": "formazione-hf-autunno-26-focus-esom-kjff-stadtspital-zurich-zurich",
+        "en": "training-care-hf-autumn-26-focus-esom-kjff-stadtspital-zurich-zurich",
+        "fr": "soins-de-formation-hf-automne-26-focus-esom-kjff-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4057,11 +4530,19 @@
       "referenceNumber": "47482",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zuerich-47482"
+          "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zuerich-47482",
+          "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zuerich-47482"
+        "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zuerich-47482",
+        "ausbildung-pflege-hf-herbst-26-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4079,12 +4560,12 @@
     },
     {
       "id": "stadtspital-zuerich-aab53156cb31",
-      "slug": "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383",
+      "slug": "medico-principale-nefrode-medico-capo-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383",
-        "it": "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383",
-        "en": "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383",
-        "fr": "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383"
+        "it": "medico-principale-nefrode-medico-capo-stadtspital-zurich-zurich",
+        "en": "chief-physician-chief-physician-nephrology-stadtspital-zurich-zurich",
+        "fr": "medecin-chef-medecin-chef-nephrologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4143,16 +4624,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383"
+        ],
+        "en": [
+          "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-nephrologie-stadtspital-zuerich-50383"
+      ]
     },
     {
       "id": "stadtspital-zuerich-70241ee1bffd",
-      "slug": "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich",
+      "slug": "formazione-per-per-il-dipl-tecnologia-chirurgica-specialistica-hf-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zuerich-34792",
-        "it": "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich",
-        "en": "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich-zurich",
-        "fr": "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich-zurich"
+        "it": "formazione-per-per-il-dipl-tecnologia-chirurgica-specialistica-hf-stadtspital-zurich-zurich",
+        "en": "training-for-for-the-dipl-specialist-surgical-technology-hf-stadtspital-zurich-zurich",
+        "fr": "formation-pour-pour-le-dipl-technologie-chirurgicale-specialisee-hf-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4201,11 +4696,20 @@
       "referenceNumber": "34792",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zuerich-34792"
+          "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zuerich-34792",
+          "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich"
+        ],
+        "en": [
+          "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zuerich-34792"
+        "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zuerich-34792",
+        "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich",
+        "ausbildung-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4223,12 +4727,12 @@
     },
     {
       "id": "stadtspital-zuerich-54d5f38bfe10",
-      "slug": "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121",
+      "slug": "assistente-medico-in-medicina-interna-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121",
-        "it": "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121",
-        "en": "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121",
-        "fr": "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121"
+        "it": "assistente-medico-in-medicina-interna-triemli-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-internal-medicine-triemli-stadtspital-zurich-zurich",
+        "fr": "assistant-medecin-en-medecine-interne-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4287,16 +4791,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121"
+        ],
+        "en": [
+          "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121"
+        ],
+        "fr": [
+          "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-innere-medizin-triemli-stadtspital-zuerich-13121"
+      ]
     },
     {
       "id": "stadtspital-zuerich-9b99c8acbf9d",
-      "slug": "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160",
+      "slug": "assistente-medico-in-medicina-interna-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160",
-        "it": "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160",
-        "en": "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160",
-        "fr": "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160"
+        "it": "assistente-medico-in-medicina-interna-waid-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-internal-medicine-waid-stadtspital-zurich-zurich",
+        "fr": "assistant-medecin-en-medecine-interne-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4355,16 +4873,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160"
+        ],
+        "en": [
+          "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160"
+        ],
+        "fr": [
+          "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-innere-medizin-waid-stadtspital-zuerich-13160"
+      ]
     },
     {
       "id": "stadtspital-zuerich-cd579bee6799",
-      "slug": "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-medicina-interna-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zuerich-13161",
-        "it": "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-medicina-interna-waid-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-internal-medicine-waid-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-oa-la-medecine-interne-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4413,11 +4945,19 @@
       "referenceNumber": "13161",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zuerich-13161"
+          "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zuerich-13161",
+          "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zuerich-13161"
+        "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zuerich-13161",
+        "spontanbewerbung-oa-la-innere-medizin-waid-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4439,8 +4979,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-chirurgie-mit-waidsicht-stadtspital-zuerich-50102",
         "it": "dipl-pflegefachperson-chirurgie-mit-waidsicht-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-chirurgie-mit-waidsicht-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-chirurgie-mit-waidsicht-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-with-waid-vision-surgery-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-avec-chirurgie-de-la-vue-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4515,8 +5055,8 @@
       "slugByLocale": {
         "de": "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zuerich-49747",
         "it": "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zurich-zurich",
-        "en": "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zurich-zurich",
-        "fr": "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zurich-zurich"
+        "en": "intern-in-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich",
+        "fr": "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-b8b29b"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4587,12 +5127,12 @@
     },
     {
       "id": "stadtspital-zuerich-1c67372dd0bb",
-      "slug": "expertin-experte-intensivpflege-stadtspital-zuerich-49759",
+      "slug": "expert-expert-intensive-care-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "expertin-experte-intensivpflege-stadtspital-zuerich-49759",
-        "it": "expertin-experte-intensivpflege-stadtspital-zuerich-49759",
+        "it": "expert-expert-intensive-care-stadtspital-zurich-zurich",
         "en": "expertin-experte-intensivpflege-stadtspital-zurich-zurich",
-        "fr": "expertin-experte-intensivpflege-stadtspital-zuerich-49759"
+        "fr": "expert-expert-soins-intensifs-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4651,7 +5191,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-intensivpflege-stadtspital-zuerich-49759"
+        ],
+        "fr": [
+          "expertin-experte-intensivpflege-stadtspital-zuerich-49759"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-intensivpflege-stadtspital-zuerich-49759"
+      ]
     },
     {
       "id": "stadtspital-zuerich-57a9814fc3be",
@@ -4659,8 +5210,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984",
         "it": "fachperson-gesundheit-universitare-klinik-per-altersmedizin-stadtspital-zurich",
-        "en": "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984",
-        "fr": "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984"
+        "en": "specialist-health-university-clinic-for-old-age-medicine-stadtspital-zurich-zurich",
+        "fr": "clinique-universitaire-specialisee-en-medecine-de-la-vieillesse-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4710,6 +5261,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984"
+        ],
+        "en": [
+          "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984"
+        ],
+        "fr": [
+          "fachperson-gesundheit-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-47984"
         ]
       },
       "previousSlugs": [
@@ -4735,8 +5292,8 @@
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zuerich-48318",
         "it": "dipl-physiotherapeut-in-per-la-klinik-innere-medizin-stadtspital-zurich",
-        "en": "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zurich-zurich",
-        "fr": "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zurich-zurich"
+        "en": "dipl-physiotherapist-for-the-internal-medicine-clinic-stadtspital-zurich-zurich",
+        "fr": "dipl-physiotherapeute-de-la-clinique-de-medecine-interne-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4786,10 +5343,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zuerich-48318"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zuerich-48318"
+        "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zuerich-48318",
+        "dipl-physiotherapeut-in-fur-die-klinik-innere-medizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4807,12 +5371,12 @@
     },
     {
       "id": "stadtspital-zuerich-fbd674b0ddca",
-      "slug": "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642",
+      "slug": "assistente-medico-in-medicina-di-vecchiaia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642",
-        "it": "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642",
-        "en": "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642",
-        "fr": "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642"
+        "it": "assistente-medico-in-medicina-di-vecchiaia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-old-age-medicine-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-medecine-de-vieillesse-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4871,7 +5435,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642"
+        ],
+        "en": [
+          "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642"
+        ],
+        "fr": [
+          "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-altersmedizin-stadtspital-zuerich-14642"
+      ]
     },
     {
       "id": "stadtspital-zuerich-9204018ed23c",
@@ -4879,8 +5457,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643",
         "it": "oberarztin-oberarzt-universitare-klinik-per-altersmedizin-stadtspital-zurich",
-        "en": "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643",
-        "fr": "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643"
+        "en": "senior-physician-oberarzt-universitare-klinik-fur-altermedizin-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-oberarzt-universitare-klinik-fur-altermedizin-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4930,6 +5508,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643"
+        ],
+        "en": [
+          "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-14643"
         ]
       },
       "previousSlugs": [
@@ -4951,12 +5535,12 @@
     },
     {
       "id": "stadtspital-zuerich-4d96381e3b2e",
-      "slug": "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660",
+      "slug": "assistente-medico-in-reumatologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660",
-        "it": "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660",
-        "en": "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660",
-        "fr": "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
+        "it": "assistente-medico-in-reumatologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-rheumatology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-rhumatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5015,16 +5599,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
+        ],
+        "en": [
+          "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
+        ],
+        "fr": [
+          "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
+      ]
     },
     {
       "id": "stadtspital-zuerich-dca180026b40",
-      "slug": "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-rheumatologie-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-rheumatologie-stadtspital-zuerich-14661",
-        "it": "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-rheumatologie-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-rheumatologie-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-oa-la-rheumatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5073,11 +5671,19 @@
       "referenceNumber": "14661",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-rheumatologie-stadtspital-zuerich-14661"
+          "spontanbewerbung-oa-la-rheumatologie-stadtspital-zuerich-14661",
+          "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-rheumatologie-stadtspital-zuerich-14661"
+        "spontanbewerbung-oa-la-rheumatologie-stadtspital-zuerich-14661",
+        "spontanbewerbung-oa-la-rheumatologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5095,12 +5701,12 @@
     },
     {
       "id": "stadtspital-zuerich-19586c278dbf",
-      "slug": "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zurich",
+      "slug": "assistente-capo-del-dipartimento-delle-operazioni-scienza-informatica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482",
-        "it": "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zurich",
-        "en": "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482",
-        "fr": "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482"
+        "it": "assistente-capo-del-dipartimento-delle-operazioni-scienza-informatica-stadtspital-zurich-zurich",
+        "en": "assistant-head-of-department-of-operations-computer-science-stadtspital-zurich-zurich",
+        "fr": "chef-adjoint-du-departement-des-operations-et-de-l-informatique-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5149,11 +5755,19 @@
       "referenceNumber": "50482",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482",
+          "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zurich"
+        ],
+        "en": [
+          "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482"
+        ],
+        "fr": [
           "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482"
         ]
       },
       "previousSlugs": [
-        "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482"
+        "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zuerich-50482",
+        "assistent-in-leiter-departement-betrieb-informatik-stadtspital-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -5171,12 +5785,12 @@
     },
     {
       "id": "stadtspital-zuerich-6e6078db4cc2",
-      "slug": "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-medicina-nucleare-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zuerich-46094",
-        "it": "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich"
+        "it": "assistente-medico-medicina-nucleare-stadtspital-zurich-zurich",
+        "en": "assistant-physician-nuclear-medicine-stadtspital-zurich-zurich",
+        "fr": "medecin-adjoint-en-medecine-nucleaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5225,11 +5839,19 @@
       "referenceNumber": "46094",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zuerich-46094"
+          "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zuerich-46094",
+          "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zuerich-46094"
+        "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zuerich-46094",
+        "assistenzarztin-assistenzarzt-nuklearmedizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5247,12 +5869,12 @@
     },
     {
       "id": "stadtspital-zuerich-31f585d57f8b",
-      "slug": "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095",
+      "slug": "medicina-nucleare-senior-superior-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095",
-        "it": "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095",
-        "en": "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095",
-        "fr": "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095"
+        "it": "medicina-nucleare-senior-superior-stadtspital-zurich-zurich",
+        "en": "senior-physician-superior-nuclear-medicine-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-medecine-nucleaire-superieure-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5311,16 +5933,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095"
+        ],
+        "en": [
+          "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-nuklearmedizin-stadtspital-zuerich-46095"
+      ]
     },
     {
       "id": "stadtspital-zuerich-4c3d2c4653a3",
-      "slug": "reinigungspool-stadtspital-zuerich-43059",
+      "slug": "piscina-per-le-pulizie-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungspool-stadtspital-zuerich-43059",
-        "it": "reinigungspool-stadtspital-zuerich-43059",
-        "en": "reinigungspool-stadtspital-zuerich-43059",
-        "fr": "reinigungspool-stadtspital-zuerich-43059"
+        "it": "piscina-per-le-pulizie-stadtspital-zurich-zurich",
+        "en": "cleaning-pool-stadtspital-zurich-zurich",
+        "fr": "piscine-de-nettoyage-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5379,16 +6015,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.243Z"
+      "firstSeenAt": "2026-07-12T22:04:54.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reinigungspool-stadtspital-zuerich-43059"
+        ],
+        "en": [
+          "reinigungspool-stadtspital-zuerich-43059"
+        ],
+        "fr": [
+          "reinigungspool-stadtspital-zuerich-43059"
+        ]
+      },
+      "previousSlugs": [
+        "reinigungspool-stadtspital-zuerich-43059"
+      ]
     },
     {
       "id": "stadtspital-zuerich-34c474c1887e",
-      "slug": "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich",
+      "slug": "dipl-medicina-professionale-infermieristica-liberamente-selezionabile-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zuerich-45804",
-        "it": "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich"
+        "it": "dipl-medicina-professionale-infermieristica-liberamente-selezionabile-stadtspital-zurich-zurich",
+        "en": "dipl-nursing-professional-medicine-freely-selectable-stadtspital-zurich-zurich",
+        "fr": "dipl-medecine-professionnelle-infirmiere-selection-libre-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5437,11 +6087,19 @@
       "referenceNumber": "45804",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zuerich-45804"
+          "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zuerich-45804",
+          "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zuerich-45804"
+        "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zuerich-45804",
+        "dipl-pflegefachperson-medizin-frei-wahlbar-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5463,8 +6121,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-mit-schwerpunkt-brustbildgebung-stadtspital-zuerich-50480",
         "it": "oberarztin-oberarzt-radiologie-mit-schwerpunkt-brustbildgebung-stadtspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-radiologie-mit-schwerpunkt-brustbildgebung-stadtspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-radiologie-mit-schwerpunkt-brustbildgebung-stadtspital-zurich-zurich"
+        "en": "senior-physician-senior-physician-radiology-with-a-focus-on-breast-imaging-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-medecin-principal-radiologie-avec-un-accent-sur-l-imagerie-mammaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5535,12 +6193,12 @@
     },
     {
       "id": "stadtspital-zuerich-a896134b61df",
-      "slug": "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-ua-gastroenterology-hepatology-role-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zuerich-37835",
-        "it": "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich",
-        "en": "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich",
-        "fr": "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-ua-gastroenterology-hepatology-role-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-ua-gastroenterology-hepatology-role-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-role-de-la-gastroenterologie-et-de-l-hepatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5589,11 +6247,19 @@
       "referenceNumber": "37835",
       "previousSlugsByLocale": {
         "it": [
-          "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zuerich-37835"
+          "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zuerich-37835",
+          "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zuerich-37835"
+        "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zuerich-37835",
+        "vorlagespontanbewerbung-ua-gastroenterologie-hepatologierolle-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5611,12 +6277,12 @@
     },
     {
       "id": "stadtspital-zuerich-a5c9a495cff2",
-      "slug": "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162",
+      "slug": "assistente-di-medicina-interna-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162",
-        "it": "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162",
-        "en": "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162",
-        "fr": "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162"
+        "it": "assistente-di-medicina-interna-waid-stadtspital-zurich-zurich",
+        "en": "assistant-internal-medicine-waid-stadtspital-zurich-zurich",
+        "fr": "assistant-en-medecine-interne-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5675,7 +6341,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162"
+        ],
+        "en": [
+          "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162"
+        ],
+        "fr": [
+          "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-innen-innere-medizin-waid-stadtspital-zuerich-40162"
+      ]
     },
     {
       "id": "stadtspital-zuerich-2237920b9d12",
@@ -5683,8 +6363,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-innere-medizin-mit-waidsicht-stadtspital-zuerich-47841",
         "it": "fachperson-gesundheit-innere-medizin-mit-waidsicht-stadtspital-zuerich-47841",
-        "en": "fachperson-gesundheit-innere-medizin-mit-waidsicht-stadtspital-zuerich-47841",
-        "fr": "fachperson-gesundheit-innere-medizin-mit-waidsicht-stadtspital-zuerich-47841"
+        "en": "health-internal-medicine-with-waid-vision-stadtspital-zurich-zurich",
+        "fr": "medecine-interne-sante-avec-vision-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5747,12 +6427,12 @@
     },
     {
       "id": "stadtspital-zuerich-7fb0c08fa1ec",
-      "slug": "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich",
+      "slug": "dipl-infermiera-medicina-interna-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-innere-medizin-stadtspital-zuerich-50450",
-        "it": "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich"
+        "it": "dipl-infermiera-medicina-interna-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-internal-medicine-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-en-medecine-interne-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5801,11 +6481,19 @@
       "referenceNumber": "50450",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-innere-medizin-stadtspital-zuerich-50450"
+          "dipl-pflegefachperson-innere-medizin-stadtspital-zuerich-50450",
+          "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-innere-medizin-stadtspital-zuerich-50450"
+        "dipl-pflegefachperson-innere-medizin-stadtspital-zuerich-50450",
+        "dipl-pflegefachperson-innere-medizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5823,12 +6511,12 @@
     },
     {
       "id": "stadtspital-zuerich-928302cad23b",
-      "slug": "gruppenleiter-in-op-services-stadtspital-zuerich-50792",
+      "slug": "leader-del-gruppo-nei-servizi-op-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "gruppenleiter-in-op-services-stadtspital-zuerich-50792",
-        "it": "gruppenleiter-in-op-services-stadtspital-zuerich-50792",
-        "en": "gruppenleiter-in-op-services-stadtspital-zuerich-50792",
-        "fr": "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
+        "it": "leader-del-gruppo-nei-servizi-op-stadtspital-zurich-zurich",
+        "en": "group-leader-in-op-services-stadtspital-zurich-zurich",
+        "fr": "chef-de-groupe-dans-les-services-op-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5887,7 +6575,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
+        ],
+        "en": [
+          "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
+        ],
+        "fr": [
+          "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
+      ]
     },
     {
       "id": "stadtspital-zuerich-38b063535c97",
@@ -5895,8 +6597,8 @@
       "slugByLocale": {
         "de": "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784",
         "it": "leiter-in-endokrinologie-e-diabetologie-stadtspital-zurich",
-        "en": "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784",
-        "fr": "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784"
+        "en": "head-of-endocrinology-and-diabetology-stadtspital-zurich-zurich",
+        "fr": "chef-de-l-endocrinologie-et-de-la-diabeteologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5946,6 +6648,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784"
+        ],
+        "en": [
+          "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784"
+        ],
+        "fr": [
+          "leiter-in-endokrinologie-und-diabetologie-stadtspital-zuerich-50784"
         ]
       },
       "previousSlugs": [
@@ -5967,12 +6675,12 @@
     },
     {
       "id": "stadtspital-zuerich-7eac3805b572",
-      "slug": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790",
+      "slug": "segretario-del-dottore-in-chirurgia-cardiaca-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790",
-        "it": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790",
-        "en": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790",
-        "fr": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790"
+        "it": "segretario-del-dottore-in-chirurgia-cardiaca-stadtspital-zurich-zurich",
+        "en": "doctor-s-secretary-in-cardiac-surgery-stadtspital-zurich-zurich",
+        "fr": "secretaire-du-docteur-en-chirurgie-cardiaque-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6031,16 +6739,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790"
+        ],
+        "en": [
+          "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790"
+        ],
+        "fr": [
+          "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-herzchirurgie-stadtspital-zuerich-50790"
+      ]
     },
     {
       "id": "stadtspital-zuerich-5447fe11a4d8",
-      "slug": "z-talentpool-frauenklinik-hebamme-stadtspital-zurich-zurich",
+      "slug": "z-talentpool-clinica-femminile-midwife-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348",
-        "it": "z-talentpool-frauenklinik-hebamme-stadtspital-zurich-zurich",
-        "en": "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348",
-        "fr": "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348"
+        "it": "z-talentpool-clinica-femminile-midwife-stadtspital-zurich-zurich",
+        "en": "z-talentpool-women-s-clinic-midwife-stadtspital-zurich-zurich",
+        "fr": "z-talentpool-clinique-pour-femmes-sage-femme-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6089,11 +6811,19 @@
       "referenceNumber": "9348",
       "previousSlugsByLocale": {
         "it": [
+          "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348",
+          "z-talentpool-frauenklinik-hebamme-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348"
+        ],
+        "fr": [
           "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348"
         ]
       },
       "previousSlugs": [
-        "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348"
+        "z-talentpool-frauenklinik-hebamme-stadtspital-zuerich-9348",
+        "z-talentpool-frauenklinik-hebamme-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6115,8 +6845,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich",
         "it": "assistent-in-gesundheit-e-soziales-per-la-innere-medizin-triemli-stadtspital-zurich",
-        "en": "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich",
-        "fr": "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich"
+        "en": "assistant-health-and-social-affairs-for-internal-medicine-triemli-stadtspital-zurich-zurich",
+        "fr": "assistant-a-la-sante-et-aux-affaires-sociales-pour-la-medecine-interne-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6166,6 +6896,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich"
         ]
       },
       "previousSlugs": [
@@ -6191,8 +6927,8 @@
       "slugByLocale": {
         "de": "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281",
         "it": "assistenzarzt-in-orthopala-hand-e-unfallchirurgie-stadtspital-zurich",
-        "en": "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich",
-        "fr": "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
+        "en": "assistant-doctor-in-orthopaedics-hand-and-accident-surgery-stadtspital-zurich-zurich",
+        "fr": "medecin-adjoint-en-orthopedie-chirurgie-des-mains-et-des-accidents-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6242,10 +6978,17 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281"
+        ],
+        "en": [
+          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281"
+        "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281",
+        "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6263,12 +7006,12 @@
     },
     {
       "id": "stadtspital-zuerich-bf995757b3ce",
-      "slug": "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207",
+      "slug": "assistente-medico-in-chirurgia-vtg-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207",
-        "it": "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207",
-        "en": "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207",
-        "fr": "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207"
+        "it": "assistente-medico-in-chirurgia-vtg-waid-stadtspital-zurich-zurich",
+        "en": "assistant-physician-in-surgery-vtg-waid-stadtspital-zurich-zurich",
+        "fr": "medecin-assistant-en-chirurgie-vtg-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6327,16 +7070,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207"
+        ],
+        "en": [
+          "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207"
+        ],
+        "fr": [
+          "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-chirurgie-vtg-waid-stadtspital-zuerich-18207"
+      ]
     },
     {
       "id": "stadtspital-zuerich-9ef172ef1797",
-      "slug": "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-vtg-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-vtg-waid-stadtspital-zuerich-18209",
-        "it": "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-vtg-waid-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-vtg-waid-stadtspital-zurich-zurich",
+        "fr": "demande-spontanee-oa-la-vtg-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6385,11 +7142,19 @@
       "referenceNumber": "18209",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-vtg-waid-stadtspital-zuerich-18209"
+          "spontanbewerbung-oa-la-vtg-waid-stadtspital-zuerich-18209",
+          "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-vtg-waid-stadtspital-zuerich-18209"
+        "spontanbewerbung-oa-la-vtg-waid-stadtspital-zuerich-18209",
+        "spontanbewerbung-oa-la-vtg-waid-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6407,12 +7172,12 @@
     },
     {
       "id": "stadtspital-zuerich-938010a8e698",
-      "slug": "assistenzarzt-in-neurologie-stadtspital-zuerich-12002",
+      "slug": "assistente-medico-in-neurologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-neurologie-stadtspital-zuerich-12002",
-        "it": "assistenzarzt-in-neurologie-stadtspital-zuerich-12002",
-        "en": "assistenzarzt-in-neurologie-stadtspital-zuerich-12002",
-        "fr": "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
+        "it": "assistente-medico-in-neurologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-neurology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-neurologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6471,16 +7236,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
+        ],
+        "en": [
+          "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
+        ],
+        "fr": [
+          "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
+      ]
     },
     {
       "id": "stadtspital-zuerich-3e4bcccfe201",
-      "slug": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020",
+      "slug": "medico-senior-superior-neurologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020",
-        "it": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020",
-        "en": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020",
-        "fr": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020"
+        "it": "medico-senior-superior-neurologia-stadtspital-zurich-zurich",
+        "en": "senior-physician-superior-neurology-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-neurologie-superieure-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6539,16 +7318,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurologie-stadtspital-zuerich-12020"
+      ]
     },
     {
       "id": "stadtspital-zuerich-7719ea3e92ea",
-      "slug": "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich",
+      "slug": "anestesiologia-del-medico-senior-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesiologie-stadtspital-zuerich-12041",
-        "it": "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich"
+        "it": "anestesiologia-del-medico-senior-stadtspital-zurich-zurich",
+        "en": "senior-physician-anesthesiology-stadtspital-zurich-zurich",
+        "fr": "anesthesiologie-du-medecin-principal-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6597,11 +7390,19 @@
       "referenceNumber": "12041",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-anasthesiologie-stadtspital-zuerich-12041"
+          "oberarztin-oberarzt-anasthesiologie-stadtspital-zuerich-12041",
+          "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-anasthesiologie-stadtspital-zuerich-12041"
+        "oberarztin-oberarzt-anasthesiologie-stadtspital-zuerich-12041",
+        "oberarztin-oberarzt-anasthesiologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6623,8 +7424,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zuerich-16860",
         "it": "dipl-pflegefachperson-hf-fh-per-das-nds-hf-notfallpflege-triemli-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-hf-fh-for-nds-hf-emergency-care-triemli-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-hf-fh-pour-nds-hf-soins-d-urgence-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6674,10 +7475,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zuerich-16860"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zuerich-16860"
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zuerich-16860",
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-triemli-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6699,8 +7507,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736",
         "it": "fachperson-gesundheit-come-stationskoordinator-in-frauenklinik-stadtspital-zurich",
-        "en": "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zurich-zurich",
-        "fr": "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zurich-zurich"
+        "en": "specialist-health-as-station-coordinator-in-women-s-clinic-stadtspital-zurich-zurich",
+        "fr": "specialiste-de-la-sante-en-tant-que-coordonnateur-de-poste-dans-la-clinique-pour-femmes-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6750,10 +7558,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736"
+        ],
+        "en": [
+          "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736"
+        "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736",
+        "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6771,12 +7586,12 @@
     },
     {
       "id": "stadtspital-zuerich-dab30e70f7a0",
-      "slug": "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508",
+      "slug": "assistente-medico-in-pediatria-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508",
-        "it": "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508",
-        "en": "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508",
-        "fr": "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
+        "it": "assistente-medico-in-pediatria-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-pediatrics-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-pediatrie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6835,7 +7650,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.242Z"
+      "firstSeenAt": "2026-07-12T22:04:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
+        ],
+        "en": [
+          "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
+        ],
+        "fr": [
+          "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
+      ]
     },
     {
       "id": "stadtspital-zuerich-b212917eff31",
@@ -6843,8 +7672,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zuerich-3481",
         "it": "dipl-pflegefachperson-hf-fh-per-das-nds-hf-intensivpflege-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-hf-fh-for-nds-hf-intensive-care-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-hf-fh-pour-les-soins-intensifs-nds-hf-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6894,10 +7723,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zuerich-3481"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zuerich-3481"
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zuerich-3481",
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-intensivpflege-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6919,8 +7755,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zuerich-36109",
         "it": "dipl-pflegefachperson-hf-fh-per-das-nds-hf-notfallpflege-waid-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-hf-fh-for-the-nds-hf-emergency-care-waid-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-hf-fh-pour-le-nds-hf-secours-d-urgence-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6970,10 +7806,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zuerich-36109"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zuerich-36109"
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zuerich-36109",
+        "dipl-pflegefachperson-hf-fh-fur-das-nds-hf-notfallpflege-waid-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6991,12 +7834,12 @@
     },
     {
       "id": "stadtspital-zuerich-e55717fe89eb",
-      "slug": "op-disponent-in-stadtspital-zurich",
+      "slug": "op-speditore-in-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "op-disponent-in-stadtspital-zuerich-50881",
-        "it": "op-disponent-in-stadtspital-zurich",
-        "en": "op-disponent-in-stadtspital-zuerich-50881",
-        "fr": "op-disponent-in-stadtspital-zuerich-50881"
+        "it": "op-speditore-in-stadtspital-zurich-zurich",
+        "en": "op-dispatcher-in-stadtspital-zurich-zurich",
+        "fr": "expediteur-op-en-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7045,11 +7888,19 @@
       "referenceNumber": "50881",
       "previousSlugsByLocale": {
         "it": [
+          "op-disponent-in-stadtspital-zuerich-50881",
+          "op-disponent-in-stadtspital-zurich"
+        ],
+        "en": [
+          "op-disponent-in-stadtspital-zuerich-50881"
+        ],
+        "fr": [
           "op-disponent-in-stadtspital-zuerich-50881"
         ]
       },
       "previousSlugs": [
-        "op-disponent-in-stadtspital-zuerich-50881"
+        "op-disponent-in-stadtspital-zuerich-50881",
+        "op-disponent-in-stadtspital-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7071,8 +7922,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-abwaschkuche-stadtspital-zuerich-50889",
         "it": "collaboratore-trice-abwaschkuche-stadtspital-zurich",
-        "en": "mitarbeiter-abwaschkuche-stadtspital-zurich-zurich",
-        "fr": "mitarbeiter-abwaschkuche-stadtspital-zurich-zurich"
+        "en": "employees-dishwashing-stadtspital-zurich-zurich",
+        "fr": "les-employes-lavent-la-vaisselle-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7122,10 +7973,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-abwaschkuche-stadtspital-zuerich-50889"
+        ],
+        "en": [
+          "mitarbeiter-abwaschkuche-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-abwaschkuche-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-abwaschkuche-stadtspital-zuerich-50889"
+        "mitarbeiter-abwaschkuche-stadtspital-zuerich-50889",
+        "mitarbeiter-abwaschkuche-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7147,8 +8005,8 @@
       "slugByLocale": {
         "de": "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878",
         "it": "fachexpert-in-case-management-e-bettenmanager-in-stadtspital-zurich",
-        "en": "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878",
-        "fr": "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878"
+        "en": "expert-case-management-and-bed-manager-stadtspital-zurich-zurich",
+        "fr": "experte-en-gestion-de-cas-et-gestionnaire-de-lit-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7198,6 +8056,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878"
+        ],
+        "en": [
+          "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878"
+        ],
+        "fr": [
+          "fachexpert-in-case-management-und-bettenmanager-in-stadtspital-zuerich-50878"
         ]
       },
       "previousSlugs": [
@@ -7223,8 +8087,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192",
         "it": "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192",
-        "en": "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192",
-        "fr": "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192"
+        "en": "health-neonatology-efz-stadtspital-zurich-zurich",
+        "fr": "sante-neonatologie-efz-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7287,12 +8151,12 @@
     },
     {
       "id": "stadtspital-zuerich-40396ac67ecc",
-      "slug": "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich",
+      "slug": "interno-presso-la-segreteria-medica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517",
-        "it": "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich",
-        "en": "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich",
-        "fr": "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich"
+        "it": "interno-presso-la-segreteria-medica-stadtspital-zurich-zurich",
+        "en": "intern-at-the-medical-secretariat-stadtspital-zurich-zurich",
+        "fr": "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-4104a5"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7341,11 +8205,19 @@
       "referenceNumber": "50517",
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517"
+          "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517",
+          "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517"
+        "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517",
+        "praktikantin-im-arztsekretariat-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7363,12 +8235,12 @@
     },
     {
       "id": "stadtspital-zuerich-10d778eae262",
-      "slug": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
+      "slug": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
-        "it": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-        "fr": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
+        "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
+        "en": "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich",
+        "fr": "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7417,11 +8289,19 @@
       "referenceNumber": "50203",
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203"
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203"
+        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
+        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7439,12 +8319,12 @@
     },
     {
       "id": "stadtspital-zuerich-84edf14571f5",
-      "slug": "unterassistent-innen-radiologie-stadtspital-zuerich-40911",
+      "slug": "radiologia-sub-assista-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "unterassistent-innen-radiologie-stadtspital-zuerich-40911",
-        "it": "unterassistent-innen-radiologie-stadtspital-zuerich-40911",
-        "en": "unterassistent-innen-radiologie-stadtspital-zuerich-40911",
-        "fr": "unterassistent-innen-radiologie-stadtspital-zurich-zurich"
+        "it": "radiologia-sub-assista-stadtspital-zurich-zurich",
+        "en": "under-assistant-radiology-stadtspital-zurich-zurich",
+        "fr": "radiologie-sous-assistante-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7503,16 +8383,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.241Z"
+      "firstSeenAt": "2026-07-12T22:04:54.241Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-innen-radiologie-stadtspital-zuerich-40911"
+        ],
+        "en": [
+          "unterassistent-innen-radiologie-stadtspital-zuerich-40911"
+        ],
+        "fr": [
+          "unterassistent-innen-radiologie-stadtspital-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-innen-radiologie-stadtspital-zuerich-40911",
+        "unterassistent-innen-radiologie-stadtspital-zurich-zurich"
+      ]
     },
     {
       "id": "stadtspital-zuerich-01d6916f7ec4",
-      "slug": "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-in-anestesiologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-anasthesiologie-stadtspital-zuerich-12040",
-        "it": "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich",
-        "en": "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich",
-        "fr": "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
+        "it": "assistente-medico-in-anestesiologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-anesthesiology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-anesthesiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7561,11 +8456,19 @@
       "referenceNumber": "12040",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-anasthesiologie-stadtspital-zuerich-12040"
+          "assistenzarzt-in-anasthesiologie-stadtspital-zuerich-12040",
+          "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-in-anasthesiologie-stadtspital-zuerich-12040"
+        "assistenzarzt-in-anasthesiologie-stadtspital-zuerich-12040",
+        "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7583,12 +8486,12 @@
     },
     {
       "id": "stadtspital-zuerich-781826a65e92",
-      "slug": "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300",
+      "slug": "assistente-medicina-interna-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300",
-        "it": "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300",
-        "en": "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300",
-        "fr": "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300"
+        "it": "assistente-medicina-interna-triemli-stadtspital-zurich-zurich",
+        "en": "assistant-internal-medicine-triemli-stadtspital-zurich-zurich",
+        "fr": "assistant-en-medecine-interne-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7647,7 +8550,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.241Z"
+      "firstSeenAt": "2026-07-12T22:04:54.241Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300"
+        ],
+        "en": [
+          "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300"
+        ],
+        "fr": [
+          "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300"
+      ]
     },
     {
       "id": "stadtspital-zuerich-29ac5f3ddff3",
@@ -7655,8 +8572,8 @@
       "slugByLocale": {
         "de": "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zuerich-50867",
         "it": "fachperson-operationstechnik-come-berufsbildner-in-stadtspital-zurich",
-        "en": "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zurich-zurich",
-        "fr": "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zurich-zurich"
+        "en": "specialist-surgical-technology-as-a-vocational-trainer-stadtspital-zurich-zurich",
+        "fr": "specialiste-de-la-technologie-chirurgicale-en-tant-que-formateur-professionnel-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7706,10 +8623,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zuerich-50867"
+        ],
+        "en": [
+          "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zuerich-50867"
+        "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zuerich-50867",
+        "fachperson-operationstechnik-als-berufsbildner-in-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7727,12 +8651,12 @@
     },
     {
       "id": "stadtspital-zuerich-f1046f024118",
-      "slug": "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-oa-la-medicina-intensiva-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zuerich-7930",
-        "it": "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-oa-la-medicina-intensiva-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-oa-la-intensive-care-medicine-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-oa-la-medecine-des-soins-intensifs-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7781,11 +8705,19 @@
       "referenceNumber": "7930",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zuerich-7930"
+          "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zuerich-7930",
+          "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zuerich-7930"
+        "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zuerich-7930",
+        "spontanbewerbung-oa-la-intensivmedizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7803,12 +8735,12 @@
     },
     {
       "id": "stadtspital-zuerich-f23f9a39f5b6",
-      "slug": "spontanbewerbung-stadtspital-zurich-zurich",
+      "slug": "applicazione-spontanea-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-stadtspital-zuerich-3267",
-        "it": "spontanbewerbung-stadtspital-zurich-zurich",
-        "en": "spontanbewerbung-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-stadtspital-zurich-zurich"
+        "it": "applicazione-spontanea-stadtspital-zurich-zurich",
+        "en": "spontaneous-application-stadtspital-zurich-zurich",
+        "fr": "demande-spontanee-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7857,11 +8789,19 @@
       "referenceNumber": "3267",
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-stadtspital-zuerich-3267"
+          "spontanbewerbung-stadtspital-zuerich-3267",
+          "spontanbewerbung-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-stadtspital-zuerich-3267"
+        "spontanbewerbung-stadtspital-zuerich-3267",
+        "spontanbewerbung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7883,8 +8823,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-innere-medizin-mit-waidsicht-frei-wahlbar-stadtspital-zuerich",
         "it": "dipl-pflegefachperson-hf-fh-innere-medizin-mit-waidsicht-frei-wahlbar-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-innere-medizin-mit-waidsicht-frei-wahlbar-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-innere-medizin-mit-waidsicht-frei-wahlbar-stadtspital-zurich-zurich"
+        "en": "dipl-nursing-professional-hf-fh-internal-medicine-with-waid-vision-freely-selectable-stadtspital-zurich-zurich",
+        "fr": "dipl-medecine-interne-professionnelle-hf-fh-avec-vision-waid-selection-libre-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7959,8 +8899,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zuerich-50839",
         "it": "oberarztin-oberarzt-per-adipositassprechstunde-mo-fr-stadtspital-zurich",
-        "en": "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zurich-zurich"
+        "en": "senior-physician-for-obesity-consultation-hours-mo-fr-stadtspital-zurich-zurich",
+        "fr": "medecin-principal-pour-les-heures-de-consultation-sur-l-obesite-mo-fr-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8010,10 +8950,17 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zuerich-50839"
+        ],
+        "en": [
+          "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zuerich-50839"
+        "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zuerich-50839",
+        "oberarztin-oberarzt-fur-adipositassprechstunde-mo-fr-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8031,12 +8978,12 @@
     },
     {
       "id": "stadtspital-zuerich-ad9c061f83d6",
-      "slug": "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich",
+      "slug": "med-assistente-pratico-specialista-sanitario-europaallee-pratiche-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zuerich-47430",
-        "it": "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich",
-        "en": "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich",
-        "fr": "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich"
+        "it": "med-assistente-pratico-specialista-sanitario-europaallee-pratiche-stadtspital-zurich-zurich",
+        "en": "med-practical-assistant-health-specialist-europaallee-practices-stadtspital-zurich-zurich",
+        "fr": "medicament-assistant-pratique-specialiste-de-la-sante-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8085,11 +9032,19 @@
       "referenceNumber": "47430",
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zuerich-47430"
+          "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zuerich-47430",
+          "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zuerich-47430"
+        "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zuerich-47430",
+        "med-praxisassistent-in-fachperson-gesundheit-europaallee-praxen-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8111,8 +9066,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147",
         "it": "assistent-in-gesundheit-e-soziales-intensivpflege-stadtspital-zurich",
-        "en": "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147",
-        "fr": "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147"
+        "en": "assistant-in-health-and-social-intensive-care-stadtspital-zurich-zurich",
+        "fr": "assistant-en-sante-et-soins-sociaux-intensifs-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8162,6 +9117,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-intensivpflege-stadtspital-zuerich-49147"
         ]
       },
       "previousSlugs": [
@@ -8183,12 +9144,12 @@
     },
     {
       "id": "stadtspital-zuerich-c410d9ce839f",
-      "slug": "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich",
+      "slug": "dipl-infermiera-generale-chirurgia-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zuerich-44669",
-        "it": "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich"
+        "it": "dipl-infermiera-generale-chirurgia-triemli-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-general-surgery-triemli-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-generale-chirurgie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8237,11 +9198,19 @@
       "referenceNumber": "44669",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zuerich-44669"
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zuerich-44669",
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zuerich-44669"
+        "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zuerich-44669",
+        "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8259,12 +9228,12 @@
     },
     {
       "id": "stadtspital-zuerich-eb133c136d0a",
-      "slug": "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich",
+      "slug": "dipl-fisioterapista-in-geriatria-acuta-fh-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zuerich-49142",
-        "it": "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich",
-        "en": "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich",
-        "fr": "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
+        "it": "dipl-fisioterapista-in-geriatria-acuta-fh-stadtspital-zurich-zurich",
+        "en": "dipl-physiotherapist-in-fh-acute-geriatrics-stadtspital-zurich-zurich",
+        "fr": "dipl-physiotherapeute-en-geriatrie-aigue-fh-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8313,11 +9282,19 @@
       "referenceNumber": "49142",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zuerich-49142"
+          "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zuerich-49142",
+          "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zuerich-49142"
+        "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zuerich-49142",
+        "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8335,12 +9312,12 @@
     },
     {
       "id": "stadtspital-zuerich-8c50dee0cac1",
-      "slug": "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich",
+      "slug": "dipl-infermiera-generale-chirurgia-triemli-temporaneo-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490",
-        "it": "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich-zurich"
+        "it": "dipl-infermiera-generale-chirurgia-triemli-temporaneo-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-general-surgery-triemli-temporary-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-generale-chirurgie-triemli-temporaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8389,11 +9366,20 @@
       "referenceNumber": "50490",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490"
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490",
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490"
+        "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490",
+        "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich",
+        "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8415,8 +9401,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zuerich-48023",
         "it": "dipl-pflegefachperson-padiatrie-notfall-e-bettenstation-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zurich-zurich"
+        "en": "dipl-care-specialist-pediatrics-emergency-and-bed-station-stadtspital-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-pediatriques-urgence-et-poste-de-lit-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8466,10 +9452,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zuerich-48023"
+        ],
+        "en": [
+          "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zuerich-48023"
+        "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zuerich-48023",
+        "dipl-pflegefachperson-padiatrie-notfall-und-bettenstation-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8491,8 +9484,8 @@
       "slugByLocale": {
         "de": "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360",
         "it": "oberarzt-in-med-onkologie-e-hamatologie-stadtspital-zurich",
-        "en": "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360",
-        "fr": "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360"
+        "en": "senior-doctor-in-med-oncology-and-haematology-stadtspital-zurich-zurich",
+        "fr": "docteur-en-medecine-oncologie-et-hematologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8542,6 +9535,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360"
+        ],
+        "en": [
+          "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360"
+        ],
+        "fr": [
+          "oberarzt-in-med-onkologie-und-hamatologie-stadtspital-zuerich-18360"
         ]
       },
       "previousSlugs": [
@@ -8563,12 +9562,12 @@
     },
     {
       "id": "stadtspital-zuerich-08aa4f32da66",
-      "slug": "assistenzarzt-in-radiologie-stadtspital-zuerich-4600",
+      "slug": "assistente-medico-in-radiologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-radiologie-stadtspital-zuerich-4600",
-        "it": "assistenzarzt-in-radiologie-stadtspital-zuerich-4600",
-        "en": "assistenzarzt-in-radiologie-stadtspital-zuerich-4600",
-        "fr": "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
+        "it": "assistente-medico-in-radiologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-radiology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-radiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8627,7 +9626,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.240Z"
+      "firstSeenAt": "2026-07-12T22:04:54.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
+        ],
+        "en": [
+          "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
+        ],
+        "fr": [
+          "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
+      ]
     },
     {
       "id": "stadtspital-zuerich-8f5cbd2fe498",
@@ -8635,8 +9648,8 @@
       "slugByLocale": {
         "de": "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zuerich-17760",
         "it": "spontanbewerbung-oa-la-gynakologie-e-geburtshilfe-stadtspital-zurich",
-        "en": "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zurich-zurich",
-        "fr": "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zurich-zurich"
+        "en": "spontaneous-application-oa-la-gynecology-and-obstetrics-stadtspital-zurich-zurich",
+        "fr": "application-spontanee-gynecologie-et-obstetrique-oa-la-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8686,10 +9699,17 @@
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zuerich-17760"
+        ],
+        "en": [
+          "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zuerich-17760"
+        "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zuerich-17760",
+        "spontanbewerbung-oa-la-gynakologie-und-geburtshilfe-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8707,12 +9727,12 @@
     },
     {
       "id": "stadtspital-zuerich-98be7953182d",
-      "slug": "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595",
+      "slug": "leader-del-gruppo-in-fisioterapia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595",
-        "it": "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595",
-        "en": "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595",
-        "fr": "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
+        "it": "leader-del-gruppo-in-fisioterapia-stadtspital-zurich-zurich",
+        "en": "group-leader-in-physiotherapy-stadtspital-zurich-zurich",
+        "fr": "chef-de-groupe-en-physiotherapie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8771,7 +9791,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.240Z"
+      "firstSeenAt": "2026-07-12T22:04:54.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
+        ],
+        "en": [
+          "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
+        ],
+        "fr": [
+          "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
+      ]
     },
     {
       "id": "stadtspital-zuerich-9003f4b2bbab",
@@ -8779,8 +9813,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-chirurgie-ab2-mit-waidsicht-stadtspital-zuerich-49951",
         "it": "dipl-pflegefachperson-chirurgie-ab2-mit-waidsicht-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-chirurgie-ab2-mit-waidsicht-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-chirurgie-ab2-mit-waidsicht-stadtspital-zurich-zurich"
+        "en": "dipl-nurse-practitioner-surgery-ab2-with-waid-vision-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-praticienne-chirurgie-ab2-avec-vision-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8851,12 +9885,12 @@
     },
     {
       "id": "stadtspital-zuerich-2961a6a531e3",
-      "slug": "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-in-gastroenterologia-epatologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zuerich-17521",
-        "it": "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
-        "en": "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich",
-        "fr": "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        "it": "assistente-medico-in-gastroenterologia-epatologia-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-gastroenterology-hepatology-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-gastroenterologie-et-hepatologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8905,11 +9939,19 @@
       "referenceNumber": "17521",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zuerich-17521"
+          "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zuerich-17521",
+          "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zuerich-17521"
+        "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zuerich-17521",
+        "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8927,12 +9969,12 @@
     },
     {
       "id": "stadtspital-zuerich-269c5e1a949e",
-      "slug": "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-in-medicina-intensiva-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarzt-in-intensivmedizin-stadtspital-zuerich-18099",
-        "it": "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich",
-        "en": "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich",
-        "fr": "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
+        "it": "assistente-medico-in-medicina-intensiva-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-in-intensive-care-medicine-stadtspital-zurich-zurich",
+        "fr": "docteur-adjoint-en-medecine-intensive-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8981,11 +10023,19 @@
       "referenceNumber": "18099",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-intensivmedizin-stadtspital-zuerich-18099"
+          "assistenzarzt-in-intensivmedizin-stadtspital-zuerich-18099",
+          "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-in-intensivmedizin-stadtspital-zuerich-18099"
+        "assistenzarzt-in-intensivmedizin-stadtspital-zuerich-18099",
+        "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9007,8 +10057,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
         "it": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
-        "en": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
-        "fr": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558"
+        "en": "health-professional-with-waid-vision-stadtspital-zurich-zurich",
+        "fr": "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9071,12 +10121,12 @@
     },
     {
       "id": "stadtspital-zuerich-fbf19ae4a87b",
-      "slug": "studienkoordinator-in-stadtspital-zurich-zurich",
+      "slug": "coordinatore-dello-studio-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "studienkoordinator-in-stadtspital-zuerich-50896",
-        "it": "studienkoordinator-in-stadtspital-zurich-zurich",
-        "en": "studienkoordinator-in-stadtspital-zurich-zurich",
-        "fr": "studienkoordinator-in-stadtspital-zurich-zurich"
+        "it": "coordinatore-dello-studio-stadtspital-zurich-zurich",
+        "en": "study-coordinator-stadtspital-zurich-zurich",
+        "fr": "coordonnateur-de-l-etude-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9125,11 +10175,19 @@
       "referenceNumber": "50896",
       "previousSlugsByLocale": {
         "it": [
-          "studienkoordinator-in-stadtspital-zuerich-50896"
+          "studienkoordinator-in-stadtspital-zuerich-50896",
+          "studienkoordinator-in-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "studienkoordinator-in-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "studienkoordinator-in-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "studienkoordinator-in-stadtspital-zuerich-50896"
+        "studienkoordinator-in-stadtspital-zuerich-50896",
+        "studienkoordinator-in-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9147,12 +10205,12 @@
     },
     {
       "id": "stadtspital-zuerich-eda27ae1700f",
-      "slug": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548",
+      "slug": "medico-senior-superior-neurologia-stadtspital-zurich-zurich-15793d",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548",
-        "it": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548",
-        "en": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548",
-        "fr": "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548"
+        "it": "medico-senior-superior-neurologia-stadtspital-zurich-zurich-15793d",
+        "en": "senior-physician-superior-neurology-stadtspital-zurich-zurich-15793d",
+        "fr": "medecin-principal-neurologie-superieure-stadtspital-zurich-zurich-15793d"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9211,7 +10269,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.240Z"
+      "firstSeenAt": "2026-07-12T22:04:54.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurologie-stadtspital-zuerich-50548"
+      ]
     },
     {
       "id": "stadtspital-zuerich-4e1a76204657",
@@ -9219,8 +10291,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-efz-im-schichtdienst-der-kinderklinik-stadtspital-zuerich-48026",
         "it": "med-praxisassistent-in-efz-im-schichtdienst-der-kinderklinik-stadtspital-zurich-zurich",
-        "en": "med-praxisassistent-in-efz-im-schichtdienst-der-kinderklinik-stadtspital-zurich-zurich",
-        "fr": "med-praxisassistent-in-efz-im-schichtdienst-der-kinderklinik-stadtspital-zurich-zurich"
+        "en": "med-practice-assistant-in-efz-in-shift-service-of-the-children-s-clinic-stadtspital-zurich-zurich",
+        "fr": "medicament-assistant-d-entrainement-a-l-efz-en-service-poste-de-la-clinique-pour-enfants-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9291,12 +10363,12 @@
     },
     {
       "id": "stadtspital-zuerich-1a34babc14aa",
-      "slug": "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343",
+      "slug": "stage-presso-ambulant-perioperative-center-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343",
-        "it": "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343",
-        "en": "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343",
-        "fr": "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343"
+        "it": "stage-presso-ambulant-perioperative-center-stadtspital-zurich-zurich",
+        "en": "internship-at-ambulant-perioperative-center-stadtspital-zurich-zurich",
+        "fr": "stage-au-centre-perioperatoire-ambulant-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9355,7 +10427,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-12T22:04:54.238Z"
+      "firstSeenAt": "2026-07-12T22:04:54.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343"
+        ],
+        "en": [
+          "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343"
+        ],
+        "fr": [
+          "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-ambulantes-perioperatives-zentrum-stadtspital-zuerich-47343"
+      ]
     }
   ]
 }

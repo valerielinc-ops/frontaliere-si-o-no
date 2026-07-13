@@ -1184,8 +1184,8 @@
       "slugByLocale": {
         "de": "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see",
         "it": "mittelschullehrperson-mba-per-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see",
-        "en": "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see",
-        "fr": "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
+        "en": "secondary-school-teacher-mba-for-geography-kantonale-verwaltung-zurich-8707-uetikon-am-see",
+        "fr": "professeur-d-enseignement-secondaire-kantonale-verwaltung-zurich-8707-uetikon-am-see"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1235,10 +1235,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see"
+        ],
+        "en": [
+          "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
+        ],
+        "fr": [
+          "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
         ]
       },
       "previousSlugs": [
-        "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see"
+        "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see",
+        "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

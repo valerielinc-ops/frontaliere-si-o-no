@@ -1315,12 +1315,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-trimmis",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-trimmis"
       },
       "sourceLang": "de",
       "department": "",
@@ -1354,7 +1354,18 @@
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-12T21:58:17.897Z"
+      "firstSeenAt": "2026-07-12T21:58:17.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
