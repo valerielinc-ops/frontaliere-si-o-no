@@ -1081,6 +1081,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-ue.title': 'La riforma UE può costare caro alla Svizzera',
     'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'La riforma potrebbe comportare un aumento dei costi per la Svizzera',
     'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontaliere disoccupato con indennità',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'Come funziona il secondo pilastro della previdenza svizzera',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'Tutto sulla LPP: 894mila beneficiari, rendita mediana 1.744 franchi, aliquota conversione 6,8%. Guida completa al pilastro obbligatorio.',
+    'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Edificio di una cassa pensioni svizzera nel quartiere finanziario di Zurigo',
 };
 
 export default blogMetaChIt;

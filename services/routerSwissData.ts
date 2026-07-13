@@ -383,6 +383,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'corsi-tedesco-francese-frontalieri-italofoni-ticino': { it: 'corsi-tedesco-francese-frontalieri-italofoni-ticino', en: 'german-french-courses-italophone-cross-border-workers-ticino', de: 'deutsch-franzoesisch-kurse-grenzgaenger-italophon-tessin', fr: 'cours-allemand-francais-travailleurs-frontieres-italophones-tessin' },
  'costo-vita-lugano-confronto-milano-frontalieri': { it: 'costo-vita-lugano-confronto-milano-frontalieri', en: 'cost-of-living-lugano-comparison-milan-frontaliers', de: 'lebenshaltungskosten-lugano-vergleich-mailand-frontalier', fr: 'cout-de-vie-lugano-comparaison-milan-frontaliers' },
  'frontalieri-disoccupati-riforma-ue': { it: 'frontalieri-disoccupati-riforma-ue', en: 'frontalier-disoccupati-riforma-ue', de: 'frontalier-ohne-arbeit-riforma-eu', fr: 'frontalier-sans-travail-reforme-ue' },
+ 'secondo-pilastro-previdenza-professionale-lpp-svizzera': { it: 'secondo-pilastro-previdenza-professionale-lpp-svizzera', en: 'how-second-pillar-occupational-pension-lpp-works', de: 'wie-zweite-saeule-berufliche-vorsorge-bvg-funktioniert', fr: 'comment-deuxieme-pilier-prevoyance-professionnelle-lpp-fonctionne' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

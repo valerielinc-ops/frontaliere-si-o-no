@@ -4508,6 +4508,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costo-vita-lugano-confronto-milano-frontalieri': { name: 'Costo di vita a Lugano', path: '/articoli-svizzera/costo-vita-lugano-confronto-milano-frontalieri/', parent: 'blog' },
     'blog-doppio-lavoro-incastrato-video': { name: 'Doppio lavoro e timbrature false', path: '/articoli-frontaliere/doppio-lavoro-incastrato-video', parent: 'blog' },
     'blog-frontalieri-disoccupati-riforma-ue': { name: 'La riforma UE e la Svizzera', path: '/articoli-svizzera/frontalieri-disoccupati-riforma-ue/', parent: 'blog' },
+    'blog-secondo-pilastro-previdenza-professionale-lpp-svizzera': { name: 'Come funziona il secondo pilastro della', path: '/articoli-svizzera/secondo-pilastro-previdenza-professionale-lpp-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
