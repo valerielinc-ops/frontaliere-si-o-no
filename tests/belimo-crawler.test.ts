@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +11,7 @@ import {
   isSwissJobUrlCandidate,
   extractJobReqId,
   detectEmploymentType,
+  fetchAllBelimoJobs,
   DETAIL_FETCH_DELAY_MS,
   MAX_DETAIL_FETCHES,
 } from '../scripts/lib/belimo-job-parser.mjs';
@@ -177,6 +178,61 @@ describe('Belimo crawler parser', () => {
     it('returns null for empty and job-less pages', () => {
       expect(parseBelimoDetailPage('')).toBeNull();
       expect(parseBelimoDetailPage('<html><body><h2>The desired job cannot be found</h2></body></html>')).toBeNull();
+    });
+
+    it('reports an empty country (not "CH") when addressCountry microdata is absent', () => {
+      const html = `<html><body>
+        <h1 itemprop="title">Montagemitarbeiter/-in (100%)</h1>
+        <span itemprop="addressLocality" content="Hinwil"></span>
+        <span itemprop="postalCode" content="8340"></span>
+        <div itemprop="description">Job description text.</div>
+      </body></html>`;
+      const parsed = parseBelimoDetailPage(html)!;
+      expect(parsed).not.toBeNull();
+      expect(parsed.country).toBe('');
+    });
+  });
+
+  // ── fetchAllBelimoJobs (CH gate: absent addressCountry must not silently drop a Swiss candidate) ──
+  describe('fetchAllBelimoJobs', () => {
+    const realFetch = globalThis.fetch;
+    const SITEMAP_URL = 'https://jobsredirect.belimo.com/sitemap.xml';
+    const JOB_URL = 'https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiter-in-Zueri-8340/9999999/';
+
+    afterEach(() => {
+      globalThis.fetch = realFetch;
+    });
+
+    function sitemapResponse() {
+      return new Response(
+        `<?xml version="1.0"?><urlset><url><loc>${JOB_URL}</loc></url></urlset>`,
+        { status: 200, headers: { 'Content-Type': 'application/xml' } },
+      );
+    }
+
+    function detailResponseWithoutCountry() {
+      return new Response(
+        `<html><body>
+          <h1 itemprop="title">Montagemitarbeiter/-in (100%)</h1>
+          <span itemprop="addressLocality" content="Hinwil"></span>
+          <span itemprop="postalCode" content="8340"></span>
+          <div itemprop="description">Job description text long enough to pass.</div>
+        </body></html>`,
+        { status: 200, headers: { 'Content-Type': 'text/html' } },
+      );
+    }
+
+    it('keeps a Swiss candidate whose detail page omits addressCountry, instead of silently dropping it', async () => {
+      globalThis.fetch = (async (url: any) => {
+        const u = String(url);
+        if (u.startsWith(SITEMAP_URL)) return sitemapResponse();
+        return detailResponseWithoutCountry();
+      }) as any;
+
+      const jobs = await fetchAllBelimoJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].country).toBe('CH');
+      expect(jobs[0].addressCountry).toBe('CH');
     });
   });
 

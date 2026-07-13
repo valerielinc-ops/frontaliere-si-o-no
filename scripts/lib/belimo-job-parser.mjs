@@ -352,7 +352,11 @@ export async function fetchAllBelimoJobs() {
       continue;
     }
     // Authoritative CH gate: the page's own microdata, not the URL slug.
-    if (parsed.country !== 'CH') continue;
+    // Only reject an EXPLICIT non-CH country — an absent/empty value (page
+    // template drift) falls back to CH like the other CH-only dedicated
+    // parsers (emil-frey-job-parser.mjs, stadler-rail-job-parser.mjs), since
+    // this job already passed the postal-based Swiss candidate prefilter.
+    if (parsed.country && parsed.country !== 'CH') continue;
 
     const title = normalizeSpace(parsed.title || '');
     if (!title || title.length < 3) continue;
