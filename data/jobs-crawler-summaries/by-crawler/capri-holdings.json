@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-13T12:14:03.844Z",
+  "generatedAt": "2026-07-13T22:00:10.875Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18906,
-  "avgDurationMs": 18906,
+  "durationMs": 21362,
+  "avgDurationMs": 21362,
   "durationHistory": [
-    18906
+    21362
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
@@ -40,18 +41,18 @@
         "canton": "TI",
         "location": "Manno"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-80aee6d15b74",
       "needsRetranslation": true,
-      "_qualityScore": 68,
+      "firstSeenAt": "2026-07-13T12:14:03.842Z",
+      "crawledAt": "",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
