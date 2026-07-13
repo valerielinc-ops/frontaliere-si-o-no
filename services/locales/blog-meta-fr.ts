@@ -8459,6 +8459,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Travail à distance dans un pays tiers : fiscalité pour les frontaliers',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Vacances et smart working à l\'étranger pour les frontaliers : implications fiscales, couvertures d\'assurance LAMal et obligations de communication à l\'employeur.',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Lac de Lugano avec arrière-plan alpin, représentation du télétravail transfrontalier',
+    'blog.article.svizzera-smart-working.title': 'La Suisse est le leader européen du smart working',
+    'blog.article.svizzera-smart-working.excerpt': 'Le pourcentage de postes de travail offrant la possibilité de travailler à distance a augmenté de 12,7 % en 2023',
+    'blog.article.svizzera-smart-working.imageAlt': 'Vue panoramique de Bellinzona',
 };
 
 export default blogMetaFr;

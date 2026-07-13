@@ -8458,6 +8458,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.title': 'Remote work in third country: taxation for border workers',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.excerpt': 'Holidays and smart working abroad for border workers: tax implications, LAMal insurance coverage and communication obligations to the employer.',
     'blog.article.lavoro-remoto-terzo-paese-frontaliere-fiscalita.imageAlt': 'Lake Lugano with Alpine backdrop, representation of cross-border remote work',
+    'blog.article.svizzera-smart-working.title': 'Switzerland is the European leader in smart working',
+    'blog.article.svizzera-smart-working.excerpt': 'The percentage of jobs that include the possibility of working remotely increased by 12.7% in 2023',
+    'blog.article.svizzera-smart-working.imageAlt': 'Panoramic view of Bellinzona',
 };
 
 export default blogMetaEn;
