@@ -3221,6 +3221,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costo-vita-lugano-confronto-milano-frontalieri',
+    category: 'pratico',
+    date: '2026-07-13T01:56:14.821Z',
+    image: '/images/blog/costo-vita-lugano-confronto-milano-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
