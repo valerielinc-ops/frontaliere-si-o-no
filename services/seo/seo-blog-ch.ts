@@ -14175,6 +14175,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-redditi-estero-controllo-fiscale': {
+    title: 'Redditi esteri: come gestire la tassazione | Frontaliere Ticino',
+    description: 'Scopri come gestire i redditi prodotti in Svizzera, evitare la doppia imposizione e applicare correttamente il credito d\'imposta secondo le nuove norme.',
+    keywords: 'frontalieri, ticino, svizzera, italia, redditi, esteri, gestire, tassazione',
+    ogTitle: 'Redditi esteri e tasse: guida per frontalieri',
+    ogDescription: 'Gestione fiscale dei redditi prodotti in Svizzera: regole, franchigie e credito d\'imposta per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-svizzera/redditi-estero-controllo-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Redditi esteri: come gestire la tassazione",
+      "description": "Scopri come gestire i redditi prodotti in Svizzera, evitare la doppia imposizione e applicare correttamente il credito d'imposta secondo le nuove norme.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/redditi-estero-controllo-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti fiscali svizzeri su una scrivania da ufficio con calcolatrice"
+      },
+      "datePublished": "2026-07-13T19:45:29+00:00",
+      "dateModified": "2026-07-13T19:45:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/redditi-estero-controllo-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

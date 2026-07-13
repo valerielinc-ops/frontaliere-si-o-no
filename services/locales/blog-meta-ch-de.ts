@@ -1099,6 +1099,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Grenzabfertigungen: Die Milliarden teure EU-Reform',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Brüssel reformiert Arbeitslosengeld: Die Schweiz riskiert bis zu 1 Milliarde Franken mehr pro Jahr',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments, vor der EU-Flagge',
+    'blog.article.redditi-estero-controllo-fiscale.title': 'Auslandseinkommen: Wie man mit der Besteuerung umgeht',
+    'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Praktischer Leitfaden zu Steuerkontrollen für im Ausland erzielte Einkommen und Regeln zur Vermeidung der Doppelbesteuerung zwischen Italien und der Schweiz.',
+    'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Schweizer Steuerunterlagen auf einem Schreibtisch mit Taschenrechner',
 };
 
 export default blogMetaChDe;

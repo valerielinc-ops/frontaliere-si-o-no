@@ -1099,6 +1099,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Indennità frontalieri: la riforma Ue che costa miliardi',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Bruxelles riforma le indennità di disoccupazione: la Svizzera rischia fino a 1 miliardo di franchi in più all\'anno',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Il Palazzo federale di Berna, sede del Parlamento svizzero, di fronte alla bandiera dell\'UE',
+    'blog.article.redditi-estero-controllo-fiscale.title': 'Redditi esteri: come gestire la tassazione',
+    'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Guida pratica sui controlli fiscali per i redditi prodotti all\'estero e le regole per evitare la doppia imposizione tra Italia e Svizzera.',
+    'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Documenti fiscali svizzeri su una scrivania da ufficio con calcolatrice',
 };
 
 export default blogMetaChIt;
