@@ -929,7 +929,24 @@
         "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943",
         "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-3",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-zurich-c145ep",
-        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-zurich"
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-zurich",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-thalwil",
+        "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-aly8kz",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "sales-advisor-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "sales-advisor-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "conseiller-conseillere-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "conseiller-conseillere-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "conseiller-ere-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "conseiller-ere-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -942,13 +959,7 @@
         "fr": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-zurich-c145ep"
         ]
-      },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zurigo",
-        "canton": "ZH"
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-557nes",
@@ -1029,14 +1040,10 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-schattdorf-uri-557nes",
-        "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-schattdorf-uri"
-      ],
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Uri",
-        "canton": "UR"
-      },
-      "needsRetranslation": true
+        "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-schattdorf-uri",
+        "consulente-divendita-jumbo-division-der-coop-genossenschaft-schattdorf",
+        "consulente-di-vendita-jumbo-division-der-coop-genossenschaft-schattdorf"
+      ]
     },
     {
       "id": "company-8jgr94",
@@ -1122,7 +1129,11 @@
         "sales-consultant-incl-deputy-managing-director-coop-genossenschaft-st-gallen",
         "consultant-en-vente-en-chef-adjoint-coop-genossenschaft-st-gallen",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen",
-        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-8jgr94"
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-8jgr94",
+        "consulenti-di-vendita-incl-amministratori-delegati-in-coop-genossenschaft-st-gallen",
+        "sales-consultants-incl-deputy-managing-directors-in-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen-5tzfeh",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1135,13 +1146,7 @@
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-8jgr94"
         ]
-      },
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "San Gallo",
-        "canton": "SG"
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-ahocm2",
@@ -1218,7 +1223,8 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-arth",
         "verkaufer-in-kassen-services-coop-arth-schwyz-ahocm2",
-        "verkaufer-in-kassen-services-coop-arth-schwyz"
+        "verkaufer-in-kassen-services-coop-arth-schwyz",
+        "venditore-cassa-service-coop-genossenschaft-arth"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1231,8 +1237,7 @@
         "fr": [
           "verkaufer-in-kassen-services-coop-arth-schwyz-ahocm2"
         ]
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-9w77ns",
@@ -39214,15 +39219,16 @@
         "it": "responsabile-dell-applicazione-sap-operations-senior-interdiscount-jegenstorf"
       },
       "titleByLocale": {
-        "en": "",
-        "it": "Gestione delle applicazioni: in SAP Operations Senior",
-        "fr": "Gestionnaire d'applications : dans SAP Operations Senior"
+        "en": "Application Manager: in SAP Operations Senior",
+        "it": "Responsabile Applicazioni Senior SAP Operations",
+        "fr": "Responsable Applications Senior SAP Operations",
+        "de": "Applikations-Manager:in SAP Operations Senior"
       },
       "descriptionByLocale": {
-        "de": "## Applikations-Manager:in SAP Operations Senior **Interdiscount** — Jegenstorf, Bern, Svizzera ## Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ##\n• Aufgaben - Du verantwortest den 1st-/2nd-Level-Support für SAP-Key User und Anwender gemäss Incident-Prozess (Jira) mit Schwerpunkt SAP Retail (MM/SD) sowie für bereichsübergreifende Themen - Du unterstützt das SAP-Basis-Team bei der Systemüberwachung (Monitoring), im SAP-User-Management sowie bei weiteren operativen\n• Aufgaben - Du erstellst, pflegst und aktualisierst Dokumentationen zur Sicherstellung des Know-how-Transfers - Du koordinierst die Zusammenarbeit mit internen Anspruchsgruppen sowie externen Partnern und Dienstleistern ##\n• Anforderungen - Du verfügst über eine abgeschlossene IT-Ausbildung und/oder eine vergleichbare Weiterbildung - Du bringst mehrjährige Erfahrung als SAP-Modulbetreuer bzw. Supporter (SAP R/3 und SAP S/4HANA) in den genannten Modulen und Themengebieten mit - Idealerweise hast du Erfahrung im Retail-Umfeld - Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift; weitere Landessprachen sind von Vorteil - Du arbeitest lösungsorientiert und überzeugst durch einen ausgeprägten Service- und Dienstleistungsgedanken - Du kommunizierst proaktiv und adressatengerecht mit unterschiedlichen Anspruchsgruppen ##\n• Was wir bieten ## Deine Ansprechperson Frank Zurbrügg HR Marketing +41 31 764 42 50 --- **Tipo:** Part-time **Sede:** Jegenstorf",
-        "it": "## Gestione delle applicazioni: in SAP Operations Senior\n\nInterdiscount — Jegenstorf, Berna, Svizzera\n\n## A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnarsi in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente.\n\n## Compiti\n- Sei responsabile del supporto di 1 ° / 2 ° livello per gli utenti chiave SAP e gli utenti secondo il processo di incidente (Jira) con un focus su SAP Retail (MM / SD) e per gli argomenti cross-divisional\n- Supporti il team di base SAP con monitoraggio del sistema, gestione utente SAP e altre attività operative\n- Crea, mantieni e aggiorni la documentazione per garantire il trasferimento del know-how\n- Coordinate la cooperazione con le parti interessate interne e con partner esterni e fornitori di servizi\n\n## Requisiti\n- Hai completato la formazione IT e/o la formazione comparabile\n- Porti diversi anni di esperienza come supervisore del modulo SAP o Supporter (SAP R/3 e SAP S/4HANA) nei moduli e argomenti menzionati\n- Idealmente, avete esperienza nell'ambiente di vendita al dettaglio\n- Hai una buona conoscenza del tedesco in parola e nella scrittura; Altre lingue nazionali sono utili\n- Lei lavora orientata alla soluzione e convince attraverso un concetto pronunciato di servizio e servizio\n- Comunica in modo proattivo e appropriato con diversi stakeholder\n\n## Cosa offriamo\n\n## La persona di contatto\nFrank Zurbrügg\nHR Marketing\n+41 31 764 42 50\n\nTipo: Tempo parziale\n# Jegenstorf #",
-        "en": "## Application Manager: in SAP Operations Senior\n\n**Interdiscount** — Jegenstorf, Bern, Svizzera\n\n## At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further.\n\n## Tasks\n- You are responsible for the 1st/2nd level support for SAP key users and users according to the incident process (Jira) with a focus on SAP Retail (MM/SD) as well as for cross-divisional topics\n- You support the SAP base team with system monitoring, SAP user management and other operational tasks\n- You create, maintain and update documentation to ensure the transfer of know-how\n- You coordinate cooperation with internal stakeholders as well as external partners and service providers\n\n## Requirements\n- You have completed IT training and/or comparable training\n- You bring several years of experience as an SAP module supervisor or Supporter (SAP R/3 and SAP S/4HANA) in the modules and topics mentioned with\n- Ideally, you have experience in the retail environment\n- You have very good knowledge of German in word and writing; Other national languages are beneficial\n- You work solution-oriented and convince through a pronounced service and service concept\n- You communicate proactively and appropriately with different stakeholders\n\n## What we offer\n\n## Your contact person\nFrank Zurbrügg\nHR Marketing\n+41 31 764 42 50\n\n**Tipo:** Part-time\n**Sede:** Jegenstorf",
-        "fr": "## Gestionnaire d'applications : dans SAP Operations Senior\n\n** Interdiscount** — Jegenstorf, Berne, Svizzera\n\n## Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous.\n\n## Tâche\n- Vous êtes responsable de la prise en charge de premier et deuxième niveaux pour les utilisateurs clés SAP selon le processus d'incident (Jira) en mettant l'accent sur SAP Retail (MM/SD) ainsi que sur les sujets interdivisionnels\n- Vous soutenez l'équipe de base SAP avec le suivi du système, la gestion des utilisateurs SAP et d'autres tâches opérationnelles\n- Vous créez, maintenez et mettez à jour la documentation pour assurer le transfert du savoir-faire\n- Vous coordonnez la coopération avec les intervenants internes ainsi qu'avec les partenaires externes et les prestataires de services\n\n## Exigences\n- Vous avez suivi une formation en TI et/ou une formation comparable\n- Vous apportez plusieurs années d'expérience en tant que superviseur ou support de module SAP (SAP R/3 et SAP S/4HANA) dans les modules et sujets mentionnés avec\n- Idéalement, vous avez de l'expérience dans l'environnement de détail\n- Vous avez une très bonne connaissance de l'allemand en paroles et en écriture; Les autres langues nationales sont bénéfiques\n- Vous travaillez orienté solution et convainquez par un concept de service et de service prononcé\n- Vous communiquez de façon proactive et appropriée avec différents intervenants\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nFrank Zurbrügg\nMarketing des ressources humaines\n+41 31 764 42 50\n\n**Tipo:** Temps partiel\n**Sede:** Jegenstorf"
+        "de": "Applikations-Manager:in SAP Operations Senior\n\nInterdiscount — Jegenstorf, Bern, Svizzera\n\nWir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\nAufgaben\n- Du verantwortest den 1st-/2nd-Level-Support für SAP-Key User und Anwender gemäss Incident-Prozess (Jira) mit Schwerpunkt SAP Retail (MM/SD) sowie für bereichsübergreifende Themen\n- Du unterstützt das SAP-Basis-Team bei der Systemüberwachung (Monitoring), im SAP-User-Management sowie bei weiteren operativen Aufgaben\n- Du erstellst, pflegst und aktualisierst Dokumentationen zur Sicherstellung des Know-how-Transfers\n- Du koordinierst die Zusammenarbeit mit internen Anspruchsgruppen sowie externen Partnern und Dienstleistern\n\nAnforderungen\n- Du verfügst über eine abgeschlossene IT-Ausbildung und/oder eine vergleichbare Weiterbildung\n- Du bringst mehrjährige Erfahrung als SAP-Modulbetreuer bzw. Supporter (SAP R/3 und SAP S/4HANA) in den genannten Modulen und Themengebieten mit\n- Idealerweise hast du Erfahrung im Retail-Umfeld\n- Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift; weitere Landessprachen sind von Vorteil\n- Du arbeitest lösungsorientiert und überzeugst durch einen ausgeprägten Service- und Dienstleistungsgedanken\n- Du kommunizierst proaktiv und adressatengerecht mit unterschiedlichen Anspruchsgruppen\n\nWas wir bieten\n\nDeine Ansprechperson\nFrank Zurbrügg\nHR Marketing\n+41 31 764 42 50\n\nTipo: Part-time\nSede: Jegenstorf",
+        "it": "Application Manager:in SAP Operations Senior\n\nCodice Interdis, Jegenstorf, Berna, Sizera\n\nNoi di Interdis Mark offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Assumi la responsabilità, sii intraprendente con noi e sviluppa ulteriormente.\n\nCompiti - L'utente è responsabile del supporto di primo/secondo livello per gli utenti chiave SAP e gli utenti in base al processo Incident (Jira) con attenzione sia per SAP Retail (MM/SD) che per gli argomenti intersettoriali - L'utente supporta il team di base SAP nel monitoraggio del sistema (monitoraggio), la gestione degli utenti SAP e altre attività operative - Avviate, scegliete e aggiornate la documentazione per garantire il trasferimento di know-how - Coordinate la cooperazione con gruppi di stakeholder interni e partner esterni e fornitori di servizi\n\nRequisiti - Hai completato la formazione IT e/o formazione comparabile - Hai diversi anni di esperienza come manutentore o manager di moduli SAP.\n\nSostenitori (SAP R/3 e SAP S/4HANA) nei moduli e negli argomenti citati con - Idealmente avete esperienza in ambito retail - avete una buona conoscenza tedesca in termini di parole e scrittura; altre lingue nazionali sono di beneficio - lavorate con soluzioni orientate e convincete con un'idea di servizio forte - comunicate in modo proattivo e orientato agli indirizzi con diversi stakeholder\n\nCosa offriamo\n\nIl suo referente Frank Zurbrügg HR Marketing +41 31 764 42 50\n\nData di nascita: 19.12.1956",
+        "en": "Application Manager:in SAP Operations Senior\n\nInterdis Code — Jegenstorf, Berne, Sizzera\n\nWe at Interdis Mark offer our customers the best shopping experience in Switzerland. Engage in a dynamic and entrepreneurial working environment. Take responsibility, be initiative with us and develop further.\n\nTasks - You are responsible for 1st/2nd level support for SAP key users and users according to the Incident process (Jira) with focus on SAP Retail (MM/SD) as well as for cross-sectoral topics - You support the SAP basic team in system monitoring (monitoring), SAP user management as well as other operational tasks - You start, pick and update documentation to ensure the know-how transfer - You coordinate the cooperation with internal stakeholder groups as well as external partners and service providers\n\nRequirements - You have completed IT training and/or comparable training - You have several years of experience as SAP module maintainer or manager.\n\nSupporters (SAP R/3 and SAP S/4HANA) in the mentioned modules and topics with - Ideally you have experience in the retail environment - you have very good German knowledge in word and writing; other national languages are of benefit - you work solution-oriented and convince by a strong service and service idea - you communicate proactively and addressate-oriented with different stakeholders\n\nWhat we offer\n\nYour contact person Frank Zurbrügg HR Marketing +41 31 764 42 50\n\nTipo: Part-time Sede: Jegenstorf",
+        "fr": "Gestionnaire d'applications :dans SAP Opérations Senior\n\nCode Interdis — Jegenstorf, Berne, Sizzera\n\nChez Interdis Mark, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Installez-vous dans un environnement de travail dynamique et entrepreneurial.\n\nTâches - Vous êtes responsable du support de premier et deuxième niveaux pour les utilisateurs clés SAP selon le processus d'incident (Jira) en mettant l'accent sur SAP Retail (MM/SD) ainsi que sur les sujets intersectoriels - Vous soutenez l'équipe de base SAP dans le suivi système (suivi), la gestion SAP des utilisateurs ainsi que d'autres tâches opérationnelles - Vous commencez, choisissez et mettez à jour la documentation pour assurer le transfert de savoir-faire - Vous coordonnez la coopération avec les groupes d'intervenants internes ainsi que les partenaires externes et les fournisseurs de services\n\nExigences - Vous avez suivi une formation en TI et/ou une formation comparable - Vous avez plusieurs années d'expérience en tant que gestionnaire ou gestionnaire de module SAP.\n\nSupports (SAP R/3 et SAP S/4HANA) dans les modules et les thèmes mentionnés avec - Idéalement vous avez de l'expérience dans l'environnement de vente au détail - vous avez une très bonne connaissance allemande en paroles et en écriture; d'autres langues nationales sont bénéfiques - vous travaillez orienté solution et convaincre par une idée de service et de service forte - vous communiquez proactivement et orientée vers l'adresse avec les différents intervenants\n\nCe que nous offrons\n\nVotre personne de contact Frank Zurbrügg HR Marketing +41 31 764 42 50\n\nTipo: Sede à temps partiel: Jegenstorf"
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
@@ -39251,7 +39257,8 @@
         "it": [
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern"
         ]
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "company-xgfawf",
@@ -55344,12 +55351,15 @@
       "firstSeenAt": "2026-07-02T00:38:32.623Z",
       "titleByLocale": {
         "de": "Lagerist:in",
-        "fr": "Employé(e) de dépôt",
+        "fr": "Magasinier",
         "en": "Warehouse Worker",
         "it": "Magazziniere"
       },
       "descriptionByLocale": {
-        "de": "## Lagerist:in\n\n**Jumbo, Division der Coop Genossenschaft** — Chur, Graubünden, Svizzera\n\n## Aufgaben\n- Be- und Entladen von LKWs\n- Fachgerechtes Ein- und Auslagern von Waren\n- Unterstützung bei der Bestandesführung\n- Waren einräumen und bereitstellen\n- Mithilfe bei saisonalen Aufbauten\n\n## Anforderungen\n- Selbstständige und verantwortungsbewusste Persönlichkeit\n- Grosses Interesse an der Lagerbewirtschaftung\n- Die Zusammenarbeit mit Menschen und die Teamarbeit bereitet Ihnen Freude\n- Deutsch können Sie gut – mündlich und schriftlich\n- Einsatzzeiten? Da sind Sie sehr flexibel\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Chur"
+        "de": "Lagerist:in\n\nJumbo, Division der Coop Genossenschaft — Chur, Graubünden, Svizzera\n\nAufgaben\n- Be- und Entladen von LKWs\n- Fachgerechtes Ein- und Auslagern von Waren\n- Unterstützung bei der Bestandesführung\n- Waren einräumen und bereitstellen\n- Mithilfe bei saisonalen Aufbauten\n\nAnforderungen\n- Selbstständige und verantwortungsbewusste Persönlichkeit\n- Grosses Interesse an der Lagerbewirtschaftung\n- Die Zusammenarbeit mit Menschen und die Teamarbeit bereitet Ihnen Freude\n- Deutsch können Sie gut – mündlich und schriftlich\n- Einsatzzeiten? Da sind Sie sehr flexibel\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSuzana Jovanovic\nHR Marketing\n\nTipo: Part-time\nSede: Chur",
+        "it": "Stock\n\nJumbo, Divisione Cooperativa Coop. Cour, Grigioni, Sizera\n\nCompiti - carico e scarico di camion - carico e scarico professionale di merci - supporto nella gestione dell'inventario - dispatch e fornitura di merci - assistenza in impianti stagionali\n\nRequisiti - Autolavoratori e personalità responsabile - Grande interesse per la gestione dei magazzini - La cooperazione con persone e lavoro di squadra vi dà piacere - Tedesco si può fare bene. orale e scritto - orario di lavoro?\n\nSei molto flessibile - sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti nel supermercato, fino al 20% di sconto sulle varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, abbonamenti mobili e prepagati più economici a Coop Mobile, sconto personale anche per i partner:in (vivendo nella stessa famiglia) - Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità pagato e 4 settimane di congedo paternity pagato, premi fedeltà, piano di risparmio al fondo pensione, flessibile\n\ne disposizioni interessanti per il pensionamento anticipato dalla 58.\n\nEtà - tempo di lavoro: 5 settimane festività - istruzione continua: oltre 600 corsi di formazione interna, sostegno alla formazione esterna e all'istruzione continua, gestione dei talenti con diverse opportunità di sviluppo - sostenibilità: - comunicazione: - salute: aggiornamento fitness: p. 200. sconto su abbonamento annuale\n\nIl Suo contatto Suzana Jovanovic HR Marketing\n\nData di nascita: 19.12.1956",
+        "en": "Stock\n\nJumbo, Division of Coop Cooperative — Chur, Graubünden, Sizzera\n\nTasks - loading and unloading of trucks - Professional loading and unloading of goods - Support in inventory management - Dispatch and provide goods - Help in seasonal installations\n\nRequirements - Self-employed and responsible personality - Great interest in warehouse management - The cooperation with people and teamwork gives you pleasure - German can you do well – oral and written - working hours?\n\nYou are very flexible - discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-paid subscriptions at Coop Mobile, staff discount also for partners:in (living in the same household) - Conditions of employment: Pension fund: 2/3 is paid by Coop, total employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty premiums, savings plan at the pension fund, flexible\n\nand attractive arrangements for early retirement from the completed 58.\n\nAge - working time: 5 weeks holidays - further education: over 600 internal training courses, support for external training and further education, talent management with diverse development opportunities - sustainability: - communication: - health: update fitness: Fr. 200.– discount on annual subscription\n\nYour contact Suzana Jovanovic HR Marketing\n\nTipo: Part-time Sede: Chur",
+        "fr": "Stock\n\nJumbo, Division de la coopérative Coop — Chur, Graubünden, Sizzera\n\nTâches - chargement et déchargement de camions - Chargement et déchargement professionnels de marchandises - Soutien à la gestion des stocks - Expédition et fourniture de marchandises - Aide dans les installations saisonnières\n\nExigences - Indépendant et personnalité responsable - Grand intérêt pour la gestion des entrepôts - La coopération avec les gens et le travail d'équipe vous donne plaisir - L'allemand peut-il bien faire - oral et écrit - les heures de travail?\n\nVous êtes très flexible - réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnel également pour les partenaires:dans (vivant dans le même ménage) - Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail total (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, flexible\n\net des dispositions intéressantes pour la retraite anticipée de la retraite achevée 58.\n\nÂge - temps de travail: 5 semaines de vacances - formation continue: plus de 600 cours de formation interne, soutien à la formation externe et à la formation continue, gestion des talents avec des opportunités de développement diverses - durabilité: - communication: - santé: mise à jour de la condition physique: 200.– réduction sur abonnement annuel\n\nVotre interlocuteur Suzana Jovanovic HR Marketing\n\nTipo: Sede à temps partiel: Chur"
       },
       "slugByLocale": {
         "it": "magazziniere-jumbo-chur",
@@ -55407,16 +55417,12 @@
         "lageriste-in-jumbo-division-der-coop-genossenschaft-chur-e8d057",
         "lagerist-in-jumbo-chur"
       ],
-      "retranslationAttempts": 4,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1523,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Grigioni",
         "canton": "GR"
       },
-      "sourceLang": "de",
-      "needsRetranslation": true
+      "sourceLang": "de"
     },
     {
       "id": "company-y4ec5z",
@@ -56945,12 +56951,15 @@
       "firstSeenAt": "2026-07-02T00:38:32.623Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in Do-it",
-        "fr": "Conseiller de vente Do-it",
+        "fr": "Conseiller·ère de vente Do-it",
         "en": "Sales Consultant Do-it",
         "it": "Consulente di vendita Do-it"
       },
       "descriptionByLocale": {
-        "de": "## Verkaufsberater:in Do-it\n\n**Jumbo, Division der Coop Genossenschaft** — Schattdorf, Uri, Svizzera\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schattdorf"
+        "de": "Verkaufsberater:in Do-it\n\nJumbo, Division der Coop Genossenschaft — Schattdorf, Uri, Svizzera\n\nAufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\nAnforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\nWas wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nYves Sanarica\nHR Marketing\n\nTipo: Part-time\nSede: Schattdorf",
+        "it": "Consulente commerciale:in Do-it\n\nJumbo, Divisione Cooperativa Coop. Schattdorf, Uri, Sizera\n\nCompiti - Con il vostro consiglio amichevole ed esperto si ispirano i nostri clienti. - Si aderisce alle specifiche interne e quindi assicurarsi che la merce sono presentati in modo attraente. - Con la merce sulla nostra area di vendita e nel magazzino si maneggia con attenzione. - Se necessario, sarà volentieri aiutare in altri rayon. - Stock, vendite e inventario processi pertinenti sono parti della gestione del processo che si prende in consegna.\n\nRequisiti - Selling e consulenza sono la tua passione, la soddisfazione del cliente è la tua motivazione? Perfetto. - Parli un totale di diciannove tedesco, hanno esperienza di vendita e idealmente un training di vendita: Sei proprio qui. - Naturalmente sei flessibile quando si tratta di tempo di utilizzo (Mo a Sa). È per te quando si sta vendendo. - Do-è un campo dove si conosce il vostro modo di fare? Si può segnare particolarmente bene a questo punto. - Sempre un sorriso amichevole. che è il tuo segreto per il successo.\n\nCosa offriamo - sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti del supermercato, fino al 20% di sconto sulle varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, più conveniente abbonamento mobile e prepagato presso Coop Mobile, carta Reka: sconto sul ricevimento, sconto personale anche per i partner:in (vivendo nella stessa famiglia) - condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità pagato e 4 settimane paternità paternità pattuito, premi fedeltà, piano di risparmio al\n\nFondo pensioni, regime flessibile e attraente per la pensione anticipata dalla 58.\n\nEtà, condizioni di lavoro attraenti - tempo di lavoro: 5 settimane vacanze - istruzione continua: oltre 600 corsi di formazione interna, sostegno per la formazione esterna e l'istruzione continua, gestione dei talenti con diverse opportunità di sviluppo - salute: aggiornamento Fitness: p. 200. sconto su abbonamento annuale\n\nIl suo referente, Eric Sanarica HR Marketing\n\nTipo: Part-time Sede: Schattdorf",
+        "en": "Sales consultant:in Do-it\n\nJumbo, Division of Coop Cooperative — Schattdorf, Uri, Sizzera\n\nTasks - With your friendly and expert advice you inspire our customers. - You adhere to the internal specifications and thus make sure that the goods are presented attractively. - With the goods on our sales area and in the warehouse you carefully handle. - If necessary, you will gladly help in other rayons. - Stock, sales and inventory relevant processes are parts of the process management that you take over.\n\nRequirements - Selling and consulting are your passion, customer satisfaction is your motivation? Perfect. - You speak a total of nineteen German, have sales experience and ideally a sales training: You are right here. - Of course you are flexible when it comes to the time of use (Mo to Sa). Is it for you when you are selling. - Do-it is a field where you know your way around? You can score particularly well at this point. - Always a friendly smile – that is your secret to success.\n\nWhat we offer - discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-paid subscriptions at Coop Mobile, Reka card: discount on receipt, staff discount also for partners:in (living in the same household) - employment conditions: pension fund: 2/3 is paid by Coop, total work contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty premiums, savings plan at the\n\nPension fund, flexible and attractive scheme for early retirement pension from the completed 58.\n\nAge, attractive employment conditions - working time: 5 weeks holidays - further education: over 600 internal training courses, support for external training and further education, talent management with diverse development opportunities - health: update fitness: Fr. 200.– discount on annual subscription\n\nYour contact person, Mr. Eric Sanarica HR Marketing\n\nTipo: Part-time Sede: Schattdorf",
+        "fr": "Consultant en ventes: à Do-it\n\nJumbo, Division de la coopérative Coop — Schattdorf, Uri, Sizzera\n\nTâches - Avec votre conseil amical et expert, vous inspirez nos clients. - Vous respectez les spécifications internes et vous assurez ainsi que les marchandises sont présentées de façon attrayante. - Avec les marchandises sur notre zone de vente et dans l'entrepôt que vous manipulez soigneusement. - Si nécessaire, vous serez heureux d'aider dans d'autres rayons. - Stocks, ventes et processus d'inventaire pertinents font partie de la gestion de processus que vous prenez en charge.\n\nExigences - La vente et le conseil sont votre passion, la satisfaction du client est votre motivation? Parfait. - Vous parlez un total de dix-neuf allemands, avez une expérience de vente et idéalement une formation de vente : Vous êtes ici. - Bien sûr, vous êtes flexible quand il s'agit du moment de l'utilisation (Mo to Sa). Est-ce pour vous lorsque vous vendez. - Do-it-il un domaine où vous connaissez votre chemin autour? Vous pouvez marquer particulièrement bien à ce stade. - Toujours un sourire amical - c'est votre secret pour le succès.\n\nCe que nous offrons - réductions: rabais sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers à Coop Mobile, carte Reka: remise sur réception, rabais personnel également pour les partenaires:dans (vivant dans le même ménage) - conditions d'emploi: pension: 2/3 est payé par Coop, contrat de travail total (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne au\n\nCaisse de retraite, régime souple et attrayant de retraite anticipée de 58 ans.\n\nÂge, conditions d'emploi attrayantes - temps de travail: 5 semaines de vacances - formation continue: plus de 600 cours de formation interne, soutien à la formation externe et à la formation continue, gestion des talents avec des possibilités de développement diverses - santé: mise à jour de la condition physique: Fr. 200.– réduction sur abonnement annuel\n\nVotre personne de contact, M. Eric Sanarica HR Marketing\n\nTipo: Sede à temps partiel: Schattdorf"
       },
       "slugByLocale": {
         "it": "consulente-di-vendita-in-do-it-jumbo-schattdorf",
@@ -57013,10 +57022,6 @@
         "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-schattdorf-j35iby",
         "verkaufsberater-in-do-it-jumbo-schattdorf"
       ],
-      "retranslationAttempts": 4,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2066,
-      "needsRetranslation": true,
       "sourceLang": "de"
     },
     {
@@ -160365,6 +160370,80 @@
       "addressRegion": "GR",
       "sourceLang": "de",
       "needsRetranslation": true
+    },
+    {
+      "id": "company-zfp01e",
+      "slug": "venditore-in-food-coop-genossenschaft-dietikon",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Dietikon",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "## Verkäufer:in Food\n\n**Coop Genossenschaft** — Dietikon, Zürich, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Dietikon",
+      "requirements": [
+        "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
+      ],
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6265a881-8a7f-4cd9-a280-155be54210a6",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Zurigo",
+        "canton": "ZH"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-07-12T12:57:43.879Z",
+      "firstSeenAt": "2026-07-12T12:57:43.879Z",
+      "slugByLocale": {
+        "de": "verkaufer-in-food-coop-dietikon-zurich-zfp01e",
+        "en": "seller-in-food-coop-genossenschaft-dietikon",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-dietikon",
+        "it": "venditore-in-food-coop-genossenschaft-dietikon"
+      },
+      "titleByLocale": {
+        "de": "Verkäufer:in Food",
+        "it": "Addetto/a alle vendite Food",
+        "en": "Salesperson Food",
+        "fr": "Vendeur·se Food"
+      },
+      "descriptionByLocale": {
+        "de": "Verkäufer:in Food\n\nCoop Genossenschaft — Dietikon, Zürich, Svizzera\n\nAufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nAnforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\nTipo: Part-time\nSede: Dietikon",
+        "it": "Venditore:in Food\n\nCooperativa Coop. Dietikon, Zurigo, Svizzera\n\nAttività - Ti piace la varietà, quindi servi e consiglia i nostri clienti in diversi reparti. sempre cordiale e impegnato. - Grazie al vostro uso attivo i beni vendono meglio e sono gestiti top. - Sure che si rispettano le nostre specifiche, sia che si tratti di fresco e qualità, punto di igiene, temperatura regola o la data di scadenza. - Varietà è anche il vostro utilizzo presso i registri di cassa se si supporta il team.\n\nRequisiti - Siete formati nel commercio al dettaglio (istruzione di base) o avete già avuto molta esperienza nelle vendite? Bingo, quindi applicare. - I vostri tempi di distribuzione sono flessibili, ma questo non causa problemi. - Il tedesco è un buon modo per padroneggiare loro, sia in conversazione e sulla carta.\n\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti nel supermercato, fino al 20% di sconto sulle varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, più conveniente abbonamento mobile e pre-cheek a Coop Mobile, carta Reka: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivendo nella stessa famiglia), sconto su abbonamento GA, sconti su eventi culturali, sconti sulle attività ricreative - Condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop,\n\nCondizioni di lavoro attraenti e parità salariale certificata, premi fedeltà, piano di risparmio presso il fondo pensioni, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito - tempo di lavoro: 5 settimane di ferie, modelli flessibili di orario di lavoro - formazione continua: oltre 600 corsi di formazione interna, gestione dei talenti con diverse opportunità di sviluppo, formazione L-GAV e offerte di formazione continua e Coop - sostenibilità: impegno per le persone, gli animali e la natura con oltre 400 azioni - comunicazione: applicazione interna per i lavoratori - salute:\n\nAggiornamento del fitness: p.\n\n200. sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, sport aziendali\n\nIl Suo contatto Valeria Mazziari Randazzo HR Marketing\n\nData di nascita: 19.12.1956",
+        "en": "Salesman:in Food\n\nCoop Cooperative — Dietikon, Zurich, Svizzera\n\nTasks - You love the variety, therefore you serve and advise our customers in different departments – always friendly and committed. - Thanks to your active use the goods sell better and are managed top. - Sure that you comply with our specifications, whether it is fresh and quality, point hygiene, temperature regulations or the expiry date. - Variety is also your use at the cash registers if you support the team.\n\nRequirements - Are you trained in retail trade (basic education) or have you already had a lot of experience in sales? Bingo, then apply. - Your deployment times are flexible, but that doesn't cause you any problems. - German is a good way to master them, both in conversation and on paper.\n\n- Discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-cheek subscriptions at Coop Mobile, Reka card: discount on purchase, discount on Mobility CarSharing, staff discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts on leisure activities - Conditions of employment: pension fund: 2/3 is paid by Coop,\n\nAttractive employment conditions and certified wage equality, loyalty premiums, savings plan at the pension fund, total employment contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave - working time: 5 weeks holidays, flexible working time models - continuing education: over 600 internal training courses, talent management with diverse development opportunities, L-GAV training and further education offers and Coop - sustainability: commitment to people, animals and nature with over 400 actions - communication: internal app for employees - health:\n\nUpdate fitness: Fr.\n\n200.– discount on annual subscription, free participation in various company races, company sports\n\nYour contact Valeria Mazziari Randazzo HR Marketing\n\nTipo: Part-time Sede: Dietikon",
+        "fr": "Vendeur:dans la nourriture\n\nCoopérative de coop — Dietikon, Zurich, Svizzera\n\nTâches - Vous aimez la variété, vous servez et conseillez nos clients dans différents départements – toujours amical et engagé. - Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut. - S'assurer que vous respectez nos spécifications, qu'il soit frais et de qualité, point hygiène, règlement de température ou la date d'expiration. - Variante est également votre utilisation aux caisses enregistreuses si vous soutenez l'équipe.\n\nExigences - Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà eu beaucoup d'expérience dans les ventes? Bingo, puis postuler. - Vos temps de déploiement sont flexibles, mais cela ne vous cause aucun problème. - L'allemand est un bon moyen de les maîtriser, tant dans la conversation que sur papier.\n\n- Réductions : réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différentes prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et pré-chèques moins chers chez Coop Mobile, carte Reka : réduction sur achat, réduction sur Mobility CarSharing, réduction personnel également pour les partenaires :dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs - Conditions d'emploi : fonds de pension : 2/3 est payé par Coop,\n\nConditions d'emploi attrayantes et égalité salariale certifiée, primes de fidélité, plan d'épargne à la caisse de retraite, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé - temps de travail : 5 semaines de congés, modèles de temps de travail flexibles - formation continue : plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, offres de formation L-GAV et de formation continue et Coop - durabilité : engagement envers les personnes, les animaux et la nature avec plus de 400 actions - communication : application interne pour les salariés - santé :\n\nMise à jour de la condition physique: Fr.\n\n200.– réduction sur abonnement annuel, participation gratuite à diverses courses d'entreprises, sports d'entreprises\n\nVotre interlocuteur Valeria Mazziari Randazzo HR Marketing\n\nTipo: Sede à temps partiel: Dietikon"
+      },
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [
+          "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
+        ],
+        "fr": []
+      },
+      "addressLocality": "Dietikon",
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-dietikon-zurich-zfp01e"
+      ]
     }
   ]
 }
