@@ -472,7 +472,7 @@
       "slug": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
       "slugByLocale": {
         "it": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "en": "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
+        "en": "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
         "de": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
         "fr": "infirmiere-hf-fh-60-80-m-f-j-caritas-schweiz-zentralschweiz"
       },
@@ -482,7 +482,7 @@
       "title": "Pflegefachperson HF/FH 60-80% (m/w/d)",
       "titleByLocale": {
         "it": "Infermiera HF/FH 60-80% (m/f/d)",
-        "en": "Nurse HF/FH 60-80% (m/f/d)",
+        "en": "Care professional HF/FH 60-80% (m/f/d)",
         "de": "Pflegefachperson HF/FH 60-80% (m/w/d)",
         "fr": "Infirmière HF/FH 60-80% (m/f/j)"
       },
@@ -520,15 +520,17 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+        "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
+        "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
+          "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
         ],
         "en": [
           "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-          "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+          "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
         ],
         "fr": [
           "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
@@ -563,7 +565,7 @@
       "title": "SMO Head 80 - 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Testa SMO 80 - 100 % (lunedì/f/g)",
-        "en": "SMO Head 80 - 100% (m/w/d)",
+        "en": "SMO Head 80 - 100% (m/f/d)",
         "de": "SMO Head 80 - 100 % (m/w/d)",
         "fr": "Tête SMO 80 - 100 % (lun/vendredi/j)"
       },
@@ -601,11 +603,13 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "smo-head-80-100-m-w-d-caritas-schweiz-luzern",
-        "tete-de-l-omu-80-100-m-p-j-caritas-schweiz-luzern"
+        "tete-de-l-omu-80-100-m-p-j-caritas-schweiz-luzern",
+        "testa-smo-80-100-lunedi-f-g-caritas-schweiz-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "smo-head-80-100-m-w-d-caritas-schweiz-luzern"
+          "smo-head-80-100-m-w-d-caritas-schweiz-luzern",
+          "testa-smo-80-100-lunedi-f-g-caritas-schweiz-luzern"
         ],
         "fr": [
           "tete-de-l-omu-80-100-m-p-j-caritas-schweiz-luzern"
