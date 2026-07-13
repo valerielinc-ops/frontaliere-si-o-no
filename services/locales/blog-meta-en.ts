@@ -8467,6 +8467,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.doppio-lavoro-incastrato-video.title': 'Double work and false stamping: jammed frontier',
     'blog.article.doppio-lavoro-incastrato-video.excerpt': 'A Varese municipal employee was reported for fraud and false attestations after working in Ticino during working hours.',
     'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Border between Italy and Switzerland in Ticino',
+    'blog.article.vivere-luino-lavorare-ticino.title': 'Living in Luino and working in Ticino as a border worker',
+    'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Practical guide to commuting between Luino and Ticino: connections, taxation for border workers and management of the cost of living between Italy and Switzerland.',
+    'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'View of the Locarno lakefront, a common destination for cross-border commuters working in Ticino.',
 };
 
 export default blogMetaEn;

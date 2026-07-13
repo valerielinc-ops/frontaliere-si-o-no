@@ -8466,6 +8466,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.doppio-lavoro-incastrato-video.title': 'Doppelarbeit und falsche Stempelungen: Grenzgänger eingeklemmt',
     'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Ein Angestellter der Gemeinde Varese wurde wegen Betrugs und falscher Behauptungen angezeigt, nachdem er während der Arbeitszeit im Tessin gearbeitet hatte.',
     'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Grenze zwischen Italien und der Schweiz im Tessin',
+    'blog.article.vivere-luino-lavorare-ticino.title': 'Leben in Luino und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Luino und dem Tessin: Verbindungen, Steuern für Grenzgänger und Lebenshaltungskostenmanagement zwischen Italien und der Schweiz.',
+    'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'Blick auf die Seepromenade von Locarno, ein Ziel für viele Grenzgänger, die im Tessin arbeiten.',
 };
 
 export default blogMetaDe;

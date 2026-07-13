@@ -8468,6 +8468,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppio-lavoro-incastrato-video.title': 'Doppio lavoro e timbrature false: frontaliere incastrato',
     'blog.article.doppio-lavoro-incastrato-video.excerpt': 'Un dipendente comunale varesotto è stato denunciato per truffa e false attestazioni dopo aver lavorato in Ticino durante l\'orario di servizio.',
     'blog.article.doppio-lavoro-incastrato-video.imageAlt': 'Confine tra Italia e Svizzera in Ticino',
+    'blog.article.vivere-luino-lavorare-ticino.title': 'Vivere a Luino e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Guida pratica al pendolarismo tra Luino e il Ticino: collegamenti, fiscalità per i frontalieri e gestione del costo della vita tra Italia e Svizzera.',
+    'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'Vista del lungolago di Locarno, punto di arrivo per molti frontalieri che lavorano in Ticino.',
 };
 
 export default blogMetaIt;
