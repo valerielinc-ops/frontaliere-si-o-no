@@ -1099,6 +1099,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Indemnité frontalière : la réforme de l\'UE qui coûte des milliards',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Bruxelles réforme les allocations chômage : la Suisse risque jusqu\'à 1 milliard de francs de plus par an',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse, face au drapeau de l\'UE',
+    'blog.article.redditi-estero-controllo-fiscale.title': 'Revenus étrangers : comment gérer la fiscalité',
+    'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Guide pratique sur les contrôles fiscaux pour les revenus produits à l\'étranger et les règles pour éviter la double imposition entre l\'Italie et la Suisse.',
+    'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Documents fiscaux suisses sur un bureau avec une calculatrice',
 };
 
 export default blogMetaChFr;

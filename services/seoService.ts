@@ -4521,6 +4521,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-francia-pressione-svizzera-disoccupazione-frontalieri': { name: 'Francia fa pressione su Svizzera per ind', path: '/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri', parent: 'blog' },
     'blog-frontalieri-disoccupati-riforma-bruxelles': { name: 'Indennità frontalieri', path: '/articoli-svizzera/frontalieri-disoccupati-riforma-bruxelles/', parent: 'blog' },
     'blog-svizzera-era-mega-batterie-elettriche': { name: 'Mega batterie Svizzera', path: '/articoli-frontaliere/svizzera-era-mega-batterie-elettriche', parent: 'blog' },
+    'blog-redditi-estero-controllo-fiscale': { name: 'Fisco e Frontalieri', path: '/articoli-svizzera/redditi-estero-controllo-fiscale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

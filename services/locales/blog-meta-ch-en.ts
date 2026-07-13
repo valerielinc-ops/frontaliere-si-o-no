@@ -1099,6 +1099,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.title': 'Border allowances: the EU reform that costs billions',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.excerpt': 'Brussels reforms unemployment benefits: Switzerland risks up to CHF 1 billion more per year',
     'blog.article.frontalieri-disoccupati-riforma-bruxelles.imageAlt': 'Federal Palace in Bern, headquarters of Swiss Parliament, facing the EU flag',
+    'blog.article.redditi-estero-controllo-fiscale.title': 'Foreign income: how to manage taxation',
+    'blog.article.redditi-estero-controllo-fiscale.excerpt': 'Practical guide on tax controls for income produced abroad and rules to avoid double taxation between Italy and Switzerland.',
+    'blog.article.redditi-estero-controllo-fiscale.imageAlt': 'Swiss tax documents on an office desk with a calculator',
 };
 
 export default blogMetaChEn;
