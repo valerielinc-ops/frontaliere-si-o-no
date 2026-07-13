@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-13T12:12:06.437Z",
+  "generatedAt": "2026-07-13T21:56:30.332Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11708,
-  "avgDurationMs": 11708,
+  "durationMs": 9351,
+  "avgDurationMs": 9351,
   "durationHistory": [
-    11708
+    9351
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -258,10 +258,10 @@
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
@@ -291,13 +291,14 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-4302b766b847",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -581,10 +582,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
@@ -614,18 +615,18 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-4302b766b847",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
