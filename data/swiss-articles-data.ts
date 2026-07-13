@@ -3248,6 +3248,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'credito-imposte-estere-parametrato-al-reddito-le-casistiche',
+    category: 'fiscale',
+    date: '2026-07-13T09:12:54.427Z',
+    image: '/images/blog/credito-imposte-estere-parametrato-al-reddito-le-casistiche.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1084,6 +1084,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'Wie funktioniert die zweite Säule der schweizerischen Vorsorge?',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'Alles rund um das BVG: 894 \'000 Begünstigte, Medianrente 1.744 Franken, Umwandlungssatz 6,8%. Vollständiger Leitfaden zur Pflichtsäule.',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Gebäude einer Schweizer Pensionskasse im Finanzviertel Zürich',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Gutschrift ausländischer Steuern parametriert auf das Einkommen: die Fälle',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Die auf das Einkommen parametrierte ausländische Steuergutschrift ist ein Steuervorteil, der Grenzgängern, die in der Schweiz arbeiten, zur Verfügung steht.',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier füllt Steuererklärung',
 };
 
 export default blogMetaChDe;
