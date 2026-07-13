@@ -1072,6 +1072,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontalier à double travail : encastré par les caméras',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Un employé municipal italien travaillait au Tessin pendant les heures de service. Piégé par la Guardia di Finanza grâce à des vidéos et des données téléphoniques.',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Frontière entre l\'Italie et la Suisse avec des véhicules et des montagnes',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.title': 'Cours d\'allemand ou de français pour frontaliers : guide complet',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.excerpt': 'Où suivre des cours d\'allemand ou de français utiles au frontalier italophone : écoles au Tessin, cours en ligne et financements disponibles.',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.imageAlt': 'Professionnel travaillant sur un ordinateur portable avec le lac de Lugano en arrière-plan, éclairage naturel',
 };
 
 export default blogMetaChFr;

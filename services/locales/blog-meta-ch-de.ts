@@ -1072,6 +1072,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.title': 'Frontend mit Doppelarbeit: von den Kameras eingeklemmt',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.excerpt': 'Ein italienischer Gemeindeangestellter arbeitete während der Dienstzeit im Tessin. Gestrandet von der Guardia di Finanza dank Videos und Telefondaten.',
     'blog.article.frontaliere-doppio-lavoro-incastrato-ticino.imageAlt': 'Grenze zwischen Italien und der Schweiz mit Fahrzeugen und Bergen',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.title': 'Deutsch- oder Französischkurse für Grenzgänger: Komplette Anleitung',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.excerpt': 'Wo kann man Deutsch- oder Französischkurse besuchen, die für den italienischsprachigen Grenzgänger nützlich sind: Schulen im Tessin, Online-Kurse und Finanzierung verfügbar.',
+    'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.imageAlt': 'Fachkraft arbeitet am Laptop mit dem Luganersee im Hintergrund, natürliche Beleuchtung',
 };
 
 export default blogMetaChDe;

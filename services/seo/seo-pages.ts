@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3196,
+ "numberOfItems": 3197,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7871,7 +7871,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3193, "name": "Frontalieri disoccupati: come iscriversi agli U...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-ticino` },
           { "@type": "ListItem", "position": 3194, "name": "Lavoro da remoto in terzo paese: fiscalità per ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-remoto-terzo-paese-frontaliere-fiscalita` },
           { "@type": "ListItem", "position": 3195, "name": "Frontaliere con doppio lavoro: incastrato dalle...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-doppio-lavoro-incastrato-ticino` },
-          { "@type": "ListItem", "position": 3196, "name": "La Svizzera è leader europeo dello smart working", "url": `${BASE_URL}/articoli-frontaliere/svizzera-smart-working` }
+          { "@type": "ListItem", "position": 3196, "name": "La Svizzera è leader europeo dello smart working", "url": `${BASE_URL}/articoli-frontaliere/svizzera-smart-working` },
+          { "@type": "ListItem", "position": 3197, "name": "Corsi di tedesco o francese per frontalieri: gu...", "url": `${BASE_URL}/articoli-frontaliere/corsi-tedesco-francese-frontalieri-italofoni-ticino` }
  ]
  },
  {
