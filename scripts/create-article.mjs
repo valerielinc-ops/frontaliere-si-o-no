@@ -968,6 +968,54 @@ const MIN_WORDS_MODEL_ROTATION = [
   GH_MODEL_LIGHT,                    // attempt 6: gpt-4o-mini (then expansion fallback)
 ];
 
+// Quality-NEUTRAL dedup for the min-words retry model pick — DEFAULT ON,
+// with an explicit rollback flag per this file's usual "env-gated for
+// rollback" convention (see e.g. SOURCE_DROP_OFF_TOPIC above).
+// Set to '0' to restore the exact pre-existing selection (plain
+// Math.min(attempt-1, rotation.length-1) clamp, duplicates allowed).
+const CREATE_ARTICLE_MINWORDS_DEDUP = (process.env.CREATE_ARTICLE_MINWORDS_DEDUP ?? '1') !== '0';
+
+/**
+ * Pick the model for a given min-words retry attempt from `rotation`,
+ * skipping an immediate back-to-back repeat of `previousModel` (the model
+ * actually used on the attempt right before this one).
+ *
+ * Why this is needed: the plain index `Math.min(attempt - 1, rotation.length
+ * - 1)` clamps at the LAST entry once `attempt` exceeds `rotation.length`.
+ * CREATE_ARTICLE_MIN_WORDS_RETRIES (env, default 6) can be raised above
+ * MIN_WORDS_MODEL_ROTATION.length (6) — every attempt beyond the rotation's
+ * length would then clamp to the SAME last model as the attempt right
+ * before it, back-to-back, which is a near-certain repeat of the same
+ * too-short output (same model + same prompt ⇒ same failure). The same
+ * clamp-collision can also happen if a caller-supplied `previousModel`
+ * (from outside this loop) happens to coincide with the rotation's pick.
+ *
+ * Quality-NEUTRAL by construction: same set of models, same relative
+ * order — this only ADVANCES to the next rotation entry (wrapping once
+ * past the end) when the plain pick would repeat `previousModel`; it never
+ * reorders, drops, or substitutes a different/cheaper model. For the
+ * default config (retries == rotation.length == 6) the index never repeats
+ * on its own, so this is a no-op there — behavior changes ONLY once
+ * CREATE_ARTICLE_MIN_WORDS_RETRIES is raised past 6 (the exact case that
+ * used to silently repeat the last model).
+ *
+ * Pure + exported for testability (no network, no I/O).
+ */
+export function selectMinWordsRetryModel(attempt, previousModel, rotation = MIN_WORDS_MODEL_ROTATION, enabled = CREATE_ARTICLE_MINWORDS_DEDUP) {
+  const baseIndex = Math.min(attempt - 1, rotation.length - 1);
+  if (!enabled || rotation.length <= 1) return rotation[baseIndex];
+  let idx = baseIndex;
+  let guard = 0;
+  // Terminates within rotation.length steps: rotation entries are distinct,
+  // so wrapping all the way around always finds one that isn't previousModel
+  // (or, if every entry somehow equals previousModel, the guard stops it).
+  while (rotation[idx] === previousModel && guard < rotation.length) {
+    idx = (idx + 1) % rotation.length;
+    guard++;
+  }
+  return rotation[idx];
+}
+
 const RUN_REPORT = {
   startedAt: new Date().toISOString(),
   endedAt: null,
@@ -2928,6 +2976,46 @@ const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checke
 - Le aliquote fiscali (imposta alla fonte, aliquote federali/cantonali) sono stabilite da leggi federali/cantonali e amministrate da AFC/ESTV a livello federale e dalle amministrazioni cantonali delle contribuzioni — MAI da UFAS (previdenza sociale, AVS/AI) né da BFS (statistica: rileva dati, non fissa aliquote).
 - LAMal = assicurazione malattia (NON "tassa sulla salute"); frontalieri G hanno diritto d'opzione; franchige adulti CHF 300–2500.`;
 
+// ── Fact-check response cache (DEFAULT ON — kill switch) ────────────────
+// origin/main already hard-codes `cache: true` on this exact call (no flag,
+// no namespace) — the cache is ALREADY ACTIVE in production today. This
+// function's job is only to preserve that behavior by default; the env var
+// is a KILL SWITCH for turning it OFF, not an opt-in for turning it on.
+// SAFE-BY-DESIGN: ai-models.mjs' _responseCacheKey (scripts/lib/ai-models.mjs
+// ~1070-1088) hashes `messages` (full prompt = full article body) + `model` +
+// `bypassForceChain` + the live AI_MODELS_FORCE_CHAIN env state, so a cache
+// hit can only occur for the EXACT same article body, verified by the EXACT
+// same judge model, in the EXACT same force-chain state — there is no
+// cross-content or cross-model reuse possible, and a forced-local response
+// cannot enter the remote-consensus path (bypassForceChain is folded into
+// the key), so the "circular self-consensus" hazard ai-models.mjs flags
+// (~1039-1050) for this caller does not apply to the concrete key shape.
+// BENEFIT: dedupes the ~5s outer FACTCHECK_INFRA_RETRIES re-check
+// (triggered when a verifier returns non-JSON, see loop below) — a retry of
+// an unchanged body against the same judge model reuses the deterministic
+// (temperature 0) verdict instead of re-running the full fallback cascade.
+// If a circular-self-consensus problem is ever observed in practice, set
+// CREATE_ARTICLE_FACTCHECK_CACHE=0 to disable without a code change.
+function isFactCheckCacheEnabled() {
+  const raw = (process.env.CREATE_ARTICLE_FACTCHECK_CACHE || '').trim();
+  if (raw === '') return true; // unset → preserve production default (cache ON)
+  return !/^(0|false|no|off)$/i.test(raw); // explicit OFF values disable; anything else stays ON
+}
+
+/**
+ * Pure helper: builds the opts object passed to _aiCallLLM for a single
+ * fact-check verification call. Extracted so the cache on/off behavior is
+ * unit-testable without any network call. Never touches model choice,
+ * consensus logic, thresholds, or the blocking verdict — only whether the
+ * response cache is engaged for this call. DEFAULT ON (kill switch): when
+ * enabled this produces exactly `{ ...baseOpts, cache: true }`, byte-identical
+ * to the pre-existing production call (no cacheNamespace, so the cache key —
+ * which folds in `ns` — is unchanged from what's already live today).
+ */
+export function buildFactCheckCallOptions(baseOpts, cacheEnabled = isFactCheckCacheEnabled()) {
+  return cacheEnabled ? { ...baseOpts, cache: true } : { ...baseOpts };
+}
+
 /**
  * PRIMARY BLOCKING — Multi-model consensus fact verification.
  *
@@ -3290,14 +3378,14 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
     // Fact-check output is a compact JSON issues list (rarely >1500 tokens).
     // 60s is ample for any responsive model; a checker that hasn't replied in
     // 60s is stalled — fail over fast instead of burning the old 120s budget.
-    // cache:true — verdict is deterministic (temperature 0); re-checking an
-    // unchanged body with the same judge model reuses the result instead of
-    // re-running the full fallback cascade.
     // bypassForceChain:true — the verification models are the real quality gate
     // and must stay independent of AI_MODELS_FORCE_CHAIN. Without this, forcing
     // generation onto the local model would also force the checker onto it
     // (the model grading itself), so a forced run could publish unchecked content.
-    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true, bypassForceChain: true, modelUsedRef }
+    // cache — see buildFactCheckCallOptions() above: DEFAULT ON (kill switch
+    // via CREATE_ARTICLE_FACTCHECK_CACHE=0), preserving the production
+    // `cache: true` this call already had.
+    buildFactCheckCallOptions({ model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, bypassForceChain: true, modelUsedRef })
   );
   // Guard: if the full remote cascade is exhausted, callLLM falls through to
   // local/fallback — the same model that may have generated the content.
@@ -9047,6 +9135,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     console.error(`  📏 Source thin (${pageContent.length} chars) → min IT words target: ${adaptiveMinWords} (was ${CREATE_ARTICLE_MIN_IT_WORDS})`);
   }
 
+  // Tracks the model used by the immediately preceding attempt, for
+  // selectMinWordsRetryModel()'s back-to-back-duplicate skip below.
+  let previousMinWordsModel = null;
+
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
     // Wall-clock guard for the local-only cascade (2026-07-06, incident run
     // 28802314827): once local/fallback has generated at least one attempt
@@ -9075,7 +9167,12 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         throw err;
       }
     }
-    const modelSlot = MIN_WORDS_MODEL_ROTATION[Math.min(attempt - 1, MIN_WORDS_MODEL_ROTATION.length - 1)];
+    // selectMinWordsRetryModel() picks the same model the plain index would,
+    // except it skips an immediate back-to-back repeat of the previous
+    // attempt's model (see its doc comment — quality-neutral, default ON,
+    // CREATE_ARTICLE_MINWORDS_DEDUP=0 reverts to the plain clamp).
+    const modelSlot = selectMinWordsRetryModel(attempt, previousMinWordsModel);
+    previousMinWordsModel = modelSlot;
     const useGeminiDirect = modelSlot === 'gemini';
     // Higher temperature on later attempts to get more varied/longer output
     const tempBoost = attempt >= 7 ? 0.9 : (attempt >= 5 ? 0.8 : 0.7);
