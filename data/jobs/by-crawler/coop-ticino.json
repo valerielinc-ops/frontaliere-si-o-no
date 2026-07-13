@@ -66,7 +66,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-bern-iln2p5"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-bern-iln2p5"
+      ]
     },
     {
       "id": "company-9zyvir",
@@ -198,7 +206,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-zurich-ip1ggy",
+          "venditore-in-food-coop-genossenschaft-zurich-bbab2c-ip1ggy"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-zurich-ip1ggy",
+        "venditore-in-food-coop-genossenschaft-zurich-bbab2c-ip1ggy"
+      ]
     },
     {
       "id": "company-8p9fby",
@@ -455,7 +473,19 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "food-salesperson-coop-genossenschaft-koniz-1v6c1z",
+          "verkaufer-in-food-coop-genossenschaft-koniz-1v6c1z",
+          "vendeur-food-coop-genossenschaft-koniz-1v6c1z"
+        ]
+      },
+      "previousSlugs": [
+        "food-salesperson-coop-genossenschaft-koniz-1v6c1z",
+        "verkaufer-in-food-coop-genossenschaft-koniz-1v6c1z",
+        "vendeur-food-coop-genossenschaft-koniz-1v6c1z"
+      ]
     },
     {
       "id": "company-qb7csl",
@@ -1309,7 +1339,15 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-in-food-coop-genossenschaft-basel-87d61b-9w77ns"
+        ]
+      },
+      "previousSlugs": [
+        "venditore-in-food-coop-genossenschaft-basel-87d61b-9w77ns"
+      ]
     },
     {
       "id": "company-vhiz3s",
@@ -1387,11 +1425,17 @@
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-baden-vhiz3s"
+        ],
+        "it": [
+          "seller-in-food-coop-genossenschaft-baden-vhiz3s",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-vhiz3s",
+          "verkaufer-in-food-coop-city-baden-aargau-vhiz3s-vhiz3s"
         ]
       },
       "previousSlugs": [
         "seller-in-food-coop-genossenschaft-baden-vhiz3s",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-vhiz3s"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-vhiz3s",
+        "verkaufer-in-food-coop-city-baden-aargau-vhiz3s-vhiz3s"
       ]
     },
     {
@@ -4166,10 +4210,19 @@
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-450bb3",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-5d3n3s",
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-egvyi5",
-          "macellaio-specialista-della-carne-coop-genossenschaft-plaffeien"
+          "macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-plaffeien-freiburg-cmiw1s",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-plaffeien-cmiw1s",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-plaffeien-cmiw1s",
+          "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-plaffeien",
+          "boucher-ere-en-libre-service-coop-genossenschaft-plaffeien"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-stadt-hf2bjd"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-stadt-hf2bjd",
+          "butcher-meat-specialist-coop-genossenschaft-plaffeien-cmiw1s",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-plaffeien",
+          "butcher-meat-counter-specialist-coop-genossenschaft-plaffeien",
+          "butcher-meat-specialist-coop-genossenschaft-plaffeien"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-stadt-hf2bjd"
@@ -4510,11 +4563,21 @@
         }
       },
       "previousSlugs": [
-        "magaziner-in-verkauf-coop-laupen-bern"
+        "magaziner-in-verkauf-coop-laupen-bern",
+        "magaziner-in-vendita-coop-baden-aargau-4xl02y",
+        "magaziner-in-sales-coop-baden-aargau-4xl02y",
+        "magaziner-in-verkauf-coop-baden-aargau-4xl02y",
+        "magaziner-in-vente-coop-baden-aargau-4xl02y",
+        "magaziner-in-verkauf-coop-baden-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "magaziner-in-verkauf-coop-laupen-bern"
+          "magaziner-in-verkauf-coop-laupen-bern",
+          "magaziner-in-vendita-coop-baden-aargau-4xl02y",
+          "magaziner-in-sales-coop-baden-aargau-4xl02y",
+          "magaziner-in-verkauf-coop-baden-aargau-4xl02y",
+          "magaziner-in-vente-coop-baden-aargau-4xl02y",
+          "magaziner-in-verkauf-coop-baden-aargau"
         ]
       },
       "needsRetranslation": true
@@ -5280,10 +5343,30 @@
           "verkaufer-in-food-coop-genossenschaft-basel-stadt"
         ],
         "en": [
-          "verkaufer-in-food-coop-genossenschaft-basel-stadt-cjfwqp"
+          "verkaufer-in-food-coop-genossenschaft-basel-stadt-cjfwqp",
+          "food-sales-assistant-coop-genossenschaft-luterbach-cpbncd",
+          "sales-assistant-food-coop-genossenschaft-luterbach-cpbncd",
+          "food-sales-assistant-coop-genossenschaft-lachen",
+          "assistant-commercial-alimentaire-coop-genossenschaft-lachen",
+          "food-sales-assistant-coop-genossenschaft-arlesheim-mn7xht",
+          "assistant-commercial-alimentaire-coop-genossenschaft-arlesheim-mn7xht",
+          "food-sales-assistant-coop-genossenschaft-arlesheim",
+          "assistant-commercial-alimentaire-coop-genossenschaft-arlesheim",
+          "food-sales-assistant-coop-genossenschaft-frauenfeld-23mhty",
+          "assistant-commercial-alimentaire-coop-genossenschaft-frauenfeld-23mhty",
+          "food-sales-assistant-coop-genossenschaft-frauenfeld",
+          "assistant-commercial-alimentaire-coop-genossenschaft-frauenfeld",
+          "sales-assistant-food-coop-genossenschaft-luterbach",
+          "food-sales-assistant-coop-genossenschaft-zurich-p0qg7c",
+          "assistant-commercial-alimentaire-coop-genossenschaft-zurich-p0qg7c",
+          "assistant-commercial-alimentaire-coop-genossenschaft-luterbach",
+          "assistant-commercial-alimentaire-coop-genossenschaft-luterbach-cpbncd"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-basel-stadt-cjfwqp"
+        ],
+        "de": [
+          "verkaufer-in-lebensmittel-coop-genossenschaft-ostermundigen"
         ]
       },
       "previousSlugs": [
@@ -5967,12 +6050,22 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-n3eyyx",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-7ide1t",
-        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden"
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden",
+        "consulenti-di-vendita-incl-amministratori-delegati-in-coop-genossenschaft-st-gallen",
+        "sales-consultants-incl-deputy-managing-directors-in-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen-5tzfeh",
+        "consultants-en-ventes-y-compris-directeurs-generaux-adjoints-in-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-7ide1t",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden",
+          "consulenti-di-vendita-incl-amministratori-delegati-in-coop-genossenschaft-st-gallen",
+          "sales-consultants-incl-deputy-managing-directors-in-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen-5tzfeh",
+          "consultants-en-ventes-y-compris-directeurs-generaux-adjoints-in-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen"
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-7ide1t"
@@ -7635,7 +7728,8 @@
           "verkaufer-in-kassen-services-coop-winterthur-zurich"
         ],
         "en": [
-          "verkaufer-in-kassen-services-coop-winterthur-zurich-7zcj2u"
+          "verkaufer-in-kassen-services-coop-winterthur-zurich-7zcj2u",
+          "verkaufer-in-kassen-services-coop-genossenschaft-winterthur-7zcj2u"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-winterthur-zurich-7zcj2u"
@@ -8091,7 +8185,9 @@
           "verkaufer-in-frischprodukte-coop-bulach-zurich"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-coop-bulach-zurich-8daxad"
+          "verkaufer-in-frischprodukte-coop-bulach-zurich-8daxad",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-bulach-8daxad",
+          "fresh-produce-sales-assistant-coop-genossenschaft-bulach"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-bulach-zurich-8daxad"
@@ -8286,7 +8382,8 @@
           "verkaufer-in-food-getranke-coop-bulach-zurich"
         ],
         "en": [
-          "verkaufer-in-food-getranke-coop-bulach-zurich-3a69iv"
+          "verkaufer-in-food-getranke-coop-bulach-zurich-3a69iv",
+          "verkaufer-in-food-getranke-coop-genossenschaft-bulach-3a69iv"
         ],
         "fr": [
           "verkaufer-in-food-getranke-coop-bulach-zurich-3a69iv"
@@ -8928,7 +9025,8 @@
           "project-manager-in-sponsoring-coop-bern"
         ],
         "en": [
-          "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4"
+          "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
+          "project-manager-in-sponsoring-coop-genossenschaft-bern"
         ],
         "fr": [
           "project-manager-in-sponsoring-coop-bern-c6dwd4"
@@ -9370,11 +9468,27 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360"
+          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360",
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-xswmrq",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-xswmrq",
+          "sales-advisor-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+          "conseiller-ere-commercial-e-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-3"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360",
-          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-ppc360"
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-ppc360",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-xswmrq",
+          "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-xswmrq",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-xswmrq",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943",
+          "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+          "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-xswmrq",
+          "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943",
+          "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-dfd943"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360"
@@ -10257,7 +10371,8 @@
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen"
         ],
         "en": [
-          "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-m5dhez"
+          "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-m5dhez",
+          "verkaufsberater-in-coop-genossenschaft-st-gallen-m5dhez"
         ],
         "fr": [
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-m5dhez"
@@ -11924,7 +12039,8 @@
           "verkaufsberater-in-garden-jumbo-suhr-aargau-pm1d2u"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-suhr-aargau-pm1d2u"
+          "verkaufsberater-in-garden-jumbo-suhr-aargau-pm1d2u",
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-suhr-pm1d2u"
         ],
         "fr": [
           "verkaufsberater-in-garden-jumbo-suhr-aargau-pm1d2u"
@@ -11932,7 +12048,8 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-suhr-aargau-pm1d2u",
-        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-suhr"
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-suhr",
+        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-suhr-pm1d2u"
       ],
       "needsRetranslation": true
     },
@@ -14622,15 +14739,19 @@
         "directeur-de-district-des-denrees-alimentaires-de-base-coop-genossenschaft-koniz-z5szrd",
         "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-9ixjoe",
         "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern",
-        "rayon-conduttore-cibo-basso-coop-genossenschaft-koniz"
+        "rayon-conduttore-cibo-basso-coop-genossenschaft-koniz",
+        "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-2",
+        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-koniz-9ixjoe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-9ixjoe",
-          "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern"
+          "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern",
+          "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-2"
         ],
         "en": [
-          "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-9ixjoe"
+          "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-9ixjoe",
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-koniz-9ixjoe"
         ],
         "fr": [
           "rayonleiter-in-grundnahrungsmittel-coop-koniz-bern-9ixjoe"
@@ -15837,10 +15958,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lagerist-in-coop-city-basel-stadt-2z2veo",
-          "lagerist-in-coop-city-basel-stadt"
+          "lagerist-in-coop-city-basel-stadt",
+          "operatore-a-di-magazzino-coop-genossenschaft-basel"
         ],
         "en": [
-          "lagerist-in-coop-city-basel-stadt-2z2veo"
+          "lagerist-in-coop-city-basel-stadt-2z2veo",
+          "warehouse-assistant-coop-genossenschaft-basel"
         ],
         "de": [
           "lagerist-in-coop-genossenschaft-basel-2z2veo"
@@ -15852,7 +15975,9 @@
       "previousSlugs": [
         "lagerist-in-coop-city-basel-stadt-2z2veo",
         "lagerist-in-coop-genossenschaft-basel-2z2veo",
-        "lagerist-in-coop-city-basel-stadt"
+        "lagerist-in-coop-city-basel-stadt",
+        "operatore-a-di-magazzino-coop-genossenschaft-basel",
+        "warehouse-assistant-coop-genossenschaft-basel"
       ],
       "needsRetranslation": true
     },
@@ -23310,7 +23435,8 @@
           "verkaufer-in-kassen-services-coop-neuenhof-aargau"
         ],
         "en": [
-          "verkaufer-in-kassen-services-coop-neuenhof-aargau-59r4og"
+          "verkaufer-in-kassen-services-coop-neuenhof-aargau-59r4og",
+          "verkaufer-in-kassen-services-coop-genossenschaft-neuenhof-59r4og"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-neuenhof-aargau-59r4og"
@@ -23319,7 +23445,8 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-neuenhof-aargau-59r4og",
         "verkaufer-in-kassen-services-coop-neuenhof-aargau",
-        "venditore-a-cassa-service-coop-genossenschaft-neuenhof"
+        "venditore-a-cassa-service-coop-genossenschaft-neuenhof",
+        "verkaufer-in-kassen-services-coop-genossenschaft-neuenhof-59r4og"
       ],
       "needsRetranslation": true
     },
@@ -24225,7 +24352,8 @@
         "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-cham",
         "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug-xq6n5y",
         "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug",
-        "venditore-in-prodotti-freschi-butchery-coop-genossenschaft-erstfeld"
+        "venditore-in-prodotti-freschi-butchery-coop-genossenschaft-erstfeld",
+        "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-cham-xq6n5y"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24233,7 +24361,8 @@
           "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug-xq6n5y"
+          "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug-xq6n5y",
+          "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-cham-xq6n5y"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-metzgerei-coop-cham-zug-xq6n5y"
@@ -37271,7 +37400,8 @@
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-food-coop-genossenschaft-st-gallen-7b0857",
-          "verkaufer-in-food-coop-city-st-gallen-sankt-gallen"
+          "verkaufer-in-food-coop-city-st-gallen-sankt-gallen",
+          "venditore-in-food-coop-genossenschaft-st-gallen"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-st-gallen",
@@ -37294,7 +37424,8 @@
         "verkaufer-in-food-coop-genossenschaft-st-gallen-457ll7",
         "verkaufer-in-food-coop-city-st-gallen-sankt-gallen",
         "seller-in-food-coop-genossenschaft-st-gallen-457ll7",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-457ll7"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-457ll7",
+        "venditore-in-food-coop-genossenschaft-st-gallen"
       ],
       "needsRetranslation": true
     },
@@ -102768,7 +102899,13 @@
           "verkaufer-in-kassen-services-coop-zurich",
           "verkaufer-in-kassen-services-coop-rapperswil-jona-sankt-gallen-5j9p37",
           "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
-          "verkaufer-in-kassen-services-coop-laupen-bern"
+          "verkaufer-in-kassen-services-coop-laupen-bern",
+          "casse-servizi-per-assistenti-vendite-coop-genossenschaft-fallanden",
+          "verkaufer-in-kassen-services-coop-fallanden-zurich-y2s91y",
+          "casse-servizi-per-assistenti-vendite-coop-genossenschaft-niederglatt",
+          "verkaufer-in-kassen-services-coop-niederglatt-zurich-wyblw1",
+          "casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
+          "verkaufer-in-kassen-services-coop-arth-schwyz-f27kbe"
         ],
         "en": [
           "sales-assistant-cash-registers-services-coop-genossenschaft-zurich-15ad04",
@@ -102784,7 +102921,13 @@
           "caisses-services-d-assistant-commercial-coop-genossenschaft-rapperswil-jona",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-rapperswil-jona-5j9p37",
           "sales-assistant-cash-registers-services-coop-genossenschaft-laupen",
-          "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui"
+          "verkaufer-in-kassen-services-coop-laupen-bern-wkl7ui",
+          "sales-assistant-cash-registers-services-coop-genossenschaft-fallanden-y2s91y",
+          "caisses-services-d-assistant-commercial-coop-genossenschaft-fallanden-y2s91y",
+          "sales-assistant-cash-registers-services-coop-genossenschaft-niederglatt-wyblw1",
+          "caisses-services-d-assistant-commercial-coop-genossenschaft-niederglatt-wyblw1",
+          "sales-assistant-cash-registers-services-coop-genossenschaft-arth-f27kbe",
+          "caisses-services-d-assistant-commercial-coop-genossenschaft-arth-f27kbe"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-genossenschaft-laupen-wkl7ui"
@@ -160446,7 +160589,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-dietikon-zurich-zfp01e",
+          "venditore-in-food-coop-genossenschaft-dietikon-zfp01e"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-dietikon-zurich-zfp01e",
+        "venditore-in-food-coop-genossenschaft-dietikon-zfp01e"
+      ]
     }
   ]
 }
