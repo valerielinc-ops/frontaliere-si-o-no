@@ -1084,6 +1084,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'How the second pillar of Swiss pension works',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'All about the LPP: 894 thousand beneficiaries, median income 1,744 francs, conversion rate 6.8%. Complete guide to the mandatory pillar.',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Swiss pension fund building in Zurich financial district',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Foreign tax credit parameterized to income: case studies',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'The foreign income tax credit is a tax benefit available to border workers working in Switzerland.',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier filling tax return',
 };
 
 export default blogMetaChEn;

@@ -1084,6 +1084,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'Come funziona il secondo pilastro della previdenza svizzera',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'Tutto sulla LPP: 894mila beneficiari, rendita mediana 1.744 franchi, aliquota conversione 6,8%. Guida completa al pilastro obbligatorio.',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Edificio di una cassa pensioni svizzera nel quartiere finanziario di Zurigo',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Credito imposte estere parametrato al reddito: le casistiche',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Il credito imposte estere parametrato al reddito è un beneficio fiscale disponibile per i frontalieri che lavorano in Svizzera.',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontaliere mentre riempie la dichiarazione delle imposte',
 };
 
 export default blogMetaChIt;

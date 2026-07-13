@@ -1084,6 +1084,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.title': 'Comment fonctionne le deuxième pilier de la prévoyance suisse',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.excerpt': 'Tout sur la LPP : 894 000 bénéficiaires, rente médiane 1 744 francs, taux de conversion 6,8 %. Guide complet du pilier obligatoire.',
     'blog.article.secondo-pilastro-previdenza-professionale-lpp-svizzera.imageAlt': 'Bâtiment d\'une caisse de pension suisse dans le quartier financier de Zurich',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.title': 'Crédit d\'impôt étranger paramétré sur le revenu : les cas',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.excerpt': 'Le crédit d\'impôt étranger paramétré sur le revenu est un avantage fiscal disponible pour les frontaliers travaillant en Suisse.',
+    'blog.article.credito-imposte-estere-parametrato-al-reddito-le-casistiche.imageAlt': 'Frontalier en train de remplir la déclaration d\'impôt',
 };
 
 export default blogMetaChFr;
