@@ -1,19 +1,21 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-13T13:44:20.167Z",
+  "generatedAt": "2026-07-13T22:15:14.808Z",
   "total": 374,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 104792,
-  "avgDurationMs": 104792,
+  "unchangedCount": 1,
+  "durationMs": 107675,
+  "avgDurationMs": 107675,
   "durationHistory": [
-    104792
+    107675
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistente di farmacia AFC",
       "company": "Amavita (Galenica)",
@@ -38,7 +40,7 @@
       "addressRegion": "NE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,7 +49,5 @@
         "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
