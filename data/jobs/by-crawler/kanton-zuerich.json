@@ -1184,8 +1184,8 @@
       "slugByLocale": {
         "de": "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see",
         "it": "mittelschullehrperson-mba-per-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see",
-        "en": "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see",
-        "fr": "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
+        "en": "secondary-school-teacher-mba-for-geography-kantonale-verwaltung-zurich-8707-uetikon-am-see",
+        "fr": "professeur-d-enseignement-secondaire-kantonale-verwaltung-zurich-8707-uetikon-am-see"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1235,10 +1235,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see"
+        ],
+        "en": [
+          "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
+        ],
+        "fr": [
+          "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
         ]
       },
       "previousSlugs": [
-        "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see"
+        "mittelschullehrperson-mba-fur-geografie-kanton-zuerich-8707-uetikon-am-see",
+        "mittelschullehrperson-mba-fur-geografie-kantonale-verwaltung-zurich-8707-uetikon-am-see"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5916,9 +5923,9 @@
     },
     {
       "id": "kanton-zuerich-61a54a91499a",
-      "slug": "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur",
+      "slug": "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur",
       "slugByLocale": {
-        "it": "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur",
+        "it": "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur",
         "en": "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
         "de": "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
         "fr": "prorecteur-prorecteur-kantonale-verwaltung-zurich-8400-winterthur"
@@ -5971,14 +5978,14 @@
         "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
         "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur",
         "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
-        "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur"
+        "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prorektorin-prorektor-kanton-zuerich-8400-winterthur",
           "vice-rettore-kantonale-verwaltung-zurich-8400-winterthur",
           "prorector-prorector-kantonale-verwaltung-zurich-8400-winterthur",
-          "prorettore-produttore-kantonale-verwaltung-zurich-8400-winterthur"
+          "prorektorin-prorektor-kantonale-verwaltung-zurich-8400-winterthur"
         ],
         "en": [
           "prorektorin-prorektor-kanton-zuerich-8400-winterthur"
