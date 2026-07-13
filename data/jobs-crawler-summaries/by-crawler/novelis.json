@@ -1,16 +1,16 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-12T22:34:42.666Z",
-  "total": 9,
+  "generatedAt": "2026-07-13T12:53:20.878Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9164,
-  "avgDurationMs": 9164,
+  "unchangedCount": 0,
+  "durationMs": 9020,
+  "avgDurationMs": 9020,
   "durationHistory": [
-    9164
+    9020
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:34:35.978Z",
+      "crawledAt": "2026-07-13T12:53:14.243Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -76,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:34:35.139Z",
+      "crawledAt": "2026-07-13T12:53:13.394Z",
       "firstSeenAt": "2026-07-08T11:23:08.808Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:34:36.765Z",
+      "crawledAt": "2026-07-13T12:53:15.012Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -148,7 +148,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:34:37.549Z",
+      "crawledAt": "2026-07-13T12:53:15.771Z",
       "firstSeenAt": "2026-07-08T11:23:10.893Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:34:38.377Z",
+      "crawledAt": "2026-07-13T12:53:16.659Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52551/industrial-fluids-process-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:34:39.133Z",
+      "crawledAt": "2026-07-13T12:53:17.524Z",
       "firstSeenAt": "2026-07-08T11:23:13.625Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -256,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:34:39.990Z",
+      "crawledAt": "2026-07-13T12:53:18.441Z",
       "firstSeenAt": "2026-07-08T11:23:15.394Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -268,84 +268,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "novelis-5aef95504fa2",
-      "slug": "responsabile-del-sito-novelis-sierre",
-      "company": "Novelis",
-      "companyKey": "novelis",
-      "companyDomain": "novelis.com",
-      "title": "Site Manager",
-      "location": "Sierre",
-      "canton": "VS",
-      "addressLocality": "Sierre",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3960",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Metallurgia / Alluminio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://ch-external-novelis.icims.com/jobs/52569/site-manager/job?hub=13&in_iframe=1",
-      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52569/site-manager/job?hub=13&in_iframe=1",
-      "source": "Novelis Dedicated Parser (iCIMS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-12T11:02:21.461Z",
-      "firstSeenAt": "2026-07-08T11:23:12.859Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "novelis-bb9e1719bb7d",
-      "slug": "responsabile-del-sito-ehs-novelis-sierre",
-      "company": "Novelis",
-      "companyKey": "novelis",
-      "companyDomain": "novelis.com",
-      "title": "Site EHS Manager",
-      "location": "Sierre",
-      "canton": "VS",
-      "addressLocality": "Sierre",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3960",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Metallurgia / Alluminio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://ch-external-novelis.icims.com/jobs/52570/site-ehs-manager/job?hub=13&in_iframe=1",
-      "applyUrl": "https://ch-external-novelis.icims.com/jobs/52570/site-ehs-manager/job?hub=13&in_iframe=1",
-      "source": "Novelis Dedicated Parser (iCIMS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-12T11:02:20.969Z",
-      "firstSeenAt": "2026-07-08T11:23:12.256Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
