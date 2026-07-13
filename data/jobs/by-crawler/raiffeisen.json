@@ -2413,9 +2413,9 @@
       "slug": "apprendistato-kaufmann-kauffrau-cfc-branche-bank-2027-raiffeisen-worb",
       "slugByLocale": {
         "it": "apprendistato-kaufmann-kauffrau-cfc-branche-bank-2027-raiffeisen-worb",
-        "en": "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb",
+        "en": "apprenticeship-commercial-employee-afc-banking-sector-2027-raiffeisen-worb",
         "de": "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb",
-        "fr": "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb"
+        "fr": "place-d-apprentissage-employe-de-commerce-afp-secteur-bancaire-2027-raiffeisen-worb"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -2462,6 +2462,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb"
+        ],
+        "en": [
+          "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb"
+        ],
+        "fr": [
           "lehrstelle-kaufmann-kauffrau-efz-branche-bank-2027-raiffeisen-worb"
         ]
       },
@@ -2931,9 +2937,9 @@
     },
     {
       "id": "raiffeisen-83c557e8cfb1",
-      "slug": "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen",
+      "slug": "senior-business-analyst-consulenza-agli-investimenti-f-m-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen",
+        "it": "senior-business-analyst-consulenza-agli-investimenti-f-m-d-raiffeisen-st-gallen",
         "en": "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen",
         "de": "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen",
         "fr": "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen"
@@ -2990,7 +2996,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-analyst-anlageberatung-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-18fe5ab574e4",
