@@ -1,16 +1,57 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-07-12T22:01:00.448Z",
-  "total": 0,
+  "generatedAt": "2026-07-13T13:19:19.632Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 8734,
+  "avgDurationMs": 8734,
+  "durationHistory": [
+    8734
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Cocoa Administration Officer",
+      "slug": "cocoa-administration-officer-baronie-caslano",
+      "url": "https://www.baronie.com/en/jobs/cocoa-administration-officer-caslano",
+      "applyUrl": "https://www.baronie.com/en/jobs/cocoa-administration-officer-caslano",
+      "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+      "companyKey": "baronie",
+      "companyDomain": "baronie.com",
+      "location": "Caslano",
+      "addressLocality": "Caslano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "administration",
+      "sector": "Alimentare / Cioccolato",
+      "source": "baronie-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-13",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "baronie-f84d3811be6e",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-07-10T10:34:01.659Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
