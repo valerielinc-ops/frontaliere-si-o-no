@@ -960,8 +960,8 @@ const CREATE_ARTICLE_MIN_WORDS_RETRIES = Math.max(
 );
 /** Model rotation for min-words retries: cycle through different models to maximize chances */
 const MIN_WORDS_MODEL_ROTATION = [
-  GH_MODEL_HEAVY,                    // attempt 1: gpt-4o (GitHub Models)
-  AI_MODELS.GPT_4_1,                 // attempt 2: gpt-4.1 (GitHub Models, different daily limit)
+  AI_MODELS.GPT_4_1,                 // attempt 1: gpt-4.1 (GitHub Models, different daily limit — leads so attempt 2 uses a genuinely different model if content is short)
+  GH_MODEL_HEAVY,                    // attempt 2: gpt-4o (GitHub Models — moved from first: was redundant when the default generation model also uses gpt-4o)
   'gemini',                          // attempt 3: gemini-2.5-flash (Google, different provider)
   AI_MODELS.GPT_4_1_NANO,             // attempt 4: gpt-4.1-nano (GitHub Models — GPT_5_NANO killed 2026-05-18)
   AI_MODELS.GROQ_GPT_OSS_120B,       // attempt 5: GPT-OSS 120B (Groq — GROQ_KIMI_K2 swapped 2026-06-15: dead HTTP 404 "moonshotai/kimi-k2-instruct does not exist"; a dead model here triggered the full free-tier fallback cascade, ~11min wasted per pick)
