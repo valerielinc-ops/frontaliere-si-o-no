@@ -20871,8 +20871,8 @@
       "slugByLocale": {
         "de": "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903",
         "it": "fachbearbeiter-in-kundenservice-e-administration-stadt-zurich",
-        "en": "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903",
-        "fr": "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903"
+        "en": "specialist-in-customer-service-and-administration-stadt-zurich-zurich",
+        "fr": "specialiste-du-service-a-la-clientele-et-de-l-administration-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -20921,6 +20921,12 @@
       "referenceNumber": "50903",
       "previousSlugsByLocale": {
         "it": [
+          "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903"
+        ],
+        "en": [
+          "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903"
+        ],
+        "fr": [
           "fachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-50903"
         ]
       },
@@ -21576,7 +21582,7 @@
       "slugByLocale": {
         "de": "hr-fachfrau-fachmann-stadt-zuerich-zurigo-50749",
         "it": "risorse-umane-fachfrau-fachmann-stadt-zurich-zurich",
-        "en": "hr-fachfrau-fachmann-stadt-zuerich-zurigo-50749",
+        "en": "hr-specialist-stadt-zurich-zurich-d833be",
         "fr": "ressources-humaines-fachfrau-fachmann-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -21642,6 +21648,9 @@
           "hr-fachfrau-fachmann-stadt-zuerich-zurigo-50749"
         ],
         "fr": [
+          "hr-fachfrau-fachmann-stadt-zuerich-zurigo-50749"
+        ],
+        "en": [
           "hr-fachfrau-fachmann-stadt-zuerich-zurigo-50749"
         ]
       },
@@ -21731,12 +21740,12 @@
     },
     {
       "id": "stadt-zuerich-429383fcf031",
-      "slug": "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920",
+      "slug": "hortleitung-esperto-supporto-specialistico-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920",
-        "it": "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920",
-        "en": "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920",
-        "fr": "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920"
+        "it": "hortleitung-esperto-supporto-specialistico-stadt-zurich-zurich",
+        "en": "hortleitung-experienced-specialist-support-stadt-zurich-zurich",
+        "fr": "hortleitung-soutien-specialise-experimente-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -21795,16 +21804,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T12:22:59.808Z"
+      "firstSeenAt": "2026-07-13T12:22:59.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920"
+        ],
+        "en": [
+          "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920"
+        ],
+        "fr": [
+          "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920"
+        ]
+      },
+      "previousSlugs": [
+        "hortleitung-erfahrene-fachperson-betreuung-stadt-zuerich-zurigo-50920"
+      ]
     },
     {
       "id": "stadt-zuerich-4221dc9451d5",
-      "slug": "co-leitung-betreuung-stadt-zuerich-zurigo-50928",
+      "slug": "co-direzione-assistenza-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "co-leitung-betreuung-stadt-zuerich-zurigo-50928",
-        "it": "co-leitung-betreuung-stadt-zuerich-zurigo-50928",
-        "en": "co-leitung-betreuung-stadt-zuerich-zurigo-50928",
-        "fr": "co-leitung-betreuung-stadt-zuerich-zurigo-50928"
+        "it": "co-direzione-assistenza-stadt-zurich-zurich",
+        "en": "co-direction-assistance-stadt-zurich-zurich",
+        "fr": "aide-a-la-codirection-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -21869,8 +21892,20 @@
         "head-of-support-sihlweid-maternity-representation-stadt-zurich-zurich",
         "leitung-betreuung-sihlweid-mutterschaftsvertretung-stadt-zuerich-zurigo-50278",
         "chef-du-soutien-sihlweid-representation-de-la-maternite-stadt-zurich-zurich",
-        "leitung-betreuung-sihlweid-mutterschaftsvertretung-stadt-zurich-zurich"
-      ]
+        "leitung-betreuung-sihlweid-mutterschaftsvertretung-stadt-zurich-zurich",
+        "co-leitung-betreuung-stadt-zuerich-zurigo-50928"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-leitung-betreuung-stadt-zuerich-zurigo-50928"
+        ],
+        "en": [
+          "co-leitung-betreuung-stadt-zuerich-zurigo-50928"
+        ],
+        "fr": [
+          "co-leitung-betreuung-stadt-zuerich-zurigo-50928"
+        ]
+      }
     },
     {
       "id": "stadt-zuerich-6603b3c99776",

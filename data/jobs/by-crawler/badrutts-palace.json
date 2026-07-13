@@ -612,12 +612,12 @@
     },
     {
       "id": "badrutts-palace-6a3519247f04",
-      "slug": "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
+      "slug": "servizio-lavanderia-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "en": "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
-        "it": "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
+        "it": "servizio-lavanderia-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "de": "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
-        "fr": "ironer-guest-laundry-m-f-d-badrutts-palace-ch"
+        "fr": "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -672,7 +672,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-13T13:19:32.681Z"
+      "firstSeenAt": "2026-07-13T13:19:32.681Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ironer-guest-laundry-m-f-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "ironer-guest-laundry-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ironer-guest-laundry-m-f-d-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-49ba124790d8",
@@ -681,7 +692,7 @@
         "en": "technical-amp-logistics-assistant-m-f-d-badrutts-palace-ch",
         "it": "technical-logistica-assistant-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "de": "technical-logistik-assistent-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "technical-logistics-assistant-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "assistant-technique-et-logistique-m-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -743,10 +754,14 @@
         ],
         "de": [
           "technical-amp-logistics-assistant-m-f-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "technical-logistics-assistant-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "technical-amp-logistics-assistant-m-f-d-badrutts-palace-ch"
+        "technical-amp-logistics-assistant-m-f-d-badrutts-palace-ch",
+        "technical-logistics-assistant-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ]
     },
     {
@@ -755,7 +770,7 @@
       "slugByLocale": {
         "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
         "it": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
-        "de": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
       },
       "company": "Badrutt's Palace Hotel",

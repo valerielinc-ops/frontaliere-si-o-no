@@ -1462,12 +1462,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-chur-78b107",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
-        "en": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-chur-78b107",
+        "en": "postbus-driver-in-postauto-chur",
         "de": "postauto-fahrer-in-postauto-chur",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-chur-78b107"
       },
       "sourceLang": "de",
       "department": "",
@@ -1501,7 +1501,21 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-13T12:21:21.356Z"
+      "firstSeenAt": "2026-07-13T12:21:21.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "en": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74234-de_DE",

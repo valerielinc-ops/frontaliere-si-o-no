@@ -3041,8 +3041,8 @@
       "slugByLocale": {
         "de": "mediamatiker-in-efz-six-group-zurich",
         "it": "mediamatiker-in-cfc-six-group-zurich",
-        "en": "mediamatiker-in-efz-six-group-zurich",
-        "fr": "mediamatiker-in-efz-six-group-zurich"
+        "en": "mediatographer-efz-six-group-zurich",
+        "fr": "mediatographe-efz-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3100,6 +3100,12 @@
       "firstSeenAt": "2026-07-13T12:27:06.102Z",
       "previousSlugsByLocale": {
         "it": [
+          "mediamatiker-in-efz-six-group-zurich"
+        ],
+        "en": [
+          "mediamatiker-in-efz-six-group-zurich"
+        ],
+        "fr": [
           "mediamatiker-in-efz-six-group-zurich"
         ]
       },
@@ -3186,8 +3192,8 @@
       "slugByLocale": {
         "de": "entwickler-in-in-digitales-business-efz-six-group-zurich",
         "it": "entwickler-in-in-digitales-business-efz-six-group-zurich",
-        "en": "entwickler-in-in-digitales-business-efz-six-group-zurich",
-        "fr": "entwickler-in-in-digitales-business-efz-six-group-zurich"
+        "en": "developer-in-digital-business-efz-six-group-zurich",
+        "fr": "developpeur-en-entreprise-numerique-efz-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3456,7 +3462,7 @@
       "slugByLocale": {
         "de": "informatiker-in-efz-plattformentwicklung-six-group-zurich",
         "it": "informatiker-in-efz-plattformentwicklung-six-group-zurich",
-        "en": "informatiker-in-efz-plattformentwicklung-six-group-zurich",
+        "en": "computer-scientist-efz-platform-development-six-group-zurich",
         "fr": "informatiker-in-efz-plattformentwicklung-six-group-zurich"
       },
       "company": "SIX Group",
@@ -3520,8 +3526,8 @@
       "slugByLocale": {
         "de": "informatiker-in-efz-applikationsentwicklung-six-group-zurich",
         "it": "informatiker-in-efz-applikationsentwicklung-six-group-zurich",
-        "en": "informatiker-in-efz-applikationsentwicklung-six-group-zurich",
-        "fr": "informatiker-in-efz-applikationsentwicklung-six-group-zurich"
+        "en": "computer-scientist-in-efz-application-development-six-group-zurich",
+        "fr": "computer-scientist-in-efz-developpement-des-applications-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6987,12 +6993,12 @@
     },
     {
       "id": "six-group-4fbba57d791b",
-      "slug": "senior-legal-counsel-six-group-zurich",
+      "slug": "consigliere-legale-senior-six-group-zurich",
       "slugByLocale": {
         "en": "senior-legal-counsel-six-group-zurich",
-        "it": "senior-legal-counsel-six-group-zurich",
+        "it": "consigliere-legale-senior-six-group-zurich",
         "de": "senior-legal-counsel-six-group-zurich",
-        "fr": "senior-legal-counsel-six-group-zurich"
+        "fr": "conseiller-juridique-principal-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -7052,8 +7058,17 @@
         "avvocato-legale-six-group-zurich",
         "legal-counsel-six-group-zurich",
         "conseiller-juridique-six-group-zurich",
-        "avviso-legale-six-group-zurich"
-      ]
+        "avviso-legale-six-group-zurich",
+        "senior-legal-counsel-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-legal-counsel-six-group-zurich"
+        ],
+        "fr": [
+          "senior-legal-counsel-six-group-zurich"
+        ]
+      }
     },
     {
       "id": "six-group-9436c086b770",
