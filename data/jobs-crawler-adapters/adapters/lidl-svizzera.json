@@ -72,6 +72,7 @@
     "https://team.lidl.ch/de/jobs/ch-verkaufer-verkauferin-m-w-d-20-80-zurich-682875",
     "https://team.lidl.ch/de/jobs/ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-aarau-ag-713513",
     "https://team.lidl.ch/de/jobs/ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-niederlenz-716732",
+    "https://team.lidl.ch/de/jobs/disponent-disponentin-m-w-d-80-100-weinfelden-716116",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-kt-schwyz-march-oberer-zurichsee-m-w-d-80-100-einsiedeln-697843",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-aarau-671652",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
@@ -147,6 +148,7 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-dottingen-702616",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-dubendorf-683517",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-ebikon-707616",
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-herisau-713525",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-horw-708781",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-hunzenschwil-702617",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-kriens-708786",
@@ -349,10 +351,13 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-yverdon-les-bains-707735",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-704917"
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-704917",
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-1-lugano-706769",
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-lugano-705822",
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-13T12:12:31.972Z",
+  "updatedAt": "2026-07-13T21:57:15.626Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -443,6 +448,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/disponent-disponentin-m-w-d-80-100-weinfelden-716116": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-weinfelden-695004": {
       "location": "Weinfelden",
@@ -776,6 +790,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-herisau-713525": {
+      "location": "Herisau",
+      "addressLocality": "Herisau",
+      "canton": "AR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/ch-allrounder-verkauf-m-w-d-20-40-oeschgen-700504": {
       "location": "Oeschgen",
@@ -3368,6 +3391,33 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-1-lugano-706769": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-lugano-705822": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685": {
       "location": "Collombey-Muraz",
