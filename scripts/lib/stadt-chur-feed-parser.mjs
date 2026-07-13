@@ -56,9 +56,10 @@ export function parseRssItems(xmlText = '') {
       return m ? decodeHtmlEntities(m[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').trim()) : '';
     };
     const link = get('link') || get('guid');
-    // Only keep real job-detail links (Rexx emits `...-de-jNNNN.html`); skip
-    // channel/self rows or malformed items.
-    if (!/j\d+\.html/i.test(link)) continue;
+    // Only keep real job-detail links (Rexx emits `...-de-jNNNN.html`) hosted
+    // on jobs.chur.ch itself; skip channel/self rows, malformed items, or
+    // (when served via the untrusted morss proxy) links pointing off-domain.
+    if (!/j\d+\.html/i.test(link) || !link.startsWith('https://jobs.chur.ch/')) continue;
     entries.push({
       title: get('title'),
       link,
