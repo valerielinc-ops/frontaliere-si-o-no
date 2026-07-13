@@ -192,7 +192,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-10T22:02:33.547Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "100-legal-practitioners-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "100-juristen-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "100-praticiens-du-droit-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "100-legal-practitioners-citta-di-mendrisio-mendrisio",
+        "100-juristen-citta-di-mendrisio-mendrisio",
+        "100-praticiens-du-droit-citta-di-mendrisio-mendrisio"
+      ]
     }
   ]
 }
