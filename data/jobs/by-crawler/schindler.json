@@ -655,7 +655,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -700,6 +700,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
@@ -3593,8 +3596,7 @@
       "previousSlugs": [
         "responsabile-del-consenso-ai-cookie-schindler-bussigny",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "gestionnaire-de-consentements-pour-les-cookies-schindler-sion",
-        "cookie-consent-manager-schindler-sion"
+        "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3669,8 +3671,7 @@
         "responsabile-del-consenso-ai-cookie-schindler-sion",
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
-        "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny"
+        "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
