@@ -1,6 +1,6 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-07-12T22:21:12.767Z",
+  "assembledAt": "2026-07-13T12:41:42.045Z",
   "jobs": [
     {
       "id": "crr-suva-sion-9d9e50d545c8",
@@ -34,7 +34,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/bottier-ere-orthopediste-2413.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:21:10.988Z",
+      "crawledAt": "2026-07-13T12:41:40.580Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -155,7 +155,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
