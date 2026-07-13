@@ -8483,6 +8483,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Di più posti di lavoro, la situazione resta critica nel settore bancario',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Il numero di disoccupati nel settore bancario è in aumento, secondo le statistiche della Segreteria di Stato dell\'economia (SECO).',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Una scena di Lugano con una fila di persone davanti a un ufficio di collocamento.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'Francia fa pressione su Svizzera per indennità disoccupazione frontalieri',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Il ministro Farandou all\'Assemblea nazionale: la Francia perde 860 milioni di euro l\'anno con l\'attuale sistema. L\'accordo europeo prevede che le indennità siano pagate dal Paese di lavoro.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Valico di Brogeda con frontalieri al mattino presto',
 };
 
 export default blogMetaIt;

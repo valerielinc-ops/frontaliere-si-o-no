@@ -8483,6 +8483,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.title': 'Plus d\'emplois, la situation reste critique dans le secteur bancaire',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.excerpt': 'Le nombre de chômeurs dans le secteur bancaire est en augmentation, selon les statistiques du Secrétariat d\'Etat à l\'économie (SECO).',
     'blog.article.di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario.imageAlt': 'Une scène de Lugano avec une file de personnes devant une agence de placement.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.title': 'La France fait pression sur la Suisse pour des allocations chômage frontalières',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.excerpt': 'Le ministre Farandou à l\'Assemblée nationale : la France perd 860 millions d\'euros par an avec le système actuel. L\'accord européen prévoit que les indemnités sont versées par le pays de travail.',
+    'blog.article.francia-pressione-svizzera-disoccupazione-frontalieri.imageAlt': 'Passage frontalier de Brogeda avec les frontaliers le matin',
 };
 
 export default blogMetaFr;

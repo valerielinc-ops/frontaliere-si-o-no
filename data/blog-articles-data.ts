@@ -25487,6 +25487,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'francia-pressione-svizzera-disoccupazione-frontalieri',
+ category: 'pratico',
+ date: '2026-07-13T18:37:38.586Z',
+ image: '/images/blog/francia-pressione-svizzera-disoccupazione-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

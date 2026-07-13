@@ -4518,6 +4518,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-bicicletta-smile': { name: 'Frontalieri, si potrà andare a lavorare in', path: '/articoli-svizzera/frontalieri-bicicletta-smile/', parent: 'blog' },
     'blog-ticino-frontalieri-como': { name: 'Ticino', path: '/articoli-svizzera/ticino-frontalieri-como/', parent: 'blog' },
     'blog-assegno-inclusione-luglio-2026': { name: 'Assegno di Inclusione luglio 2026', path: '/articoli-svizzera/assegno-inclusione-luglio-2026/', parent: 'blog' },
+    'blog-francia-pressione-svizzera-disoccupazione-frontalieri': { name: 'Francia fa pressione su Svizzera per ind', path: '/articoli-frontaliere/francia-pressione-svizzera-disoccupazione-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
