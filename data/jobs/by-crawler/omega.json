@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-12T22:14:27.806Z",
+  "assembledAt": "2026-07-13T13:21:40.311Z",
   "jobs": [
     {
       "id": "omega-32490",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32490",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:14:25.542Z",
+      "crawledAt": "2026-07-13T13:21:37.716Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:32:08.546Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:14:04.285Z",
+      "crawledAt": "2026-07-13T13:21:16.439Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -147,12 +148,14 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+        "kitchen-h-f-temporario-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+          "kitchen-h-f-temporario-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -162,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -190,7 +194,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNATE (H/F)",
+        "en": "DESIGNER (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -206,7 +210,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-12T22:13:42.832Z",
+      "crawledAt": "2026-07-13T13:20:55.069Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -246,11 +250,13 @@
         ]
       },
       "previousSlugs": [
-        "designer-h-f-omega-biel-bienne"
+        "designer-h-f-omega-biel-bienne",
+        "designato-h-f-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "designer-h-f-omega-biel-bienne"
+          "designer-h-f-omega-biel-bienne",
+          "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne"
@@ -260,6 +266,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -304,7 +311,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:13:21.620Z",
+      "crawledAt": "2026-07-13T13:20:33.607Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -355,6 +362,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
