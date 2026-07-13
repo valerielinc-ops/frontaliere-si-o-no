@@ -1093,6 +1093,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-frontalieri-como.title': 'Tessin, frontalier de Côme pointe sur deux zones',
     'blog.article.ticino-frontalieri-como.excerpt': '65% des frontaliers et des étudiants qui entrent dans le Tessin viennent de Côme et de Varèse',
     'blog.article.ticino-frontalieri-como.imageAlt': 'Une scène de route entre Lugano et Chiasso avec une file de véhicules dans la direction du Tessin',
+    'blog.article.assegno-inclusione-luglio-2026.title': 'Chèque d\'Inclusion juillet 2026 : quand arrivent les paiements',
+    'blog.article.assegno-inclusione-luglio-2026.excerpt': 'Les travaux de la mi-juillet du chèque d\'inclusion ont commencé. Les paiements seront arrangés autour du 15 juillet.',
+    'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: les gens vérifient leurs portefeuilles pour Assegno di Inclusione.',
 };
 
 export default blogMetaChFr;

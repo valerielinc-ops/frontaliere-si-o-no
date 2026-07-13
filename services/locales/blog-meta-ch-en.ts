@@ -1093,6 +1093,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-frontalieri-como.title': 'Ticino, border crossing from Como focuses on two areas',
     'blog.article.ticino-frontalieri-como.excerpt': '65% of border crossers and students entering Ticino come from Como and Varese',
     'blog.article.ticino-frontalieri-como.imageAlt': 'A scene of highway between Lugano and Chiasso with a line of vehicles in the direction of Ticino',
+    'blog.article.assegno-inclusione-luglio-2026.title': 'Inclusion Check July 2026: When Payments Arrive',
+    'blog.article.assegno-inclusione-luglio-2026.excerpt': 'The mid-July processing of the Inclusion Check has begun. Payments will be arranged around July 15.',
+    'blog.article.assegno-inclusione-luglio-2026.imageAlt': 'Lugano: people checking their wallets for Assegno di Inclusione.',
 };
 
 export default blogMetaChEn;
