@@ -25451,6 +25451,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ticino-rincari-caro-vita-commercianti-2025',
+ category: 'pratico',
+ date: '2026-07-13T09:00:50.729Z',
+ image: '/images/blog/ticino-rincari-caro-vita-commercianti-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

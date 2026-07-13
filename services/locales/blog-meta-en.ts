@@ -8470,6 +8470,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-luino-lavorare-ticino.title': 'Living in Luino and working in Ticino as a border worker',
     'blog.article.vivere-luino-lavorare-ticino.excerpt': 'Practical guide to commuting between Luino and Ticino: connections, taxation for border workers and management of the cost of living between Italy and Switzerland.',
     'blog.article.vivere-luino-lavorare-ticino.imageAlt': 'View of the Locarno lakefront, a common destination for cross-border commuters working in Ticino.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.title': 'Rising Prices and Crisis in Ticino and Switzerland',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.excerpt': 'LAMal increases +8% in Ticino, merchants in difficulty. The deputy mayor of Chiasso: it is no longer the Switzerland of yesteryear. What changes for border workers.',
+    'blog.article.ticino-rincari-caro-vita-commercianti-2025.imageAlt': 'Main street in Chiasso with shops and cafes, cross-border commuters heading to Switzerland',
 };
 
 export default blogMetaEn;

@@ -4510,6 +4510,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupati-riforma-ue': { name: 'La riforma UE e la Svizzera', path: '/articoli-svizzera/frontalieri-disoccupati-riforma-ue/', parent: 'blog' },
     'blog-secondo-pilastro-previdenza-professionale-lpp-svizzera': { name: 'Come funziona il secondo pilastro della', path: '/articoli-svizzera/secondo-pilastro-previdenza-professionale-lpp-svizzera/', parent: 'blog' },
     'blog-vivere-luino-lavorare-ticino': { name: 'Frontaliere Luino Ticino', path: '/articoli-frontaliere/vivere-luino-lavorare-ticino', parent: 'blog' },
+    'blog-ticino-rincari-caro-vita-commercianti-2025': { name: 'Ticino, rincari e commercianti in crisi', path: '/articoli-frontaliere/ticino-rincari-caro-vita-commercianti-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];
