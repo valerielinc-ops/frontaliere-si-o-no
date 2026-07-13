@@ -1078,6 +1078,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.title': 'Lebenshaltung in Lugano gegenüber Mailand: Kosten, Preise',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.excerpt': 'Erfahren Sie, wie sich die Lebenshaltungskosten in Lugano mit denen in Mailand vergleichen, insbesondere für Grenzgänger.',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.imageAlt': 'Panoramablick auf Lugano mit Bergen und See',
+    'blog.article.frontalieri-disoccupati-riforma-ue.title': 'Die EU-Reform kann die Schweiz teuer zu stehen kommen',
+    'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'Die Reform könnte zu höheren Kosten für die Schweiz führen',
+    'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontalier ohne Arbeit mit Entschädigung',
 };
 
 export default blogMetaChDe;

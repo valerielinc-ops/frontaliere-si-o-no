@@ -1078,6 +1078,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.title': 'Cost of living in Lugano compared to Milan: rent, transport, spending',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.excerpt': 'Find out how the cost of living in Lugano compares to that in Milan, especially for border workers.',
     'blog.article.costo-vita-lugano-confronto-milano-frontalieri.imageAlt': 'Panoramic view of Lugano with mountains and lake',
+    'blog.article.frontalieri-disoccupati-riforma-ue.title': 'EU reform may cost Switzerland dearly',
+    'blog.article.frontalieri-disoccupati-riforma-ue.excerpt': 'The reform could lead to increased costs for Switzerland',
+    'blog.article.frontalieri-disoccupati-riforma-ue.imageAlt': 'Frontaliere disoccupato with indennity',
 };
 
 export default blogMetaChEn;
