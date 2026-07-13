@@ -1075,6 +1075,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.title': 'German or French courses for border workers: complete guide',
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.excerpt': 'Where to take German or French courses useful at the Italian-speaking border: schools in Ticino, online courses and available funding.',
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.imageAlt': 'Professional working on laptop with Lake Lugano in background, natural lighting',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.title': 'Cost of living in Lugano compared to Milan: rent, transport, spending',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.excerpt': 'Find out how the cost of living in Lugano compares to that in Milan, especially for border workers.',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.imageAlt': 'Panoramic view of Lugano with mountains and lake',
 };
 
 export default blogMetaChEn;

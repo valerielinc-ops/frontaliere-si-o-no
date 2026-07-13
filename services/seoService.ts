@@ -4505,6 +4505,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-smart-working': { name: 'La Svizzera è leader europeo dello smart', path: '/articoli-frontaliere/svizzera-smart-working', parent: 'blog' },
     'blog-corsi-tedesco-francese-frontalieri-italofoni-ticino': { name: 'Corsi lingue frontalieri', path: '/articoli-svizzera/corsi-tedesco-francese-frontalieri-italofoni-ticino/', parent: 'blog' },
     'blog-corsi-di-tedesco-o-francese-per-frontalieri-italofoni': { name: 'corsi-di-tedesco-o-francese', path: '/articoli-frontaliere/corsi-di-tedesco-o-francese-per-frontalieri-italofoni', parent: 'blog' },
+    'blog-costo-vita-lugano-confronto-milano-frontalieri': { name: 'Costo di vita a Lugano', path: '/articoli-svizzera/costo-vita-lugano-confronto-milano-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

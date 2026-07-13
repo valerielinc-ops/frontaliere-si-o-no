@@ -381,6 +381,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-disoccupati-urc-ticino': { it: 'frontalieri-disoccupati-urc-ticino', en: 'frontalieri-unemployed-urc-ticino-registration', de: 'grenzgaenger-arbeitslos-urc-tessin-anmeldung', fr: 'frontaliers-chomeurs-urc-tessin-inscription' },
  'frontaliere-doppio-lavoro-incastrato-ticino': { it: 'frontaliere-doppio-lavoro-incastrato-ticino', en: 'cross-border-worker-double-job-caught-cameras', de: 'grenzgaenger-doppelarbeit-ueberwachungskameras-erwischt', fr: 'frontalier-double-travail-piege-cameras' },
  'corsi-tedesco-francese-frontalieri-italofoni-ticino': { it: 'corsi-tedesco-francese-frontalieri-italofoni-ticino', en: 'german-french-courses-italophone-cross-border-workers-ticino', de: 'deutsch-franzoesisch-kurse-grenzgaenger-italophon-tessin', fr: 'cours-allemand-francais-travailleurs-frontieres-italophones-tessin' },
+ 'costo-vita-lugano-confronto-milano-frontalieri': { it: 'costo-vita-lugano-confronto-milano-frontalieri', en: 'cost-of-living-lugano-comparison-milan-frontaliers', de: 'lebenshaltungskosten-lugano-vergleich-mailand-frontalier', fr: 'cout-de-vie-lugano-comparaison-milan-frontaliers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

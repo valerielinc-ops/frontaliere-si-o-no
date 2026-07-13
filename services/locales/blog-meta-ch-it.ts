@@ -1075,6 +1075,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.title': 'Corsi di tedesco o francese per frontalieri: guida completa',
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.excerpt': 'Dove seguire corsi di tedesco o francese utili al frontaliere italofono: scuole in Ticino, corsi online e finanziamenti disponibili.',
     'blog.article.corsi-tedesco-francese-frontalieri-italofoni-ticino.imageAlt': 'Professionista che lavora al laptop con il lago Lugano sullo sfondo, illuminazione naturale',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.title': 'Costo della vita a Lugano confrontato con Milano: affitti, trasporti, spesa',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.excerpt': 'Scopri come il costo di vita a Lugano si confronta con quello di Milano, specialmente per i frontalieri.',
+    'blog.article.costo-vita-lugano-confronto-milano-frontalieri.imageAlt': 'Vista panoramica di Lugano con montagne e lago',
 };
 
 export default blogMetaChIt;
