@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-calano-ticino",
+  "slug": "frontalieri-calano-ticino",
+  "publishedAt": "2026-07-13T09:47:03.072Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 156.06649333333334,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

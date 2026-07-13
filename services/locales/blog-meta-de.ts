@@ -8475,6 +8475,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Dienstleistungen für Schweiz-Arbeitnehmer in Varese',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'Der von CGIL, CISL UND UIL in Zusammenarbeit mit der Gemeinde verwaltete Dienst wird am Hauptsitz in der Via Como tätig sein. Bietet Steuer-, Sozialversicherungs-, Genehmigungs- und Sozialversicherungsberatung für diejenigen, die über die Grenzen hinweg arbeiten.',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Sitz des Informagiovani in Lugano.',
+    'blog.article.frontalieri-calano-ticino.title': 'Tessin: Grenzgänger sinken',
+    'blog.article.frontalieri-calano-ticino.excerpt': 'Italienische Grenzgänger in der Schweiz sind rückläufig, aber in einigen Ländern der italienischen Schweiz machen sie mehr als 50% der Erwerbsbevölkerung aus',
+    'blog.article.frontalieri-calano-ticino.imageAlt': 'Personen, die die italienisch-schweizerische Grenze überschreiten',
 };
 
 export default blogMetaDe;

@@ -8477,6 +8477,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Servizi per chi lavora in Svizzera, ogni martedì a Varese',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'Il servizio gestito da CGIL, CISL e UIL, in collaborazione con il Comune, sarà attivo nella sede centrale di via Como. Offre consulenze su fisco, previdenza, permessi e sicurezza sociale per chi lavora oltreconfine.',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Sede dell\'Informagiovani a Lugano.',
+    'blog.article.frontalieri-calano-ticino.title': 'Ticino: i frontalieri calano',
+    'blog.article.frontalieri-calano-ticino.excerpt': 'I frontalieri italiani in Svizzera sono in calo, ma in alcuni paesi della Svizzera italiana essi rappresentano più del 50% della forza lavoro',
+    'blog.article.frontalieri-calano-ticino.imageAlt': 'Immagini di persone che attraversano il confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

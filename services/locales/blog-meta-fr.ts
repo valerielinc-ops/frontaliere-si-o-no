@@ -8477,6 +8477,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.title': 'Services pour ceux qui travaillent en Suisse, tous les mardis à Varèse',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.excerpt': 'Le service géré par CGIL, CISL et UIL, en collaboration avec la municipalité, sera actif au siège social de via Como. Il offre des conseils en matière de fiscalité, de prévoyance, de permis et de sécurité sociale aux personnes qui travaillent au-delà des frontières.',
     'blog.article.sportello-frontalieri-si-sposta-allinformagiovani-di-varese.imageAlt': 'Siège de l\'Informagiovani à Lugano.',
+    'blog.article.frontalieri-calano-ticino.title': 'Tessin : les frontaliers baissent',
+    'blog.article.frontalieri-calano-ticino.excerpt': 'Les frontaliers italiens en Suisse sont en baisse, mais dans certains pays de la Suisse italienne, ils représentent plus de 50% de la main-d\' œuvre',
+    'blog.article.frontalieri-calano-ticino.imageAlt': 'Personnes traversant la frontière italienne-suisse',
 };
 
 export default blogMetaFr;

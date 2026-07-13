@@ -4513,6 +4513,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-rincari-caro-vita-commercianti-2025': { name: 'Ticino, rincari e commercianti in crisi', path: '/articoli-frontaliere/ticino-rincari-caro-vita-commercianti-2025', parent: 'blog' },
     'blog-credito-imposte-estere-parametrato-al-reddito-le-casistiche': { name: 'Benefici fiscali per i frontalieri', path: '/articoli-svizzera/credito-imposte-estere-parametrato-al-reddito-le-casistiche/', parent: 'blog' },
     'blog-sportello-frontalieri-si-sposta-allinformagiovani-di-varese': { name: 'Sportello Frontalieri', path: '/articoli-frontaliere/sportello-frontalieri-si-sposta-allinformagiovani-di-varese', parent: 'blog' },
+    'blog-frontalieri-calano-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/frontalieri-calano-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
