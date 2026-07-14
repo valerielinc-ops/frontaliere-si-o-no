@@ -4,107 +4,147 @@ import {
   FONDATION_SOINS_LAUSANNE_COMPANY_NAME,
   isFondationSoinsLausanneJob,
   isTrustedDomain,
-  parseFondationSoinsLausanneListing,
+  parseJobupSerpCards,
+  filterFondationSoinsLausanneCards,
   fetchAllFondationSoinsLausanneJobs,
 } from '../scripts/lib/fondation-soins-lausanne-job-parser.mjs';
+import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 // Fondation Soins Lausanne (FSL) is one of AVASAD's regional home-care
-// foundations, scoped to the city of Lausanne only. Its own domain
-// (fondationsoinslausanne.ch) 301-redirects to the shared AVASAD portal
-// cms-vaud.ch — verified live (2026-07) — which server-renders a listing
-// page filterable by `?employer=`, deep-linking to jobup.ch (JobCloud
-// sibling of jobs.ch) detail pages carrying a full JobPosting JSON-LD block.
-const LISTING_URL_PREFIX = 'https://www.cms-vaud.ch/offres-d-emploi/';
-const SAMPLE_LISTING_HTML = `
-<section>
-  <article class="job-item">
-    <h1 class="title"><a target="_blank" href="https://www.jobup.ch/fr/emplois/detail/66adbf2c-f176-4796-a870-af3c04ff3510/" class="link">ICLS - infirmier clinicien sp&#233;cialis&#233; (H/F) - 60-80% - Fondation Soins Lausanne</a></h1>
-    <div class="desc">
-      <div class="date-wrapper"></div>
-      <div class="txt">
-        <span>1010 Lausanne R&#233;gion lausannoise</span><br>
-        <span>Fondation Soins Lausanne</span><br>
-        <span>Ref: 2563407</span><br>
-        <span>Publication: 30.06.2026</span>
-      </div>
-    </div>
-  </article>
-  <article class="job-item">
-    <h1 class="title"><a target="_blank" href="https://www.jobup.ch/fr/emplois/detail/4bf200ff-69ab-4dbb-81de-aeb73c9d7c6f/" class="link">ASSC (H/F) - entre 60% - 80% / - Fondation Soins Lausanne</a></h1>
-    <div class="desc">
-      <div class="date-wrapper"></div>
-      <div class="txt">
-        <span>1010 Lausanne R&#233;gion lausannoise</span><br>
-        <span>Fondation Soins Lausanne</span><br>
-        <span>Ref: 2563408</span><br>
-        <span>Publication: 28.06.2026</span>
-      </div>
-    </div>
-  </article>
-</section>
-`;
+// foundations, scoped to the city of Lausanne. Its former source cms-vaud.ch is
+// DEAD for automated fetches (403 even through the clean-IP Jina proxy — issue
+// #4168), so the crawler now reads the jobup.ch search SERP (via the Jina proxy,
+// HTML return format) and parses the `data-cy="serp-item-{uuid}"` job cards.
+//
+// The jobup term search is relevance-ranked and surfaces OTHER employers on the
+// same page — notably "Fondation de Vernand" (a DIFFERENT foundation) and the
+// AVASAD umbrella. The crawler MUST keep only exact-match "Fondation Soins
+// Lausanne" cards. This fixture mirrors the live markup (verified 2026-07) with a
+// Vernand card + an AVASAD card that must be filtered out.
 
-const SAMPLE_JOBUP_DETAIL_HTML = `
-<html><body>
-<script type="application/ld+json">[{"@context":"http://schema.org/","@type":"BreadcrumbList","itemListElement":[]}]</script>
+/** Build one realistic jobup SERP job card matching the live markup. */
+function serpCard(opts: {
+  uuid: string;
+  title: string;
+  employer: string;
+  location: string;
+  rate: string;
+  contract: string;
+}) {
+  const { uuid, title, employer, location, rate, contract } = opts;
+  return `<div><div data-cy="serp-item" class="bdr_r16"><a class="td_none d_block h_100% group" data-cy="job-link" id="vacancy-link-${uuid}" href="/fr/emplois/detail/${uuid}/" data-discover="true"><div data-cy="vacancy-serp-item-active" class="d_flex bdr_r16 flex-d_column h_100% p_s16 pos_relative"><div data-cy="serp-item-${uuid}" class="d_flex jc_space-between mb_s12"><span class="c_gray.700 d_flex gap_s8"><p class="mb_s0 textStyle_caption1">Hier</p></span></div><div class="mb_s8"><span class="c_gray.900 fw_bold textStyle_body2 wb_break-word ov_hidden">${title}</span></div><div class="d_flex c_gray.900 flex-d_column gap_s4"><div class="d_grid"><span class="pos_absolute w_1px h_1px ov_hidden">Lieu de travail<!-- -->:</span><p class="mb_s12 lastOfType:mb_s0 textStyle_caption1">${location}</p></div><div class="d_grid"><span class="pos_absolute w_1px h_1px ov_hidden">Taux d'activité<!-- -->:</span><p class="mb_s12 lastOfType:mb_s0 textStyle_caption1">${rate}</p></div><div class="d_grid"><span class="pos_absolute w_1px h_1px ov_hidden">Type de contrat<!-- -->:</span><p class="mb_s12 lastOfType:mb_s0 textStyle_caption1">${contract}</p></div></div><div class="d_grid ai_center mt_s12"><div class="avatarSquare"><picture style="height:100%"><source srcSet="https://media.jobup.ch/media/${uuid}?format=png"><img alt="" class="h_100% w_100%" src="https://media.jobup.ch/media/${uuid}?format=png"> </picture></div><p class="mb_s12 lastOfType:mb_s0 textStyle_caption1 c_gray.700 fw_bold">${employer}</p></div><div class="d_inline-flex mt_s12"><span data-cy="quick-apply" class="bdr_r16 d_inline-flex">Candidature simplifiée</span></div></div></a></div></div>`;
+}
+
+const SAMPLE_SERP_HTML = `<!doctype html><html lang="fr"><head><title>jobup.ch</title></head><body><main><div data-cy="serp-list"><h1>45 offres pour Fondation Soins Lausanne</h1>
+${serpCard({ uuid: 'a0d80b13-2f2c-4262-b2ac-5a559bb9832f', title: 'Assistant en soins et santé communautaire (H/F)', employer: 'Fondation Soins Lausanne', location: 'Lausanne', rate: '60 – 80%', contract: 'Durée indéterminée' })}
+${serpCard({ uuid: '93c8a1ae-ef5e-4f9d-a629-68d530736c27', title: 'Infirmiers de nuit (H/F)', employer: 'Fondation Soins Lausanne', location: 'Lausanne', rate: '100%', contract: 'Durée indéterminée' })}
+${serpCard({ uuid: 'ee1ec102-1a05-4e05-90f2-9894f1af6f1f', title: 'Ergothérapeute (H/F)', employer: 'Fondation Soins Lausanne', location: 'Lausanne 10', rate: '50 – 70%', contract: 'Durée déterminée' })}
+${serpCard({ uuid: '5beef050-d25f-4974-b742-bcc0ca2abbcf', title: 'Infirmier (H/F) - CDI à 80%', employer: 'Fondation de Vernand', location: 'Cheseaux-sur-Lausanne, Cheseaux-sur-Lausanne', rate: '80%', contract: 'Temporaire' })}
+${serpCard({ uuid: 'ebaa64e9-9501-4977-a8d1-8fbaa3a24598', title: 'Spécialiste tarification (80 - 100%)', employer: "Association Vaudoise d'Aide et de Soins à Domicile (AVASAD)", location: 'Lausanne', rate: '80 – 100%', contract: 'Durée indéterminée' })}
+${serpCard({ uuid: 'dc202cdc-3670-404f-8add-72266bffe361', title: 'Infirmier·ière-chef·fe des unités de soins', employer: 'Clinique de La Source', location: 'Lausanne', rate: '100%', contract: 'Durée indéterminée' })}
+</div></main></body></html>`;
+
+/** A jobup detail page with a rich JobPosting JSON-LD block (>50-word description). */
+const JOBUP_DETAIL_HTML = `<!doctype html><html><body>
+<script type="application/ld+json">{"@context":"http://schema.org/","@type":"BreadcrumbList","itemListElement":[]}</script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "JobPosting",
-  "title": "ICLS - Infirmier clinicien spécialisé (H/F)",
-  "description": "<p>Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité. En rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d'équipes expertes, motivées et enthousiastes. Vous accompagnez les équipes dans les situations complexes, diffusez les bonnes pratiques et renforcez les compétences des soignants. Vous supervisez la documentation clinique et intégrez les nouveaux collaborateurs. Vous pilotez des projets d'amélioration continue et d'innovation, guidez l'implantation des nouvelles pratiques et favorisez l'adhésion des équipes. Vous garantissez des interventions fondées sur des données actualisées, adaptées au domicile.</p>",
+  "title": "Assistant en soins et santé communautaire (H/F)",
+  "description": "<p>Nos centres Médico-Sociaux (CMS) offrent à la population lausannoise des prestations pluridisciplinaires de qualité. En rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d'équipes expertes, motivées et enthousiastes. Vous dispensez des soins à domicile, accompagnez les patients dans les gestes de la vie quotidienne, collaborez avec les infirmières et participez activement à la continuité des prestations sur l'ensemble du territoire de la ville de Lausanne.</p>",
   "datePosted": "2026-06-30T15:35:35+02:00",
   "hiringOrganization": { "@type": "Organization", "name": "Association Vaudoise d'Aide et de Soins à Domicile (AVASAD)" },
   "employmentType": "Durée indéterminée",
-  "workHours": "25.2 - 33.6 hours/week",
-  "jobLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "streetAddress": "Route d'Oron 2", "addressRegion": "Lausanne", "postalCode": "1010", "addressCountry": "CH" } },
-  "baseSalary": { "@type": "MonetaryAmount", "currency": "CHF", "value": { "@type": "QuantitativeValue" } }
+  "jobLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "streetAddress": "Route d'Oron 2", "addressRegion": "Lausanne", "postalCode": "1010", "addressCountry": "CH" } }
 }</script>
-</body></html>
-`;
+</body></html>`;
 
-describe('Fondation Soins Lausanne crawler parser', () => {
+describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(FONDATION_SOINS_LAUSANNE_KEY).toBe('fondation-soins-lausanne');
     expect(FONDATION_SOINS_LAUSANNE_COMPANY_NAME).toBe('Fondation Soins Lausanne');
   });
 
-  // ── isCompanyJob ──
+  // ── SERP card parser ──
+  describe('parseJobupSerpCards', () => {
+    it('parses every job card with title, employer, location, rate and contract', () => {
+      const cards = parseJobupSerpCards(SAMPLE_SERP_HTML);
+      expect(cards).toHaveLength(6);
+      expect(cards[0]).toMatchObject({
+        uuid: 'a0d80b13-2f2c-4262-b2ac-5a559bb9832f',
+        url: 'https://www.jobup.ch/fr/emplois/detail/a0d80b13-2f2c-4262-b2ac-5a559bb9832f/',
+        title: 'Assistant en soins et santé communautaire (H/F)',
+        company: 'Fondation Soins Lausanne',
+        location: 'Lausanne',
+        workRate: '60 – 80%',
+        contract: 'Durée indéterminée',
+      });
+      // The Vernand card is parsed (not yet filtered here).
+      expect(cards.find((c) => c.uuid === '5beef050-d25f-4974-b742-bcc0ca2abbcf')?.company).toBe(
+        'Fondation de Vernand',
+      );
+    });
+
+    it('returns [] for empty/no-match HTML', () => {
+      expect(parseJobupSerpCards('<main></main>')).toEqual([]);
+      expect(parseJobupSerpCards('')).toEqual([]);
+    });
+  });
+
+  // ── STRICT employer filter ──
+  describe('filterFondationSoinsLausanneCards (strict employer filter)', () => {
+    it('keeps ONLY exact "Fondation Soins Lausanne" cards and drops every other employer', () => {
+      const cards = parseJobupSerpCards(SAMPLE_SERP_HTML);
+      const kept = filterFondationSoinsLausanneCards(cards);
+
+      // 3 FSL cards in the fixture; 3 other employers dropped.
+      expect(kept).toHaveLength(3);
+      expect(kept.every((c) => c.company === 'Fondation Soins Lausanne')).toBe(true);
+
+      // The critical requirement: "Fondation de Vernand" must be excluded, and so
+      // must the AVASAD umbrella and Clinique de La Source.
+      const keptEmployers = kept.map((c) => c.company);
+      expect(keptEmployers).not.toContain('Fondation de Vernand');
+      expect(keptEmployers).not.toContain("Association Vaudoise d'Aide et de Soins à Domicile (AVASAD)");
+      expect(keptEmployers).not.toContain('Clinique de La Source');
+    });
+
+    it('is case-insensitive and trims, but never fuzzy/substring matches', () => {
+      const cards = [
+        { company: '  fondation soins lausanne  ', uuid: 'x', url: '', title: 'T', location: '', workRate: '', contract: '' },
+        { company: 'Fondation de Vernand', uuid: 'y', url: '', title: 'T', location: '', workRate: '', contract: '' },
+        { company: 'Fondation Soins Lausanne EMS', uuid: 'z', url: '', title: 'T', location: '', workRate: '', contract: '' },
+      ];
+      const kept = filterFondationSoinsLausanneCards(cards);
+      expect(kept).toHaveLength(1);
+      expect(kept[0].uuid).toBe('x');
+    });
+
+    it('handles empty/invalid input gracefully', () => {
+      expect(filterFondationSoinsLausanneCards([])).toEqual([]);
+      // @ts-expect-error — defensive against non-array input
+      expect(filterFondationSoinsLausanneCards(null)).toEqual([]);
+    });
+  });
+
+  // ── isFondationSoinsLausanneJob ──
   describe('isFondationSoinsLausanneJob', () => {
     it('matches by companyKey', () => {
       expect(isFondationSoinsLausanneJob({ companyKey: 'fondation-soins-lausanne' })).toBe(true);
     });
-
-    it('matches by company name', () => {
+    it('matches by exact company name', () => {
       expect(isFondationSoinsLausanneJob({ company: 'Fondation Soins Lausanne' })).toBe(true);
     });
-
-    it('matches by URL domain + company name combo', () => {
-      expect(
-        isFondationSoinsLausanneJob({
-          company: 'Fondation Soins Lausanne',
-          url: 'https://www.cms-vaud.ch/offres-d-emploi/',
-        }),
-      ).toBe(true);
+    it('rejects Fondation de Vernand (different employer, never fuzzy-matched)', () => {
+      expect(isFondationSoinsLausanneJob({ company: 'Fondation de Vernand' })).toBe(false);
     });
-
-    it('rejects unrelated jobs', () => {
+    it('rejects the AVASAD umbrella', () => {
       expect(
-        isFondationSoinsLausanneJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' }),
+        isFondationSoinsLausanneJob({ company: "Association Vaudoise d'Aide et de Soins à Domicile (AVASAD)" }),
       ).toBe(false);
     });
-
-    it('rejects sibling AVASAD foundations (same portal, different employer)', () => {
-      expect(
-        isFondationSoinsLausanneJob({
-          companyKey: 'apromad',
-          company: 'APROMAD',
-          url: 'https://www.cms-vaud.ch/offres-d-emploi/',
-        }),
-      ).toBe(false);
-    });
-
     it('handles null/undefined gracefully', () => {
       expect(isFondationSoinsLausanneJob(null)).toBe(false);
       expect(isFondationSoinsLausanneJob(undefined)).toBe(false);
@@ -114,23 +154,15 @@ describe('Fondation Soins Lausanne crawler parser', () => {
 
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
-    it('trusts the AVASAD portal domain', () => {
-      expect(isTrustedDomain('https://www.cms-vaud.ch/offres-d-emploi/')).toBe(true);
-    });
-
-    it('trusts cms-vaud.ch subdomains', () => {
-      expect(isTrustedDomain('https://sub.cms-vaud.ch/x')).toBe(true);
-    });
-
     it('trusts jobup.ch detail/apply URLs', () => {
-      expect(isTrustedDomain('https://www.jobup.ch/fr/emplois/detail/66adbf2c-f176-4796-a870-af3c04ff3510/')).toBe(true);
+      expect(isTrustedDomain('https://www.jobup.ch/fr/emplois/detail/a0d80b13-2f2c-4262-b2ac-5a559bb9832f/')).toBe(true);
+      expect(isTrustedDomain('https://jobup.ch/fr/emplois/')).toBe(true);
     });
-
-    it('rejects other domains', () => {
+    it('trusts the FSL corporate domain', () => {
+      expect(isTrustedDomain('https://www.fondationsoinslausanne.ch/')).toBe(true);
+    });
+    it('rejects other domains and invalid URLs', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
-    });
-
-    it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
@@ -138,152 +170,46 @@ describe('Fondation Soins Lausanne crawler parser', () => {
 
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
-    it('converts title to URL-safe slug', () => {
-      const slug = slugify('Infirmier référent (H/F)');
-      expect(slug).toBe('infirmier-referent-h-f');
-    });
-
-    it('strips diacritics', () => {
+    it('converts title to URL-safe slug and strips diacritics', () => {
+      expect(slugify('Infirmier référent (H/F)')).toBe('infirmier-referent-h-f');
       expect(slugify('Ergothérapeute Lausanne')).toBe('ergotherapeute-lausanne');
     });
-
-    it('builds slug with company suffix inline', () => {
-      expect(slugify('Infirmier fondation-soins-lausanne Lausanne')).toBe(
-        'infirmier-fondation-soins-lausanne-lausanne',
-      );
-    });
-
-    it('respects max length', () => {
-      const long = 'a'.repeat(200);
-      expect(slugify(long).length).toBeLessThanOrEqual(90);
-    });
   });
 
-  // ── Listing HTML parser ──
-  describe('parseFondationSoinsLausanneListing', () => {
-    it('parses each job-item article into a structured record', () => {
-      const items = parseFondationSoinsLausanneListing(SAMPLE_LISTING_HTML);
-      expect(items).toHaveLength(2);
-      expect(items[0]).toMatchObject({
-        title: 'ICLS - infirmier clinicien spécialisé (H/F) - 60-80% - Fondation Soins Lausanne',
-        applyUrl: 'https://www.jobup.ch/fr/emplois/detail/66adbf2c-f176-4796-a870-af3c04ff3510/',
-        locationLine: '1010 Lausanne Région lausannoise',
-        ref: '2563407',
-        publicationIso: '2026-06-30',
-      });
-    });
-
-    it('returns [] for empty/no-match HTML', () => {
-      expect(parseFondationSoinsLausanneListing('<section></section>')).toEqual([]);
-      expect(parseFondationSoinsLausanneListing('')).toEqual([]);
-    });
-  });
-
-  // ── Job Shape Validation ──
-  describe('job shape', () => {
-    const validJob = {
-      id: 'fondation-soins-lausanne-abc123',
-      slug: 'infirmier-referent-fondation-soins-lausanne-lausanne',
-      slugByLocale: { fr: 'infirmier-referent-fondation-soins-lausanne-lausanne' },
-      company: 'Fondation Soins Lausanne',
-      companyKey: 'fondation-soins-lausanne',
-      title: 'Infirmier référent (H/F)',
-      titleByLocale: { fr: 'Infirmier référent (H/F)' },
-      description: 'Une description de poste suffisamment riche pour dépasser le plancher de 50 mots requis par la règle de contenu léger, en détaillant les missions, les responsabilités et le profil recherché pour ce poste au sein de la Fondation Soins Lausanne, active dans les soins et l\'aide à domicile sur le territoire lausannois.',
-      descriptionByLocale: {
-        fr: 'Une description de poste suffisamment riche pour dépasser le plancher de 50 mots requis par la règle de contenu léger, en détaillant les missions, les responsabilités et le profil recherché pour ce poste au sein de la Fondation Soins Lausanne, active dans les soins et l\'aide à domicile sur le territoire lausannois.',
-      },
-      location: 'Lausanne',
-      canton: 'VD',
-      url: 'https://www.jobup.ch/fr/emplois/detail/66adbf2c-f176-4796-a870-af3c04ff3510/',
-      source: 'Fondation Soins Lausanne Dedicated Parser (cms-vaud.ch listing + jobup.ch JSON-LD)',
-      sourceLang: 'fr',
-      crawledAt: new Date().toISOString(),
-      addressLocality: 'Lausanne',
-      addressRegion: 'VD',
-      addressCountry: 'CH',
-      country: 'CH',
-      postalCode: '1010',
-      employmentType: 'FULL_TIME',
-      postedDate: '2026-06-30',
-    };
-
-    it('has all required fields', () => {
-      const required = [
-        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
-        'title', 'titleByLocale', 'description', 'descriptionByLocale',
-        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
-      ];
-      for (const field of required) {
-        expect(validJob).toHaveProperty(field);
-      }
-    });
-
-    // Non-Negotiable #3: structured-data mandatory fields must be derivable
-    // from the raw parser output (baseSalary/streetAddress/hiringOrganization
-    // are filled downstream by build-plugins/shared/jobPostingSchema.ts from
-    // these source fields — see companyHqAddresses + postalCodes safe defaults).
-    it('carries every field needed to build the mandatory JobPosting block', () => {
-      expect(validJob).toHaveProperty('postalCode');
-      expect(validJob).toHaveProperty('addressLocality');
-      expect(validJob).toHaveProperty('addressRegion');
-      expect(validJob).toHaveProperty('addressCountry', 'CH');
-      expect(validJob).toHaveProperty('company'); // → hiringOrganization.name
-      expect(validJob).toHaveProperty('title');
-      expect(validJob).toHaveProperty('description');
-      expect(validJob).toHaveProperty('postedDate'); // → datePosted
-      expect(validJob).toHaveProperty('employmentType');
-    });
-
-    // Non-Negotiable #4: no indexed content under 50 words.
-    it('description clears the 50-word thin-content floor', () => {
-      const words = String(validJob.description).split(/\s+/).filter(Boolean).length;
-      expect(words).toBeGreaterThan(50);
-    });
-
-    it('slug only contains source locale', () => {
-      const locales = Object.keys(validJob.slugByLocale);
-      expect(locales).toHaveLength(1);
-      expect(locales[0]).toBe(validJob.sourceLang);
-    });
-
-    it('id starts with company key', () => {
-      expect(validJob.id).toMatch(/^fondation-soins-lausanne-/);
-    });
-
-    it('slug is URL-safe', () => {
-      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
-    });
-  });
-
-  // ── fetchAllFondationSoinsLausanneJobs — graceful degradation ──
-  describe('fetchAllFondationSoinsLausanneJobs — graceful degradation', () => {
+  // ── fetchAllFondationSoinsLausanneJobs — end-to-end with strict filter ──
+  describe('fetchAllFondationSoinsLausanneJobs', () => {
     const realFetch = globalThis.fetch;
 
     beforeEach(() => {
-      // Skip the real exponential backoff — several tests below deliberately
-      // return 500/503/network errors to exercise graceful degradation.
-      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      process.env.JOBS_JINA_RETRY_BASE_MS = '0';
+      __resetJinaBreaker();
     });
     afterEach(() => {
       globalThis.fetch = realFetch;
-      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      delete process.env.JOBS_JINA_RETRY_BASE_MS;
+      __resetJinaBreaker();
     });
 
-    it('fetches the listing, enriches each job via jobup.ch JSON-LD, and returns rich jobs', async () => {
+    it('fetches the jobup SERP via Jina, applies the strict filter, and enriches via jobup JSON-LD', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
-        if (u.startsWith(LISTING_URL_PREFIX)) {
-          return new Response(SAMPLE_LISTING_HTML, { status: 200 });
+        // SERP is fetched through the Jina Reader proxy.
+        if (u.startsWith('https://r.jina.ai/')) {
+          return new Response(SAMPLE_SERP_HTML, { status: 200, headers: { 'content-type': 'text/html' } });
         }
+        // jobup.ch detail pages provide the rich JobPosting description.
         if (u.includes('jobup.ch/fr/emplois/detail/')) {
-          return new Response(SAMPLE_JOBUP_DETAIL_HTML, { status: 200 });
+          return new Response(JOBUP_DETAIL_HTML, { status: 200 });
         }
         return new Response('', { status: 404 });
       }) as any;
 
       const jobs = await fetchAllFondationSoinsLausanneJobs();
-      expect(jobs).toHaveLength(2);
+
+      // Only the 3 exact-match FSL cards survive; Vernand/AVASAD/Clinique dropped.
+      expect(jobs).toHaveLength(3);
+      expect(jobs.every((j: any) => j.company === 'Fondation Soins Lausanne')).toBe(true);
+      expect(jobs.some((j: any) => /vernand/i.test(j.company))).toBe(false);
 
       const job = jobs[0];
       expect(job).toMatchObject({
@@ -293,78 +219,62 @@ describe('Fondation Soins Lausanne crawler parser', () => {
         canton: 'VD',
         postalCode: '1010',
         country: 'CH',
+        addressCountry: 'CH',
       });
       expect(job.id).toMatch(/^fondation-soins-lausanne-/);
-      expect(job.url).toBe('https://www.jobup.ch/fr/emplois/detail/66adbf2c-f176-4796-a870-af3c04ff3510/');
+      expect(job.url).toBe('https://www.jobup.ch/fr/emplois/detail/a0d80b13-2f2c-4262-b2ac-5a559bb9832f/');
       expect(isTrustedDomain(job.url)).toBe(true);
 
       // Rich jobup.ch description merged in, well above the 50-word floor.
       const words = String(job.description || '').split(/\s+/).filter(Boolean).length;
       expect(words).toBeGreaterThan(50);
-      expect(job.description).toContain('Fondation Soins Lausanne');
-      expect(job.postedDate).toBe('2026-06-30');
+
+      // Structured-data mandatory fields (Non-Negotiable #3) all present.
+      for (const f of ['postalCode', 'addressLocality', 'addressRegion', 'title', 'description', 'postedDate', 'employmentType']) {
+        expect(job).toHaveProperty(f);
+      }
     });
 
-    it('falls back to a listing-derived description when the jobup.ch detail fetch fails', async () => {
+    it('falls back to a >50-word description when jobup detail enrichment fails', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
-        if (u.startsWith(LISTING_URL_PREFIX)) {
-          return new Response(SAMPLE_LISTING_HTML, { status: 200 });
+        if (u.startsWith('https://r.jina.ai/')) {
+          return new Response(SAMPLE_SERP_HTML, { status: 200, headers: { 'content-type': 'text/html' } });
         }
-        // jobup detail fetch fails — parser must still produce a job.
+        // Detail fetch fails — parser must still produce jobs with a rich fallback.
         return new Response('', { status: 500 });
       }) as any;
 
       const jobs = await fetchAllFondationSoinsLausanneJobs();
-      expect(jobs).toHaveLength(2);
+      expect(jobs).toHaveLength(3);
+      const words = String(jobs[0].description || '').split(/\s+/).filter(Boolean).length;
+      expect(words).toBeGreaterThan(50);
       expect(jobs[0].description).toContain('Fondation Soins Lausanne');
-      expect(jobs[0].postedDate).toBe('2026-06-30'); // from listing publication line
     });
 
-    it('returns [] (no throw) when the listing endpoint is unreachable', async () => {
-      globalThis.fetch = vi.fn(async () => {
-        throw new Error('ENOTFOUND www.cms-vaud.ch');
+    it('returns [] (no throw) when the Jina SERP fetch is unusable', async () => {
+      globalThis.fetch = vi.fn(async (url: any) => {
+        const u = String(url);
+        if (u.startsWith('https://r.jina.ai/')) return new Response('', { status: 502 });
+        return new Response('', { status: 404 });
       }) as any;
+
       const jobs = await fetchAllFondationSoinsLausanneJobs();
       expect(jobs).toEqual([]);
     });
 
-    it('returns [] (no throw) when the listing endpoint errors', async () => {
-      globalThis.fetch = vi.fn(async () => new Response('', { status: 503 })) as any;
-      const jobs = await fetchAllFondationSoinsLausanneJobs();
-      expect(jobs).toEqual([]);
-    });
-
-    it('rescues an IP-reputation WAF 403 on the listing via the Jina proxy (#4143)', async () => {
-      // cms-vaud.ch started 403-ing the GitHub Actions egress IP while a clean
-      // IP still gets a normal 200 with the real listing (verified live,
-      // #4143: 3 consecutive empty runs). The direct fetch must fall through
-      // to the Jina-proxied fetch instead of returning [] on the 403.
+    it('returns [] when the SERP has no FSL cards (all other employers)', async () => {
+      const onlyOthers = `<!doctype html><html><body><main><div data-cy="serp-list">
+${serpCard({ uuid: '5beef050-d25f-4974-b742-bcc0ca2abbcf', title: 'Infirmier (H/F)', employer: 'Fondation de Vernand', location: 'Cheseaux-sur-Lausanne', rate: '80%', contract: 'Temporaire' })}
+</div></main></body></html>`;
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
         if (u.startsWith('https://r.jina.ai/')) {
-          return new Response(SAMPLE_LISTING_HTML, { status: 200 });
-        }
-        if (u.startsWith(LISTING_URL_PREFIX)) {
-          return new Response('', { status: 403 });
-        }
-        // jobup.ch detail enrichment — not the point of this test.
-        return new Response('', { status: 404 });
-      }) as any;
-
-      const jobs = await fetchAllFondationSoinsLausanneJobs();
-      expect(jobs).toHaveLength(2);
-      expect(jobs[0].company).toBe('Fondation Soins Lausanne');
-    });
-
-    it('returns [] when the listing has no job-item articles', async () => {
-      globalThis.fetch = vi.fn(async (url: any) => {
-        const u = String(url);
-        if (u.startsWith(LISTING_URL_PREFIX)) {
-          return new Response('<section></section>', { status: 200 });
+          return new Response(onlyOthers, { status: 200, headers: { 'content-type': 'text/html' } });
         }
         return new Response('', { status: 404 });
       }) as any;
+
       const jobs = await fetchAllFondationSoinsLausanneJobs();
       expect(jobs).toEqual([]);
     });

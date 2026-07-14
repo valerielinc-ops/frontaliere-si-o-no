@@ -1,267 +1,286 @@
 #!/usr/bin/env node
 /**
- * Fondation Soins Lausanne job parser — custom HTML listing (cms-vaud.ch)
- * with jobup.ch JSON-LD deep-link detail enrichment.
+ * Fondation Soins Lausanne job parser — jobup.ch search SERP (clean-IP Jina
+ * proxy) with a STRICT employer filter.
  *
  * Fondation Soins Lausanne (FSL) is one of AVASAD's (Association Vaudoise
  * d'Aide et de Soins à Domicile) regional foundations, providing home-based
- * nursing/care ("aide et soins à domicile") exclusively within the city of
- * Lausanne (its territory is city-scoped, unlike sister foundations such as
- * APROMAD, ASPMAD, ASANTE SANA, APREMADOL, ABSMAD, Fondation de La Côte that
- * cover the rest of canton Vaud). FSL's own domain (fondationsoinslausanne.ch)
- * 301-redirects to the shared AVASAD portal cms-vaud.ch, which is the real,
- * live careers surface — verified live (2026-07): the table's 'jobs.ch
- * (feed) / Custom' hint is only partially right, the true chain is
- * cms-vaud.ch listing (WordPress, server-rendered, filterable by
- * `?employer=`) → jobup.ch (JobCloud network sibling of jobs.ch) detail page
- * carrying a full schema.org JobPosting JSON-LD block.
+ * nursing/care ("aide et soins à domicile") within the city of Lausanne (its
+ * territory is city-scoped, unlike sister foundations such as APROMAD, ASPMAD,
+ * ASANTE SANA, APREMADOL, ABSMAD that cover the rest of canton Vaud).
  *
- * Listing (server-rendered HTML, no JSON API):
- *   https://www.cms-vaud.ch/offres-d-emploi/?employer=fondation%20soins%20lausanne
+ * SOURCE MIGRATION (issue #4168): the previous source, the shared AVASAD portal
+ * `cms-vaud.ch`, is DEAD for automated fetches — it 403s the GitHub Actions
+ * egress IP AND stays 403 even routed through the clean-IP Jina proxy, so it can
+ * no longer be crawled. FSL's real, current openings are published on jobup.ch
+ * (JobCloud/TX network). We fetch the jobup search results page (SERP) for the
+ * employer term via the shared Jina Reader proxy with `X-Return-Format: html`
+ * (jobup.ch itself WAF-blocks datacenter IPs; Jina's clean IP pool clears it),
+ * then parse the `data-cy="serp-item-{uuid}"` job cards it renders.
  *
- *   <article class="job-item">
- *     <h1 class="title"><a target="_blank" href="https://www.jobup.ch/fr/emplois/detail/{uuid}/" class="link">{TITLE}</a></h1>
- *     <div class="desc">
- *       <div class="txt">
- *         <span>{POSTAL} {CITY} {REGION LABEL}</span><br>
- *         <span>{EMPLOYER}</span><br>
- *         <span>Ref: {REF}</span><br>
- *         <span>Publication: {DD.MM.YYYY}</span>
- *       </div>
- *     </div>
- *   </article>
+ * STRICT EMPLOYER FILTER (mandatory): the jobup term search for "Fondation Soins
+ * Lausanne" is relevance-ranked and surfaces jobs from OTHER employers on the
+ * same page — most notably "Fondation de Vernand" (a DIFFERENT foundation), plus
+ * the AVASAD umbrella itself, Clinique de La Source, Fondation Le Relais, etc.
+ * We keep ONLY cards whose employer, normalized (trim + case-insensitive) as an
+ * EXACT string, equals "Fondation Soins Lausanne". No fuzzy / substring match —
+ * "Fondation de Vernand" and every other employer are dropped. Verified live
+ * (2026-07): 12 genuine FSL cards among 20 on page 1; 8 other employers filtered.
  *
- * Every FSL listing observed live carries the same location line
- * ("1010 Lausanne Région lausannoise") — FSL's whole territory is the city
- * of Lausanne itself, so there is no genuine per-job locality signal to
- * extract; 1010 Lausanne is the real (not fallback) value.
+ * jobup SERP card markup (per result):
+ *   <a data-cy="job-link" ... href="/fr/emplois/detail/{uuid}/">
+ *     <div data-cy="serp-item-{uuid}">…</div>
+ *     <span class="… fw_bold textStyle_body2 …">{TITLE}</span>
+ *     …"Lieu de travail":<p>{CITY}</p> "Taux d'activité":<p>{RATE}</p>
+ *        "Type de contrat":<p>{CONTRACT}</p>…
+ *     <p class="… c_gray.700 fw_bold">{EMPLOYER}</p>
+ *   </a>
  *
- * Detail page (jobup.ch) exposes a `JobPosting` JSON-LD with rich HTML
- * `description`, `datePosted`, `employmentType`, `workHours`, `baseSalary`
- * (usually an empty MonetaryAmount — jobup rarely discloses pay) and a
- * static HQ `jobLocation` (Route d'Oron 2, 1010 Lausanne). `hiringOrganization`
- * on jobup is AVASAD (the umbrella feed operator), not the real employer —
- * overridden here with the confirmed legal entity name "Fondation Soins
- * Lausanne" for `company`/`hiringOrganization.name`.
+ * Rich descriptions are enriched per kept card from the jobup.ch detail page's
+ * schema.org JobPosting JSON-LD via the SHARED helper
+ * `fetchJobupDetailDescription` (reused from jobup-ch-feed-common.mjs). If detail
+ * enrichment is unavailable, a source-locale French fallback (well above the
+ * 50-word thin-content floor) is synthesized from the card fields.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
-import { fetchWithRetry, isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
-import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import {
   decodeEntities,
+  fetchJobupDetailDescription,
+  detectEmploymentTypeFromOccupation,
+} from './jobup-ch-feed-common.mjs';
+import {
   normalizeSpace,
-  htmlToText,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
-  USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const FONDATION_SOINS_LAUSANNE_KEY = 'fondation-soins-lausanne';
 export const FONDATION_SOINS_LAUSANNE_COMPANY_NAME = 'Fondation Soins Lausanne';
-export const FONDATION_SOINS_LAUSANNE_COMPANY_DOMAIN = 'cms-vaud.ch';
+export const FONDATION_SOINS_LAUSANNE_COMPANY_DOMAIN = 'fondationsoinslausanne.ch';
 
-const LISTING_URL = 'https://www.cms-vaud.ch/offres-d-emploi/?employer=fondation%20soins%20lausanne';
-const DEFAULT_POSTAL_CODE = '1010';
-const DEFAULT_CITY = 'Lausanne';
-const DEFAULT_CANTON = 'VD';
+// jobup.ch employer term search. Relevance-ranked; the strict filter below drops
+// every non-FSL employer the query also surfaces (see file header).
+const SEARCH_URL = 'https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne';
 
-/* ── Fetch helpers ─────────────────────────────────────────── */
+const HQ = getCompanyDefaults(FONDATION_SOINS_LAUSANNE_KEY) || {
+  city: 'Lausanne',
+  canton: 'VD',
+  postalCode: '1010',
+  addressRegion: 'VD',
+};
 
-async function fetchListingHtml(url, { timeoutMs } = {}) {
-  const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  try {
-    const html = await fetchWithRetry(async () => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), t);
-      try {
-        const res = await fetch(url, {
-          headers: { Accept: 'text/html,application/xhtml+xml,application/xml,*/*', 'User-Agent': USER_AGENT },
-          signal: controller.signal,
-        });
-        if (!res.ok) {
-          const err = new Error(`HTTP ${res.status} from ${url}`);
-          err.status = res.status;
-          err.retryable = res.status === 408 || res.status === 429 || res.status >= 500;
-          throw err;
-        }
-        return await res.text();
-      } finally {
-        clearTimeout(timer);
-      }
-    }, { label: `fondation-soins-lausanne listing ${url}` });
-    return await rescueHtmlIfChallenged(html, url, { timeoutMs: t });
-  } catch (err) {
-    // Two cases route to the Jina proxy: (a) connection-level failures (no HTTP
-    // response received), and (b) an IP-reputation WAF hard status (403/406/
-    // 415/451, WAF_IP_BLOCK_STATUS) — the server DID respond but with an
-    // anti-bot fence keyed on the datacenter egress IP, which Jina's clean IP
-    // clears. cms-vaud.ch started 403-ing the GitHub Actions egress IP (issue
-    // #4143: 3 consecutive empty runs) while a clean IP still gets a normal
-    // 200 with the real listing — this was previously only checking (a), so
-    // the 403 fell straight through to `return []`.
-    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
-      const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: t });
-      if (html != null) return html;
-    }
-    throw err;
-  }
+/* ── SERP card parser ──────────────────────────────────────── */
+
+/** Extract a labelled card field ("Lieu de travail" / "Taux d'activité" / "Type de contrat"). */
+function serpFieldValue(segment, label) {
+  // jobup renders "<label><!-- -->:</span><p …>VALUE</p>"; the visually-hidden
+  // label span precedes the value paragraph.
+  const rx = new RegExp(`${label}<!-- -->:</span><p[^>]*>([^<]+)</p>`);
+  const m = segment.match(rx);
+  return m ? normalizeSpace(decodeEntities(m[1])) : '';
 }
 
-/** Fetch a jobup.ch detail page and extract its `JobPosting` JSON-LD block. Returns null on any failure (caller falls back to listing-only description). */
-async function fetchJobupJobPosting(url) {
-  const t = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-    for (const b of blocks) {
-      try {
-        const parsed = JSON.parse(b[1]);
-        const items = Array.isArray(parsed) ? parsed : [parsed];
-        const posting = items.find((it) => it && it['@type'] === 'JobPosting');
-        if (posting) return posting;
-      } catch {
-        // skip malformed JSON-LD block
-      }
-    }
-    return null;
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-/* ── Listing parser ────────────────────────────────────────── */
-
-export function parseFondationSoinsLausanneListing(html) {
+/**
+ * Parse the jobup search SERP HTML into raw job cards.
+ * Returns `[{ uuid, url, title, company, location, workRate, contract }]`.
+ * The employer is NOT filtered here — call `filterFondationSoinsLausanneCards`.
+ */
+export function parseJobupSerpCards(html = '') {
   const out = [];
-  const blockRx = /<article class="job-item">[\s\S]*?<\/article>/g;
-  let m;
-  while ((m = blockRx.exec(html))) {
-    const block = m[0];
-    const linkMatch = block.match(/<a[^>]*href="([^"]+)"[^>]*class="link">([\s\S]*?)<\/a>/);
-    if (!linkMatch) continue;
-    const applyUrl = normalizeSpace(decodeEntities(linkMatch[1]));
-    const title = normalizeSpace(decodeEntities(linkMatch[2].replace(/<[^>]+>/g, '')));
-    if (!applyUrl || !title || title.length < 3) continue;
+  if (!html) return out;
+  // Each result card is a "job-link" anchor to a detail page; split on it so
+  // every segment holds exactly one card (title/fields/employer all inside).
+  const segments = String(html).split(/<a[^>]*\bdata-cy="job-link"[^>]*href="\/fr\/emplois\/detail\//i);
+  for (let i = 1; i < segments.length; i += 1) {
+    const seg = segments[i];
+    const uuid = (seg.match(/^([0-9a-f-]+)\//i) || [])[1];
+    if (!uuid) continue;
 
-    const spans = [...block.matchAll(/<span>([^<]*)<\/span>/g)].map((s) => normalizeSpace(decodeEntities(s[1])));
-    const locationLine = spans[0] || '';
-    const refLine = spans[2] || '';
-    const publicationLine = spans[3] || '';
+    const title = normalizeSpace(decodeEntities((seg.match(/textStyle_body2[^>]*>([^<]+)</) || [])[1] || ''));
+    // Employer: the bold caption paragraph rendered under the avatar logo.
+    const company = normalizeSpace(
+      decodeEntities((seg.match(/<p class="[^"]*c_gray\.700[^"]*fw_bold">([^<]+)<\/p>/) || [])[1] || ''),
+    );
+    const location = serpFieldValue(seg, 'Lieu de travail');
+    const workRate = serpFieldValue(seg, "Taux d'activité");
+    const contract = serpFieldValue(seg, 'Type de contrat');
 
-    const refMatch = refLine.match(/Ref:\s*(\S+)/i);
-    const pubMatch = publicationLine.match(/(\d{2})\.(\d{2})\.(\d{4})/);
-
+    if (!title || title.length < 3) continue;
     out.push({
+      uuid,
+      // jobup.ch è un portale esterno; /fr/ è la lingua canonica per un datore
+      // vodese francofono (FSL, Losanna), serve solo a estrarre la descrizione
+      // via Jina — non è un URL del nostro sito. locale-segment-ok: portale-esterno
+      url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
       title,
-      applyUrl,
-      locationLine,
-      ref: refMatch ? refMatch[1] : '',
-      publicationIso: pubMatch ? `${pubMatch[3]}-${pubMatch[2]}-${pubMatch[1]}` : '',
+      company,
+      location,
+      workRate,
+      contract,
     });
   }
   return out;
 }
 
-function parseLocationLine(line = '') {
-  const m = String(line || '').match(/^(\d{4})\s+(.+)$/);
-  if (!m) return { postalCode: DEFAULT_POSTAL_CODE, city: DEFAULT_CITY };
-  // "1010 Lausanne Région lausannoise" — take the first word after the
-  // postal code as the city; the trailing region label is not a locality.
-  const rest = m[2].trim();
-  const cityWord = rest.split(/\s+/)[0] || DEFAULT_CITY;
-  return { postalCode: m[1], city: cityWord };
+/**
+ * STRICT employer filter: keep only cards whose employer is EXACTLY
+ * "Fondation Soins Lausanne" (trim + case-insensitive). Excludes
+ * "Fondation de Vernand" and every other employer the term search surfaces.
+ * No fuzzy / substring matching.
+ */
+export function filterFondationSoinsLausanneCards(cards = []) {
+  const target = FONDATION_SOINS_LAUSANNE_COMPANY_NAME.trim().toLowerCase();
+  return (Array.isArray(cards) ? cards : []).filter(
+    (c) => String(c?.company || '').trim().toLowerCase() === target,
+  );
+}
+
+/* ── Field helpers ─────────────────────────────────────────── */
+
+function parseCityFromCard(location = '') {
+  // "Lausanne" / "Lausanne 10" / "Lausanne, Lausanne" → "Lausanne".
+  const first = String(location || '').split(',')[0] || '';
+  const city = normalizeSpace(first.replace(/\s+\d+$/, ''));
+  return city || HQ.city;
+}
+
+function employmentTypeFromCard(workRate = '', title = '') {
+  // Card work rate is a range like "60 – 80%"; the max percent drives the
+  // FULL_TIME/PART_TIME classification (shared jobup helper).
+  const nums = String(workRate || '').match(/\d{1,3}/g);
+  if (nums && nums.length) {
+    const max = Math.max(...nums.map(Number));
+    return detectEmploymentTypeFromOccupation('', String(max));
+  }
+  return detectHealthcareEmploymentType(title);
+}
+
+function contractFromCard(contract = '') {
+  // "Durée indéterminée" → permanent. Guard against the "indéterminée"
+  // substring falsely matching a "déterminée" (fixed-term) test.
+  if (/ind[ée]termin/i.test(contract)) return 'full-time';
+  if (/d[ée]termin[ée]e|temporaire|cdd|int[ée]rim|fixed/i.test(contract)) return 'temporary';
+  return 'full-time';
+}
+
+function buildFallbackDescription({ title, city, workRate, contract }) {
+  // Source-locale (French) fallback used only when the jobup detail JSON-LD is
+  // unavailable. Deliberately clears the 50-word thin-content floor.
+  return normalizeSpace(
+    [
+      `${title} — un poste à pourvoir au sein de la ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME}.`,
+      `La Fondation Soins Lausanne assure des prestations d'aide et de soins à domicile pour la population de la ville de Lausanne, au sein du réseau vaudois AVASAD (Association Vaudoise d'Aide et de Soins à Domicile).`,
+      `En rejoignant nos équipes pluridisciplinaires, vous contribuez concrètement à la santé, à l'autonomie et au bien-vivre des personnes accompagnées à leur domicile, dans le canton de Vaud.`,
+      `Lieu de travail : ${city || HQ.city}.`,
+      workRate ? `Taux d'activité : ${workRate}.` : '',
+      contract ? `Type de contrat : ${contract}.` : '',
+      `Postulez directement via l'annonce jobup.ch liée à cette offre.`,
+    ]
+      .filter(Boolean)
+      .join(' '),
+  );
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
 
 export function isFondationSoinsLausanneJob(job) {
   const key = String(job?.companyKey || '').toLowerCase();
-  const company = String(job?.company || '').toLowerCase();
+  const company = String(job?.company || '').trim().toLowerCase();
   const url = String(job?.url || '').toLowerCase();
   if (key === FONDATION_SOINS_LAUSANNE_KEY) return true;
-  if (company.includes('fondation soins lausanne')) return true;
-  if (url.includes('cms-vaud.ch') && company.includes('soins lausanne')) return true;
+  // Exact employer name only — never fuzzy-match sibling foundations
+  // (e.g. "Fondation de Vernand") that share the jobup search results.
+  if (company === FONDATION_SOINS_LAUSANNE_COMPANY_NAME.toLowerCase()) return true;
   return false;
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    if (host === 'cms-vaud.ch' || host.endsWith('.cms-vaud.ch')) return true;
     if (host === 'jobup.ch' || host === 'www.jobup.ch') return true;
+    if (host === FONDATION_SOINS_LAUSANNE_COMPANY_DOMAIN || host.endsWith(`.${FONDATION_SOINS_LAUSANNE_COMPANY_DOMAIN}`)) return true;
     return false;
   } catch {
     return false;
   }
 }
 
+/* ── Fetch helpers ─────────────────────────────────────────── */
+
+async function fetchSerpHtml() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 40000;
+  // jobup.ch WAF-blocks datacenter IPs → always go through the clean-IP Jina
+  // proxy (HTML return format), retried across Jina's IP pool.
+  const res = await fetchViaJinaWithRetry(SEARCH_URL, { timeoutMs, format: 'html' });
+  if (!res || !res.ok) {
+    const reason = res?.headers?.get?.('x-jina-retry-reason') || `HTTP ${res?.status}`;
+    console.warn(`  ⚠️ jobup SERP fetch via Jina not usable (${reason})`);
+    return '';
+  }
+  return await res.text();
+}
+
 /* ── Public API ────────────────────────────────────────────── */
 
 export async function fetchAllFondationSoinsLausanneJobs() {
   console.log(`🏥 Fetching ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Source: ${SEARCH_URL}\n`);
 
-  let html;
+  let html = '';
   try {
-    html = await fetchListingHtml(LISTING_URL, { timeoutMs: 40000 });
+    html = await fetchSerpHtml();
   } catch (err) {
-    console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
+    console.warn(`  ⚠️ jobup SERP fetch failed: ${err?.message || err}`);
     return [];
   }
+  if (!html) return [];
 
-  const items = parseFondationSoinsLausanneListing(html);
-  console.log(`  ✓ ${items.length} offerte trovate`);
-  if (!items.length) return [];
+  const allCards = parseJobupSerpCards(html);
+  const cards = filterFondationSoinsLausanneCards(allCards);
+  const dropped = allCards.length - cards.length;
+  console.log(
+    `  ✓ ${allCards.length} jobup card(s) parsed → ${cards.length} kept as "${FONDATION_SOINS_LAUSANNE_COMPANY_NAME}" (${dropped} other-employer card(s) filtered out)`,
+  );
+  if (!cards.length) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
-  for (const it of items) {
-    const { postalCode, city } = parseLocationLine(it.locationLine);
-    const canton = DEFAULT_CANTON;
+  for (const card of cards) {
+    const city = parseCityFromCard(card.location);
+    const canton = inferSwissTargetCanton(city) || HQ.canton;
+    const postalCode = HQ.postalCode;
 
-    const posting = await fetchJobupJobPosting(it.applyUrl);
-    if (posting) detailHits++;
+    // Rich description from the jobup detail JSON-LD (shared helper). Falls back
+    // to a synthesized French description above the thin-content floor.
+    let detailDescription = '';
+    try {
+      detailDescription = await fetchJobupDetailDescription(card.url);
+    } catch {
+      detailDescription = '';
+    }
+    if (detailDescription) detailHits += 1;
     await new Promise((r) => setTimeout(r, 250));
 
-    const detailText = posting?.description ? htmlToText(posting.description).trim() : '';
-    const employmentTypeRaw = posting?.employmentType || '';
-    const workHours = posting?.workHours || '';
+    const detailWordCount = detailDescription.split(/\s+/).filter(Boolean).length;
+    const description = detailWordCount >= 50
+      ? detailDescription
+      : buildFallbackDescription({ title: card.title, city, workRate: card.workRate, contract: card.contract });
 
-    const description = detailText || normalizeSpace(
-      [
-        it.title,
-        `${FONDATION_SOINS_LAUSANNE_COMPANY_NAME} — aide et soins à domicile, territoire lausannois (AVASAD).`,
-        it.locationLine,
-      ].filter(Boolean).join('\n\n'),
-    );
-
-    const heuristicText = `${it.title} ${employmentTypeRaw} ${workHours}`;
-    const sourceLang = detectLang(description || it.title, 'fr');
-    const slug = slugify(`${it.title} ${FONDATION_SOINS_LAUSANNE_KEY} ${city}`);
-    const hashBasis = it.applyUrl || `${FONDATION_SOINS_LAUSANNE_KEY}-${it.ref}`;
-    const urlHash = createHash('sha1').update(hashBasis).digest('hex').slice(0, 12);
-
-    const postedDate = posting?.datePosted
-      ? String(posting.datePosted).slice(0, 10)
-      : (it.publicationIso || todayIso);
-
-    const contractIsTemp = /dur[ée]e d[ée]termin[ée]e|cdd|temporaire|fixed/i.test(employmentTypeRaw);
+    const sourceLang = detectLang(description || card.title, 'fr');
+    const slug = slugify(`${card.title} ${FONDATION_SOINS_LAUSANNE_KEY} ${city}`);
+    const urlHash = createHash('sha1').update(card.url).digest('hex').slice(0, 12);
+    const employmentType = employmentTypeFromCard(card.workRate, card.title);
+    const contract = contractFromCard(card.contract);
 
     jobs.push({
       id: `${FONDATION_SOINS_LAUSANNE_KEY}-${urlHash}`,
@@ -270,8 +289,8 @@ export async function fetchAllFondationSoinsLausanneJobs() {
       company: FONDATION_SOINS_LAUSANNE_COMPANY_NAME,
       companyKey: FONDATION_SOINS_LAUSANNE_KEY,
       companyDomain: FONDATION_SOINS_LAUSANNE_COMPANY_DOMAIN,
-      title: it.title,
-      titleByLocale: { [sourceLang]: it.title },
+      title: card.title,
+      titleByLocale: { [sourceLang]: card.title },
       description,
       descriptionByLocale: { [sourceLang]: description },
       // Newly-discovered jobs ship with source-locale-only fields. The shared
@@ -281,8 +300,8 @@ export async function fetchAllFondationSoinsLausanneJobs() {
       needsRetranslation: true,
       location: city,
       canton,
-      url: it.applyUrl,
-      source: 'Fondation Soins Lausanne Dedicated Parser (cms-vaud.ch listing + jobup.ch JSON-LD)',
+      url: card.url,
+      source: 'Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)',
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: city,
@@ -290,21 +309,23 @@ export async function fetchAllFondationSoinsLausanneJobs() {
       addressCountry: 'CH',
       country: 'CH',
       postalCode,
-      category: detectHealthcareCategory(`${it.title} ${description}`),
-      contract: contractIsTemp ? 'temporary' : 'full-time',
-      employmentType: detectHealthcareEmploymentType(heuristicText || it.title),
-      experienceLevel: detectHealthcareExperienceLevel(it.title),
+      category: detectHealthcareCategory(`${card.title} ${description}`),
+      contract,
+      employmentType,
+      experienceLevel: detectHealthcareExperienceLevel(card.title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
-      applyUrl: it.applyUrl,
+      postedDate: todayIso,
+      applyUrl: card.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
-      careerSiteUrl: LISTING_URL,
+      careerSiteUrl: SEARCH_URL,
     });
   }
 
-  console.log(`\n📋 Total ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich jobup.ch detail content)`);
+  console.log(
+    `\n📋 Total ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${cards.length} with rich jobup.ch detail content)`,
+  );
   return jobs;
 }
