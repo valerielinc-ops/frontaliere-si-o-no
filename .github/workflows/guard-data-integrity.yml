@@ -29,17 +29,27 @@ permissions:
 jobs:
   guard:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     # Non girare sui commit di revert del guard stesso (anti-ricorsione): il
     # revert restaura il file (cresce → nessuno shrink → no-op comunque), ma
     # saltarlo evita una run inutile.
     if: ${{ !contains(github.event.head_commit.message, '[data-guard revert]') }}
     steps:
-      - name: Checkout (full history)
+      # Checkout BLOBLESS (filter=blob:none): scarica l'intero commit-graph (così
+      # `$BEFORE` è sempre presente, anche a molti commit di distanza) MA NON i
+      # blob dei file upfront. I blob vengono recuperati on-demand solo quando il
+      # guard legge i pochi file toccati a BEFORE/AFTER — la truncation-detection
+      # e `git checkout "$BEFORE" -- "$f"` restano corretti. Il vecchio
+      # `fetch-depth: 0` full-clone scaricava TUTTI i blob dell'intera storia
+      # data-heavy (~GB) e sforava il timeout di 8 min in fase di checkout, prima
+      # ancora che il detector girasse (issue #4120: lo step "Detect" veniva
+      # saltato — il timeout era 100% nel checkout). Blobless → checkout in secondi.
+      - name: Checkout (blobless — full commit graph, blob on demand)
         uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: true
 
       - name: Setup Node
