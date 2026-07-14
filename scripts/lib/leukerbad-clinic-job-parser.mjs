@@ -222,10 +222,23 @@ function buildJob(doc) {
   // job documents only inside the listing page; /{lang}/page/jobs/{uid}/
   // returns 404. Keep the source URL on the live language-specific listing so
   // URL housekeeping does not expire valid Prismic jobs.
+  //
+  // Every job on a given language listing therefore shares the SAME path
+  // (…/fr/page/jobs/ or …/de/page/jobs/). Without a per-job discriminator the
+  // shared crawler's URL-based fingerprint (canonicalizeJobUrl strips the hash,
+  // so a bare listing URL collapses to one key) folds all N jobs of a locale
+  // onto ONE fingerprint in mergeAndDeduplicate — the whole slice shrinks to 2
+  // (fr + de) and the shrink-guard hard-fails the crawler every run
+  // (issues #4085 / #4169). Append a stable per-doc fragment: it never reaches
+  // the server (the listing page still 200s, URL housekeeping still passes) and
+  // extractJobIdentityFromUrl's bare-hash rule turns it into a distinct
+  // `id|leukerbadclinic.ch|#job-<hash>` fingerprint — the exact same
+  // fragment-as-identity convention the other single-listing-page crawlers use
+  // (galenica #job.id=, eHnv #offer/, état de vaud #…/job/, klinik-gut #…-id-).
   const sitePath = sourceLang === 'de' ? 'de' : 'fr';
-  const publicUrl = `https://leukerbadclinic.ch/${sitePath}/page/jobs/`;
   const urlForHash = `${PRISMIC_REPO}:${doc.id || doc.uid || title}`;
   const urlHash = createHash('sha1').update(urlForHash).digest('hex').slice(0, 12);
+  const publicUrl = `https://leukerbadclinic.ch/${sitePath}/page/jobs/#job-${urlHash}`;
 
   const jobSlug = slugify(`${title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${workplace}`);
   const postedDate = (() => {
