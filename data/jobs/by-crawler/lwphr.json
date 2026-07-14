@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lwphr",
-  "assembledAt": "2026-07-13T21:59:16.566Z",
+  "assembledAt": "2026-07-14T10:55:54.836Z",
   "jobs": [
     {
       "title": "EVENT COORDINATOR",
@@ -114,7 +114,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "IT SECURITY ARCHITECT",
@@ -242,7 +243,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "ESPERTA FISCALE",
@@ -413,7 +415,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "BACK OFFICE (AMM.) TITOLI & TESORERIA",
@@ -514,15 +517,15 @@
         "fr": "uno-una-paralegal-o-legal-segretary-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-c5edb7026c28",
-      "firstSeenAt": "2026-04-13T22:04:42.089Z",
+      "previousSlugs": [
+        "un-segretaire-paralegal-o-juridique-lwp-ledermann-wieting-partners-lugano"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "un-segretaire-paralegal-o-juridique-lwp-ledermann-wieting-partners-lugano"
         ]
       },
-      "previousSlugs": [
-        "un-segretaire-paralegal-o-juridique-lwp-ledermann-wieting-partners-lugano"
-      ],
+      "firstSeenAt": "2026-04-13T22:04:42.089Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -535,7 +538,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "CONSULENTE PATRIMONIALE SENIOR CH",
@@ -701,15 +705,15 @@
         "fr": "direttore-amminsitrativo-e-finanziario-cfo-lwp-ledermann-wieting-partners-ticino"
       },
       "id": "lwphr-a99c473db6b7",
-      "firstSeenAt": "2026-04-13T22:04:42.089Z",
+      "previousSlugs": [
+        "directeur-administratif-et-financier-cfo-lwp-ledermann-wieting-partners-ticino"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "directeur-administratif-et-financier-cfo-lwp-ledermann-wieting-partners-ticino"
         ]
       },
-      "previousSlugs": [
-        "directeur-administratif-et-financier-cfo-lwp-ledermann-wieting-partners-ticino"
-      ],
+      "firstSeenAt": "2026-04-13T22:04:42.089Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
@@ -722,7 +726,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "SENIOR PRIVATE BANKER",
@@ -779,7 +784,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "SPECIALISTA CONTABILE",
