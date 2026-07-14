@@ -1079,7 +1079,7 @@
       },
       "slugByLocale": {
         "it": "misurazione-dell-energia-f-m-d-ckw-emmen",
-        "en": "case-manager-energiemessung-w-m-d-ckw-emmen",
+        "en": "case-manager-energy-measurement-w-m-d-ckw-emmen",
         "de": "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
         "fr": "gestionnaire-de-cas-mesure-de-l-energie-f-m-d-ckw-emmen"
       },
@@ -1103,7 +1103,6 @@
       "previousSlugsByLocale": {
         "en": [
           "case-manager-energy-measurement-f-m-d-ckw-emmen",
-          "case-manager-energy-measurement-w-m-d-ckw-emmen",
           "case-manager-energiemessung-w-m-d-ckw-emmen"
         ],
         "it": [
@@ -1116,7 +1115,6 @@
       "previousSlugs": [
         "case-manager-energy-measurement-f-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
-        "case-manager-energy-measurement-w-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-ckw-emmen"
       ]
     },
@@ -2866,14 +2864,20 @@
       },
       "slugByLocale": {
         "it": "enterprise-architekt-w-m-d-ckw-emmen",
-        "en": "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446",
+        "en": "enterprise-architect-f-m-d-ckw-emmen",
         "de": "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446",
-        "fr": "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446"
+        "fr": "architecte-d-entreprise-f-m-d-ckw-emmen"
       },
       "crawledAt": "2026-07-14T12:27:52.544Z",
       "id": "axpo-group-8a7f1e60b476",
       "previousSlugsByLocale": {
         "it": [
+          "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446"
+        ],
+        "en": [
+          "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446"
+        ],
+        "fr": [
           "enterprise-architekt-w-m-d-03dc940a-15e4-45cb-9d42-8ad6ee5be446"
         ]
       },

@@ -41,7 +41,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
-        "en": "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
+        "en": "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
         "de": "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
         "fr": "allrounder-vente-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x"
       },
@@ -51,10 +51,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach"
+        "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach",
+        "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -114,9 +118,9 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "en": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "de": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "fr": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl"
+        "en": "seller-seller-m-f-d-20-40-lidl-svizzera-lugano",
+        "de": "verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-lugano",
+        "fr": "vendeur-vendeur-m-f-d-20-40-lidl-svizzera-lugano"
       },
       "requirementsByLocale": {
         "it": [
