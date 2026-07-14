@@ -17,8 +17,9 @@
 #
 # Behaviour:
 #   - Pushes HEAD to origin/<branch>; on rejection, fetches + rebases + retries
-#     with linear backoff + random jitter (attempt * 2 + random[0..attempt] s)
-#     to desynchronise concurrent retrying workflows (thundering-herd guard).
+#     with linear backoff (capped at 12s) + random jitter added after the cap
+#     (min(attempt * 2, 12) + random[0..attempt] s) to desynchronise
+#     concurrent retrying workflows (thundering-herd guard).
 #   - Before each rebase, the working tree must be clean or rebase refuses to
 #     start ("cannot rebase: You have unstaged changes"). Default: discard any
 #     leftover dirty/untracked state with `git reset --hard HEAD` (safe when
@@ -179,13 +180,19 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     fi
   fi
   attempt=$((attempt + 1))
-  # Cap sleep at 12 s so late attempts don't consume the job-timeout budget:
-  # without a cap the formula grows to 30–45 s by attempt 15, burning all of
-  # the retry window even though the 10-min job timeout has headroom left
-  # (observed: run 29331598384 exhausted 15 attempts in 5 min, still 5 min
-  # left on the clock — root cause of issue #4183).
-  _s=$(( attempt * 2 + RANDOM % (attempt + 1) ))
-  [ "$_s" -gt 12 ] && _s=12
+  # Cap the linear-backoff base at 12s (not the total sleep) so late attempts
+  # don't consume the job-timeout budget, while the jitter term is added
+  # AFTER the cap so it never gets swallowed by it: capping the total sum
+  # (base+jitter) collapsed every sleep to a deterministic 12s from attempt 6
+  # onward (attempt*2 already >=12), eliminating the thundering-herd guard
+  # exactly when concurrent-workflow contention is highest (review round 1,
+  # issue #4183). Without the base cap the formula grows to 30–45 s by
+  # attempt 15, burning all of the retry window even though the 10-min job
+  # timeout has headroom left (observed: run 29331598384 exhausted 15
+  # attempts in 5 min, still 5 min left on the clock).
+  _base=$(( attempt * 2 ))
+  [ "$_base" -gt 12 ] && _base=12
+  _s=$(( _base + RANDOM % (attempt + 1) ))
   sleep "$_s"
 done
 echo "Push successful (attempt $attempt)"
