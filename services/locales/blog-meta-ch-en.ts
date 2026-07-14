@@ -1117,6 +1117,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novita-fiscale-730-2025-frontalieri.title': '730/2025: news for expatriate and frontier workers',
     'blog.article.novita-fiscale-730-2025-frontalieri.excerpt': 'Analysis of tax changes for 730/2025: impact on frontier workers and impatriated workers between Italian and Swiss legislation.',
     'blog.article.novita-fiscale-730-2025-frontalieri.imageAlt': 'View of a modern building in Lugano',
+    'blog.article.disoccupazione-frontalieri-naspi.title': 'Border unemployment: how it works and how much it amounts to',
+    'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Frontier workers can take advantage of Naspi, a monthly unemployment benefit paid by INPS. Here are the requirements and how to apply.',
+    'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalieri at work in Switzerland, July 2024',
 };
 
 export default blogMetaChEn;

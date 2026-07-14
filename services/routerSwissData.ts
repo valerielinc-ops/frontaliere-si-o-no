@@ -395,6 +395,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'fotovoltaico-calano-le-vendite': { it: 'fotovoltaico-calano-le-vendite', en: 'fotovoltaico-calano-le-vendite', de: 'fotovoltaico-calano-le-vendite', fr: 'fotovoltaico-calano-le-vendite' },
  'skyguide-licenziamenti': { it: 'skyguide-licenziamenti', en: 'skyguide-licenziamenti-frontaliere-ticino', de: 'skyguide-entlassungen-frontalier-tingen', fr: 'skyguide-licenciements-frontaliers-ticin' },
  'novita-fiscale-730-2025-frontalieri': { it: 'novita-fiscale-730-2025-frontalieri', en: 'fiscal-news-730-2025-cross-border', de: 'steuerliche-neuheiten-730-2025-grenzgaenger', fr: 'nouvelles-fiscales-730-2025-frontaliers' },
+ 'disoccupazione-frontalieri-naspi': { it: 'disoccupazione-frontalieri-naspi', en: 'naspi-for-frontalieri', de: 'naspi-fuer-frontalier', fr: 'naspi-pour-frontaliers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

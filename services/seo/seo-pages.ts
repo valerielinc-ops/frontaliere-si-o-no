@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3221,
+ "numberOfItems": 3222,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7896,7 +7896,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3218, "name": "Fotovoltaico, calano le vendite: “Serve sicurez...", "url": `${BASE_URL}/articoli-frontaliere/fotovoltaico-calano-le-vendite` },
           { "@type": "ListItem", "position": 3219, "name": "Skyguide, meno licenziamenti del previsto", "url": `${BASE_URL}/articoli-frontaliere/skyguide-licenziamenti` },
           { "@type": "ListItem", "position": 3220, "name": "730/2025: le novità per lavoratori impatriati e...", "url": `${BASE_URL}/articoli-frontaliere/novita-fiscale-730-2025-frontalieri` },
-          { "@type": "ListItem", "position": 3221, "name": "Disoccupazione frontalieri: le novità dall'UE e...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ticino-accordo-ue` }
+          { "@type": "ListItem", "position": 3221, "name": "Disoccupazione frontalieri: le novità dall'UE e...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ticino-accordo-ue` },
+          { "@type": "ListItem", "position": 3222, "name": "Disoccupazione frontalieri: come funziona e a q...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-naspi` }
  ]
  },
  {

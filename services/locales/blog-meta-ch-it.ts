@@ -1117,6 +1117,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novita-fiscale-730-2025-frontalieri.title': '730/2025: le novità per lavoratori impatriati e frontalieri',
     'blog.article.novita-fiscale-730-2025-frontalieri.excerpt': 'Analisi delle novità fiscali per il 730/2025: impatto su frontalieri e lavoratori impatriati tra normativa italiana e svizzera.',
     'blog.article.novita-fiscale-730-2025-frontalieri.imageAlt': 'Veduta di un edificio moderno a Lugano',
+    'blog.article.disoccupazione-frontalieri-naspi.title': 'Disoccupazione frontalieri: come funziona e a quanto ammonta',
+    'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'I lavoratori frontalieri possono usufruire della Naspi, indennità di disoccupazione mensile pagata dall\'Inps. Ecco i requisiti e le modalità di richiesta.',
+    'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalieri a lavoro in Svizzera, luglio 2024',
 };
 
 export default blogMetaChIt;
