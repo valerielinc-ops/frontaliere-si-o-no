@@ -1,6 +1,6 @@
 {
   "crawlerKey": "delvitech-sa",
-  "assembledAt": "2026-07-14T11:58:10.358Z",
+  "assembledAt": "2026-07-14T23:04:06.575Z",
   "jobs": [
     {
       "title": "Application Engineer",
@@ -130,7 +130,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:42:12.605Z"
+      "firstSeenAt": "2026-07-08T11:42:12.605Z",
+      "needsRetranslation": true
     },
     {
       "title": "Junior Project Manager",
@@ -188,7 +189,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:42:12.605Z"
+      "firstSeenAt": "2026-07-08T11:42:12.605Z",
+      "needsRetranslation": true
     },
     {
       "title": "Front-End SW Engineer",
@@ -675,7 +677,8 @@
       },
       "previousSlugs": [
         "customer-support-manager-delvitech-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
