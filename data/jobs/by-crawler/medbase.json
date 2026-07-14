@@ -6823,9 +6823,9 @@
     },
     {
       "id": "medbase-79a670d56f3f",
-      "slug": "paralegal-legal-compliance-a-80-100-medbase-ch",
+      "slug": "paralegale-legale-compliance-a-80-100-medbase-winterthur",
       "slugByLocale": {
-        "it": "paralegal-legal-compliance-a-80-100-medbase-ch",
+        "it": "paralegale-legale-compliance-a-80-100-medbase-winterthur",
         "en": "paralegal-legal-compliance-a-80-100-medbase-ch",
         "de": "paralegal-legal-compliance-a-80-100-medbase-ch",
         "fr": "parajuridique-juridique-et-conformite-a-80-100-medbase-winterthur"
@@ -6870,7 +6870,8 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07161",
       "previousSlugs": [
-        "paralegal-legal-compliance-a-80-100-medbase-winterthur"
+        "paralegal-legal-compliance-a-80-100-medbase-winterthur",
+        "paralegal-legal-compliance-a-80-100-medbase-ch"
       ],
       "firstSeenAt": "2026-07-04T11:43:59.826Z",
       "salaryMin": 73500,
@@ -6886,7 +6887,12 @@
         }
       },
       "streetAddress": "Schützenstrasse 3",
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "it": [
+          "paralegal-legal-compliance-a-80-100-medbase-ch"
+        ]
+      }
     },
     {
       "id": "medbase-25d81f753555",
