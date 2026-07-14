@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-13T22:26:55.655Z",
+  "assembledAt": "2026-07-14T10:59:18.274Z",
   "jobs": [
     {
       "id": "abraxas-5dccc3b1e7f6",
@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Working student Customer Service (Sales Support) 60–70%",
+        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudent-customer-service-sales-support-60-70-1268",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:53.563Z",
+      "crawledAt": "2026-07-14T10:59:13.858Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -56,11 +57,13 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "previousSlugs": [
-        "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen"
+        "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen",
+        "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen"
+          "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen",
+          "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-10T12:55:56.521Z",
@@ -73,84 +76,6 @@
           "@type": "QuantitativeValue",
           "minValue": 40300,
           "maxValue": 60900,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "abraxas-5dc4f61fd5f2",
-      "slug": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-      "slugByLocale": {
-        "it": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-        "en": "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "de": "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "fr": "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "System Engineer – DevOps (Deutsch) 80–100 %",
-      "titleByLocale": {
-        "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
-        "en": "System Engineer – DevOps (German) 80-100%",
-        "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
-        "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
-      },
-      "description": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "In questo entusiasmante ruolo, si assicura il funzionamento stabile della nostra infrastruttura e lavorare attivamente sulle soluzioni moderne intorno a CARI, il principale ERP per i trasporti su strada e gli uffici di trasporto in Svizzera. Sosteni i nostri clienti con l'introduzione di nuove tecnologie e contribuisce così direttamente al progresso digitale del settore pubblico nel settore della mobilità. Se si desidera assumersi la responsabilità, sono tecnicamente ampia e apprezzare un ambiente con cultura di startup e spirito di squadra, sei una soluzione perfetta per noi. Il tuo ruolo\n• Assicurare un'infrastruttura interna sempre disponibile e funzionante.\n• Soluzioni di implementazione e installazioni direttamente con i nostri clienti.\n• Gestione delle infrastrutture e dei progetti tecnici, sviluppo di concetti operativi e creazione di documentazione tecnica.\n• Fornitura e sviluppo di infrastrutture di sviluppo (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fornire competenze per la prevenzione e la soluzione efficiente dei problemi tecnici.\n• Una stretta collaborazione con il servizio clienti, i team di sviluppo e i responsabili operativi delle nostre soluzioni. Il tuo profilo\n• Apprendistato completo o formazione professionale superiore in informatica.\n• Conoscenza approfondita dei sistemi UNIX e Windows.\n• Esperienza nel trattare con i database ORACLE.\n• Diversi anni di esperienza professionale come ingegnere di sistema o responsabile di account tecnico.\n• Buona conoscenza delle reti, firewall, VPN.\n• Flusso in tedesco; tecnico inglese, francese benefico.\n• Alta flessibilità e disponibilità per viaggi d'affari regolari per la posizione di Morges e appuntamenti dei clienti in tutta la Svizzera. I tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "In this exciting role, you ensure the stable operation of our infrastructure and actively work on modern solutions around CARI, the leading ERP for road transport and shipping offices in Switzerland. You support our customers with the introduction of new technologies and thus directly contribute to the digital progress of the public sector in the mobility sector. If you want to take on responsibility, are technically broad and appreciate an environment with startup culture and team spirit, you are a perfect fit for us. Your role\n• Ensure an always available and smoothly functioning internal infrastructure.\n• Implement solutions and installations directly with our customers.\n• Managing infrastructure and technical projects as well as developing operational concepts and creating technical documentation.\n• Provision and development of development infrastructures (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Providing expertise for the prevention and efficient solution of technical problems.\n• Close cooperation with customer service, development teams and the operational managers of our solutions. Your profile\n• Completed apprenticeship or higher vocational training in computer science.\n• In-depth knowledge of UNIX and Windows systems.\n• Experience in dealing with ORACLE databases.\n• Several years of professional experience as a system engineer or technical account manager.\n• Good knowledge of networks, firewall, VPN.\n• Flowing in German; technical English, French beneficial.\n• High flexibility and readiness for regular business trips to the Morges location as well as customer appointments throughout Switzerland. Your Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Dans ce rôle passionnant, vous assurez le fonctionnement stable de notre infrastructure et travaillez activement sur des solutions modernes autour de CARI, le premier ERP pour le transport routier et les bureaux de navigation en Suisse. Vous aidez nos clients à introduire de nouvelles technologies et contribuez ainsi directement au progrès numérique du secteur public dans le secteur de la mobilité. Si vous voulez prendre des responsabilités, être techniquement large et apprécier un environnement avec la culture de démarrage et l'esprit d'équipe, vous êtes parfait pour nous. Votre rôle\n• Assurer une infrastructure interne toujours disponible et en bon état de fonctionnement.\n• Implémenter des solutions et des installations directement avec nos clients.\n• Gestion des infrastructures et des projets techniques, élaboration de concepts opérationnels et création de documentation technique.\n• Fourniture et développement d'infrastructures de développement (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fournir une expertise pour la prévention et la solution efficace des problèmes techniques.\n• Coopération étroite avec le service client, les équipes de développement et les responsables opérationnels de nos solutions. Votre profil\n• Apprentissage ou formation professionnelle supérieure en informatique.\n• Connaissance approfondie des systèmes UNIX et Windows.\n• Expérience dans le traitement des bases de données ORACLE.\n• Plusieurs années d'expérience professionnelle en tant qu'ingénieur système ou gestionnaire de compte technique.\n• Bonne connaissance des réseaux, pare-feu, VPN.\n• Flux en allemand; anglais technique, français bénéfique.\n• Haute flexibilité et disponibilité pour des voyages d'affaires réguliers à destination de Morges ainsi que des rendez-vous clients dans toute la Suisse. Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:53.048Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "entry",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2155/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2155",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "system-engineer-devops-deutsch-80-100-abraxas-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
-        ],
-        "fr": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:06.686Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -170,7 +95,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -186,7 +111,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:52.533Z",
+      "crawledAt": "2026-07-14T10:59:13.356Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -209,11 +135,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -248,15 +176,15 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
-      "description": "Wir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und haben das Ziel die Integration von Lösungen für Gemeinden und Kantone noch effizienter zu gestalten. Mit Engagement sind wir für die Entwicklung, Integration und den Betrieb der zentralen Datenaustausch- und Integrationsplattform verantwortlich. Was sowohl die Weiterentwicklung von plattformunabhängigen Services mit C#, als auch Angular Webinterfaces beinhaltet. Dies immer mit dem Fokus auf der Integration von Daten und Datenaustausch. Für Wartung und Neuentwicklung verwenden wir Hilfsmittel von Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Mitwirkung bei der Architektur der Lösungen\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung.\n• Erste praktische Erfahrungen in der Softwareentwicklung (z. B. durch Praktika, Werkstudententätigkeiten oder private Projekte).\n• Gute Kenntnisse in der Programmierung mit C# sowie grosses Interesse an der Entwicklung von Microservices.\n• Grundverständnis von (MS-SQL-)Datenbanken. Erste Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus.\n• Du bist neugierig und hast Lust, dich in komplexe Themen wie den Datenaustausch und den Betrieb von Applikationen in einer Clusterumgebung einzuarbeiten.\n• Freude an der Erarbeitung von neuen Konzepten und Lösungsvorschlägen zur Weiterentwicklung der bestehenden Plattform\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Wir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und haben das Ziel die Integration von Lösungen für Gemeinden und Kantone noch effizienter zu gestalten. Mit Engagement sind wir für die Entwicklung, Integration und den Betrieb der zentralen Datenaustausch- und Integrationsplattform verantwortlich. Was sowohl die Weiterentwicklung von plattformunabhängigen Services mit C#, als auch Angular Webinterfaces beinhaltet. Dies immer mit dem Fokus auf der Integration von Daten und Datenaustausch. Für Wartung und Neuentwicklung verwenden wir Hilfsmittel von Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen sowie deren Architektur unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung\n• Erste praktische Erfahrungen in der Softwareentwicklung (z. B. durch Praktika, Werkstudententätigkeiten oder private Projekte)\n• Gute Kenntnisse in der Programmierung mit C# und Angular sowie grosses Interesse an der Entwicklung von Microservices\n• Grundverständnis von (MS-SQL-)Datenbanken. Erste Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (C1-Niveau)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
         "it": "Siamo un team di sviluppo di software motivato e dinamico e vogliamo rendere ancora più efficiente l'integrazione di soluzioni per i comuni e i Cantoni. Con impegno, siamo responsabili per lo sviluppo, l'integrazione e il funzionamento della piattaforma centrale di scambio e integrazione dei dati. Questo include l'ulteriore sviluppo di servizi indipendenti dalla piattaforma con C# e interfacce web angolari. Questo è sempre al centro dell'integrazione dei dati e dello scambio di dati. Per la manutenzione e il nuovo sviluppo utilizziamo strumenti di Atlassian, GitLab e Octopus. Il tuo ruolo\n• Lavorare in un ambiente agile nel ciclo di vita completo dei componenti software (analisi, progettazione, sviluppo, recensioni e test)\n• Analisi e progettazione di soluzioni orientate al futuro tenendo conto dei requisiti specifici del cliente\n• Chiudere la collaborazione con gli specialisti e supportarli nell'analisi dei requisiti e nella concezione della soluzione\n• Partecipazione all'architettura delle soluzioni\n• Attuazione utilizzando tecnologie moderne come C#, Angular, MS-SQL, Kubernetes, Docker\n• Ulteriore sviluppo, manutenzione e funzionamento di soluzioni esistenti\n• Sviluppo con metodi agili e utilizzo di moderni strumenti di collaborazione Il tuo profilo\n• Con successo completato la laurea in Informatica (FH/Uni) o una formazione IT comparabile.\n• Esperienza pratica iniziale nello sviluppo del software (ad esempio attraverso stage, lavoro studentesco o progetti privati).\n• Buona conoscenza della programmazione con C# e grande interesse per lo sviluppo di microservizi.\n• Comprensione di base dei database (MS-SQL). I primi punti di contatto con piattaforme di streaming eventi come RabbitMQ sono un plus.\n• Sei curioso e vuoi familiarizzare con argomenti complessi come lo scambio di dati e il funzionamento delle applicazioni in un ambiente cluster.\n• Il godimento nello sviluppo di nuovi concetti e soluzioni proposte per un ulteriore sviluppo della piattaforma esistente\n• Sei un giocatore di squadra e una personalità comunicativa con un alto livello di iniziativa e vuoi sviluppare tecnicamente e metodologicamente.\n• Buona conoscenza del tedesco I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "We are a motivated and dynamic software development team and aim to make the integration of solutions for municipalities and cantons even more efficient. With commitment, we are responsible for the development, integration and operation of the central data exchange and integration platform. This includes the further development of platform-independent services with C# as well as Angular web interfaces. This always with the focus on the integration of data and data exchange. For maintenance and new development we use tools from Atlassian, GitLab and Octopus. Your role\n• Working in an agile environment in the complete lifecycle of software components (analysis, design, development, reviews and testing)\n• Analysis and design of future-oriented solutions taking into account customer-specific requirements\n• Close cooperation with the specialists and support them in the requirements analysis and solution conception\n• Participation in the architecture of solutions\n• Implementation using modern technologies such as C#, Angular, MS-SQL, Kubernetes, Docker\n• Further development, maintenance and operation of existing solutions\n• Development with agile methods and using modern collaboration tools Your profile\n• Successfully completed Bachelor's degree in Computer Science (FH/Uni) or a comparable IT education.\n• Initial practical experience in software development (e.g. through internships, student work or private projects).\n• Good knowledge of programming with C# and great interest in the development of microservices.\n• Basic understanding of (MS-SQL) databases. First touch points with event streaming platforms such as RabbitMQ are a plus.\n• You are curious and want to familiarize yourself with complex topics such as data exchange and the operation of applications in a cluster environment.\n• Enjoyment in the development of new concepts and proposed solutions for the further development of the existing platform\n• You are a team player and a communicative personality with a high level of initiative and want to develop technically and methodologically.\n• Good knowledge of German Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Wir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und haben das Ziel die Integration von Lösungen für Gemeinden und Kantone noch effizienter zu gestalten. Mit Engagement sind wir für die Entwicklung, Integration und den Betrieb der zentralen Datenaustausch- und Integrationsplattform verantwortlich. Was sowohl die Weiterentwicklung von plattformunabhängigen Services mit C#, als auch Angular Webinterfaces beinhaltet. Dies immer mit dem Fokus auf der Integration von Daten und Datenaustausch. Für Wartung und Neuentwicklung verwenden wir Hilfsmittel von Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Mitwirkung bei der Architektur der Lösungen\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung.\n• Erste praktische Erfahrungen in der Softwareentwicklung (z. B. durch Praktika, Werkstudententätigkeiten oder private Projekte).\n• Gute Kenntnisse in der Programmierung mit C# sowie grosses Interesse an der Entwicklung von Microservices.\n• Grundverständnis von (MS-SQL-)Datenbanken. Erste Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus.\n• Du bist neugierig und hast Lust, dich in komplexe Themen wie den Datenaustausch und den Betrieb von Applikationen in einer Clusterumgebung einzuarbeiten.\n• Freude an der Erarbeitung von neuen Konzepten und Lösungsvorschlägen zur Weiterentwicklung der bestehenden Plattform\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "de": "Wir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und haben das Ziel die Integration von Lösungen für Gemeinden und Kantone noch effizienter zu gestalten. Mit Engagement sind wir für die Entwicklung, Integration und den Betrieb der zentralen Datenaustausch- und Integrationsplattform verantwortlich. Was sowohl die Weiterentwicklung von plattformunabhängigen Services mit C#, als auch Angular Webinterfaces beinhaltet. Dies immer mit dem Fokus auf der Integration von Daten und Datenaustausch. Für Wartung und Neuentwicklung verwenden wir Hilfsmittel von Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen sowie deren Architektur unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung\n• Erste praktische Erfahrungen in der Softwareentwicklung (z. B. durch Praktika, Werkstudententätigkeiten oder private Projekte)\n• Gute Kenntnisse in der Programmierung mit C# und Angular sowie grosses Interesse an der Entwicklung von Microservices\n• Grundverständnis von (MS-SQL-)Datenbanken. Erste Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (C1-Niveau)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Nous sommes une équipe de développement de logiciels motivée et dynamique qui vise à rendre l'intégration des solutions pour les communes et les cantons encore plus efficace. Avec engagement, nous sommes responsables du développement, de l'intégration et du fonctionnement de la plate-forme centrale d'échange et d'intégration de données. Cela inclut le développement ultérieur de services indépendants de la plate-forme avec C# ainsi que des interfaces web angulaires. Ceci toujours en mettant l'accent sur l'intégration des données et l'échange de données. Pour la maintenance et le développement, nous utilisons des outils d'Atlassian, GitLab et Octopus. Votre rôle\n• Travailler dans un environnement agile dans le cycle de vie complet des composants logiciels (analyse, conception, développement, examens et essais)\n• Analyse et conception de solutions orientées vers l'avenir tenant compte des exigences spécifiques du client\n• Coopération étroite avec les spécialistes et soutien à l'analyse des besoins et à la conception des solutions\n• Participation à l'architecture des solutions\n• Mise en œuvre utilisant des technologies modernes telles que C#, Angular, MS-SQL, Kubernetes, Docker\n• Développement, maintenance et exploitation des solutions existantes\n• Développement à l'aide de méthodes agiles et d'outils modernes de collaboration Votre profil\n• Baccalauréat en informatique (FH/Uni) ou formation en informatique comparable.\n• Expérience pratique initiale dans le développement de logiciels (par exemple par des stages, du travail étudiant ou des projets privés).\n• Bonne connaissance de la programmation avec C# et grand intérêt pour le développement de microservices.\n• Connaissance de base des bases de données (MS-SQL). Les premiers points de contact avec les plateformes de streaming d'événements comme RabbitMQ sont un plus.\n• Vous êtes curieux et vous voulez vous familiariser avec des sujets complexes comme l'échange de données et le fonctionnement des applications dans un environnement de cluster.\n• Profitez de l'élaboration de nouveaux concepts et de solutions proposées pour le développement de la plate-forme existante\n• Vous êtes un joueur d'équipe et une personnalité communicative avec un haut niveau d'initiative et voulez développer techniquement et méthodologiquement.\n• Bonne connaissance de l'allemand Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
@@ -264,7 +192,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:51.999Z",
+      "crawledAt": "2026-07-14T10:59:12.869Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -287,11 +216,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-c-net-80-100-abraxas-st-gallen"
+        "software-engineer-c-net-80-100-abraxas-st-gallen",
+        "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-c-net-80-100-abraxas-st-gallen"
+          "software-engineer-c-net-80-100-abraxas-st-gallen",
+          "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-c-net-80-100-abraxas-st-gallen"
@@ -325,7 +256,7 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Architekt:in 80–100 %",
       "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
+        "it": "Software Architekt:in 80–100 %",
         "en": "Software Architect: in 80-100%",
         "de": "Software Architekt:in 80–100 %",
         "fr": "Architecte logiciel: en 80-100%"
@@ -342,7 +273,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:51.477Z",
+      "crawledAt": "2026-07-14T10:59:12.381Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -393,7 +325,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -409,7 +341,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:50.958Z",
+      "crawledAt": "2026-07-14T10:59:11.904Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -432,11 +365,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+        "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+        "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
+          "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen",
+          "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "servicenow-engineer-ki-automation-80-100-abraxas-st-gallen"
@@ -471,15 +406,15 @@
       "title": "Senior Software Engineer C#/.NET 80–100 %",
       "titleByLocale": {
         "it": "Senior Software Ingegnere C#/.NET 80–100 %",
-        "en": "Senior Software Engineer C#/.NET 80-100%",
+        "en": "Senior Software Engineer C#/.NET 80–100 %",
         "de": "Senior Software Ingenieur C#/.NET 80–100 %",
         "fr": "Senior Software Ingénieur C#/.NET 80–100 %"
       },
-      "description": "Als motiviertes und dynamisches Software-Entwicklungs-Team verfolgen wir das Ziel, die Integration von Lösungen für Gemeinden und Kantone stetig effizienter zu gestalten. Mit grossem Engagement verantworten wir die Entwicklung, die Integration sowie den Betrieb unserer zentralen Datenaustausch- und Integrationsplattform. Unser Fokus liegt dabei konsequent auf dem Datenaustausch und der Datenintegration. Unser Tätigkeitsfeld umfasst:\n• Die Weiterentwicklung von plattformunabhängigen Services mittels C#.\n• Die Gestaltung von Webinterfaces auf Basis von Angular.\nFür die Wartung und Neuentwicklung setzen wir auf bewährte Hilfsmittel wie Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Mitwirkung bei der Architektur der Lösungen\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung.\n• Gute Kenntnisse in der Programmierung mit C# sowie grosses Interesse an der Entwicklung von Microservices.\n• Gute Kenntnisse von (MS-SQL-)Datenbanken. Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus.\n• Du bist neugierig und hast Lust, dich in komplexe Themen wie den Datenaustausch und den Betrieb von Applikationen in einer Clusterumgebung einzuarbeiten.\n• Freude an der Erarbeitung von neuen Konzepten und Lösungsvorschlägen zur Weiterentwicklung der bestehenden Plattform\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (mind. C2)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Als motiviertes und dynamisches Software-Entwicklungs-Team verfolgen wir das Ziel, die Integration von Lösungen für Gemeinden und Kantone stetig effizienter zu gestalten. Mit grossem Engagement verantworten wir die Entwicklung, die Integration sowie den Betrieb unserer zentralen Datenaustausch- und Integrationsplattform. Unser Fokus liegt dabei konsequent auf dem Datenaustausch und der Datenintegration. Für die Wartung und Neuentwicklung setzen wir auf bewährte Hilfsmittel wie Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen deren Architektur unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung\n• Gute Kenntnisse in der Programmierung mit C# und Angular sowie grosses Interesse an der Entwicklung von Microservices\n• Gute Kenntnisse von (MS-SQL-)Datenbanken. Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (mind. C1)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
         "it": "Come team di sviluppo di software motivato e dinamico, ci proponiamo di rendere sempre più efficiente l'integrazione di soluzioni per i comuni e i Cantoni. Con grande impegno, siamo responsabili per lo sviluppo, l'integrazione e il funzionamento della nostra piattaforma centrale di scambio e integrazione dei dati. Il nostro focus è costantemente sullo scambio di dati e l'integrazione dei dati. Il nostro campo di attività comprende:\n• L'ulteriore sviluppo dei servizi dipendenti dalla piattaforma tramite C#.\n• La progettazione di interfacce web basate su Angular.\nPer la manutenzione e il nuovo sviluppo, ci basiamo su strumenti collaudati come Atlassian, GitLab e Octopus.\nIl tuo ruolo\n• Lavorare in un ambiente agile nel ciclo di vita completo dei componenti software (analisi, progettazione, sviluppo, recensioni e test)\n• Analisi e concezione di soluzioni orientate al futuro tenendo conto dei requisiti specifici del cliente\n• Chiudere la collaborazione con gli specialisti e supportarli nell'analisi dei requisiti e nella concezione della soluzione\n• Partecipazione all'architettura delle soluzioni\n• Attuazione utilizzando tecnologie moderne come C#, Angular, MS-SQL, Kubernetes, Docker\n• Ulteriore sviluppo, manutenzione e funzionamento di soluzioni esistenti\n• Sviluppo con metodi agili e utilizzo di moderni strumenti di collaborazione\nIl tuo profilo\n• Con successo completato laurea in Informatica (FH/Uni) o una formazione IT comparabile.\n• Buona conoscenza della programmazione con C# e grande interesse per lo sviluppo di microservizi.\n• Buona conoscenza dei database (MS-SQL). Punti touch con piattaforme di streaming eventi come RabbitMQ sono un plus.\n• Sei curioso e vuoi familiarizzare con argomenti complessi come lo scambio di dati e il funzionamento delle applicazioni in un ambiente cluster.\n• Il godimento nello sviluppo di nuovi concetti e soluzioni proposte per un ulteriore sviluppo della piattaforma esistente\n• Sei un giocatore di squadra e una personalità comunicativa con un alto livello di iniziativa e vuoi sviluppare tecnicamente e metodologicamente.\n• Buona conoscenza del tedesco (min. C2)\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "As a motivated and dynamic software development team, we aim to make the integration of solutions for municipalities and cantons ever more efficient. With great commitment, we are responsible for the development, integration and operation of our central data exchange and integration platform. Our focus is consistently on data exchange and data integration. Our field of activity includes:\n• The further development of platform-independent services using C#.\n• The design of web interfaces based on Angular.\nFor maintenance and new development, we rely on proven tools such as Atlassian, GitLab and Octopus.\nYour role\n• Working in an agile environment in the complete lifecycle of software components (analysis, design, development, reviews and testing)\n• Analysis and conception of future-oriented solutions taking into account customer-specific requirements\n• Close cooperation with the specialists and support them in the requirements analysis and solution conception\n• Participation in the architecture of solutions\n• Implementation using modern technologies such as C#, Angular, MS-SQL, Kubernetes, Docker\n• Further development, maintenance and operation of existing solutions\n• Development with agile methods and using modern collaboration tools\nYour profile\n• Successfully completed Bachelor's degree in Computer Science (FH/Uni) or a comparable IT education.\n• Good knowledge of programming with C# and great interest in the development of microservices.\n• Good knowledge of (MS-SQL) databases. Touch points with event streaming platforms like RabbitMQ are a plus.\n• You are curious and want to familiarize yourself with complex topics such as data exchange and the operation of applications in a cluster environment.\n• Enjoyment in the development of new concepts and proposed solutions for the further development of the existing platform\n• You are a team player and a communicative personality with a high level of initiative and want to develop technically and methodologically.\n• Good knowledge of German (min. C2)\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Als motiviertes und dynamisches Software-Entwicklungs-Team verfolgen wir das Ziel, die Integration von Lösungen für Gemeinden und Kantone stetig effizienter zu gestalten. Mit grossem Engagement verantworten wir die Entwicklung, die Integration sowie den Betrieb unserer zentralen Datenaustausch- und Integrationsplattform. Unser Fokus liegt dabei konsequent auf dem Datenaustausch und der Datenintegration. Unser Tätigkeitsfeld umfasst:\n• Die Weiterentwicklung von plattformunabhängigen Services mittels C#.\n• Die Gestaltung von Webinterfaces auf Basis von Angular.\nFür die Wartung und Neuentwicklung setzen wir auf bewährte Hilfsmittel wie Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Mitwirkung bei der Architektur der Lösungen\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung.\n• Gute Kenntnisse in der Programmierung mit C# sowie grosses Interesse an der Entwicklung von Microservices.\n• Gute Kenntnisse von (MS-SQL-)Datenbanken. Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus.\n• Du bist neugierig und hast Lust, dich in komplexe Themen wie den Datenaustausch und den Betrieb von Applikationen in einer Clusterumgebung einzuarbeiten.\n• Freude an der Erarbeitung von neuen Konzepten und Lösungsvorschlägen zur Weiterentwicklung der bestehenden Plattform\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (mind. C2)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "de": "Als motiviertes und dynamisches Software-Entwicklungs-Team verfolgen wir das Ziel, die Integration von Lösungen für Gemeinden und Kantone stetig effizienter zu gestalten. Mit grossem Engagement verantworten wir die Entwicklung, die Integration sowie den Betrieb unserer zentralen Datenaustausch- und Integrationsplattform. Unser Fokus liegt dabei konsequent auf dem Datenaustausch und der Datenintegration. Für die Wartung und Neuentwicklung setzen wir auf bewährte Hilfsmittel wie Atlassian, GitLab und Octopus.\nDeine Rolle\n• Mitarbeit in einem agilen Umfeld beim vollständigen Lifecycle von Softwarekomponenten (Analyse, Design, Entwicklung, Reviews sowie Testing)\n• Analyse und Konzeption von zukunftsgerichteten Lösungen deren Architektur unter Berücksichtigung kundenspezifischer Anforderungen\n• Enge Zusammenarbeit mit den Fachverantwortlichen und Unterstützung dieser in der Anforderungsanalyse und der Lösungskonzeption\n• Implementierung mithilfe moderner Technologien wie C#, Angular, MS-SQL, Kubernetes, Docker\n• Weiterentwicklung, Pflege und Betrieb bestehender Lösungen\n• Entwicklung mit agilen Methoden und unter Verwendung modernen Kollaborationstools\nDein Profil\n• Erfolgreich abgeschlossenes Bachelor-Studium in Informatik (FH/Uni) oder eine vergleichbare IT-Ausbildung\n• Gute Kenntnisse in der Programmierung mit C# und Angular sowie grosses Interesse an der Entwicklung von Microservices\n• Gute Kenntnisse von (MS-SQL-)Datenbanken. Berührungspunkte mit Event-Streaming-Plattformen wie RabbitMQ sind ein Plus\n• Sie sind ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative und möchten sich technisch sowie methodisch weiterentwickeln\n• Gute Deutschkenntnisse (mind. C1)\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "En tant qu'équipe de développement de logiciels motivés et dynamiques, nous visons à rendre l'intégration des solutions pour les municipalités et les cantons toujours plus efficace. Avec un grand engagement, nous sommes responsables du développement, de l'intégration et du fonctionnement de notre plateforme centrale d'échange et d'intégration de données. Nous mettons constamment l'accent sur l'échange et l'intégration des données. Notre domaine d'activité comprend :\n• La poursuite du développement des services indépendants de la plate-forme en utilisant C#.\n• La conception d'interfaces web basées sur Angular.\nPour la maintenance et le développement, nous nous appuyons sur des outils éprouvés comme Atlassian, GitLab et Octopus.\nVotre rôle\n• Travailler dans un environnement agile dans le cycle de vie complet des composants logiciels (analyse, conception, développement, examens et essais)\n• Analyse et conception de solutions orientées vers l'avenir tenant compte des exigences spécifiques du client\n• Une coopération étroite avec les spécialistes et les accompagner dans l'analyse des besoins et la conception des solutions\n• Participation à l'architecture des solutions\n• Mise en œuvre utilisant des technologies modernes telles que C#, Angular, MS-SQL, Kubernetes, Docker\n• Poursuite du développement, de la maintenance et de l'exploitation des solutions existantes\n• Développement à l'aide de méthodes agiles et d'outils modernes de collaboration\nVotre profil\n• Baccalauréat en informatique (FH/Uni) ou formation en informatique comparable.\n• Bonne connaissance de la programmation avec C# et grand intérêt pour le développement de microservices.\n• Bonne connaissance des bases de données (MS-SQL). Les points tactiles avec des plateformes de streaming d'événements comme RabbitMQ sont un plus.\n• Vous êtes curieux et souhaitez vous familiariser avec des sujets complexes tels que l'échange de données et le fonctionnement des applications dans un environnement de cluster.\n• Profitez de l'élaboration de nouveaux concepts et de solutions proposées pour le développement de la plate-forme existante\n• Vous êtes un joueur d'équipe et une personnalité communicative avec un haut niveau d'initiative et voulez développer techniquement et méthodologiquement.\n• Bonne connaissance de l'allemand (min. C2)\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
       },
       "location": "St. Gallen",
@@ -487,7 +422,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-cnet-80-100-3342",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:50.420Z",
+      "crawledAt": "2026-07-14T10:59:11.430Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -510,99 +446,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-software-engineer-c-net-80-100-abraxas-st-gallen"
+        "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
+        "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-c-net-80-100-abraxas-st-gallen"
+          "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
+          "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "senior-software-engineer-c-net-80-100-abraxas-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-10T22:18:01.485Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "abraxas-74772a464903",
-      "slug": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "senior-project-management-in-the-field-of-tax-solutions-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
-        "fr": "haute-direction-de-projet-dans-le-domaine-des-solutions-fiscales-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
-      "titleByLocale": {
-        "it": "Gestione senior del progetto nel settore delle soluzioni fiscali 80-100%",
-        "en": "Senior project management in the field of tax solutions 80-100%",
-        "de": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
-        "fr": "Haute direction de projet dans le domaine des solutions fiscales 80-100%"
-      },
-      "description": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Siete impegnati nei vostri progetti e il vostro impulso è azione auto-responsabile? Hai esperienza con progetti di sviluppo software agile e lo capisci come responsabile:r project manager:in per i clienti pubblici per garantire la portata contrattuale dei tuoi progetti? Allora vorremmo darvi il benvenuto a #Team Abraxas! Ci siamo posti l'obiettivo di essere il fornitore leader di soluzioni fiscali in Svizzera e per questo abbiamo bisogno del vostro sostegno attivo. E' quello che fai.\n• Gestire progetti complessi ed esigenti dei clienti nel settore dello sviluppo software e integrare le nostre soluzioni di controllo con i nostri clienti\n• Stabilire l'organizzazione del progetto e guidare i team di progetto in più sedi con team di sviluppo locali o vicini e in stretta collaborazione con il cliente\n• Definire le linee guida e gli strumenti necessari per l'implementazione del progetto, lungo il processo di sviluppo e nelle specifiche aziendali\n• Responsabilità e rappresentanza del vostro progetto nel comitato interno e di progetto del cliente\n• Valutare i fornitori necessari o componenti di terze parti e condurre negoziati insieme al nostro dipartimento di acquisto centrale Questo ti distingue\n• Grado di istruzione superiore o superiore in informatica o formazione comparabile e esperienza professionale e certificazione rilevanti (ad esempio HERMES, IPMA, PRINCE2)\n• Almeno 10 anni di esperienza come project manager: in, idealmente nello sviluppo software in un ambiente agile. Di cui gestione di almeno 3 progetti oltre 1 milione di CHF, tra cui almeno un progetto secondo HERMES e uno nel settore dell'amministrazione fiscale\n• Conoscenza approfondita della fiscalità, dei processi di raccolta delle imposte e dell'esperienza nella gestione contrattuale dei progetti dei clienti\n• Alta competenza tecnica, metodologica e sociale, preferibilmente con certificazione HERMES Advanced\n• Forte comunicazione, auto-azione della personalità con capacità analitiche, concettuali e conoscenza dei metodi di sviluppo agili\n• Tedesco in lingua madre o livello C1, buone competenze in inglese, altre lingue di vantaggio Questo è ciò che vi offriamo\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You are committed to your projects and your drive is self-responsible action? You have experience with agile software development projects and understand it as responsible:r project manager:in for public customers to ensure the contractual scope of your projects? Then we would like to welcome you to #Team Abraxas! We have set ourselves the goal of being the leading provider of tax solutions in Switzerland and for this we need your active support. That's what you do.\n• Managing complex and demanding customer projects in the area of software development and integrating our control solutions with our customers\n• Establish project organization and lead project teams across multiple locations with local or nearshoring development teams and in close cooperation with the customer\n• Define the necessary guidelines and instruments for project implementation, along the development process and within the company specifications\n• Responsibility and representation of your project in the customer’s internal and project committee\n• Evaluating necessary suppliers or third-party components and conducting negotiations together with our central purchasing department This sets you apart\n• Higher or higher education degree in computer science or comparable education and relevant professional experience and certification (e.g. HERMES, IPMA, PRINCE2)\n• At least 10 years of experience as a project manager: in, ideally in software development in an agile environment. Of which management of at least 3 projects over 1 million CHF, including at least one project according to HERMES and one in the field of tax administration\n• In-depth knowledge in taxation, tax collection processes and experience in contract-compliant handling of customer projects\n• High level of technical, methodological and social competence, preferably with HERMES Advanced certification\n• Strong communication, self-acting personality with analytical, conceptual skills and knowledge of agile development methods\n• German at native language or C1 level, good English skills, other languages of advantage This is what we offer you\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous êtes engagé dans vos projets et votre énergie est une action auto-responsable? Vous avez de l'expérience avec des projets de développement logiciel agile et le comprenez comme responsable:r gestionnaire de projet:in pour les clients publics pour assurer la portée contractuelle de vos projets? Alors nous aimerions vous accueillir à #Team Abraxas! Nous nous sommes fixé l'objectif d'être le premier fournisseur de solutions fiscales en Suisse et pour cela nous avons besoin de votre soutien actif. C'est ce que tu fais.\n• Gérer des projets clients complexes et exigeants dans le domaine du développement logiciel et intégrer nos solutions de contrôle à nos clients\n• Mettre en place une organisation de projet et des équipes de projet à plusieurs endroits avec des équipes de développement locales ou proches et en étroite collaboration avec le client\n• Définir les lignes directrices et les instruments nécessaires pour la mise en œuvre des projets, le long du processus de développement et dans les spécifications de l'entreprise\n• Responsabilité et représentation de votre projet au sein du comité interne du client et du projet\n• Évaluer les fournisseurs ou les composants tiers nécessaires et mener des négociations avec notre service central d'achat Cela vous distingue\n• Diplôme d'enseignement supérieur en informatique ou enseignement comparable et expérience professionnelle pertinente et certification (par exemple HERMES, IPMA, PRINCE2)\n• Au moins 10 ans d'expérience en tant que gestionnaire de projet : idéalement dans le développement de logiciels dans un environnement agile. Dont gestion d'au moins 3 projets de plus d'un million de francs, dont au moins un projet selon HERMES et un dans le domaine de l'administration fiscale\n• Connaissance approfondie de la fiscalité, des processus de recouvrement des impôts et de l'expérience de la gestion contractuelle des projets clients\n• Haute compétence technique, méthodologique et sociale, de préférence avec HERMES Certification avancée\n• Une communication forte, une personnalité auto-agir avec des compétences analytiques, conceptuelles et une connaissance des méthodes de développement agile\n• L'allemand au niveau de la langue maternelle ou C1, de bonnes compétences en anglais, d'autres langues d'avantage C'est ce que nous vous offrons.\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:49.905Z",
-      "needsRetranslation": false,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sviluppo software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2184/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2184",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:04.050Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -631,7 +487,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -647,7 +503,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:49.383Z",
+      "crawledAt": "2026-07-14T10:59:10.956Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -670,11 +527,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -696,28 +555,28 @@
     },
     {
       "id": "abraxas-96b946ab6ed6",
-      "slug": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+      "slug": "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "de": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "it": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "it": "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "en": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "fr": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        "de": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
-        "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
+        "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
       "description": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Sei un giocatore di squadra e non solo alla ricerca di un lavoro, ma vorrebbe modellare attivamente la sicurezza informatica? Allora sei esattamente nel nostro team di sicurezza informatica. Nel nostro SOC, si svolge un ruolo chiave nella protezione delle infrastrutture critiche nell’ambiente delle autorità svizzere.\nCon noi, si combinano le dinamiche di un team di sicurezza altamente specializzato con la stabilità di un fornitore di servizi IT consolidato – tra cui un sacco di responsabilità personale, influenza e spazio per la manovra.\nIl tuo ruolo\n• Responsabilità per l'analisi, il triage e la risposta incidente di complessi incidenti di sicurezza nell'ambito di un team di risposta di emergenza stabilito\n• Gestione e coordinamento delle indagini sugli incidenti di sicurezza (end-to-end)\n• Partecipazione attiva e ulteriore sviluppo dei nostri servizi di sicurezza informatica e processi SOC\n• Gestione tecnica e concettuale dei progetti\n• Garantire un funzionamento stabile e altamente disponibile delle nostre piattaforme e servizi di sicurezza\n• Consulenza e risparmio di partner per i clienti (compresa l'implementazione di briefing di sicurezza a livello senior)\n• Partecipazione a gare – con la possibilità di contribuire direttamente alla vostra competenza\n• Partecipazione a incarichi di piquetting e straordinari al di fuori delle normali ore di lavoro\nIl tuo profilo\n• Almeno 5 anni di esperienza nell'analisi della sicurezza informatica e nella risposta agli incidenti (idealmente SOC/CSIRT)\n• Profonda esperienza pratica in diverse delle seguenti aree: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Ottima comprensione tecnica delle reti, sistemi operativi (Linux/Windows/macOS), firewall e analisi dei log\n• Esperienza di gestione di incidenti o progetti\n• Laurea in scienze informatiche o equivalente\n• Certificazioni di sicurezza informatica riconosciute (ad esempio GIAC, CISSP, CISM, ecc.)\n• Ottima conoscenza del tedesco e dell'inglese (tedesco C1)\n• Personalità strutturata, auto-responsabile e comunicativa con elevata affidabilità\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "Are you a team player and not just looking for a job, but would like to actively shape cyber security? Then you are exactly right in our cyber security team. In our SOC, you play a key role in protecting critical infrastructures in the Swiss authorities’ environment.\nWith us, you combine the dynamics of a highly specialized security team with the stability of an established IT service provider – including a lot of personal responsibility, influence and room for manoeuvre.\nYour role\n• Responsibility for analysis, triage and incident response of complex security incidents within the framework of an established emergency response team\n• Management and coordination of security incident investigations (end-to-end)\n• Active participation and further development of our cyber security services and SOC processes\n• Technical and conceptual management of projects\n• Ensuring stable and highly available operation of our security platforms and services\n• Consulting and sparring partners for customers (including implementation of security briefings at senior level)\n• Participation in tenders – with the possibility to contribute your expertise directly\n• Participation in piquetting and extraordinary assignments outside normal working hours\nYour profile\n• At least 5 years of experience in cyber security analysis and incident response (ideally SOC/CSIRT)\n• Deep practical expertise in several of the following areas: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Very good technical understanding of networks, operating systems (Linux/Windows/macOS), firewalls and log analysis\n• Experience managing incidents or projects\n• Computer science degree or equivalent qualification\n• Recognized cyber security certifications (e.g. GIAC, CISSP, CISM, etc.)\n• Very good knowledge of German and English (German C1)\n• Structured, self-responsible and communication-strong personality with high trustworthiness\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Êtes-vous un joueur d'équipe et pas seulement à la recherche d'un emploi, mais aimeriez-vous façonner activement la cybersécurité? Alors vous êtes exactement dans notre équipe de cybersécurité. Dans notre SOC, vous jouez un rôle clé dans la protection des infrastructures critiques dans l'environnement suisse.\nAvec nous, vous combinez la dynamique d'une équipe de sécurité hautement spécialisée avec la stabilité d'un fournisseur de services informatiques bien établi – y compris beaucoup de responsabilité personnelle, d'influence et de marge de manoeuvre.\nVotre rôle\n• Responsabilité de l'analyse, du tri et de l'intervention en cas d'incidents complexes dans le cadre d'une équipe d'intervention d'urgence établie\n• Gestion et coordination des enquêtes sur les incidents de sécurité (fin à fin)\n• Participation active et développement de nos services de cybersécurité et de nos processus SOC\n• Gestion technique et conceptuelle des projets\n• Assurer un fonctionnement stable et très disponible de nos plateformes et services de sécurité\n• Services de consultation et d'assistance aux clients (y compris la mise en place de séances d'information sur la sécurité au niveau supérieur)\n• Participation aux appels d'offres – avec la possibilité de contribuer directement à votre expertise\n• Participation au picting et affectations extraordinaires en dehors des heures normales de travail\nVotre profil\n• Au moins 5 ans d'expérience en analyse de la cybersécurité et en intervention en cas d'incident (idéalement SOC/CSIRT)\n• Une expertise pratique approfondie dans plusieurs des domaines suivants : SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Très bonne compréhension technique des réseaux, des systèmes d'exploitation (Linux/Windows/macOS), des pare-feu et de l'analyse des journaux\n• Expérience de gestion des incidents ou des projets\n• Diplôme d'informatique ou diplôme équivalent\n• Certifications de cybersécurité reconnues (p. ex. GIAC, CISSP, CISM, etc.)\n• Très bonne connaissance de l'allemand et de l'anglais (allemand C1)\n• Personnalité structurée, autoresponsable et forte en communication avec une grande fiabilité\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
       },
       "location": "Zürich-Flughafen",
@@ -725,7 +584,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-3394",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:48.864Z",
+      "crawledAt": "2026-07-14T10:59:10.460Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -742,13 +602,23 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.refline.ch/215876/2475/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2475",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+      ],
+      "firstSeenAt": "2026-07-13T22:26:48.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -760,12 +630,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-13T22:26:48.864Z",
-      "previousSlugs": [
-        "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ]
+      }
     },
     {
       "id": "abraxas-ba9e19c5a748",
@@ -798,7 +663,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:48.342Z",
+      "crawledAt": "2026-07-14T10:59:09.984Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -820,10 +686,14 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-13T13:13:03.495Z",
+      "previousSlugs": [
+        "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+        "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
+          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
+          "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
@@ -832,9 +702,7 @@
           "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-13T13:13:03.495Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -879,7 +747,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:47.787Z",
+      "crawledAt": "2026-07-14T10:59:09.506Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -903,11 +771,13 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+        "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+        "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
+          "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen",
+          "responsabile-della-gestione-dei-progetti-pmo-in-dgf-40-60-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "projekt-management-officer-pmo-im-bereich-dgf-40-60-abraxas-st-gallen"
@@ -961,7 +831,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:47.264Z",
+      "crawledAt": "2026-07-14T10:59:09.027Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1043,7 +913,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:46.644Z",
+      "crawledAt": "2026-07-14T10:59:08.546Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1067,11 +937,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "junior-solution-architekt-80-100-abraxas-st-gallen"
+        "junior-solution-architekt-80-100-abraxas-st-gallen",
+        "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
+          "junior-solution-architekt-80-100-abraxas-st-gallen",
+          "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "junior-solution-architekt-80-100-abraxas-st-gallen"
@@ -1125,7 +997,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:46.127Z",
+      "crawledAt": "2026-07-14T10:59:08.058Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1176,7 +1049,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -1192,7 +1065,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:45.604Z",
+      "crawledAt": "2026-07-14T10:59:07.555Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1215,11 +1089,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-system-engineer-80-100-abraxas-bern"
+        "ict-system-engineer-80-100-abraxas-bern",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-80-100-abraxas-bern"
+          "ict-system-engineer-80-100-abraxas-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
           "ict-system-engineer-80-100-abraxas-bern"
@@ -1270,7 +1146,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-sicherheitsbeauftragter-60-90-4777",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:45.091Z",
+      "crawledAt": "2026-07-14T10:59:07.074Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1294,16 +1170,18 @@
       "pensumMax": 90,
       "pensum": "60 - 90%",
       "previousSlugs": [
-        "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen"
+        "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+        "ict-security-officer-r-60-90-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen",
+          "ict-security-officer-r-60-90-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
           "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen"
         ],
         "fr": [
-          "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen"
-        ],
-        "en": [
           "ict-sicherheitsbeauftragte-r-60-90-abraxas-st-gallen"
         ]
       },
@@ -1336,7 +1214,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1352,7 +1230,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:44.574Z",
+      "crawledAt": "2026-07-14T10:59:06.593Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1419,7 +1298,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:44.060Z",
+      "crawledAt": "2026-07-14T10:59:06.054Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1486,7 +1366,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-5708",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:43.537Z",
+      "crawledAt": "2026-07-14T10:59:05.506Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1509,11 +1390,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-system-engineer-80-100-abraxas-zurich-flughafen"
+        "ict-system-engineer-80-100-abraxas-zurich-flughafen",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-80-100-abraxas-zurich-flughafen"
+          "ict-system-engineer-80-100-abraxas-zurich-flughafen",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "ict-system-engineer-80-100-abraxas-zurich-flughafen"
@@ -1548,7 +1431,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1564,7 +1447,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:43.022Z",
+      "crawledAt": "2026-07-14T10:59:05.001Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1615,7 +1499,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1631,7 +1515,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:42.500Z",
+      "crawledAt": "2026-07-14T10:59:04.500Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1654,11 +1539,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "devops-engineer-80-100-abraxas-st-gallen"
+        "devops-engineer-80-100-abraxas-st-gallen",
+        "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-80-100-abraxas-st-gallen"
+          "devops-engineer-80-100-abraxas-st-gallen",
+          "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "devops-engineer-80-100-abraxas-st-gallen"
@@ -1680,28 +1567,28 @@
     },
     {
       "id": "abraxas-1501b72a2e1e",
-      "slug": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+      "slug": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
-        "it": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "it": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
         "en": "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen-3c39f8",
-        "fr": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        "de": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "fr": "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
       "title": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
       "titleByLocale": {
-        "de": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
         "it": "Cybersecurity Ingegnere im öffentlichen Sektor 80–100 %",
         "en": "Cybersecurity Engineer in the public sector 80-100%",
+        "de": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
         "fr": "Cybersecurity Ingénieur im öffentlichen Sektor 80–100 %"
       },
       "description": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Non credi in silos in sicurezza? Capisci sia la prospettiva degli attaccanti che dei difensori e sai che la vera sicurezza proviene dalla cooperazione? Combinate il pensiero offensivo con l'empatia pratica e avete la capacità non solo di trovare problemi di sicurezza complessi, ma di renderli corretti rapidamente? Allora ti stiamo cercando!\nCome Purple Hat, sei l'interfaccia tra ricerca di attacco e strategia di difesa. Convalida dei risultati, accelera la risoluzione dei gap di sicurezza e assicurati che la tua conoscenza raggiunga i team. Si muove direttamente nel contesto dei nostri sviluppi – dalle piattaforme interne alle soluzioni specializzate produttive dei nostri clienti.\nIl tuo ruolo\n• Eseguire test di sicurezza interni continui e cercare vulnerabilità in sistemi, codice e configurazioni\n• Convalida ingressi esterni da programmi di divulgazione di vulnerabilità, bounties di bug e consulenti di sicurezza per la sfruttabilità\n• Lavorate a stretto contatto con i team di sviluppo e di operazioni e tradurre i risultati tecnici in misure concrete e attuabili\n• Crea liste di controllo indurenti, regole di rilevamento e riproduzioni passo dopo passo invece di mostrare i problemi\n• Suggerisci strategie di patch, correzioni di revisione e orchestrare la validazione di correzioni\n• Priorizzare nella giungla dei rapporti di vulnerabilità generati dall'IA e aiutare il vostro team a concentrarsi sui rischi critici\n• Si comunica a livello degli occhi, riesce a ispirare e portare diverse squadre a bordo\nIl tuo profilo\n• Esperienza nell'analisi offensiva della sicurezza e del codice\n• Solida capacità di programmazione e debugging – si capisce il codice, non solo i concetti\n• Comprensione ed esperienza in uno o più linguaggi di programmazione.\n• Sviluppiamo in .NET, Java e per lo più creiamo frontendi web angolari\n• Conoscenze di cloud e piattaforma (Kubernetes, infrastrutture moderne)\n• Esperienza pratica con misure di sicurezza difensive e possibilità di rilevamento\n• Alta affinità per strumenti di automazione e analisi, compresi i nuovi metodi di sicurezza basati su AI\n• Buona scrittura tecnica e la capacità di rendere il contenuto complesso comprensibile a diversi gruppi target\n• Autooccupazione, metodi di lavoro strutturati e soprattutto: comprensione dei team che hanno bisogno di implementare i risultati\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "You do not believe in silos in safety? You understand both the perspective of the attackers and the defenders and know that real security comes from cooperation? You combine offensive thinking with practical empathy and have the ability not only to find complex security problems, but to make them fixable quickly? Then we are looking for you!\nAs Purple Hat, you are the interface between attack research and defense strategy. You validate finds, speed up the resolution of security gaps and ensure that your knowledge reaches the teams. You move directly in the context of our own developments – from internal platforms to productive specialist solutions from our customers.\nYour role\n• Perform continuous internal security tests and search for vulnerabilities in systems, code and configurations\n• Validate external inputs from vulnerability disclosure programs, bug bounties and security advisories for exploitability\n• You work closely with development and operations teams and translate technical findings into concrete, actionable measures\n• You create hardening checklists, detection rules and step-by-step reproductions instead of just showing the problems\n• Suggest patch strategies, review fixes and orchestrate the validation of fixes\n• Prioritize in the jungle of AI-generated vulnerability reports and help your team focus on critical risks\n• You communicate at eye level, manage to inspire and bring different teams on board\nYour profile\n• Experience in offensive security and code analysis\n• Solid programming and debugging skills – you understand code, not just the concepts\n• Understanding and experience in one or more programming languages.\n• We develop in .NET, Java and mostly create Angular web frontends\n• Cloud and platform knowledge (Kubernetes, modern infrastructures)\n• Practical experience with defensive safety measures and detection possibilities\n• High affinity for automation and analysis tools, including new AI-based security methods\n• Good technical writing and the ability to make complex content understandable to different target groups\n• Self-employment, structured working methods and above all: understanding of the teams that need to implement the findings\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Tu ne crois pas aux silos en sécurité ? Vous comprenez à la fois la perspective des agresseurs et des défenseurs et vous savez que la vraie sécurité vient de la coopération ? Vous combinez la pensée offensive avec l'empathie pratique et avez la capacité non seulement de trouver des problèmes de sécurité complexes, mais de les réparer rapidement? Alors nous vous cherchons !\nEn tant que Purple Hat, vous êtes l'interface entre la recherche d'attaque et la stratégie de défense. Vous validez les découvertes, accélèrez la résolution des lacunes en matière de sécurité et assurez-vous que vos connaissances parviennent aux équipes. Vous vous déplacez directement dans le contexte de nos propres développements – des plateformes internes aux solutions spécialisées productives de nos clients.\nVotre rôle\n• Effectuer des tests de sécurité interne continus et rechercher les vulnérabilités dans les systèmes, les codes et les configurations\n• Valider les entrées externes des programmes de divulgation de vulnérabilité, des primes de bug et des avis de sécurité pour l'exploitation\n• Vous travaillez en étroite collaboration avec les équipes de développement et d'exploitation et traduisez les résultats techniques en mesures concrètes et réalisables\n• Vous créez des listes de contrôle, des règles de détection et des reproductions étape par étape au lieu de simplement montrer les problèmes\n• Proposer des stratégies patch, des correctifs d'examen et orchestrer la validation des correctifs\n• Prioriser dans la jungle des rapports de vulnérabilité générés par l'IA et aider votre équipe à se concentrer sur les risques critiques\n• Vous communiquez au niveau des yeux, réussissez à inspirer et amener différentes équipes à bord\nVotre profil\n• Expérience en matière de sécurité offensive et d'analyse de code\n• Programmation solide et compétences de débogage – vous comprenez le code, pas seulement les concepts\n• Compréhension et expérience dans un ou plusieurs langages de programmation.\n• Nous développons en .NET, Java et créons principalement Angular web frontends\n• Connaissance du cloud et des plateformes (Kubernetes, infrastructures modernes)\n• Expérience pratique des mesures de sécurité défensive et des possibilités de détection\n• Haute affinité pour les outils d'automatisation et d'analyse, y compris les nouvelles méthodes de sécurité basées sur l'IA\n• Bonne rédaction technique et capacité à rendre le contenu complexe compréhensible pour différents groupes cibles\n• Emploi indépendant, méthodes de travail structurées et surtout : compréhension des équipes qui doivent mettre en œuvre les conclusions\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
       },
       "location": "St. Gallen",
@@ -1709,7 +1596,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-8003",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:41.978Z",
+      "crawledAt": "2026-07-14T10:59:04.006Z",
+      "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1726,13 +1614,24 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.refline.ch/215876/2481/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2481",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+      ],
+      "firstSeenAt": "2026-07-13T22:26:41.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        ]
+      },
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1744,13 +1643,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-13T22:26:41.978Z",
-      "previousSlugs": [
-        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
-      ]
+      }
     },
     {
       "id": "abraxas-11cfca267105",
@@ -1783,7 +1676,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:41.451Z",
+      "crawledAt": "2026-07-14T10:59:03.521Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1807,11 +1700,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1849,7 +1744,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "AIOps Trasformazione Piombo 80-100 %",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80-100 %"
       },
@@ -1865,7 +1760,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:40.929Z",
+      "crawledAt": "2026-07-14T10:59:03.012Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1888,11 +1784,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "aiops-transformation-lead-80-100-abraxas-st-gallen"
+        "aiops-transformation-lead-80-100-abraxas-st-gallen",
+        "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aiops-transformation-lead-80-100-abraxas-st-gallen"
+          "aiops-transformation-lead-80-100-abraxas-st-gallen",
+          "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "aiops-transformation-lead-80-100-abraxas-st-gallen"
@@ -1943,7 +1841,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:40.411Z",
+      "crawledAt": "2026-07-14T10:59:02.512Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1967,11 +1865,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "agile-testmanager-in-80-100-abraxas-frauenfeld"
+        "agile-testmanager-in-80-100-abraxas-frauenfeld",
+        "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agile-testmanager-in-80-100-abraxas-frauenfeld"
+          "agile-testmanager-in-80-100-abraxas-frauenfeld",
+          "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "en": [
           "agile-testmanager-in-80-100-abraxas-frauenfeld"
@@ -2025,7 +1925,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:39.852Z",
+      "crawledAt": "2026-07-14T10:59:02.028Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2049,11 +1949,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -2107,7 +2009,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:39.337Z",
+      "crawledAt": "2026-07-14T10:59:01.441Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2131,11 +2033,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -2189,7 +2093,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:38.662Z",
+      "crawledAt": "2026-07-14T10:59:00.837Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2213,11 +2117,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
@@ -2241,116 +2147,116 @@
       }
     },
     {
-      "id": "abraxas-cffa2970f478",
-      "slug": "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "id": "abraxas-5dc4f61fd5f2",
+      "slug": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
       "slugByLocale": {
-        "it": "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "de": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "fr": "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "it": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "en": "system-engineer-devops-deutsch-80-100-abraxas-bern",
+        "de": "system-engineer-devops-deutsch-80-100-abraxas-bern",
+        "fr": "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
+      "title": "System Engineer – DevOps (Deutsch) 80–100 %",
       "titleByLocale": {
-        "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
-        "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
-        "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
+        "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
+        "en": "System Engineer – DevOps (Deutsch) 80–100 %",
+        "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
+        "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
       },
-      "description": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "Sei un giocatore di squadra e non solo alla ricerca di un lavoro, ma vorrebbe modellare attivamente la sicurezza informatica? Allora sei esattamente nel nostro team di sicurezza informatica. Nel nostro SOC, si gioca un ruolo chiave nella protezione delle infrastrutture critiche nell'ambiente delle autorità svizzere. Con noi, si combinano le dinamiche di un team di sicurezza altamente specializzato con la stabilità di un fornitore di servizi IT consolidato – tra cui un sacco di responsabilità personale, influenza e spazio per la manovra. Il tuo ruolo\n• Responsabilità per l'analisi, il triage e la risposta incidente di complessi incidenti di sicurezza nell'ambito di un team di risposta di emergenza stabilito\n• Gestione e coordinamento delle indagini sugli incidenti di sicurezza (end-to-end)\n• Partecipazione attiva e ulteriore sviluppo dei nostri servizi di sicurezza informatica e processi SOC\n• Gestione tecnica e concettuale dei progetti\n• Garantire un funzionamento stabile e altamente disponibile delle nostre piattaforme e servizi di sicurezza\n• Consulenza e risparmio di partner per i clienti (compresa l'implementazione di briefing di sicurezza a livello senior)\n• Partecipazione a gare – con la possibilità di contribuire direttamente alla vostra competenza\n• Partecipazione al servizio di piquetting e incarichi straordinari al di fuori delle normali ore di lavoro Il tuo profilo\n• Almeno 5 anni di esperienza nell'analisi della sicurezza informatica e nella risposta agli incidenti (idealmente SOC/CSIRT)\n• Profonda esperienza pratica in diverse delle seguenti aree: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Ottima comprensione tecnica delle reti, sistemi operativi (Linux/Windows/macOS), firewall e analisi dei log\n• Esperienza di gestione di incidenti o progetti\n• Laurea in scienze informatiche o qualifica equivalente\n• Certificazioni di sicurezza informatica riconosciute (ad esempio GIAC, CISSP, CISM, ecc.)\n• Ottima conoscenza del tedesco e dell'inglese (tedesco C1)\n• Personalità strutturata, auto-responsabile e comunicativa con elevata affidabilità I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Are you a team player and not just looking for a job, but would like to actively shape cyber security? Then you are exactly right in our cyber security team. In our SOC, you play a key role in protecting critical infrastructures in the Swiss authorities environment. With us, you combine the dynamics of a highly specialized security team with the stability of an established IT service provider – including a lot of personal responsibility, influence and room for manoeuvre. Your role\n• Responsibility for analysis, triage and incident response of complex security incidents within the framework of an established emergency response team\n• Management and coordination of security incident investigations (end-to-end)\n• Active participation and further development of our cyber security services and SOC processes\n• Technical and conceptual management of projects\n• Ensuring stable and highly available operation of our security platforms and services\n• Consulting and sparring partners for customers (including implementation of security briefings at senior level)\n• Participation in tenders – with the possibility to contribute your expertise directly\n• Participation in the piquetting service and extraordinary assignments outside normal working hours Your profile\n• At least 5 years of experience in cyber security analysis and incident response (ideally SOC/CSIRT)\n• Deep practical expertise in several of the following areas: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Very good technical understanding of networks, operating systems (Linux/Windows/macOS), firewalls and log analysis\n• Experience managing incidents or projects\n• Computer science degree or equivalent qualification\n• Recognized cyber security certifications (e.g. GIAC, CISSP, CISM, etc.)\n• Very good knowledge of German and English (German C1)\n• Structured, self-responsible and communication-strong personality with high trustworthiness Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Êtes-vous un joueur d'équipe et pas seulement à la recherche d'un emploi, mais aimeriez-vous façonner activement la cybersécurité? Alors vous êtes exactement dans notre équipe de cybersécurité. Dans notre SOC, vous jouez un rôle clé dans la protection des infrastructures critiques dans l'environnement des autorités suisses. Avec nous, vous combinez la dynamique d'une équipe de sécurité hautement spécialisée avec la stabilité d'un fournisseur de services informatiques bien établi – y compris beaucoup de responsabilité personnelle, d'influence et de marge de manoeuvre. Votre rôle\n• Responsabilité de l'analyse, du tri et de l'intervention en cas d'incidents complexes dans le cadre d'une équipe d'intervention d'urgence établie\n• Gestion et coordination des enquêtes sur les incidents de sécurité (fin à fin)\n• Participation active et développement de nos services de cybersécurité et de nos processus SOC\n• Gestion technique et conceptuelle des projets\n• Assurer un fonctionnement stable et hautement disponible de nos plateformes et services de sécurité\n• Services de conseil et d'assistance aux clients (y compris la mise en place de séances d'information sur la sécurité au niveau supérieur)\n• Participation aux appels d'offres – avec la possibilité de contribuer directement à votre expertise\n• Participation au service de picting et affectations extraordinaires en dehors des heures normales de travail Votre profil\n• Au moins 5 ans d'expérience dans l'analyse de la cybersécurité et la réponse aux incidents (idéalement SOC/CSIRT)\n• Une expertise pratique approfondie dans plusieurs des domaines suivants : SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Très bonne compréhension technique des réseaux, des systèmes d'exploitation (Linux/Windows/macOS), des pare-feu et de l'analyse des journaux\n• Expérience de gestion des incidents ou des projets\n• Diplôme en informatique ou diplôme équivalent\n• Certifications de cybersécurité reconnues (p. ex. GIAC, CISSP, CISM, etc.)\n• Très bonne connaissance de l'allemand et de l'anglais (allemand C1)\n• Personnalité structurée, autoresponsable et forte en communication avec une grande fiabilité Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "In questo entusiasmante ruolo, si assicura il funzionamento stabile della nostra infrastruttura e lavorare attivamente sulle soluzioni moderne intorno a CARI, il principale ERP per i trasporti su strada e gli uffici di trasporto in Svizzera. Sosteni i nostri clienti con l'introduzione di nuove tecnologie e contribuisce così direttamente al progresso digitale del settore pubblico nel settore della mobilità. Se si desidera assumersi la responsabilità, sono tecnicamente ampia e apprezzare un ambiente con cultura di startup e spirito di squadra, sei una soluzione perfetta per noi. Il tuo ruolo\n• Assicurare un'infrastruttura interna sempre disponibile e funzionante.\n• Soluzioni di implementazione e installazioni direttamente con i nostri clienti.\n• Gestione delle infrastrutture e dei progetti tecnici, sviluppo di concetti operativi e creazione di documentazione tecnica.\n• Fornitura e sviluppo di infrastrutture di sviluppo (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fornire competenze per la prevenzione e la soluzione efficiente dei problemi tecnici.\n• Una stretta collaborazione con il servizio clienti, i team di sviluppo e i responsabili operativi delle nostre soluzioni. Il tuo profilo\n• Apprendistato completo o formazione professionale superiore in informatica.\n• Conoscenza approfondita dei sistemi UNIX e Windows.\n• Esperienza nel trattare con i database ORACLE.\n• Diversi anni di esperienza professionale come ingegnere di sistema o responsabile di account tecnico.\n• Buona conoscenza delle reti, firewall, VPN.\n• Flusso in tedesco; tecnico inglese, francese benefico.\n• Alta flessibilità e disponibilità per viaggi d'affari regolari per la posizione di Morges e appuntamenti dei clienti in tutta la Svizzera. I tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "In this exciting role, you ensure the stable operation of our infrastructure and actively work on modern solutions around CARI, the leading ERP for road transport and shipping offices in Switzerland. You support our customers with the introduction of new technologies and thus directly contribute to the digital progress of the public sector in the mobility sector. If you want to take on responsibility, are technically broad and appreciate an environment with startup culture and team spirit, you are a perfect fit for us. Your role\n• Ensure an always available and smoothly functioning internal infrastructure.\n• Implement solutions and installations directly with our customers.\n• Managing infrastructure and technical projects as well as developing operational concepts and creating technical documentation.\n• Provision and development of development infrastructures (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Providing expertise for the prevention and efficient solution of technical problems.\n• Close cooperation with customer service, development teams and the operational managers of our solutions. Your profile\n• Completed apprenticeship or higher vocational training in computer science.\n• In-depth knowledge of UNIX and Windows systems.\n• Experience in dealing with ORACLE databases.\n• Several years of professional experience as a system engineer or technical account manager.\n• Good knowledge of networks, firewall, VPN.\n• Flowing in German; technical English, French beneficial.\n• High flexibility and readiness for regular business trips to the Morges location as well as customer appointments throughout Switzerland. Your Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Dans ce rôle passionnant, vous assurez le fonctionnement stable de notre infrastructure et travaillez activement sur des solutions modernes autour de CARI, le premier ERP pour le transport routier et les bureaux de navigation en Suisse. Vous aidez nos clients à introduire de nouvelles technologies et contribuez ainsi directement au progrès numérique du secteur public dans le secteur de la mobilité. Si vous voulez prendre des responsabilités, être techniquement large et apprécier un environnement avec la culture de démarrage et l'esprit d'équipe, vous êtes parfait pour nous. Votre rôle\n• Assurer une infrastructure interne toujours disponible et en bon état de fonctionnement.\n• Implémenter des solutions et des installations directement avec nos clients.\n• Gestion des infrastructures et des projets techniques, élaboration de concepts opérationnels et création de documentation technique.\n• Fourniture et développement d'infrastructures de développement (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fournir une expertise pour la prévention et la solution efficace des problèmes techniques.\n• Coopération étroite avec le service client, les équipes de développement et les responsables opérationnels de nos solutions. Votre profil\n• Apprentissage ou formation professionnelle supérieure en informatique.\n• Connaissance approfondie des systèmes UNIX et Windows.\n• Expérience dans le traitement des bases de données ORACLE.\n• Plusieurs années d'expérience professionnelle en tant qu'ingénieur système ou gestionnaire de compte technique.\n• Bonne connaissance des réseaux, pare-feu, VPN.\n• Flux en allemand; anglais technique, français bénéfique.\n• Haute flexibilité et disponibilité pour des voyages d'affaires réguliers à destination de Morges ainsi que des rendez-vous clients dans toute la Suisse. Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-9650",
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T13:13:04.034Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
+      "crawledAt": "2026-07-13T22:26:53.048Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8058",
+      "postalCode": "3000",
       "streetAddress": "",
-      "category": "IT / Sicurezza",
+      "category": "IT / Infrastruttura",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "entry",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2475/index.html?lang=de&cid=1",
+      "applyUrl": "https://apply.refline.ch/215876/2155/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2475",
+      "externalId": "215876-2155",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        "system-engineer-devops-deutsch-80-100-abraxas-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+          "system-engineer-devops-deutsch-80-100-abraxas-bern"
         ],
         "fr": [
-          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+          "system-engineer-devops-deutsch-80-100-abraxas-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:00:02.973Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "firstSeenAt": "2026-07-04T10:00:06.686Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
       "crawlerMissStreak": 1
     },
     {
-      "id": "abraxas-2d0ffe04a200",
-      "slug": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
+      "id": "abraxas-74772a464903",
+      "slug": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "it": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
-        "fr": "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
+        "it": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
+        "en": "senior-project-management-in-the-field-of-tax-solutions-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "fr": "haute-direction-de-projet-dans-le-domaine-des-solutions-fiscales-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
+      "title": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
       "titleByLocale": {
-        "it": "Cybersecurity Ingegnere im öffentlichen Sektor 80–100 %",
-        "en": "Cybersecurity Engineer in the public sector 80-100%",
-        "de": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
-        "fr": "Cybersecurity Ingénieur im öffentlichen Sektor 80–100 %"
+        "it": "Gestione senior del progetto nel settore delle soluzioni fiscali 80-100%",
+        "en": "Senior project management in the field of tax solutions 80-100%",
+        "de": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
+        "fr": "Haute direction de projet dans le domaine des solutions fiscales 80-100%"
       },
-      "description": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "Non credi in silos in sicurezza? Capisci sia la prospettiva degli attaccanti che dei difensori e sai che la vera sicurezza viene dalla cooperazione? Combinate il pensiero offensivo con l'empatia pratica e avete la capacità non solo di trovare problemi di sicurezza complessi, ma di renderli rapidamente riparabili? Allora ti stiamo cercando! Come Purple Hat, sei l'interfaccia tra ricerca di attacco e strategia di difesa. Convalida dei risultati, velocizzi la risoluzione dei vuoti di sicurezza e assicurati che le tue conoscenze raggiungano i team. Si muove direttamente nel contesto dei nostri sviluppi – dalle piattaforme interne alle soluzioni specializzate produttive dei nostri clienti. Il tuo ruolo\n• Eseguire test di sicurezza interni continui e cercare vulnerabilità in sistemi, codice e configurazioni\n• Convalida ingressi esterni da programmi di divulgazione di vulnerabilità, bounties di bug e consulenti di sicurezza per la sfruttabilità\n• Lavorate a stretto contatto con i team di sviluppo e di operazioni e tradurre i risultati tecnici in misure concrete e attuabili\n• Si creano liste di controllo indurimento, regole di rilevamento e riproduzioni passo per passo invece di mostrare solo i problemi\n• Suggerisci strategie di patch, correzioni di revisione e validazione di correzione orchestrata\n• Priorizzare nella giungla dei rapporti di vulnerabilità generati dall'IA e aiutare il vostro team a concentrarsi sui rischi critici\n• Si comunica a livello degli occhi, riesce a ispirare e portare diverse squadre a bordo Il tuo profilo\n• Esperienza nell'analisi offensiva della sicurezza e del codice\n• Solida capacità di programmazione e debugging – si capisce il codice, non solo i concetti\n• Comprensione ed esperienza in uno o più linguaggi di programmazione.\n• Sviluppiamo in .NET, Java e per lo più creiamo frontendi web angolari\n• Conoscenze di cloud e piattaforma (Kubernetes, infrastrutture moderne)\n• Esperienza pratica con misure di sicurezza difensive e possibilità di rilevamento\n• Alta affinità per strumenti di automazione e analisi, compresi i nuovi metodi di sicurezza basati su AI\n• Buona scrittura tecnica e la capacità di rendere il contenuto complesso comprensibile a diversi gruppi target\n• Autooccupazione, metodi di lavoro strutturati e soprattutto: comprensione dei team che hanno bisogno di implementare i risultati I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You do not believe in silos in safety? You understand both the perspective of the attackers and the defenders and know that real security comes from cooperation? You combine offensive thinking with practical empathy and have the ability not only to find complex security problems, but to make them quickly fixable? Then we are looking for you! As Purple Hat, you are the interface between attack research and defense strategy. You validate finds, speed up the resolution of security gaps and ensure that your knowledge reaches the teams. You move directly in the context of our own developments – from internal platforms to productive specialist solutions from our customers. Your role\n• Perform continuous internal security tests and search for vulnerabilities in systems, code and configurations\n• Validate external inputs from vulnerability disclosure programs, bug bounties and security advisories for exploitability\n• You work closely with development and operations teams and translate technical findings into concrete, actionable measures\n• You create hardening checklists, detection rules and step-by-step reproductions instead of just showing the problems\n• Suggest patch strategies, review fixes, and orchestrate fix validation\n• Prioritize in the jungle of AI-generated vulnerability reports and help your team focus on critical risks\n• You communicate at eye level, manage to inspire and bring different teams on board Your profile\n• Experience in offensive security and code analysis\n• Solid programming and debugging skills – you understand code, not just the concepts\n• Understanding and experience in one or more programming languages.\n• We develop in .NET, Java and mostly create Angular web frontends\n• Cloud and platform knowledge (Kubernetes, modern infrastructures)\n• Practical experience with defensive safety measures and detection possibilities\n• High affinity for automation and analysis tools, including new AI-based security methods\n• Good technical writing and the ability to make complex content understandable to different target groups\n• Self-employment, structured working methods and above all: understanding of the teams that need to implement the findings Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous ne croyez pas aux silos en sécurité ? Vous comprenez le point de vue des agresseurs et des défenseurs et savez que la vraie sécurité vient de la coopération ? Vous combinez la pensée offensive avec l'empathie pratique et avez la capacité non seulement de trouver des problèmes de sécurité complexes, mais de les réparer rapidement? Alors nous vous cherchons ! En tant que Purple Hat, vous êtes l'interface entre la recherche d'attaque et la stratégie de défense. Vous validez les découvertes, accélèrez la résolution des lacunes de sécurité et assurez-vous que vos connaissances parviennent aux équipes. Vous vous déplacez directement dans le contexte de nos propres développements – des plateformes internes aux solutions spécialisées productives de nos clients. Votre rôle\n• Effectuer des tests de sécurité interne continus et rechercher des vulnérabilités dans les systèmes, les codes et les configurations\n• Valider les entrées externes des programmes de divulgation de vulnérabilité, des primes de bug et des avis de sécurité pour l'exploitation\n• Vous travaillez en étroite collaboration avec les équipes de développement et d'opérations et traduisez les résultats techniques en mesures concrètes et réalisables\n• Vous créez des listes de contrôle, des règles de détection et des reproductions étape par étape au lieu de simplement montrer les problèmes\n• Proposer des stratégies de patch, des correctifs d'examen et une validation de fixateur d'orchestre\n• Prioriser dans la jungle des rapports de vulnérabilité générés par l'IA et aider votre équipe à se concentrer sur les risques critiques\n• Vous communiquez au niveau des yeux, réussissez à inspirer et à amener différentes équipes à bord Votre profil\n• Expérience en matière de sécurité offensive et d'analyse de code\n• Programmation solide et compétences de débogage – vous comprenez le code, pas seulement les concepts\n• Compréhension et expérience dans un ou plusieurs langages de programmation.\n• Nous développons en .NET, Java et créons principalement des frontends de web angulaires\n• Connaissance du cloud et des plateformes (Kubernetes, infrastructures modernes)\n• Expérience pratique des mesures de sécurité défensive et des possibilités de détection\n• Haute affinité pour les outils d'automatisation et d'analyse, y compris les nouvelles méthodes de sécurité basées sur l'IA\n• Bonne rédaction technique et capacité à rendre le contenu complexe compréhensible pour différents groupes cibles\n• Travail indépendant, méthodes de travail structurées et surtout : compréhension des équipes qui doivent mettre en œuvre les conclusions Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "Siete impegnati nei vostri progetti e il vostro impulso è azione auto-responsabile? Hai esperienza con progetti di sviluppo software agile e lo capisci come responsabile:r project manager:in per i clienti pubblici per garantire la portata contrattuale dei tuoi progetti? Allora vorremmo darvi il benvenuto a #Team Abraxas! Ci siamo posti l'obiettivo di essere il fornitore leader di soluzioni fiscali in Svizzera e per questo abbiamo bisogno del vostro sostegno attivo. E' quello che fai.\n• Gestire progetti complessi ed esigenti dei clienti nel settore dello sviluppo software e integrare le nostre soluzioni di controllo con i nostri clienti\n• Stabilire l'organizzazione del progetto e guidare i team di progetto in più sedi con team di sviluppo locali o vicini e in stretta collaborazione con il cliente\n• Definire le linee guida e gli strumenti necessari per l'implementazione del progetto, lungo il processo di sviluppo e nelle specifiche aziendali\n• Responsabilità e rappresentanza del vostro progetto nel comitato interno e di progetto del cliente\n• Valutare i fornitori necessari o componenti di terze parti e condurre negoziati insieme al nostro dipartimento di acquisto centrale Questo ti distingue\n• Grado di istruzione superiore o superiore in informatica o formazione comparabile e esperienza professionale e certificazione rilevanti (ad esempio HERMES, IPMA, PRINCE2)\n• Almeno 10 anni di esperienza come project manager: in, idealmente nello sviluppo software in un ambiente agile. Di cui gestione di almeno 3 progetti oltre 1 milione di CHF, tra cui almeno un progetto secondo HERMES e uno nel settore dell'amministrazione fiscale\n• Conoscenza approfondita della fiscalità, dei processi di raccolta delle imposte e dell'esperienza nella gestione contrattuale dei progetti dei clienti\n• Alta competenza tecnica, metodologica e sociale, preferibilmente con certificazione HERMES Advanced\n• Forte comunicazione, auto-azione della personalità con capacità analitiche, concettuali e conoscenza dei metodi di sviluppo agili\n• Tedesco in lingua madre o livello C1, buone competenze in inglese, altre lingue di vantaggio Questo è ciò che vi offriamo\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "You are committed to your projects and your drive is self-responsible action? You have experience with agile software development projects and understand it as responsible:r project manager:in for public customers to ensure the contractual scope of your projects? Then we would like to welcome you to #Team Abraxas! We have set ourselves the goal of being the leading provider of tax solutions in Switzerland and for this we need your active support. That's what you do.\n• Managing complex and demanding customer projects in the area of software development and integrating our control solutions with our customers\n• Establish project organization and lead project teams across multiple locations with local or nearshoring development teams and in close cooperation with the customer\n• Define the necessary guidelines and instruments for project implementation, along the development process and within the company specifications\n• Responsibility and representation of your project in the customer’s internal and project committee\n• Evaluating necessary suppliers or third-party components and conducting negotiations together with our central purchasing department This sets you apart\n• Higher or higher education degree in computer science or comparable education and relevant professional experience and certification (e.g. HERMES, IPMA, PRINCE2)\n• At least 10 years of experience as a project manager: in, ideally in software development in an agile environment. Of which management of at least 3 projects over 1 million CHF, including at least one project according to HERMES and one in the field of tax administration\n• In-depth knowledge in taxation, tax collection processes and experience in contract-compliant handling of customer projects\n• High level of technical, methodological and social competence, preferably with HERMES Advanced certification\n• Strong communication, self-acting personality with analytical, conceptual skills and knowledge of agile development methods\n• German at native language or C1 level, good English skills, other languages of advantage This is what we offer you\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Vous êtes engagé dans vos projets et votre énergie est une action auto-responsable? Vous avez de l'expérience avec des projets de développement logiciel agile et le comprenez comme responsable:r gestionnaire de projet:in pour les clients publics pour assurer la portée contractuelle de vos projets? Alors nous aimerions vous accueillir à #Team Abraxas! Nous nous sommes fixé l'objectif d'être le premier fournisseur de solutions fiscales en Suisse et pour cela nous avons besoin de votre soutien actif. C'est ce que tu fais.\n• Gérer des projets clients complexes et exigeants dans le domaine du développement logiciel et intégrer nos solutions de contrôle à nos clients\n• Mettre en place une organisation de projet et des équipes de projet à plusieurs endroits avec des équipes de développement locales ou proches et en étroite collaboration avec le client\n• Définir les lignes directrices et les instruments nécessaires pour la mise en œuvre des projets, le long du processus de développement et dans les spécifications de l'entreprise\n• Responsabilité et représentation de votre projet au sein du comité interne du client et du projet\n• Évaluer les fournisseurs ou les composants tiers nécessaires et mener des négociations avec notre service central d'achat Cela vous distingue\n• Diplôme d'enseignement supérieur en informatique ou enseignement comparable et expérience professionnelle pertinente et certification (par exemple HERMES, IPMA, PRINCE2)\n• Au moins 10 ans d'expérience en tant que gestionnaire de projet : idéalement dans le développement de logiciels dans un environnement agile. Dont gestion d'au moins 3 projets de plus d'un million de francs, dont au moins un projet selon HERMES et un dans le domaine de l'administration fiscale\n• Connaissance approfondie de la fiscalité, des processus de recouvrement des impôts et de l'expérience de la gestion contractuelle des projets clients\n• Haute compétence technique, méthodologique et sociale, de préférence avec HERMES Certification avancée\n• Une communication forte, une personnalité auto-agir avec des compétences analytiques, conceptuelles et une connaissance des méthodes de développement agile\n• L'allemand au niveau de la langue maternelle ou C1, de bonnes compétences en anglais, d'autres langues d'avantage C'est ce que nous vous offrons.\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
       "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-1052",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T13:12:56.903Z",
+      "crawledAt": "2026-07-13T22:26:49.905Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2358,42 +2264,45 @@
       "country": "CH",
       "postalCode": "9001",
       "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sicurezza",
+      "category": "IT / Sviluppo software",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2481/index.html?lang=de&cid=1",
+      "applyUrl": "https://apply.refline.ch/215876/2184/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2481",
+      "externalId": "215876-2184",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+        ],
+        "en": [
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
         ],
         "fr": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-07-04T09:59:58.195Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-07-04T10:00:04.050Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
