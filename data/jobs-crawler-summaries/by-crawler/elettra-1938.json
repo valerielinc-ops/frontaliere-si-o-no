@@ -1,18 +1,19 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-07-14T11:22:39.425Z",
+  "generatedAt": "2026-07-14T22:51:32.779Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5524,
-  "avgDurationMs": 5524,
+  "durationMs": 4707,
+  "avgDurationMs": 4707,
   "durationHistory": [
-    5524
+    4707
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "elettra-1938-3997a05e1bc1",
       "slug": "customer-quality-engineer-elettra-1938-ch",
@@ -25,7 +26,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-14T11:22:37.214Z",
+      "crawledAt": "2026-07-14T22:51:30.009Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-07-14",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-07-14T11:22:37.214Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "elettra-1938-cf83501f909d",
       "slug": "manutentore-elettromeccanico-elettra-1938-ch",
@@ -62,7 +62,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-14T11:22:37.517Z",
+      "crawledAt": "2026-07-14T22:51:30.311Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-14T11:22:37.818Z",
+      "crawledAt": "2026-07-14T22:51:30.612Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
