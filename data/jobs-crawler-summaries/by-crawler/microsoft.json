@@ -1,18 +1,19 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-07-13T22:13:08.358Z",
+  "generatedAt": "2026-07-14T11:00:59.660Z",
   "total": 6,
-  "newCount": 4,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15405,
-  "avgDurationMs": 15405,
+  "durationMs": 12213,
+  "avgDurationMs": 12213,
   "durationHistory": [
-    15405
+    12213
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200041934",
       "slug": "director-solution-specialist-manager-ai-business-solutions-microsoft-switzerland",
@@ -25,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556918401",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.632Z",
+      "crawledAt": "2026-07-14T11:00:57.257Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -39,11 +40,12 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556918401",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-13T22:13:06.632Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -59,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933021",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.634Z",
+      "crawledAt": "2026-07-14T11:00:57.260Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -73,11 +75,12 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556933021",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-13T22:13:06.634Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -93,7 +96,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933034",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.635Z",
+      "crawledAt": "2026-07-14T11:00:57.263Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -107,11 +110,12 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556933034",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-13T22:13:06.635Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -127,7 +131,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933036",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.636Z",
+      "crawledAt": "2026-07-14T11:00:57.264Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -141,16 +145,15 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556933036",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-13T22:13:06.636Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "microsoft-200042696",
       "slug": "commercial-skilling-manager-microsoft-zurich",
@@ -163,7 +166,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556926129",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.638Z",
+      "crawledAt": "2026-07-14T11:00:57.266Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +201,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556924215",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:13:06.638Z",
+      "crawledAt": "2026-07-14T11:00:57.268Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
