@@ -399,6 +399,25 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
+  // TPL - Trasporti Pubblici Luganesi (Lugano public transport, tplsa.ch):
+  // verified live 2026-07-14 — the careers page
+  // (https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html) returns HTTP 200 and the
+  // listing parser (parseTplListingPage) is healthy: it correctly discovers the
+  // current single vacancy ("Specialista Risorse Umane", idhr=748) and excludes
+  // the spontaneous-application form (idhr=0). The root break was that the
+  // dedicated crawler (refactored to the shared runDedicatedBaseCrawler engine)
+  // was never registered in the company census, so every run exited with
+  // "Missing company keys: tpl-lugano" and 0 jobs (born-broken, never produced a
+  // job) — now fixed by adding the company to data/ticino-companies-extra.json,
+  // so the engine resolves the key and crawls the careers page. TPL exposes its
+  // openings only as thin application-form pages (/2/50/candidati/?idhr=NNN) whose
+  // real job specification is a linked "Capitolato" PDF, which the generic engine
+  // correctly classifies as a non-job-detail page (html_not_target_relevant) → 0
+  // machine-extractable postings. A very small municipal transport operator
+  // legitimately has 0 (or PDF-only, non-extractable) openings for long stretches;
+  // the parser is healthy and re-arms if an extractable posting appears. Same
+  // legitimately-empty small-employer case as moncucco/linnea/ail-lugano.
+  'tpl-lugano',
 ]);
 
 /** Read JSON file, return null on any error. */
