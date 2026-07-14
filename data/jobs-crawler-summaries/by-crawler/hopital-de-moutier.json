@@ -1,18 +1,19 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-07-13T22:12:12.930Z",
+  "generatedAt": "2026-07-14T11:27:12.242Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2829,
-  "avgDurationMs": 2829,
+  "durationMs": 4008,
+  "avgDurationMs": 4008,
   "durationHistory": [
-    2829
+    4008
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-de-moutier-74cee611d142",
       "slug": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
@@ -20,14 +21,14 @@
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
       "title": "Médecin assistant(e) en pédopsychiatrie stationnaire",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Moutier",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:11.118Z",
+      "crawledAt": "2026-07-14T11:27:09.461Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "datePosted": "2026-07-13",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-07-13T22:12:11.118Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-de-moutier-2bb6176358d6",
       "slug": "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:11.120Z",
+      "crawledAt": "2026-07-14T11:27:09.467Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:11.124Z",
+      "crawledAt": "2026-07-14T11:27:09.463Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134729364-medecin-dermatologue",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:11.125Z",
+      "crawledAt": "2026-07-14T11:27:09.469Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "firstSeenAt": "2026-07-10T10:55:15.040Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

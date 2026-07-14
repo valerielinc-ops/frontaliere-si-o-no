@@ -11,6 +11,11 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74313-de_DE",
+    "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74118-de_DE",
+    "https://job.post.ch/default/job/Fachspezialistin-Controlling/74297-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74311-de_DE",
     "https://job.post.ch/default/job/Hauswartin/74299-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73806-de_DE",
@@ -81,12 +86,10 @@
     "https://job.post.ch/default/job/Zustellerin-Pakete/73600-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
     "https://job.post.ch/default/job/HR-Data-&-Solution-Spezialistin/74098-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74118-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74117-de_DE",
     "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
     "https://job.post.ch/default/job/Servicetechnikerin/73841-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
-    "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74074-de_DE",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74309-fr_FR",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
@@ -98,5 +101,5 @@
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-07-13T22:06:59.512Z"
+  "updatedAt": "2026-07-14T11:01:06.790Z"
 }

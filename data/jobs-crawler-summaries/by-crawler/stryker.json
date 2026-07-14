@@ -1,18 +1,55 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-07-13T22:33:23.015Z",
+  "generatedAt": "2026-07-14T11:58:52.576Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7225,
-  "avgDurationMs": 7225,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9154,
+  "avgDurationMs": 9154,
   "durationHistory": [
-    7225
+    9154
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "stryker-033b78e8983f",
+      "slug": "regulatory-affairs-specialist-stryker-ch",
+      "company": "Stryker",
+      "companyKey": "stryker",
+      "companyDomain": "stryker.com",
+      "title": "Regulatory Affairs Specialist",
+      "needsRetranslation": true,
+      "location": "Biberist",
+      "canton": "SO",
+      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
+      "source": "Stryker Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-14T11:58:45.203Z",
+      "addressLocality": "Biberist",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità / Compliance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Medtech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
+      "jobReqId": "R561546",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "stryker-b91369d6d475",
@@ -27,7 +64,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:17.046Z",
+      "crawledAt": "2026-07-14T11:58:46.076Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R568814",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:17.725Z",
+      "crawledAt": "2026-07-14T11:58:46.796Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regional-Sales-Manager--m-w-d--Endoscopy-Schweiz_R567199-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:19.180Z",
+      "crawledAt": "2026-07-14T11:58:48.439Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Vienna-Austria/Regional-Sales-Manager--Peripheral-Vascular---Switzerland---Austria_R567401",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:33:18.451Z",
+      "crawledAt": "2026-07-14T11:58:47.701Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R565378",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:19.834Z",
+      "crawledAt": "2026-07-14T11:58:49.156Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:20.503Z",
+      "crawledAt": "2026-07-14T11:58:49.924Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:21.158Z",
+      "crawledAt": "2026-07-14T11:58:50.651Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -274,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stryker-bab9d73cd281",
       "slug": "microbiologo-senior-stryker-selzach",
@@ -315,5 +351,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

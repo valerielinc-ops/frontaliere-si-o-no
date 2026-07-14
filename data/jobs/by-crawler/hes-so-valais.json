@@ -1,7 +1,75 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-07-13T22:06:17.159Z",
+  "assembledAt": "2026-07-14T12:12:51.282Z",
   "jobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/collaboratrice-ou-collaborateur-economique-60-***-wirtschaftliche-mitarbeiterin--wirtschaftlicher-mitarbeiter-60--214857",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/collaboratrice-ou-collaborateur-economique-60-***-wirtschaftliche-mitarbeiterin--wirtschaftlicher-mitarbeiter-60--214857",
+      "title": "Collaboratrice ou collaborateur économique (60%) ***",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Pour compléter son équipe, le service Académique met au concours le poste suivant : Collaboratrice ou collaborateur économique (60%) Vos principales\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+      "descriptionByLocale": {
+        "fr": "Pour compléter son équipe, le service Académique met au concours le poste suivant : Collaboratrice ou collaborateur économique (60%) Vos principales\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Collaboratrice ou collaborateur économique (60%) ***.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Collaboratrice ou collaborateur économique (60%) ***.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
+        "it": "Pour compléter son équipe, le service Académique met au concours le poste suivant : Collaboratrice ou collaborateur économique (60%) Vos principales\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+      },
+      "titleByLocale": {
+        "fr": "Collaboratrice ou collaborateur économique (60%) ***",
+        "it": "Collaboratrice ou collaborateur économique (60%) ***",
+        "en": "Collaboratrice ou collaborateur économique (60%) ***",
+        "de": "Collaboratrice ou collaborateur économique (60%) ***"
+      },
+      "slug": "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+      "slugByLocale": {
+        "fr": "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+        "it": "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+        "en": "collaboratrice-ou-collaborateur-economique-60-hes-so-valais",
+        "de": "collaboratrice-ou-collaborateur-economique-60-hes-so-valais"
+      },
+      "category": "research-support",
+      "datePosted": "2026-07-14",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "employmentRate": "60%",
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/collaboratrice-ou-collaborateur-economique-60-***-wirtschaftliche-mitarbeiterin--wirtschaftlicher-mitarbeiter-60--214857",
+        "de": "https://www.hevs.ch/de/recruitee/collaboratrice-ou-collaborateur-economique-60-***-wirtschaftliche-mitarbeiterin--wirtschaftlicher-mitarbeiter-60--214857",
+        "en": "https://www.hevs.ch/en/recruitee/collaboratrice-ou-collaborateur-economique-60-***-wirtschaftliche-mitarbeiterin--wirtschaftlicher-mitarbeiter-60--214857"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "hes-so-valais-5ce465232fa3",
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-07-14T12:12:51.282Z"
+    },
     {
       "url": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/maitre-denseignement-hes-pour-la-branche-histoire-de-lart-contemporain-214847",
@@ -185,7 +253,7 @@
         "fr": "Afin de compléter son équipe, la HES-SO Valais-Wallis met au concours le poste suivant : Collaboratrice ou collaborateur techniqueCheffe ou chef de projet La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
       },
       "titleByLocale": {
-        "it": "Collaboratore o collaboratore tecnico - Capo o Capo",
+        "it": "Collaboratrice ou collaborateur technique - Cheffe ou chef de",
         "en": "Collaborator or technical collaborator - Chief or Chief",
         "de": "Mitarbeiter oder technischer Mitarbeiter - Chef oder Chef",
         "fr": "Collaboratrice ou collaborateur technique - Cheffe ou chef de"
@@ -234,6 +302,7 @@
       },
       "firstSeenAt": "2026-07-02T11:07:22.328Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",

@@ -3347,6 +3347,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'disoccupazione-frontalieri-naspi',
+    category: 'fiscale',
+    date: '2026-07-14T11:05:23.557Z',
+    image: '/images/blog/disoccupazione-frontalieri-naspi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

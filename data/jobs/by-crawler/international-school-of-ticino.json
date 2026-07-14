@@ -1,6 +1,6 @@
 {
   "crawlerKey": "international-school-of-ticino",
-  "assembledAt": "2026-07-13T22:22:48.582Z",
+  "assembledAt": "2026-07-14T11:54:22.268Z",
   "jobs": [
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-Part-Time-Music-Teacher/1364604157/",
@@ -22,7 +22,7 @@
         "it": "Insegnante di Musica a Tempo Parziale",
         "en": "Part-Time Music Teacher",
         "de": "Teilzeit-Musiklehrer",
-        "fr": "Professeur de musique à temps partiel"
+        "fr": "Part-Time Music Teacher"
       },
       "slug": "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
       "slugByLocale": {
@@ -63,6 +63,7 @@
       },
       "firstSeenAt": "2026-06-23T22:32:55.658Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 42000,
       "salaryMax": 77500,
       "currency": "CHF",

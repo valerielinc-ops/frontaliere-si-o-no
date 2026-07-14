@@ -61,6 +61,16 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // CSS link-load failure during CDN propagation window (#4151, sw_cache_stale
+  // type). The inline SW-recovery script catches <link> errors for /assets/*.css,
+  // stores _swErrorInfo in sessionStorage, busts the HTTP cache, and reloads —
+  // identical self-heal as resilientImport() for JS chunks. Kept in GA4 dashboards
+  // for observability (analytics.ts trackAppError('sw_cache_stale',...)) but
+  // not actionable as a backlog ticket: the reload is the fix and the CDN window
+  // closes in seconds. JS dynamic-import failures via the same _swErrorInfo path
+  // carry a different message shape (Stale chunk: Failed to fetch…) and are kept
+  // issue-able to surface persistent CDN outages.
+  /Stale chunk:.*\.css/i,
   // User-cancelled navigation / fetch abort (#4147 class): "AbortError: The
   // user aborted a request." (WebKit), "AbortError: The operation was aborted."
   // (standard), "AbortError: signal is aborted…", bare "AbortError: AbortError".
@@ -71,6 +81,21 @@ export const ISSUE_DENY_PATTERNS = [
   // issues that no code change can close. Parity-pinned by
   // tests/error-issue-sync.test.ts ("deny-list parity" describe block).
   /AbortError: (?:The user aborted a request|The operation was aborted|signal is aborted|AbortError)/i,
+  // Bare transport failures — environmental noise (#4150): three browsers emit
+  // the same "fetch failed" signal under different wording for a network blip /
+  // CORS / cancelled XHR / offline / adblock, none with a usable stack.
+  // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
+  // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
+  // Anchored (`^…$`) so contextualized `[ctx] Failed to fetch` variants and
+  // chunk-load fetch failures ("Failed to fetch dynamically imported module:
+  // <url>") still reach the backlog (those carry an actionable call-site or
+  // CDN-outage signal — see #1810 class).
+  //   Safari:  TypeError: Load failed
+  //   Chrome:  TypeError: Failed to fetch
+  //   Firefox: TypeError: NetworkError when attempting to fetch resource.
+  /^(?:TypeError: )?Load failed$/i,
+  /^(?:TypeError: )?Failed to fetch$/i,
+  /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
 ];
 
 /**

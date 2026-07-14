@@ -1,0 +1,72 @@
+name: Probe Mailgun Scheduled-Send
+
+# On-demand verification of Mailgun's real free-plan scheduled-send lookahead
+# (#3798, Phase 0). Manual only — never scheduled — because `send: true` sends
+# ONE real email. Mailgun credentials come from Remote Config (same path as the
+# send-* workflows). Dry-run by default: preview the request without sending.
+
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: 'Test recipient email address'
+        required: true
+        type: string
+      days:
+        description: 'Scheduled-send offset in days from now (try 3, then 7, then 4 to bisect the limit)'
+        required: false
+        default: '3'
+        type: string
+      send:
+        description: 'Actually send the email (unchecked = dry-run, no network call)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run Mailgun scheduled-send probe
+        env:
+          PROBE_TO: ${{ inputs.to }}
+          PROBE_DAYS: ${{ inputs.days }}
+          PROBE_SEND: ${{ inputs.send }}
+        run: |
+          if [ "$PROBE_SEND" = "true" ]; then
+            echo "⚠️  Live send requested (--send): one real email will be delivered."
+            node scripts/probe-mailgun-scheduled.mjs --to "$PROBE_TO" --days "$PROBE_DAYS" --send | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Dry-run (no email sent). Re-run with 'send' checked to actually deliver."
+            node scripts/probe-mailgun-scheduled.mjs --to "$PROBE_TO" --days "$PROBE_DAYS" | tee -a "$GITHUB_STEP_SUMMARY"
+          fi

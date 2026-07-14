@@ -1,27 +1,27 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-13T22:58:31.678Z",
-  "total": 6,
+  "generatedAt": "2026-07-14T12:22:19.810Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31900,
-  "avgDurationMs": 31900,
+  "durationMs": 36498,
+  "avgDurationMs": 36498,
   "durationHistory": [
-    31900
+    36498
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "diakoniewerk-neumuenster-a6407d57e904",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk",
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF in Ausbildung Medizintechnische Bereiche",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
@@ -43,12 +43,15 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f2f99803-dec0-4daf-bd51-d299119aa212,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
