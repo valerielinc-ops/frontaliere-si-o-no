@@ -8488,6 +8488,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Switzerland: The era of mega batteries begins',
     'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'Switzerland is upgrading the network with new storage systems. Find out how they work and the impact on the private electricity market.',
     'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Energy storage facility in Switzerland',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Border unemployment: news from the EU and the impact on Ticino',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'The European Union has reached an agreement on unemployment benefits for frontier workers. This is what changes for the Canton of Ticino according to Lorenzo Quadri.',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Panoramic view of Lugano and Lake Ceresio',
 };
 
 export default blogMetaEn;
