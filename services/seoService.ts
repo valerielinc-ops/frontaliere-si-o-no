@@ -4526,6 +4526,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-switzerland-uk-free-trade-agreement-update': { name: 'Economia', path: '/articoli-svizzera/switzerland-uk-free-trade-agreement-update/', parent: 'blog' },
     'blog-fotovoltaico-calano-le-vendite': { name: 'Fotovoltaico, calano le vendite', path: '/articoli-svizzera/fotovoltaico-calano-le-vendite/', parent: 'blog' },
     'blog-skyguide-licenziamenti': { name: 'Licenziamenti a Skyguide', path: '/articoli-svizzera/skyguide-licenziamenti/', parent: 'blog' },
+    'blog-novita-fiscale-730-2025-frontalieri': { name: 'Novità fiscali 2025', path: '/articoli-svizzera/novita-fiscale-730-2025-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
