@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-14T22:06:42.196Z",
+  "savedAt": "2026-07-14T22:06:30.042Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -161745,6 +161745,366 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title 'Kundenberatung (mensch*) in Niederösterreich - Quereinsteigende willkommen!', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "b589c5e2e67091db5e0d0d8e13e6c9cfa97db64ca85f05280fc58df7b9116fa0",
+      "touchedAt": 1784066469267,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'SPÉCIALISTE DE MESURE - sur site', responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
+      }
+    },
+    {
+      "key": "2c7c5d839d2ce3d1820d1a69c0bdd3f5439eb16a367a824cc588910846fa013d",
+      "touchedAt": 1784066483390,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (PROJEKTLEITER/IN AVOR), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "9cda03e50a490b3e81c77e0b5e2772e50490a80bc404348f96247b13c9f18730",
+      "touchedAt": 1784066508605,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (EINRICHTER/IN KUNSTSTOFFTECHNIK), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "4bceadb626b7efceb32680c84a5c03439c2f1f8e622d343d4db2e456a661e7b4",
+      "touchedAt": 1784066536896,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (LEITER/IN QUALITAETSSICHERUNG), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "aabdb34429ef0ed2abc5c166612637e07b2ba9b2b51c413d6a26bc956cf460e8",
+      "touchedAt": 1784066568514,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (WERKZEUGMACHER/POLYMECHANIKER/IN), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "8929de902be020760b5c83c400096b8548ed19f9b8ea722b745b58f15573cd1c",
+      "touchedAt": 1784066569935,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (WERKZEUGMACHER/POLYMECHANIKER), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "647f4d92878d573bc080d37be5c067c255d5252a2e9f052f1fb90a82f864be4b",
+      "touchedAt": 1784066570729,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('EINRICHTER/IN DIGITALDRUCK - vor Ort'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "59cf63631e96177275e8ea49c3c9c295149510289856290a8e6234db683c363b",
+      "touchedAt": 1784066571682,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (PROJEKTLEITER/IN ENTWICKLUNG), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "cbfb0d21898df0cdaf55a3a436298ea1712bfb0090abd8c3b3a03194e56a64ba",
+      "touchedAt": 1784066660493,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('EINRICHTER/IN KUNSTSTOFFTECHNIK'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "2e478ec1fc0099a03827987af7884da0cc82f9d4a527329d3e5ec628aee0f675",
+      "touchedAt": 1784066661948,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('EINRICHTER/IN DIGITALDRUCK'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "83ccde9d4b87780ee1f251a15cb0476b3b48300f28024804d98212180190b187",
+      "touchedAt": 1784066662821,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Retail Operations Manager), responsibilities (e.g., managing sales, operational, merchandising, housekeeping, HR functions), and application context (e.g., location, company address, application process)."
+      }
+    },
+    {
+      "key": "92bb6a9a42dc1b7380e238899843041f153cf98b9fef006da3aaa39b4ab67f41",
+      "touchedAt": 1784066663146,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Vendeur bilingue (Français-Anglais)'), responsibilities ('Accueil et le conseil clientèle en respectant les codes et l’ADN de marque'), and application context ('Postuler pour ce poste')."
+      }
+    },
+    {
+      "key": "ec4919cfeb44e4eb87d9348e7570fc78fad2c78e2daa5b6b31cd21aee1db48ce",
+      "touchedAt": 1784066663555,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Keyholder - NY Times Square'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "5c3a3af8b7b87fbc0b77d76d13d4c8aea70687fbc16cc64f074b22332b6476f8",
+      "touchedAt": 1784066664201,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Operations Specialist'), responsibilities ('sales analysis, operational coordination, and the execution of projects'), and application context ('Swatch & Flik Flak - Operations Specialist')."
+      }
+    },
+    {
+      "key": "3e26b72eaf0f780cd9a08c69bce3b321949cd58db0a862742d9b73c7035253c2",
+      "touchedAt": 1784066664246,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('eCommerce & Digital Media Specialist'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "b0b00008dde091037aa97bae96749d3ad8c406fa3c33d43a9e30b8fb3d32ff60",
+      "touchedAt": 1784066665045,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Sales Advisor 80% - Shop-in-Shop Manor Lausanne), responsibilities (Accueillir et accompagner la clientèle en offrant un service personnalisé, etc.), and application context (Langues, Profil, etc.)."
+      }
+    },
+    {
+      "key": "d2938401288d82491c622c3f4d9ab4ad3360d114f3bcc461da2c61ba54068e41",
+      "touchedAt": 1784066665437,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Full-Time Sales Lead'), responsibilities ('Customer Service & Sales Generation', 'Operations', 'Visual Merchandising', 'Compliance'), and application context ('Apply for this job')."
+      }
+    },
+    {
+      "key": "3a854e145d1c5cb16f27c2ae0b4780cb2c36e0266eb0634fa026c16cfa5ef1b9",
+      "touchedAt": 1784066666109,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Conseiller de Vente Volant LONGINES H/F), responsibilities (Accueillir chaque client et lui offrir une expérience unique, Conseiller les clients sur les produits en développant une connaissance approfondie de nos gammes et un excellent sens du service, etc.), and application context (CDD 2 MOIS, 35H du 15 juillet au 15 septembre 2026)."
+      }
+    },
+    {
+      "key": "f03173606191bf1780f90ec4b9d647acb5818a092c4f7ad831b923d0c3ed066e",
+      "touchedAt": 1784066666355,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sales Assistant Part Time'), responsibilities ('gestire le relazioni con la clientela e occuparsi di assistenza alla vendita'), and application context ('The Swatch Group (Italia) S.p.A.')."
+      }
+    },
+    {
+      "key": "3578f650816981c9b30ab2a8c453c83ce20cba9620bada6002bf3912f3c5f1ee",
+      "touchedAt": 1784066666792,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (SWATCH Store Verkaufsberater/in), responsibilities (e.g., Kundenberatung, Bedienung unseres benutzerfreundlichen Kassensystems), and application context (e.g., application process, contact information)."
+      }
+    },
+    {
+      "key": "b3da480e83a1f684e8f777db4903570646913079a5e70110e7d9e0b3cf1f87db",
+      "touchedAt": 1784066667067,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('EINRICHTER/IN KUNSTSTOFFTECHNIK'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "57767f70ad80ea07f5085293ea94785acb3854e18da5a3ef12cefbdf935857da",
+      "touchedAt": 1784066667450,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (DESIGNER (H/F)), responsibilities (imagining, designing, developing products, collaborating with teams, etc.), and application context (application process, contact information, etc.)."
+      }
+    },
+    {
+      "key": "98f56171afe61660c471516cd8f5361e7a9f2e7b56ada4cd5f4b89621377739a",
+      "touchedAt": 1784066668042,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Sales Advisor 60-100%), responsibilities (grüßen und beraten Kunden, makellose Präsentation der Produkte, optimalen Marken zur Geltung bringen, Kasse und Transaktionen verwalten), and application context (Job description, profile requirements, languages, contact information)."
+      }
+    },
+    {
+      "key": "58937b0c97269e32107d8d3d85054c5d7339a01835c53ae8bc9e142f52844a0c",
+      "touchedAt": 1784066720075,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sachbearbeiter Rechnungswesen'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "2ca0237c37c0796ae8b9d2ce141c60c668a3618437574134799f5162b1a59d7b",
+      "touchedAt": 1784066720582,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a specific role title 'Verkaufsberater (all genders)', detailed responsibilities, and application context."
+      }
+    },
+    {
+      "key": "dafd1d824565df79296985cce837092c1fe426e1efd04017a8d6ac8dd403434c",
+      "touchedAt": 1784066721848,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (SPÉCIALISTE DE MESURE), responsibilities (e.g., defining measurement methods, supporting MSA capabilities), and application context (e.g., location, required skills, application process)."
+      }
+    },
+    {
+      "key": "0f6288b8474f78bbeb2280fcbf397903635388b0a9aaf2bc5f5930c2e826f940",
+      "touchedAt": 1784066722474,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (CUISINIER (H/F) - TEMPORAIRE), responsibilities (Gestion et préparation des repas froids, Gestion des commandes journalières, Préparation et mise en place de banquets lors d'évènements), and application context (Lieu de travail, Adresse de l'entreprise, Personne de contact)."
+      }
+    },
+    {
+      "key": "feffb5d41d0b90f832207e91bd85249296103134a228daddbd567dab674e717c",
+      "touchedAt": 1784066723004,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (WERKZEUGMACHER/POLYMECHANIKER), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "3782c13129cfd603427268bef9ed01a38be43c65c5f56a3903a168f917a2545b",
+      "touchedAt": 1784066723388,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('LEITER/IN QUALITAETSSICHERUNG'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "6b935c9d1647b7165e5676363fd46c5ffedef253e455870531134413301f6764",
+      "touchedAt": 1784066723795,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a specific role title (PROJEKTLEITER/IN AVOR), detailed responsibilities, and application context."
+      }
+    },
+    {
+      "key": "b5f1eea98e2a35902125cf5549682e622dfea3844ffcf34e7eb23aeb6abd21dd",
+      "touchedAt": 1784066724531,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sachbearbeiter Rechnungswesen'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "329356aa2a114489d38686ab3da2502da26bdeba1cf3bea52ff75baecd0726ad",
+      "touchedAt": 1784066725219,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (SPÉCIALISTE DE MESURE), responsibilities (e.g., defining measurement methods, supporting MSA capabilities), and application context (e.g., location, required skills, benefits)."
+      }
+    },
+    {
+      "key": "d4bd6ed9a1e995c12d18bcc3ce48b154ee50c0e86ae670ec0938f9dcd24550e8",
+      "touchedAt": 1784066725877,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (WERKZEUGMACHER/POLYMECHANIKER), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "ccec02069a91fd5a9f5d6ca9f187e91a9f9665e8bfdc53110c3b5389d68e17af",
+      "touchedAt": 1784066726489,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (PROJEKTLEITER/IN AVOR), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "26ab64dbc7ab3f5bf8da166521fc5c682cfa48fa36a384e38bfe0293a1b413ba",
+      "touchedAt": 1784066727647,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sales Assistant Part Time'), responsibilities ('gestire le relazioni con la clientela e occuparsi di assistenza alla vendita'), and application context ('The Swatch Group (Italia) S.p.A.')."
+      }
+    },
+    {
+      "key": "c350a84583f08371450619a3b714be46e920acdf52a5f39d874549ceb7dfddf5",
+      "touchedAt": 1784066727983,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (PROJEKTLEITER/IN ENTWICKLUNG), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "68aea29ccb8cc476a496282e775df9cd60266e126c870b7ad55e3a76747c39d7",
+      "touchedAt": 1784066729078,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (TISSOT Sales Assistant (m/w/d) Teilzeit), responsibilities (e.g., customer service, networking, event participation), and application context (e.g., location, contact person)."
+      }
+    },
+    {
+      "key": "7c400245912da52db2078cae01899512b8b585b56cce3990183ccef69128086d",
+      "touchedAt": 1784066730616,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (TISSOT Sales Assistant (m/w/d) - Samstagskraft), responsibilities (Beratung unserer nationalen und internationalen Kundinnen und Kunden beim Kauf unserer hochwertigen Uhren, Kompetente Ansprache unserer Kundinnen und Kunden für ein positives Einkaufserlebnis, etc.), and application context (Bewirb dich jetzt für unsere wunderbare Uhrenmarke, die mit ihrer über 165-jährigen Geschichte überzeugt, als Sales Assistant (m/w/d) 8h/Woche - Samstagskraft)."
+      }
+    },
+    {
+      "key": "aa696e3664cfd81a2a570cb079fdeb8d16707a0ab0ebfaca70f9e6fc94c078fe",
+      "touchedAt": 1784066780560,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (WERKZEUGMACHER/POLYMECHANIKER/IN), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "a88e7efc2e508a62e0df56ce62efed7b7b054bd56f4ed8d18430c95037bb8af2",
+      "touchedAt": 1784066782350,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Vendeur H/F'), responsibilities/requirements, and application context."
       }
     }
   ]
