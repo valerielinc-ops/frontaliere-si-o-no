@@ -1123,6 +1123,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Graubünden: hospitals\' finances return to service',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'After a difficult 2024, Grisonian nosocomes register positive results in 2025. Here is the financial overview of the main healthcare facilities.',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Cantonal hospital in Grisons',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Who must declare the Swiss account in 2026',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Framework RW 2026 requires border workers to declare Swiss accounts. Who has to declare and who doesn\'t?',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontaliere with child walking on the lakefront promenade of Lugano.',
 };
 
 export default blogMetaChEn;

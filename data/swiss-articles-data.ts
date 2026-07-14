@@ -3365,6 +3365,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'quadro-rw-2026-chi-dichiara-conto-svizzero',
+    category: 'fiscale',
+    date: '2026-07-14T13:49:28.470Z',
+    image: '/images/blog/quadro-rw-2026-chi-dichiara-conto-svizzero.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1123,6 +1123,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Grisons : les finances des hôpitaux reviennent à l\'actif',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Après une 2024 difficile, les nosocomes grisons enregistrent des résultats positifs en 2025. Voici l\'aperçu financier des principaux établissements de santé.',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Hôpital cantonal des Grisons',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Qui doit déclarer le compte suisse en 2026',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Le Cadre RW 2026 prévoit que les frontaliers doivent déclarer les comptes suisses. Qui doit déclarer et qui ne doit pas déclarer ?',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontalière avec enfant marchant sur la promenade du lac de Lugano.',
 };
 
 export default blogMetaChFr;
