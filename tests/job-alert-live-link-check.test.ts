@@ -134,3 +134,52 @@ describe('filterLiveJobs', () => {
     expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 });
+
+// checkLink option surface added for the deep-sample propagation gate (PR #4181
+// review 🟡: the gate must REUSE checkLink, not re-implement it — these tests
+// pin the option semantics both callers now share).
+import { checkLink } from '../scripts/lib/live-link-check.mjs';
+
+describe('checkLink — cacheBust + headers options (deep-sample gate reuse)', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it('default call has NO cache-bust query and no extra headers (send-job-alerts semantics unchanged)', async () => {
+    const spy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(null, { status: 200 }));
+    await checkLink('https://example.com/page/');
+    expect(spy).toHaveBeenCalledTimes(1);
+    const [url, init] = spy.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe('https://example.com/page/');
+    expect(init.method).toBe('HEAD');
+    expect(init.headers).toEqual({});
+  });
+
+  it('cacheBust appends a unique _=<ts> query param (origin read, edge defeated)', async () => {
+    const spy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(null, { status: 200 }));
+    await checkLink('https://example.com/page/', 8000, { cacheBust: true });
+    const [url] = spy.mock.calls[0] as [string];
+    expect(url).toMatch(/^https:\/\/example\.com\/page\/\?_=\d+$/);
+  });
+
+  it('cacheBust uses & when the URL already has a query string', async () => {
+    const spy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(null, { status: 200 }));
+    await checkLink('https://example.com/page/?x=1', 8000, { cacheBust: true });
+    const [url] = spy.mock.calls[0] as [string];
+    expect(url).toMatch(/^https:\/\/example\.com\/page\/\?x=1&_=\d+$/);
+  });
+
+  it('custom headers reach both the HEAD and the 405-fallback ranged GET', async () => {
+    const spy = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response(null, { status: 405 }))
+      .mockResolvedValueOnce(new Response(null, { status: 206 }));
+    const ok = await checkLink('https://example.com/p/', 8000, {
+      headers: { 'User-Agent': 'gate/1.0', 'Cache-Control': 'no-cache' },
+    });
+    expect(ok).toBe(true);
+    const [, headInit] = spy.mock.calls[0] as [string, RequestInit];
+    const [, getInit] = spy.mock.calls[1] as [string, RequestInit];
+    expect((headInit.headers as Record<string, string>)['User-Agent']).toBe('gate/1.0');
+    expect((getInit.headers as Record<string, string>)['User-Agent']).toBe('gate/1.0');
+    // Fallback GET keeps the ranged read on top of the custom headers.
+    expect((getInit.headers as Record<string, string>).Range).toBe('bytes=0-0');
+  });
+});

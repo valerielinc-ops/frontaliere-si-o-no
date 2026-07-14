@@ -55,6 +55,7 @@ import { readFile } from 'node:fs/promises';
 import { realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { checkLink } from './lib/live-link-check.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -187,28 +188,17 @@ export function extractBundleUrls(parsed) {
   return Array.isArray(all) ? all.filter((u) => typeof u === 'string') : [];
 }
 
-/** Cache-busted origin liveness probe for one URL: HEAD, with a ranged-GET
- * fallback when the origin rejects HEAD (mirrors scripts/lib/live-link-check
- * semantics so "live" means the same thing in both places). */
-async function probeSampleUrl(url) {
-  const bust = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
-  const headers = { 'User-Agent': UA, 'Cache-Control': 'no-cache', Pragma: 'no-cache' };
-  try {
-    const res = await fetch(bust, {
-      method: 'HEAD', headers, redirect: 'follow',
-      signal: AbortSignal.timeout(PER_REQUEST_TIMEOUT_MS),
-    });
-    if (res.status === 405 || res.status === 501) {
-      const getRes = await fetch(bust, {
-        method: 'GET', headers: { ...headers, Range: 'bytes=0-0' }, redirect: 'follow',
-        signal: AbortSignal.timeout(PER_REQUEST_TIMEOUT_MS),
-      });
-      return getRes.ok || getRes.status === 206;
-    }
-    return res.ok;
-  } catch {
-    return false;
-  }
+/** Cache-busted origin liveness probe for one URL — the SHARED checkLink()
+ * (scripts/lib/live-link-check.mjs: HEAD → 405/501 ranged-GET fallback, never
+ * throws) with cache-bust + no-cache headers so the gate reads the ORIGIN, not
+ * an edge-cached copy. Reused, not re-implemented, per that module's own
+ * docstring (review 🟡 on PR #4181): "live" must mean the same thing here and
+ * in send-job-alerts' dead-link preflight. */
+function probeSampleUrl(url) {
+  return checkLink(url, PER_REQUEST_TIMEOUT_MS, {
+    cacheBust: true,
+    headers: { 'User-Agent': UA, 'Cache-Control': 'no-cache', Pragma: 'no-cache' },
+  });
 }
 
 /** Probe `urls` with bounded concurrency; returns the Set of urls that FAILED. */
