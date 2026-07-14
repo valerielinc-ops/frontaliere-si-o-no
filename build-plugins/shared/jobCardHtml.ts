@@ -296,13 +296,20 @@ export function renderJobCardHtml(
   const title = stripLiteralMarkdownFromTitle(
     String(titleSource).replace(/\s+/g, ' ').trim(),
   );
-  const company = String(job.company || '').trim();
+  // Company + location are crawler-/AI-sourced free text rendered into the
+  // indexed `<main class="seo-static-content">` (jc-sub / jc-chip) on every
+  // hub / sector / recency page. HTML-escaping does NOT touch `**bold**` or
+  // `_`/`=`/`~` separator runs, so — exactly like the title above — they must
+  // be scrubbed or a company like `ACME___GmbH` trips the 0-tolerance
+  // audit:no-literal-markdown gate (CLAUDE.md rule #1). Idempotent /
+  // byte-identical on the clean-string majority.
+  const company = stripLiteralMarkdownFromTitle(String(job.company || '').trim());
   // Display-only title-case for all-lowercase crawler localities; already
   // capitalised strings pass through untouched (byte-identical output). The
   // city linkifiers downstream match case-insensitively, so handing them the
   // cased string is safe.
   const rawLocation = titleCaseLocalityIfLowercase(
-    String(job.location || job.addressLocality || '').trim(),
+    stripLiteralMarkdownFromTitle(String(job.location || job.addressLocality || '').trim()),
   );
   const cantonStr = job.canton ? ` (${escHtml(String(job.canton))})` : '';
 

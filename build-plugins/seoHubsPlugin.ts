@@ -56,6 +56,7 @@ import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { buildDayStampIso } from './shared/buildDayStamp';
+import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -165,6 +166,20 @@ function esc(s: unknown): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// Escape a crawler-/AI-sourced hub-item label (job title, company, location)
+// for safe emission into `<main class="seo-static-content">`. Scrubs literal
+// markdown FIRST — HTML-escaping does NOT touch `**bold**` or `_`/`=`/`~`
+// separator runs, so a crawled job title like `Onkologie___Ärzte` leaks the
+// `___` straight into the hub listing and trips the 0-tolerance
+// `audit:no-literal-markdown` gate (CLAUDE.md rule #1). Mirrors
+// renderJobCardHtml, which already strips the card title via
+// stripLiteralMarkdown; the compact hub lists (`.thi` / `.s-7DS5hj`) bypassed
+// the card renderer and re-introduced the leak. Idempotent and byte-identical
+// on already-clean company/sector labels.
+function escLabel(s: unknown): string {
+  return esc(stripLiteralMarkdown(String(s ?? '')));
 }
 
 /** Convert a job slug like "infermiera-bellinzona-eoc" → "Infermiera Bellinzona Eoc" */
@@ -1094,7 +1109,7 @@ function buildHtml(args: BuildHtmlArgs): string {
       itemListElement: pageItems.slice(0, 25).map((it, idx) => ({
         '@type': 'ListItem',
         position: (page - 1) * 100 + idx + 1,
-        name: it.label,
+        name: stripLiteralMarkdown(String(it.label ?? '')),
         // Normalise to absolute: pageItems[].href is usually root-relative but
         // may be already-absolute (per-locale job URLs from all-known-job-slugs)
         // — bare `${BASE_URL}${href}` would double-prefix those (issue #2235).
@@ -1123,7 +1138,7 @@ function buildHtml(args: BuildHtmlArgs): string {
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
                 logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
-                title: it.label,
+                title: stripLiteralMarkdown(String(it.label ?? '')),
                 subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
                 metric: it.jobCount ? String(it.jobCount) : undefined,
                 metricTone: 'accent',
@@ -1132,16 +1147,16 @@ function buildHtml(args: BuildHtmlArgs): string {
             }
             if (it.emoji !== undefined) {
               const subLabel = { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale];
-              return `<li><a class="s-pJU7QH" href="${esc(it.href)}"><span class="s-PocAr6" aria-hidden="true">${it.emoji}</span><span class="s-KGNylX"><span class="s-wLg1zr">${esc(it.label)}</span><span class="s-Q0Kk4P">${subLabel}</span></span></a></li>`;
+              return `<li><a class="s-pJU7QH" href="${esc(it.href)}"><span class="s-PocAr6" aria-hidden="true">${it.emoji}</span><span class="s-KGNylX"><span class="s-wLg1zr">${escLabel(it.label)}</span><span class="s-Q0Kk4P">${subLabel}</span></span></a></li>`;
             }
             if (it.excerpt !== undefined) {
-              return `<li><a class="s-6gbS_B" href="${esc(it.href)}"><span class="s-lkdl0F">${esc(it.label)}</span><span class="s-hNvHD_">${esc(it.excerpt)}</span></a></li>`;
+              return `<li><a class="s-6gbS_B" href="${esc(it.href)}"><span class="s-lkdl0F">${escLabel(it.label)}</span><span class="s-hNvHD_">${escLabel(it.excerpt)}</span></a></li>`;
             }
-            return `<li><a class="s-7DS5hj" href="${esc(it.href)}">${esc(it.label)}</a></li>`;
+            return `<li><a class="s-7DS5hj" href="${esc(it.href)}">${escLabel(it.label)}</a></li>`;
           })
           .join('')}</ul>`
       : `<ul class="s-N93mPe">${pageItems
-          .map((it) => `<li><a class="s-7DS5hj" href="${esc(it.href)}">${esc(it.label)}</a></li>`)
+          .map((it) => `<li><a class="s-7DS5hj" href="${esc(it.href)}">${escLabel(it.label)}</a></li>`)
           .join('')}</ul>`;
 
   // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
@@ -1247,7 +1262,7 @@ function updatedLabel(locale: HubLocale): string {
   return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
 }
 
-function renderPagination(locale: HubLocale, basePath: string, current: number, total: number): string {
+export function renderPagination(locale: HubLocale, basePath: string, current: number, total: number): string {
   // Compact pagination (visible): prev, 1, current-1, current, current+1, last, next.
   // Plus a FLAT crawler-facing navigator inside a collapsed <details> linking
   // every page-N (BFS-depth closure 2026-05-12 run 25753701178 — without
@@ -1305,7 +1320,6 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
     de: 'Vollständiges Archiv nach Seite durchsuchen',
     fr: 'Parcourir toutes les archives par page',
   }[locale];
-  const pageWord = locale === 'de' ? 'Seite' : locale === 'fr' || locale === 'en' ? 'Page' : 'Pagina';
   // Use CSS classes instead of per-anchor inline styles. With totalPages
   // ≥ 100 (master jobs hub) the inline-style variant ballooned to ~250 B
   // per anchor × ~400 anchors = ~100 KB, pushing the last-page HTML past
@@ -1322,13 +1336,26 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
   // it alone pushed /fr/trouver-emploi-tessin/tous/ past the 215 KB budget
   // (run 28090796553, ~42 KB of prefix). rel=prev/next <link> head hints
   // stay absolute (canonical convention).
+  //
+  // Bare page number as the visible/anchor text (was `${pageWord}&nbsp;${p}`).
+  // The full ladder MUST keep every page-N anchor for BFS-depth closure (see
+  // header comment) — that link set is load-bearing and unchanged here — but
+  // the repeated per-anchor word prefix ("Pagina&nbsp;" / "Seite&nbsp;" /
+  // "Page&nbsp;", ~10-12 B each) is not: at ~2 200 archive pages it added
+  // ~24 KB that pushed /cerca-lavoro-ticino/tutti/ and its page-N back over
+  // the 215 KB audit:page-weight budget (post-deploy run 29330607996, 130
+  // offenders 223-228 KB). The compact nav above already renders bare `${p}`
+  // links, and the `<details><summary>` + `<nav aria-label>` supply the
+  // "browse by page" context, so the numbers stay understandable. Same
+  // byte-shave class as the prior inline-style→class and BASE_URL-prefix drops
+  // on this exact ladder; every anchor is preserved so BFS depth is unchanged.
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
     const href = paginatedPath(basePath, p);
     if (p === current) {
-      flatAnchors.push(`<strong class="hc" aria-current="page">${pageWord}&nbsp;${p}</strong>`);
+      flatAnchors.push(`<strong class="hc" aria-current="page">${p}</strong>`);
     } else {
-      flatAnchors.push(`<a href="${href}" class="hp">${pageWord}&nbsp;${p}</a>`);
+      flatAnchors.push(`<a href="${href}" class="hp">${p}</a>`);
     }
   }
   const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
@@ -1591,7 +1618,7 @@ type ThinHubItem = {
   readonly metricTone?: 'default' | 'accent' | 'success' | 'warning' | 'danger';
 };
 
-function buildThinCantonHubHtml(args: {
+export function buildThinCantonHubHtml(args: {
   locale: HubLocale;
   hub: CantonHubKind;
   canton: string;
@@ -1661,14 +1688,20 @@ function buildThinCantonHubHtml(args: {
       : locale === 'de' ? 'Alle Seiten durchsuchen'
       : locale === 'fr' ? 'Parcourir toutes les pages'
       : 'Sfoglia tutte le pagine';
-    const pageWord = locale === 'de' ? 'Seite' : locale === 'fr' || locale === 'en' ? 'Page' : 'Pagina';
+    // Bare page number (was `${pageWord}&nbsp;${p}`). Same page-weight
+    // byte-shave as the master-hub `renderPagination` flat ladder: the full
+    // page-N link set is kept intact (load-bearing for BFS-depth) but the
+    // repeated per-anchor word prefix is dropped so a growing canton archive
+    // can't drift its /tutti/page-N/ HTML over the 215 KB audit:page-weight
+    // budget. The `<details><summary>` + `<nav aria-label>` give the "browse
+    // by page" context. CLAUDE.md #6: fixed in lockstep with renderPagination.
     const anchors: string[] = [];
     for (let p = 1; p <= totalPages; p++) {
       const href = p === 1 ? basePath : paginatedPath(basePath, p);
       if (p === page) {
-        anchors.push(`<strong class="thc">${pageWord}&nbsp;${p}</strong>`);
+        anchors.push(`<strong class="thc">${p}</strong>`);
       } else {
-        anchors.push(`<a href="${href}" class="thp">${pageWord}&nbsp;${p}</a>`);
+        anchors.push(`<a href="${href}" class="thp">${p}</a>`);
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
@@ -1692,8 +1725,8 @@ function buildThinCantonHubHtml(args: {
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
                 logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
-                title: it.label,
-                subtitle: it.sub,
+                title: stripLiteralMarkdown(String(it.label ?? '')),
+                subtitle: it.sub != null ? stripLiteralMarkdown(it.sub) : it.sub,
                 metric: it.metric,
                 metricTone: it.metricTone ?? 'accent',
               });
@@ -1703,7 +1736,7 @@ function buildThinCantonHubHtml(args: {
             // wrapper instead of renderEntityCard so the emoji renders at a
             // larger size than the 24×24 SVG icon bubble.
             const emoji = it.emoji ?? '🧭';
-            return `<li><a class="s-pJU7QH" href="${esc(it.href)}"><span class="s-PocAr6" aria-hidden="true">${emoji}</span><span class="s-KGNylX"><span class="s-wLg1zr">${esc(it.label)}</span>${it.sub ? `<span class="s-Q0Kk4P">${esc(it.sub)}</span>` : ''}</span></a></li>`;
+            return `<li><a class="s-pJU7QH" href="${esc(it.href)}"><span class="s-PocAr6" aria-hidden="true">${emoji}</span><span class="s-KGNylX"><span class="s-wLg1zr">${escLabel(it.label)}</span>${it.sub ? `<span class="s-Q0Kk4P">${escLabel(it.sub)}</span>` : ''}</span></a></li>`;
           })
           .join('')}</ul>`
       // CSS classes `.thi` / `.thi-s` replace ~200 B of inline styles per
@@ -1711,7 +1744,7 @@ function buildThinCantonHubHtml(args: {
       // `/tutti/page-N/`, this saves ~19 KB per page × ~2.8k paginated
       // pages across all cantons and locales ≈ 50 MB dist.
       : `<ul class="s-N93mPe">${items
-          .map((it) => `<li><a href="${esc(it.href)}" class="thi">${esc(it.label)}${it.sub ? `<span class="thi-s">${esc(it.sub)}</span>` : ''}</a></li>`)
+          .map((it) => `<li><a href="${esc(it.href)}" class="thi">${escLabel(it.label)}${it.sub ? `<span class="thi-s">${escLabel(it.sub)}</span>` : ''}</a></li>`)
           .join('')}</ul>`;
 
   // Stat tiles (rule #17) — only on page 1, only when caller supplied them.
@@ -1785,7 +1818,7 @@ function buildThinCantonHubHtml(args: {
             // via the shared normaliser (see absItemUrl) so the two ItemList
             // emitters cannot drift.
             url: absItemUrl(it.href),
-            name: it.label,
+            name: stripLiteralMarkdown(String(it.label ?? '')),
           })),
         },
       });
