@@ -811,5 +811,19 @@
     "sector": "Finanza / Wealth Management",
     "hasDedicatedCrawler": true,
     "discoveredBy": "manual"
+  },
+  {
+    "name": "TPL - Trasporti Pubblici Luganesi",
+    "key": "tpl-lugano",
+    "website": "https://www.tplsa.ch",
+    "careersUrl": "https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html",
+    "city": "Lugano",
+    "address": "Via Campagna 15, 6900 Lugano",
+    "postalCode": "6900",
+    "canton": "TI",
+    "country": "CH",
+    "sector": "Trasporti pubblici / Ferrovia",
+    "hasDedicatedCrawler": true,
+    "discoveredBy": "manual"
   }
 ]
