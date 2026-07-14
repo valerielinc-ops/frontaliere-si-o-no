@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-07-13T22:31:32.013Z",
+  "assembledAt": "2026-07-14T11:02:31.135Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Solution-Manager-IAM_R-0005812-1",
@@ -56,15 +56,16 @@
           "solution-manager-iam-swisscom-bern-r6klv3",
           "gestione-soluzioni-iam-swisscom-sede-ticino-bern"
         ],
-        "fr": [
+        "en": [
           "solution-manager-iam-swisscom-bern-r6klv3"
         ],
-        "en": [
+        "fr": [
           "solution-manager-iam-swisscom-bern-r6klv3"
         ]
       },
       "firstSeenAt": "2026-07-13T12:33:50.983Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -311,6 +312,7 @@
       },
       "firstSeenAt": "2026-07-10T10:23:46.957Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -595,7 +597,7 @@
         "it": "Controller aziendale senior",
         "en": "Senior Business Controller",
         "de": "Senior Business Controller",
-        "fr": "Contrôleur principal des entreprises"
+        "fr": "Senior Business Controller"
       },
       "slug": "controller-aziendale-senior-swisscom-sede-ticino-bern",
       "slugByLocale": {
@@ -633,6 +635,7 @@
       },
       "firstSeenAt": "2026-06-30T23:28:29.592Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 175000,
       "salaryMax": 307500,
       "currency": "CHF",
@@ -797,6 +800,7 @@
       },
       "firstSeenAt": "2026-06-05T22:58:54.516Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -878,6 +882,7 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -959,6 +964,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1124,6 +1130,7 @@
       },
       "firstSeenAt": "2026-05-13T23:10:51.072Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1203,6 +1210,7 @@
       },
       "firstSeenAt": "2026-05-13T23:10:51.072Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1442,6 +1450,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1522,6 +1531,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1626,6 +1636,7 @@
       },
       "firstSeenAt": "2026-05-17T11:13:08.028Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1776,6 +1787,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1813,7 +1825,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "Senior Avaloq Consulente / Expert Credit",
-        "en": "Senior Avaloq Consultant/Expert Credit",
+        "en": "Senior Avaloq Consultant / Expert Credit",
         "de": "Senior Avaloq Berater / Expert Credit",
         "fr": "Consultant senior Avaloq/Crédit expert"
       },
@@ -1870,7 +1882,8 @@
         }
       },
       "addressRegion": "ZH",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/SAP-Senior-Business-Consultant-Manufacturing_R-0000213",
@@ -1937,6 +1950,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2033,7 +2047,7 @@
       },
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
