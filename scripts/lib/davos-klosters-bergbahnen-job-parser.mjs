@@ -165,8 +165,22 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
 
   const result = {};
 
-  // Extract title from <h1> → <span class="text-primary">
-  const titleMatch = html.match(/<h1[^>]*>[\s\S]*?<span[^>]*class="[^"]*text-primary[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
+  // Extract title from the <h1> that OWNS a <span class="text-primary"> —
+  // scanned <h1>-by-<h1> (never one unbounded match spanning multiple <h1>
+  // tags) so a decorative/hidden <h1> elsewhere on the page (e.g. a
+  // visually-hidden logo heading in the header) can't be mistaken for the
+  // job title's own <h1> merely because some later span.text-primary follows
+  // it in the document (#4205 follow-up).
+  let titleMatch = null;
+  let h1Idx = -1;
+  for (const h1 of html.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)) {
+    const spanMatch = h1[1].match(/<span[^>]*class="[^"]*text-primary[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
+    if (spanMatch) {
+      titleMatch = spanMatch;
+      h1Idx = h1.index;
+      break;
+    }
+  }
   if (titleMatch) result.title = stripHtml(titleMatch[1]).trim();
 
   // Bound description/metadata extraction to the per-job content subtree.
@@ -179,12 +193,19 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
   // carried the identical 171-char notice instead of their own body. The job
   // title `<h1>` always sits BELOW the banner, so anchor extraction there — only
   // the per-job region is searched, and the shared banner (plus header/nav
-  // above it) is excluded.
-  const h1Idx = html.search(/<h1[\s>]/i);
+  // above it) is excluded. Falls back to the first <h1> on the page only when
+  // no title-owning <h1> was found above.
+  if (h1Idx < 0) h1Idx = html.search(/<h1[\s>]/i);
   const bodyScope = h1Idx >= 0 ? html.slice(h1Idx) : html;
 
-  // Extract department from <div class="h3 ..."> before <h1>
-  const deptMatch = html.match(/<div[^>]*class="h3[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  // Extract department from the <div class="h3 ..."> closest to (immediately
+  // preceding) the job title <h1> — take the LAST match before h1Idx rather
+  // than the first in the whole document, so a stray class="h3" element
+  // inside the page-level banner/header (which sits earlier in the DOM) can't
+  // leak into the department field (#4205 follow-up).
+  const preTitleHtml = h1Idx >= 0 ? html.slice(0, h1Idx) : html;
+  const deptMatches = [...preTitleHtml.matchAll(/<div[^>]*class="h3[^"]*"[^>]*>([\s\S]*?)<\/div>/gi)];
+  const deptMatch = deptMatches.length ? deptMatches[deptMatches.length - 1] : null;
   if (deptMatch) result.department = stripHtml(deptMatch[1]).trim();
 
   // Extract metadata from meta-list items (within the per-job scope)
