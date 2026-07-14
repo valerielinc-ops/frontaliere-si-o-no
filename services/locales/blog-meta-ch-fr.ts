@@ -1117,6 +1117,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.novita-fiscale-730-2025-frontalieri.title': '730/2025 : les nouveautés pour les travailleurs impatriés et frontaliers',
     'blog.article.novita-fiscale-730-2025-frontalieri.excerpt': 'Analyse des nouveautés fiscales pour le 730/2025 : impact sur les frontaliers et les travailleurs impatriés entre la législation italienne et suisse.',
     'blog.article.novita-fiscale-730-2025-frontalieri.imageAlt': 'Vue d\'un bâtiment moderne à Lugano',
+    'blog.article.disoccupazione-frontalieri-naspi.title': 'Chômage frontalier : comment ça marche et combien ça coûte',
+    'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Les travailleurs frontaliers peuvent bénéficier de la Naspi, allocation de chômage mensuelle versée par l\'INPS. Voici les conditions et les modalités de demande.',
+    'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontaliers au travail en Suisse, juillet 2024',
 };
 
 export default blogMetaChFr;
