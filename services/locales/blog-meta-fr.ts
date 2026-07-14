@@ -8489,6 +8489,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Suisse : au début de l\'ère des méga-batteries',
     'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'La Suisse renforce le réseau avec de nouvelles installations de stockage. Découvrez comment ils fonctionnent et leur impact sur le marché privé de l\'électricité.',
     'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Installation de stockage d\'énergie en Suisse',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Chômage frontalier : les nouveautés de l\'UE et l\'impact sur le Tessin',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'L\'Union européenne est parvenue à un accord sur les indemnités de chômage pour les frontaliers. C\'est ce qui change pour le canton du Tessin selon Lorenzo Quadri.',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Vue panoramique de Lugano et du lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -49212,6 +49212,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-frontalieri-ticino-accordo-ue': {
+    title: 'Disoccupazione frontalieri: le novità dall\'UE e l\'impatto sul Ticino',
+    description: 'L\'UE ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Quali conseguenze per il Ticino? Scopri le ultime novità e le analisi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, novità, dall, impatto',
+    ogTitle: 'Disoccupazione frontalieri: le novità UE e l\'impatto sul Ticino',
+    ogDescription: 'Nuovo accordo UE sulla disoccupazione dei frontalieri: le preoccupazioni del Canton Ticino sui costi e la gestione degli URC.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-frontalieri-ticino-accordo-ue',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri: le novità dall'UE e l'impatto sul Ticino",
+      "description": "L'UE ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Quali conseguenze per il Ticino? Scopri le ultime novità e le analisi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-frontalieri-ticino-accordo-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago Ceresio"
+      },
+      "datePublished": "2026-07-14T09:32:53+00:00",
+      "dateModified": "2026-07-14T09:32:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ticino-accordo-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

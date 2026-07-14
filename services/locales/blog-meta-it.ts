@@ -8489,6 +8489,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-era-mega-batterie-elettriche.title': 'Svizzera: al via l\'era delle mega batterie',
     'blog.article.svizzera-era-mega-batterie-elettriche.excerpt': 'La Svizzera potenzia la rete con nuovi impianti di accumulo. Scopri come funzionano e l\'impatto sul mercato elettrico privato.',
     'blog.article.svizzera-era-mega-batterie-elettriche.imageAlt': 'Impianto di accumulo energia in Svizzera',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Disoccupazione frontalieri: le novità dall\'UE e l\'impatto sul Ticino',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'L\'Unione Europea ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Ecco cosa cambia per il Canton Ticino secondo Lorenzo Quadri.',
+    'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Vista panoramica di Lugano e del lago Ceresio',
 };
 
 export default blogMetaIt;
