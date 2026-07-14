@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-walenstadt",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-walenstadt",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-walenstadt",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-walenstadt"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       "addressLocality": "Walenstadt",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-14T11:01:09.618Z"
+      "firstSeenAt": "2026-07-14T11:01:09.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
@@ -248,12 +262,12 @@
         "en": "Specialist: in Controlling",
         "fr": "Spécialiste: en Contrôle"
       },
-      "slug": "fachspezialist-in-controlling-post",
+      "slug": "specialista-nel-controllo-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-controlling-post",
-        "en": "fachspezialist-in-controlling-post",
+        "it": "specialista-nel-controllo-die-schweizerische-post-bern",
+        "en": "specialist-in-controlling-die-schweizerische-post-bern",
         "de": "fachspezialist-in-controlling-die-schweizerische-post-bern",
-        "fr": "fachspezialist-in-controlling-post"
+        "fr": "specialiste-en-controle-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -287,7 +301,21 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-14T11:01:09.618Z"
+      "firstSeenAt": "2026-07-14T11:01:09.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-controlling-post"
+        ],
+        "en": [
+          "fachspezialist-in-controlling-post"
+        ],
+        "fr": [
+          "fachspezialist-in-controlling-post"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-controlling-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74311-de_DE",
@@ -6065,11 +6093,11 @@
         "en": "Driver/ CarPostal Driver",
         "de": "Fahrer/CarPostalfahrer"
       },
-      "slug": "conductrice-conducteur-carpostal-post",
+      "slug": "driver-carpostal-carpostal-st-martin-vs",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-post",
-        "en": "conductrice-conducteur-carpostal-post",
-        "de": "conductrice-conducteur-carpostal-post",
+        "it": "driver-carpostal-carpostal-st-martin-vs",
+        "en": "driver-carpostal-driver-carpostal-st-martin-vs",
+        "de": "fahrer-carpostalfahrer-carpostal-st-martin-vs",
         "fr": "conductrice-conducteur-carpostal-carpostal-st-martin-vs"
       },
       "sourceLang": "fr",
@@ -6104,7 +6132,21 @@
       "addressLocality": "St-Martin VS",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-14T11:01:09.618Z"
+      "firstSeenAt": "2026-07-14T11:01:09.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Assistante-Assistant-g%C3%A9rance-immobili%C3%A8re/74288-fr_FR",

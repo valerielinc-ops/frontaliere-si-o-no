@@ -183,13 +183,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
-        "gatto-di-chauffeur-ce-m-f-d-planzer-basel-flughafen"
+        "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
-          "gatto-di-chauffeur-ce-m-f-d-planzer-basel-flughafen"
+          "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
         ],
         "en": [
           "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
@@ -264,13 +262,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-seewen",
-        "chauffeur-cat-c-m-f-d-planzer-seewen"
+        "chauffeur-kat-c-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-m-w-d-planzer-seewen",
-          "chauffeur-cat-c-m-f-d-planzer-seewen"
+          "chauffeur-kat-c-m-w-d-planzer-seewen"
         ],
         "en": [
           "chauffeur-kat-c-m-w-d-planzer-seewen"
@@ -345,13 +341,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-        "chauffeur-cat-be-notte-m-f-d-planzer-kolliken"
+        "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-          "chauffeur-cat-be-notte-m-f-d-planzer-kolliken"
+          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
         ],
         "en": [
           "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
@@ -426,13 +420,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
-        "chauffeur-cat-b-be-m-f-d-planzer-marstetten"
+        "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
-          "chauffeur-cat-b-be-m-f-d-planzer-marstetten"
+          "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
         ],
         "en": [
           "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
@@ -522,12 +514,12 @@
     },
     {
       "id": "planzer-9f7afb6bfac7",
-      "slug": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
         "en": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-        "fr": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        "fr": "chauffeur-cat-ce-region-berne-mittelland-m-f-d-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -584,15 +576,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T10:53:52.402Z"
+      "firstSeenAt": "2026-07-14T10:53:52.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-68b5d75d5410",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-seewen",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-seewen",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-seewen"
       },
       "company": "Planzer",
@@ -650,15 +653,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T10:53:51.663Z"
+      "firstSeenAt": "2026-07-14T10:53:51.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-f204f5a3f047",
-      "slug": "chauffeur-kat-be-m-w-d-planzer-seewen",
+      "slug": "gatto-di-chauffeur-be-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "chauffeur-kat-be-m-w-d-planzer-seewen",
-        "it": "chauffeur-kat-be-m-w-d-planzer-seewen",
-        "en": "chauffeur-kat-be-m-w-d-planzer-seewen",
+        "it": "gatto-di-chauffeur-be-m-f-d-planzer-seewen",
+        "en": "chauffeur-cat-be-m-f-d-planzer-seewen",
         "fr": "chauffeur-kat-be-m-w-d-planzer-seewen"
       },
       "company": "Planzer",
@@ -716,7 +730,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T10:53:50.792Z"
+      "firstSeenAt": "2026-07-14T10:53:50.792Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-be-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "chauffeur-kat-be-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-be-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-7287ccfc425d",

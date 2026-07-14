@@ -131,18 +131,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien",
-          "fatturazione-dipendente-paziente-swiss-medical-network-zurich"
+          "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien"
         ],
         "it": [
-          "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien",
-          "addetto-a-alla-fatturazione-dei-pazienti-swiss-medical-network-zurich"
+          "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien",
-        "fatturazione-dipendente-paziente-swiss-medical-network-zurich",
-        "addetto-a-alla-fatturazione-dei-pazienti-swiss-medical-network-zurich"
+        "mitarbeiter-in-patientenabrechnung-privatklinik-bethanien"
       ],
       "firstSeenAt": "2026-07-10T10:24:09.030Z",
       "salaryMin": 73500,
@@ -286,13 +282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien",
-        "dipl-infermiere-hf-fh-o-dipl-infermiera-operatoria-in-laboratorio-cardiologico-50-60-privatklinik-bethanien-zurich"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien",
-          "dipl-infermiere-hf-fh-o-dipl-infermiera-operatoria-in-laboratorio-cardiologico-50-60-privatklinik-bethanien-zurich"
+          "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien"
         ]
       },
       "firstSeenAt": "2026-06-25T12:09:14.495Z",
@@ -311,12 +305,12 @@
     },
     {
       "id": "privatklinik-bethanien-2f0dd019a3d5",
-      "slug": "stv-leitung-physiotherapie-swiss-medical-network",
+      "slug": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich-7c11a2",
       "slugByLocale": {
         "de": "stv-leitung-physiotherapie-privatklinik-bethanien",
-        "en": "stv-leitung-physiotherapie-swiss-medical-network",
-        "it": "stv-leitung-physiotherapie-swiss-medical-network",
-        "fr": "stv-leitung-physiotherapie-swiss-medical-network"
+        "en": "stv-head-of-physiotherapy-privatklinik-bethanien-zurich-7c11a2",
+        "it": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich-7c11a2",
+        "fr": "stv-chef-de-la-physiotherapie-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -362,11 +356,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-physiotherapie-privatklinik-bethanien"
+          "stv-leitung-physiotherapie-privatklinik-bethanien",
+          "stv-leitung-physiotherapie-swiss-medical-network"
+        ],
+        "en": [
+          "stv-leitung-physiotherapie-swiss-medical-network"
+        ],
+        "fr": [
+          "stv-leitung-physiotherapie-swiss-medical-network"
         ]
       },
       "previousSlugs": [
-        "stv-leitung-physiotherapie-privatklinik-bethanien"
+        "stv-leitung-physiotherapie-privatklinik-bethanien",
+        "stv-leitung-physiotherapie-swiss-medical-network"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -432,13 +434,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung-privatklinik-bethanien",
-        "fachperson-gesundheit-cfc-50-100-per-einer-interdisziplinaren-abteilung-privatklinik-bethanien-zurich"
+        "fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung-privatklinik-bethanien"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung-privatklinik-bethanien",
-          "fachperson-gesundheit-cfc-50-100-per-einer-interdisziplinaren-abteilung-privatklinik-bethanien-zurich"
+          "fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung-privatklinik-bethanien"
         ],
         "en": [
           "fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung-privatklinik-bethanien"
@@ -514,14 +514,12 @@
       "previousSlugs": [
         "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
         "gestore-di-stoccaggio-sala-operatoria-privatklinik-bethanien-zurich",
-        "addetto-a-al-posizionamento-in-sala-operatoria-privatklinik-bethanien-zurich",
-        "posizionamento-della-sala-operatoria-dell-infermiera-privatklinik-bethanien-zurich"
+        "addetto-a-al-posizionamento-in-sala-operatoria-privatklinik-bethanien-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-          "gestore-di-stoccaggio-sala-operatoria-privatklinik-bethanien-zurich",
-          "posizionamento-della-sala-operatoria-dell-infermiera-privatklinik-bethanien-zurich"
+          "gestore-di-stoccaggio-sala-operatoria-privatklinik-bethanien-zurich"
         ],
         "en": [
           "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
@@ -755,13 +753,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leitung-physiotherapie-privatklinik-bethanien",
-        "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich"
+        "stv-leitung-physiotherapie-privatklinik-bethanien"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-physiotherapie-privatklinik-bethanien",
-          "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich"
+          "stv-leitung-physiotherapie-privatklinik-bethanien"
         ],
         "en": [
           "stv-leitung-physiotherapie-privatklinik-bethanien"

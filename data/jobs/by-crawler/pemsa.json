@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-locarno",
-        "en": "giardiniere-pemsa-locarno",
-        "de": "giardiniere-pemsa-locarno",
-        "fr": "giardiniere-pemsa-locarno"
+        "en": "warning-pemsa-locarno",
+        "de": "warnung-pemsa-locarno",
+        "fr": "mise-en-garde-pemsa-locarno"
       },
       "id": "pemsa-3181e6da663e",
       "needsRetranslation": true,
@@ -155,9 +155,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-tetti-pemsa-locarno",
-        "en": "carpentiere-tetti-pemsa-locarno",
-        "de": "carpentiere-tetti-pemsa-locarno",
-        "fr": "carpentiere-tetti-pemsa-locarno"
+        "en": "chapter-tetti-pemsa-locarno",
+        "de": "kapitel-tetti-pemsa-locarno",
+        "fr": "chapitre-tetti-pemsa-locarno"
       },
       "id": "pemsa-b3a98769b548",
       "needsRetranslation": true,
@@ -274,7 +274,7 @@
       },
       "slugByLocale": {
         "it": "fresatore-taglio-beton-pemsa-locarno",
-        "en": "fresatore-taglio-beton-pemsa-locarno",
+        "en": "milling-operator-taglio-beton-pemsa-locarno",
         "de": "fresatore-taglio-beton-pemsa-locarno",
         "fr": "fresatore-taglio-beton-pemsa-locarno"
       },
@@ -333,9 +333,9 @@
       },
       "slugByLocale": {
         "it": "falegname-a-ebanista-di-laboratorio-pemsa-plan-les-ouates",
-        "en": "falegname-a-ebanista-di-laboratorio-pemsa-plan-les-ouates",
-        "de": "falegname-a-ebanista-di-laboratorio-pemsa-plan-les-ouates",
-        "fr": "falegname-a-ebanista-di-laboratorio-pemsa-plan-les-ouates"
+        "en": "laboratory-carpenter-a-workshop-pemsa-plan-les-ouates",
+        "de": "labortischler-werkstatt-pemsa-plan-les-ouates",
+        "fr": "charpentier-de-laboratoire-atelier-pemsa-plan-les-ouates"
       },
       "id": "pemsa-3ffa7b9d59c1",
       "needsRetranslation": true,
@@ -391,9 +391,9 @@
       },
       "slugByLocale": {
         "it": "falegname-a-installatore-trice-pemsa-geneve",
-        "en": "falegname-a-installatore-trice-pemsa-geneve",
-        "de": "falegname-a-installatore-trice-pemsa-geneve",
-        "fr": "falegname-a-installatore-trice-pemsa-geneve"
+        "en": "carpenter-installer-pemsa-geneve",
+        "de": "schreiner-installer-pemsa-geneve",
+        "fr": "charpentier-installateur-pemsa-geneve"
       },
       "id": "pemsa-cd52b8ccd5fb",
       "needsRetranslation": true,
@@ -449,9 +449,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-radioprotezione-m-f-d-pemsa-geneve",
-        "en": "tecnico-di-radioprotezione-m-f-d-pemsa-geneve",
-        "de": "tecnico-di-radioprotezione-m-f-d-pemsa-geneve",
-        "fr": "tecnico-di-radioprotezione-m-f-d-pemsa-geneve"
+        "en": "technician-di-radioprotezione-m-f-d-pemsa-geneve",
+        "de": "techniker-di-radioprotezione-m-f-d-pemsa-geneve",
+        "fr": "technicien-di-radioprotezione-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-4ef14530a6cf",
       "salaryMin": 60500,
@@ -508,9 +508,9 @@
       },
       "slugByLocale": {
         "it": "operatore-di-escavatore-a-cavo-pemsa-neuchatel",
-        "en": "operatore-di-escavatore-a-cavo-pemsa-neuchatel",
-        "de": "operatore-di-escavatore-a-cavo-pemsa-neuchatel",
-        "fr": "operatore-di-escavatore-a-cavo-pemsa-neuchatel"
+        "en": "cable-excavator-operator-pemsa-neuchatel",
+        "de": "betreiber-von-kabelbaggern-pemsa-neuchatel",
+        "fr": "operateur-d-excavateur-de-cables-pemsa-neuchatel"
       },
       "id": "pemsa-f01165e7d0e2",
       "needsRetranslation": true,
@@ -1728,7 +1728,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -1745,14 +1745,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-sigirino"
-      ],
       "needsRetranslation": true
     },
     {
@@ -3526,7 +3518,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -3544,14 +3536,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -7235,11 +7219,9 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "tiler-efz-eba-m-f-d-pemsa-basel"
         ],
         "fr": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "plaquiste-efz-eba-h-f-d-pemsa-basel"
         ],
         "it": [
