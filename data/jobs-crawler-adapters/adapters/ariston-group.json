@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-13T22:22:15.375Z",
+  "updatedAt": "2026-07-14T11:19:28.194Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
       "location": "Rothenburg, CH, 6023",
@@ -81,33 +81,9 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-11"
     },
-    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
-      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-08"
-    },
-    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
-      "location": "Biel, CH, 2502",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-06-17"
-    },
-    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
+    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
-      "company": "Ariston Group",
-      "postedDate": "2026-06-17"
-    },
-    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GAS-100-Beda-6930/1411117633/": {
-      "location": "Bedano, CH, 6930",
-      "canton": "TI",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-03"
-    },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
       "company": "Ariston Group",
       "postedDate": "2026-07-10"
     },
@@ -123,23 +99,53 @@
       "company": "Ariston Group",
       "postedDate": "2026-06-24"
     },
-    "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
-      "location": "Mainburg, DE, 84048",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-06-26"
-    },
-    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
+    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
       "company": "Ariston Group",
-      "postedDate": "2026-07-10"
+      "postedDate": "2026-06-17"
+    },
+    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
+      "location": "Biel, CH, 2502",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-06-17"
     },
     "https://careers.aristongroup.com/job/Rothenburg-SERVICE-TEAM-LEADER-OIL-Roth-6023/1365043033/": {
       "location": "Rothenburg, CH, 6023",
       "canton": "LU",
       "company": "Ariston Group",
       "postedDate": "2026-07-13"
+    },
+    "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
+      "location": "Mainburg, DE, 84048",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-06-26"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GAS-100-Beda-6930/1411117633/": {
+      "location": "Bedano, CH, 6930",
+      "canton": "TI",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-03"
+    },
+    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
+      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
+      "canton": "AG",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-08"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-10"
+    },
+    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
+      "location": "Fontaines, CH, 2046",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-09"
     }
   }
 }
