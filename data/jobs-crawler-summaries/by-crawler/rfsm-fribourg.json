@@ -1,16 +1,16 @@
 {
   "key": "rfsm-fribourg",
   "label": "RFSM - Réseau fribourgeois santé mentale",
-  "generatedAt": "2026-07-13T22:28:05.137Z",
-  "total": 8,
+  "generatedAt": "2026-07-14T11:47:41.148Z",
+  "total": 6,
   "newCount": 1,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 7819,
-  "avgDurationMs": 7819,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 8903,
+  "avgDurationMs": 8903,
   "durationHistory": [
-    7819
+    8903
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-de-l&amp;apos;enfantadolescent-Gruy/1366115857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:27:58.503Z",
+      "crawledAt": "2026-07-14T11:47:33.617Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Villars-sur-Gl%C3%A2ne-Unit%C3%A9-Saturn-Sari/1365431057/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:28:02.346Z",
+      "crawledAt": "2026-07-14T11:47:37.830Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -102,7 +102,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-psychoth%C3%A9rapeute-etou-en-formation%2C-RFSM-Villars-sur-Gl%C3%A2ne-Sari/1362614857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:28:00.079Z",
+      "crawledAt": "2026-07-14T11:47:35.391Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:27:59.327Z",
+      "crawledAt": "2026-07-14T11:47:34.580Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:28:00.827Z",
+      "crawledAt": "2026-07-14T11:47:36.219Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:28:01.592Z",
+      "crawledAt": "2026-07-14T11:47:37.022Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-de-l&apos;enfantadolescent-Gruy/1366115857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T12:41:42.051Z",
+      "crawledAt": "2026-07-13T22:27:58.503Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -276,9 +276,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "rfsm-fribourg-db64cf7172b6",
       "slug": "assistente-infermiera-rfsm-marsens-unita-jasmin-etat-de-fribourg-marsens",
@@ -358,5 +356,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
