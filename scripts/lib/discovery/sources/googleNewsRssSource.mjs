@@ -15,11 +15,31 @@ const SOURCE_TAG = 'news';
 const FALLBACK_AGE_HOURS = 48;
 
 /**
+ * Bare publisher hostname (lowercased, no `www.`) from the Google News
+ * `<source url="…">` attribute — the REAL publisher origin behind the opaque
+ * `news.google.com/rss/articles/` wrapper. Returns null when absent/unparseable.
+ * Lets the downstream ranker recover the publisher's source-quality score
+ * WITHOUT paying the batchexecute decode cost (issue #4101).
+ *
+ * @param {string|null} rawUrl
+ * @returns {string|null}
+ */
+export function publisherHostFromSourceUrl(rawUrl) {
+  if (!rawUrl || typeof rawUrl !== 'string') return null;
+  try {
+    const u = new URL(rawUrl.includes('//') ? rawUrl : `https://${rawUrl}`);
+    return u.hostname.replace(/^www\./, '').toLowerCase() || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * @typedef {{
  *   headline: string,
  *   url: string|null,
  *   source: 'news',
- *   meta: { ageHours: number, sourceUrl: string|null, sourceName: string|null, pubDate: string|null, seed: string|null },
+ *   meta: { ageHours: number, sourceUrl: string|null, sourceName: string|null, publisherHost: string|null, pubDate: string|null, seed: string|null },
  * }} NewsCandidate
  */
 
@@ -81,6 +101,7 @@ export async function fetchNewsRssDiscoveryCandidates(evidence, opts = {}) {
         ageHours: ageHoursFromPubDate(pubDate, nowMs),
         sourceUrl: c?.demandSignals?.googleNewsRssLink || null,
         sourceName: c?.demandSignals?.googleNewsRssSource || null,
+        publisherHost: publisherHostFromSourceUrl(c?.demandSignals?.googleNewsRssSourceUrl || null),
         pubDate,
         seed: c?.demandSignals?.googleNewsRssSeed || null,
       },

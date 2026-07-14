@@ -8340,6 +8340,11 @@ async function main() {
           relatedHeadlines: [],
           _discoveryId: id,
           _discoveryCandidate: c,
+          // Real publisher host behind a Google News wrapper (from the RSS
+          // <source url> attr, no decode needed). Lets the ranker's
+          // source-quality multiplier score a known publisher (RSI, etc.)
+          // instead of degrading news.google.com to neutral 1.0 (issue #4101).
+          _publisherHost: (c && c.meta && c.meta.publisherHost) || null,
         };
         // resolveGoogleNewsHeadline now ALWAYS returns an object: the direct
         // twin when the fuzzy-match hits, else the wrapper flagged

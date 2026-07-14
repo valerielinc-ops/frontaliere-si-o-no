@@ -731,6 +731,34 @@ function _domainFromUrl(url) {
   }
 }
 
+/**
+ * Resolve the domain used for the source-quality multiplier of a headline.
+ *
+ * For a Google News candidate not yet decoded, the URL is the opaque
+ * `news.google.com/rss/articles/…` wrapper — `_domainFromUrl` returns
+ * `news.google.com`, which is never in `perDomain`, so the multiplier
+ * degraded to a neutral 1.0 and a KNOWN publisher (RSI, RaiNews, TVS) lost
+ * its historical source-quality score, systematically under-ranking it
+ * against direct feeds with a positive domain score (issue #4101).
+ *
+ * When the caller carried the real publisher host (`_publisherHost`, taken
+ * from the RSS `<source url>` attribute — no batchexecute decode needed), we
+ * prefer it, but ONLY when the URL itself is the Google News wrapper. For any
+ * headline with a real URL (direct feed, or a Google News item already
+ * resolved to its direct twin) we keep the URL's own domain untouched.
+ *
+ * @param {{url?: string, link?: string, _publisherHost?: string}|null} item
+ * @returns {string|null}
+ */
+function _qualityDomain(item) {
+  const url = (item && (item.url || item.link)) || null;
+  const domain = _domainFromUrl(url);
+  if (domain === 'news.google.com' && item && typeof item._publisherHost === 'string' && item._publisherHost) {
+    return item._publisherHost.replace(/^www\./, '').toLowerCase();
+  }
+  return domain;
+}
+
 function computeNoveltyScore(headline, existingTitles) {
   if (!Array.isArray(existingTitles) || existingTitles.length === 0) return 1.0;
   const tokens = tokenize(headline);
@@ -1048,9 +1076,10 @@ async function rankWithCascade(list, titles, clusters, opts) {
     // 4+ picks → 0.1 floor.
     const diversity = computeClusterDiversityBonus(cluster, todayPicksByCluster);
 
-    // Source-quality multiplier (unchanged from legacy path).
-    const url = (list[i] && (list[i].url || list[i].link)) || null;
-    const domain = _domainFromUrl(url);
+    // Source-quality multiplier (unchanged from legacy path). `_qualityDomain`
+    // recovers the real publisher host behind a not-yet-decoded Google News
+    // wrapper so a known publisher keeps its score (issue #4101).
+    const domain = _qualityDomain(list[i]);
     const sqMultiplier = sourceQuality ? sourceQualityMultiplier(domain, sourceQuality) : 1.0;
 
     const finalScore = breakdown.finalScore * diversity * sqMultiplier;
@@ -1165,9 +1194,10 @@ export async function rankAndSelectHeadlines(headlines, vocab, opts = {}) {
     });
     // Source-quality multiplier: domains with historical winner-rate
     // above the corpus median get up to 1.5x boost; below median 0.5x.
-    // Neutral 1.0 when no domain data is available.
-    const url = (h && (h.url || h.link)) || null;
-    const domain = _domainFromUrl(url);
+    // Neutral 1.0 when no domain data is available. `_qualityDomain` recovers
+    // the real publisher host behind a not-yet-decoded Google News wrapper so a
+    // known publisher keeps its score instead of degrading to neutral (issue #4101).
+    const domain = _qualityDomain(h);
     const sqMultiplier = sourceQuality ? sourceQualityMultiplier(domain, sourceQuality) : 1.0;
     const breakdown = sqMultiplier === 1.0
       ? baseBreakdown

@@ -5,7 +5,22 @@ import { describe, expect, it } from 'vitest';
 import {
   fetchNewsRssDiscoveryCandidates,
   ageHoursFromPubDate,
+  publisherHostFromSourceUrl,
 } from '../../../../../scripts/lib/discovery/sources/googleNewsRssSource.mjs';
+
+describe('publisherHostFromSourceUrl (issue #4101)', () => {
+  it('returns bare lowercased host without www', () => {
+    expect(publisherHostFromSourceUrl('https://www.rsi.ch')).toBe('rsi.ch');
+    expect(publisherHostFromSourceUrl('https://WWW.Tio.CH/news')).toBe('tio.ch');
+  });
+  it('tolerates a bare host with no scheme', () => {
+    expect(publisherHostFromSourceUrl('www.varesenews.it')).toBe('varesenews.it');
+  });
+  it('returns null for missing/unparseable input', () => {
+    expect(publisherHostFromSourceUrl(null)).toBeNull();
+    expect(publisherHostFromSourceUrl('')).toBeNull();
+  });
+});
 
 describe('ageHoursFromPubDate', () => {
   it('returns 48 (fallback) for missing/invalid input', () => {
@@ -59,6 +74,29 @@ describe('fetchNewsRssDiscoveryCandidates', () => {
     expect(out[0].url).toBe('https://example.com/article');
     expect(out[0].meta.ageHours).toBeCloseTo(2, 5);
     expect(out[0].meta.sourceName).toBe('tio.ch');
+  });
+
+  it('exposes meta.publisherHost from the RSS <source url> (issue #4101)', async () => {
+    const candidates = [
+      {
+        keyword: 'Frontalieri Ticino in calo nel 2026',
+        demandSignals: {
+          googleNewsRssLink: 'https://news.google.com/rss/articles/opaque',
+          googleNewsRssSource: 'RSI',
+          googleNewsRssSourceUrl: 'https://www.rsi.ch',
+        },
+      },
+    ];
+    const out = await fetchNewsRssDiscoveryCandidates({}, { newsFn: stubNewsFn(candidates) });
+    expect(out[0].meta.publisherHost).toBe('rsi.ch');
+  });
+
+  it('meta.publisherHost is null when the source url is absent', async () => {
+    const candidates = [
+      { keyword: 'x', demandSignals: { googleNewsRssLink: 'https://news.google.com/rss/articles/x' } },
+    ];
+    const out = await fetchNewsRssDiscoveryCandidates({}, { newsFn: stubNewsFn(candidates) });
+    expect(out[0].meta.publisherHost).toBeNull();
   });
 
   it('dedupes by lowercased headline', async () => {
