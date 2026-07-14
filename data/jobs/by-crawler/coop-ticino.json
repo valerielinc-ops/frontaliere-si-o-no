@@ -10367,7 +10367,9 @@
           "butcher-meat-specialist-coop-genossenschaft-plaffeien-cmiw1s",
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-plaffeien",
           "butcher-meat-counter-specialist-coop-genossenschaft-plaffeien",
-          "butcher-meat-specialist-coop-genossenschaft-plaffeien"
+          "butcher-meat-specialist-coop-genossenschaft-plaffeien",
+          "metzger-in-meat-specialist-coop-genossenschaft-meilen-nrhsct",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-meilen"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-stadt-hf2bjd"
@@ -89561,7 +89563,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-in-food-coop-genossenschaft-basel-87d61b-9w77ns"
+        ]
+      },
+      "previousSlugs": [
+        "venditore-in-food-coop-genossenschaft-basel-87d61b-9w77ns"
+      ]
     },
     {
       "id": "company-cgivhm",

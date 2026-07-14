@@ -419,7 +419,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:42:24.731Z"
+      "firstSeenAt": "2026-07-13T22:42:24.731Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "junior-architect-port-development-praktikant-msc-group-geneva"
+        ],
+        "it": [
+          "junior-architetto-port-development-tirocinante-msc-group-geneva"
+        ],
+        "fr": [
+          "junior-architecte-port-development-stagiaire-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-architect-port-development-praktikant-msc-group-geneva",
+        "junior-architetto-port-development-tirocinante-msc-group-geneva",
+        "junior-architecte-port-development-stagiaire-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -559,7 +575,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:42:21.777Z"
+      "firstSeenAt": "2026-07-13T22:42:21.777Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
@@ -755,10 +779,14 @@
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva"
+        ],
+        "fr": [
+          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "casino-slots-and-technical-operations-manager-msc-geneva"
+        "casino-slots-and-technical-operations-manager-msc-geneva",
+        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 83500,
