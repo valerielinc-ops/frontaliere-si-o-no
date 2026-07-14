@@ -160,12 +160,30 @@ jobs:
       # ~23 min wasted there. Trade-off: a rare supersede caught at t+1415s now
       # times out instead — fine, that build was never ours; publish defers to the
       # superseding run's own validate-live.
+      # Phase 2 (deep sample, 2026-07-14): build-id live ≠ whole artifact live.
+      # For this ~650k-file site, Pages serves the fresh build-id within seconds
+      # of activation while a tail of pages can keep 404ing at origin for an
+      # extended window (measured: ~2.5k canonical job URLs for ~2h after the
+      # 03:59Z activation — the send-job-alerts live-link preflight filtered
+      # 15-30% of every CH-wide alert that morning, and the purge below had
+      # dropped the previous build's edge copies that were masking the holes).
+      # The script now additionally samples 60 URLs of THIS build (from the
+      # sitemaps bundle's new-sitemap-urls.json) spread across the sitemap set
+      # and holds the gate until ≥97% serve at origin, so the purge below can
+      # never expose an origin still full of propagation holes. On deep-sample
+      # timeout the step fails like a build-id timeout → propagation_timeout
+      # classification → NO purge (edge keeps serving the previous build's 200s),
+      # NO rollback, publish gated off. Fail-open: bundle missing → build-id-only.
       - name: Wait for Pages propagation (our build-id or newer must be live)
         id: propagation
         continue-on-error: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/wait-for-pages-propagation.mjs --timeout-ms=240000
+        run: |
+          node scripts/wait-for-pages-propagation.mjs \
+            --timeout-ms=240000 \
+            --sample-file=/tmp/sitemaps-bundle/new-sitemap-urls.json \
+            --sample-size=60 --sample-min-ok=0.97 --sample-timeout-ms=900000
 
       - name: Classify propagation timeout (no rollback for this)
         if: steps.propagation.outcome == 'failure'
@@ -185,13 +203,17 @@ jobs:
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
 
-      # Purge the Cloudflare edge cache now that the new build-id is confirmed
-      # LIVE at origin (propagation succeeded above). The it-apex-html-cache
-      # rule caches HTML for 24h with override_origin; GitHub Pages can't signal
-      # Cloudflare on republish, so without this the edge would serve the prior
-      # build's HTML until the TTL lapses. Gated on propagation success so we
-      # never purge while origin still serves the OLD build (which would just
-      # re-cache stale). Non-fatal: a purge hiccup must not fail validate-live.
+      # Purge the Cloudflare edge cache now that the new build is confirmed
+      # LIVE at origin (propagation + deep sample succeeded above). The
+      # it-apex-html-cache rule caches HTML for 24h with override_origin;
+      # GitHub Pages can't signal Cloudflare on republish, so without this the
+      # edge would serve the prior build's HTML until the TTL lapses. Gated on
+      # propagation success so we never purge while origin still serves the OLD
+      # build (which would just re-cache stale) — and, since the deep-sample
+      # gate (2026-07-14), never while origin still has post-activation 404
+      # holes (purging then would replace good stale 200s with fresh 404s: the
+      # exact mechanism behind the job-alert dead-link spike + cf-hot-404s
+      # growth). Non-fatal: a purge hiccup must not fail validate-live.
       - name: Purge Cloudflare edge cache (new build is live)
         if: steps.propagation.outcome == 'success'
         continue-on-error: true
