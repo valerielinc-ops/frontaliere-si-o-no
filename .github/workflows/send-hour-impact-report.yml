@@ -1,11 +1,19 @@
 name: Send-Time Impact Report
 
-# On-demand engagement validation for the per-user send-time feature (#3798).
+# Engagement validation for the per-user send-time feature (#3798).
 # Runs the read-only report against production Firestore using the CI-side
 # Firebase service account, so the result can be produced without any local
-# credentials. Output is echoed to the job log AND the run summary.
+# credentials. Output goes to the job log, the run summary, an artifact, and
+# (on schedule, or on demand when post_to_issue=true) a comment on the #3798
+# tracker so the cohort growth is recorded in the backlog over time.
 
 on:
+  schedule:
+    # Weekly, Monday 02:20 UTC — inside the quiet 01:00-04:00 UTC concurrency
+    # window (same audit as send-job-alerts, #3798). Weekly cadence tracks the
+    # slow-growing `personal` cohort (subscribers need 3+ post-feature events
+    # before they get a personal hour) into the backlog without spamming it.
+    - cron: '20 2 * * 1'
   workflow_dispatch:
     inputs:
       days:
@@ -18,9 +26,15 @@ on:
         required: false
         default: '2026-07-12'
         type: string
+      post_to_issue:
+        description: 'Post the report as a comment on issue #3798'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
+  issues: write   # to post the report onto the #3798 tracker
 
 jobs:
   report:
@@ -51,10 +65,15 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Run send-time impact report (read-only)
+        env:
+          # `inputs` is empty on a `schedule` event, so fall back to the same
+          # defaults the workflow_dispatch inputs declare.
+          REPORT_DAYS: ${{ inputs.days || '20' }}
+          REPORT_SINCE: ${{ inputs.since || '2026-07-12' }}
         run: |
           node scripts/report-send-hour-impact.mjs \
-            --days "${{ inputs.days }}" \
-            --since "${{ inputs.since }}" | tee /tmp/send-hour-impact.txt | tee -a "$GITHUB_STEP_SUMMARY"
+            --days "$REPORT_DAYS" \
+            --since "$REPORT_SINCE" | tee /tmp/send-hour-impact.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Upload report artifact
         if: always()
@@ -63,3 +82,28 @@ jobs:
           name: send-hour-impact-report
           path: /tmp/send-hour-impact.txt
           if-no-files-found: ignore
+
+      - name: Post report to #3798
+        # Always on schedule; on manual runs only when explicitly requested.
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.post_to_issue) }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '(no report output captured)';
+            try { body = fs.readFileSync('/tmp/send-hour-impact.txt', 'utf8').trim() || body; } catch {}
+            const trigger = context.eventName === 'schedule' ? 'scheduled' : 'manual';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 3798,
+              body: [
+                `### 📬 Send-time impact report (${trigger})`,
+                '',
+                '```',
+                body,
+                '```',
+                '',
+                `_Auto-posted by the Send-Time Impact Report workflow — [run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}). Cohorts flagged \`n<100\` are still below the significance threshold._`,
+              ].join('\n'),
+            });
