@@ -48,6 +48,20 @@ describe('parseNewsRss', () => {
     expect(items[0].source).toBe('tio.ch');
   });
 
+  it('captures the <source url="…"> publisher origin (issue #4101)', () => {
+    const items = parseNewsRss(NEWS_OK_XML);
+    expect(items[0].sourceUrl).toBe('https://www.tio.ch');
+    expect(items[2].sourceUrl).toBe('https://www.rsi.ch');
+  });
+
+  it('sourceUrl is empty when <source> has no url attribute', () => {
+    const xml = `<rss><channel>
+      <item><title>No source url</title><link>x</link><source>RSI</source></item>
+    </channel></rss>`;
+    const items = parseNewsRss(xml);
+    expect(items[0].sourceUrl).toBe('');
+  });
+
   it('returns [] on malformed XML', () => {
     expect(parseNewsRss('<not really xml>')).toEqual([]);
   });
