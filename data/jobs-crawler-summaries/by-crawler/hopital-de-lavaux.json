@@ -1,18 +1,19 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-07-13T22:12:47.127Z",
+  "generatedAt": "2026-07-14T11:00:41.446Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2706,
-  "avgDurationMs": 2706,
+  "durationMs": 3017,
+  "avgDurationMs": 3017,
   "durationHistory": [
-    2706
+    3017
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-de-lavaux-30f5087c6164",
       "slug": "responsable-de-production-culinaire-hopital-de-lavaux-bourg-en-lavaux",
@@ -20,13 +21,13 @@
       "companyKey": "hopital-de-lavaux",
       "companyDomain": "hopitaldelavaux.ch",
       "title": "Responsable de production culinaire",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bourg-en-Lavaux",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/8XDoWyOzV",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:44.822Z",
+      "crawledAt": "2026-07-14T11:00:38.850Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://app.beehire.com/invite/8XDoWyOzV",
       "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-13T22:12:44.822Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-de-lavaux-7df8077d1ba2",
       "slug": "infirmier-ere-a-80-100-readaptation-hopital-de-lavaux-bourg-en-lavaux",
@@ -65,7 +65,7 @@
       "url": "https://app.beehire.com/invite/PRsnUQk7L",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:44.824Z",
+      "crawledAt": "2026-07-14T11:00:38.853Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.beehire.com/invite/P3a0hTtBw",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:44.826Z",
+      "crawledAt": "2026-07-14T11:00:38.860Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:44.825Z",
+      "crawledAt": "2026-07-14T11:00:38.857Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:12:44.826Z",
+      "crawledAt": "2026-07-14T11:00:38.861Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
