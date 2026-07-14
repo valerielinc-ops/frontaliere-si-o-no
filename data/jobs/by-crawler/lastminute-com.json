@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-07-14T12:02:51.850Z",
+  "assembledAt": "2026-07-14T23:11:20.549Z",
   "jobs": [
     {
       "id": "company-2oxpfe",
@@ -29,7 +29,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-07-14T12:02:51.335Z",
+      "crawledAt": "2026-07-14T23:11:20.094Z",
       "firstSeenAt": "2026-07-06T22:31:17.387Z",
       "slugByLocale": {
         "de": "global-payroll-hr-systemmanager-chiasso",
@@ -112,7 +112,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "needsRetranslation": true
     }
   ]
 }
