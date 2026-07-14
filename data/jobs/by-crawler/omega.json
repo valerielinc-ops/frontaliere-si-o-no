@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-14T11:27:22.669Z",
+  "assembledAt": "2026-07-14T22:56:18.092Z",
   "jobs": [
     {
       "id": "omega-32490",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32490",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:27:20.490Z",
+      "crawledAt": "2026-07-14T22:56:15.854Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:32:08.546Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:26:59.112Z",
+      "crawledAt": "2026-07-14T22:55:54.449Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -164,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -182,7 +184,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designate-h-f-omega-sa-biel-bienne",
+        "en": "designer-h-f-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -208,7 +210,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:26:37.819Z",
+      "crawledAt": "2026-07-14T22:55:33.054Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,6 +251,7 @@
       },
       "previousSlugs": [
         "designer-h-f-omega-biel-bienne",
+        "designate-h-f-omega-sa-biel-bienne",
         "designato-h-f-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -257,13 +260,15 @@
           "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
-          "designer-h-f-omega-biel-bienne"
+          "designer-h-f-omega-biel-bienne",
+          "designate-h-f-omega-sa-biel-bienne"
         ],
         "de": [
           "designer-h-f-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -308,7 +313,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:26:16.417Z",
+      "crawledAt": "2026-07-14T22:55:11.677Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -359,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
