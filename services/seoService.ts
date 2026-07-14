@@ -4534,6 +4534,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quadro-rw-2026-chi-dichiara-conto-svizzero': { name: 'Quadro RW 2026', path: '/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/', parent: 'blog' },
     'blog-vergiate-sospensione-passerella-settembre': { name: 'Vergiate passerella', path: '/articoli-frontaliere/vergiate-sospensione-passerella-settembre', parent: 'blog' },
     'blog-rincari-festival-estate-ticino': { name: 'Prezzi festival Svizzera', path: '/articoli-frontaliere/rincari-festival-estate-ticino', parent: 'blog' },
+    'blog-canicola-lavoro-ticino-confronto': { name: 'Canicola lavoro Ticino', path: '/articoli-frontaliere/canicola-lavoro-ticino-confronto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

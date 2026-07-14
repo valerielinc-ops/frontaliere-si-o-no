@@ -8501,6 +8501,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rincari-festival-estate-ticino.title': 'Concerti in Svizzera: i prezzi volano nell\'estate 2026',
     'blog.article.rincari-festival-estate-ticino.excerpt': 'I festival all\'aperto diventano più cari: rincari oltre il 50% in dieci anni. Analisi dei costi e impatto sulle tasche dei fan.',
     'blog.article.rincari-festival-estate-ticino.imageAlt': 'Persone a un concerto all\'aperto in Ticino',
+    'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicola e lavoro: scontro Cantone-UNIA sui diritti',
+    'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona al centro del confronto tra autorità e sindacati sulle tutele lavorative durante le ondate di calore estremo in Ticino.',
+    'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande a Bellinzona in una giornata estiva',
 };
 
 export default blogMetaIt;

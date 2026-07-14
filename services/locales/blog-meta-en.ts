@@ -8500,6 +8500,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rincari-festival-estate-ticino.title': 'Concerts in Switzerland: prices fly in the summer of 2026',
     'blog.article.rincari-festival-estate-ticino.excerpt': 'Outdoor festivals are becoming more expensive: prices rise by more than 50% in ten years. Cost analysis and impact on fan pockets.',
     'blog.article.rincari-festival-estate-ticino.imageAlt': 'People at an outdoor concert in Ticino',
+    'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicola and labour: Canton-Unia clash over rights',
+    'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona is at the centre of the confrontation between authorities and trade unions on workplace protections during the extreme heat waves in Ticino.',
+    'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande in Bellinzona during a summer day',
 };
 
 export default blogMetaEn;

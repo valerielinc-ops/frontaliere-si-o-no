@@ -49368,6 +49368,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canicola-lavoro-ticino-confronto': {
+    title: 'Canicola e lavoro: scontro Cantone-UNIA sui diritti',
+    description: 'Bellinzona, scontro tra Cantone e sindacati sulla sicurezza dei lavoratori durante la canicola. Ecco le posizioni e come segnalare le irregolarità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, lavoro, scontro, cantone-unia',
+    ogTitle: 'Canicola e lavoro: scontro Cantone-UNIA sui diritti',
+    ogDescription: 'Bellinzona, scontro tra Cantone e sindacati sulla sicurezza dei lavoratori durante la canicola. Ecco le posizioni e come segnalare le irregolarità.',
+    canonicalPath: '/articoli-frontaliere/canicola-lavoro-ticino-confronto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola e lavoro: scontro Cantone-UNIA sui diritti",
+      "description": "Bellinzona, scontro tra Cantone e sindacati sulla sicurezza dei lavoratori durante la canicola. Ecco le posizioni e come segnalare le irregolarità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-lavoro-ticino-confronto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona in una giornata estiva"
+      },
+      "datePublished": "2026-07-14T21:08:41+00:00",
+      "dateModified": "2026-07-14T21:08:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/canicola-lavoro-ticino-confronto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

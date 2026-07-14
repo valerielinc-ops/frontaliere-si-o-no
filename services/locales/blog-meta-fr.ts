@@ -8501,6 +8501,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rincari-festival-estate-ticino.title': 'Concerts en Suisse : les prix s\'envolent en été 2026',
     'blog.article.rincari-festival-estate-ticino.excerpt': 'Les festivals en plein air deviennent plus chers : ils augmentent de plus de 50 % en dix ans. Analyse des coûts et de l\'impact sur les poches des fans.',
     'blog.article.rincari-festival-estate-ticino.imageAlt': 'Personnes à un concert en plein air au Tessin',
+    'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicule et travail : affrontement cantonal-UNI sur les droits',
+    'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzone au centre de la confrontation entre les autorités et les syndicats sur les protections du travail pendant les vagues de chaleur extrêmes au Tessin.',
+    'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande à Bellinzone par une journée d\'été',
 };
 
 export default blogMetaFr;
