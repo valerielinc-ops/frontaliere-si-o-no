@@ -96,6 +96,10 @@ export const ISSUE_DENY_PATTERNS = [
   /^(?:TypeError: )?Load failed$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
+  // Firebase Auth network-request-failed — transient client connectivity (#4174).
+  // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
+  // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
+  /Firebase:.*auth\/network-request-failed/i,
 ];
 
 /**
