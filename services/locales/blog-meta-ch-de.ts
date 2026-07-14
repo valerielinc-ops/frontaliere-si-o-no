@@ -1126,6 +1126,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Wer muss das Schweizer Konto im Jahr 2026 deklarieren',
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Der RW-Rahmen 2026 sieht vor, dass Grenzgänger die Schweizer Konten melden müssen. Wer muss deklarieren und wer nicht?',
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontaliere mit Kind spazieren auf dem Luganosee-Uferpromenade.',
+    'blog.article.investimenti-startup-svizzere-riduzione.title': 'Mehr Startups, sinkt das Investitionsvolumen',
+    'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'Das Investitionsvolumen in Schweizer Startups ging im ersten Halbjahr 2025 um 15,5% zurück.',
+    'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Bild eines Investors, der eine Grafik mit negativen Trends betrachtet',
 };
 
 export default blogMetaChDe;

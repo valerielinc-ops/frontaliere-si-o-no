@@ -1126,6 +1126,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Qui doit déclarer le compte suisse en 2026',
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Le Cadre RW 2026 prévoit que les frontaliers doivent déclarer les comptes suisses. Qui doit déclarer et qui ne doit pas déclarer ?',
     'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontalière avec enfant marchant sur la promenade du lac de Lugano.',
+    'blog.article.investimenti-startup-svizzere-riduzione.title': 'Plus de startups, moins de volume d\'investissement',
+    'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'Le volume des investissements dans les startups suisses a diminué de 15,5 % au premier semestre 2025.',
+    'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Image d\'un investisseur regardant un graphique avec des tendances négatives',
 };
 
 export default blogMetaChFr;

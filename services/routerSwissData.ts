@@ -398,6 +398,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'disoccupazione-frontalieri-naspi': { it: 'disoccupazione-frontalieri-naspi', en: 'naspi-for-frontalieri', de: 'naspi-fuer-frontalier', fr: 'naspi-pour-frontaliers' },
  'ripresa-finanziaria-ospedali-grigionesi': { it: 'ripresa-finanziaria-ospedali-grigionesi', en: 'financial-recovery-grisons-hospitals', de: 'finanzielle-erholung-graubuender-spitaeler', fr: 'reprise-financiere-hopitaux-grisons' },
  'quadro-rw-2026-chi-dichiara-conto-svizzero': { it: 'quadro-rw-2026-chi-dichiara-conto-svizzero', en: 'quadro-rw-2026-who-declares-swiss-account', de: 'quadro-rw-2026-wer-erklart-die-schweizer-rechnung', fr: 'quadro-rw-2026-qui-declare-le-compte-suisse' },
+ 'investimenti-startup-svizzere-riduzione': { it: 'investimenti-startup-svizzere-riduzione', en: 'swiss-startup-investments-decline', de: 'schweizer-startup-investitionen-rueckgang', fr: 'investissements-startup-suisse-reduction' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
