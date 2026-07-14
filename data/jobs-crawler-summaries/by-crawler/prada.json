@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-14T11:27:52.245Z",
+  "generatedAt": "2026-07-14T22:36:32.428Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8317,
-  "avgDurationMs": 8317,
+  "durationMs": 6727,
+  "avgDurationMs": 6727,
   "durationHistory": [
-    8317
+    6727
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-16f2b637a97c",
       "slug": "client-advisor-houston-prada-group-nearest-major-market-houston",
@@ -33,12 +34,13 @@
       "url": "https://jobs.pradagroup.com/job/Houston-Client-Advisor%2C-Houston-TX-77001/1404776833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:49.765Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-14T22:36:30.141Z",
+      "firstSeenAt": "2026-07-14T11:27:49.765Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,17 +64,16 @@
       "url": "https://jobs.pradagroup.com/job/Houston-Client-Advisor%2C-Houston-TX-77001/1404783433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:50.378Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-14T22:36:30.549Z",
+      "firstSeenAt": "2026-07-14T11:27:50.378Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -93,7 +94,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:46.630Z",
+      "crawledAt": "2026-07-14T22:36:27.984Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -104,48 +105,11 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-69036732a00a",
-      "slug": "miu-miu-crm-client-development-manager-prada-group-seoul",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "MIU MIU CRM & Client Development Manager",
-      "location": "Seoul",
-      "canton": "TI",
-      "addressLocality": "Seoul",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-11",
-      "url": "https://jobs.pradagroup.com/job/Seoul-MIU-MIU-CRM-&-Client-Development-Manager/1393737233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-12T22:32:15.979Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-11T11:16:09.100Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "country": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-a992bea64306",
-      "slug": "client-advisor-houston-prada-group-nearest-major-market-houston",
+      "slug": "client-consulente-houston-prada-group-nearest-major-market-houston",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -163,23 +127,23 @@
       "url": "https://jobs.pradagroup.com/job/Houston-Client-Advisor%2C-Houston-TX-77001/1404783433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:50.378Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-14T22:36:30.549Z",
+      "firstSeenAt": "2026-07-14T11:27:50.378Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
       "id": "prada-16f2b637a97c",
-      "slug": "client-advisor-houston-prada-group-nearest-major-market-houston-2",
+      "slug": "client-consulente-houston-prada-group-nearest-major-market-houston-edecd9",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -197,17 +161,17 @@
       "url": "https://jobs.pradagroup.com/job/Houston-Client-Advisor%2C-Houston-TX-77001/1404776833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:49.765Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-14T22:36:30.141Z",
+      "firstSeenAt": "2026-07-14T11:27:49.765Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -231,7 +195,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:27:46.630Z",
+      "crawledAt": "2026-07-14T22:36:27.984Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "needsRetranslation": true,
       "salaryMin": 79000,
@@ -272,7 +236,7 @@
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,7 +271,7 @@
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
