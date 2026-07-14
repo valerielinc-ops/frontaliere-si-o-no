@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/gesamtverantwortliche-r-kundeninformation-60-100_2026-2233/",
+    "https://www.rhb.ch/it/job/leiter-in-rechnungswesen-infrastruktur-80-100_2026-2230/",
     "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/",
     "https://www.rhb.ch/it/job/kurzfristplaner-in-50-100_2026-2232/",
     "https://www.rhb.ch/it/job/executive-assistant-and-fuhrungsunterstutzung-des-direktors-50-100_2026-2231/",
@@ -15,11 +17,17 @@
     "https://www.rhb.ch/it/job/teamleiter-in-elektrowerkstatt-80-100_2026-2229/",
     "https://www.rhb.ch/it/job/leiter-in-trassen-und-netzressourcenplanung-50-100_2026-2139/",
     "https://www.rhb.ch/it/job/spezialist-in-change-management-60-80_2026-2227/",
-    "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/",
-    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2225/",
-    "https://www.rhb.ch/it/job/it-supporter-in-50-80_2026-2224/"
+    "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/gesamtverantwortliche-r-kundeninformation-60-100_2026-2233/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/leiter-in-rechnungswesen-infrastruktur-80-100_2026-2230/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -51,16 +59,8 @@
     "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2225/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/it-supporter-in-50-80_2026-2224/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-07-14T11:34:05.791Z"
+  "updatedAt": "2026-07-14T22:29:17.662Z"
 }
