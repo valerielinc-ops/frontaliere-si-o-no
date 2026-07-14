@@ -1359,7 +1359,7 @@
       "slugByLocale": {
         "it": "gerencia-controlling-gmm-zurich-insurance-sede-ticino-lugano-vgnot8",
         "en": "gerencia-controlling-gmm-zurich-insurance-sede-ticino-lugano-vgnot8",
-        "de": "gerencia-controlling-gmm-zurich-insurance-sede-ticino-lugano-vgnot8",
+        "de": "gerencia-kontrolle-gvm-zurich-insurance-sede-ticino-lugano",
         "fr": "gerencia-controlling-gmm-zurich-insurance-sede-ticino-lugano-vgnot8"
       },
       "requirementsByLocale": {
@@ -1525,7 +1525,7 @@
       "slugByLocale": {
         "it": "governance-and-resilience-analista-zurich-insurance-sede-ticino-lugano-vh45a3",
         "en": "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano-vh45a3",
-        "de": "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano-vh45a3",
+        "de": "governance-und-resilienz-analyst-zurich-insurance-sede-ticino-lugano",
         "fr": "governance-and-resilience-analyste-zurich-insurance-sede-ticino-lugano-vh45a3"
       },
       "requirementsByLocale": {
@@ -1541,10 +1541,14 @@
       "previousSlugsByLocale": {
         "it": [
           "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano"
+        ],
+        "de": [
+          "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano-vh45a3"
         ]
       },
       "previousSlugs": [
-        "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano"
+        "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano",
+        "governance-and-resilience-analyst-zurich-insurance-sede-ticino-lugano-vh45a3"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,

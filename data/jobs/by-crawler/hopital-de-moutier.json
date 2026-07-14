@@ -54,18 +54,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "medecin-dermatologue-hopital-de-moutier",
-          "dottore-dermatologo-swiss-medical-network-moutier"
+          "medecin-dermatologue-hopital-de-moutier"
         ],
         "it": [
-          "medecin-dermatologue-hopital-de-moutier",
-          "medico-dermatologo-swiss-medical-network-moutier"
+          "medecin-dermatologue-hopital-de-moutier"
         ]
       },
       "previousSlugs": [
-        "medecin-dermatologue-hopital-de-moutier",
-        "dottore-dermatologo-swiss-medical-network-moutier",
-        "medico-dermatologo-swiss-medical-network-moutier"
+        "medecin-dermatologue-hopital-de-moutier"
       ],
       "firstSeenAt": "2026-07-10T10:55:15.045Z",
       "salaryMin": 68500,
@@ -133,18 +129,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier",
-          "specialista-in-psichiatria-e-addizione-psicoterapia-h-f-swiss-medical-network-moutier"
+          "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier"
         ],
         "it": [
-          "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier",
-          "medico-specialista-in-psicologia-e-psicoterapia-delle-dipendenze-h-f-swiss-medical-network-moutier"
+          "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier"
         ]
       },
       "previousSlugs": [
-        "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier",
-        "specialista-in-psichiatria-e-addizione-psicoterapia-h-f-swiss-medical-network-moutier",
-        "medico-specialista-in-psicologia-e-psicoterapia-delle-dipendenze-h-f-swiss-medical-network-moutier"
+        "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-hopital-de-moutier"
       ],
       "firstSeenAt": "2026-07-10T10:55:15.046Z",
       "salaryMin": 68500,
@@ -211,13 +203,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier",
-        "una-testa-di-clinica-con-fmh-o-assistente-capo-di-clinica-a-pedopsychiatry-swiss-medical-network-moutier"
+        "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier",
-          "una-testa-di-clinica-con-fmh-o-assistente-capo-di-clinica-a-pedopsychiatry-swiss-medical-network-moutier"
+          "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier"
         ]
       },
       "firstSeenAt": "2026-07-10T10:55:15.038Z",
@@ -236,11 +226,11 @@
     },
     {
       "id": "hopital-de-moutier-74cee611d142",
-      "slug": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
+      "slug": "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
       "slugByLocale": {
         "fr": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
-        "it": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
-        "en": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
+        "it": "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
+        "en": "assistant-physician-in-stationary-child-psychiatry-hopital-de-moutier-moutier",
         "de": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
       },
       "company": "Hôpital de Moutier",
@@ -297,7 +287,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:12:11.118Z"
+      "firstSeenAt": "2026-07-13T22:12:11.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
+        ],
+        "en": [
+          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
+      ]
     },
     {
       "id": "hopital-de-moutier-5932a5fa11d4",
@@ -350,13 +351,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
-        "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
-        "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier"
+        "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
-          "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier"
+          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
         ],
         "fr": [
           "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier"
