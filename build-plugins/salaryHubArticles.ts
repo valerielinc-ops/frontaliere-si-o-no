@@ -18,6 +18,8 @@ import { renderHreflangTags } from './shared/hreflang';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
+import { buildDayStampIso } from './shared/buildDayStamp';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -687,6 +689,38 @@ export function generateArticleHtml(
     ],
   });
 
+  // Article schema — these pages set ogType 'article' but previously shipped no
+  // Article JSON-LD, so they were ineligible for Article rich results and lacked
+  // an explicit author/publisher E-E-A-T signal. Mirrors the accepted publisher
+  // Organization + licensable logo pattern used by comparisonsHubPlugin. Dates
+  // use the day-truncated build stamp (buildDayStampIso) so dateModified stays a
+  // valid freshness signal — the net figures in the body are recomputed from the
+  // simulation engine on every build — without churning every sub-second deploy.
+  const articleStamp = buildDayStampIso();
+  const articleSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: `${BASE_URL}/og-image.png`,
+    inLanguage: locale,
+    url: canonicalUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    datePublished: articleStamp,
+    dateModified: articleStamp,
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: `${BASE_URL}/`,
+      logo: imageObjectLd({
+        url: `${BASE_URL}/icons/icon-512x512.png`,
+        width: 512,
+        height: 512,
+      }),
+    },
+  });
+
   // Get related scenarios for cross-linking grid
   const related = scenarioData.scenarios
     .filter(article.relatedScenarioFilter)
@@ -785,7 +819,7 @@ export function generateArticleHtml(
     canonicalUrl,
     hreflangHtml,
     ogType: 'article',
-    jsonLdScripts: [faqSchema, breadcrumbSchema],
+    jsonLdScripts: [articleSchema, faqSchema, breadcrumbSchema],
     bodyHtml: pageBody,
     distDir,
   });
