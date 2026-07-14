@@ -1,34 +1,33 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-07-14T11:27:12.242Z",
+  "generatedAt": "2026-07-14T22:33:02.302Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 4008,
-  "avgDurationMs": 4008,
+  "durationMs": 3809,
+  "avgDurationMs": 3809,
   "durationHistory": [
-    4008
+    3809
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "id": "hopital-de-moutier-74cee611d142",
+      "id": "hopital-de-moutier-45349567a774",
       "slug": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
       "company": "Hôpital de Moutier",
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
       "title": "Médecin assistant(e) en pédopsychiatrie stationnaire",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Moutier",
       "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137680334-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137680334-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:27:09.461Z",
+      "crawledAt": "2026-07-14T22:32:59.550Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,17 +40,18 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
-      "datePosted": "2026-07-13",
-      "firstSeenAt": "2026-07-13T22:12:11.118Z",
-      "_qualityScore": 83,
+      "postedDate": "2026-07-14",
+      "datePosted": "2026-07-14",
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "hopital-de-moutier-2bb6176358d6",
       "slug": "un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie-hopital-de-moutier",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:27:09.467Z",
+      "crawledAt": "2026-07-14T22:32:59.545Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:27:09.463Z",
+      "crawledAt": "2026-07-14T22:32:59.543Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134729364-medecin-dermatologue",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:27:09.469Z",
+      "crawledAt": "2026-07-14T22:32:59.548Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-de-moutier-5932a5fa11d4",
       "slug": "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier",
@@ -201,6 +200,48 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "crawlerMissStreak": 2,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "hopital-de-moutier-74cee611d142",
+      "slug": "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
+      "company": "Hôpital de Moutier",
+      "companyKey": "hopital-de-moutier",
+      "companyDomain": "swissmedical.net",
+      "title": "Médecin assistant(e) en pédopsychiatrie stationnaire",
+      "location": "Moutier",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137443365-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
+      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-13T22:12:11.118Z",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2740",
+      "streetAddress": "Beausite 49, 2740 Moutier",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "datePosted": "2026-07-13",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "firstSeenAt": "2026-07-13T22:12:11.118Z",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
