@@ -11,7 +11,7 @@
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],
   "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.",
-  "updatedAt": "2026-07-14T10:58:27.647Z",
+  "updatedAt": "2026-07-14T22:03:16.370Z",
   "seedMetaByUrl": {
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-205513": {
       "location": "Zurich, Switzerland",
@@ -22,6 +22,24 @@
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-205603": {
       "location": "Lenzburg, Switzerland",
       "canton": "AG",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-205631": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-205737": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-204861": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
       "company": "Hitachi Energy",
       "postedDate": "2026-07-14"
     },
@@ -102,12 +120,6 @@
       "canton": "TI",
       "company": "Hitachi Energy",
       "postedDate": "2026-07-10"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-204861": {
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-07-09"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-204947": {
       "location": "Remote - Zurich, Switzerland",
@@ -350,8 +362,8 @@
       "postedDate": "2026-06-05"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-198228": {
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
+      "location": "Satigny, Switzerland",
+      "canton": "GE",
       "company": "Hitachi Energy",
       "postedDate": "2026-06-05"
     },
@@ -450,12 +462,6 @@
       "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-04-24"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-190086": {
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-04-23"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-188400": {
       "location": "Zurich, Switzerland",
