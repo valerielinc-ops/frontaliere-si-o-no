@@ -61,6 +61,16 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // CSS link-load failure during CDN propagation window (#4151, sw_cache_stale
+  // type). The inline SW-recovery script catches <link> errors for /assets/*.css,
+  // stores _swErrorInfo in sessionStorage, busts the HTTP cache, and reloads —
+  // identical self-heal as resilientImport() for JS chunks. Kept in GA4 dashboards
+  // for observability (analytics.ts trackAppError('sw_cache_stale',...)) but
+  // not actionable as a backlog ticket: the reload is the fix and the CDN window
+  // closes in seconds. JS dynamic-import failures via the same _swErrorInfo path
+  // carry a different message shape (Stale chunk: Failed to fetch…) and are kept
+  // issue-able to surface persistent CDN outages.
+  /Stale chunk:.*\.css/i,
   // User-cancelled navigation / fetch abort (#4147 class): "AbortError: The
   // user aborted a request." (WebKit), "AbortError: The operation was aborted."
   // (standard), "AbortError: signal is aborted…", bare "AbortError: AbortError".

@@ -362,6 +362,9 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('Cannot read properties of null')).toBe(false);
     // Contextualized "Script error." variants (not the bare opaque message) stay issue-able.
     expect(isIssueDenied('[boot] Script error. while loading map widget')).toBe(false);
+    // JS stale-chunk reports via _swErrorInfo path (message contains the rejection reason,
+    // not a .css URL) remain issue-able to surface persistent CDN JS outages.
+    expect(isIssueDenied('Stale chunk: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
     // And the denied class, for contrast:
     expect(isIssueDenied("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'")).toBe(true);
     expect(isIssueDenied('Script error.')).toBe(true);
@@ -370,6 +373,16 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('AbortError: The operation was aborted.')).toBe(true);
     expect(isIssueDenied('AbortError: signal is aborted without reason')).toBe(true);
     expect(isIssueDenied('AbortError: AbortError')).toBe(true);
+  });
+
+  it('denies sw_cache_stale CSS events (#4151) — self-healed by the inline reload, not a backlog ticket', () => {
+    // The CSS entry file and any per-chunk CSS are self-healed by the inline
+    // link-error handler (bust + reload); the GA4 sw_cache_stale event keeps
+    // the metric visible but must not flood the backlog with auto-fix issues.
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/index.css')).toBe(true);
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/seo-static.css')).toBe(true);
+    // Only CSS — JS variants remain issue-able.
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
   });
 });
 
