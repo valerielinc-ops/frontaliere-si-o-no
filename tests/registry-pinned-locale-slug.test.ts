@@ -13,7 +13,7 @@
  * `assistant-psychologist-or-specialist-...` (the deployed, indexed URL).
  */
 import { describe, expect, it } from 'vitest';
-import { registryPinnedLocaleSlug } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { registryPinnedLocaleSlug, sourceSlugPinContext } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const REGISTERED = {
   canonicalSlug: 'psicologo-a-assistente-o-a-psicologo-a-specializzato-a-upd-bern',
@@ -133,5 +133,119 @@ describe('registryPinnedLocaleSlug', () => {
     expect(registryPinnedLocaleSlug(halfCopied, 'de', 'de')).toBe(
       'wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern',
     );
+  });
+
+  describe('garbage-pin guard (#4071)', () => {
+    // Real corruption shape (KSA, umantis 122706): the registry pins a garbage
+    // DE slug for nursing vacancies whose title is unrelated to it, so every
+    // re-crawl re-pinned "logi-hyardfachfrau-…" over the correct slug. Note the
+    // guard is PER-LOCALE and driven by titleByLocale, because
+    // hardenJobLocaleFields re-detects the KSA German title's source as `it`,
+    // making the corrupt `de` slot a "non-source" locale from its view.
+    const GARBLED = {
+      canonicalSlug: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch-2',
+      slugByLocale: {
+        it: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch-5',
+        en: 'registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau',
+        fr: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch-2',
+        de: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3',
+      },
+    };
+    // Per-locale titles (all German here — nursing title untranslated across it/de).
+    const ctx = {
+      titleByLocale: {
+        it: 'Dipl. Pflegefachfrau / Pflegefachmann',
+        de: 'Dipl. Pflegefachfrau / Pflegefachmann',
+        en: 'Registered Nurse / Nursing Professional',
+        fr: 'Infirmier Diplômé / Infirmière Diplômée',
+      },
+      company: 'Kantonsspital Aarau (KSA)',
+      location: 'Aarau',
+    };
+
+    it('refuses a pin with zero title-token overlap with BOTH its locale title and canonicalSlug', () => {
+      // KSA garbage `de`: "logi-hyardfachfrau-…" shares nothing with the DE title
+      // nor the canonical ("dipl-pflegefachfrau-…-ksa-ch") after ksa/aarau noise.
+      // Refused whether the DE slot is treated as source (de) or non-source (it).
+      expect(registryPinnedLocaleSlug(GARBLED, 'de', 'de', ctx)).toBeNull();
+      expect(registryPinnedLocaleSlug(GARBLED, 'de', 'it', ctx)).toBeNull();
+    });
+
+    it('KEEPS a valid-but-generic pin that still shares the canonical token (anti-churn, harden-registry-pin-quality-repair)', () => {
+      // Real regression shape (EOC, umantis 2908): source-lang detection lands
+      // on EN and overwrites the EN title to the German base ("Informatiker/in"),
+      // so the pinned boilerplate slug no longer matches its (mutated) title —
+      // but it still carries the job's canonical token "informatico", so it is a
+      // valid indexed URL and MUST stay pinned, not churned.
+      const boilerplate = 'permette-di-combinare-efficacemente-informatico-eoc-bellinzona';
+      const registered = {
+        canonicalSlug: 'informatico-a-eoc-bellinzona',
+        slugByLocale: {
+          it: 'informatico-a-eoc-bellinzona',
+          en: boilerplate,
+          de: 'informatiker-in-eoc-bellinzona',
+          fr: 'informaticien-ne-eoc-bellinzona',
+        },
+      };
+      const eocCtx = {
+        titleByLocale: { it: 'Informatico/a', en: 'Informatiker/in', de: 'Informatiker/in', fr: 'Informaticien/ne' },
+        company: 'EOC',
+        location: 'Bellinzona',
+      };
+      expect(registryPinnedLocaleSlug(registered, 'en', 'en', eocCtx)).toBe(boilerplate);
+    });
+
+    it('KEEPS a real translation that shares tokens with its OWN locale title (never churned)', () => {
+      // EN registry slug is a real English translation: it shares nurse/nursing
+      // with the EN title, so it stays pinned even under the per-locale guard.
+      expect(registryPinnedLocaleSlug(GARBLED, 'en', 'it', ctx)).toBe(
+        'registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau',
+      );
+    });
+
+    it('does NOT refuse when the entry has no canonicalSlug (conservative — no second witness, no churn)', () => {
+      const noCanonical = {
+        slugByLocale: { de: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau' },
+      };
+      expect(registryPinnedLocaleSlug(noCanonical, 'de', 'de', ctx)).toBe(
+        'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau',
+      );
+    });
+
+    it('still pins a slug that DOES encode its locale title', () => {
+      const healthy = {
+        canonicalSlug: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch',
+        slugByLocale: { de: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch' },
+      };
+      expect(registryPinnedLocaleSlug(healthy, 'de', 'de', ctx)).toBe(
+        'dipl-pflegefachfrau-pflegefachmann-ksa-ch',
+      );
+    });
+
+    it('is backward-compatible: without titleByLocale the pin is honored unconditionally', () => {
+      expect(registryPinnedLocaleSlug(GARBLED, 'de', 'de')).toBe(
+        'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3',
+      );
+      expect(registryPinnedLocaleSlug(GARBLED, 'de', 'de', {})).toBe(
+        'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3',
+      );
+    });
+
+    it('sourceSlugPinContext extracts titleByLocale + noise fields and refuses the garbage pin end-to-end', () => {
+      const job = {
+        sourceLang: 'de',
+        titleByLocale: ctx.titleByLocale,
+        company: 'Kantonsspital Aarau (KSA)',
+        addressLocality: 'Aarau',
+        slugDisambiguator: '',
+      };
+      expect(sourceSlugPinContext(job, 'de')).toEqual({
+        titleByLocale: ctx.titleByLocale,
+        company: 'Kantonsspital Aarau (KSA)',
+        location: 'Aarau',
+        disambiguator: '',
+      });
+      expect(registryPinnedLocaleSlug(GARBLED, 'de', 'it', sourceSlugPinContext(job, 'de'))).toBeNull();
+    });
   });
 });

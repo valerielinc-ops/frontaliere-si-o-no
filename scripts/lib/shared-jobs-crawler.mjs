@@ -50,6 +50,7 @@ import {
   saveSlugRegistry as _saveSlugRegistry,
   getRegisteredSlug as _getRegisteredSlug,
   registryPinnedLocaleSlug as _registryPinnedLocaleSlug,
+  sourceSlugPinContext as _sourceSlugPinContext,
   registerJobSlug as _registerJobSlug,
   // FRO-232: merge/dedup utilities extracted from this file
   LOCALES as _LOCALES,
@@ -146,6 +147,7 @@ const loadSlugRegistry = _loadSlugRegistry;
 const saveSlugRegistry = _saveSlugRegistry;
 const getRegisteredSlug = _getRegisteredSlug;
 const registryPinnedLocaleSlug = _registryPinnedLocaleSlug;
+const sourceSlugPinContext = _sourceSlugPinContext;
 const registerJobSlug = _registerJobSlug;
 // FRO-232: merge/dedup utilities re-aliases
 const LOCALES = _LOCALES;
@@ -5456,8 +5458,9 @@ async function main() {
                   // Per-locale source-copy rule lives in registryPinnedLocaleSlug
                   // (single definition shared with mergeAndDeduplicate,
                   // hardenJobLocaleFields, and regenerate-slugs-by-locale).
+                  const pinCtx = sourceSlugPinContext(enriched, srcLang);
                   for (const loc of Object.keys(pin.slugByLocale)) {
-                    const pinned = registryPinnedLocaleSlug(pin, loc, srcLang);
+                    const pinned = registryPinnedLocaleSlug(pin, loc, srcLang, pinCtx);
                     if (pinned) enriched.slugByLocale[loc] = pinned;
                   }
                 }
@@ -5472,7 +5475,7 @@ async function main() {
                 // equality check and re-pinned an untranslated master slug over
                 // a real IT translation on every subsequent run (issues #3785 /
                 // #3794).
-                const pinnedMasterSlug = registryPinnedLocaleSlug(pin, 'it', srcLang);
+                const pinnedMasterSlug = registryPinnedLocaleSlug(pin, 'it', srcLang, sourceSlugPinContext(enriched, srcLang));
                 if (pinnedMasterSlug) enriched.slug = pinnedMasterSlug;
                 captureLostSlugs(enriched, aiSlugByLocale, aiSlug);
               }
