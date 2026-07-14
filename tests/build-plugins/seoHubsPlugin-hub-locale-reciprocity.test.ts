@@ -40,7 +40,13 @@ describe('emitSeoHubs — EN/DE/FR hub locales get reciprocal sitemap entries (#
       qw: () => {}, // HTML page bodies are irrelevant to this test
     }));
     xml = fs.readFileSync(path.join(distDir, 'sitemap-seo-hubs.xml'), 'utf-8');
-  });
+    // emitSeoHubs walks the full repo ROOT and writes every hub page + sitemap;
+    // on a heavily-loaded CI shard (full-suite runs measured at ~360s wall) this
+    // legitimately exceeds vitest's default 10s hookTimeout, intermittently
+    // reddening main on a green diff (observed runs 29348408768, 29351211797).
+    // Raise the hook budget so real work under load isn't misread as a failure —
+    // the test body assertions are unchanged.
+  }, 60000);
 
   afterAll(() => {
     fs.rmSync(distDir, { recursive: true, force: true });
