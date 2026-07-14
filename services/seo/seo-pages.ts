@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3217,
+ "numberOfItems": 3218,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7892,7 +7892,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3214, "name": "Svizzera: al via l'era delle mega batterie", "url": `${BASE_URL}/articoli-frontaliere/svizzera-era-mega-batterie-elettriche` },
           { "@type": "ListItem", "position": 3215, "name": "Redditi esteri: come gestire la tassazione", "url": `${BASE_URL}/articoli-frontaliere/redditi-estero-controllo-fiscale` },
           { "@type": "ListItem", "position": 3216, "name": "L'AI verso la bancarotta: invalidità a 18 anni", "url": `${BASE_URL}/articoli-frontaliere/ai-verso-la-bancarotta-forse-gia-nel-2030` },
-          { "@type": "ListItem", "position": 3217, "name": "Di più Svizzera-GB: fine negoziati su accordo a...", "url": `${BASE_URL}/articoli-frontaliere/switzerland-uk-free-trade-agreement-update` }
+          { "@type": "ListItem", "position": 3217, "name": "Di più Svizzera-GB: fine negoziati su accordo a...", "url": `${BASE_URL}/articoli-frontaliere/switzerland-uk-free-trade-agreement-update` },
+          { "@type": "ListItem", "position": 3218, "name": "Fotovoltaico, calano le vendite: “Serve sicurez...", "url": `${BASE_URL}/articoli-frontaliere/fotovoltaico-calano-le-vendite` }
  ]
  },
  {

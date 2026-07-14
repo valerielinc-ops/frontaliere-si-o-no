@@ -4524,6 +4524,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-redditi-estero-controllo-fiscale': { name: 'Fisco e Frontalieri', path: '/articoli-svizzera/redditi-estero-controllo-fiscale/', parent: 'blog' },
     'blog-ai-verso-la-bancarotta-forse-gia-nel-2030': { name: 'L\'AI verso la bancarotta', path: '/articoli-svizzera/ai-verso-la-bancarotta-forse-gia-nel-2030/', parent: 'blog' },
     'blog-switzerland-uk-free-trade-agreement-update': { name: 'Economia', path: '/articoli-svizzera/switzerland-uk-free-trade-agreement-update/', parent: 'blog' },
+    'blog-fotovoltaico-calano-le-vendite': { name: 'Fotovoltaico, calano le vendite', path: '/articoli-svizzera/fotovoltaico-calano-le-vendite/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

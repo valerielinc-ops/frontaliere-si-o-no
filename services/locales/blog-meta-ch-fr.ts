@@ -1108,6 +1108,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Plus Suisse-GB : fin des négociations sur l\'accord de libre-échange actualisé',
     'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'La Confédération et le Royaume-Uni ont conclu les négociations en vue d\'un accord de libre-échange actualisé. L\'entente renforce la sécurité juridique pour les entreprises et réduira les obstacles administratifs.',
     'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Une photo réaliste d\'une ville ou monument suisse, comme la tour de l\'horloge Zytglogge de Berne.',
+    'blog.article.fotovoltaico-calano-le-vendite.title': 'Sécurité des investissements, besoin impérieux',
+    'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Les ventes de panneaux solaires en Suisse ont baissé de 30% en 2025, selon l\'Office fédéral de l\'énergie.',
+    'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Image d\'un panneau solaire sur un toit suisse',
 };
 
 export default blogMetaChFr;
