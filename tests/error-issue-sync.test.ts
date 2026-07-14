@@ -191,6 +191,36 @@ describe('app-error-issue-sync.mjs', () => {
     expect(title).not.toContain('does not provide an export');
   });
 
+  it('skips message-less "(not set)" / empty GA4 buckets (#4148 — no message, reason or stack to act on)', async () => {
+    issueListEmptyThenCreate(104);
+    readFileSync.mockReturnValue(JSON.stringify({
+      ga4: {
+        errorHealth: {
+          totalErrors: 200,
+          errorRate: 5.8,
+          healthStatus: '🔴 CRITICAL',
+          appErrors: [
+            // Message-less bucket: GA4 renders an empty error_message as "(not set)".
+            { errorType: 'unhandled_rejection', errorMessage: '(not set)', pagePath: '/', count: 143, users: 2 },
+            // Genuinely empty string — same message-less class.
+            { errorType: 'unhandled_rejection', errorMessage: '', pagePath: '/', count: 40, users: 2 },
+            // Real actionable error — must still be synced.
+            { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro', count: 12, users: 9 },
+          ],
+          topStacks: [],
+        },
+      },
+    }));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('x is not a function');
+    expect(title).not.toContain('not set');
+  });
+
   it('escalates priority to high when the site-wide error rate is critical', async () => {
     issueListEmptyThenCreate(102);
     readFileSync.mockReturnValue(JSON.stringify({
@@ -376,6 +406,33 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     );
     expect(benignPattern).toBeDefined();
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+  });
+
+  it('mirrors the unsupported-browser "Unexpected token ?" parse pattern from services/benignErrorPatterns.ts byte-for-byte (#4172)', () => {
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test("Unexpected token '?'"));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+  });
+
+  it('mirrors the NotReadableError I/O file-read pattern from services/benignErrorPatterns.ts byte-for-byte (#4175)', () => {
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
+      p.test('NotReadableError: The I/O read operation failed.'),
+    );
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+  });
+
+  it('denies unsupported-browser parse failures (#4172) and OS/hardware file-read failures (#4175)', () => {
+    // Old browser parsing optional-chaining / nullish on a modern chunk.
+    expect(isIssueDenied("Unexpected token '?'")).toBe(true);
+    expect(isIssueDenied('Unexpected token ?')).toBe(true);
+    expect(isIssueDenied("SyntaxError: Unexpected token '?'")).toBe(true);
+    // But HTML-served-for-JS (real CDN fault) and JSON parse bugs still file.
+    expect(isIssueDenied("Unexpected token '<'")).toBe(false);
+    expect(isIssueDenied("Unexpected token 'o', \"<!DOCTYPE \"... is not valid JSON")).toBe(false);
+    // OS/hardware file-read failure — user's disk/file, unfixable in code.
+    expect(isIssueDenied('NotReadableError: The I/O read operation failed.')).toBe(true);
+    expect(isIssueDenied('DOMException: NotReadableError: The I/O read operation failed.')).toBe(true);
   });
 
   it('isIssueDenied keeps real errors issue-able (incl. call-time skew TypeErrors and chunk-load 404s)', () => {

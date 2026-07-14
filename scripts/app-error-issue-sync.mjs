@@ -47,6 +47,22 @@ export function main() {
 
   const entries = (eh.appErrors || [])
     .filter((e) => (e.count || 0) >= MIN_COUNT)
+    // GA4 renders an empty/absent `error_message` custom dimension as the
+    // literal "(not set)". Such a bucket is a message-less error class
+    // (overwhelmingly reason-less unhandled_rejection — Promise.reject() /
+    // rejected with undefined): the client handler already captured everything
+    // available (String(reason) → 'Unknown rejection', plus the stack when the
+    // reason is an Error — services/analytics.ts initGlobalErrorTracking), so
+    // there is no further context to extract and no code change can close a
+    // ticket with no message, no reason and no stack (#4148). This is a
+    // GA4-feeder data-quality artifact, NOT a client error signature — hence
+    // guarded here at the feeder rather than in the client-mirrored,
+    // parity-pinned ISSUE_DENY_PATTERNS (which the PostHog feeder shares; PostHog
+    // always carries a real message, never "(not set)").
+    .filter((e) => {
+      const msg = String(e.errorMessage ?? '').trim();
+      return msg.length > 0 && msg.toLowerCase() !== '(not set)';
+    })
     // Shared issue-creation deny-list (self-healed version-skew transients,
     // #3758/#3759/#3761 class): the same error reaches GA4 app_error and
     // PostHog $exception through parallel pipelines, so the "tracked in
