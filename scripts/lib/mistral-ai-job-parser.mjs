@@ -2,24 +2,25 @@
 /**
  * Mistral AI job parser — Fetcher and job builder.
  *
- * Source: https://jobs.lever.co/mistral
+ * Source: https://jobs.ashbyhq.com/mistral.ai
  *
- * Exports the 4 required functions for the crawler template:
+ * Mistral AI migrated its careers portal from Lever
+ * (https://jobs.lever.co/mistral, now permanently "No job postings currently
+ * open") to Ashby (https://jobs.ashbyhq.com/mistral.ai, ~164 live roles). The
+ * public Lever JSON API still answers HTTP 200 but with an empty array, so the
+ * old fetcher silently returned 0 jobs even though the company is actively
+ * hiring — including Zurich-based research roles (issue #4145). This parser now
+ * reads the Ashby posting API.
+ *
+ * Exports the required functions for the crawler template:
  *   - fetchAllMistralAiJobs()  — Fetch and parse all jobs
  *   - isMistralAiJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - isTrustedDomain()        — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import {
-  buildLeverApiUrl,
-  normalizeLeverJob,
-  extractLeverCompanySlug,
-  LeverApiError,
-} from './ats-clients/lever-client.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -28,7 +29,12 @@ export const MISTRAL_AI_KEY = 'mistral-ai';
 export const MISTRAL_AI_COMPANY_NAME = 'Mistral AI';
 export const MISTRAL_AI_COMPANY_DOMAIN = 'mistral.ai';
 
-const CAREER_URL = 'https://jobs.lever.co/mistral';
+// Ashby job-board slug (note the literal dot — the board is "mistral.ai", not
+// "mistral"). The public posting API returns every listed role in one call.
+const ASHBY_BOARD_SLUG = 'mistral.ai';
+const ASHBY_HOST = 'jobs.ashbyhq.com';
+const CAREER_URL = `https://${ASHBY_HOST}/${ASHBY_BOARD_SLUG}`;
+const ASHBY_API_URL = `https://api.ashbyhq.com/posting-api/job-board/${ASHBY_BOARD_SLUG}?includeCompensation=true`;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -49,7 +55,7 @@ function normalizeSpace(s = '') {
 export function isMistralAiJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -59,21 +65,22 @@ export function isMistralAiJob(job) {
     key === MISTRAL_AI_KEY ||
     key.startsWith('mistral-ai') ||
     company.includes('mistral ai') ||
-    url.includes('mistral.ai')
+    url.includes('mistral.ai') ||
+    url.includes(`${ASHBY_HOST}/${ASHBY_BOARD_SLUG}`)
   );
 }
 
 /**
- * Validate that a URL belongs to Mistral AI's domain.
+ * Validate that a URL belongs to Mistral AI's domain or its Ashby job board.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const url = new URL(rawUrl);
     const host = url.hostname.toLowerCase();
     if (host === 'mistral.ai' || host.endsWith('.mistral.ai')) return true;
-    if (host === 'jobs.lever.co') {
+    if (host === ASHBY_HOST) {
       const path = url.pathname.toLowerCase();
-      const slug = LEVER_COMPANY_SLUG.toLowerCase();
+      const slug = ASHBY_BOARD_SLUG.toLowerCase();
       return path.startsWith(`/${slug}/`) || path === `/${slug}`;
     }
     return false;
@@ -110,97 +117,149 @@ function detectExperienceLevel(title = '') {
   return 'mid';
 }
 
-function detectEmploymentType(text = '') {
+/**
+ * Map Ashby's `employmentType` enum to a schema.org employmentType, falling
+ * back to a title/text heuristic when the field is absent/unknown.
+ */
+const ASHBY_EMPLOYMENT_TYPE = {
+  fulltime: 'FULL_TIME',
+  parttime: 'PART_TIME',
+  intern: 'INTERN',
+  contract: 'CONTRACTOR',
+  temporary: 'TEMPORARY',
+};
+
+function mapEmploymentType(ashbyType = '', text = '') {
+  const mapped = ASHBY_EMPLOYMENT_TYPE[normalize(ashbyType).replace(/[^a-z]/g, '')];
+  if (mapped) return mapped;
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'OTHER';
 }
 
-/* ── Lever fetcher ────────────────────────────────────────────
- * Mistral AI is a global org (~175 open roles across Paris/Singapore/
- * Palo Alto/…). Only a handful target Zurich, and several of those list
- * Zurich as a SECONDARY office in `categories.allLocations` rather than
- * the primary `categories.location` (e.g. "Research Engineer, Machine
- * Learning - Paris/London/Zurich/Warsaw" has `location: "Paris"`).
- * The shared `fetchLeverJobs()` helper only filters on the primary
- * `location` field, so it would miss those multi-location postings.
- * We fetch+paginate manually here (reusing the client's URL builder /
- * normalizer / retry helper) and filter on `allLocations` instead.
+/* ── Ashby Swiss-location helpers (pure, unit-tested) ──────────
+ * Mistral is a global org (~164 open roles, mostly Paris). A role targets
+ * Switzerland either via its PRIMARY `location`/`address` or one of its
+ * `secondaryLocations` (e.g. "Research Engineer, Machine Learning" has
+ * primary location "Paris" but a secondary "Zurich" office). We must inspect
+ * both, and — for a matched role — surface the Swiss location string (not the
+ * Paris primary) so canton inference lands in CH.
  */
-const LEVER_COMPANY_SLUG =
-  extractLeverCompanySlug(CAREER_URL) || MISTRAL_AI_KEY;
-const LEVER_LOCATION_NEEDLES = ['zurich', 'zürich', 'switzerland', 'suisse', 'schweiz'];
-const PAGE_SIZE = 100;
-const MAX_PAGES = 10;
+const SWISS_COUNTRY_NEEDLES = ['switzerland', 'suisse', 'schweiz', 'svizzera'];
+const SWISS_LOCATION_NEEDLES = [
+  'switzerland', 'suisse', 'schweiz', 'svizzera',
+  'zurich', 'zürich', 'zuerich',
+  'geneva', 'genève', 'geneve', 'genf', 'ginevra',
+  'lausanne', 'basel', 'basle', 'bern', 'berne', 'lugano', 'zug', 'winterthur',
+];
+
+function isSwissLocationEntry(entry) {
+  const country = normalize(entry?.address?.postalAddress?.addressCountry || '');
+  if (SWISS_COUNTRY_NEEDLES.some((n) => country.includes(n))) return true;
+  const locality = normalize(entry?.address?.postalAddress?.addressLocality || '');
+  const label = normalize(entry?.location || '');
+  const hay = `${label} ${locality}`;
+  return SWISS_LOCATION_NEEDLES.some((n) => hay.includes(n));
+}
+
+/**
+ * Flatten an Ashby posting into its location entries (primary first, then
+ * secondary offices). Each entry keeps its `location` label + `address`.
+ */
+export function ashbyLocationEntries(job) {
+  const entries = [];
+  if (job?.location || job?.address) {
+    entries.push({ location: job?.location || '', address: job?.address });
+  }
+  if (Array.isArray(job?.secondaryLocations)) {
+    for (const sec of job.secondaryLocations) {
+      if (!sec || typeof sec !== 'object') continue;
+      entries.push({ location: sec?.location || '', address: sec?.address });
+    }
+  }
+  return entries;
+}
+
+/** Does this Ashby posting target a Swiss office (primary or secondary)? */
+export function isSwissAshbyJob(job) {
+  return ashbyLocationEntries(job).some(isSwissLocationEntry);
+}
+
+/**
+ * Pick the Swiss location LABEL for a matched posting (prefer the Swiss entry
+ * over a non-Swiss primary), falling back to the primary location text.
+ */
+export function pickSwissLocationLabel(job) {
+  const entries = ashbyLocationEntries(job);
+  const swiss = entries.find(isSwissLocationEntry);
+  const label = normalizeSpace(swiss?.location || entries[0]?.location || '');
+  return label || 'Zurich';
+}
+
+/* ── Ashby fetcher ─────────────────────────────────────────── */
+
 const TIMEOUT_MS = 20_000;
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 
-async function fetchLeverPage(url) {
+async function fetchAshbyBoard() {
   return fetchWithRetry(
     async () => {
       const ac = new AbortController();
       const timer = setTimeout(() => ac.abort(), TIMEOUT_MS);
       let res;
       try {
-        res = await fetch(url, {
+        res = await fetch(ASHBY_API_URL, {
           signal: ac.signal,
           headers: { 'User-Agent': POLITE_UA, Accept: 'application/json' },
         });
       } finally {
         clearTimeout(timer);
       }
-      if (res.ok) {
-        const json = await res.json();
-        if (!Array.isArray(json)) {
-          const e = new LeverApiError(`Lever API returned non-array body for ${url}`, res.status);
-          e.nonTransient = true;
-          throw e;
-        }
-        return json;
+      if (!res.ok) {
+        const err = new Error(`Ashby API ${res.status} ${res.statusText} for ${ASHBY_API_URL}`);
+        err.statusCode = res.status;
+        throw err;
       }
-      throw new LeverApiError(`Lever API ${res.status} ${res.statusText} for ${url}`, res.status);
+      const json = await res.json();
+      const jobs = Array.isArray(json?.jobs) ? json.jobs : null;
+      if (!jobs) {
+        const err = new Error(`Ashby API returned unexpected body shape for ${ASHBY_API_URL}`);
+        err.nonTransient = true;
+        throw err;
+      }
+      return jobs;
     },
     {
-      label: `lever ${url}`,
+      label: `ashby ${ASHBY_API_URL}`,
       isTransient: (err) => {
-        if (err instanceof LeverApiError) {
-          if (err.nonTransient) return false;
-          return err.statusCode == null || err.statusCode >= 500;
-        }
-        return true;
+        if (err?.nonTransient) return false;
+        const code = err?.statusCode;
+        // Network/abort (no status) → transient; otherwise only 5xx.
+        return code == null || code >= 500;
       },
     },
   );
 }
 
 async function fetchJobListings() {
-  const matches = [];
-  let skip = 0;
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const url = buildLeverApiUrl(LEVER_COMPANY_SLUG, { skip, limit: PAGE_SIZE });
-    const batch = await fetchLeverPage(url);
-    for (const raw of batch) {
-      if (!raw || typeof raw !== 'object') continue;
-      const allLocations = Array.isArray(raw?.categories?.allLocations)
-        ? raw.categories.allLocations
-        : [String(raw?.categories?.location || '')];
-      const haystack = allLocations.join(' | ').toLowerCase();
-      if (!LEVER_LOCATION_NEEDLES.some((n) => haystack.includes(n))) continue;
-      matches.push(normalizeLeverJob(raw, { company: MISTRAL_AI_COMPANY_NAME }));
-    }
-    if (batch.length < PAGE_SIZE) break;
-    skip += PAGE_SIZE;
+  const board = await fetchAshbyBoard();
+  const listings = [];
+  for (const raw of board) {
+    if (!raw || typeof raw !== 'object') continue;
+    if (raw.isListed === false) continue;
+    if (!isSwissAshbyJob(raw)) continue;
+    listings.push({
+      title: normalizeSpace(raw.title || ''),
+      location: pickSwissLocationLabel(raw),
+      url: String(raw.jobUrl || raw.applyUrl || CAREER_URL),
+      postedAt: raw.publishedAt || null,
+      description: typeof raw.descriptionHtml === 'string' ? raw.descriptionHtml : '',
+      jobReqId: String(raw.id || ''),
+      employmentType: raw.employmentType || '',
+    });
   }
-
-  return matches.map((j) => ({
-    title: j.title,
-    location: j.location,
-    url: j.applyUrl,
-    postedAt: j.postedAt,
-    description: j.descriptionHtml || '',
-    jobReqId: j.jobReqId,
-  }));
+  return listings;
 }
 
 /**
@@ -216,16 +275,14 @@ export async function fetchAllMistralAiJobs() {
 
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+    console.warn('⚠️ No Swiss job listings returned.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
   for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
@@ -264,19 +321,20 @@ export async function fetchAllMistralAiJobs() {
       country: 'CH',
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: mapEmploymentType(listing.employmentType, title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Intelligenza Artificiale / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      postedDate: listing.postedAt
+        ? new Date(listing.postedAt).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Mistral AI jobs discovered: ${jobs.length}`);
