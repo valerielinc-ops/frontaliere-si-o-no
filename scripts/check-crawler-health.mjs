@@ -351,6 +351,14 @@ const EMPTY_OK_CRAWLERS = new Set([
   // by the parser's SWISS_LOCATION_RE. Verified live 2026-07-11: HTTP 200,
   // parser healthy, zero CH openings is the genuine state (audit #3797).
   'franklin-university',
+  // INTEGRA Biosciences (Zizers, GR — but hires group-wide): the careers page
+  // is behind Cloudflare bot protection (403 "Just a moment…" to datacenter
+  // IPs); the crawler routes through the shared Jina clean-IP proxy and parses
+  // the real listing. Verified live 2026-07-14: Jina fetch succeeds, parser
+  // healthy, currently zero CH openings (the group posts mostly US/DE roles) —
+  // genuine 0, not a fetch failure (issue #4144, fixed in #4114). Re-arms when
+  // a CH vacancy appears.
+  'integra-biosciences',
   // Privatklinik Siloah (Swiss Medical Network): the SmartRecruiters tenant
   // API (companies/SwissMedicalNetwork1/postings) currently lists 80 CH
   // postings with ZERO attributed to the Siloah department — verified
