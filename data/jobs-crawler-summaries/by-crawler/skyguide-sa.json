@@ -1,18 +1,49 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-07-14T11:07:20.969Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-07-14T22:11:19.572Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4754,
-  "avgDurationMs": 4754,
+  "durationMs": 5008,
+  "avgDurationMs": 5008,
   "durationHistory": [
-    4754
+    5008
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Internship Finance - 12 months (80-100%)",
+      "slug": "internship-finance-12-months-80-100-skyguide-geneva-ch",
+      "url": "https://jobs.skyguide.ch/job/Geneva-Internship-Finance-12-months-%2880-100%29/1404236833/",
+      "applyUrl": "https://jobs.skyguide.ch/talentcommunity/apply/1404236833/?locale=en_US",
+      "company": "Skyguide",
+      "companyKey": "skyguide-sa",
+      "companyDomain": "skyguide.ch",
+      "location": "Geneva",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Logistica",
+      "source": "skyguide-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Head of Communications (80-100%)",
