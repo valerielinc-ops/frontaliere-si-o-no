@@ -11,8 +11,50 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-14T11:02:04.476Z",
+  "updatedAt": "2026-07-14T22:07:05.977Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/elettricista-con-attestato-federale-caposquadra-elettricista-2683259/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/lattoniere-copritetto-m-f-2683256/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/cameriera-ai-piani-2683230/": {
+      "location": "Andermatt",
+      "canton": "UR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/capocantiere-elettricista-2683239/": {
+      "location": "Bulle",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/operatore-m1-piccole-macchine-2683236/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/macchinista-m2-2683233/": {
+      "location": "Fribourg",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/verniciatore-di-carrozzerie-m-f-2683226/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
     "https://www.pemsa.ch/it/job/giardiniere-2683197/": {
       "location": "Locarno",
       "canton": "TI",
@@ -92,12 +134,6 @@
       "postedDate": "2026-07-13"
     },
     "https://www.pemsa.ch/it/job/macchinista-m1-2683014/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-13"
-    },
-    "https://www.pemsa.ch/it/job/macchinista-m6-autista-con-esperienza-2683011/": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "PEMSA",
@@ -586,12 +622,6 @@
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2682025/": {
       "location": "Genève",
       "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
-    },
-    "https://www.pemsa.ch/it/job/addetto-alla-logistica-magazziniere-m-f-2681964/": {
-      "location": "Pratteln",
-      "canton": "BL",
       "company": "PEMSA",
       "postedDate": "2026-07-06"
     },
@@ -1153,24 +1183,6 @@
       "company": "PEMSA",
       "postedDate": "2026-06-29"
     },
-    "https://www.pemsa.ch/it/job/copritetto-2680786/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/caposquadra-muratura-m-f-2680775/": {
-      "location": "Tavannes",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/specialista-in-muratura-m-f-2680771/": {
-      "location": "Tavannes",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
     "https://www.pemsa.ch/it/job/addetto-alla-regolazione-e-alla-programmazione-della-rettifica-a-5-assi-m-f-d-2680587/": {
       "location": "Genève",
       "canton": "GE",
@@ -1314,12 +1326,6 @@
       "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-06-19"
-    },
-    "https://www.pemsa.ch/it/job/muratore-ingegneria-civile-2679556/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-18"
     },
     "https://www.pemsa.ch/it/job/meccanico-di-macchine-agricole-efz-m-f-d-2679420/": {
       "location": "Basel",
