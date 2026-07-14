@@ -110,6 +110,29 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   // is the only viable catch. `standardSelectors` is not used anywhere in this
   // codebase, so any error mentioning it is unambiguously Clarity noise.
   /\bstandardSelectors\b/,
+
+  // ── Unsupported-browser parse failure (below our support matrix) — #4172 ──
+  // A browser too old to PARSE modern syntax (optional chaining `?.` / nullish
+  // coalescing `??`) throws "SyntaxError: Unexpected token '?'" while loading a
+  // current module chunk. Vite's default `build.target: 'modules'` baseline
+  // (chrome87/safari14/firefox78/edge88) already ships these operators
+  // un-transpiled, so ONLY browsers below that baseline hit this — an
+  // unsupported-browser environmental failure no code change can close (a real
+  // un-transpiled ship would break every modern browser at ~100% volume, not
+  // 60 hits across 31 long-tail sessions). Distinct from the link-time
+  // version-skew SyntaxErrors (MODULE_LINK_SKEW_PATTERNS, "does not provide an
+  // export named …") which are self-healed, not old-browser. Matched on the `?`
+  // token specifically so a genuine "Unexpected token '<'" (HTML-for-JS CDN
+  // fault) or JSON parse bug still reports.
+  /Unexpected token ['"]?\?['"]?/i,
+
+  // ── OS/hardware file-read failure — #4175 ──
+  // "NotReadableError: The I/O read operation failed." is a DOMException the
+  // browser raises when the OS cannot read a user-selected file/blob (flaky
+  // disk, ejected removable media, a file locked or changed mid-read). Purely
+  // environmental — the user's storage failed while reading; no code change can
+  // prevent it. 9 hits / 1 session (a single user's failing drive).
+  /NotReadableError: The I\/O read operation failed/i,
 ];
 
 /**

@@ -100,6 +100,20 @@ export const ISSUE_DENY_PATTERNS = [
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
   /Firebase:.*auth\/network-request-failed/i,
+  // Unsupported-browser parse failure (#4172): a browser too old to parse
+  // optional-chaining `?.` / nullish `??` throws "Unexpected token '?'" on a
+  // modern chunk. Below our Vite `build.target: 'modules'` baseline → an
+  // unsupported-browser environmental failure no code change can close. Matched
+  // on the `?` token so "Unexpected token '<'" (HTML-for-JS) / JSON parse bugs
+  // still file. MUST mirror UNIVERSAL_BENIGN_PATTERNS in
+  // services/benignErrorPatterns.ts — parity-pinned by tests/error-issue-sync.test.ts.
+  /Unexpected token ['"]?\?['"]?/i,
+  // OS/hardware file-read failure (#4175): DOMException "NotReadableError: The
+  // I/O read operation failed." — the OS could not read a user-selected
+  // file/blob (flaky disk / ejected media). Environmental, unfixable in code.
+  // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
+  // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
+  /NotReadableError: The I\/O read operation failed/i,
 ];
 
 /**
