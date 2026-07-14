@@ -1120,6 +1120,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-naspi.title': 'Border unemployment: how it works and how much it amounts to',
     'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Frontier workers can take advantage of Naspi, a monthly unemployment benefit paid by INPS. Here are the requirements and how to apply.',
     'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalieri at work in Switzerland, July 2024',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Graubünden: hospitals\' finances return to service',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'After a difficult 2024, Grisonian nosocomes register positive results in 2025. Here is the financial overview of the main healthcare facilities.',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Cantonal hospital in Grisons',
 };
 
 export default blogMetaChEn;

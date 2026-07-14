@@ -1120,6 +1120,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-naspi.title': 'Chômage frontalier : comment ça marche et combien ça coûte',
     'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Les travailleurs frontaliers peuvent bénéficier de la Naspi, allocation de chômage mensuelle versée par l\'INPS. Voici les conditions et les modalités de demande.',
     'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontaliers au travail en Suisse, juillet 2024',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Grisons : les finances des hôpitaux reviennent à l\'actif',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Après une 2024 difficile, les nosocomes grisons enregistrent des résultats positifs en 2025. Voici l\'aperçu financier des principaux établissements de santé.',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Hôpital cantonal des Grisons',
 };
 
 export default blogMetaChFr;
