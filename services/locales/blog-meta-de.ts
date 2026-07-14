@@ -8499,6 +8499,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rincari-festival-estate-ticino.title': 'Konzerte in der Schweiz: Preise fliegen im Sommer 2026',
     'blog.article.rincari-festival-estate-ticino.excerpt': 'Open-Air-Festivals werden teurer: In zehn Jahren über 50% teurer. Analyse der Kosten und Auswirkungen auf die Taschen der Fans.',
     'blog.article.rincari-festival-estate-ticino.imageAlt': 'Menschen bei einem Open-Air-Konzert im Tessin',
+    'blog.article.canicola-lavoro-ticino-confronto.title': 'Hitzewallung und Arbeit: Zusammenstoß zwischen Kanton und UNIA über die Rechte',
+    'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona steht im Mittelpunkt des Vergleichs zwischen Behörden und Gewerkschaften über den Arbeitsschutz bei extremen Hitzewellen im Tessin.',
+    'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande in Bellinzona an einem Sommertag',
 };
 
 export default blogMetaDe;

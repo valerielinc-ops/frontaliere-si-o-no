@@ -1,0 +1,19 @@
+{
+  "id": "canicola-lavoro-ticino-confronto",
+  "slug": "canicola-lavoro-ticino-confronto",
+  "publishedAt": "2026-07-14T21:08:45.663Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 78.03324666666667,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
