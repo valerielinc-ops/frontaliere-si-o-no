@@ -17,7 +17,7 @@
       "title": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
       "titleByLocale": {
         "it": "Ingegnere elettrico/a Embedded Software & Hardware 80-100%",
-        "en": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
+        "en": "Electrical Engineer in Embedded Software & Hardware 80-100 %",
         "de": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
         "fr": "Ingénieur électrique en logiciel et matériel embarqué 80-100 %"
       },
@@ -63,7 +63,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:28:54.611Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -397,8 +396,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -467,7 +465,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1035,8 +1032,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-06da1ea6c388",
@@ -1053,16 +1049,16 @@
       "title": "Software/System Ingenieur 80-100% (m/w)",
       "titleByLocale": {
         "de": "Software/System Ingenieur 80-100% (m/w)",
-        "en": "Software/System Ingenieur 80-100% (m/w)",
-        "it": "Software/System Ingenieur 80-100% (m/w)",
-        "fr": "Software/System Ingenieur 80-100% (m/w)"
+        "en": "Software/System Engineer 80-100% (m/w)",
+        "it": "Software/Ingegnere di sistema 80-100% (m/w)",
+        "fr": "Ingénieur logiciel/système 80-100% (m/w)"
       },
       "description": "Ihr Aufgabengebiet\n\n• Support, Wartung, Unterhalt und Erweiterungen der Entwicklungsinfrastruktur (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisierung der Entwicklungsinfrastruktur mittels Ansible/AWX, Shell/Bash, Python\n\n• Monitoring der Entwicklungsinfrastruktur mittels PRTG und Elastic Stack\n\n• Arbeiten mit Container und Virtualisierungsumgebungen (Docker/Compose, lxc/lxd, kvm)\n\n• Fachliche Unterstützung der Entwickler bei diversen Themen wie Jira Workflows, Rechte Management, Einführung neuer Tools und Prozesse\n\nIhr Profil\n\n• Sie sind Informatikingenieur FH / ETH oder Elektroingenieur FH / ETH mit gleichwertiger Erfahrung.\n\n• Sie haben umfangreiche Linux Administrations- und Anwender Erfahrung und besitzen gute Windows Kenntnisse.\n\n• Sie bringen fundierte Erfahrungen mit einem oder mehreren der folgenden Konzepte mit: REST-API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestrierung, Automatisierungs-Tools (Ansible)\n\n• Sie besitzen idealerweise bereits gute Kenntnisse in einer oder mehreren Script- oder Programmiersprachen (Python, Bash, Powershell, C#, etc.)\n\n• Sie haben idealerweise Erfahrung im Betrieb und Unterhalt von Entwicklungsplattformen (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Sie bringen gute Kenntnisse in moderner, agiler Softwareentwicklung und deren Konzepte mit\n\n• Sie beherrschen Deutsch und Englisch in Wort und Schrift.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
       "descriptionByLocale": {
         "de": "Ihr Aufgabengebiet\n\n• Support, Wartung, Unterhalt und Erweiterungen der Entwicklungsinfrastruktur (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisierung der Entwicklungsinfrastruktur mittels Ansible/AWX, Shell/Bash, Python\n\n• Monitoring der Entwicklungsinfrastruktur mittels PRTG und Elastic Stack\n\n• Arbeiten mit Container und Virtualisierungsumgebungen (Docker/Compose, lxc/lxd, kvm)\n\n• Fachliche Unterstützung der Entwickler bei diversen Themen wie Jira Workflows, Rechte Management, Einführung neuer Tools und Prozesse\n\nIhr Profil\n\n• Sie sind Informatikingenieur FH / ETH oder Elektroingenieur FH / ETH mit gleichwertiger Erfahrung.\n\n• Sie haben umfangreiche Linux Administrations- und Anwender Erfahrung und besitzen gute Windows Kenntnisse.\n\n• Sie bringen fundierte Erfahrungen mit einem oder mehreren der folgenden Konzepte mit: REST-API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestrierung, Automatisierungs-Tools (Ansible)\n\n• Sie besitzen idealerweise bereits gute Kenntnisse in einer oder mehreren Script- oder Programmiersprachen (Python, Bash, Powershell, C#, etc.)\n\n• Sie haben idealerweise Erfahrung im Betrieb und Unterhalt von Entwicklungsplattformen (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Sie bringen gute Kenntnisse in moderner, agiler Softwareentwicklung und deren Konzepte mit\n\n• Sie beherrschen Deutsch und Englisch in Wort und Schrift.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
-        "it": "Ihr Aufgabengebiet\n\n• Support, Wartung, Unterhalt und Erweiterungen der Entwicklungsinfrastruktur (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisierung der Entwicklungsinfrastruktur mittels Ansible/AWX, Shell/Bash, Python\n\n• Monitoring der Entwicklungsinfrastruktur mittels PRTG und Elastic Stack\n\n• Arbeiten mit Container und Virtualisierungsumgebungen (Docker/Compose, lxc/lxd, kvm)\n\n• Fachliche Unterstützung der Entwickler bei diversen Themen wie Jira Workflows, Rechte Management, Einführung neuer Tools und Prozesse\n\nIhr Profil\n\n• Sie sind Informatikingenieur FH / ETH oder Elektroingenieur FH / ETH mit gleichwertiger Erfahrung.\n\n• Sie haben umfangreiche Linux Administrations- und Anwender Erfahrung und besitzen gute Windows Kenntnisse.\n\n• Sie bringen fundierte Erfahrungen mit einem oder mehreren der folgenden Konzepte mit: REST-API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestrierung, Automatisierungs-Tools (Ansible)\n\n• Sie besitzen idealerweise bereits gute Kenntnisse in einer oder mehreren Script- oder Programmiersprachen (Python, Bash, Powershell, C#, etc.)\n\n• Sie haben idealerweise Erfahrung im Betrieb und Unterhalt von Entwicklungsplattformen (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Sie bringen gute Kenntnisse in moderner, agiler Softwareentwicklung und deren Konzepte mit\n\n• Sie beherrschen Deutsch und Englisch in Wort und Schrift.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
-        "en": "Ihr Aufgabengebiet\n\n• Support, Wartung, Unterhalt und Erweiterungen der Entwicklungsinfrastruktur (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisierung der Entwicklungsinfrastruktur mittels Ansible/AWX, Shell/Bash, Python\n\n• Monitoring der Entwicklungsinfrastruktur mittels PRTG und Elastic Stack\n\n• Arbeiten mit Container und Virtualisierungsumgebungen (Docker/Compose, lxc/lxd, kvm)\n\n• Fachliche Unterstützung der Entwickler bei diversen Themen wie Jira Workflows, Rechte Management, Einführung neuer Tools und Prozesse\n\nIhr Profil\n\n• Sie sind Informatikingenieur FH / ETH oder Elektroingenieur FH / ETH mit gleichwertiger Erfahrung.\n\n• Sie haben umfangreiche Linux Administrations- und Anwender Erfahrung und besitzen gute Windows Kenntnisse.\n\n• Sie bringen fundierte Erfahrungen mit einem oder mehreren der folgenden Konzepte mit: REST-API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestrierung, Automatisierungs-Tools (Ansible)\n\n• Sie besitzen idealerweise bereits gute Kenntnisse in einer oder mehreren Script- oder Programmiersprachen (Python, Bash, Powershell, C#, etc.)\n\n• Sie haben idealerweise Erfahrung im Betrieb und Unterhalt von Entwicklungsplattformen (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Sie bringen gute Kenntnisse in moderner, agiler Softwareentwicklung und deren Konzepte mit\n\n• Sie beherrschen Deutsch und Englisch in Wort und Schrift.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
-        "fr": "Ihr Aufgabengebiet\n\n• Support, Wartung, Unterhalt und Erweiterungen der Entwicklungsinfrastruktur (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisierung der Entwicklungsinfrastruktur mittels Ansible/AWX, Shell/Bash, Python\n\n• Monitoring der Entwicklungsinfrastruktur mittels PRTG und Elastic Stack\n\n• Arbeiten mit Container und Virtualisierungsumgebungen (Docker/Compose, lxc/lxd, kvm)\n\n• Fachliche Unterstützung der Entwickler bei diversen Themen wie Jira Workflows, Rechte Management, Einführung neuer Tools und Prozesse\n\nIhr Profil\n\n• Sie sind Informatikingenieur FH / ETH oder Elektroingenieur FH / ETH mit gleichwertiger Erfahrung.\n\n• Sie haben umfangreiche Linux Administrations- und Anwender Erfahrung und besitzen gute Windows Kenntnisse.\n\n• Sie bringen fundierte Erfahrungen mit einem oder mehreren der folgenden Konzepte mit: REST-API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestrierung, Automatisierungs-Tools (Ansible)\n\n• Sie besitzen idealerweise bereits gute Kenntnisse in einer oder mehreren Script- oder Programmiersprachen (Python, Bash, Powershell, C#, etc.)\n\n• Sie haben idealerweise Erfahrung im Betrieb und Unterhalt von Entwicklungsplattformen (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Sie bringen gute Kenntnisse in moderner, agiler Softwareentwicklung und deren Konzepte mit\n\n• Sie beherrschen Deutsch und Englisch in Wort und Schrift.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com"
+        "it": "Le tue responsabilità\n\n• Supporto, manutenzione, manutenzione e estensione dell'infrastruttura di sviluppo (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automazione delle infrastrutture di sviluppo utilizzando Ansible/AWX, Shell/Bash, Python\n\n• Monitoraggio dell'infrastruttura di sviluppo tramite PRTG e Elastic Stack\n\n• Lavorare con contenitori e ambienti di virtualizzazione (Docker/Compose, lxc/lxd, kvm)\n\n• Supporto professionale per gli sviluppatori su vari argomenti come i flussi di lavoro Jira, la gestione dei diritti, l'introduzione di nuovi strumenti e processi\n\nIl tuo profilo\n\n• Siete ingegnere del computer FH / ETH o ingegnere elettrico FH / ETH con esperienza equivalente.\n\n• Hanno una vasta amministrazione Linux e un'esperienza utente e hanno una buona conoscenza di Windows.\n\n• Hai una vasta esperienza con uno o più dei seguenti concetti: REST API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestration, Automation Tools (Ansible)\n\n• Idealmente, hai già una buona conoscenza di uno o più linguaggi di scrittura o di programmazione (Python, Bash, Powershell, C#, ecc.)\n\n• Idealmente, hai esperienza nel funzionamento e nel mantenimento di piattaforme di sviluppo (Jira, Confluence Wiki, GitLab, Artifactory, ecc.)\n\n• Hai una buona conoscenza dello sviluppo moderno e agile del software e dei suoi concetti\n\n• Si padrone tedesco e inglese in parola e scrittura.\n\nI vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è di nuova costruzione e dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\nPer ulteriori dettagli, si prega di contattare:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
+        "en": "Your responsibilities\n\n• Support, maintenance, maintenance and extension of the development infrastructure (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automation of development infrastructure using Ansible/AWX, Shell/Bash, Python\n\n• Monitoring the development infrastructure using PRTG and Elastic Stack\n\n• Working with containers and virtualization environments (Docker/Compose, lxc/lxd, kvm)\n\n• Professional support for developers on various topics such as Jira workflows, rights management, introduction of new tools and processes\n\nYour profile\n\n• You are computer engineer FH / ETH or electrical engineer FH / ETH with equivalent experience.\n\n• They have extensive Linux administration and user experience and have good Windows knowledge.\n\n• You have extensive experience with one or more of the following concepts: REST API, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestration, Automation Tools (Ansible)\n\n• Ideally, you already have good knowledge of one or more scripting or programming languages (Python, Bash, Powershell, C#, etc.)\n\n• Ideally, you have experience in operating and maintaining development platforms (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• You have good knowledge of modern, agile software development and its concepts\n\n• You master German and English in word and writing.\n\nYour benefits\n\nYour new place of work in Dierikon is newly built and equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder\n\nstefan.binder@komaxgroup.com",
+        "fr": "Vos responsabilités\n\n• Soutien, entretien, entretien et extension de l'infrastructure de développement (Atlassian Jira/Confluence, JFrog Artifactory, GitLab/Runner, Incredibuild, Docat, ...)\n\n• Automatisation de l'infrastructure de développement en utilisant Ansible/AWX, Shell/Bash, Python\n\n• Surveillance de l'infrastructure de développement par PRTG et Elastic Stack\n\n• Travailler avec des conteneurs et des environnements de virtualisation (Docker/Compose, lxc/lxd, kvm)\n\n• Assistance professionnelle pour les développeurs sur divers sujets tels que les flux de travail Jira, la gestion des droits, l'introduction de nouveaux outils et processus\n\nVotre profil\n\n• Vous êtes ingénieur en informatique FH / ETH ou ingénieur électrique FH / ETH avec une expérience équivalente.\n\n• Ils ont une vaste administration Linux et l'expérience utilisateur et ont de bonnes connaissances de Windows.\n\n• Vous avez une vaste expérience avec un ou plusieurs des concepts suivants: API REST, CI/CD Pipelines, Cloud, Containerization, Docker, Orchestration, Outils d'automatisation (Ansible)\n\n• Idéalement, vous avez déjà une bonne connaissance d'un ou plusieurs langages de script ou de programmation (Python, Bash, Powershell, C#, etc.)\n\n• Idéalement, vous avez de l'expérience dans l'exploitation et le maintien de plateformes de développement (Jira, Confluence Wiki, GitLab, Artifactory, etc.)\n\n• Vous avez une bonne connaissance du développement logiciel moderne et agile et de ses concepts\n\n• Vous maîtrisez l'allemand et l'anglais en paroles et en écritures.\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est récemment construit et équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il y a aussi des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\nPour plus de détails, veuillez contacter:\n\nStefan Binder\n\nStefan.binder@komaxgroup.com"
       },
       "location": "Dierikon",
       "canton": "LU",
@@ -1098,7 +1094,6 @@
       "previousSlugs": [
         "software-system-ingenieur-80-100-m-w-komax-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1128,7 +1123,7 @@
       "title": "Technical Sales Specialist 80-100% (m/w)",
       "titleByLocale": {
         "it": "Specialista Vendite Tecnico 80-100% (m/f)",
-        "en": "Technical Sales Specialist 80-100% (m/w)",
+        "en": "Technical Sales Specialist 80-100% (m/f)",
         "de": "Technical Sales Spezialist 80-100% (m/w)",
         "fr": "Spécialiste Commercial Technique 80-100% (m/f)"
       },
@@ -1177,7 +1172,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1206,7 +1200,7 @@
       "title": "Software/System Ingenieur 80-100% (m/w)",
       "titleByLocale": {
         "it": "Software/Ingegnere di sistema 80-100% (m/w)",
-        "en": "Software/System Ingenieur 80-100% (m/w)",
+        "en": "Software/System Engineer 80-100% (m/w)",
         "de": "Software/System Ingenieur 80-100% (m/w)",
         "fr": "Ingénieur logiciel 80-100% (m/w)"
       },
@@ -1267,8 +1261,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
