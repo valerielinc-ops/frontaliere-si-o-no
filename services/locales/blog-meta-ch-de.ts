@@ -1108,6 +1108,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Mehr Schweiz-GB: Ende Verhandlungen über aktualisiertes Freihandelsabkommen',
     'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'Die Eidgenossenschaft und das Vereinigte Königreich haben die Verhandlungen über ein aktualisiertes Freihandelsabkommen abgeschlossen. Die Vereinbarung stärkt die Rechtssicherheit für Unternehmen und wird administrative Hürden abbauen.',
     'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Ein realistisches Foto einer Schweizer Stadt oder Sehenswürdigkeit, wie dem Zytglogge-Uhrturm in Bern.',
+    'blog.article.fotovoltaico-calano-le-vendite.title': 'Photovoltaik, Umsatzrückgang: „Investitionssicherheit ist gefragt“',
+    'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Die Verkäufe von Solarmodulen in der Schweiz gingen laut Bundesamt für Energie im Jahr 2025 um 30 Prozent zurück.',
+    'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Bild eines Solarkraftwerks auf einem Schweizer Dach',
 };
 
 export default blogMetaChDe;

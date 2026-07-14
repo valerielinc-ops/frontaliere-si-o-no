@@ -1108,6 +1108,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.switzerland-uk-free-trade-agreement-update.title': 'More Switzerland-GB: end of negotiations on updated free trade agreement',
     'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'The Confederation and the United Kingdom have concluded negotiations for an updated free trade agreement. The cartel strengthens legal certainty for businesses and will reduce administrative obstacles.',
     'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'A realistic photo of a Swiss city or landmark, such as Bern\'s Zytglogge clock tower.',
+    'blog.article.fotovoltaico-calano-le-vendite.title': 'Photovoltaic, sales fall: "We need investment security"',
+    'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Sales of solar panels in Switzerland fell by 30% in 2025, according to the Federal Office of Energy.',
+    'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Image of a solar panel installation on a Swiss roof',
 };
 
 export default blogMetaChEn;

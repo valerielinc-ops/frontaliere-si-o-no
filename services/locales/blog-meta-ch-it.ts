@@ -1108,6 +1108,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.switzerland-uk-free-trade-agreement-update.title': 'Di più Svizzera-GB: fine negoziati su accordo aggiornato libero scambio',
     'blog.article.switzerland-uk-free-trade-agreement-update.excerpt': 'La Confederazione e il Regno Unito hanno concluso i negoziati per un accordo di libero scambio aggiornato. L\'intesa rafforza la certezza del diritto per le imprese e ridurrà gli ostacoli amministrativi.',
     'blog.article.switzerland-uk-free-trade-agreement-update.imageAlt': 'Una foto realistica di una città o monumento svizzero, come la torre dell\'orologio Zytglogge di Berna.',
+    'blog.article.fotovoltaico-calano-le-vendite.title': 'Fotovoltaico, calano le vendite: “Serve sicurezza investimenti”',
+    'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Le vendite di pannelli solari in Svizzera sono diminuite del 30% nel 2025, secondo l\'Ufficio federale dell\'energia.',
+    'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Immagine di un impianto fotovoltaico su un tetto svizzero',
 };
 
 export default blogMetaChIt;
