@@ -1,6 +1,6 @@
 {
   "crawlerKey": "villa-im-park",
-  "assembledAt": "2026-07-13T22:11:01.926Z",
+  "assembledAt": "2026-07-14T22:09:03.487Z",
   "jobs": [
     {
       "id": "villa-im-park-2e1ad74d807b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:11:00.155Z",
+      "crawledAt": "2026-07-14T22:09:01.682Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -53,11 +53,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist"
+        "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
+        "apprendistato-per-assistente-alla-salute-2027-privatklinik-villa-im-park-rothrist"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist"
+          "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
+          "apprendistato-per-assistente-alla-salute-2027-privatklinik-villa-im-park-rothrist"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:29.059Z",
@@ -70,6 +72,88 @@
           "@type": "QuantitativeValue",
           "minValue": 52000,
           "maxValue": 78500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "villa-im-park-4bdcb31f92c9",
+      "slug": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
+      "slugByLocale": {
+        "it": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
+        "en": "specialist-for-storage-care-60-80-privatklinik-villa-im-park-rothrist",
+        "de": "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
+        "fr": "specialiste-des-soins-de-stockage-60-80-privatklinik-villa-im-park-rothrist"
+      },
+      "company": "Privatklinik Villa im Park",
+      "companyKey": "villa-im-park",
+      "companyDomain": "swissmedical.net",
+      "title": "Fachperson für Lagerungspflege 60 - 80%",
+      "titleByLocale": {
+        "it": "Fachperson per Lagerungspflege 60 - 80%",
+        "en": "Specialist for storage care 60 - 80 %",
+        "de": "Fachperson für Lagerungspflege 60 - 80%",
+        "fr": "Spécialiste des soins de stockage 60 - 80 %"
+      },
+      "description": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.\n\nStellenbeschreibung\n\n• Fachliche und individuelle Betreuung der Patientinnen und Patienten\n\n• Ein- und Ausschleusung der Patienten in der OP-Abteilung\n\n• Vorbereitung der Patienten mit Hautvorbereitung und einer fachgerechten Lagerung für die Operation\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte sowie Materialien\n\n• Sorgfältige Dokumentation aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Unterstützung beim Zudienen und Ablösen\n\nQualifikationen\n\n• Nachweis Branchenzertifikat und/oder mehrjährige Erfahrung im OP-Bereich\n\n• Offenheit für die interdisziplinäre Zusammenarbeit im OP-Bereich\n\n• Kommunikationsstärke\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Zuverlässigkeit, Engagement und Belastbarkeit\n\n• Bereitschaft zur saisonalen Arbeitsflexibilität\n\n• Bereitschaft zum Pikettdienst\n\nZusätzliche Informationen\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Angebot an internen und externen Weiterbildungen\n\n• Tagesmenü für 5 CHF/Suppe gratis\n\n• Vielseitiges Vergünstigungsangebot der Gruppe Swiss Medical Network",
+      "descriptionByLocale": {
+        "it": "Descrizione aziendale\n\nNella clinica privata Villa im Park, il cui carattere è caratterizzato dalla proprietà storica, storica, circa 40 medici osservanti svolgono più di 1.800 procedure all'anno. Le tre sale operative integrative, completamente digitalizzate della clinica sono tra le migliori attrezzate del loro genere. Le principali specialità mediche includono chirurgia generale, anestesiologia, chirurgia ortopedica e traumatologia del sistema muscoloscheletrico e ginecologia. Come Listespital, la clinica privata Villa im Park nel Canton Aargau ha un mandato di servizio pubblico e tratta i pazienti di tutte le classi di assicurazione.\n\nDescrizione del lavoro\n\n• Cura professionale e individuale del paziente\n\n• Introduzione e rimozione dei pazienti nel reparto chirurgico\n\n• Preparazione di pazienti con preparazione della pelle e conservazione corretta per l'operazione\n\n• Preparazione e funzionamento professionale delle attrezzature e dei materiali necessari\n\n• Documentazione attenta di tutte le attività di allattamento, compresa la registrazione delle prestazioni\n\n• Sostegno alle attività organizzative e amministrative\n\n• Supportarli e supportarli.\n\nQualifiche\n\n• Prova del certificato di settore e/o di diversi anni di esperienza nel campo chirurgico\n\n• Apertura per la cooperazione interdisciplinare nell'area OR\n\n• Resistenza alla comunicazione\n\n• Alto livello di competenza tecnica, d'azione e sociale\n\n• Affidabilità, impegno e resilienza\n\n• Prontezza per flessibilità di lavoro stagionale\n\n• Prontezza per Picetting\n\nUlteriori informazioni\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Offerta di formazione interna ed esterna\n\n• Menù giornaliero per 5 CHF/soup gratuito\n\n• Vari sconti offerti dal Gruppo Swiss Medical Network",
+        "en": "Business description\n\nIn the private clinic Villa im Park, whose character is characterized by the stately, historic property, around 40 observing physicians perform more than 1,800 procedures per year. The three integrative, fully digitalized operating rooms of the clinic are among the best equipped of their kind. Major medical specialties include general surgery, anesthesiology, orthopaedic surgery and traumatology of the musculoskeletal system and gynecology. As a Listespital, the private clinic Villa im Park in the Canton of Aargau has a public service mandate and treats patients from all insurance classes.\n\nJob description\n\n• Professional and individual patient care\n\n• Introduction and removal of patients in the surgical department\n\n• Preparation of patients with skin preparation and proper storage for the operation\n\n• Professional preparation and operation of the necessary equipment and materials\n\n• Careful documentation of all nursing activities including performance recording\n\n• Support for organisational and administrative activities\n\n• Supporting and supporting them.\n\nQualifications\n\n• Proof of industry certificate and/or several years of experience in the surgical field\n\n• Openness for interdisciplinary cooperation in the OR area\n\n• Communication strength\n\n• High level of technical, action and social competence\n\n• Reliability, commitment and resilience\n\n• Readiness for seasonal work flexibility\n\n• Readiness for Picetting\n\nAdditional information\n\n• A varied area of responsibility in a lively but manageable environment\n\n• Offer of internal and external training\n\n• Daily menu for 5 CHF/soup free of charge\n\n• Various discounts offered by the Swiss Medical Network Group",
+        "de": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.\n\nStellenbeschreibung\n\n• Fachliche und individuelle Betreuung der Patientinnen und Patienten\n\n• Ein- und Ausschleusung der Patienten in der OP-Abteilung\n\n• Vorbereitung der Patienten mit Hautvorbereitung und einer fachgerechten Lagerung für die Operation\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte sowie Materialien\n\n• Sorgfältige Dokumentation aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Unterstützung beim Zudienen und Ablösen\n\nQualifikationen\n\n• Nachweis Branchenzertifikat und/oder mehrjährige Erfahrung im OP-Bereich\n\n• Offenheit für die interdisziplinäre Zusammenarbeit im OP-Bereich\n\n• Kommunikationsstärke\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Zuverlässigkeit, Engagement und Belastbarkeit\n\n• Bereitschaft zur saisonalen Arbeitsflexibilität\n\n• Bereitschaft zum Pikettdienst\n\nZusätzliche Informationen\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Angebot an internen und externen Weiterbildungen\n\n• Tagesmenü für 5 CHF/Suppe gratis\n\n• Vielseitiges Vergünstigungsangebot der Gruppe Swiss Medical Network",
+        "fr": "Description de l'entreprise\n\nDans la clinique privée Villa im Park, dont le caractère est caractérisé par la propriété majestueuse et historique, environ 40 médecins d'observation effectuent plus de 1800 interventions par an. Les trois salles d'opération intégratives entièrement numérisées de la clinique sont parmi les mieux équipées de leur genre. Les principales spécialités médicales comprennent la chirurgie générale, l'anesthésiologie, la chirurgie orthopédique et la traumatologie du système musculo-squelettique et la gynécologie. En tant que Listespital, la clinique privée Villa im Park du canton d'Argovie a un mandat de service public et traite les patients de toutes les classes d'assurance.\n\nDescription de l'emploi\n\n• Soins professionnels et individuels\n\n• Introduction et retrait des patients dans le service chirurgical\n\n• Préparation des patients avec la préparation de la peau et stockage approprié pour l'opération\n\n• Préparation professionnelle et exploitation des équipements et matériaux nécessaires\n\n• Documentation minutieuse de toutes les activités de soins infirmiers, y compris l'enregistrement du rendement\n\n• Soutien aux activités organisationnelles et administratives\n\n• Soutien et soutien.\n\nCompétences\n\n• Preuve du certificat de l'industrie et/ou de plusieurs années d'expérience dans le domaine chirurgical\n\n• Ouverture à la coopération interdisciplinaire dans le domaine des RUP\n\n• Capacité de communication\n\n• Niveau élevé de compétence technique, d'action et sociale\n\n• Fiabilité, engagement et résilience\n\n• Capacité d'adaptation au travail saisonnier\n\n• Préparation pour Picetting\n\nInformations complémentaires\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Offre de formation interne et externe\n\n• Menu quotidien pour 5 CHF/soupe gratuitement\n\n• Divers rabais offerts par le groupe Swiss Medical Network"
+      },
+      "location": "Rothrist",
+      "canton": "AG",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
+      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:09:01.219Z",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "streetAddress": "Rothrist",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4852",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
+        "specialist-in-storage-care-60-80-privatklinik-villa-im-park-rothrist",
+        "specialiste-des-soins-de-conservation-60-80-privatklinik-villa-im-park-rothrist",
+        "storage-care-specialist-60-80-privatklinik-villa-im-park-rothrist",
+        "specialiste-de-l-entretien-du-stockage-60-80-privatklinik-villa-im-park-rothrist"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        ],
+        "en": [
+          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        ],
+        "fr": [
+          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T22:10:59.254Z",
+      "salaryMin": 49600,
+      "salaryMax": 75200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49600,
+          "maxValue": 75200,
           "unitText": "YEAR"
         }
       }
@@ -156,90 +240,8 @@
           "maxValue": 84600,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "villa-im-park-4bdcb31f92c9",
-      "slug": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
-      "slugByLocale": {
-        "de": "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
-        "it": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
-        "en": "specialist-for-storage-care-60-80-privatklinik-villa-im-park-rothrist",
-        "fr": "specialiste-des-soins-de-stockage-60-80-privatklinik-villa-im-park-rothrist"
       },
-      "company": "Privatklinik Villa im Park",
-      "companyKey": "villa-im-park",
-      "companyDomain": "swissmedical.net",
-      "title": "Fachperson für Lagerungspflege 60 - 80%",
-      "titleByLocale": {
-        "de": "Fachperson für Lagerungspflege 60 - 80%",
-        "it": "Fachperson per Lagerungspflege 60 - 80%",
-        "en": "Specialist for storage care 60 - 80 %",
-        "fr": "Spécialiste des soins de stockage 60 - 80 %"
-      },
-      "description": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.\n\nStellenbeschreibung\n\n• Fachliche und individuelle Betreuung der Patientinnen und Patienten\n\n• Ein- und Ausschleusung der Patienten in der OP-Abteilung\n\n• Vorbereitung der Patienten mit Hautvorbereitung und einer fachgerechten Lagerung für die Operation\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte sowie Materialien\n\n• Sorgfältige Dokumentation aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Unterstützung beim Zudienen und Ablösen\n\nQualifikationen\n\n• Nachweis Branchenzertifikat und/oder mehrjährige Erfahrung im OP-Bereich\n\n• Offenheit für die interdisziplinäre Zusammenarbeit im OP-Bereich\n\n• Kommunikationsstärke\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Zuverlässigkeit, Engagement und Belastbarkeit\n\n• Bereitschaft zur saisonalen Arbeitsflexibilität\n\n• Bereitschaft zum Pikettdienst\n\nZusätzliche Informationen\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Angebot an internen und externen Weiterbildungen\n\n• Tagesmenü für 5 CHF/Suppe gratis\n\n• Vielseitiges Vergünstigungsangebot der Gruppe Swiss Medical Network",
-      "descriptionByLocale": {
-        "de": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.\n\nStellenbeschreibung\n\n• Fachliche und individuelle Betreuung der Patientinnen und Patienten\n\n• Ein- und Ausschleusung der Patienten in der OP-Abteilung\n\n• Vorbereitung der Patienten mit Hautvorbereitung und einer fachgerechten Lagerung für die Operation\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte sowie Materialien\n\n• Sorgfältige Dokumentation aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Unterstützung beim Zudienen und Ablösen\n\nQualifikationen\n\n• Nachweis Branchenzertifikat und/oder mehrjährige Erfahrung im OP-Bereich\n\n• Offenheit für die interdisziplinäre Zusammenarbeit im OP-Bereich\n\n• Kommunikationsstärke\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Zuverlässigkeit, Engagement und Belastbarkeit\n\n• Bereitschaft zur saisonalen Arbeitsflexibilität\n\n• Bereitschaft zum Pikettdienst\n\nZusätzliche Informationen\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Angebot an internen und externen Weiterbildungen\n\n• Tagesmenü für 5 CHF/Suppe gratis\n\n• Vielseitiges Vergünstigungsangebot der Gruppe Swiss Medical Network",
-        "it": "Descrizione aziendale\n\nNella clinica privata Villa im Park, il cui carattere è caratterizzato dalla proprietà storica, storica, circa 40 medici osservanti svolgono più di 1.800 procedure all'anno. Le tre sale operative integrative, completamente digitalizzate della clinica sono tra le migliori attrezzate del loro genere. Le principali specialità mediche includono chirurgia generale, anestesiologia, chirurgia ortopedica e traumatologia del sistema muscoloscheletrico e ginecologia. Come Listespital, la clinica privata Villa im Park nel Canton Aargau ha un mandato di servizio pubblico e tratta i pazienti di tutte le classi di assicurazione.\n\nDescrizione del lavoro\n\n• Cura professionale e individuale del paziente\n\n• Introduzione e rimozione dei pazienti nel reparto chirurgico\n\n• Preparazione di pazienti con preparazione della pelle e conservazione corretta per l'operazione\n\n• Preparazione e funzionamento professionale delle attrezzature e dei materiali necessari\n\n• Documentazione attenta di tutte le attività di allattamento, compresa la registrazione delle prestazioni\n\n• Sostegno alle attività organizzative e amministrative\n\n• Supportarli e supportarli.\n\nQualifiche\n\n• Prova del certificato di settore e/o di diversi anni di esperienza nel campo chirurgico\n\n• Apertura per la cooperazione interdisciplinare nell'area OR\n\n• Resistenza alla comunicazione\n\n• Alto livello di competenza tecnica, d'azione e sociale\n\n• Affidabilità, impegno e resilienza\n\n• Prontezza per flessibilità di lavoro stagionale\n\n• Prontezza per Picetting\n\nUlteriori informazioni\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Offerta di formazione interna ed esterna\n\n• Menù giornaliero per 5 CHF/soup gratuito\n\n• Vari sconti offerti dal Gruppo Swiss Medical Network",
-        "en": "Business description\n\nIn the private clinic Villa im Park, whose character is characterized by the stately, historic property, around 40 observing physicians perform more than 1,800 procedures per year. The three integrative, fully digitalized operating rooms of the clinic are among the best equipped of their kind. Major medical specialties include general surgery, anesthesiology, orthopaedic surgery and traumatology of the musculoskeletal system and gynecology. As a Listespital, the private clinic Villa im Park in the Canton of Aargau has a public service mandate and treats patients from all insurance classes.\n\nJob description\n\n• Professional and individual patient care\n\n• Introduction and removal of patients in the surgical department\n\n• Preparation of patients with skin preparation and proper storage for the operation\n\n• Professional preparation and operation of the necessary equipment and materials\n\n• Careful documentation of all nursing activities including performance recording\n\n• Support for organisational and administrative activities\n\n• Supporting and supporting them.\n\nQualifications\n\n• Proof of industry certificate and/or several years of experience in the surgical field\n\n• Openness for interdisciplinary cooperation in the OR area\n\n• Communication strength\n\n• High level of technical, action and social competence\n\n• Reliability, commitment and resilience\n\n• Readiness for seasonal work flexibility\n\n• Readiness for Picetting\n\nAdditional information\n\n• A varied area of responsibility in a lively but manageable environment\n\n• Offer of internal and external training\n\n• Daily menu for 5 CHF/soup free of charge\n\n• Various discounts offered by the Swiss Medical Network Group",
-        "fr": "Description de l'entreprise\n\nDans la clinique privée Villa im Park, dont le caractère est caractérisé par la propriété majestueuse et historique, environ 40 médecins d'observation effectuent plus de 1800 interventions par an. Les trois salles d'opération intégratives entièrement numérisées de la clinique sont parmi les mieux équipées de leur genre. Les principales spécialités médicales comprennent la chirurgie générale, l'anesthésiologie, la chirurgie orthopédique et la traumatologie du système musculo-squelettique et la gynécologie. En tant que Listespital, la clinique privée Villa im Park du canton d'Argovie a un mandat de service public et traite les patients de toutes les classes d'assurance.\n\nDescription de l'emploi\n\n• Soins professionnels et individuels\n\n• Introduction et retrait des patients dans le service chirurgical\n\n• Préparation des patients avec la préparation de la peau et stockage approprié pour l'opération\n\n• Préparation professionnelle et exploitation des équipements et matériaux nécessaires\n\n• Documentation minutieuse de toutes les activités de soins infirmiers, y compris l'enregistrement du rendement\n\n• Soutien aux activités organisationnelles et administratives\n\n• Soutien et soutien.\n\nCompétences\n\n• Preuve du certificat de l'industrie et/ou de plusieurs années d'expérience dans le domaine chirurgical\n\n• Ouverture à la coopération interdisciplinaire dans le domaine des RUP\n\n• Capacité de communication\n\n• Niveau élevé de compétence technique, d'action et sociale\n\n• Fiabilité, engagement et résilience\n\n• Capacité d'adaptation au travail saisonnier\n\n• Préparation pour Picetting\n\nInformations complémentaires\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Offre de formation interne et externe\n\n• Menu quotidien pour 5 CHF/soupe gratuitement\n\n• Divers rabais offerts par le groupe Swiss Medical Network"
-      },
-      "location": "Rothrist",
-      "canton": "AG",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
-      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:10:59.254Z",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "streetAddress": "Rothrist",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4852",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
-        ],
-        "en": [
-          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
-        ],
-        "fr": [
-          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
-        "specialist-in-storage-care-60-80-privatklinik-villa-im-park-rothrist",
-        "specialiste-des-soins-de-conservation-60-80-privatklinik-villa-im-park-rothrist",
-        "storage-care-specialist-60-80-privatklinik-villa-im-park-rothrist",
-        "specialiste-de-l-entretien-du-stockage-60-80-privatklinik-villa-im-park-rothrist"
-      ],
-      "salaryMin": 49600,
-      "salaryMax": 75200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-13T22:10:59.254Z"
+      "crawlerMissStreak": 1
     }
   ]
 }
