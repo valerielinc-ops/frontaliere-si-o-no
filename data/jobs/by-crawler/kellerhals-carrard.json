@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-07-14T11:20:33.983Z",
+  "assembledAt": "2026-07-14T22:34:53.624Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-030ec90b0677",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.933Z",
+      "crawledAt": "2026-07-14T22:34:50.397Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.191Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -95,7 +96,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.933Z",
+      "crawledAt": "2026-07-14T22:34:50.397Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -112,6 +113,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
@@ -173,7 +175,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.931Z",
+      "crawledAt": "2026-07-14T22:34:50.395Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -252,7 +254,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2639350",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.931Z",
+      "crawledAt": "2026-07-14T22:34:50.395Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -301,68 +303,6 @@
       }
     },
     {
-      "id": "kellerhals-carrard-5adbfb3c729a",
-      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-      "titleByLocale": {
-        "it": "Avvio senior & Venture Capital Lawyer (80%-100%)",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
-        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
-      },
-      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-      "descriptionByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%) — posizione a Kellerhals Carrard a Zurigo (ZH), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
-        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.930Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T22:51:03.188Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kellerhals-carrard-56a67d0854dd",
       "slug": "avocat-e-collaborateur-trice-corporate-a-100-kellerhals-carrard-geneve",
       "slugByLocale": {
@@ -376,14 +316,14 @@
       "companyDomain": "kellerhals-carrard.ch",
       "title": "Avocat(e) collaborateur(trice) Corporate à 100 %",
       "titleByLocale": {
-        "it": "Avocat(e) collaboraur(trice) Corporate à 100 %",
+        "it": "Avocat(e) collaborateur(trice) Corporate à 100 %",
         "en": "Avocat(e) co-operator(trice) Corporate à 100 %",
         "de": "Avocat(e) co-operator(trice) Corporate à 100 %",
-        "fr": "Avocat(e) collaborateur(trice) Entreprise à 100 %"
+        "fr": "Avocat(e) collaborateur(trice) Corporate à 100 %"
       },
       "description": "Avocat(e) collaborateur(trice) Corporate à 100 % — Stelle bei Kellerhals Carrard in Genève (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
       "descriptionByLocale": {
-        "it": "Avocat(e) collaboraur(trice) Corporate à 100 % — posizione presso Kellerhals Carrard a Genève (GE), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
+        "it": "Avocat(e) collaborateur(trice) Corporate à 100 % — Stelle bei Kellerhals Carrard in Genève (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "en": "Avocat(e) collaborateur(trice) Corporate à 100 % — position at Kellerhals Carrard in Genève (GE), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
         "de": "Avocat(e) Collaboraur(trice) Corporate à 100 % — Stars bei Kellerhals Carrard in Genf (GE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "fr": "Avocat(e) collaborateur(trice) Entreprise à 100 % — poste à Kellerhals Carrard à Genève (GE), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
@@ -393,7 +333,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2623779",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.929Z",
+      "crawledAt": "2026-07-14T22:34:50.394Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -410,6 +350,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2623779",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.187Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -420,6 +361,69 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-5adbfb3c729a",
+      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+      "slugByLocale": {
+        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+      "titleByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
+        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
+      },
+      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+      "descriptionByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
+        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:34:50.394Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:51:03.188Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -455,7 +459,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.928Z",
+      "crawledAt": "2026-07-14T22:34:50.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +522,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.926Z",
+      "crawledAt": "2026-07-14T22:34:50.388Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -567,85 +571,6 @@
       }
     },
     {
-      "id": "kellerhals-carrard-d1e88c85f866",
-      "slug": "applicazione-wildcard-kellerhals-carrard-bern",
-      "slugByLocale": {
-        "it": "applicazione-wildcard-kellerhals-carrard-bern",
-        "en": "wildcard-application-kellerhals-carrard-bern",
-        "de": "wildcard-bewerbung-kellerhals-carrard-bern",
-        "fr": "application-wildcard-kellerhals-carrard-bern"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Wildcard Bewerbung",
-      "titleByLocale": {
-        "it": "Applicazione Wildcard",
-        "en": "Wildcard application",
-        "de": "Wildcard Bewerbung",
-        "fr": "Application Wildcard"
-      },
-      "description": "• Je nach Profil Übernahme spannender Aufgaben im juristischen Umfeld oder in der administrativen Unterstützung unserer Anwältinnen und Anwälte\n\n• Mitarbeit an Mandaten und Projekten, von rechtlichen Abklärungen über Vertragsgestaltung bis hin zur organisatorischen Koordination im Kanzleialltag\n\n• Direkter Kontakt mit Klientinnen und Klienten sowie interne Zusammenarbeit in interdisziplinären Teams\n\n• Aktive Mitgestaltung und Weiterentwicklung unserer Kanzleistrukturen und Prozesse\n\n• Abgeschlossene Ausbildung oder Studium im juristischen Bereich (z. B. Master in Rechtswissenschaften, Anwaltspatent) oder fundierte Erfahrung im administrativen/sekretariellen Bereich (z. B. Anwaltsassistenz, Notariats- oder Kanzleierfahrung)\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise\n\n• Freude an Teamarbeit, aber auch an eigenständiger Verantwortung\n\n• Kommunikationsstärke und ein professionelles Auftreten im Umgang mit Klientinnen und Klienten\n\n• Die Chance, Ihre Kompetenzen im Rahmen einer individuellen „Wildcard-Position“ einzubringen – massgeschneidert auf Ihre Stärken und Interessen\n\n• Ein modernes, kollegiales und wertschätzendes Arbeitsumfeld mit flachen Hierarchien\n\n• Spannende Einblicke in die Tätigkeit einer Wirtschaftskanzlei und abwechslungsreiche Mandate\n\n• Möglichkeiten zur persönlichen und fachlichen Weiterentwicklung\n\n• Attraktive Anstellungsbedingungen an einem zentralen Standort\n Wir prüfen jegliche eingegangene Bewerbungen und gleichen sie mit möglichen Stellen, die zu Ihrem Profil passen, ab.",
-      "descriptionByLocale": {
-        "it": "• A seconda del profilo, assumendo compiti interessanti nell'ambiente giuridico o nel supporto amministrativo dei nostri avvocati\n• Partecipazione a mandati e progetti, da chiarimenti legali e redazione dei contratti al coordinamento organizzativo nella prassi quotidiana\n• Contatto diretto con i clienti e cooperazione interna in team interdisciplinari\n• Partecipazione attiva e ulteriore sviluppo delle nostre strutture e processi legali\n• Formazione completata o studi in campo giuridico (ad es. Master in Law, Lawyer's Patent) o esperienza approfondita nel campo amministrativo/segretario (ad es. assistente di avvocato, notariale o studio legale)\n• Alta disponibilità operativa, affidabilità e funzionamento preciso\n• Gioia del lavoro di squadra, ma anche di responsabilità indipendente\n• Forza di comunicazione e un approccio professionale nel trattare con i clienti\n• L’opportunità di contribuire alle vostre competenze nell’ambito di una “posizione wildcard” individuale – adattata ai vostri punti di forza e interessi\n• Un ambiente di lavoro moderno, collegiale e apprezzativo con gerarchie piatte\n• Intuizioni emozionanti sul lavoro di una società di diritto commerciale e vari mandati\n• Opportunità di sviluppo personale e professionale\n• Condizioni di lavoro interessanti in una posizione centrale Rivediamo qualsiasi applicazione ricevuta e li confrontiamo con possibili posizioni che corrispondono al tuo profilo.",
-        "en": "• Depending on the profile, taking on exciting tasks in the legal environment or in the administrative support of our lawyers\n• Participation in mandates and projects, from legal clarifications and contract drafting to organizational coordination in everyday practice\n• Direct contact with clients and internal cooperation in interdisciplinary teams\n• Active participation and further development of our law firm structures and processes\n• Completed training or studies in the legal field (e.g. Master in Law, Lawyer's Patent) or in-depth experience in the administrative/secretary field (e.g. lawyer assistant, notarial or law firm experience)\n• High operational readiness, reliability and precise operation\n• Joy of teamwork, but also of independent responsibility\n• Communication strength and a professional approach in dealing with clients\n• The opportunity to contribute your skills as part of an individual “wildcard position” – tailored to your strengths and interests\n• A modern, collegial and appreciative working environment with flat hierarchies\n• Exciting insights into the work of a commercial law firm and varied mandates\n• Opportunities for personal and professional development\n• Attractive employment conditions at a central location We review any applications received and compare them with possible positions that match your profile.",
-        "de": "• Je nach Profil Übernahme spannender Aufgaben im juristischen Umfeld oder in der administrativen Unterstützung unserer Anwältinnen und Anwälte\n\n• Mitarbeit an Mandaten und Projekten, von rechtlichen Abklärungen über Vertragsgestaltung bis hin zur organisatorischen Koordination im Kanzleialltag\n\n• Direkter Kontakt mit Klientinnen und Klienten sowie interne Zusammenarbeit in interdisziplinären Teams\n\n• Aktive Mitgestaltung und Weiterentwicklung unserer Kanzleistrukturen und Prozesse\n\n• Abgeschlossene Ausbildung oder Studium im juristischen Bereich (z. B. Master in Rechtswissenschaften, Anwaltspatent) oder fundierte Erfahrung im administrativen/sekretariellen Bereich (z. B. Anwaltsassistenz, Notariats- oder Kanzleierfahrung)\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise\n\n• Freude an Teamarbeit, aber auch an eigenständiger Verantwortung\n\n• Kommunikationsstärke und ein professionelles Auftreten im Umgang mit Klientinnen und Klienten\n\n• Die Chance, Ihre Kompetenzen im Rahmen einer individuellen „Wildcard-Position“ einzubringen – massgeschneidert auf Ihre Stärken und Interessen\n\n• Ein modernes, kollegiales und wertschätzendes Arbeitsumfeld mit flachen Hierarchien\n\n• Spannende Einblicke in die Tätigkeit einer Wirtschaftskanzlei und abwechslungsreiche Mandate\n\n• Möglichkeiten zur persönlichen und fachlichen Weiterentwicklung\n\n• Attraktive Anstellungsbedingungen an einem zentralen Standort\nWir prüfen jegliche eingegangene Bewerbungen und gleichen sie mit möglichen Stellen, die zu Ihrem Profil passen, ab.",
-        "fr": "• Selon le profil, assumer des tâches passionnantes dans l'environnement juridique ou dans le soutien administratif de nos avocats\n• Participation aux mandats et projets, des clarifications juridiques et de la rédaction des contrats à la coordination organisationnelle dans la pratique quotidienne\n• Contacts directs avec les clients et coopération interne dans les équipes interdisciplinaires\n• Participation active et développement de nos structures et processus du cabinet d'avocats\n• Formation ou études dans le domaine juridique (p. ex. maîtrise en droit, brevet d'avocat) ou expérience approfondie dans le domaine administratif/secrétariat (p. ex. expérience d'avocat assistant, de notaire ou de cabinet d'avocat)\n• Haute disponibilité opérationnelle, fiabilité et fonctionnement précis\n• Joy de travail d'équipe, mais aussi de responsabilité indépendante\n• La force de la communication et une approche professionnelle dans le traitement des clients\n• L'occasion de contribuer à vos compétences dans le cadre d'un poste individuel de carte sauvage – adapté à vos forces et intérêts\n• Un environnement de travail moderne, collégial et apprécié avec des hiérarchies plates\n• Aperçu des travaux d'un cabinet d'avocats commerciaux et mandats variés\n• Possibilités de perfectionnement personnel et professionnel\n• Des conditions d'emploi attrayantes dans un lieu central Nous examinons toutes les demandes reçues et les comparons avec des postes qui correspondent à votre profil."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.925Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "wildcard-bewerbung-kellerhals-carrard-bern",
-        "applicazione-wildcard-kellerhals-carrard-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wildcard-bewerbung-kellerhals-carrard-bern",
-          "applicazione-wildcard-kellerhals-carrard-bern"
-        ],
-        "en": [
-          "wildcard-bewerbung-kellerhals-carrard-bern"
-        ],
-        "fr": [
-          "wildcard-bewerbung-kellerhals-carrard-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.184Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kellerhals-carrard-bb382fb87437",
       "slug": "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel",
       "slugByLocale": {
@@ -676,7 +601,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.925Z",
+      "crawledAt": "2026-07-14T22:34:50.387Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -725,6 +650,85 @@
       }
     },
     {
+      "id": "kellerhals-carrard-d1e88c85f866",
+      "slug": "applicazione-wildcard-kellerhals-carrard-bern",
+      "slugByLocale": {
+        "it": "applicazione-wildcard-kellerhals-carrard-bern",
+        "en": "wildcard-application-kellerhals-carrard-bern",
+        "de": "wildcard-bewerbung-kellerhals-carrard-bern",
+        "fr": "application-wildcard-kellerhals-carrard-bern"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Wildcard Bewerbung",
+      "titleByLocale": {
+        "it": "Applicazione Wildcard",
+        "en": "Wildcard application",
+        "de": "Wildcard Bewerbung",
+        "fr": "Application Wildcard"
+      },
+      "description": "• Je nach Profil Übernahme spannender Aufgaben im juristischen Umfeld oder in der administrativen Unterstützung unserer Anwältinnen und Anwälte\n\n• Mitarbeit an Mandaten und Projekten, von rechtlichen Abklärungen über Vertragsgestaltung bis hin zur organisatorischen Koordination im Kanzleialltag\n\n• Direkter Kontakt mit Klientinnen und Klienten sowie interne Zusammenarbeit in interdisziplinären Teams\n\n• Aktive Mitgestaltung und Weiterentwicklung unserer Kanzleistrukturen und Prozesse\n\n• Abgeschlossene Ausbildung oder Studium im juristischen Bereich (z. B. Master in Rechtswissenschaften, Anwaltspatent) oder fundierte Erfahrung im administrativen/sekretariellen Bereich (z. B. Anwaltsassistenz, Notariats- oder Kanzleierfahrung)\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise\n\n• Freude an Teamarbeit, aber auch an eigenständiger Verantwortung\n\n• Kommunikationsstärke und ein professionelles Auftreten im Umgang mit Klientinnen und Klienten\n\n• Die Chance, Ihre Kompetenzen im Rahmen einer individuellen „Wildcard-Position“ einzubringen – massgeschneidert auf Ihre Stärken und Interessen\n\n• Ein modernes, kollegiales und wertschätzendes Arbeitsumfeld mit flachen Hierarchien\n\n• Spannende Einblicke in die Tätigkeit einer Wirtschaftskanzlei und abwechslungsreiche Mandate\n\n• Möglichkeiten zur persönlichen und fachlichen Weiterentwicklung\n\n• Attraktive Anstellungsbedingungen an einem zentralen Standort\n Wir prüfen jegliche eingegangene Bewerbungen und gleichen sie mit möglichen Stellen, die zu Ihrem Profil passen, ab.",
+      "descriptionByLocale": {
+        "it": "• A seconda del profilo, assumendo compiti interessanti nell'ambiente giuridico o nel supporto amministrativo dei nostri avvocati\n• Partecipazione a mandati e progetti, da chiarimenti legali e redazione dei contratti al coordinamento organizzativo nella prassi quotidiana\n• Contatto diretto con i clienti e cooperazione interna in team interdisciplinari\n• Partecipazione attiva e ulteriore sviluppo delle nostre strutture e processi legali\n• Formazione completata o studi in campo giuridico (ad es. Master in Law, Lawyer's Patent) o esperienza approfondita nel campo amministrativo/segretario (ad es. assistente di avvocato, notariale o studio legale)\n• Alta disponibilità operativa, affidabilità e funzionamento preciso\n• Gioia del lavoro di squadra, ma anche di responsabilità indipendente\n• Forza di comunicazione e un approccio professionale nel trattare con i clienti\n• L’opportunità di contribuire alle vostre competenze nell’ambito di una “posizione wildcard” individuale – adattata ai vostri punti di forza e interessi\n• Un ambiente di lavoro moderno, collegiale e apprezzativo con gerarchie piatte\n• Intuizioni emozionanti sul lavoro di una società di diritto commerciale e vari mandati\n• Opportunità di sviluppo personale e professionale\n• Condizioni di lavoro interessanti in una posizione centrale Rivediamo qualsiasi applicazione ricevuta e li confrontiamo con possibili posizioni che corrispondono al tuo profilo.",
+        "en": "• Depending on the profile, taking on exciting tasks in the legal environment or in the administrative support of our lawyers\n• Participation in mandates and projects, from legal clarifications and contract drafting to organizational coordination in everyday practice\n• Direct contact with clients and internal cooperation in interdisciplinary teams\n• Active participation and further development of our law firm structures and processes\n• Completed training or studies in the legal field (e.g. Master in Law, Lawyer's Patent) or in-depth experience in the administrative/secretary field (e.g. lawyer assistant, notarial or law firm experience)\n• High operational readiness, reliability and precise operation\n• Joy of teamwork, but also of independent responsibility\n• Communication strength and a professional approach in dealing with clients\n• The opportunity to contribute your skills as part of an individual “wildcard position” – tailored to your strengths and interests\n• A modern, collegial and appreciative working environment with flat hierarchies\n• Exciting insights into the work of a commercial law firm and varied mandates\n• Opportunities for personal and professional development\n• Attractive employment conditions at a central location We review any applications received and compare them with possible positions that match your profile.",
+        "de": "• Je nach Profil Übernahme spannender Aufgaben im juristischen Umfeld oder in der administrativen Unterstützung unserer Anwältinnen und Anwälte\n\n• Mitarbeit an Mandaten und Projekten, von rechtlichen Abklärungen über Vertragsgestaltung bis hin zur organisatorischen Koordination im Kanzleialltag\n\n• Direkter Kontakt mit Klientinnen und Klienten sowie interne Zusammenarbeit in interdisziplinären Teams\n\n• Aktive Mitgestaltung und Weiterentwicklung unserer Kanzleistrukturen und Prozesse\n\n• Abgeschlossene Ausbildung oder Studium im juristischen Bereich (z. B. Master in Rechtswissenschaften, Anwaltspatent) oder fundierte Erfahrung im administrativen/sekretariellen Bereich (z. B. Anwaltsassistenz, Notariats- oder Kanzleierfahrung)\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise\n\n• Freude an Teamarbeit, aber auch an eigenständiger Verantwortung\n\n• Kommunikationsstärke und ein professionelles Auftreten im Umgang mit Klientinnen und Klienten\n\n• Die Chance, Ihre Kompetenzen im Rahmen einer individuellen „Wildcard-Position“ einzubringen – massgeschneidert auf Ihre Stärken und Interessen\n\n• Ein modernes, kollegiales und wertschätzendes Arbeitsumfeld mit flachen Hierarchien\n\n• Spannende Einblicke in die Tätigkeit einer Wirtschaftskanzlei und abwechslungsreiche Mandate\n\n• Möglichkeiten zur persönlichen und fachlichen Weiterentwicklung\n\n• Attraktive Anstellungsbedingungen an einem zentralen Standort\nWir prüfen jegliche eingegangene Bewerbungen und gleichen sie mit möglichen Stellen, die zu Ihrem Profil passen, ab.",
+        "fr": "• Selon le profil, assumer des tâches passionnantes dans l'environnement juridique ou dans le soutien administratif de nos avocats\n• Participation aux mandats et projets, des clarifications juridiques et de la rédaction des contrats à la coordination organisationnelle dans la pratique quotidienne\n• Contacts directs avec les clients et coopération interne dans les équipes interdisciplinaires\n• Participation active et développement de nos structures et processus du cabinet d'avocats\n• Formation ou études dans le domaine juridique (p. ex. maîtrise en droit, brevet d'avocat) ou expérience approfondie dans le domaine administratif/secrétariat (p. ex. expérience d'avocat assistant, de notaire ou de cabinet d'avocat)\n• Haute disponibilité opérationnelle, fiabilité et fonctionnement précis\n• Joy de travail d'équipe, mais aussi de responsabilité indépendante\n• La force de la communication et une approche professionnelle dans le traitement des clients\n• L'occasion de contribuer à vos compétences dans le cadre d'un poste individuel de carte sauvage – adapté à vos forces et intérêts\n• Un environnement de travail moderne, collégial et apprécié avec des hiérarchies plates\n• Aperçu des travaux d'un cabinet d'avocats commerciaux et mandats variés\n• Possibilités de perfectionnement personnel et professionnel\n• Des conditions d'emploi attrayantes dans un lieu central Nous examinons toutes les demandes reçues et les comparons avec des postes qui correspondent à votre profil."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:34:50.386Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "wildcard-bewerbung-kellerhals-carrard-bern",
+        "applicazione-wildcard-kellerhals-carrard-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "wildcard-bewerbung-kellerhals-carrard-bern",
+          "applicazione-wildcard-kellerhals-carrard-bern"
+        ],
+        "en": [
+          "wildcard-bewerbung-kellerhals-carrard-bern"
+        ],
+        "fr": [
+          "wildcard-bewerbung-kellerhals-carrard-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.184Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kellerhals-carrard-2d723c52dfc3",
       "slug": "stage-di-diritto-kellerhals-carrard-bern",
       "slugByLocale": {
@@ -755,7 +759,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.922Z",
+      "crawledAt": "2026-07-14T22:34:50.371Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -818,7 +822,7 @@
       "title": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
       "titleByLocale": {
         "it": "Substitut/-in Banking, Finanza & Fintech e Kapitalmarktrecht",
-        "en": "Substitute/-in Banking, Finance & Fintech and Capital Market Law",
+        "en": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
         "de": "Substitut/-in Banking, Finanzen & Fintech und Kapitalmarktrecht",
         "fr": "Substitut/-in Droit bancaire, financier et fintech et du marché des capitaux"
       },
@@ -834,7 +838,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.921Z",
+      "crawledAt": "2026-07-14T22:34:50.369Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -851,6 +855,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
         "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
@@ -896,7 +901,7 @@
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
       "titleByLocale": {
         "it": "Avvocato / Avvocato (100%) nel team bancario",
-        "en": "Lawyer / Lawyer (100%) in the banking team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "de": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "fr": "Avocat / Avocat (100%) dans l'équipe bancaire"
       },
@@ -912,7 +917,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.919Z",
+      "crawledAt": "2026-07-14T22:34:50.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -929,6 +934,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
         "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
@@ -987,7 +993,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:20:30.918Z",
+      "crawledAt": "2026-07-14T22:34:50.363Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
