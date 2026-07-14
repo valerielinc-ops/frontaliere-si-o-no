@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-07-14T11:43:11.748Z",
+  "assembledAt": "2026-07-14T23:03:20.003Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-e8f22ffb06db",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-machine-learning-research-engineer-generative-ai-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.035Z",
+      "crawledAt": "2026-07-14T23:03:17.862Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-senior-machine-learning-research-scientist-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.035Z",
+      "crawledAt": "2026-07-14T23:03:17.862Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,7 +154,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-ac101ba22f06",
@@ -187,7 +188,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.034Z",
+      "crawledAt": "2026-07-14T23:03:17.861Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,7 +232,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-51c21d56955d",
@@ -264,7 +266,7 @@
       "url": "https://jobs.apple.com/en-us/details/200623292/aiml-machine-learning-research-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.034Z",
+      "crawledAt": "2026-07-14T23:03:17.861Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,84 +310,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "apple-retail-switzerland-a47942b13045",
-      "slug": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich",
-        "en": "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
-        "de": "aiml-senior-ml-rl-training-infrastructure-ingenieur-afm-apple-retail-switzerland-zurich",
-        "fr": "aiml-senior-ml-rl-training-infrastructure-ingenieur-afm-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "AIML - Senior ML/RL Training Infrastructure Engineer, AFM",
-      "titleByLocale": {
-        "it": "AIML - Senior ML/RL Training Infrastructure Ingegnere, AFM",
-        "en": "AIML - Senior ML/RL Training Infrastructure Engineer, AFM",
-        "de": "AIML - Senior ML/RL Training Infrastructure Ingenieur, AFM",
-        "fr": "AIML - Senior ML/RL Training Infrastructure Ingénieur, AFM"
-      },
-      "description": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Join our Europe-based applied ML team building the next generation of large-scale ML and RL training infrastructure for Apple’s foundation models. We develop high-performance, distributed systems that power cutting-edge foundation model research on a massive scale. We are seeking an engineer who is passionate about designing, optimizing, and scaling the infrastructure that enables state-of-the-art machine learning and reinforcement learning workloads.\n\nAs a senior member of the team, you will work closely with researchers and systems engineers to build robust training frameworks, accelerate experimentation, and push the boundaries of performance and efficiency. You will collaborate with teams across Apple’s engineering hubs—including New York, Seattle, and Cupertino—to advance the tooling and systems that make large-scale model training possible. If you thrive at the intersection of distributed systems, ML frameworks, and high-performance computing, this is the role for you.",
-      "descriptionByLocale": {
-        "it": "Pronto a trasformare come miliardi di persone interagiscono con la tecnologia? Il team Core Foundation Models di Apple sta guidando l'intelligenza che alimenta le esperienze in miliardi di dispositivi in tutto il mondo, e stiamo cercando un talento eccezionale per unirsi a noi! Unisciti al nostro team ML applicato in Europa che costruisce la prossima generazione di infrastrutture di formazione ML e RL su larga scala per i modelli di base di Apple. Sviluppiamo sistemi distribuiti ad alte prestazioni che alimentano la ricerca di base all'avanguardia su scala massiccia. Siamo alla ricerca di un ingegnere che è appassionato di progettazione, ottimizzazione e scalare l'infrastruttura che consente l'apprendimento automatico all'avanguardia e i carichi di lavoro di apprendimento di rinforzo. Come membro senior del team, lavorerai a stretto contatto con ricercatori e ingegneri di sistemi per costruire strutture di formazione robuste, accelerare la sperimentazione e spingere i confini delle prestazioni e dell'efficienza. Potrai collaborare con team attraverso i hub di ingegneria di Apple, tra cui New York, Seattle e Cupertino, per avanzare gli strumenti e i sistemi che rendono possibile la formazione di modelli su larga scala. Se si prospera all'incrocio di sistemi distribuiti, framework ML e calcolo ad alte prestazioni, questo è il ruolo per voi.",
-        "en": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Join our Europe-based applied ML team building the next generation of large-scale ML and RL training infrastructure for Apple’s foundation models. We develop high-performance, distributed systems that power cutting-edge foundation model research on a massive scale. We are seeking an engineer who is passionate about designing, optimizing, and scaling the infrastructure that enables state-of-the-art machine learning and reinforcement learning workloads.\n\nAs a senior member of the team, you will work closely with researchers and systems engineers to build robust training frameworks, accelerate experimentation, and push the boundaries of performance and efficiency. You will collaborate with teams across Apple’s engineering hubs—including New York, Seattle, and Cupertino—to advance the tooling and systems that make large-scale model training possible. If you thrive at the intersection of distributed systems, ML frameworks, and high-performance computing, this is the role for you.",
-        "de": "Bereit zu transformieren, wie Milliarden von Menschen mit Technologie interagieren? Apples Core Foundation Models Team treibt die Intelligenz voran, die Erfahrungen auf Milliarden von Geräten weltweit ermöglicht – und wir suchen nach außergewöhnlichen Talenten, die sich uns anschließen! Schließen Sie sich unserem in Europa ansässigen angewandten ML-Team an und bauen Sie die nächste Generation groß angelegter ML- und RL-Schulungsinfrastruktur für Apples Grundlagenmodelle auf. Wir entwickeln leistungsstarke, verteilte Systeme, die innovative Grundlagenmodellforschung in großem Maßstab unterstützen. Wir suchen einen Ingenieur, der sich leidenschaftlich für die Gestaltung, Optimierung und Skalierung der Infrastruktur einsetzt, die hochmodernes maschinelles Lernen ermöglicht und Lernarbeitslasten verstärkt. Als leitendes Mitglied des Teams arbeiten Sie eng mit Forschern und Systemingenieuren zusammen, um robuste Trainingsrahmen zu erstellen, Experimente zu beschleunigen und die Grenzen von Leistung und Effizienz zu erweitern. Sie werden mit Teams in den Engineering-Hubs von Apple zusammenarbeiten - darunter New York, Seattle und Cupertino -, um die Werkzeuge und Systeme weiterzuentwickeln, die ein groß angelegtes Modelltraining ermöglichen. Wenn Sie an der Schnittstelle von verteilten Systemen, ML-Frameworks und Hochleistungs-Computing gedeihen, ist dies die Rolle für Sie.",
-        "fr": "Prêt à transformer comment des milliards de personnes interagissent avec la technologie? L'équipe de la Fondation de base d'Apple est à l'origine de l'intelligence qui alimente des milliards d'appareils dans le monde entier. Rejoignez notre équipe ML appliquée basée en Europe pour construire la prochaine génération d'infrastructures de formation ML et RL à grande échelle pour les modèles de fondation Apple. Nous développons des systèmes distribués de haute performance qui alimentent massivement la recherche de modèles de base de pointe. Nous recherchons un ingénieur passionné par la conception, l'optimisation et la mise à niveau de l'infrastructure qui permet l'apprentissage automatique de pointe et le renforcement de la charge de travail d'apprentissage. En tant que membre principal de l'équipe, vous travaillerez en étroite collaboration avec les chercheurs et les ingénieurs en systèmes pour construire des cadres de formation robustes, accélérer l'expérimentation et repousser les limites de la performance et de l'efficacité. Vous collaborerez avec des équipes de tous les centres d'ingénierie d'Apple, y compris New York, Seattle et Cupertino, pour faire progresser l'outillage et les systèmes qui rendent possible l'entraînement à grande échelle des modèles. Si vous prospèrez à l'intersection des systèmes distribués, des cadres ML et de l'informatique haute performance, c'est le rôle pour vous."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.033Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-03",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
-        "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
-          "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich"
-        ],
-        "de": [
-          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:19:38.773Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -418,7 +344,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.032Z",
+      "crawledAt": "2026-07-14T23:03:17.860Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -465,6 +391,83 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "apple-retail-switzerland-a47942b13045",
+      "slug": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich",
+        "en": "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
+        "de": "aiml-senior-ml-rl-training-infrastructure-ingenieur-afm-apple-retail-switzerland-zurich",
+        "fr": "aiml-senior-ml-rl-training-infrastructure-ingenieur-afm-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "AIML - Senior ML/RL Training Infrastructure Engineer, AFM",
+      "titleByLocale": {
+        "it": "AIML - Senior ML/RL Training Infrastructure Ingegnere, AFM",
+        "en": "AIML - Senior ML/RL Training Infrastructure Engineer, AFM",
+        "de": "AIML - Senior ML/RL Training Infrastructure Ingenieur, AFM",
+        "fr": "AIML - Senior ML/RL Training Infrastructure Ingénieur, AFM"
+      },
+      "description": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Join our Europe-based applied ML team building the next generation of large-scale ML and RL training infrastructure for Apple’s foundation models. We develop high-performance, distributed systems that power cutting-edge foundation model research on a massive scale. We are seeking an engineer who is passionate about designing, optimizing, and scaling the infrastructure that enables state-of-the-art machine learning and reinforcement learning workloads.\n\nAs a senior member of the team, you will work closely with researchers and systems engineers to build robust training frameworks, accelerate experimentation, and push the boundaries of performance and efficiency. You will collaborate with teams across Apple’s engineering hubs—including New York, Seattle, and Cupertino—to advance the tooling and systems that make large-scale model training possible. If you thrive at the intersection of distributed systems, ML frameworks, and high-performance computing, this is the role for you.",
+      "descriptionByLocale": {
+        "it": "Pronto a trasformare come miliardi di persone interagiscono con la tecnologia? Il team Core Foundation Models di Apple sta guidando l'intelligenza che alimenta le esperienze in miliardi di dispositivi in tutto il mondo, e stiamo cercando un talento eccezionale per unirsi a noi! Unisciti al nostro team ML applicato in Europa che costruisce la prossima generazione di infrastrutture di formazione ML e RL su larga scala per i modelli di base di Apple. Sviluppiamo sistemi distribuiti ad alte prestazioni che alimentano la ricerca di base all'avanguardia su scala massiccia. Siamo alla ricerca di un ingegnere che è appassionato di progettazione, ottimizzazione e scalare l'infrastruttura che consente l'apprendimento automatico all'avanguardia e i carichi di lavoro di apprendimento di rinforzo. Come membro senior del team, lavorerai a stretto contatto con ricercatori e ingegneri di sistemi per costruire strutture di formazione robuste, accelerare la sperimentazione e spingere i confini delle prestazioni e dell'efficienza. Potrai collaborare con team attraverso i hub di ingegneria di Apple, tra cui New York, Seattle e Cupertino, per avanzare gli strumenti e i sistemi che rendono possibile la formazione di modelli su larga scala. Se si prospera all'incrocio di sistemi distribuiti, framework ML e calcolo ad alte prestazioni, questo è il ruolo per voi.",
+        "en": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Join our Europe-based applied ML team building the next generation of large-scale ML and RL training infrastructure for Apple’s foundation models. We develop high-performance, distributed systems that power cutting-edge foundation model research on a massive scale. We are seeking an engineer who is passionate about designing, optimizing, and scaling the infrastructure that enables state-of-the-art machine learning and reinforcement learning workloads.\n\nAs a senior member of the team, you will work closely with researchers and systems engineers to build robust training frameworks, accelerate experimentation, and push the boundaries of performance and efficiency. You will collaborate with teams across Apple’s engineering hubs—including New York, Seattle, and Cupertino—to advance the tooling and systems that make large-scale model training possible. If you thrive at the intersection of distributed systems, ML frameworks, and high-performance computing, this is the role for you.",
+        "de": "Bereit zu transformieren, wie Milliarden von Menschen mit Technologie interagieren? Apples Core Foundation Models Team treibt die Intelligenz voran, die Erfahrungen auf Milliarden von Geräten weltweit ermöglicht – und wir suchen nach außergewöhnlichen Talenten, die sich uns anschließen! Schließen Sie sich unserem in Europa ansässigen angewandten ML-Team an und bauen Sie die nächste Generation groß angelegter ML- und RL-Schulungsinfrastruktur für Apples Grundlagenmodelle auf. Wir entwickeln leistungsstarke, verteilte Systeme, die innovative Grundlagenmodellforschung in großem Maßstab unterstützen. Wir suchen einen Ingenieur, der sich leidenschaftlich für die Gestaltung, Optimierung und Skalierung der Infrastruktur einsetzt, die hochmodernes maschinelles Lernen ermöglicht und Lernarbeitslasten verstärkt. Als leitendes Mitglied des Teams arbeiten Sie eng mit Forschern und Systemingenieuren zusammen, um robuste Trainingsrahmen zu erstellen, Experimente zu beschleunigen und die Grenzen von Leistung und Effizienz zu erweitern. Sie werden mit Teams in den Engineering-Hubs von Apple zusammenarbeiten - darunter New York, Seattle und Cupertino -, um die Werkzeuge und Systeme weiterzuentwickeln, die ein groß angelegtes Modelltraining ermöglichen. Wenn Sie an der Schnittstelle von verteilten Systemen, ML-Frameworks und Hochleistungs-Computing gedeihen, ist dies die Rolle für Sie.",
+        "fr": "Prêt à transformer comment des milliards de personnes interagissent avec la technologie? L'équipe de la Fondation de base d'Apple est à l'origine de l'intelligence qui alimente des milliards d'appareils dans le monde entier. Rejoignez notre équipe ML appliquée basée en Europe pour construire la prochaine génération d'infrastructures de formation ML et RL à grande échelle pour les modèles de fondation Apple. Nous développons des systèmes distribués de haute performance qui alimentent massivement la recherche de modèles de base de pointe. Nous recherchons un ingénieur passionné par la conception, l'optimisation et la mise à niveau de l'infrastructure qui permet l'apprentissage automatique de pointe et le renforcement de la charge de travail d'apprentissage. En tant que membre principal de l'équipe, vous travaillerez en étroite collaboration avec les chercheurs et les ingénieurs en systèmes pour construire des cadres de formation robustes, accélérer l'expérimentation et repousser les limites de la performance et de l'efficacité. Vous collaborerez avec des équipes de tous les centres d'ingénierie d'Apple, y compris New York, Seattle et Cupertino, pour faire progresser l'outillage et les systèmes qui rendent possible l'entraînement à grande échelle des modèles. Si vous prospèrez à l'intersection des systèmes distribués, des cadres ML et de l'informatique haute performance, c'est le rôle pour vous."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-14T23:03:17.860Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-03",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
+        "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch",
+          "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich"
+        ],
+        "de": [
+          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "aiml-senior-ml-rl-training-infrastructure-engineer-afm-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T21:19:38.773Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
       "id": "apple-retail-switzerland-cfc6d52e2ab7",
       "slug": "senior-threat-intelligence-analista-eu-remote-sear-apple-retail-switzerland-zurich",
       "slugByLocale": {
@@ -495,7 +498,7 @@
       "url": "https://jobs.apple.com/en-us/details/200663822/senior-threat-intelligence-analyst-eu-remote-sear?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.031Z",
+      "crawledAt": "2026-07-14T23:03:17.859Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -524,6 +527,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.768Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -569,7 +573,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.030Z",
+      "crawledAt": "2026-07-14T23:03:17.858Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -646,7 +650,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.030Z",
+      "crawledAt": "2026-07-14T23:03:17.858Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,6 +679,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.768Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -720,7 +725,7 @@
       "url": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.029Z",
+      "crawledAt": "2026-07-14T23:03:17.857Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,7 +802,7 @@
       "url": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.029Z",
+      "crawledAt": "2026-07-14T23:03:17.857Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -844,6 +849,70 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "apple-retail-switzerland-42d907712cae",
+      "slug": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+      "slugByLocale": {
+        "en": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "it": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "de": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "fr": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Research Scientist/Engineer - Special Projects",
+      "titleByLocale": {
+        "en": "Research Scientist/Engineer - Special Projects",
+        "it": "Ricerca Scientist/Ingegnere - Special Projects",
+        "de": "Forschung Scientist/Ingenieur - Special Projects",
+        "fr": "Recherche Scientist/Ingénieur - Special Projects"
+      },
+      "description": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in frontier models (LLMs and diffusion models) as well as the interface of AI and science. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
+      "descriptionByLocale": {
+        "en": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in frontier models (LLMs and diffusion models) as well as the interface of AI and science. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
+        "it": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in frontier models (LLMs and diffusion models) as well as the interface of AI and science. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
+        "de": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in frontier models (LLMs and diffusion models) as well as the interface of AI and science. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
+        "fr": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in frontier models (LLMs and diffusion models) as well as the interface of AI and science. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-engineer-special-projects?team=MLAI",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-14T23:03:17.856Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200672455/research-scientist-engineer-special-projects?team=MLAI",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-07-14T23:03:17.856Z"
+    },
+    {
       "id": "apple-retail-switzerland-417e40f20741",
       "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
       "slugByLocale": {
@@ -874,7 +943,7 @@
       "url": "https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.028Z",
+      "crawledAt": "2026-07-14T23:03:17.856Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -953,7 +1022,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.027Z",
+      "crawledAt": "2026-07-14T23:03:17.855Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1030,7 +1099,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.023Z",
+      "crawledAt": "2026-07-14T23:03:17.850Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1046,6 +1115,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1091,7 +1161,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:43:09.000Z",
+      "crawledAt": "2026-07-14T23:03:17.828Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
