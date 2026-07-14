@@ -8504,6 +8504,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicola e lavoro: scontro Cantone-UNIA sui diritti',
     'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona al centro del confronto tra autorità e sindacati sulle tutele lavorative durante le ondate di calore estremo in Ticino.',
     'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande a Bellinzona in una giornata estiva',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Disoccupazione frontalieri: la riforma UE e i dubbi in Ticino',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'L\'UE punta a riformare l\'indennità per i frontalieri. Andrea Puglia (OCST) commenta l\'impatto su diritti, costi e mercato del lavoro in Ticino.',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Veduta panoramica di Lugano con edifici moderni nel centro città',
 };
 
 export default blogMetaIt;

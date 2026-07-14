@@ -8504,6 +8504,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicule et travail : affrontement cantonal-UNI sur les droits',
     'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzone au centre de la confrontation entre les autorités et les syndicats sur les protections du travail pendant les vagues de chaleur extrêmes au Tessin.',
     'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande à Bellinzone par une journée d\'été',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Chômage frontalier : la réforme de l\'UE et les doutes au Tessin',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'L\'UE vise à réformer l\'indemnité pour les frontaliers. Andrea Puglia (OCST) commente l\'impact sur les droits, les coûts et le marché du travail au Tessin.',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes dans le centre-ville',
 };
 
 export default blogMetaFr;

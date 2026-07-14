@@ -8503,6 +8503,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.canicola-lavoro-ticino-confronto.title': 'Canicola and labour: Canton-Unia clash over rights',
     'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona is at the centre of the confrontation between authorities and trade unions on workplace protections during the extreme heat waves in Ticino.',
     'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande in Bellinzona during a summer day',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Border unemployment: EU reform and doubts in Ticino',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'The EU aims to reform the allowance for frontier workers. Andrea Puglia (OCST) comments on the impact on rights, costs and the labour market in Ticino.',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Panoramic view of Lugano with modern buildings in the city center',
 };
 
 export default blogMetaEn;
