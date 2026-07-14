@@ -11,8 +11,62 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-13T22:05:36.392Z",
+  "updatedAt": "2026-07-14T11:02:04.476Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/giardiniere-2683197/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/lattonieri-2683194/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-tetti-2683189/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/pittore-2683186/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/fresatore-taglio-beton-2683183/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2683180/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/falegname-a-installatore-trice-2683177/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-di-radioprotezione-m-f-d-2683169/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-14"
+    },
+    "https://www.pemsa.ch/it/job/operatore-di-escavatore-a-cavo-2683122/": {
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-13"
+    },
     "https://www.pemsa.ch/it/job/installatore-di-quadri-elettrici-2683097/": {
       "location": "Estavayer-le-Lac",
       "canton": "FR",
@@ -406,12 +460,6 @@
     "https://www.pemsa.ch/it/job/installatore-elettrico-afc-m-f-d-2682253/": {
       "location": "Basel",
       "canton": "BS",
-      "company": "PEMSA",
-      "postedDate": "2026-07-07"
-    },
-    "https://www.pemsa.ch/it/job/pittore-2682247/": {
-      "location": "Locarno",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
@@ -1090,18 +1138,6 @@
     "https://www.pemsa.ch/it/job/caposquadra-montatore-di-condotte-prefabbricate-strutture-metalliche-2680857/": {
       "location": "Givisiez",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/falegname-a-installatore-trice-2680826/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-29"
-    },
-    "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2680820/": {
-      "location": "Genève",
-      "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-06-29"
     },
