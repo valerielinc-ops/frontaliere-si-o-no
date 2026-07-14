@@ -1,23 +1,23 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-14T11:18:53.330Z",
-  "total": 136,
+  "generatedAt": "2026-07-14T22:19:06.769Z",
+  "total": 137,
   "newCount": 1,
-  "updatedCount": 95,
-  "removedCount": 1,
-  "unchangedCount": 9,
-  "durationMs": 2783,
-  "avgDurationMs": 2783,
+  "updatedCount": 94,
+  "removedCount": 0,
+  "unchangedCount": 11,
+  "durationMs": 3038,
+  "avgDurationMs": 3038,
   "durationHistory": [
-    2783
+    3038
   ],
   "newJobs": [
     {
-      "title": "(Associate – Manager) Real Estate Advisory Transaction",
-      "slug": "associate-manager-real-estate-advisory-transaction-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-manager-real-estate-advisory-transaction/150b3b02-3b0e-4f18-9a9f-aa7f7a49a9e9",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Associate---Manager--Real-Estate-Advisory-Transaction_733620WD/apply",
+      "title": "(Senior) Associate - Rewards Consulting",
+      "slug": "senior-associate-rewards-consulting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-rewards-consulting/fea92395-6056-4e75-861e-286e34e9f8f8",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Senior--Associate---Rewards-Consulting_744557WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
@@ -30,7 +30,7 @@
       "category": "tax",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
+      "sourceLang": "en",
       "postedDate": "2026-07-14",
       "validThrough": "2036-07-10",
       "employmentType": "full-time",
@@ -1097,12 +1097,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Manager / Senior Manager SAP Business Transformation & Architecture",
-      "slug": "manager-senior-manager-sap-trasformazione-e-architettura-del-business-sap-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/b39bdbe7-a2a5-47d9-8717-1727ef726d5b",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-SAP-Business-Transformation---Architecture_720586WD/apply",
+      "title": "(Associate – Manager) Real Estate Advisory Transaction",
+      "slug": "associate-manager-real-estate-advisory-transaction-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-manager-real-estate-advisory-transaction/150b3b02-3b0e-4f18-9a9f-aa7f7a49a9e9",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Associate---Manager--Real-Estate-Advisory-Transaction_733620WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
@@ -1112,30 +1113,27 @@
       "addressCountry": "CH",
       "canton": "ZH",
       "country": "CH",
-      "category": "consulting",
+      "category": "tax",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-18",
-      "validThrough": "2036-06-14",
+      "sourceLang": "de",
+      "postedDate": "2026-07-14",
+      "validThrough": "2036-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-5be214f0ee4e",
-      "salaryMin": 113000,
-      "salaryMax": 180000,
+      "id": "pwc-d5b0ffb4c815",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-18T12:56:48.091Z",
-      "_qualityScore": 92,
+      "firstSeenAt": "2026-07-14T11:18:53.308Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
+        "richness": 18,
+        "translation": 23,
+        "completeness": 19
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Senior Associate - Marketing Senior Consultant Financial Services",
       "slug": "senior-associate-marketing-senior-consultant-financial-services-pwc-zurich",
@@ -1456,6 +1454,41 @@
         "richness": 20,
         "translation": 23,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Manager / Senior Manager - Cyber Technology and Transformation",
+      "slug": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-cyber-technology-and-transformation/c594027a-c567-4a9b-8477-1ab26a5e7e82",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-Cyber-Technology-and-Transformation_616683WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2025-08-03",
+      "validThrough": "2035-08-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-82014fee6d7e",
+      "salaryMin": 92500,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
       }
     }
   ]
