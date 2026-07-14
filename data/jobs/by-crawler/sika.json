@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-07-13T22:34:29.230Z",
+  "assembledAt": "2026-07-14T11:11:43.162Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:27.183Z",
+      "crawledAt": "2026-07-14T11:11:40.891Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -90,7 +90,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic/electrician maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Maintenance de technicien/électricien en automatisation (m/f)"
       },
@@ -106,7 +106,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:25.725Z",
+      "crawledAt": "2026-07-14T11:11:39.530Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -141,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:24.670Z",
+      "crawledAt": "2026-07-14T11:11:38.584Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -231,7 +232,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-feac34a42cc0",
@@ -264,7 +266,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:23.747Z",
+      "crawledAt": "2026-07-14T11:11:37.539Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -343,7 +345,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48caac1b-4c20-4da6-b5f5-6cb710571336.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:22.783Z",
+      "crawledAt": "2026-07-14T11:11:36.576Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -422,7 +424,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:21.831Z",
+      "crawledAt": "2026-07-14T11:11:35.663Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -468,7 +470,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7fa26ed2a876",
@@ -501,7 +504,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-38ff13c5-35d4-4c51-bc64-402bf61f1c9f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:20.462Z",
+      "crawledAt": "2026-07-14T11:11:34.957Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -580,7 +583,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:19.570Z",
+      "crawledAt": "2026-07-14T11:11:34.013Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -626,7 +629,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a6edc3d5625d",
@@ -645,7 +649,7 @@
         "it": "Ingegnere di progettazione (m/f/d)",
         "en": "Design engineer (m/f/d)",
         "de": "Konstrukteur (m/w/d)",
-        "fr": "Ingénieur de conception (m/f/d)"
+        "fr": "Konstrukteur (m/w/d)"
       },
       "description": "Konstruktion von Spritzgusswerkzeugen und -artikel von der Entwicklung bis zur technischen Freigabe Technische Schnittstelle zwischen Produktion, Engineering und externen Partnern Entwicklung und Prüfung von Werkzeugkonzepten sowie Heisskanalauslegung mittels Moldflow Durchführung von Design-Reviews und Optimierungen anhand Füllsimulationen Umsetzung von Änderungs- und Korrekturaufträgen inklusive Kosten- und Qualitätsverfolgung Prozessverbesserungen und Standardisierung aktive Mitgestaltung von Abläufen und Normen Dokumentation und Know-how-Transfer",
       "descriptionByLocale": {
@@ -659,7 +663,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c1fddc77-8f3c-4c3f-b470-7b0b7fb8e0d7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:18.645Z",
+      "crawledAt": "2026-07-14T11:11:32.566Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -695,6 +699,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -739,7 +744,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:17.264Z",
+      "crawledAt": "2026-07-14T11:11:31.603Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -771,6 +776,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -783,6 +789,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sika-3c1a14efb7ef",
+      "slug": "data-management-training-specialist-sika-ch",
+      "slugByLocale": {
+        "en": "data-management-training-specialist-sika-ch",
+        "it": "data-management-training-specialist-sika-ch",
+        "de": "data-management-training-specialist-sika-ch",
+        "fr": "data-management-training-specialist-sika-ch"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Data Management Training Specialist",
+      "titleByLocale": {
+        "en": "Data Management Training Specialist",
+        "it": "Data Management Training Specialista",
+        "de": "Data Management Training Spezialist",
+        "fr": "Data Management Training Spécialiste"
+      },
+      "description": "The Data Management Trainings Specialist designs and establishes a structured communication and training concept that ensures consistent understanding, correct usage, and sustainable adoption of the Product Information Management (PIM) and PIM system across the organization. That enables corporate and business users, data roles, and stakeholders to know what PIM is and work effectively and compliantly with the PIM system by providing clear communication, role‑specific training, and ongoing guidance aligned with PIM governance, data quality standards, and organizational change requirements. Main tasks: - Design and maintain a structured training concept for PIM, Data Management and PIM system, aligned with governance rules, data quality standards, and corporate/business processes. - Develop role‑based training materials (e.g. onboarding, refresher, advanced training) for different data roles such as data creators, data stewards, approvers, etc. - Deliver training sessions in various formats (live, virtual, self‑learning materials, etc.) to ensure effective knowledge transfer and adoption. - Coordinate training content with PIM Project Coordination, Product Data Management, PIM Governance, IT, and corporate/business stakeholders to ensure consistency and accuracy. - Continuously review and update training materials based on system changes, process updates, and user feedback. \n• Responsibilities : - Responsibility for designing, maintaining, and delivering the PIM, Data Management and PIM system training concept, ensuring alignment with approved PIM governance rules, data standards, and processes. - Responsibility for defining role‑based training curricula and learning paths for different PIM user groups (e.g. data creators, data managers, approvers, etc.), based on governance requirements. - Responsibility for planning and conducting training sessions (onboarding, refresher, and update trainings) to enable efficient and compliant use of the PIM system. - Responsible for ensuring that training materials remain up to date and reflect current system functionality, processes, and compliance requirements.",
+      "descriptionByLocale": {
+        "en": "The Data Management Trainings Specialist designs and establishes a structured communication and training concept that ensures consistent understanding, correct usage, and sustainable adoption of the Product Information Management (PIM) and PIM system across the organization. That enables corporate and business users, data roles, and stakeholders to know what PIM is and work effectively and compliantly with the PIM system by providing clear communication, role‑specific training, and ongoing guidance aligned with PIM governance, data quality standards, and organizational change requirements. Main tasks: - Design and maintain a structured training concept for PIM, Data Management and PIM system, aligned with governance rules, data quality standards, and corporate/business processes. - Develop role‑based training materials (e.g. onboarding, refresher, advanced training) for different data roles such as data creators, data stewards, approvers, etc. - Deliver training sessions in various formats (live, virtual, self‑learning materials, etc.) to ensure effective knowledge transfer and adoption. - Coordinate training content with PIM Project Coordination, Product Data Management, PIM Governance, IT, and corporate/business stakeholders to ensure consistency and accuracy. - Continuously review and update training materials based on system changes, process updates, and user feedback. \n• Responsibilities : - Responsibility for designing, maintaining, and delivering the PIM, Data Management and PIM system training concept, ensuring alignment with approved PIM governance rules, data standards, and processes. - Responsibility for defining role‑based training curricula and learning paths for different PIM user groups (e.g. data creators, data managers, approvers, etc.), based on governance requirements. - Responsibility for planning and conducting training sessions (onboarding, refresher, and update trainings) to enable efficient and compliant use of the PIM system. - Responsible for ensuring that training materials remain up to date and reflect current system functionality, processes, and compliance requirements.",
+        "it": "The Data Management Trainings Specialist designs and establishes a structured communication and training concept that ensures consistent understanding, correct usage, and sustainable adoption of the Product Information Management (PIM) and PIM system across the organization. That enables corporate and business users, data roles, and stakeholders to know what PIM is and work effectively and compliantly with the PIM system by providing clear communication, role‑specific training, and ongoing guidance aligned with PIM governance, data quality standards, and organizational change requirements. Main tasks: - Design and maintain a structured training concept for PIM, Data Management and PIM system, aligned with governance rules, data quality standards, and corporate/business processes. - Develop role‑based training materials (e.g. onboarding, refresher, advanced training) for different data roles such as data creators, data stewards, approvers, etc. - Deliver training sessions in various formats (live, virtual, self‑learning materials, etc.) to ensure effective knowledge transfer and adoption. - Coordinate training content with PIM Project Coordination, Product Data Management, PIM Governance, IT, and corporate/business stakeholders to ensure consistency and accuracy. - Continuously review and update training materials based on system changes, process updates, and user feedback. \n• Responsibilities : - Responsibility for designing, maintaining, and delivering the PIM, Data Management and PIM system training concept, ensuring alignment with approved PIM governance rules, data standards, and processes. - Responsibility for defining role‑based training curricula and learning paths for different PIM user groups (e.g. data creators, data managers, approvers, etc.), based on governance requirements. - Responsibility for planning and conducting training sessions (onboarding, refresher, and update trainings) to enable efficient and compliant use of the PIM system. - Responsible for ensuring that training materials remain up to date and reflect current system functionality, processes, and compliance requirements.",
+        "de": "The Data Management Trainings Specialist designs and establishes a structured communication and training concept that ensures consistent understanding, correct usage, and sustainable adoption of the Product Information Management (PIM) and PIM system across the organization. That enables corporate and business users, data roles, and stakeholders to know what PIM is and work effectively and compliantly with the PIM system by providing clear communication, role‑specific training, and ongoing guidance aligned with PIM governance, data quality standards, and organizational change requirements. Main tasks: - Design and maintain a structured training concept for PIM, Data Management and PIM system, aligned with governance rules, data quality standards, and corporate/business processes. - Develop role‑based training materials (e.g. onboarding, refresher, advanced training) for different data roles such as data creators, data stewards, approvers, etc. - Deliver training sessions in various formats (live, virtual, self‑learning materials, etc.) to ensure effective knowledge transfer and adoption. - Coordinate training content with PIM Project Coordination, Product Data Management, PIM Governance, IT, and corporate/business stakeholders to ensure consistency and accuracy. - Continuously review and update training materials based on system changes, process updates, and user feedback. \n• Responsibilities : - Responsibility for designing, maintaining, and delivering the PIM, Data Management and PIM system training concept, ensuring alignment with approved PIM governance rules, data standards, and processes. - Responsibility for defining role‑based training curricula and learning paths for different PIM user groups (e.g. data creators, data managers, approvers, etc.), based on governance requirements. - Responsibility for planning and conducting training sessions (onboarding, refresher, and update trainings) to enable efficient and compliant use of the PIM system. - Responsible for ensuring that training materials remain up to date and reflect current system functionality, processes, and compliance requirements.",
+        "fr": "The Data Management Trainings Specialist designs and establishes a structured communication and training concept that ensures consistent understanding, correct usage, and sustainable adoption of the Product Information Management (PIM) and PIM system across the organization. That enables corporate and business users, data roles, and stakeholders to know what PIM is and work effectively and compliantly with the PIM system by providing clear communication, role‑specific training, and ongoing guidance aligned with PIM governance, data quality standards, and organizational change requirements. Main tasks: - Design and maintain a structured training concept for PIM, Data Management and PIM system, aligned with governance rules, data quality standards, and corporate/business processes. - Develop role‑based training materials (e.g. onboarding, refresher, advanced training) for different data roles such as data creators, data stewards, approvers, etc. - Deliver training sessions in various formats (live, virtual, self‑learning materials, etc.) to ensure effective knowledge transfer and adoption. - Coordinate training content with PIM Project Coordination, Product Data Management, PIM Governance, IT, and corporate/business stakeholders to ensure consistency and accuracy. - Continuously review and update training materials based on system changes, process updates, and user feedback. \n• Responsibilities : - Responsibility for designing, maintaining, and delivering the PIM, Data Management and PIM system training concept, ensuring alignment with approved PIM governance rules, data standards, and processes. - Responsibility for defining role‑based training curricula and learning paths for different PIM user groups (e.g. data creators, data managers, approvers, etc.), based on governance requirements. - Responsibility for planning and conducting training sessions (onboarding, refresher, and update trainings) to enable efficient and compliant use of the PIM system. - Responsible for ensuring that training materials remain up to date and reflect current system functionality, processes, and compliance requirements."
+      },
+      "location": "Zürich, Zurich, Switzerland",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a11659e3-20a3-4431-b3d4-d7f960b34916.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-14T11:11:30.125Z",
+      "addressLocality": "Zürich",
+      "postalCode": "6341",
+      "streetAddress": "",
+      "addressRegion": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-10",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a11659e3-20a3-4431-b3d4-d7f960b34916.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T11:11:30.125Z"
     },
     {
       "id": "sika-44d37d89fa1d",
@@ -815,7 +887,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:16.382Z",
+      "crawledAt": "2026-07-14T11:11:28.816Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -894,7 +966,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:15.986Z",
+      "crawledAt": "2026-07-14T11:11:27.875Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -973,7 +1045,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4b36ff42-9605-4fab-8179-f8c2e29695c6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:15.081Z",
+      "crawledAt": "2026-07-14T11:11:26.952Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1052,7 +1124,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:14.141Z",
+      "crawledAt": "2026-07-14T11:11:26.028Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1115,7 +1187,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatician / PLC programmer / automation technician (m/f/d)",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "fr": "Automatique (m/f/d)"
       },
@@ -1131,7 +1203,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:12.774Z",
+      "crawledAt": "2026-07-14T11:11:25.114Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1172,6 +1244,7 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -1216,7 +1289,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:11.419Z",
+      "crawledAt": "2026-07-14T11:11:23.705Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1295,7 +1368,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:34:10.498Z",
+      "crawledAt": "2026-07-14T11:11:22.850Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1324,6 +1397,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1368,7 +1442,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:09.598Z",
+      "crawledAt": "2026-07-14T11:11:21.899Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1447,7 +1521,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:08.653Z",
+      "crawledAt": "2026-07-14T11:11:20.433Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1526,7 +1600,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:07.742Z",
+      "crawledAt": "2026-07-14T11:11:19.044Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1561,6 +1635,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1589,7 +1664,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Installation operator (m/f/d) Extrusion lines - Process operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1605,7 +1680,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:06.500Z",
+      "crawledAt": "2026-07-14T11:11:18.198Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1641,6 +1716,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1669,7 +1745,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -1685,7 +1761,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:05.613Z",
+      "crawledAt": "2026-07-14T11:11:16.819Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1717,6 +1793,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1744,7 +1821,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1761,7 +1838,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:04.618Z",
+      "crawledAt": "2026-07-14T11:11:16.435Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1798,6 +1875,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1842,7 +1920,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e4d8e3c0-d578-4803-81e6-ebe05a58d9b2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:03.722Z",
+      "crawledAt": "2026-07-14T11:11:15.117Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1907,7 +1985,7 @@
       "title": "Payroll Specialist 100% (m/w/d)",
       "titleByLocale": {
         "it": "Specialista delle Paghe al 100% (lun/f/d)",
-        "en": "Payroll Specialist 100% (m/f/d)",
+        "en": "Payroll Specialist 100% (m/w/d)",
         "de": "Payroll Spezialist 100% (m/w/d)",
         "fr": "Spécialiste en paie à 100 % (l/f/d)"
       },
@@ -1923,7 +2001,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:02.823Z",
+      "crawledAt": "2026-07-14T11:11:13.222Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1955,6 +2033,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:52.994Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1999,7 +2078,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f724b276-7bbb-462a-be82-28b329b8ff87.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:34:01.527Z",
+      "crawledAt": "2026-07-14T11:11:12.356Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2078,7 +2157,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:34:00.603Z",
+      "crawledAt": "2026-07-14T11:11:11.468Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2157,7 +2236,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:59.217Z",
+      "crawledAt": "2026-07-14T11:11:11.086Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2222,7 +2301,7 @@
         "it": "International Traineeship Program - A&I - Technical Department",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -2236,7 +2315,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:33:58.287Z",
+      "crawledAt": "2026-07-14T11:11:09.666Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2258,6 +2337,7 @@
         "international-traineeship-program-a-i-technical-department-sika-widen"
       ],
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2302,7 +2382,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:33:56.917Z",
+      "crawledAt": "2026-07-14T11:11:08.272Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2334,6 +2414,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:47.313Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2349,28 +2430,28 @@
     },
     {
       "id": "sika-a1eb943625a5",
-      "slug": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+      "slug": "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen",
       "slugByLocale": {
-        "de": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
-        "it": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+        "it": "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen",
         "en": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
-        "fr": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+        "de": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+        "fr": "anlagenfuhrer-w-m-process-operateur-f-m-sika-dudingen"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
-        "de": "Anlagenführer (w/m) / Process Operator (f/m)",
-        "en": "System operator (f/m) / Process operator (f/m)",
         "it": "Anlagenführer (w/m) / Process Operatore (f/m)",
+        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
+        "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Anlagenführer (w/m) / Process Opérateur (f/m)"
       },
       "description": "Für unseren Produktionsstandort in Düdingen suchen wir per 01. September 2026 oder nach Vereinbarung im Bereich Klebstoffherstellung (AK 3) 3 Anlagenführer für die Produktionslinie Abfüllung. Folgende spannende Arbeiten erwarten Sie: Sie sind Teil der Sicherheitskultur im Unternehmen Sie sind zuständig für die Sicherstellung eines störungsfreien Betriebes auf den zugewiesenen Anlagen unter Einhaltung des Produktionsprogramms Sie unterstützen innerhalb des Prozessteams die Minimierung von Fehlchargen, Abfall etc. Sie sind mitverantwortlich für die Zielerreichung sowie die Eliminierung von Verlusten im Hinblick auf den Gesamtprozess Sie halten die Standards sowie Arbeitsanweisungen, Gesetze und Vorschriften ein, insbesondere die Arbeitssicherheitsvorschriften Sie fördern aktiv Verbesserungsmassnahmen innerhalb der gesamten Prozesse",
       "descriptionByLocale": {
-        "de": "Für unseren Produktionsstandort in Düdingen suchen wir per 01. September 2026 oder nach Vereinbarung im Bereich Klebstoffherstellung (AK 3) 3 Anlagenführer für die Produktionslinie Abfüllung. Folgende spannende Arbeiten erwarten Sie: Sie sind Teil der Sicherheitskultur im Unternehmen Sie sind zuständig für die Sicherstellung eines störungsfreien Betriebes auf den zugewiesenen Anlagen unter Einhaltung des Produktionsprogramms Sie unterstützen innerhalb des Prozessteams die Minimierung von Fehlchargen, Abfall etc. Sie sind mitverantwortlich für die Zielerreichung sowie die Eliminierung von Verlusten im Hinblick auf den Gesamtprozess Sie halten die Standards sowie Arbeitsanweisungen, Gesetze und Vorschriften ein, insbesondere die Arbeitssicherheitsvorschriften Sie fördern aktiv Verbesserungsmassnahmen innerhalb der gesamten Prozesse",
         "it": "Per il nostro sito di produzione a Düdingen stiamo cercando 01. Settembre 2026 o d'intesa nel settore della produzione di adesivi (AK 3) 3 operatore di impianti per l'imbottigliamento della linea di produzione. Le seguenti interessanti opere vi aspettano: Fanno parte della cultura di sicurezza dell’azienda Siete responsabili per garantire il funzionamento senza problemi sugli impianti assegnati, nel rispetto del programma di produzione. Sostiene la minimizzazione di lotti falsi, rifiuti, ecc. all'interno del team di processo. Essi sono congiuntamente responsabili del raggiungimento degli obiettivi e dell'eliminazione delle perdite rispetto al processo globale Essi rispettano le norme e le istruzioni di lavoro, le leggi e le normative, in particolare le norme di sicurezza sul lavoro Promuovi attivamente misure di miglioramento all'interno dell'intero processo",
         "en": "For our production site in Düdingen we are looking for 01. September 2026 or by agreement in the area of adhesive production (AK 3) 3 plant operator for the production line bottling. The following exciting works await you: They are part of the company’s safety culture You are responsible for ensuring trouble-free operation on the assigned plants while complying with the production program. You support the minimization of false batches, waste, etc. within the process team. They are jointly responsible for achieving goals and eliminating losses with regard to the overall process They comply with standards as well as work instructions, laws and regulations, in particular occupational safety regulations You actively promote improvement measures within the entire processes",
+        "de": "Für unseren Produktionsstandort in Düdingen suchen wir per 01. September 2026 oder nach Vereinbarung im Bereich Klebstoffherstellung (AK 3) 3 Anlagenführer für die Produktionslinie Abfüllung. Folgende spannende Arbeiten erwarten Sie: Sie sind Teil der Sicherheitskultur im Unternehmen Sie sind zuständig für die Sicherstellung eines störungsfreien Betriebes auf den zugewiesenen Anlagen unter Einhaltung des Produktionsprogramms Sie unterstützen innerhalb des Prozessteams die Minimierung von Fehlchargen, Abfall etc. Sie sind mitverantwortlich für die Zielerreichung sowie die Eliminierung von Verlusten im Hinblick auf den Gesamtprozess Sie halten die Standards sowie Arbeitsanweisungen, Gesetze und Vorschriften ein, insbesondere die Arbeitssicherheitsvorschriften Sie fördern aktiv Verbesserungsmassnahmen innerhalb der gesamten Prozesse",
         "fr": "Pour notre site de production à Düdingen nous recherchons 01. Septembre 2026 ou par accord dans le domaine de la production d'adhésif (AK 3) 3 opérateur d'usine pour la mise en bouteille de la chaîne de production. Les travaux passionnants suivants vous attendent: Ils font partie de la culture de sécurité de l'entreprise. Vous êtes responsable d'assurer un fonctionnement sans problème sur les installations attribuées tout en respectant le programme de production. Vous supportez la minimisation des faux lots, déchets, etc. au sein de l'équipe de processus. Ils sont conjointement responsables de la réalisation des objectifs et de l ' élimination des pertes liées au processus global. Ils sont conformes aux normes ainsi qu'aux instructions de travail, aux lois et aux règlements, en particulier aux règlements en matière de sécurité au travail. Vous encouragez activement les mesures d'amélioration dans l'ensemble des processus"
       },
       "location": "Düdingen, Canton of Fribourg, Switzerland",
@@ -2378,7 +2459,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:33:55.431Z",
+      "crawledAt": "2026-07-14T11:11:07.331Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2395,9 +2476,20 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-13T22:33:55.431Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+        ]
       },
+      "previousSlugs": [
+        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2409,8 +2501,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-13T22:33:55.431Z"
+      }
     },
     {
       "id": "sika-880538c4d908",
@@ -2443,7 +2534,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:33:54.564Z",
+      "crawledAt": "2026-07-14T11:11:06.430Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2477,6 +2568,80 @@
       }
     },
     {
+      "id": "sika-3f197cf5d358",
+      "slug": "betriebselektriker-m-w-d-sika-romanshorn",
+      "slugByLocale": {
+        "de": "betriebselektriker-m-w-d-sika-ch",
+        "it": "betriebselektriker-m-w-d-sika-romanshorn",
+        "en": "betriebselektriker-m-w-d-sika-romanshorn",
+        "fr": "betriebselektriker-m-w-d-sika-romanshorn"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Betriebselektriker (m/w/d)",
+      "titleByLocale": {
+        "de": "Betriebselektriker (m/w/d)",
+        "en": "Betriebselektriker (m/w/d)",
+        "it": "Betriebselektriker (m/w/d)",
+        "fr": "Betriebselektriker (m/w/d)"
+      },
+      "description": "Instandhaltung der elektrischen Infrastruktur, Maschinen, Automationen und Anlagen Umfassende Störungsdiagnose und deren Behebung im ganzen Aufgabenbereich Inbetriebsetzung von neuen Maschinen und Anlagen Selbstständige Ausführung von NS-Elektroinstallationen an Anlagen und im Gebäude Teamübergreifende Unterhaltsarbeiten im Betrieb Führung der Wartungsdatenbank und administrative Abwicklung für Projekte und Beschaffung",
+      "descriptionByLocale": {
+        "de": "Instandhaltung der elektrischen Infrastruktur, Maschinen, Automationen und Anlagen Umfassende Störungsdiagnose und deren Behebung im ganzen Aufgabenbereich Inbetriebsetzung von neuen Maschinen und Anlagen Selbstständige Ausführung von NS-Elektroinstallationen an Anlagen und im Gebäude Teamübergreifende Unterhaltsarbeiten im Betrieb Führung der Wartungsdatenbank und administrative Abwicklung für Projekte und Beschaffung",
+        "it": "Instandhaltung der elektrischen Infrastruktur, Maschinen, Automationen und Anlagen Umfassende Störungsdiagnose und deren Behebung im ganzen Aufgabenbereich Inbetriebsetzung von neuen Maschinen und Anlagen Selbstständige Ausführung von NS-Elektroinstallationen an Anlagen und im Gebäude Teamübergreifende Unterhaltsarbeiten im Betrieb Führung der Wartungsdatenbank und administrative Abwicklung für Projekte und Beschaffung",
+        "en": "Instandhaltung der elektrischen Infrastruktur, Maschinen, Automationen und Anlagen Umfassende Störungsdiagnose und deren Behebung im ganzen Aufgabenbereich Inbetriebsetzung von neuen Maschinen und Anlagen Selbstständige Ausführung von NS-Elektroinstallationen an Anlagen und im Gebäude Teamübergreifende Unterhaltsarbeiten im Betrieb Führung der Wartungsdatenbank und administrative Abwicklung für Projekte und Beschaffung",
+        "fr": "Instandhaltung der elektrischen Infrastruktur, Maschinen, Automationen und Anlagen Umfassende Störungsdiagnose und deren Behebung im ganzen Aufgabenbereich Inbetriebsetzung von neuen Maschinen und Anlagen Selbstständige Ausführung von NS-Elektroinstallationen an Anlagen und im Gebäude Teamübergreifende Unterhaltsarbeiten im Betrieb Führung der Wartungsdatenbank und administrative Abwicklung für Projekte und Beschaffung"
+      },
+      "location": "Romanshorn, Thurgau, Switzerland",
+      "canton": "TG",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb1b006a-a18d-481f-973b-31615a51b9c3.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T11:11:04.975Z",
+      "addressLocality": "Romanshorn",
+      "postalCode": "6341",
+      "streetAddress": "",
+      "addressRegion": "Thurgau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb1b006a-a18d-481f-973b-31615a51b9c3.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-m-w-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-m-w-d-sika-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T11:11:04.975Z"
+    },
+    {
       "id": "sika-692c9d955a6a",
       "slug": "senior-consulente-solution-architetto-sap-order-to-cash-sika-zurich",
       "slugByLocale": {
@@ -2507,7 +2672,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:33:53.171Z",
+      "crawledAt": "2026-07-14T11:11:04.026Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
