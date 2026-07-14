@@ -1114,6 +1114,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.skyguide-licenziamenti.title': 'Skyguide, fewer layoffs than expected',
     'blog.article.skyguide-licenziamenti.excerpt': 'The air traffic control company reduces the cuts to 100 jobs.',
     'blog.article.skyguide-licenziamenti.imageAlt': 'Aerial view of Lugano city.',
+    'blog.article.novita-fiscale-730-2025-frontalieri.title': '730/2025: news for expatriate and frontier workers',
+    'blog.article.novita-fiscale-730-2025-frontalieri.excerpt': 'Analysis of tax changes for 730/2025: impact on frontier workers and impatriated workers between Italian and Swiss legislation.',
+    'blog.article.novita-fiscale-730-2025-frontalieri.imageAlt': 'View of a modern building in Lugano',
 };
 
 export default blogMetaChEn;
