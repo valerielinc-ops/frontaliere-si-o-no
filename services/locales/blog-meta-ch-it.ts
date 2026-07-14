@@ -1120,6 +1120,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-naspi.title': 'Disoccupazione frontalieri: come funziona e a quanto ammonta',
     'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'I lavoratori frontalieri possono usufruire della Naspi, indennità di disoccupazione mensile pagata dall\'Inps. Ecco i requisiti e le modalità di richiesta.',
     'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalieri a lavoro in Svizzera, luglio 2024',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Grigioni: le finanze degli ospedali tornano in attivo',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Dopo un 2024 difficile, i nosocomi grigionesi registrano risultati positivi nel 2025. Ecco la panoramica finanziaria delle principali strutture sanitarie.',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Ospedale cantonale nei Grigioni',
 };
 
 export default blogMetaChIt;

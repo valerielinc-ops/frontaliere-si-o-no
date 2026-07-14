@@ -56,6 +56,13 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /Installations:.*Application offline\b/i,
   /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
 
+  // ── Firebase Auth network-request-failed — transient client connectivity ──
+  // "Firebase: Error (auth/network-request-failed)." — thrown during sign-in
+  // (Google/LinkedIn/email) when the device is offline or the network drops
+  // mid-request. Firebase internally records the failure; no code change can
+  // prevent a client being offline. 10 occurrences / 9 sessions in 7d (#4174).
+  /Firebase:.*auth\/network-request-failed/i,
+
   // ── IndexedDB lifecycle noise (iOS tab suspension / user clears site data) ──
   // Already auto-recovered by recoverFromIndexedDbLoss(); reporting is dup noise.
   /Connection to Indexed Database server lost/i,

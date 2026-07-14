@@ -3356,6 +3356,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'ripresa-finanziaria-ospedali-grigionesi',
+    category: 'novita',
+    date: '2026-07-14T13:24:13.191Z',
+    image: '/images/blog/ripresa-finanziaria-ospedali-grigionesi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
