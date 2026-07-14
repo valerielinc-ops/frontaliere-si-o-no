@@ -1,5 +1,54 @@
 [
   {
+    "slug": "interno-fmg-spital-schwyz-schwyz",
+    "title": "FMG Praktikum",
+    "titleByLocale": {
+      "it": "Interno FMG",
+      "en": "FMG internship",
+      "de": "FMG Praktikum",
+      "fr": "Stage FMG"
+    },
+    "company": "Spital Schwyz",
+    "companyKey": "spital-schwyz",
+    "location": "Schwyz",
+    "addressLocality": "Schwyz",
+    "descriptionByLocale": {
+      "it": "I loro compiti:\nCome stagista FMG, accompagni, curi e curi le persone con malattie e nella loro vita quotidiana. In questo contesto, li supporta nel loro design quotidiano e svolge attività di cura. Anche i servizi amministrativi e logistici fanno parte del vostro\n• Compiti.",
+      "en": "Their tasks:\nAs an FMG intern, you accompany, care for and care for people with illnesses and in their everyday life. In this context, you support them in their everyday design and carry out nursing activities. Administrative and logistical services are also part of your\n• Tasks.",
+      "de": "Ihre Aufgaben:\nAls FMG Praktikant / Praktikantin begleiten, pflegen und betreuen Sie Menschen bei Erkrankungen und in ihrem Alltag. In diesem Rahmen unterstützen Sie sie in ihrer Alltagsgestaltung und führen pflegerische Verrichtungen durch. Administrative und logistische Dienstleistungen gehören ebenfalls zu Ihren\n• Aufgaben.",
+      "fr": "Leurs tâches :\nEn tant que stagiaire FMG, vous accompagnez, soignez et soignez les personnes atteintes de maladies et dans leur vie quotidienne. Dans ce contexte, vous les accompagnez dans leur conception quotidienne et dans leurs activités de soins infirmiers. Les services administratifs et logistiques font également partie de votre\n• Des tâches."
+    },
+    "slugByLocale": {
+      "it": "interno-fmg-spital-schwyz-schwyz",
+      "en": "fmg-internship-spital-schwyz-schwyz",
+      "de": "fmg-praktikum-spital-schwyz-schwyz",
+      "fr": "stage-fmg-spital-schwyz-schwyz"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-14T22:04:54.577Z",
+    "previousSlugs": [
+      "fmg-praktikum-spital-schwyz-schwyz",
+      "interno-fmg-spital-schwyz-schwyz"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fmg-praktikum-spital-schwyz-schwyz",
+        "interno-fmg-spital-schwyz-schwyz"
+      ],
+      "en": [
+        "fmg-praktikum-spital-schwyz-schwyz"
+      ],
+      "fr": [
+        "fmg-praktikum-spital-schwyz-schwyz"
+      ]
+    },
+    "postalCode": "6430",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "medico-oncologo-oncologa-50-100-spital-schwyz-schwyz",
     "title": "Oberärztin / Oberarzt Onkologie (50 % - 100 %)",
     "titleByLocale": {
