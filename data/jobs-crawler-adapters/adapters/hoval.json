@@ -11,7 +11,7 @@
     "https://www.hoval.it/it_IT/jobs"
   ],
   "notes": "Dedicated Hoval crawler uses SAP Hybris JSON API (/jobs/results?q=:sortIndex:country:Switzerland) filtered by country. Extracts description from detail pages. ATS: Umantis (recruitingapp-2710.umantis.com).",
-  "updatedAt": "2026-07-14T11:03:46.796Z",
+  "updatedAt": "2026-07-14T22:08:45.143Z",
   "seedMetaByUrl": {
     "https://www.hoval.it/it_IT/job/3925": {
       "location": "Härkingen",
