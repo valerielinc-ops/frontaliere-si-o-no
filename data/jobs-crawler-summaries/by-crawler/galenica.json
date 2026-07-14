@@ -1,53 +1,55 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-13T22:15:14.808Z",
-  "total": 374,
+  "generatedAt": "2026-07-14T11:02:53.234Z",
+  "total": 372,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 107675,
-  "avgDurationMs": 107675,
+  "unchangedCount": 0,
+  "durationMs": 93248,
+  "avgDurationMs": 93248,
   "durationHistory": [
-    107675
+    93248
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistente di farmacia AFC",
-      "company": "Amavita (Galenica)",
+      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+      "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692186",
-      "location": "La Chaux-de-Fonds",
-      "canton": "NE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3114101.4022635",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a La Chaux-de-Fonds, Espacité 5, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692186-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds-ne-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
-      "postedDate": "",
+      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "",
+      "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-amavita-assistente-di-farmacia-afc-la-chaux-de-fonds",
-      "id": "galenica-4b5e359c07f6",
+      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
+      "id": "galenica-da3efd9831f6",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "currency": "CHF",
-      "addressLocality": "La Chaux-de-Fonds",
-      "addressRegion": "NE",
+      "streetAddress": "Untermattweg 8",
+      "postalCode": "3027",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 78,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
