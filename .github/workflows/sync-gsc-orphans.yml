@@ -135,6 +135,26 @@ jobs:
             data/seo-404-compat
         env:
           SKIP_AI_TRANSLATION: '1'
+          # #4162: il job (30min) veniva cancellato per timeout DENTRO questo step.
+          # sync-gsc-orphans.mjs è veloce (~104s); il tempo se ne va tutto nella
+          # push-contention war di git-commit-data.sh (path sequenziale
+          # commit_isolated_from_worktree) contro le push concorrenti dei ~crawler
+          # su main. Col default MAX_PUSH_ATTEMPTS=14 + backoff escalante
+          # (5,10,…,65s + jitter) il loop di retry dura ~24min sotto contention e
+          # sfora il budget job PRIMA di poter ritornare 42 (contention-exhausted)
+          # → il soft-fail sequenziale (exit 42 → exit 0, già presente in
+          # git-commit-data.sh righe ~1038) NON scatta mai perché il job viene
+          # killato a metà loop. Abbassare il tetto SOLO per questo caller (env,
+          # zero modifiche allo script condiviso dai 40+ crawler) fa concludere il
+          # loop in ~5-6min anche sotto contention: su perdita-race ritorna 42 →
+          # soft exit 0 (i dati si auto-guariscono al prossimo run schedulato
+          # bi-settimanale), mentre un fallimento NON-contention (auth/rete/hook)
+          # ritorna comunque exit 1 → job rosso → issue di failure (semantica
+          # exit-code preservata, nessun mascheramento di errori reali — perciò
+          # NON uso continue-on-error, che ingoierebbe anche gli exit 1 genuini).
+          # 8 tentativi = ~8 chance di vincere la ref-race, con margine ampio
+          # sotto i 30min.
+          MAX_PUSH_ATTEMPTS: '8'
 
       - name: Trigger deploy if data changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
