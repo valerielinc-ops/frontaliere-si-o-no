@@ -2349,8 +2349,8 @@
       },
       "slug": "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
       "slugByLocale": {
-        "en": "assistant-physician-in-stationary-child-psychiatry-swiss-medical-network-moutier",
-        "it": "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
+        "en": "assistant-physician-in-stationary-child-psychiatry-hopital-de-moutier-moutier",
+        "it": "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
         "de": "assistenzarzt-in-stationarer-kinderpsychiatrie-swiss-medical-network-moutier"
       },
       "category": "medical",
@@ -2384,13 +2384,14 @@
           "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network"
         ],
         "en": [
-          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network"
+          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network",
+          "assistant-physician-in-stationary-child-psychiatry-swiss-medical-network-moutier"
         ]
       },
       "previousSlugs": [
-        "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network"
-      ],
-      "crawlerMissStreak": 1
+        "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network",
+        "assistant-physician-in-stationary-child-psychiatry-swiss-medical-network-moutier"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134930919-infirmier-ere-instrumentiste",

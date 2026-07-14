@@ -4454,12 +4454,12 @@
     },
     {
       "id": "siemens-8c6765daff18",
-      "slug": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
+      "slug": "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug",
       "slugByLocale": {
         "en": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
-        "it": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
+        "it": "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug",
         "de": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
-        "fr": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
+        "fr": "responsable-bureau-planification-smart-infrastructure-buildings-80-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4519,7 +4519,18 @@
         }
       },
       "firstSeenAt": "2026-07-13T21:57:14.123Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
+        ],
+        "fr": [
+          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
+        ]
+      },
+      "previousSlugs": [
+        "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
+      ]
     }
   ]
 }
