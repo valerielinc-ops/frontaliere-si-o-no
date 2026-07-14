@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-14T10:53:22.522Z",
-  "total": 7,
+  "generatedAt": "2026-07-14T21:58:19.799Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 38806,
-  "avgDurationMs": 38806,
+  "unchangedCount": 1,
+  "durationMs": 38630,
+  "avgDurationMs": 38630,
   "durationHistory": [
-    38806
+    38630
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-5f4f57464f13",
       "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
