@@ -25532,6 +25532,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'rincari-festival-estate-ticino',
+ category: 'pratico',
+ date: '2026-07-14T14:18:11.840Z',
+ image: '/images/blog/rincari-festival-estate-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
