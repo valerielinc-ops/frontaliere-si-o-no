@@ -1,18 +1,19 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-07-14T10:53:51.133Z",
+  "generatedAt": "2026-07-14T21:58:43.268Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4916,
-  "avgDurationMs": 4916,
+  "durationMs": 5900,
+  "avgDurationMs": 5900,
   "durationHistory": [
-    4916
+    5900
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schulthess-klinik-44bc6c5a34d1",
       "slug": "spezialistin-spezialist-content-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
@@ -26,7 +27,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/spezialistin-spezialist-content-multimedia/c2bda6aa-6de2-4b2a-839b-ac46ef6f25ce",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:46.938Z",
+      "crawledAt": "2026-07-14T21:58:38.437Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-07-13",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2042",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-14T10:53:46.938Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "schulthess-klinik-244174689799",
       "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
@@ -65,7 +65,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:46.946Z",
+      "crawledAt": "2026-07-14T21:58:38.459Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:46.951Z",
+      "crawledAt": "2026-07-14T21:58:38.461Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/2454b56f-d938-4c76-8cec-98a913c25330",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:46.953Z",
+      "crawledAt": "2026-07-14T21:58:38.466Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/b875938d-269e-4c26-908f-b9fbff344713",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:46.960Z",
+      "crawledAt": "2026-07-14T21:58:38.471Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
       "firstSeenAt": "2026-07-08T11:11:17.876Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -280,7 +280,7 @@
       "firstSeenAt": "2026-07-08T11:11:17.868Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
