@@ -1,6 +1,6 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-07-14T11:59:33.977Z",
+  "assembledAt": "2026-07-14T23:10:08.555Z",
   "jobs": [
     {
       "id": "decathlon-3efdaf6cfdf8",
@@ -33,7 +33,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4134745-marketing-and-communication-manager-mittelland-region-deeng-3014-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:59:30.806Z",
+      "crawledAt": "2026-07-14T23:10:04.974Z",
       "addressLocality": "Bern",
       "postalCode": "3014",
       "addressRegion": "BE",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
+        "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
+        "responsabile-marketing-e-comunicazione-regione-mittelland-de-eng-decathlon-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
+          "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
+          "responsabile-marketing-e-comunicazione-regione-mittelland-de-eng-decathlon-bern"
         ],
         "de": [
           "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
@@ -64,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.832Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -108,7 +111,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4195775-sportberaterin-velo-decathlon-zurich-center-20-90-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:30.480Z",
+      "crawledAt": "2026-07-14T23:10:04.679Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -127,11 +130,13 @@
       "previousSlugs": [
         "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
         "consultant-sportif-en-velo-decathlon-zurich-center-20-90-decathlon-zurich",
-        "consulente-sportivo-velo-decathlon-zurich-center-20-90-decathlon-zurich"
+        "consulente-sportivo-velo-decathlon-zurich-center-20-90-decathlon-zurich",
+        "consulente-sportivo-in-velo-decathlon-centro-di-zurigo-20-90-decathlon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch"
+          "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
+          "consulente-sportivo-in-velo-decathlon-centro-di-zurigo-20-90-decathlon-zurich"
         ],
         "en": [
           "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch"
@@ -153,7 +158,8 @@
           "maxValue": 100400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-9771c1ff90a8",
@@ -186,7 +192,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4205211-sports-leader-verkaufstberater-mwd-20-decathlon-schweiz-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:30.109Z",
+      "crawledAt": "2026-07-14T23:10:04.319Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -205,12 +211,14 @@
       "previousSlugs": [
         "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
         "leader-sportivo-consulente-commerciale-m-f-d-20-decathlon-svizzera-decathlon-hinwil",
-        "leader-sportif-consultant-commercial-m-f-d-20-decathlon-suisse-decathlon-hinwil"
+        "leader-sportif-consultant-commercial-m-f-d-20-decathlon-suisse-decathlon-hinwil",
+        "sports-leader-consulente-di-vendita-m-f-d-20-decathlon-svizzera-decathlon-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
-          "leader-sportivo-consulente-commerciale-m-f-d-20-decathlon-svizzera-decathlon-hinwil"
+          "leader-sportivo-consulente-commerciale-m-f-d-20-decathlon-svizzera-decathlon-hinwil",
+          "sports-leader-consulente-di-vendita-m-f-d-20-decathlon-svizzera-decathlon-hinwil"
         ],
         "en": [
           "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
@@ -265,7 +273,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233513-sportberaterin-decathlon-herblingen-20-befristet-november-bis-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:29.779Z",
+      "crawledAt": "2026-07-14T23:10:04.004Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -342,7 +350,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233519-sportberaterin-decathlon-herblingen-50-befristet-nov-bid-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:29.436Z",
+      "crawledAt": "2026-07-14T23:10:03.669Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -417,7 +425,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4250835-vendeur-technicien-atelier-20-80-cdd-hf-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:29.086Z",
+      "crawledAt": "2026-07-14T23:10:03.300Z",
       "addressLocality": "Matran",
       "postalCode": "",
       "addressRegion": "FR",
@@ -460,6 +468,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.824Z",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -480,7 +489,7 @@
         "it": "store-leader-incubation-m-w-d-ost-e-zentralschweiz-decathlon-zurich",
         "en": "store-leader-incubation-m-f-d-eastern-and-central-switzerland-decathlon-zurich",
         "de": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
-        "fr": "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich"
+        "fr": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -490,21 +499,21 @@
         "it": "Incubazione dei Capostore (lun/f/d) Svizzera orientale e centrale",
         "en": "Store Leader Incubation (m/f/d) Eastern and Central Switzerland",
         "de": "Store Leader Incubation (m/w/d) Ost-und Zentralschweiz",
-        "fr": "Incubation du chef de magasin (m/f/d) Suisse orientale et centrale"
+        "fr": "Store Leader Incubation (m/w/d) Ost- und Zentralschweiz"
       },
       "description": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Zürich, St.Gallen, Zug und Luzern die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung.",
       "descriptionByLocale": {
         "it": "Cerchiamo futuri leader di negozi ambiziosi con mobilità nelle regioni di Zurigo, San Gallo, Zugo e Lucerna che vogliano iniziare con entusiasmo ed energia nel commercio al dettaglio di articoli sportivi! In un'intensa fase di incubazione imparerai tutto sulla nostra azienda, sui processi, sugli strumenti e sul dinamico mondo del commercio al dettaglio. Successivamente assumerai la gestione di una nuova filiale o rileverai una filiale esistente. Vivi e condividi i nostri valori (vitalità, responsabilità, autenticità e generosità) e assumi la seguente missione:\n• Formare la squadra dei tuoi sogni: guidi un team ampio e diversificato, promuovi la collaborazione, sviluppi talenti e crei un'atmosfera lavorativa positiva.\n• Pianificazione strategica: svilupperai e implementerai strategie locali per sviluppare ulteriormente la filiale, aumentare la soddisfazione del cliente e raggiungere gli obiettivi aziendali.\n• Eccellente servizio clienti: vi assicurerete che il nostro team a Suhr fornisca un eccellente servizio clienti, promuova lo shopping personale e fornisca soluzioni su misura per i nostri clienti.\n• Efficienza operativa: ottimizzerai i processi del negozio, la gestione dell'inventario e l'utilizzo delle risorse per massimizzare l'efficienza e la redditività.\n• Strategia omnicanale: sviluppi e implementi una strategia omnicanale senza soluzione di continuità per offrire ai nostri clienti un'esperienza di acquisto ottimale su tutti i canali.\n• Networking locale: costruisci forti rapporti con club sportivi, comunità locali e altre parti interessate nella regione. Cosa ti aspetta con noi: Con noi ti assumi responsabilità fin dal primo giorno e promuovi un forte spirito di squadra. Con noi troverai opportunità di sviluppo professionale, sia a livello nazionale che internazionale, e godrai di un'ampia gamma di benefit, partecipazione agli utili, 30 giorni di ferie per garantire un sano equilibrio tra lavoro e vita privata e molto altro ancora. Per noi ogni giorno porta con sé nuove sfide ed entusiasmanti opportunità di sviluppo personale e professionale.",
         "en": "We are looking for future, ambitious store leaders with mobility in the Zurich, St.Gallen, Zug and Lucerne regions who would like to get started in sports retail with enthusiasm and energy! In an intensive incubation phase, you will learn everything about our company, processes, tools and the dynamic world of retail. You will then take over the management of a new branch or take over an existing branch. You live and share our values ​​(Vitality, Responsibility, Authenticity & Generosity) and take on the following mission:\n• Forming your dream team: You lead a large and diverse team, promote collaboration, develop talent and create a positive working atmosphere.\n• Strategic Planning: You will develop and implement local strategies to further develop the branch, increase customer satisfaction and achieve business goals.\n• Excellent customer service: You will ensure that our team in Suhr provides outstanding customer service, promotes personal shopping and provides tailored solutions for our customers.\n• Operational Efficiency: You will optimize store processes, inventory management and resource utilization to maximize efficiency and profitability.\n• Omnichannel strategy: You develop and implement a seamless omnichannel strategy to offer our customers an optimal shopping experience across all channels.\n• Local networking: You build strong relationships with sports clubs, local communities and other stakeholders in the region. What awaits you with us: With us you take on responsibility from day one and promote a strong team spirit. With us you will find opportunities for professional development, both nationally and internationally, and enjoy a wide range of benefits, profit sharing, 30 days vacation to ensure a healthy work-life balance and much more. For us, every day brings new challenges and exciting opportunities for personal and professional development.",
         "de": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Zürich, St.Gallen, Zug und Luzern die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung.",
-        "fr": "Nous sommes à la recherche de futurs leaders de magasins ambitieux avec la mobilité dans les régions de Zurich, Saint-Gall, Zug et Lucerne qui veulent commencer par l'enthousiasme et l'énergie dans le commerce de détail sportif! Dans une phase d'incubation intensive, vous apprendrez tout sur notre entreprise, les processus, les outils et le monde dynamique du commerce de détail. Ensuite, vous prenez la direction d'une nouvelle succursale ou la direction d'une succursale existante. Vous vivez et partagez nos valeurs (vitalité, responsabilité, authenticité et générosité) et vous acceptez la mission suivante :\n• Éducation de votre équipe de rêve : Vous dirigez une équipe vaste et diversifiée, favorisez la coopération, développez des talents et créez une atmosphère de travail positive.\n• Planification stratégique : Vous élaborez et appliquez des stratégies locales pour développer davantage le magasin, augmenter la satisfaction de la clientèle et atteindre des objectifs commerciaux.\n• Excellent service à la clientèle: Vous assurez que notre équipe à Suhr offre un service à la clientèle exceptionnel, favorise les achats personnels et offre des solutions personnalisées pour nos clients.\n• Efficacité opérationnelle : Vous optimisez les processus de stockage, la gestion des stocks et l'utilisation des ressources pour maximiser l'efficacité et la rentabilité.\n• Stratégie Omnichannel : Vous développez et implémentez une stratégie omnichannel sans faille pour offrir à nos clients une expérience d'achat optimale sur tous les canaux.\n• Réseautage local : Vous établissez des relations solides avec les clubs sportifs, les communautés locales et d'autres parties prenantes de la région.À quoi s'attendre de nous : Depuis le premier jour, vous assumez la responsabilité et faites la promotion d'un esprit d'équipe fort. Avec nous, vous trouverez des possibilités de perfectionnement professionnel, tant à l'échelle nationale qu'internationale et profitez d'un large éventail d'avantages, de partage des bénéfices, de 30 jours de vacances pour assurer un équilibre sain entre le travail et la vie personnelle et bien d'autres. Chaque jour apporte de nouveaux défis et des possibilités passionnantes pour le perfectionnement personnel et professionnel."
+        "fr": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Zürich, St.Gallen, Zug und Luzern die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:28.786Z",
+      "crawledAt": "2026-07-14T23:10:02.942Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -529,6 +538,7 @@
       },
       "previousSlugsByLocale": {
         "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ],
         "it": [
@@ -539,9 +549,11 @@
         ]
       },
       "previousSlugs": [
-        "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
+        "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.823Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -586,7 +598,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sportberaterin-verkaufsberaterin-50-70-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:28.484Z",
+      "crawledAt": "2026-07-14T23:10:02.629Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -605,13 +617,15 @@
       "previousSlugs": [
         "sportberater-in-verkaufsberater-in-60-80-decathlon-ch",
         "sportberater-in-verkaufsberater-in-50-70-decathlon-ch",
-        "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
+        "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach",
+        "consulente-sportivo-a-di-vendita-60-80-decathlon-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-verkaufsberater-in-60-80-decathlon-ch",
           "sportberater-in-verkaufsberater-in-50-70-decathlon-ch",
-          "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
+          "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach",
+          "consulente-sportivo-a-di-vendita-60-80-decathlon-spreitenbach"
         ],
         "en": [
           "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
@@ -665,7 +679,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4303781-sports-leader-sportberater-mwd-70-im-bereich-velo-befristet-5-monate-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:28.097Z",
+      "crawledAt": "2026-07-14T23:10:02.238Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -716,7 +730,7 @@
         "it": "store-leader-incubation-m-w-d-nord-e-westschweiz-decathlon-bern",
         "en": "store-leader-incubation-m-f-d-northern-and-western-switzerland-decathlon-bern",
         "de": "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch",
-        "fr": "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
+        "fr": "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -726,21 +740,21 @@
         "it": "Incubazione Leader Store (m/f/d) Svizzera settentrionale e occidentale",
         "en": "Store Leader Incubation (m/f/d) Northern and Western Switzerland",
         "de": "Store Leader Incubation (m/w / d) Nord - und Westschweiz",
-        "fr": "Incubation du chef de magasin (m/f/d) Suisse du Nord et de l'Ouest"
+        "fr": "Store Leader Incubation (m/w/d) Nord- und Westschweiz"
       },
       "description": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Bern und Aarau die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung.",
       "descriptionByLocale": {
         "it": "Siamo alla ricerca di futuri, ambiziosi leader di negozi con la mobilità nelle regioni di Berna e Aarau che vogliono iniziare con entusiasmo ed energia nel retail sportivo! In una fase intensiva di incubazione, imparerai tutto sulla nostra azienda, processi, strumenti e il mondo dinamico del retail. Poi si prende il controllo della gestione di un nuovo ramo o prendere il sopravvento di un ramo esistente. Vivi e condividi i nostri valori (Vitality, Responsibility, Authenticity & Generosity) e intraprendi la seguente missione: Conduci un team ampio e diversificato, promuovi la cooperazione, sviluppi il talento e crei un'atmosfera di lavoro positiva.\n• Pianificazione strategica: sviluppate e implementate strategie locali per sviluppare ulteriormente il negozio, aumentare la soddisfazione del cliente e raggiungere gli obiettivi aziendali.\n• Servizio clienti eccellente: assicurarsi che il nostro team di Suhr offre un servizio clienti eccezionale, promuove shopping personale e offre soluzioni personalizzate per i nostri clienti.\n• Efficienza Operativa: ottimizza i processi di memorizzazione, la gestione dell'inventario e l'uso delle risorse per massimizzare l'efficienza e la redditività.\n• Strategia omnicanale: sviluppi e implementa una strategia omnicanale senza soluzione di continuità per offrire ai nostri clienti un'esperienza di shopping ottimale in tutti i canali.\n• Rete locale: Si costruisce relazioni forti con club sportivi, comunità locali e altri stakeholder della regione Cosa aspettarsi: Con noi, si assume la responsabilità dal primo giorno e promuovere uno spirito di squadra forte. Con noi troverete opportunità di sviluppo professionale, sia a livello nazionale che internazionale e godere di una vasta gamma di benefici, la condivisione dei profitti, 30 giorni di vacanza per garantire un sano equilibrio di vita lavorativa e molti altri. Ogni giorno porta nuove sfide e interessanti opportunità per lo sviluppo personale e professionale.",
         "en": "We are looking for future, ambitious store leaders with mobility in the regions of Berne and Aarau who want to start with enthusiasm and energy in sports retail! In an intensive incubation phase, you will learn everything about our company, processes, tools and the dynamic world of retail. Then you take over the management of a new branch or take over an existing branch. You live and share our values (Vitality, Responsibility, Authenticity & Generosity) and take on the following mission:\n• Form your dream team: You lead a large and diverse team, promote cooperation, develop talent and create a positive working atmosphere.\n• Strategic Planning: You develop and implement local strategies to further develop the store, increase customer satisfaction and achieve business goals.\n• Excellent customer service: You ensure that our team in Suhr offers outstanding customer service, promotes personal shopping and offers customized solutions for our customers.\n• Operational Efficiency: You optimize store processes, inventory management and resource use to maximize efficiency and profitability.\n• Omnichannel strategy: You develop and implement a seamless omnichannel strategy to provide our customers with an optimal shopping experience across all channels.\n• Local networking: You build strong relationships with sports clubs, local communities and other stakeholders in the region What to expect: With us, you take on responsibility from day one and promote a strong team spirit. With us you will find opportunities for professional development, both nationally and internationally and enjoy a wide range of benefits, profit sharing, 30 days of vacation to ensure a healthy work-life balance and many more. Every day brings new challenges and exciting opportunities for personal and professional development.",
         "de": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Bern und Aarau die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung.",
-        "fr": "Nous sommes à la recherche de futurs leaders de magasins ambitieux avec mobilité dans les régions de Berne et d'Aarau qui veulent commencer par l'enthousiasme et l'énergie dans le commerce de détail sportif! Dans une phase d'incubation intensive, vous apprendrez tout sur notre entreprise, les processus, les outils et le monde dynamique du commerce de détail. Ensuite, vous prenez la direction d'une nouvelle succursale ou la direction d'une succursale existante. Vous vivez et partagez nos valeurs (vitalité, responsabilité, authenticité et générosité) et vous acceptez la mission suivante :\n• Éducation de votre équipe de rêve : Vous dirigez une équipe vaste et diversifiée, favorisez la coopération, développez des talents et créez une atmosphère de travail positive.\n• Planification stratégique : Vous élaborez et appliquez des stratégies locales pour développer davantage le magasin, augmenter la satisfaction de la clientèle et atteindre des objectifs commerciaux.\n• Excellent service à la clientèle: Vous assurez que notre équipe à Suhr offre un service à la clientèle exceptionnel, favorise les achats personnels et offre des solutions personnalisées pour nos clients.\n• Efficacité opérationnelle : Vous optimisez les processus de stockage, la gestion des stocks et l'utilisation des ressources pour maximiser l'efficacité et la rentabilité.\n• Stratégie Omnichannel : Vous développez et implémentez une stratégie omnichannel sans faille pour offrir à nos clients une expérience d'achat optimale sur tous les canaux.\n• Réseautage local : Vous établissez des relations solides avec les clubs sportifs, les communautés locales et d'autres parties prenantes de la région.À quoi s'attendre de nous : Depuis le premier jour, vous assumez la responsabilité et faites la promotion d'un esprit d'équipe fort. Avec nous, vous trouverez des possibilités de perfectionnement professionnel, tant à l'échelle nationale qu'internationale et profitez d'un large éventail d'avantages, de partage des bénéfices, de 30 jours de vacances pour assurer un équilibre sain entre le travail et la vie personnelle et bien d'autres. Chaque jour apporte de nouveaux défis et des possibilités passionnantes pour le perfectionnement personnel et professionnel."
+        "fr": "Wir suchen zukünftige, ambitionierte Store Leader mit Mobilität in den Regionen Bern und Aarau die mit Begeisterung und Energie im Sport Retail durchstarten möchten! In einer intensiven Inkubationsphase lernst du alles über unser Unternehmen, Prozesse, Tools und die dynamische Welt des Retail kennen. Danach übernimmst du die Leitung einer neuen Filiale oder übernimmst eine bestehende Filiale. Du lebst und teilst unsere Werte (Vitality, Responsibility, Authenticity & Generosity) und übernimmst folgende Mission:\n• Bildung deines Dreamteams: Du führst ein grosses und vielfältiges Team, förderst die Zusammenarbeit, entwickelst Talente und schaffst eine positive Arbeitsatmosphäre.\n• Strategische Planung: Du entwickelst und implementierst lokale Strategien, um die Filiale weiterzuentwickeln, die Kundenzufriedenheit zu steigern und die Geschäftsziele zu erreichen.\n• Exzellenter Kundenservice: Du stellst sicher, dass unser Team in Suhr herausragenden Kundenservice bietet, Personal Shopping fördert und massgeschneiderte Lösungen für unsere Kunden bereithält.\n• Betriebliche Effizienz: Du optimierst die Filialprozesse, das Bestandsmanagement und die Ressourcennutzung, um die Effizienz und Rentabilität zu maximieren.\n• Omnichannel-Strategie: Du entwickelst und setzt eine nahtlose Omnichannel-Strategie um, um unseren Kunden ein optimales Einkaufserlebnis über alle Kanäle hinweg zu bieten.\n• Lokale Vernetzung: Du baust starke Beziehungen zu Sportvereinen, lokalen Gemeinschaften und anderen Stakeholdern in der Region auf Was dich bei uns erwartet: Bei uns übernimmst du ab Tag eins Verantwortung und förderst einen starken Teamgeist. Du findest bei uns Möglichkeiten zur beruflichen Weiterentwicklung, sowohl national als auch international und geniesst eine breite Palette von Vorteilen, Gewinnbeteiligung, 30 Tage Urlaub, um eine gesunde Work-Life-Balance zu gewährleisten und viele mehr. Bei uns bringt jeder Tag neue Herausforderungen und spannende Möglichkeiten für die persönliche und berufliche Entwicklung."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:27.746Z",
+      "crawledAt": "2026-07-14T23:10:01.874Z",
       "addressLocality": "Bern",
       "postalCode": "",
       "addressRegion": "BE",
@@ -765,6 +779,7 @@
       },
       "previousSlugsByLocale": {
         "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ],
         "it": [
@@ -775,9 +790,11 @@
         ]
       },
       "previousSlugs": [
-        "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch",
+        "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.817Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -822,7 +839,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4329461-sportsleader-multisportracket-80-90-flexibel-einsetzbar-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:27.433Z",
+      "crawledAt": "2026-07-14T23:10:01.515Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -839,11 +856,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+        "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
+        "sportleader-multisport-racket-80-90-flessibile-da-usare-decathlon-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+          "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
+          "sportleader-multisport-racket-80-90-flessibile-da-usare-decathlon-basel"
         ],
         "en": [
           "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
@@ -897,7 +916,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229055-sportberater-verkaufsberater-mwd-20-30-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:27.112Z",
+      "crawledAt": "2026-07-14T23:10:01.204Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -914,11 +933,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+        "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
+        "consulente-sportivo-consulente-commerciale-m-f-d-20-30-decathlon-svizzera-decathlon-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+          "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
+          "consulente-sportivo-consulente-commerciale-m-f-d-20-30-decathlon-svizzera-decathlon-spreitenbach"
         ],
         "en": [
           "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
@@ -948,7 +969,7 @@
         "it": "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich",
         "en": "workshop-technician-60-city-of-zurich-decathlon-zurich",
         "de": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "fr": "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich"
+        "fr": "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -958,21 +979,21 @@
         "it": "Tecnico di officina, 60% Città di Zurigo",
         "en": "Workshop technician 60% City of Zurich",
         "de": "Werkstatt Techniker 60% Stadt Zürich",
-        "fr": "Technicien d'atelier 60% Ville de Zurich"
+        "fr": "Werkstatt Techniker 60% Stadt Zürich"
       },
       "description": "1. Technische Instandhaltung & Reparatur\n• Diagnose & Instandsetzung: Selbstständige Durchführung von Reparaturen, Wartungen und Sicherheitschecks an allen Fahrradtypen (MTB, Rennrad, Citybikes).\n• E-Bike Service: Diagnose, Software-Updates und Fehlerbehebung an gängigen E-Bike-Systemen.\n• Neumontage: Fachgerechter Aufbau und fahrfertige Einstellung von Neurädern für den Verkauf.\n• Qualitätssicherung: Endkontrolle aller ausgeführten Arbeiten zur Gewährleistung der Kundensicherheit. 2. Kundenberatung & Verkauf\n• Annahme & Beratung: Empfang der Kunden am Servicepoint, Erstellung von Kostenvoranschlägen und Beratung zu notwendigen Reparaturen.\n• Zubehörverkauf: Aktiver Verkauf von Ersatzteilen und passendem Zubehör sowie Beratung zur richtigen Pflege der Ausrüstung.\n• Express-Service: Durchführung kleinerer Sofort-Reparaturen (z.B. Schlauchwechsel oder Schaltung einstellen) direkt vor Ort. 3. Werkstattmanagement & Organisation\n• Auftragsabwicklung: Erfassung und Dokumentation der Aufträge im internen System sowie Bestandsverwaltung der Ersatzteile.\n• Arbeitsplatzorganisation: Sicherstellung von Ordnung, Sauberkeit und Sicherheit in der Werkstatt sowie Pflege des Werkzeugs.\n• Effizienz: Mitwirkung an der Optimierung von Werkstattprozessen, um Wartezeiten für Kunden zu minimieren. 4. Teamarbeit & Sport-Leidenschaft\n• Team-Spirit: Unterstützung der Kollegen auf der Verkaufsfläche bei hohem Kundenaufkommen.\n• Botschafter-Rolle: Deine Leidenschaft für das Radfahren mit Kunden teilen und den Sport in der Zürcher Community fördern.",
       "descriptionByLocale": {
         "it": "1. Manutenzione tecnica e riparazione\n• Diagnosi e riparazione: Effettua in modo indipendente riparazioni, manutenzione e controlli di sicurezza su tutti i tipi di biciclette (MTB, bici da corsa, city bike).\n• Servizio E-Bike: diagnosi, aggiornamenti software e risoluzione dei problemi sui comuni sistemi e-bike.\n• Nuovo montaggio: montaggio professionale e regolazione pronta all'uso delle nuove biciclette in vendita.\n• Garanzia di qualità: ispezione finale di tutto il lavoro svolto per garantire la sicurezza del cliente. 2. Consulenza e vendita al cliente\n• Accettazione e consulenza: accoglienza dei clienti presso il punto di servizio, preparazione di preventivi di costo e consulenza sulle riparazioni necessarie.\n• Vendita di accessori: vendita attiva di pezzi di ricambio e accessori coordinati, nonché consigli su come prendersi cura adeguatamente dell'attrezzatura.\n• Servizio espresso: esecuzione di piccole riparazioni immediate (ad es. sostituzione dei tubi o regolazione del circuito) direttamente sul posto. 3. Gestione e organizzazione dell'officina\n• Elaborazione degli ordini: registrazione e documentazione degli ordini nel sistema interno nonché gestione dell'inventario dei pezzi di ricambio.\n• Organizzazione del lavoro: garantire l'ordine, la pulizia e la sicurezza in officina nonché la manutenzione degli strumenti.\n• Efficienza: partecipazione all'ottimizzazione dei processi di officina per ridurre al minimo i tempi di attesa per i clienti. 4. Lavoro di squadra e passione per lo sport\n• Spirito di squadra: supportare i colleghi nel reparto vendite quando c'è un volume elevato di clienti.\n• Ruolo di ambasciatore: condividi la tua passione per il ciclismo con i clienti e promuovi lo sport nella comunità di Zurigo.",
         "en": "1. Technical maintenance & repair\n• Diagnosis & repair: Independent carrying out repairs, maintenance and safety checks on all types of bicycles (MTB, racing bike, city bikes).\n• E-Bike Service: Diagnosis, software updates and troubleshooting on common e-bike systems.\n• New assembly: Professional assembly and ready-to-ride adjustment of new bikes for sale.\n• Quality assurance: Final inspection of all work carried out to ensure customer safety. 2. Customer advice & sales\n• Acceptance & advice: Reception of customers at the service point, preparation of cost estimates and advice on necessary repairs.\n• Accessories sales: Active sales of spare parts and matching accessories as well as advice on how to properly care for the equipment.\n• Express service: Carrying out minor immediate repairs (e.g. changing hoses or adjusting the circuit) directly on site. 3. Workshop management & organization\n• Order processing: Recording and documentation of orders in the internal system as well as inventory management of spare parts.\n• Workplace organization: ensuring order, cleanliness and safety in the workshop as well as maintaining tools.\n• Efficiency: Participation in optimizing workshop processes to minimize waiting times for customers. 4. Teamwork & passion for sports\n• Team spirit: Supporting colleagues on the sales floor when there is a high volume of customers.\n• Ambassador role: Share your passion for cycling with customers and promote the sport in the Zurich community.",
         "de": "1. Technische Instandhaltung & Reparatur\n• Diagnose & Instandsetzung: Selbstständige Durchführung von Reparaturen, Wartungen und Sicherheitschecks an allen Fahrradtypen (MTB, Rennrad, Citybikes).\n• E-Bike Service: Diagnose, Software-Updates und Fehlerbehebung an gängigen E-Bike-Systemen.\n• Neumontage: Fachgerechter Aufbau und fahrfertige Einstellung von Neurädern für den Verkauf.\n• Qualitätssicherung: Endkontrolle aller ausgeführten Arbeiten zur Gewährleistung der Kundensicherheit. 2. Kundenberatung & Verkauf\n• Annahme & Beratung: Empfang der Kunden am Servicepoint, Erstellung von Kostenvoranschlägen und Beratung zu notwendigen Reparaturen.\n• Zubehörverkauf: Aktiver Verkauf von Ersatzteilen und passendem Zubehör sowie Beratung zur richtigen Pflege der Ausrüstung.\n• Express-Service: Durchführung kleinerer Sofort-Reparaturen (z.B. Schlauchwechsel oder Schaltung einstellen) direkt vor Ort. 3. Werkstattmanagement & Organisation\n• Auftragsabwicklung: Erfassung und Dokumentation der Aufträge im internen System sowie Bestandsverwaltung der Ersatzteile.\n• Arbeitsplatzorganisation: Sicherstellung von Ordnung, Sauberkeit und Sicherheit in der Werkstatt sowie Pflege des Werkzeugs.\n• Effizienz: Mitwirkung an der Optimierung von Werkstattprozessen, um Wartezeiten für Kunden zu minimieren. 4. Teamarbeit & Sport-Leidenschaft\n• Team-Spirit: Unterstützung der Kollegen auf der Verkaufsfläche bei hohem Kundenaufkommen.\n• Botschafter-Rolle: Deine Leidenschaft für das Radfahren mit Kunden teilen und den Sport in der Zürcher Community fördern.",
-        "fr": "1. Entretien et réparation techniques\n• Diagnostic et réparations: Réalisation indépendante des réparations, de l'entretien et des contrôles de sécurité sur tous les types de vélos (MTB, vélo de route, vélo de ville).\n• Service e-bike : diagnostic, mises à jour logicielles et dépannage de systèmes e-bike communs.\n• Réassemblement: corps professionnel et réglage prêt à conduire des nouvelles roues à vendre.\n• Assurance qualité: inspection finale de tous les travaux effectués pour assurer la sécurité du client. Conseil à la clientèle & Ventes\n• Acceptation & conseil: Réception des clients au point de service, préparation des estimations de coûts et conseil sur les réparations nécessaires.\n• Vente d'accessoires: Vente active de pièces de rechange et d'accessoires assortis ainsi que des conseils sur l'entretien approprié de l'équipement.\n• Service express : Effectuer des réparations immédiates mineures (p. ex. changement de tuyau ou réglage du poste) directement sur place. Gestion et organisation de l'atelier\n• Traitement des commandes : enregistrement et documentation des commandes dans le système interne ainsi que gestion des stocks de pièces détachées.\n• Organisation du lieu de travail: assurer l'ordre, la propreté et la sécurité dans l'atelier et maintenir les outils.\n• Efficacité : contribuer à l'optimisation des processus d'atelier pour minimiser les temps d'attente pour les clients. Travail d'équipe et passion sportive\n• Esprit d'équipe : Soutenir les collègues sur le plancher de vente avec des volumes de clients élevés.\n• Rôle d'ambassadeur: Partager votre passion pour le cyclisme avec les clients et promouvoir le sport dans la communauté de Zurich."
+        "fr": "1. Technische Instandhaltung & Reparatur\n• Diagnose & Instandsetzung: Selbstständige Durchführung von Reparaturen, Wartungen und Sicherheitschecks an allen Fahrradtypen (MTB, Rennrad, Citybikes).\n• E-Bike Service: Diagnose, Software-Updates und Fehlerbehebung an gängigen E-Bike-Systemen.\n• Neumontage: Fachgerechter Aufbau und fahrfertige Einstellung von Neurädern für den Verkauf.\n• Qualitätssicherung: Endkontrolle aller ausgeführten Arbeiten zur Gewährleistung der Kundensicherheit. 2. Kundenberatung & Verkauf\n• Annahme & Beratung: Empfang der Kunden am Servicepoint, Erstellung von Kostenvoranschlägen und Beratung zu notwendigen Reparaturen.\n• Zubehörverkauf: Aktiver Verkauf von Ersatzteilen und passendem Zubehör sowie Beratung zur richtigen Pflege der Ausrüstung.\n• Express-Service: Durchführung kleinerer Sofort-Reparaturen (z.B. Schlauchwechsel oder Schaltung einstellen) direkt vor Ort. 3. Werkstattmanagement & Organisation\n• Auftragsabwicklung: Erfassung und Dokumentation der Aufträge im internen System sowie Bestandsverwaltung der Ersatzteile.\n• Arbeitsplatzorganisation: Sicherstellung von Ordnung, Sauberkeit und Sicherheit in der Werkstatt sowie Pflege des Werkzeugs.\n• Effizienz: Mitwirkung an der Optimierung von Werkstattprozessen, um Wartezeiten für Kunden zu minimieren. 4. Teamarbeit & Sport-Leidenschaft\n• Team-Spirit: Unterstützung der Kollegen auf der Verkaufsfläche bei hohem Kundenaufkommen.\n• Botschafter-Rolle: Deine Leidenschaft für das Radfahren mit Kunden teilen und den Sport in der Zürcher Community fördern."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363465-werkstatt-techniker-60-stadt-zurich-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:26.771Z",
+      "crawledAt": "2026-07-14T23:10:00.858Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -991,17 +1012,22 @@
       "previousSlugsByLocale": {
         "fr": [
           "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
+          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
           "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
         ],
         "it": [
-          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
+          "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich"
         ]
       },
       "previousSlugs": [
         "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
-        "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
+        "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
+        "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich"
       ],
       "firstSeenAt": "2026-06-11T07:53:18.829Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -1030,7 +1056,7 @@
       "title": "Bike Sales Advisor im Premiumbereich (m/w/d) 80% - Van Rysel | Spreitenbach",
       "titleByLocale": {
         "it": "Bike Sales Consulente im Premiumbereich (m/w/d) 80% - Van Rysel | Spreitenbach",
-        "en": "Bike Sales Advisor in the premium range (m/f/d) 80% - Van Rysel | Spreitenbach",
+        "en": "Bike Sales Advisor im Premiumbereich (m/w/d) 80% - Van Rysel | Spreitenbach",
         "de": "Bike Sales Berater im Premiumbereich (m/w/d) 80% - Van Rysel | Spreitenbach",
         "fr": "Conseiller en vente de vélos (l/f/d) 80 % - Van Rysel | Spreitenbach"
       },
@@ -1046,7 +1072,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4369567-bike-sales-advisor-im-premiumbereich-mwd-80-van-rysel-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:26.424Z",
+      "crawledAt": "2026-07-14T23:10:00.546Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1071,11 +1097,13 @@
       },
       "previousSlugs": [
         "bike-sales-advisor-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-ch",
-        "bike-sales-conseiller-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach"
+        "bike-sales-conseiller-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach",
+        "bike-sales-consulente-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bike-sales-advisor-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-ch"
+          "bike-sales-advisor-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-ch",
+          "bike-sales-consulente-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach"
         ],
         "fr": [
           "bike-sales-advisor-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-ch",
@@ -1083,6 +1111,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.808Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -1127,7 +1156,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370341-sports-leader-verkausberater-mwd-80-100-decathlon-winterthur-gruze-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:26.074Z",
+      "crawledAt": "2026-07-14T23:10:00.191Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1145,11 +1174,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sports-leader-verkausberater-m-w-d-80-100-decathlon-winterthur-gruze-decathlon-ch",
-        "leader-sportivo-consulente-di-vendita-f-f-d-80-100-decathlon-winterthur-gruze-decathlon-winterthur"
+        "leader-sportivo-consulente-di-vendita-f-f-d-80-100-decathlon-winterthur-gruze-decathlon-winterthur",
+        "leader-sportivo-verkausberater-m-f-d-80-100-decathlon-winterthur-gruze-decathlon-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sports-leader-verkausberater-m-w-d-80-100-decathlon-winterthur-gruze-decathlon-ch"
+          "sports-leader-verkausberater-m-w-d-80-100-decathlon-winterthur-gruze-decathlon-ch",
+          "leader-sportivo-verkausberater-m-f-d-80-100-decathlon-winterthur-gruze-decathlon-winterthur"
         ],
         "en": [
           "sports-leader-verkausberater-m-w-d-80-100-decathlon-winterthur-gruze-decathlon-ch"
@@ -1170,7 +1201,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-53990cff8ed3",
@@ -1203,7 +1235,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370639-velo-verkaufer-und-montage-spezialist-mwd-20-80-baar-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:25.756Z",
+      "crawledAt": "2026-07-14T23:09:59.885Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -1278,7 +1310,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4372983-sports-leader-mwd-60-80-fur-3-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:25.437Z",
+      "crawledAt": "2026-07-14T23:09:59.585Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1317,7 +1349,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-ff84b7683270",
@@ -1350,7 +1383,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373005-sports-leader-mwd-60-80-fur-2-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:25.026Z",
+      "crawledAt": "2026-07-14T23:09:59.211Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1393,9 +1426,9 @@
     },
     {
       "id": "decathlon-609b3c8853ca",
-      "slug": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
+      "slug": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
       "slugByLocale": {
-        "it": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "it": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "en": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "de": "kundenserviceberater-fr-de-eng-befristeter-vertrag-decathlon-onnens",
         "fr": "conseiller-en-service-client-fr-de-eng-contrat-a-duree-determinee-decathlon-onnens"
@@ -1412,7 +1445,7 @@
       },
       "description": "Location: Onnens (Moving to the Bern area in November 2026) Duration: 5 to 6 months YOUR CHALLENGE AND THE CONTEXT At Decathlon Switzerland, our Customer Relations Center (CRC) is entering a major transition phase. We are actively preparing for the relocation of our site to Niederwangen (Bern/Fribourg area) in November 2026. Because of this upcoming move, we anticipate several shifts and internal movements within the team. To keep our boat steady and continue delivering a \"best-in-class\" experience during this transition, we need a proactive and trilingual Customer Service Advisor to step in and support our customers. While this is a CDD, we value talent and long-term potential. WHAT YOU WILL ACTUALLY DO You won't just be answering the phone; you will own the customer experience from A to Z. Your daily missions: 1. Satisfy my customer with “the best in class” omnichannel customer experience\n• Provide seamless support across all channels (Chat, Phone, Social Media).\n• Act as the \"Voice of the Customer\" to improve digital tools and processes.\n• Key KPIs: Net Promoter Score (NPS) & CSAT > 85%. 2. Satisfy my customer by delivering a seamless end-to-end journey, from purchase to delivery\n• Transform inquiries into sales opportunities through proactive advice.\n• Manage complex B2B mandates and technical after-sales dossiers (Location, Buyback, Repair).\n• Handle high-level logistics and payment disputes.\n• Key KPIs: Growth in Gross Merchandise Value (GMV), ARPU, and First Contact Resolution (FCR). 3. Satisfy my customers by ensuring safety procedures\n• Guarantee 100% compliance with data protection and financial security procedures.\n• Rigorous management of product recalls and fraud prevention.\n• Monitor quality for external service providers.\n• Key KPIs: Zero security breaches and audit compliance.",
       "descriptionByLocale": {
-        "it": "Luogo: Onnens (Moving to the Bern area in novembre 2026) Durata: da 5 a 6 mesi LA VITA E IL CONTESTO A Decathlon Svizzera, il nostro Centro Relazioni Clienti (CRC) sta entrando in una fase di transizione importante. Ci stiamo preparando attivamente per il trasferimento del nostro sito a Niederwangen (zona Bern/Fribourg) nel novembre 2026. A causa di questa prossima mossa, aspettiamo diversi turni e movimenti interni all'interno della squadra. Per mantenere costante la nostra barca e continuare a fornire un'esperienza \"migliore in classe\" durante questa transizione, abbiamo bisogno di un consulente proattivo e trilingue del servizio clienti per entrare e sostenere i nostri clienti. Mentre questo è un CDD, apprezziamo il talento e il potenziale a lungo termine. Quello che vuoi veramente fare Non solo risponderai al telefono; possiederai l'esperienza del cliente da A a Z. Le vostre missioni quotidiane: 1. Soddisfa il mio cliente con “il migliore in classe” omnicanale esperienza del cliente\n• Fornire un supporto senza interruzioni su tutti i canali (Chat, Phone, Social Media).\n• Agire come \"Voce del Cliente\" per migliorare strumenti e processi digitali.\n• KPI chiave: Net Promoter Score (NPS) & CSAT > 85%. 2. Soddisfa il mio cliente offrendo un viaggio end-to-end senza soluzione di continuità, dall'acquisto alla consegna\n• Trasformare le richieste in opportunità di vendita attraverso consigli proattivi.\n• Gestisci complessi mandati B2B e dossier tecnici post-vendita (Location, Buyback, Repair).\n• Gestire la logistica di alto livello e le controversie di pagamento.\n• KPI chiave: Crescita nel valore lordo della merce (GMV), ARPU e prima risoluzione di contatto (FCR). 3. Soddisfare i miei clienti assicurando procedure di sicurezza\n• Garantire il 100% del rispetto delle procedure di protezione dei dati e sicurezza finanziaria.\n• Gestione rigorosa dei richiami di prodotto e prevenzione delle frodi.\n• Monitorare la qualità per i fornitori di servizi esterni.\n• KPI chiave: violazioni della sicurezza zero e conformità dell'audit.",
+        "it": "Location: Onnens (Moving to the Bern area in November 2026) Duration: 5 to 6 months YOUR CHALLENGE AND THE CONTEXT At Decathlon Switzerland, our Customer Relations Center (CRC) is entering a major transition phase. We are actively preparing for the relocation of our site to Niederwangen (Bern/Fribourg area) in November 2026. Because of this upcoming move, we anticipate several shifts and internal movements within the team. To keep our boat steady and continue delivering a \"best-in-class\" experience during this transition, we need a proactive and trilingual Customer Service Advisor to step in and support our customers. While this is a CDD, we value talent and long-term potential. WHAT YOU WILL ACTUALLY DO You won't just be answering the phone; you will own the customer experience from A to Z. Your daily missions: 1. Satisfy my customer with “the best in class” omnichannel customer experience\n• Provide seamless support across all channels (Chat, Phone, Social Media).\n• Act as the \"Voice of the Customer\" to improve digital tools and processes.\n• Key KPIs: Net Promoter Score (NPS) & CSAT > 85%. 2. Satisfy my customer by delivering a seamless end-to-end journey, from purchase to delivery\n• Transform inquiries into sales opportunities through proactive advice.\n• Manage complex B2B mandates and technical after-sales dossiers (Location, Buyback, Repair).\n• Handle high-level logistics and payment disputes.\n• Key KPIs: Growth in Gross Merchandise Value (GMV), ARPU, and First Contact Resolution (FCR). 3. Satisfy my customers by ensuring safety procedures\n• Guarantee 100% compliance with data protection and financial security procedures.\n• Rigorous management of product recalls and fraud prevention.\n• Monitor quality for external service providers.\n• Key KPIs: Zero security breaches and audit compliance.",
         "en": "Location: Onnens (Moving to the Bern area in November 2026) Duration: 5 to 6 months YOUR CHALLENGE AND THE CONTEXT At Decathlon Switzerland, our Customer Relations Center (CRC) is entering a major transition phase. We are actively preparing for the relocation of our site to Niederwangen (Bern/Fribourg area) in November 2026. Because of this upcoming move, we anticipate several shifts and internal movements within the team. To keep our boat steady and continue delivering a \"best-in-class\" experience during this transition, we need a proactive and trilingual Customer Service Advisor to step in and support our customers. While this is a CDD, we value talent and long-term potential. WHAT YOU WILL ACTUALLY DO You won't just be answering the phone; you will own the customer experience from A to Z. Your daily missions: 1. Satisfy my customer with “the best in class” omnichannel customer experience\n• Provide seamless support across all channels (Chat, Phone, Social Media).\n• Act as the \"Voice of the Customer\" to improve digital tools and processes.\n• Key KPIs: Net Promoter Score (NPS) & CSAT > 85%. 2. Satisfy my customer by delivering a seamless end-to-end journey, from purchase to delivery\n• Transform inquiries into sales opportunities through proactive advice.\n• Manage complex B2B mandates and technical after-sales dossiers (Location, Buyback, Repair).\n• Handle high-level logistics and payment disputes.\n• Key KPIs: Growth in Gross Merchandise Value (GMV), ARPU, and First Contact Resolution (FCR). 3. Satisfy my customers by ensuring safety procedures\n• Guarantee 100% compliance with data protection and financial security procedures.\n• Rigorous management of product recalls and fraud prevention.\n• Monitor quality for external service providers.\n• Key KPIs: Zero security breaches and audit compliance.",
         "de": "Ort: Onnens (Umzug in den Raum Bern im November 2026) Dauer: 5 bis 6 Monate IHRE HERAUSFORDERUNG UND DER KONTEXT Bei Decathlon Schweiz befindet sich unser Customer Relations Center (CRC) in einer großen Übergangsphase. Wir bereiten uns aktiv auf den Umzug unseres Standorts nach Niederwangen (Raum Bern/Freiburg) im November 2026 vor. Aufgrund dieses bevorstehenden Umzugs rechnen wir mit mehreren Verschiebungen und internen Umzügen innerhalb des Teams. Um unser Boot stabil zu halten und während dieser Übergangszeit weiterhin ein „Best-in-Class“-Erlebnis zu bieten, benötigen wir einen proaktiven und dreisprachigen Kundendienstberater, der einspringt und unsere Kunden unterstützt. Obwohl es sich hierbei um eine CDD handelt, legen wir Wert auf Talent und langfristiges Potenzial. WAS SIE TATSÄCHLICH TUN WERDEN Sie werden nicht nur ans Telefon gehen; Sie sind für das Kundenerlebnis von A bis Z verantwortlich. Ihre täglichen Aufgaben: 1. Meine Kunden mit dem „besten Omnichannel-Kundenerlebnis seiner Klasse“ zufrieden stellen.\n• Nahtlosen Support über alle Kanäle (Chat, Telefon, soziale Medien) bieten.\n• Als „Stimme des Kunden“ fungieren, um digitale Tools und Prozesse zu verbessern.\n• Wichtige KPIs: Net Promoter Score (NPS) und CSAT > 85 %. 2. Stellen Sie meine Kunden zufrieden, indem Sie eine nahtlose End-to-End-Reise vom Kauf bis zur Lieferung bieten.\n• Anfragen durch proaktive Beratung in Verkaufschancen umwandeln.\n• Verwalten Sie komplexe B2B-Mandate und technische After-Sales-Dossiers (Standort, Rückkauf, Reparatur).\n• Bearbeitung hochrangiger Logistik- und Zahlungsstreitigkeiten.\n• Wichtige KPIs: Wachstum des Bruttowarenwerts (GMV), ARPU und First Contact Resolution (FCR). 3. Stellen Sie meine Kunden zufrieden, indem Sie Sicherheitsverfahren gewährleisten.\n• Garantieren Sie eine 100-prozentige Einhaltung der Datenschutz- und Finanzsicherheitsverfahren.\n• Strenges Management von Produktrückrufen und Betrugsprävention.\n• Überwachen Sie die Qualität für externe Dienstleister.\n• Wichtige KPIs: Keine Sicherheitsverstöße und Audit-Compliance.",
         "fr": "Localisation : Onnens (Déménagement dans la région de Berne en novembre 2026) Durée : 5 à 6 mois VOTRE DÉFI ET LE CONTEXTE Chez Decathlon Suisse, notre Centre de Relation Client (CRC) entre dans une phase de transition majeure. Nous préparons activement le déménagement de notre site à Niederwangen (région de Berne/Fribourg) en novembre 2026. En raison de ce déménagement prochain, nous prévoyons plusieurs changements et mouvements internes au sein de l'équipe. Pour maintenir notre bateau stable et continuer à offrir une expérience « meilleure de sa catégorie » pendant cette transition, nous avons besoin d'un conseiller du service client proactif et trilingue pour intervenir et soutenir nos clients. Bien qu'il s'agisse d'un CDD, nous valorisons le talent et le potentiel à long terme. CE QUE VOUS FAIREEZ RÉELLEMENT Vous ne vous contenterez pas de répondre au téléphone ; vous serez propriétaire de l'expérience client de A à Z. Vos missions quotidiennes : 1. Satisfaire mon client avec la meilleure expérience client omnicanal de sa catégorie\n• Fournir un support transparent sur tous les canaux (Chat, Téléphone, Médias Sociaux).\n• Agir en tant que « Voix du client » pour améliorer les outils et processus numériques.\n• KPI clés : Net Promoter Score (NPS) et CSAT > 85 %. 2. Satisfaire mon client en lui offrant un parcours fluide de bout en bout, de l'achat à la livraison.\n• Transformer les demandes de renseignements en opportunités de vente grâce à des conseils proactifs.\n• Gérer des mandats B2B complexes et des dossiers techniques après-vente (Localisation, Rachat, Réparation).\n• Gérer les litiges logistiques et de paiement de haut niveau.\n• KPI clés : croissance de la valeur brute des marchandises (GMV), ARPU et résolution au premier contact (FCR). 3. Satisfaire mes clients en assurant les procédures de sécurité\n• Garantir le respect à 100% des procédures de protection des données et de sécurité financière.\n• Gestion rigoureuse des rappels de produits et prévention de la fraude.\n• Surveiller la qualité des prestataires externes.\n• KPI clés : Zéro faille de sécurité et conformité aux audits."
@@ -1422,7 +1455,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373697-customer-service-advisor-frdeeng-fixed-term-contract-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T11:59:24.666Z",
+      "crawledAt": "2026-07-14T23:09:58.847Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -1446,6 +1479,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
+          "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
           "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
         ],
         "de": [
@@ -1459,9 +1493,11 @@
         "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
         "kundendienst-berater-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.801Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1506,7 +1542,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4377305-sport-leaderverkaufsberater-racketsport-mwd-50-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:24.307Z",
+      "crawledAt": "2026-07-14T23:09:58.540Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -1583,7 +1619,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4387597-conseiller-ere-sportif-ve-rayon-junior-sportconutrition-80-decathlon-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:23.939Z",
+      "crawledAt": "2026-07-14T23:09:58.191Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -1608,11 +1644,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
-        "junior-sports-counsellor-sportco-ernahrung-80-decathlon-conthey-decathlon-conthey"
+        "junior-sports-counsellor-sportco-ernahrung-80-decathlon-conthey-decathlon-conthey",
+        "consulente-sportivo-junior-sportco-nutrizione-80-decathlon-conthey-decathlon-conthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+          "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
+          "consulente-sportivo-junior-sportco-nutrizione-80-decathlon-conthey-decathlon-conthey"
         ],
         "en": [
           "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
@@ -1623,6 +1661,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.795Z",
+      "needsRetranslation": true,
       "salaryMin": 40800,
       "salaryMax": 62000,
       "baseSalary": {
@@ -1667,7 +1706,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389105-befristet-sports-leader-mwd-50-fur-3-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:23.614Z",
+      "crawledAt": "2026-07-14T23:09:57.871Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1713,9 +1752,9 @@
     },
     {
       "id": "decathlon-0124f9bc568d",
-      "slug": "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
+      "slug": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch",
       "slugByLocale": {
-        "it": "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
+        "it": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch",
         "en": "mechanic-cycle-technician-m-f-60-80-permanent-contract-neuchatel-marin-decathlon-marin-epagnier",
         "de": "mechaniker-fahrradtechniker-m-w-60-80-unbefristeter-vertrag-neuchatel-marin-decathlon-marin-epagnier",
         "fr": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
@@ -1725,14 +1764,14 @@
       "companyDomain": "decathlon.ch",
       "title": "Mécanicien⸱ne / Technicien⸱ne Cycle (H/F) - 60-80% CDI - Neuchâtel/Marin",
       "titleByLocale": {
-        "it": "Ciclo meccanico/tecnico (H/F) - 60-80% CDI - Neuchâtel/Marin",
+        "it": "Mécanicien⸱ne / Technicien⸱ne Cycle (H/F) - 60-80% CDI - Neuchâtel/Marin",
         "en": "Mechanic / Cycle Technician (M/F) - 60-80% permanent contract - Neuchâtel/Marin",
         "de": "Mechaniker / Fahrradtechniker (M/W) – 60-80 % unbefristeter Vertrag – Neuchâtel/Marin",
         "fr": "Mécanicien⸱ne / Technicien⸱ne Cycle (H/F) - 60-80% CDI - Neuchâtel/Marin"
       },
       "description": "Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, situé dans le centre commercial de Marin-Centre. Premier magasin concept Decathlon en Suisse, constitué d'une équipe d'une 30e de collaborateurs, viens continuer à écrire l'histoire de Decathlon. Ton périmètre, l'Atelier, est au cœur de notre stratégie locale. L'équipe est composée de 4 techniciens passionnés et se positionne aujourd'hui dans le top 3 pays en termes de part de marché. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu n'es pas juste là pour serrer des boulons derrière un établi ? Tu as envie de prendre des décisions et d'être au contact direct des sportifs ? Tu rêves d’allier ton expertise technique à un vrai sens du service client ? Alors ce poste est fait pour toi. Pourquoi ? 1. Ton atelier est ta propre entreprise. Chez Decathlon, nous aimons donner des responsabilités à nos coéquipiers. Tu ne fais pas qu'exécuter des réparations : tu dois anticiper les périodes de forte activité, gérer et garantir la justesse de ton stock de pièces détachées, et suivre tes indicateurs de performance (croissance, taux de réparation, satisfaction client). 2. Tu es le trait d'union entre la technique et l'humain. Le client est au centre de tout. Que ce soit pour fournir un diagnostic précis, proposer le bon choix de services (seconde vie, entretien) ou simplement rassurer un sportif sur son matériel, tu es sur le terrain. Ton expertise technique ne vaut que si elle est partagée avec le sourire. 3. Tu donnes de la confiance et tu en reçois. Tu as une idée pour améliorer l'efficience de l'atelier ou réduire nos délais de traitement ? Tu as le droit d'essayer, de te tromper, et d'apprendre. C'est en prenant des initiatives que l'on grandit. De plus, ce poste est un excellent tremplin : si tu as de l'ambition, de nombreuses opportunités d'évolution t'attendent (Référent Atelier, Technicien Régional...). Ce poste N'EST PAS fait pour toi si...\n• Tu ne veux réparer QUE des vélos (chez nous, un atelier touche à tout : skis, fitness, flocage/personnalisation, etc. Même si les vélos concernent la grande majorité de nos réparations).\n• Tu n'es intéressé⸱e QUE par la technique pure et le contact CLIENT t'ennuie.\n• Tu aimes les structures \"top-down\" et tu attends qu'on prenne les décisions à ta place.\n• Tu n'es pas prêt⸱e à travailler les samedis (car c’est le moment où nos clients ont le plus besoin de nous). Un⸱e Technicien⸱ne atelier, ça fait quoi ? Ta mission est double : assurer la qualité irréprochable de tes prestations techniques tout en garantissant une expérience client exceptionnelle. Au quotidien, tes responsabilités se divisent en deux grands axes : 1. Le diagnostic et la relation client :\n• Accueillir le client, écouter son besoin et fournir un diagnostic fiable et précis\n• Appliquer les standards de la prise en charge atelier et suivre les procédures de diagnostic\n• Vendre nos produits et services (physiquement et digitalement) et proposer systématiquement le bon choix de services d'économie circulaire\n• Proposer un devis et un délai adaptés aux besoins du sportif\n• Gérer l'encaissement et la remise du matériel avec des conseils d'entretien\n• Tes indicateurs de réussite (KPIs) : % de correct diagnostic, % de part de PEC (“prise en charge”) locale, Croissance du nombre d’interventions (PEC), Panier moyen payant. 2. Les prestations techniques et opérationnelles :\n• Réaliser les prestations de réparation, d'entretien et de remise en état selon les standards de sécurité Decathlon.\n• Assurer la personnalisation des produits (flocage, gravure...).\n• Garantir l'exactitude de ton stock de pièces détachées et commander ce qu'il manque.\n• Veiller à maintenir un environnement de travail sûr, propre et sécurisé.\n• Tes indicateurs de réussite (KPIs) : Taux de réparation, Délai de traitement local, Fiabilité du stock, Efficience atelier, Croissance de la GMV sur la personnalisation et récompenses, NPS personnalisation.",
       "descriptionByLocale": {
-        "it": "Il tuo futuro parco giochi Ti unirai al negozio Neuchâtel, situato nel centro commerciale di Marin-Centre. Il primo concept store Decathlon in Svizzera, composto da un team di 30 dipendenti, continua a scrivere la storia di Decathlon. Il vostro perimetro, l'Atelier, è al centro della nostra strategia locale. Il team è composto da 4 tecnici appassionati ed è ora nei primi 3 paesi in termini di quote di mercato. Unisciti a un'avventura che continua a crescere Decathlon in Svizzera, è una storia di successo iniziata nel 2017 a Neuchâtel. Da allora, abbiamo aperto circa dieci negozi all'anno per raggiungere 50 punti vendita oggi. E non ci fermeremo lì! La nostra espansione continua, soprattutto in Svizzera tedesca, offrendo opportunità di carriera in tutto il paese. E ora, stai cercando un lavoro dove non sei solo qui per stringere i bulloni dietro un locale? Vuoi prendere decisioni ed essere in contatto diretto con gli atleti? Vuoi combinare la tua esperienza tecnica con un vero senso del servizio clienti? Allora questo lavoro e' per te. Perche'? 1. Il vostro workshop è la vostra attività. A Decathlon, ci piace dare la responsabilità ai nostri compagni di squadra. Non solo eseguire riparazioni: è necessario anticipare i periodi di alta attività, gestire e garantire l'accuratezza del vostro stock di pezzi di ricambio, e seguire i vostri indicatori di performance (crescita, tassi di riparazione, soddisfazione del cliente). 2. Sei il legame tra tecnologia e uomo. Il cliente è al centro di tutto. Sia per fornire una diagnosi precisa, offrire la scelta giusta di servizi (seconda vita, manutenzione) o semplicemente rassicurare un atleta sulla sua attrezzatura, si è in campo. La vostra competenza tecnica è valida solo se condivisa con il sorriso. 3. Si dà fiducia e si ottiene. Hai idea di come migliorare l'efficienza del workshop o ridurre i nostri tempi di lavorazione? Hai il diritto di provare, di commettere errori e di imparare. È prendendo iniziative che cresciamo. Inoltre, questa posizione è un ottimo trampolino: se avete ambizione, vi aspettano molte opportunità di evoluzione (Referrent Atelier, Regional Technician...). Questo lavoro non e' per te se...\n• Si desidera solo riparare biciclette (a casa, un workshop tocca tutto: sci, fitness, greggi / personalizzazione, ecc.). Anche se le biciclette riguardano la maggior parte delle nostre riparazioni).\n• Sei interessato solo alla tecnica pura e il contatto CUSTOMER ti disturba.\n• Ti piacciono le strutture top-down e aspetta che prendiamo decisioni per te.\n• Non sei pronto a lavorare il sabato (perché è allora che i nostri clienti hanno più bisogno di noi). Com'è un tecnico del laboratorio? La vostra missione è duplice: garantire l'irreprensibile qualità dei vostri servizi tecnici, garantendo al contempo un'eccezionale esperienza del cliente. Su base giornaliera, le vostre responsabilità sono divise in due aree principali: 1. Diagnosi e rapporto cliente:\n• Benvenuto il cliente, ascoltare la loro necessità e fornire una diagnosi affidabile e accurata\n• Applicare gli standard di gestione del workshop e seguire le procedure diagnostiche\n• Vendere i nostri prodotti e servizi (fisicamente e digitalmente) e offrire sistematicamente la giusta scelta dei servizi di economia circolare\n• Offrire un preventivo e una cornice temporale su misura per le esigenze dell'atleta\n• Gestire la raccolta e la consegna di attrezzature con consigli di manutenzione\n• I vostri indicatori di successo (KPIs): % corretta diagnosi, % percentuale di PEC locale (sostenibilità), Crescita in numero di interventi (PEC), Cestino a pagamento medio. 2. Servizi tecnici e operativi:\n• Eseguire servizi di riparazione, manutenzione e riabilitazione secondo gli standard di sicurezza Decathlon.\n• Assicurare la personalizzazione dei prodotti (flocage, incisione...).\n• Garantire l'accuratezza del vostro magazzino pezzi di ricambio e ordinare ciò che manca.\n• Assicurare un ambiente di lavoro sicuro, pulito e sicuro.\n• Indicatori di successo (KPI): Tasso di riparazione, Tempo di elaborazione locale, Affidabilità delle scorte, Efficienza del workshop, Crescita di personalizzazione GMV e Ricompense, Personalizzazione del NPS.",
+        "it": "Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, situé dans le centre commercial de Marin-Centre. Premier magasin concept Decathlon en Suisse, constitué d'une équipe d'une 30e de collaborateurs, viens continuer à écrire l'histoire de Decathlon. Ton périmètre, l'Atelier, est au cœur de notre stratégie locale. L'équipe est composée de 4 techniciens passionnés et se positionne aujourd'hui dans le top 3 pays en termes de part de marché. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu n'es pas juste là pour serrer des boulons derrière un établi ? Tu as envie de prendre des décisions et d'être au contact direct des sportifs ? Tu rêves d’allier ton expertise technique à un vrai sens du service client ? Alors ce poste est fait pour toi. Pourquoi ? 1. Ton atelier est ta propre entreprise. Chez Decathlon, nous aimons donner des responsabilités à nos coéquipiers. Tu ne fais pas qu'exécuter des réparations : tu dois anticiper les périodes de forte activité, gérer et garantir la justesse de ton stock de pièces détachées, et suivre tes indicateurs de performance (croissance, taux de réparation, satisfaction client). 2. Tu es le trait d'union entre la technique et l'humain. Le client est au centre de tout. Que ce soit pour fournir un diagnostic précis, proposer le bon choix de services (seconde vie, entretien) ou simplement rassurer un sportif sur son matériel, tu es sur le terrain. Ton expertise technique ne vaut que si elle est partagée avec le sourire. 3. Tu donnes de la confiance et tu en reçois. Tu as une idée pour améliorer l'efficience de l'atelier ou réduire nos délais de traitement ? Tu as le droit d'essayer, de te tromper, et d'apprendre. C'est en prenant des initiatives que l'on grandit. De plus, ce poste est un excellent tremplin : si tu as de l'ambition, de nombreuses opportunités d'évolution t'attendent (Référent Atelier, Technicien Régional...). Ce poste N'EST PAS fait pour toi si...\n• Tu ne veux réparer QUE des vélos (chez nous, un atelier touche à tout : skis, fitness, flocage/personnalisation, etc. Même si les vélos concernent la grande majorité de nos réparations).\n• Tu n'es intéressé⸱e QUE par la technique pure et le contact CLIENT t'ennuie.\n• Tu aimes les structures \"top-down\" et tu attends qu'on prenne les décisions à ta place.\n• Tu n'es pas prêt⸱e à travailler les samedis (car c’est le moment où nos clients ont le plus besoin de nous). Un⸱e Technicien⸱ne atelier, ça fait quoi ? Ta mission est double : assurer la qualité irréprochable de tes prestations techniques tout en garantissant une expérience client exceptionnelle. Au quotidien, tes responsabilités se divisent en deux grands axes : 1. Le diagnostic et la relation client :\n• Accueillir le client, écouter son besoin et fournir un diagnostic fiable et précis\n• Appliquer les standards de la prise en charge atelier et suivre les procédures de diagnostic\n• Vendre nos produits et services (physiquement et digitalement) et proposer systématiquement le bon choix de services d'économie circulaire\n• Proposer un devis et un délai adaptés aux besoins du sportif\n• Gérer l'encaissement et la remise du matériel avec des conseils d'entretien\n• Tes indicateurs de réussite (KPIs) : % de correct diagnostic, % de part de PEC (“prise en charge”) locale, Croissance du nombre d’interventions (PEC), Panier moyen payant. 2. Les prestations techniques et opérationnelles :\n• Réaliser les prestations de réparation, d'entretien et de remise en état selon les standards de sécurité Decathlon.\n• Assurer la personnalisation des produits (flocage, gravure...).\n• Garantir l'exactitude de ton stock de pièces détachées et commander ce qu'il manque.\n• Veiller à maintenir un environnement de travail sûr, propre et sécurisé.\n• Tes indicateurs de réussite (KPIs) : Taux de réparation, Délai de traitement local, Fiabilité du stock, Efficience atelier, Croissance de la GMV sur la personnalisation et récompenses, NPS personnalisation.",
         "en": "Your future playground You will join the Neuchâtel store, located in the Marin-Centre shopping center. First Decathlon concept store in Switzerland, made up of a team of around 30 employees, come and continue to write the history of Decathlon. Your area, the Workshop, is at the heart of our local strategy. The team is made up of 4 passionate technicians and is now positioned in the top 3 countries in terms of market share. Join an adventure that continues to grow. Decathlon in Switzerland is a success story that began in 2017 in Neuchâtel. Since then, we have opened around ten stores per year to reach 50 points of sale today. And we don't plan to stop there! Our expansion continues, particularly in German-speaking Switzerland, offering career opportunities throughout the country. And now for the job: Are you looking for a job where you're not just there to tighten bolts behind a workbench? Do you want to make decisions and be in direct contact with athletes? Do you dream of combining your technical expertise with a real sense of customer service? Then this position is for you. For what ? 1. Your workshop is your own business. At Decathlon, we like to give responsibilities to our teammates. You don't just carry out repairs: you must anticipate periods of high activity, manage and guarantee the accuracy of your spare parts stock, and monitor your performance indicators (growth, repair rate, customer satisfaction). 2. You are the link between technology and people. The customer is at the center of everything. Whether to provide a precise diagnosis, offer the right choice of services (second life, maintenance) or simply reassure an athlete about their equipment, you are on the ground. Your technical expertise is only valuable if it is shared with a smile. 3. You give trust and you receive it. Do you have an idea to improve workshop efficiency or reduce our processing times? You have the right to try, to make mistakes, and to learn. It is by taking initiatives that we grow. In addition, this position is an excellent springboard: if you have ambition, many development opportunities await you (Workshop Referent, Regional Technician, etc.). This position IS NOT for you if...\n• You ONLY want to repair bicycles (at our place, a workshop covers everything: skis, fitness, flocking/customization, etc. Even if bicycles concern the vast majority of our repairs).\n• You are ONLY interested in pure technique and CUSTOMER contact bores you.\n• You like “top-down” structures and you expect people to make decisions for you.\n• You are not ready to work on Saturdays (because that is when our customers need us the most). What does a Workshop Technician do? Your mission is twofold: to ensure the impeccable quality of your technical services while guaranteeing an exceptional customer experience. On a daily basis, your responsibilities are divided into two main areas: 1. Diagnosis and customer relations:\n• Welcome the customer, listen to their needs and provide a reliable and precise diagnosis\n• Apply workshop support standards and follow diagnostic procedures\n• Sell our products and services (physically and digitally) and systematically offer the right choice of circular economy services\n• Propose a quote and a deadline adapted to the needs of the athlete\n• Manage the collection and delivery of equipment with maintenance advice\n• Your success indicators (KPIs): % correct diagnosis, % share of local PEC (“support”), Growth in the number of interventions (PEC), Average paid basket. 2. Technical and operational services:\n• Carry out repair, maintenance and refurbishment services according to Decathlon safety standards.\n• Ensure product personalization (flocking, engraving, etc.).\n• Guarantee the accuracy of your stock of spare parts and order what is missing.\n• Ensure that a safe, clean and secure working environment is maintained.\n• Your success indicators (KPIs): Repair rate, local processing time, stock reliability, workshop efficiency, GMV growth on personalization and rewards, personalization NPS.",
         "de": "Ihr zukünftiger Spielplatz Sie werden dem Neuchâtel Store im Einkaufszentrum Marin-Centre beitreten. Der erste Decathlon Concept Store in der Schweiz, bestehend aus einem Team von rund 30 Mitarbeitern, wird die Geschichte von Decathlon weiterschreiben. Ihr Bereich, die Werkstatt, steht im Mittelpunkt unserer lokalen Strategie. Das Team besteht aus 4 leidenschaftlichen Technikern und ist nun in Bezug auf den Marktanteil in den Top 3 Ländern positioniert. Nehmen Sie an einem Abenteuer teil, das immer weiter wächst. Decathlon in der Schweiz ist eine Erfolgsgeschichte, die 2017 in Neuenburg begann. Seitdem haben wir rund zehn Filialen pro Jahr eröffnet und sind heute auf 50 Verkaufsstellen angewachsen. Und dabei wollen wir noch lange nicht aufhören! Unsere Expansion geht insbesondere in der Deutschschweiz weiter und bietet Karrieremöglichkeiten im ganzen Land. Und nun zum Job: Suchen Sie einen Job, bei dem Sie nicht nur da sind, um hinter der Werkbank Schrauben festzuziehen? Du möchtest Entscheidungen treffen und im direkten Kontakt mit Sportlern stehen? Träumen Sie davon, Ihr technisches Fachwissen mit echtem Gespür für Kundenservice zu verbinden? Dann ist diese Position genau das Richtige für Sie. Wofür ? 1. Ihre Werkstatt ist Ihr eigenes Unternehmen. Bei Decathlon übertragen wir gerne Verantwortung auf unsere Teamkollegen. Sie führen nicht nur Reparaturen durch: Sie müssen Zeiten hoher Aktivität vorhersehen, die Genauigkeit Ihres Ersatzteilbestands verwalten und gewährleisten sowie Ihre Leistungsindikatoren (Wachstum, Reparaturrate, Kundenzufriedenheit) überwachen. 2. Sie sind das Bindeglied zwischen Technologie und Menschen. Der Kunde steht im Mittelpunkt. Ganz gleich, ob Sie eine präzise Diagnose stellen, die richtige Auswahl an Dienstleistungen anbieten möchten (Second Life, Wartung) oder einfach nur einen Sportler bezüglich seiner Ausrüstung beruhigen möchten – Sie sind vor Ort. Ihr technisches Fachwissen ist nur dann wertvoll, wenn es mit einem Lächeln geteilt wird. 3. Du gibst Vertrauen und erhältst es. Haben Sie eine Idee, die Effizienz Ihrer Werkstatt zu verbessern oder unsere Bearbeitungszeiten zu verkürzen? Sie haben das Recht, es zu versuchen, Fehler zu machen und zu lernen. Wir wachsen, indem wir Initiativen ergreifen. Darüber hinaus ist diese Position ein hervorragendes Sprungbrett: Wenn Sie Ambitionen haben, erwarten Sie viele Entwicklungsmöglichkeiten (Werkstattreferent, Regionaltechniker usw.). Diese Position ist NICHT für Sie, wenn...\n• Sie NUR Fahrräder reparieren möchten (bei uns gibt es eine Werkstatt, die alles abdeckt: Ski, Fitness, Beflockung/Anpassung usw. Auch wenn Fahrräder den Großteil unserer Reparaturen betreffen).\n• Sie sind NUR an reiner Technik interessiert und der Kontakt mit dem KUNDEN langweilt Sie.\n• Sie mögen „Top-Down“-Strukturen und erwarten, dass die Leute Entscheidungen für Sie treffen.\n• Sie sind nicht bereit, samstags zu arbeiten (weil unsere Kunden uns dann am meisten brauchen). Was macht ein Werkstatttechniker? Ihre Mission besteht aus zwei Zielen: Sie möchten die einwandfreie Qualität Ihrer technischen Dienstleistungen sicherstellen und gleichzeitig ein außergewöhnliches Kundenerlebnis garantieren. Im Alltag teilen sich Ihre Aufgaben in zwei Hauptbereiche auf: 1. Diagnose und Kundenbeziehungen:\n• Begrüßen Sie den Kunden, hören Sie auf seine Bedürfnisse und stellen Sie eine zuverlässige und präzise Diagnose.\n• Wenden Sie Werkstattunterstützungsstandards an und befolgen Sie Diagnoseverfahren.\n• Verkaufen Sie unsere Produkte und Dienstleistungen (physisch und digital) und bieten Sie systematisch die richtige Auswahl an Kreislaufwirtschaftsdiensten an (PEC), Durchschnittlich bezahlter Warenkorb. 2. Technische und betriebliche Dienstleistungen:\n• Durchführung von Reparatur-, Wartungs- und Sanierungsdiensten gemäß den Decathlon-Sicherheitsstandards.\n• Sorgen Sie für eine Personalisierung des Produkts (Beflockung, Gravur usw.).\n• Stellen Sie die Genauigkeit Ihres Ersatzteilbestands sicher und bestellen Sie, was fehlt.\n• Stellen Sie sicher, dass eine sichere, saubere und geschützte Arbeitsumgebung aufrechterhalten wird.\n• Ihre Erfolgsindikatoren (KPIs): Reparaturrate, lokale Bearbeitungszeit, Bestandszuverlässigkeit, Werkstatteffizienz, GMV-Wachstum bei Personalisierung und Prämien, Personalisierungs-NPS.",
         "fr": "Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, situé dans le centre commercial de Marin-Centre. Premier magasin concept Decathlon en Suisse, constitué d'une équipe d'une 30e de collaborateurs, viens continuer à écrire l'histoire de Decathlon. Ton périmètre, l'Atelier, est au cœur de notre stratégie locale. L'équipe est composée de 4 techniciens passionnés et se positionne aujourd'hui dans le top 3 pays en termes de part de marché. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu n'es pas juste là pour serrer des boulons derrière un établi ? Tu as envie de prendre des décisions et d'être au contact direct des sportifs ? Tu rêves d’allier ton expertise technique à un vrai sens du service client ? Alors ce poste est fait pour toi. Pourquoi ? 1. Ton atelier est ta propre entreprise. Chez Decathlon, nous aimons donner des responsabilités à nos coéquipiers. Tu ne fais pas qu'exécuter des réparations : tu dois anticiper les périodes de forte activité, gérer et garantir la justesse de ton stock de pièces détachées, et suivre tes indicateurs de performance (croissance, taux de réparation, satisfaction client). 2. Tu es le trait d'union entre la technique et l'humain. Le client est au centre de tout. Que ce soit pour fournir un diagnostic précis, proposer le bon choix de services (seconde vie, entretien) ou simplement rassurer un sportif sur son matériel, tu es sur le terrain. Ton expertise technique ne vaut que si elle est partagée avec le sourire. 3. Tu donnes de la confiance et tu en reçois. Tu as une idée pour améliorer l'efficience de l'atelier ou réduire nos délais de traitement ? Tu as le droit d'essayer, de te tromper, et d'apprendre. C'est en prenant des initiatives que l'on grandit. De plus, ce poste est un excellent tremplin : si tu as de l'ambition, de nombreuses opportunités d'évolution t'attendent (Référent Atelier, Technicien Régional...). Ce poste N'EST PAS fait pour toi si...\n• Tu ne veux réparer QUE des vélos (chez nous, un atelier touche à tout : skis, fitness, flocage/personnalisation, etc. Même si les vélos concernent la grande majorité de nos réparations).\n• Tu n'es intéressé⸱e QUE par la technique pure et le contact CLIENT t'ennuie.\n• Tu aimes les structures \"top-down\" et tu attends qu'on prenne les décisions à ta place.\n• Tu n'es pas prêt⸱e à travailler les samedis (car c’est le moment où nos clients ont le plus besoin de nous). Un⸱e Technicien⸱ne atelier, ça fait quoi ? Ta mission est double : assurer la qualité irréprochable de tes prestations techniques tout en garantissant une expérience client exceptionnelle. Au quotidien, tes responsabilités se divisent en deux grands axes : 1. Le diagnostic et la relation client :\n• Accueillir le client, écouter son besoin et fournir un diagnostic fiable et précis\n• Appliquer les standards de la prise en charge atelier et suivre les procédures de diagnostic\n• Vendre nos produits et services (physiquement et digitalement) et proposer systématiquement le bon choix de services d'économie circulaire\n• Proposer un devis et un délai adaptés aux besoins du sportif\n• Gérer l'encaissement et la remise du matériel avec des conseils d'entretien\n• Tes indicateurs de réussite (KPIs) : % de correct diagnostic, % de part de PEC (“prise en charge”) locale, Croissance du nombre d’interventions (PEC), Panier moyen payant. 2. Les prestations techniques et opérationnelles :\n• Réaliser les prestations de réparation, d'entretien et de remise en état selon les standards de sécurité Decathlon.\n• Assurer la personnalisation des produits (flocage, gravure...).\n• Garantir l'exactitude de ton stock de pièces détachées et commander ce qu'il manque.\n• Veiller à maintenir un environnement de travail sûr, propre et sécurisé.\n• Tes indicateurs de réussite (KPIs) : Taux de réparation, Délai de traitement local, Fiabilité du stock, Efficience atelier, Croissance de la GMV sur la personnalisation et récompenses, NPS personnalisation."
@@ -1742,7 +1781,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4414657-mecanicien-ne-technicien-ne-cycle-hf-60-80-cdi-neuchatelmarin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:23.242Z",
+      "crawledAt": "2026-07-14T23:09:57.522Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -1772,14 +1811,17 @@
       "previousSlugsByLocale": {
         "it": [
           "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
+          "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
           "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
         ]
       },
       "previousSlugs": [
         "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
+        "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
         "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.782Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1824,7 +1866,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4118089-team-leader-abteilungsleiter-wmd-decathlon-schaffhausen-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:22.880Z",
+      "crawledAt": "2026-07-14T23:09:57.163Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -1845,11 +1887,13 @@
         ]
       },
       "previousSlugs": [
-        "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
+        "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch",
+        "capo-squadra-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
+          "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch",
+          "capo-squadra-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-schaffhausen"
         ],
         "en": [
           "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
@@ -1859,6 +1903,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.779Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1903,7 +1948,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363351-sport-leader-verkaufsberater-mwd-60-befristet-luzern-city-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:22.547Z",
+      "crawledAt": "2026-07-14T23:09:56.863Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressRegion": "LU",
@@ -1978,7 +2023,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421375-ski-servicetechniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:22.217Z",
+      "crawledAt": "2026-07-14T23:09:56.457Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -2053,7 +2098,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421653-velomechaniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:21.841Z",
+      "crawledAt": "2026-07-14T23:09:56.103Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -2070,11 +2115,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "velomechaniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
+        "velomechaniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch",
+        "velomechaniker-m-w-d-100-permanente-federal-workshop-bern-decathlon-koniz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "velomechaniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
+          "velomechaniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch",
+          "velomechaniker-m-w-d-100-permanente-federal-workshop-bern-decathlon-koniz"
         ],
         "en": [
           "velomechaniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
@@ -2102,7 +2149,7 @@
       "slug": "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens",
       "slugByLocale": {
         "it": "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens",
-        "en": "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
+        "en": "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
         "de": "werkstatttechniker-m-f-cdd-4-monate-bundeswerkstatt-onnens-vd-decathlon-onnens",
         "fr": "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
       },
@@ -2112,14 +2159,14 @@
       "title": "Technicien·ne Atelier (H/F) - CDD 4 mois 100 %- FEDERAL WORKSHOP (Onnens-VD)",
       "titleByLocale": {
         "it": "Workshop Technician (H/F) - CSD 4 mesi - FEDERAL WORKSHOP (Onnens-VD)",
-        "en": "Workshop Technician (H/F) - CSD 4 months 100 %- FEDERAL WORKSHOP (Onnens-VD)",
+        "en": "Technicien·ne Atelier (H/F) - CDD 4 mois 100 %- FEDERAL WORKSHOP (Onnens-VD)",
         "de": "Werkstatttechniker (M/F) – CDD 4 Monate – BUNDESWERKSTATT (Onnens-VD)",
         "fr": "Technicien·ne Atelier (H/F) - CDD 4 mois 100 %- FEDERAL WORKSHOP (Onnens-VD)"
       },
       "description": "Ton futur terrain de jeu Tu cherches à exprimer pleinement ton savoir-faire technique au sein d'un collectif passionné ? Rejoins l'Atelier Fédéral et son équipe de 15 personnes ! Notre particularité ? Contrairement à un magasin classique, nous intervenons en tant que pôle technique centralisé, sans contact direct avec les clients. Cela te permet de te concentrer à 100 % sur la qualité de tes gestes, la précision et la performance collective. Créé en 2022, notre site est la plaque tournante de la réparabilité : nous prenons en charge la remise en état des produits pour l'ensemble de nos 50 magasins et notre site e-commerce. C'est un rôle clé au cœur de notre stratégie d'économie circulaire. Pourquoi ce CDD est une opportunité pour toi ? Tu es passionné·e par la technique, tu aimes réparer, régler et optimiser le matériel sportif ? Tu cherches une expérience concrète, où tu apprends chaque jour au contact de produits variés ? Tes 3 grands bénéfices sur ce poste :\n• L'expertise au bout des doigts : Pas de routine. Un jour tu règles un dérailleur, le lendemain tu répares une trottinette. Tu montes en compétence sur des gestes techniques précis.\n• La sécurité comme priorité : Tu es le-a garant-e de la sérénité de nos clients. Quand un vélo sort de tes mains, il est prêt pour l'aventure. C'est une mission à haute responsabilité.\n• L'immersion totale : Même pour un CDD, tu es un membre à part entière de l'équipe. Tu découvres les coulisses de l'atelier et la vie d'un projet en pleine croissance. Ce que tu feras au quotidien (tes missions) :\n• Diagnostic et réparation : Tu identifies les besoins, tu proposes la solution adaptée et tu réalises les prestations (entretien, réparation, montage d'accessoires) avec précision.\n• Contrôle qualité : tu es intraitable sur la sécurité. Tu vérifies chaque point de contrôle avant de rendre le matériel au client.\n• Gestion de l'atelier : Tu veilles à la disponibilité des pièces détachées, au rangement de tes outils et à la propreté de ton poste de travail pour être 100% efficace.",
       "descriptionByLocale": {
         "it": "Il tuo futuro parco giochi Stai cercando di esprimere appieno il tuo know-how tecnico all'interno di un collettivo appassionato? Unisciti all'Atelier Fédéral e al suo team di 15 persone! La nostra particolarità? A differenza di un negozio tradizionale, operiamo come un centro tecnico centralizzato, senza contatto diretto con i clienti. Ciò ti consente di concentrarti al 100% sulla qualità dei tuoi movimenti, sulla precisione e sulle prestazioni collettive. Nato nel 2022, il nostro sito è l'hub della riparabilità: ci occupiamo della riparazione dei prodotti per tutti i nostri 50 negozi e il nostro sito e-commerce. Questo è un ruolo chiave al centro della nostra strategia di economia circolare. Perchè questo contratto a tempo determinato rappresenta per te un'opportunità? Sei appassionato di tecnologia, ti piace riparare, aggiustare e ottimizzare l'attrezzatura sportiva? Cerchi un'esperienza concreta, dove impari ogni giorno attraverso il contatto con prodotti diversi? I tuoi 3 grandi vantaggi in questa posizione:\n• Competenza a portata di mano: nessuna routine. Un giorno regoli un deragliatore, il giorno dopo ripari uno scooter. Acquisirai competenza in movimenti tecnici precisi.\n• La sicurezza come priorità: siete i garanti della tranquillità dei nostri clienti. Quando una bicicletta esce dalle tue mani, è pronta per l'avventura. È una missione di grande responsabilità.\n• Immersione totale: anche con un contratto a tempo determinato sei un membro a pieno titolo del team. Scopri il dietro le quinte del workshop e la vita di un progetto in crescita. Cosa farai quotidianamente (le tue missioni):\n• Diagnosi e riparazione: identifichi le esigenze, proponi la soluzione adeguata ed esegui i servizi (manutenzione, riparazione, montaggio di accessori) con precisione.\n• Controllo qualità: non scendete a compromessi sulla sicurezza. Controlli ogni punto di controllo prima di restituire l'attrezzatura al cliente.\n• Gestione dell'officina: garantite la disponibilità dei pezzi di ricambio, lo stoccaggio dei vostri strumenti e la pulizia della vostra postazione di lavoro per essere efficiente al 100%.",
-        "en": "Your future playground Are you trying to fully express your technical know-how within a passionate collective? Join the Federal Workshop and its team of 15 people! Our particularity? Unlike a classic store, we act as a centralized technical hub, without direct contact with customers. This allows you to focus 100% on the quality of your actions, precision and collective performance. Created in 2022, our site is the hub of repairability: we support the rehabilitation of products for all our 50 stores and our e-commerce site. It is a key role at the heart of our circular economy strategy. Why is this CDD an opportunity for you? Are you passionate about technique, like repairing, adjusting and optimizing sports equipment? Are you looking for a concrete experience, where you learn every day from various products? Your 3 big profits on this item:\n• Expertise at your fingertips: No routine. One day you set a derailleur, the next day you fix a scooter. You're up to skill on precise technical gestures.\n• Safety as a priority: You are the guarantor of the serenity of our customers. When a bike comes out of your hands, it's ready for adventure. This is a high responsibility mission.\n• Total immersion: Even for a CSD, you are a full member of the team. You discover behind the scenes of the workshop and the life of a growing project. What you will do every day (your missions):\n• Diagnostic and repair: You identify the needs, you propose the adapted solution and you perform the services (maintenance, repair, assembly of accessories) accurately.\n• Quality control: you're intractable on security. You check every checkpoint before you return the equipment to the client.\n• Workshop management: You ensure that spare parts are available, your tools are stored and your workstation is clean to be 100% efficient.",
+        "en": "Ton futur terrain de jeu Tu cherches à exprimer pleinement ton savoir-faire technique au sein d'un collectif passionné ? Rejoins l'Atelier Fédéral et son équipe de 15 personnes ! Notre particularité ? Contrairement à un magasin classique, nous intervenons en tant que pôle technique centralisé, sans contact direct avec les clients. Cela te permet de te concentrer à 100 % sur la qualité de tes gestes, la précision et la performance collective. Créé en 2022, notre site est la plaque tournante de la réparabilité : nous prenons en charge la remise en état des produits pour l'ensemble de nos 50 magasins et notre site e-commerce. C'est un rôle clé au cœur de notre stratégie d'économie circulaire. Pourquoi ce CDD est une opportunité pour toi ? Tu es passionné·e par la technique, tu aimes réparer, régler et optimiser le matériel sportif ? Tu cherches une expérience concrète, où tu apprends chaque jour au contact de produits variés ? Tes 3 grands bénéfices sur ce poste :\n• L'expertise au bout des doigts : Pas de routine. Un jour tu règles un dérailleur, le lendemain tu répares une trottinette. Tu montes en compétence sur des gestes techniques précis.\n• La sécurité comme priorité : Tu es le-a garant-e de la sérénité de nos clients. Quand un vélo sort de tes mains, il est prêt pour l'aventure. C'est une mission à haute responsabilité.\n• L'immersion totale : Même pour un CDD, tu es un membre à part entière de l'équipe. Tu découvres les coulisses de l'atelier et la vie d'un projet en pleine croissance. Ce que tu feras au quotidien (tes missions) :\n• Diagnostic et réparation : Tu identifies les besoins, tu proposes la solution adaptée et tu réalises les prestations (entretien, réparation, montage d'accessoires) avec précision.\n• Contrôle qualité : tu es intraitable sur la sécurité. Tu vérifies chaque point de contrôle avant de rendre le matériel au client.\n• Gestion de l'atelier : Tu veilles à la disponibilité des pièces détachées, au rangement de tes outils et à la propreté de ton poste de travail pour être 100% efficace.",
         "de": "Ihr zukünftiger Spielplatz Möchten Sie Ihr technisches Know-how in einem leidenschaftlichen Kollektiv voll zum Ausdruck bringen? Treten Sie dem Atelier Fédéral und seinem 15-köpfigen Team bei! Unsere Besonderheit? Im Gegensatz zu einem traditionellen Geschäft agieren wir als zentrales technisches Zentrum ohne direkten Kundenkontakt. Dadurch können Sie sich zu 100 % auf die Qualität Ihrer Bewegungen, Präzision und Gesamtleistung konzentrieren. Unsere im Jahr 2022 gegründete Website ist das Zentrum der Reparaturfähigkeit: Wir kümmern uns um die Reparatur von Produkten für alle unsere 50 Filialen und unsere E-Commerce-Website. Dies ist eine Schlüsselrolle im Herzen unserer Kreislaufwirtschaftsstrategie. Warum ist dieser befristete Vertrag eine Chance für Sie? Du begeisterst dich für Technik, reparierst, justierst und optimierst gerne Sportgeräte? Suchen Sie ein konkretes Erlebnis, bei dem Sie jeden Tag durch den Kontakt mit einer Vielzahl von Produkten lernen? Ihre 3 großen Vorteile in dieser Position:\n• Fachwissen direkt zur Hand: Keine Routine. An einem Tag stellt man einen Umwerfer ein, am nächsten Tag repariert man einen Roller. Sie erlangen Kompetenz in präzisen technischen Bewegungen.\n• Sicherheit hat oberste Priorität: Sie sind der Garant für die Sicherheit unserer Kunden. Wenn Sie ein Fahrrad in Händen halten, ist es bereit für Abenteuer. Es ist eine Mission mit großer Verantwortung.\n• Völliges Eintauchen: Auch bei einem befristeten Vertrag sind Sie ein vollwertiges Mitglied des Teams. Sie entdecken einen Blick hinter die Kulissen des Workshops und das Leben eines wachsenden Projekts. Was Sie täglich tun werden (Ihre Aufgaben):\n• Diagnose und Reparatur: Sie ermitteln den Bedarf, schlagen die passende Lösung vor und führen die Dienstleistungen (Wartung, Reparatur, Montage von Zubehör) präzise aus.\n• Qualitätskontrolle: Bei der Sicherheit gehen Sie keine Kompromisse ein. Sie überprüfen jeden Kontrollpunkt, bevor Sie die Ausrüstung an den Kunden zurückgeben.\n• Werkstattmanagement: Sie sorgen dafür, dass die Verfügbarkeit von Ersatzteilen, die Lagerung Ihrer Werkzeuge und die Sauberkeit Ihres Arbeitsplatzes zu 100 % effizient sind.",
         "fr": "Ton futur terrain de jeu Tu cherches à exprimer pleinement ton savoir-faire technique au sein d'un collectif passionné ? Rejoins l'Atelier Fédéral et son équipe de 15 personnes ! Notre particularité ? Contrairement à un magasin classique, nous intervenons en tant que pôle technique centralisé, sans contact direct avec les clients. Cela te permet de te concentrer à 100 % sur la qualité de tes gestes, la précision et la performance collective. Créé en 2022, notre site est la plaque tournante de la réparabilité : nous prenons en charge la remise en état des produits pour l'ensemble de nos 50 magasins et notre site e-commerce. C'est un rôle clé au cœur de notre stratégie d'économie circulaire. Pourquoi ce CDD est une opportunité pour toi ? Tu es passionné·e par la technique, tu aimes réparer, régler et optimiser le matériel sportif ? Tu cherches une expérience concrète, où tu apprends chaque jour au contact de produits variés ? Tes 3 grands bénéfices sur ce poste :\n• L'expertise au bout des doigts : Pas de routine. Un jour tu règles un dérailleur, le lendemain tu répares une trottinette. Tu montes en compétence sur des gestes techniques précis.\n• La sécurité comme priorité : Tu es le-a garant-e de la sérénité de nos clients. Quand un vélo sort de tes mains, il est prêt pour l'aventure. C'est une mission à haute responsabilité.\n• L'immersion totale : Même pour un CDD, tu es un membre à part entière de l'équipe. Tu découvres les coulisses de l'atelier et la vie d'un projet en pleine croissance. Ce que tu feras au quotidien (tes missions) :\n• Diagnostic et réparation : Tu identifies les besoins, tu proposes la solution adaptée et tu réalises les prestations (entretien, réparation, montage d'accessoires) avec précision.\n• Contrôle qualité : tu es intraitable sur la sécurité. Tu vérifies chaque point de contrôle avant de rendre le matériel au client.\n• Gestion de l'atelier : Tu veilles à la disponibilité des pièces détachées, au rangement de tes outils et à la propreté de ton poste de travail pour être 100% efficace."
       },
@@ -2128,7 +2175,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421751-technicien-ne-atelier-hf-cdd-4-mois-100-federal-workshop-onnens-vd-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:21.489Z",
+      "crawledAt": "2026-07-14T23:09:55.754Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -2155,11 +2202,13 @@
         "en": [
           "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
           "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
+          "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
           "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
         ],
         "it": [
           "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
-          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
+          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
+          "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens"
         ],
         "de": [
           "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
@@ -2168,9 +2217,12 @@
       "previousSlugs": [
         "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
         "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
-        "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
+        "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
+        "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
+        "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.774Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2215,7 +2267,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4426171-sport-leader-verkaufsberater-mwd-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:21.165Z",
+      "crawledAt": "2026-07-14T23:09:55.412Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3321",
       "addressRegion": "BE",
@@ -2290,7 +2342,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4308577-sportberaterin-decathlon-biel-city-cdd-60-bienne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:20.802Z",
+      "crawledAt": "2026-07-14T23:09:55.040Z",
       "addressLocality": "Bienne",
       "postalCode": "",
       "addressRegion": "BE",
@@ -2307,11 +2359,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sportberater-in-decathlon-biel-city-cdd-60-decathlon-ch"
+        "sportberater-in-decathlon-biel-city-cdd-60-decathlon-ch",
+        "consulente-sportivo-decathlon-biel-city-cdd-60-decathlon-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportberater-in-decathlon-biel-city-cdd-60-decathlon-ch"
+          "sportberater-in-decathlon-biel-city-cdd-60-decathlon-ch",
+          "consulente-sportivo-decathlon-biel-city-cdd-60-decathlon-bienne"
         ],
         "en": [
           "sportberater-in-decathlon-biel-city-cdd-60-decathlon-ch"
@@ -2365,7 +2419,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4447885-vendeur-sportif-hf-passionnee-outdoor-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:20.493Z",
+      "crawledAt": "2026-07-14T23:09:54.733Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -2440,7 +2494,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4449975-sportberaterin-veloabteilung-decathlon-suhr-80-100-unbefristet-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:20.175Z",
+      "crawledAt": "2026-07-14T23:09:54.420Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -2457,11 +2511,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+        "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
+        "consulente-sportivo-dipartimento-ciclismo-decathlon-suhr-80-100-permanente-decathlon-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+          "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
+          "consulente-sportivo-dipartimento-ciclismo-decathlon-suhr-80-100-permanente-decathlon-suhr"
         ],
         "en": [
           "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
@@ -2515,7 +2571,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4450031-sportberaterin-veloabteilung-decathlon-suhr-20-befristet-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:19.827Z",
+      "crawledAt": "2026-07-14T23:09:54.095Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -2590,7 +2646,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452153-sport-leaderverkaufsberater-wasserwinter-mwd-60-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:19.509Z",
+      "crawledAt": "2026-07-14T23:09:53.782Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -2608,12 +2664,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-ch",
-        "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-basel"
+        "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-basel",
+        "leader-sportivo-consulente-di-vendita-acqua-inverno-m-f-d-60-tempo-determinato-basilea-decathlon-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-ch",
-          "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-basel"
+          "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-basel",
+          "leader-sportivo-consulente-di-vendita-acqua-inverno-m-f-d-60-tempo-determinato-basilea-decathlon-basel"
         ],
         "en": [
           "sport-leader-verkaufsberater-wasser-winter-m-w-d-60-befristet-basel-decathlon-ch"
@@ -2667,7 +2725,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452443-velomechaniker-100-wmd-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:19.147Z",
+      "crawledAt": "2026-07-14T23:09:53.432Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -2685,15 +2743,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "velomechaniker-80-100-w-m-d-rickenbach-decathlon-ch",
-        "velomechaniker-100-w-m-d-rickenbach-decathlon-ch"
+        "velomechaniker-100-w-m-d-rickenbach-decathlon-ch",
+        "meccanico-per-biciclette-80-100-f-m-d-rickenbach-decathlon-rickenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "velomechaniker-80-100-w-m-d-rickenbach-decathlon-ch",
-          "velomechaniker-100-w-m-d-rickenbach-decathlon-ch"
+          "velomechaniker-100-w-m-d-rickenbach-decathlon-ch",
+          "meccanico-per-biciclette-80-100-f-m-d-rickenbach-decathlon-rickenbach"
         ]
       },
       "firstSeenAt": "2026-06-16T13:12:52.359Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2738,7 +2799,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460199-sport-leader-verkaufsberater-mwd-20-befristet-interlaken-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:18.791Z",
+      "crawledAt": "2026-07-14T23:09:53.121Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -2756,12 +2817,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-interlaken"
+        "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-interlaken",
+        "sport-leader-vendite-advisor-m-f-d-20-temporary-interlaken-decathlon-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-interlaken"
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-interlaken",
+          "sport-leader-vendite-advisor-m-f-d-20-temporary-interlaken-decathlon-interlaken"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-20-befristet-interlaken-decathlon-ch"
@@ -2815,7 +2878,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460239-sport-leader-verkaufsberater-mwd-80-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:18.457Z",
+      "crawledAt": "2026-07-14T23:09:52.802Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -2832,11 +2895,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
+        "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
+          "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch"
@@ -2890,7 +2955,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460247-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:18.111Z",
+      "crawledAt": "2026-07-14T23:09:52.447Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -2907,11 +2972,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-decathlon-ch",
+        "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-rickenbach-decathlon-rickenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-decathlon-ch",
+          "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-rickenbach-decathlon-rickenbach"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-decathlon-ch"
@@ -2965,7 +3032,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4464383-team-leader-abteilungsleiter-mwd-100-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:17.775Z",
+      "crawledAt": "2026-07-14T23:09:52.093Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -2982,11 +3049,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
+        "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
+        "capo-squadra-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
+          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
+          "capo-squadra-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-kreuzlingen"
         ],
         "en": [
           "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
@@ -2996,6 +3065,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:10:54.622Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3040,7 +3110,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4466783-conseiller-ere-cycle-hf-cdd-contrat-heure-villeneuve-1844-villeneuve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:17.460Z",
+      "crawledAt": "2026-07-14T23:09:51.795Z",
       "addressLocality": "Villeneuve",
       "postalCode": "1844",
       "addressRegion": "VD",
@@ -3057,11 +3127,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-cycle-h-f-cdd-contrat-heure-villeneuve-decathlon-ch"
+        "conseiller-ere-cycle-h-f-cdd-contrat-heure-villeneuve-decathlon-ch",
+        "avvocato-ciclo-h-f-ora-del-contratto-cdd-villeneuve-decathlon-villeneuve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-cycle-h-f-cdd-contrat-heure-villeneuve-decathlon-ch"
+          "conseiller-ere-cycle-h-f-cdd-contrat-heure-villeneuve-decathlon-ch",
+          "avvocato-ciclo-h-f-ora-del-contratto-cdd-villeneuve-decathlon-villeneuve"
         ],
         "en": [
           "conseiller-ere-cycle-h-f-cdd-contrat-heure-villeneuve-decathlon-ch"
@@ -3115,7 +3187,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4467887-conseiller-ere-sportif-natation-hf-cdi-30-neuchatel-marin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:17.092Z",
+      "crawledAt": "2026-07-14T23:09:51.434Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -3132,11 +3204,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-sportif-natation-h-f-cdi-30-neuchatel-marin-decathlon-ch"
+        "conseiller-ere-sportif-natation-h-f-cdi-30-neuchatel-marin-decathlon-ch",
+        "consigliere-sportivo-nuoto-h-f-cdi-30-neuchatel-marin-decathlon-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-sportif-natation-h-f-cdi-30-neuchatel-marin-decathlon-ch"
+          "conseiller-ere-sportif-natation-h-f-cdi-30-neuchatel-marin-decathlon-ch",
+          "consigliere-sportivo-nuoto-h-f-cdi-30-neuchatel-marin-decathlon-marin-epagnier"
         ],
         "en": [
           "conseiller-ere-sportif-natation-h-f-cdi-30-neuchatel-marin-decathlon-ch"
@@ -3190,7 +3264,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4476015-sport-leader-verkaufsberater-mwd-40-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:16.751Z",
+      "crawledAt": "2026-07-14T23:09:51.071Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -3207,11 +3281,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-40-st-gallen-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-40-st-gallen-decathlon-ch",
+        "leader-sportivo-consulente-commerciale-m-f-d-40-st-gallen-decathlon-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sport-leader-verkaufsberater-m-w-d-40-st-gallen-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-40-st-gallen-decathlon-ch",
+          "leader-sportivo-consulente-commerciale-m-f-d-40-st-gallen-decathlon-st-gallen"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-st-gallen-decathlon-ch"
@@ -3265,7 +3341,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4476969-conseiller-ere-caisse-cycle-hf-cdd-50-collombey-1868-collombey-muraz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:16.427Z",
+      "crawledAt": "2026-07-14T23:09:50.738Z",
       "addressLocality": "Collombey-Muraz",
       "postalCode": "1868",
       "addressRegion": "VS",
@@ -3282,11 +3358,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch"
+        "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch",
+        "caisse-cycle-advisor-m-f-cdd-50-collombey-decathlon-collombey-muraz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch"
+          "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch",
+          "caisse-cycle-advisor-m-f-cdd-50-collombey-decathlon-collombey-muraz"
         ],
         "en": [
           "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch"
@@ -3296,6 +3374,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:30:48.115Z",
+      "needsRetranslation": true,
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -3340,7 +3419,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4477877-verkaufsberaterin-sport-leader-mwd-befristet-20-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:16.030Z",
+      "crawledAt": "2026-07-14T23:09:50.361Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -3358,12 +3437,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-ch",
-        "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-st-gallen"
+        "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-st-gallen",
+        "consulente-commerciale-in-sport-leader-m-f-d-temporaneo-20-st-gallen-decathlon-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-ch",
-          "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-st-gallen"
+          "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-st-gallen",
+          "consulente-commerciale-in-sport-leader-m-f-d-temporaneo-20-st-gallen-decathlon-st-gallen"
         ],
         "en": [
           "verkaufsberater-in-sport-leader-m-w-d-befristet-20-st-gallen-decathlon-ch"
@@ -3417,7 +3498,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229037-verkaufsberaterin-warenannahme-mwd-40-60-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:15.716Z",
+      "crawledAt": "2026-07-14T23:09:50.036Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3437,14 +3518,16 @@
         "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
         "sportberater-warenbewirtschafter-in-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
         "verkaufsberater-in-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-        "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+        "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
+        "consulente-sportivo-gestione-delle-merci-m-f-d-40-60-decathlon-svizzera-decathlon-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
           "sportberater-warenbewirtschafter-in-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
           "verkaufsberater-in-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-          "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+          "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
+          "consulente-sportivo-gestione-delle-merci-m-f-d-40-60-decathlon-svizzera-decathlon-spreitenbach"
         ],
         "en": [
           "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
@@ -3503,7 +3586,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4484507-conseiller-ere-cyclerunnatation-hf-cdd-60-yverdon-aoutsept-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:15.320Z",
+      "crawledAt": "2026-07-14T23:09:49.688Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -3521,12 +3604,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-oct-decathlon-ch",
-        "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-decathlon-ch"
+        "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-decathlon-ch",
+        "ciclo-run-natation-h-f-csd-60-yverdon-agosto-settembre-oct-decathlon-montagny-pres-yverdon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-oct-decathlon-ch",
-          "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-decathlon-ch"
+          "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-decathlon-ch",
+          "ciclo-run-natation-h-f-csd-60-yverdon-agosto-settembre-oct-decathlon-montagny-pres-yverdon"
         ],
         "en": [
           "conseiller-ere-cycle-run-natation-h-f-cdd-60-yverdon-aout-sept-oct-decathlon-ch"
@@ -3580,7 +3665,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485197-sport-leader-verkaufsberater-mwd-40-60-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:14.969Z",
+      "crawledAt": "2026-07-14T23:09:49.369Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -3598,12 +3683,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-chur"
+        "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-chur",
+        "leader-sportivo-consulente-commerciale-m-f-d-40-60-temporaneo-chur-decathlon-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-chur"
+          "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-chur",
+          "leader-sportivo-consulente-commerciale-m-f-d-40-60-temporaneo-chur-decathlon-chur"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-60-befristet-chur-decathlon-ch"
@@ -3657,7 +3744,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485439-velomechaniker-mwd-40-60-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:14.664Z",
+      "crawledAt": "2026-07-14T23:09:49.059Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -3675,12 +3762,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-ch",
-        "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-chur"
+        "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-chur",
+        "velomechanic-m-f-d-40-60-temporary-chur-decathlon-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-ch",
-          "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-chur"
+          "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-chur",
+          "velomechanic-m-f-d-40-60-temporary-chur-decathlon-chur"
         ],
         "en": [
           "velomechaniker-m-w-d-40-60-befristet-chur-decathlon-ch"
@@ -3690,6 +3779,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:47:12.857Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -3734,7 +3824,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4487123-sport-leader-verkaufsberater-mwd-60-bern-city-3011-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:14.346Z",
+      "crawledAt": "2026-07-14T23:09:48.734Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "BE",
@@ -3751,11 +3841,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-60-bern-city-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-60-bern-city-decathlon-ch",
+        "sport-leader-sales-advisor-m-f-d-60-bern-city-decathlon-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sport-leader-verkaufsberater-m-w-d-60-bern-city-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-60-bern-city-decathlon-ch",
+          "sport-leader-sales-advisor-m-f-d-60-bern-city-decathlon-bern"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-60-bern-city-decathlon-ch"
@@ -3806,7 +3898,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4488193-sport-leader-verkaufsberater-mwd-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:13.982Z",
+      "crawledAt": "2026-07-14T23:09:48.381Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -3823,11 +3915,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch",
+        "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch",
+          "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch"
@@ -3878,7 +3972,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490579-sport-leader-verkaufsberater-mwd-40-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:13.648Z",
+      "crawledAt": "2026-07-14T23:09:48.000Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -3896,12 +3990,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-davos"
+        "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-davos",
+        "leader-sportivo-consulente-commerciale-m-f-d-40-lavoro-stagionale-davos-decathlon-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-davos"
+          "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-davos",
+          "leader-sportivo-consulente-commerciale-m-f-d-40-lavoro-stagionale-davos-decathlon-davos"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-saisonale-stelle-davos-decathlon-ch"
@@ -3955,7 +4051,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490585-sport-leader-verkaufsberater-mwd-20-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:13.278Z",
+      "crawledAt": "2026-07-14T23:09:47.650Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -3973,12 +4069,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-davos"
+        "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-davos",
+        "leader-sportivo-consulente-commerciale-m-f-d-20-lavoro-stagionale-davos-decathlon-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-davos"
+          "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-davos",
+          "leader-sportivo-consulente-commerciale-m-f-d-20-lavoro-stagionale-davos-decathlon-davos"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-20-saisonale-stelle-davos-decathlon-ch"
@@ -4032,7 +4130,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4321061-conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-1800-vevey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:12.517Z",
+      "crawledAt": "2026-07-14T23:09:46.941Z",
       "addressLocality": "Vevey",
       "postalCode": "1800",
       "addressRegion": "VD",
@@ -4049,11 +4147,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-decathlon-ch"
+        "conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-decathlon-ch",
+        "consulente-di-sport-age-in-tempo-contrattuale-al-30-cdi-decathlon-vevey-decathlon-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-decathlon-ch"
+          "conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-decathlon-ch",
+          "consulente-di-sport-age-in-tempo-contrattuale-al-30-cdi-decathlon-vevey-decathlon-vevey"
         ],
         "en": [
           "conseiller-ere-sportif-ve-en-contrat-horaire-a-30-cdi-decathlon-vevey-decathlon-ch"
@@ -4107,7 +4207,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4287595-sport-leader-verkaufsberater-mwd-60-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:12.216Z",
+      "crawledAt": "2026-07-14T23:09:46.622Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4125,12 +4225,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sportberater-in-decathlon-stans-40-60-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-60-stans-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-60-stans-decathlon-ch",
+        "consulente-sportivo-decathlon-stans-40-60-decathlon-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-decathlon-stans-40-60-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-60-stans-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-60-stans-decathlon-ch",
+          "consulente-sportivo-decathlon-stans-40-60-decathlon-stans"
         ],
         "en": [
           "sportberater-in-decathlon-stans-40-60-decathlon-ch"
@@ -4143,6 +4245,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.822Z",
+      "needsRetranslation": true,
       "salaryMin": 41700,
       "salaryMax": 63600,
       "baseSalary": {
@@ -4187,7 +4290,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4392641-sport-leader-verkaufsberater-mwd-80-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:11.839Z",
+      "crawledAt": "2026-07-14T23:09:46.238Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4205,12 +4308,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sportberater-in-decathlon-stans-80-100-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-80-100-stans-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-80-100-stans-decathlon-ch",
+        "consulente-sportivo-decathlon-stans-80-100-decathlon-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-decathlon-stans-80-100-decathlon-ch",
-          "sport-leader-verkaufsberater-m-w-d-80-100-stans-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-80-100-stans-decathlon-ch",
+          "consulente-sportivo-decathlon-stans-80-100-decathlon-stans"
         ],
         "en": [
           "sportberater-in-decathlon-stans-80-100-decathlon-ch"
@@ -4223,6 +4328,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.785Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4267,7 +4373,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4492459-conseiller-ere-sportif-mobiliteatelierlocation-hf-cdi-40-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T11:59:11.492Z",
+      "crawledAt": "2026-07-14T23:09:45.883Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -4284,11 +4390,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch"
+        "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
+        "consulente-sportivo-mobility-workshop-location-h-f-cdi-40-martigny-decathlon-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch"
+          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
+          "consulente-sportivo-mobility-workshop-location-h-f-cdi-40-martigny-decathlon-martigny"
         ],
         "en": [
           "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch"
@@ -4342,7 +4450,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4497253-verkaufsberaterin-service-mitarbeiterin-velo-80-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:59:10.712Z",
+      "crawledAt": "2026-07-14T23:09:45.504Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -4359,11 +4467,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-service-mitarbeiter-in-velo-80-100-stans-decathlon-ch"
+        "verkaufsberater-in-service-mitarbeiter-in-velo-80-100-stans-decathlon-ch",
+        "verkaufsberater-in-service-collaboratore-trice-velo-80-100-stans-decathlon-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-service-mitarbeiter-in-velo-80-100-stans-decathlon-ch"
+          "verkaufsberater-in-service-mitarbeiter-in-velo-80-100-stans-decathlon-ch",
+          "verkaufsberater-in-service-collaboratore-trice-velo-80-100-stans-decathlon-stans"
         ],
         "en": [
           "verkaufsberater-in-service-mitarbeiter-in-velo-80-100-stans-decathlon-ch"
@@ -4373,6 +4483,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:25:21.163Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4385,6 +4496,198 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "decathlon-4f29678e6993",
+      "slug": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
+      "slugByLocale": {
+        "fr": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
+        "it": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
+        "en": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
+        "de": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
+      "titleByLocale": {
+        "fr": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
+        "it": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
+        "en": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
+        "de": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%"
+      },
+      "description": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
+      "descriptionByLocale": {
+        "fr": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
+        "it": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
+        "en": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
+        "de": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions."
+      },
+      "location": "Granges-Paccot",
+      "canton": "FR",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-14T23:09:45.189Z",
+      "addressLocality": "Granges-Paccot",
+      "postalCode": "1763",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41100,
+          "maxValue": 62400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T23:09:45.189Z"
+    },
+    {
+      "id": "decathlon-c886d66a16a1",
+      "slug": "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
+      "slugByLocale": {
+        "de": "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
+        "it": "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
+        "en": "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
+        "fr": "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Sport Leader / Verkaufsberater (m/w/d) 100 - St. Gallen",
+      "titleByLocale": {
+        "de": "Sport Leader / Verkaufsberater (m/w/d) 100 - St. Gallen",
+        "it": "Sport Leader / Verkaufsberater (m/w/d) 100 - St. Gallen",
+        "en": "Sport Leader / Verkaufsberater (m/w/d) 100 - St. Gallen",
+        "fr": "Sport Leader / Verkaufsberater (m/w/d) 100 - St. Gallen"
+      },
+      "description": "Dein zukünftiges Spielfeld: Decathlon St. Gallen Du wirst Teil unseres eingespielten Teams im Decathlon Store in der Shopping Arena in St. Gallen . Direkt vor unserer Haustür liegen der Säntis (Alpstein) , die Drei Weieren und der Bodensee – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in St. Gallen. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf 50 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Bürojob, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln in die Berge oder Richtung See aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in St. Gallen statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen ( Click & Collect ) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn... ❌ Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt. ❌ Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen. ❌ Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind. ❌ Du samstags grundsätzlich lieber frei haben möchtest. ❌ Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels).",
+      "descriptionByLocale": {
+        "de": "Dein zukünftiges Spielfeld: Decathlon St. Gallen Du wirst Teil unseres eingespielten Teams im Decathlon Store in der Shopping Arena in St. Gallen . Direkt vor unserer Haustür liegen der Säntis (Alpstein) , die Drei Weieren und der Bodensee – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in St. Gallen. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf 50 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Bürojob, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln in die Berge oder Richtung See aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in St. Gallen statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen ( Click & Collect ) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn... ❌ Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt. ❌ Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen. ❌ Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind. ❌ Du samstags grundsätzlich lieber frei haben möchtest. ❌ Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels).",
+        "it": "Dein zukünftiges Spielfeld: Decathlon St. Gallen Du wirst Teil unseres eingespielten Teams im Decathlon Store in der Shopping Arena in St. Gallen . Direkt vor unserer Haustür liegen der Säntis (Alpstein) , die Drei Weieren und der Bodensee – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in St. Gallen. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf 50 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Bürojob, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln in die Berge oder Richtung See aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in St. Gallen statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen ( Click & Collect ) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn... ❌ Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt. ❌ Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen. ❌ Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind. ❌ Du samstags grundsätzlich lieber frei haben möchtest. ❌ Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels).",
+        "en": "Dein zukünftiges Spielfeld: Decathlon St. Gallen Du wirst Teil unseres eingespielten Teams im Decathlon Store in der Shopping Arena in St. Gallen . Direkt vor unserer Haustür liegen der Säntis (Alpstein) , die Drei Weieren und der Bodensee – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in St. Gallen. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf 50 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Bürojob, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln in die Berge oder Richtung See aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in St. Gallen statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen ( Click & Collect ) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn... ❌ Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt. ❌ Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen. ❌ Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind. ❌ Du samstags grundsätzlich lieber frei haben möchtest. ❌ Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels).",
+        "fr": "Dein zukünftiges Spielfeld: Decathlon St. Gallen Du wirst Teil unseres eingespielten Teams im Decathlon Store in der Shopping Arena in St. Gallen . Direkt vor unserer Haustür liegen der Säntis (Alpstein) , die Drei Weieren und der Bodensee – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in St. Gallen. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf 50 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Bürojob, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln in die Berge oder Richtung See aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in St. Gallen statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen ( Click & Collect ) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn... ❌ Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt. ❌ Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen. ❌ Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind. ❌ Du samstags grundsätzlich lieber frei haben möchtest. ❌ Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels)."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4498273-sport-leader-verkaufsberater-mwd-100-st-gallen-9015-st-gallen",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T23:09:44.827Z",
+      "addressLocality": "St. Gallen",
+      "postalCode": "9015",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4498273-sport-leader-verkaufsberater-mwd-100-st-gallen-9015-st-gallen",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T23:09:44.827Z"
+    },
+    {
+      "id": "decathlon-c54797c25139",
+      "slug": "technicien-cycle-atelier-20-100-h-f-decathlon-ch",
+      "slugByLocale": {
+        "fr": "technicien-cycle-atelier-20-100-h-f-decathlon-ch",
+        "it": "technicien-cycle-atelier-20-100-h-f-decathlon-ch",
+        "en": "technicien-cycle-atelier-20-100-h-f-decathlon-ch",
+        "de": "technicien-cycle-atelier-20-100-h-f-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Technicien cycle Atelier 20% - 100% (H/F)",
+      "titleByLocale": {
+        "fr": "Technicien cycle Atelier 20% - 100% (H/F)",
+        "it": "Technicien cycle Atelier 20% - 100% (H/F)",
+        "en": "Technicien cycle Atelier 20% - 100% (H/F)",
+        "de": "Technicien cycle Atelier 20% - 100% (H/F)"
+      },
+      "description": "Rejoins DECATHLON et intègre une entreprise où il fait bon vivre ! Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en mettant ton expertise au service de nos Sportifs. Nous sommes une entreprise dédiée à offrir des solutions innovantes et durables pour la pratique sportive. Notre mission est de rendre chaque interaction client exceptionnelle en proposant des produits et services de qualité, à travers tous les canaux disponibles! T a mission : Pour renforcer l'équipe du magasin de Fribourg Nord, nous recherchons un-e technicien-ne atelier cycle à 20% jusqu'à 100% en CDI :\n• Tu suis ta feuille de match : tu entretiens, répares ou personnalises les produits de nos sportifs.\n• Tu suis les procédures liées aux différents process de l'atelier vélo.\n• Tu garantis la qualité des prestations effectuées.\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !",
+      "descriptionByLocale": {
+        "fr": "Rejoins DECATHLON et intègre une entreprise où il fait bon vivre ! Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en mettant ton expertise au service de nos Sportifs. Nous sommes une entreprise dédiée à offrir des solutions innovantes et durables pour la pratique sportive. Notre mission est de rendre chaque interaction client exceptionnelle en proposant des produits et services de qualité, à travers tous les canaux disponibles! T a mission : Pour renforcer l'équipe du magasin de Fribourg Nord, nous recherchons un-e technicien-ne atelier cycle à 20% jusqu'à 100% en CDI :\n• Tu suis ta feuille de match : tu entretiens, répares ou personnalises les produits de nos sportifs.\n• Tu suis les procédures liées aux différents process de l'atelier vélo.\n• Tu garantis la qualité des prestations effectuées.\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !",
+        "it": "Rejoins DECATHLON et intègre une entreprise où il fait bon vivre ! Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en mettant ton expertise au service de nos Sportifs. Nous sommes une entreprise dédiée à offrir des solutions innovantes et durables pour la pratique sportive. Notre mission est de rendre chaque interaction client exceptionnelle en proposant des produits et services de qualité, à travers tous les canaux disponibles! T a mission : Pour renforcer l'équipe du magasin de Fribourg Nord, nous recherchons un-e technicien-ne atelier cycle à 20% jusqu'à 100% en CDI :\n• Tu suis ta feuille de match : tu entretiens, répares ou personnalises les produits de nos sportifs.\n• Tu suis les procédures liées aux différents process de l'atelier vélo.\n• Tu garantis la qualité des prestations effectuées.\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !",
+        "en": "Rejoins DECATHLON et intègre une entreprise où il fait bon vivre ! Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en mettant ton expertise au service de nos Sportifs. Nous sommes une entreprise dédiée à offrir des solutions innovantes et durables pour la pratique sportive. Notre mission est de rendre chaque interaction client exceptionnelle en proposant des produits et services de qualité, à travers tous les canaux disponibles! T a mission : Pour renforcer l'équipe du magasin de Fribourg Nord, nous recherchons un-e technicien-ne atelier cycle à 20% jusqu'à 100% en CDI :\n• Tu suis ta feuille de match : tu entretiens, répares ou personnalises les produits de nos sportifs.\n• Tu suis les procédures liées aux différents process de l'atelier vélo.\n• Tu garantis la qualité des prestations effectuées.\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !",
+        "de": "Rejoins DECATHLON et intègre une entreprise où il fait bon vivre ! Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en mettant ton expertise au service de nos Sportifs. Nous sommes une entreprise dédiée à offrir des solutions innovantes et durables pour la pratique sportive. Notre mission est de rendre chaque interaction client exceptionnelle en proposant des produits et services de qualité, à travers tous les canaux disponibles! T a mission : Pour renforcer l'équipe du magasin de Fribourg Nord, nous recherchons un-e technicien-ne atelier cycle à 20% jusqu'à 100% en CDI :\n• Tu suis ta feuille de match : tu entretiens, répares ou personnalises les produits de nos sportifs.\n• Tu suis les procédures liées aux différents process de l'atelier vélo.\n• Tu garantis la qualité des prestations effectuées.\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !"
+      },
+      "location": "Granges-Paccot",
+      "canton": "FR",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4498279-technicien-cycle-atelier-20-100-hf-1763-granges-paccot",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-14T23:09:44.436Z",
+      "addressLocality": "Granges-Paccot",
+      "postalCode": "1763",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4498279-technicien-cycle-atelier-20-100-hf-1763-granges-paccot",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T23:09:44.436Z"
     }
   ]
 }
