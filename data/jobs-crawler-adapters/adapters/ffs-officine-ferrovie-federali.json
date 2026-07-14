@@ -10,6 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-mandats-entretien-voie-ferree-h-f/cf303f90-c690-4290-92c3-0c4355936c9c",
+    "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/0405bcee-e7cb-4402-8f28-8438464b3ea0",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/dd759881-368e-4e1f-8490-92e1f377fa1d",
     "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-bauarbeiten/227ea8c5-1597-47c4-b241-69bc3407e7ee",
     "https://jobs.sbb.ch/v2/offene-stellen/anforderungsmanager-in-betrieb/4ae0d237-2b1a-4232-9388-518bd187ddbe",
@@ -72,10 +74,10 @@
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-lokfuehrer-in-personenverkehr-bern-03-2027/1b0fc068-7d3d-4a2a-8270-7679d45813c5",
     "https://jobs.sbb.ch/v2/offene-stellen/kundenassistent-in/cbc6b9df-a25b-4dd3-b377-4e1ea72d4e26",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-assistantes-cheffes-de-projet/52cd87fc-11d4-4c59-ae01-a24d6517f479",
     "https://jobs.sbb.ch/v2/offene-stellen/marketing-data-specialist-m-w-d/1a87e4c5-6f00-46b8-94a0-4fc2e5f3f481",
+    "https://jobs.sbb.ch/v2/offene-stellen/werkmitarbeiter-in-im-kraft-und-frequenzumformerwerk-massaboden-bitsch/1aa9eab6-b07d-4448-af7b-dabe62de8580",
     "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-to-pay-m-w-d/45bf64e8-fd05-4364-8fc8-da7002dd50d5",
     "https://jobs.sbb.ch/v2/offene-stellen/elektroniker-in-industrieelektroniker-in-automatiker-in-in-der-instandhaltung/a906ee87-a396-49b3-b713-fb7836111c7b",
     "https://jobs.sbb.ch/v2/offene-stellen/security-engineer-m-w-d-netzleitsystem-energie/19634b7b-b72e-43a1-b3c0-af26fdb74988",
@@ -85,7 +87,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/contremaitre-voies-ferrees-h-f-d/868d15c8-9871-43c7-81ad-fcb025571871",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-01-2027/5232dbda-bc3b-47a7-87ac-65fc9e4cfdc9",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/32133b84-99c1-4f19-990a-1272dff176b9",
-    "https://jobs.sbb.ch/v2/offene-stellen/expert-in-baugesuche-und-raumplanung/9534e74e-64b5-42b9-96ee-144614a62a85",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-telecom/55e4e5c3-5b07-441d-a682-98ab4f9ea548",
     "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-automation/663a58fe-0d0f-4114-a0c5-2b6cab221ea0",
     "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-einkauf-stammdatenmanagement-80/604f8959-f00f-464d-88e2-8652985054cf",
@@ -169,5 +170,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in-ai40/2f5499bd-119f-4f07-9d22-09a22c8a9e82"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-07-14T11:03:49.295Z"
+  "updatedAt": "2026-07-14T22:05:37.192Z"
 }
