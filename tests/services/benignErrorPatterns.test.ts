@@ -37,6 +37,12 @@ describe('isBenignErrorMessage()', () => {
       // Firebase Auth transient connectivity failure (#4174)
       'Firebase: Error (auth/network-request-failed).',
       '[auth.googleSignIn] Firebase: Error (auth/network-request-failed).',
+      // Unsupported-browser parse failure (#4172) — optional-chaining / nullish
+      // on a browser below our Vite build.target baseline.
+      "SyntaxError: Unexpected token '?'",
+      'Unexpected token ?',
+      // OS/hardware file-read failure (#4175) — user's disk/file, unfixable.
+      'NotReadableError: The I/O read operation failed.',
     ])('drops: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(true);
     });
