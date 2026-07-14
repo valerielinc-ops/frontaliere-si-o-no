@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData } from '@/services/router';
@@ -1186,9 +1187,15 @@ function BlogArticles({
  // every article href below is canonical by construction (the slug map no
  // longer preloads unconditionally at App mount — #3528/#3532).
  useEffect(() => {
+ // FRO-314 / #4176: wrap the non-hashed data-chunk import() in resilientImport
+ // so a transient CDN deploy-window failure ("Failed to fetch dynamically
+ // imported module: .../blog-articles-data.js") self-heals (cache-bust +
+ // budgeted reload) instead of surfacing to the user and the error monitor.
+ // The validate guard also covers the mode-2 stale case (SPA-fallback HTML
+ // served HTTP 200 for a purged chunk → module resolves but export missing).
  const articlesPromise = section === 'svizzera'
- ? import('@/data/swiss-articles-data').then(m => m.SWISS_ARTICLES)
- : import('@/data/blog-articles-data').then(m => m.ARTICLES);
+ ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => m.SWISS_ARTICLES)
+ : resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => m.ARTICLES);
  Promise.all([
  loadBlogMeta(section),
  // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532

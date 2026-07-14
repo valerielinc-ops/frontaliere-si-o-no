@@ -4197,7 +4197,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Promise.all([
  loadBlogMeta(),
  preloadBlogData().catch(() => {}),
- import('@/data/blog-articles-data').then(m => m.ARTICLES),
+ // #4176: resilientImport so a transient CDN deploy-window failure on the
+ // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
+ resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => m.ARTICLES),
  ]).then(([, , data]) => {
  setBlogArticles(data);
  setBlogMetaReady(true);

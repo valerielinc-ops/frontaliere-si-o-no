@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map, Baby, Award, Scale, Home, Mail, Handshake, Video, Sunrise, User as UserIcon, Gift, Hammer, BookA, BarChart3, Wrench, Users, Clock, Newspaper, Receipt, Banknote, Coins, Star } from 'lucide-react';
 import { useTranslation, loadAllTranslations, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { resilientImport } from '@/services/resilientImport';
 import { ALL_GLOSSARY_TERM_IDS } from '@/services/router';
 import type { GlossaryTermId, BlogArticleId } from '@/services/router';
 
@@ -41,7 +42,9 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  const [blogArticleIds, setBlogArticleIds] = useState<BlogArticleId[]>([]);
  useEffect(() => {
  if (!isOpen) return;
- import('@/data/blog-articles-data').then(m => {
+ // #4176: resilientImport so a transient CDN deploy-window failure on the
+ // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
+ resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => {
  setBlogArticleIds(m.ARTICLES.map(a => a.id));
  });
  }, [isOpen]);
