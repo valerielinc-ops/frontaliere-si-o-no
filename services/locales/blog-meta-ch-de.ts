@@ -1117,6 +1117,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novita-fiscale-730-2025-frontalieri.title': '730/2025: Die Neuheiten für Gastarbeiter und Grenzgänger',
     'blog.article.novita-fiscale-730-2025-frontalieri.excerpt': 'Analyse der steuerlichen Neuerungen für 730/2025: Auswirkungen auf Grenzgänger und heimatlose Arbeitnehmer zwischen italienischem und schweizerischem Recht.',
     'blog.article.novita-fiscale-730-2025-frontalieri.imageAlt': 'Ansicht eines modernen Gebäudes in Lugano',
+    'blog.article.disoccupazione-frontalieri-naspi.title': 'Grenzgängerarbeitslosigkeit: Wie es funktioniert und wie hoch es ist',
+    'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Grenzgänger können die Naspi in Anspruch nehmen, ein monatliches Arbeitslosengeld, das vom INPS gezahlt wird. Hier finden Sie die Anforderungen und Antragsmodalitäten.',
+    'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalier an der Arbeit in der Schweiz, Juli 2024',
 };
 
 export default blogMetaChDe;
