@@ -36,10 +36,13 @@
     "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c",
     "https://jobs.ruag.ch/offene-stellen/communication-systems-engineer/a2517b91-9812-4de0-86fb-e99437441d62",
     "https://jobs.ruag.ch/offene-stellen/ict-system-administrator-c5i/eb0c421b-aeb4-4b83-80a3-20586766217c",
-    "https://jobs.ruag.ch/offene-stellen/human-resources-business-partner-mutterschaftsvertretung/4959e140-19a9-489f-8713-e028eb207b8e"
+    "https://jobs.ruag.ch/offene-stellen/human-resources-business-partner-mutterschaftsvertretung/4959e140-19a9-489f-8713-e028eb207b8e",
+    "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a",
+    "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da",
+    "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-14T11:41:45.890Z",
+  "updatedAt": "2026-07-14T22:17:42.877Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -202,6 +205,24 @@
       "canton": "LU",
       "company": "RUAG AG",
       "postedDate": "2026-07-14"
+    },
+    "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-14"
+    },
+    "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-14"
+    },
+    "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-15"
     }
   }
 }
