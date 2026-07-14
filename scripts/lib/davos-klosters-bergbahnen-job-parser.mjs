@@ -31,6 +31,33 @@ export function stripHtml(html = '') {
     .replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Convert a job-body HTML fragment to plain text while PRESERVING list/line
+ * structure. `stripHtml` above deliberately flattens everything onto one line
+ * (correct for titles/metadata), but a description needs its bullet points to
+ * survive as line-start `• ` markers: downstream structure detection (the
+ * parser-quality audit's hasStructuredContent, JobPosting rendering) only
+ * recognises lists when the bullets sit at the start of a line, not inline
+ * inside a collapsed paragraph. Kept separate from stripHtml so the flattening
+ * behaviour other callers rely on is unchanged.
+ */
+export function richTextToLines(html = '') {
+  return String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/(?:li|p|h[1-6]|div|ul|ol|tr)>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/[ \t\f\v]+/g, ' ')
+    .split('\n').map((l) => l.trim()).filter(Boolean).join('\n')
+    .trim();
+}
+
 export function slugify(value = '') {
   return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
@@ -142,12 +169,26 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
   const titleMatch = html.match(/<h1[^>]*>[\s\S]*?<span[^>]*class="[^"]*text-primary[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
   if (titleMatch) result.title = stripHtml(titleMatch[1]).trim();
 
+  // Bound description/metadata extraction to the per-job content subtree.
+  //
+  // #3836 (chrome-scraping): the live detail page renders a SITE-WIDE
+  // operational alert banner (e.g. "Aufgrund von tech. Arbeiten an der
+  // Pendelbahn … wird die 2. Sektion des Jakobshorns … geschlossen") inside its
+  // OWN `.wysiwyg` block ABOVE the main job content. An unscoped "first
+  // `.wysiwyg` on the page" match latched onto that banner, so all 9 davos jobs
+  // carried the identical 171-char notice instead of their own body. The job
+  // title `<h1>` always sits BELOW the banner, so anchor extraction there — only
+  // the per-job region is searched, and the shared banner (plus header/nav
+  // above it) is excluded.
+  const h1Idx = html.search(/<h1[\s>]/i);
+  const bodyScope = h1Idx >= 0 ? html.slice(h1Idx) : html;
+
   // Extract department from <div class="h3 ..."> before <h1>
   const deptMatch = html.match(/<div[^>]*class="h3[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
   if (deptMatch) result.department = stripHtml(deptMatch[1]).trim();
 
-  // Extract metadata from meta-list items
-  const metaListMatch = html.match(/<div[^>]*class="meta-list"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
+  // Extract metadata from meta-list items (within the per-job scope)
+  const metaListMatch = bodyScope.match(/<div[^>]*class="meta-list"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
   if (metaListMatch) {
     const items = metaListMatch[1].match(/<div[^>]*class="meta-list__item"[^>]*>([\s\S]*?)<\/div>/gi) || [];
     const metaValues = items.map(d => stripHtml(d).trim()).filter(v => v && !v.includes('download'));
@@ -155,17 +196,23 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
     if (metaValues.length >= 2) result.percentage = metaValues[1];
   }
 
-  // Extract description from wysiwyg content block
+  // Extract description from the FIRST wysiwyg block WITHIN the per-job scope —
+  // i.e. the job body immediately following the title/meta-list, never the
+  // page-level alert banner above the title.
   let description = '';
-  const wysiwygMatch = html.match(/<div[^>]*class="wysiwyg[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|$)/i);
+  const wysiwygMatch = bodyScope.match(/<div[^>]*class="[^"]*\bwysiwyg\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|$)/i);
   if (wysiwygMatch) {
-    description = stripHtml(wysiwygMatch[1]);
+    description = richTextToLines(wysiwygMatch[1]);
   }
 
-  // Fallback: extract from <main>
+  // Fallback: still bounded to the per-job scope — take the text after the
+  // title but cut off at the first footer / nav / notification boundary so we
+  // never re-absorb the shared page chrome the wysiwyg scoping just excluded.
   if (!description || description.length < 30) {
-    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-    if (mainMatch) description = stripHtml(mainMatch[1]);
+    const cut = bodyScope.search(/<footer[\s>]|<nav[\s>]|class="[^"]*(?:footer|site-alert|notification|megamenu)/i);
+    const region = cut >= 0 ? bodyScope.slice(0, cut) : bodyScope;
+    const text = richTextToLines(region);
+    if (text.length >= 30) description = text;
   }
 
   if (description && description.length >= 30) {

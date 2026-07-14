@@ -36,6 +36,7 @@ import {
   htmlToMarkdown,
   validateClerDescription,
   extractJobMeta,
+  dedupeClerJobsByStableId,
 } from './lib/cler-job-parser.mjs';
 import {
   getCompanyDefaults,
@@ -312,9 +313,24 @@ function buildDescription(title, html) {
 
 async function fetchClerJobs() {
   const listings = await fetchJobListings();
+
+  // #3836 — collapse postings the API returns twice (same requisition id under
+  // the legacy `…/jobs-und-karriere/…` and relaunched `…/jobs-und-karriere-2026/…`
+  // paths). Dedupe BEFORE fetching detail pages so we emit one record per
+  // distinct job and don't waste a detail fetch on the duplicate. The stable-id
+  // key needs the ABSOLUTE URL (Rule K in job-url-key.mjs is host-gated on
+  // cler.ch), so map the relative detail path to its absolute form here.
+  const uniqueListings = dedupeClerJobsByStableId(
+    listings,
+    (l) => (l?.link?.url ? `${API_BASE}${l.link.url}` : ''),
+  );
+  if (uniqueListings.length !== listings.length) {
+    console.log(`  ↺ Dedup: ${listings.length} listings → ${uniqueListings.length} unique postings (same req id under multiple career-section paths)`);
+  }
+
   const jobs = [];
 
-  for (const listing of listings) {
+  for (const listing of uniqueListings) {
     const title = (listing.title || '').trim();
     if (!title) continue;
 
