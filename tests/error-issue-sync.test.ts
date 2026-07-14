@@ -352,6 +352,24 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignAbortError!.source);
   });
 
+  it('mirrors the anchored bare-transport-failure patterns ("Failed to fetch" / "Load failed" / "NetworkError") from services/benignErrorPatterns.ts byte-for-byte (#4150)', () => {
+    // The three cross-browser bare transport-failure wordings must be denied
+    // at issue-creation time (environmental noise — no actionable fix). Pattern
+    // anchoring ensures contextualized and chunk-load variants stay issue-able.
+    // Filter to the ANCHORED bare forms only (starts with `^(?:TypeError: )?`)
+    // to exclude the Remote Config pattern which incidentally matches the same
+    // keywords but is a different deny-class.
+    const transportPatterns = UNIVERSAL_BENIGN_PATTERNS.filter((p) => {
+      if (!p.source.startsWith('^(?:TypeError: )?')) return false;
+      return p.test('Failed to fetch') || p.test('Load failed') || p.test('NetworkError when attempting to fetch resource.');
+    });
+    expect(transportPatterns).toHaveLength(3); // sanity: all three browser wordings covered
+    const denySources = ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source);
+    for (const tp of transportPatterns) {
+      expect(denySources).toContain(tp.source);
+    }
+  });
+
   it('isIssueDenied keeps real errors issue-able (incl. call-time skew TypeErrors and chunk-load 404s)', () => {
     // Call-time skew TypeErrors are deliberately NOT denied: the same message
     // shape can be a genuine first-party bug, so they must keep filing issues.
@@ -368,6 +386,14 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     // And the denied class, for contrast:
     expect(isIssueDenied("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'")).toBe(true);
     expect(isIssueDenied('Script error.')).toBe(true);
+    // Bare transport failures (#4150): Chrome / Safari / Firefox wordings all denied.
+    expect(isIssueDenied('TypeError: Failed to fetch')).toBe(true);
+    expect(isIssueDenied('Failed to fetch')).toBe(true);
+    expect(isIssueDenied('TypeError: Load failed')).toBe(true);
+    expect(isIssueDenied('Load failed')).toBe(true);
+    expect(isIssueDenied('NetworkError when attempting to fetch resource.')).toBe(true);
+    // But "Failed to fetch" WITH a URL/context is NOT denied — CDN/chunk-load bugs.
+    expect(isIssueDenied('[exchangeRate] Failed to fetch')).toBe(false);
     // AbortError class (#4147): user-cancelled navigation/fetch — benign, no code fix possible.
     expect(isIssueDenied('AbortError: The user aborted a request.')).toBe(true);
     expect(isIssueDenied('AbortError: The operation was aborted.')).toBe(true);
