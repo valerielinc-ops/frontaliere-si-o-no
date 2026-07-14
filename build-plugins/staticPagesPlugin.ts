@@ -3721,11 +3721,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        : navLocale === 'de' ? 'Listings nach Seite durchsuchen'
        : navLocale === 'fr' ? 'Parcourir les annonces page par page'
        : 'Sfoglia gli annunci pagina per pagina';
-     const pageWord = navLocale === 'en' || navLocale === 'fr' ? 'p.' : navLocale === 'de' ? 'S.' : 'p.';
+     // Bare page number (was a `<word>&nbsp;<n>` label). Same page-weight
+     // byte-shave as the canton hub flat ladders (CLAUDE.md #6): the full
+     // page-N link set is kept intact but the repeated per-anchor word prefix
+     // is dropped so a growing TI archive can't drift the injected navigator
+     // over the audit:page-weight budget. `<summary>`/`<nav aria-label>` supply
+     // the "page by page" context.
      const paginationAnchors: string[] = [];
      for (let p = 2; p <= tiPaginationPages; p++) {
        const href = `${tiBase}${TI_PAGINATION_SLUG[navLocale]}-${p}/`;
-       paginationAnchors.push(`<a href="${href}" class="jbx-l">${pageWord}&nbsp;${p}</a>`);
+       paginationAnchors.push(`<a href="${href}" class="jbx-l">${p}</a>`);
      }
      editorialBlocks.push(
        `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(paginationNavLabel)} (${tiPaginationPages - 1})</summary><nav class="s-6_t7LY" aria-label="${esc(paginationNavLabel)}">${paginationAnchors.join('')}</nav></details>`,
@@ -3888,12 +3893,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    : locale === 'en' ? 'Browse the full article archive by page'
    : locale === 'de' ? 'Vollständiges Artikelarchiv nach Seite durchsuchen'
    : 'Parcourir toutes les archives par page';
- const pageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
  if (articlesTotalPages > 1) {
+ // Bare page number (was a `<word>&nbsp;<n>` label). Same BFS-safe page-weight
+ // byte-shave as the canton hub ladders (CLAUDE.md #6): every page-N anchor
+ // preserved, only the repeated word prefix dropped; `<nav aria-label>` context.
  const pageAnchors: string[] = [];
  for (let p = 1; p <= articlesTotalPages; p++) {
  const href = paginatedPath(articlesArchiveBase, p);
- pageAnchors.push(`<a class="s-4pFg-C" href="${href}">${pageWord}&nbsp;${p}</a>`);
+ pageAnchors.push(`<a class="s-4pFg-C" href="${href}">${p}</a>`);
  }
  editorialBlocks.push(
  `<nav class="s-rzdYWi" aria-label="${esc(navLabel)}"><p class="s-AYnHp_">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,
