@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-07-14T11:03:29.298Z",
+  "assembledAt": "2026-07-14T22:35:59.484Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:26.149Z",
+      "crawledAt": "2026-07-14T22:35:56.811Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -77,15 +77,18 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
-          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
+          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -131,7 +134,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:25.275Z",
+      "crawledAt": "2026-07-14T22:35:55.930Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -184,14 +187,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-sportmedizin-100-spital-davos-ch"
+        "unterassistent-in-sportmedizin-100-spital-davos-ch",
+        "assistente-in-medicina-sportiva-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-sportmedizin-100-spital-davos-ch"
+          "unterassistent-in-sportmedizin-100-spital-davos-ch",
+          "assistente-in-medicina-sportiva-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -237,7 +243,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:24.402Z",
+      "crawledAt": "2026-07-14T22:35:55.059Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -281,14 +287,17 @@
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
         "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos"
+        "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-innere-medizin-100-spital-davos-ch"
+          "unterassistent-in-innere-medizin-100-spital-davos-ch",
+          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -334,7 +343,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:23.487Z",
+      "crawledAt": "2026-07-14T22:35:54.201Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -380,18 +389,21 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "sostanza-in-anestesia-100-spital-davos-davos",
-        "subassistance-in-anaesthesia-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "assistente-anestesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch",
-          "sostanza-in-anestesia-100-spital-davos-davos"
+          "sostanza-in-anestesia-100-spital-davos-davos",
+          "assistente-anestesia-100-spital-davos-davos"
         ],
         "en": [
           "subassistance-in-anaesthesia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -437,7 +449,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:22.591Z",
+      "crawledAt": "2026-07-14T22:35:53.328Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -461,11 +473,13 @@
       "previousSlugs": [
         "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
         "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+        "salute-professionale-80-100-inverno-2026-27-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
+          "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch",
+          "salute-professionale-80-100-inverno-2026-27-spital-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-80-100-winter-2026-27-spital-davos-ch"
@@ -475,6 +489,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -520,7 +535,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:21.698Z",
+      "crawledAt": "2026-07-14T22:35:52.469Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -543,12 +558,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "fachperson-gesundheit-80-100-spital-davos-ch",
-        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+        "salute-specialistica-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-80-100-spital-davos-ch",
-          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+          "salute-specialistica-80-100-spital-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-80-100-spital-davos-ch"
@@ -558,6 +575,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -603,7 +621,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:20.808Z",
+      "crawledAt": "2026-07-14T22:35:51.603Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -625,17 +643,20 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "salvataggio-suit-2027-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+          "salvataggio-suit-2027-50-100-spital-davos-davos"
         ],
         "fr": [
           "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -681,7 +702,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:19.909Z",
+      "crawledAt": "2026-07-14T22:35:50.717Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -704,12 +725,14 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-salute-specialistica-50-100-spital-davos-davos"
+        "spitex-salute-specialistica-50-100-spital-davos-davos",
+        "spitex-assistente-sanitario-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-          "spitex-salute-specialistica-50-100-spital-davos-davos"
+          "spitex-salute-specialistica-50-100-spital-davos-davos",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
@@ -758,7 +781,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:19.018Z",
+      "crawledAt": "2026-07-14T22:35:49.814Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -788,14 +811,16 @@
         "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
           "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
           "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
-          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
+          "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
         ],
         "en": [
           "surgery-orthopaedics-assistant-100-spital-davos-davos"
@@ -808,6 +833,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -853,7 +879,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:18.338Z",
+      "crawledAt": "2026-07-14T22:35:48.975Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -875,11 +901,13 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+        "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+          "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
@@ -889,6 +917,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -934,7 +963,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:17.449Z",
+      "crawledAt": "2026-07-14T22:35:48.094Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -958,12 +987,14 @@
       "previousSlugs": [
         "consulente-per-l-agenzia-generale-chur-100",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch",
+        "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-per-l-agenzia-generale-chur-100",
-          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch"
+          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch",
+          "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
         ],
         "en": [
           "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
@@ -976,6 +1007,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1021,7 +1053,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:16.891Z",
+      "crawledAt": "2026-07-14T22:35:47.195Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1071,6 +1103,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T22:19:31.942Z",
+      "needsRetranslation": true,
       "salaryMin": 63200,
       "salaryMax": 96000,
       "baseSalary": {
@@ -1116,7 +1149,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:16.215Z",
+      "crawledAt": "2026-07-14T22:35:46.342Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1138,11 +1171,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "hausarztin-hausarzt-60-100-spital-davos-ch"
+        "hausarztin-hausarzt-60-100-spital-davos-ch",
+        "home-medico-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausarztin-hausarzt-60-100-spital-davos-ch"
+          "hausarztin-hausarzt-60-100-spital-davos-ch",
+          "home-medico-60-100-spital-davos-davos"
         ],
         "en": [
           "hausarztin-hausarzt-60-100-spital-davos-ch"
@@ -1152,6 +1187,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1197,7 +1233,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:15.653Z",
+      "crawledAt": "2026-07-14T22:35:45.486Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1219,17 +1255,20 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "previousSlugs": [
-        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+        "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+          "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
         ],
         "en": [
           "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-28T11:37:05.341Z",
+      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -1275,7 +1314,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/708/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:15.081Z",
+      "crawledAt": "2026-07-14T22:35:44.617Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1297,11 +1336,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+        "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+          "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-05-29T13:58:41.353Z",
@@ -1350,7 +1391,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/709/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:14.508Z",
+      "crawledAt": "2026-07-14T22:35:43.747Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1378,13 +1419,15 @@
         "medical-practice-assistant-60-100-spital-davos-davos-e070f5",
         "assistant-de-pratique-medicale-60-100-spital-davos-davos",
         "assistant-e-medical-e-60-100-spital-davos-davos",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "assistente-medico-a-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-ambulatorio-medico-nel-60-100-spital-davos-davos",
           "assistente-medico-60-100-spital-davos-davos",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+          "assistente-medico-a-60-100-spital-davos-davos"
         ],
         "en": [
           "medical-practice-assistant-60-100-spital-davos-davos-e070f5"
@@ -1441,7 +1484,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/691/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:13.829Z",
+      "crawledAt": "2026-07-14T22:35:42.878Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1464,12 +1507,14 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+        "assistente-pratico-nel-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+          "assistente-pratico-nel-60-100-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
@@ -1524,7 +1569,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/712/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:13.155Z",
+      "crawledAt": "2026-07-14T22:35:41.981Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1603,7 +1648,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/716/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:12.478Z",
+      "crawledAt": "2026-07-14T22:35:41.113Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1625,11 +1670,13 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+        "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+          "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:35.039Z",
@@ -1678,7 +1725,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/718/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:11.799Z",
+      "crawledAt": "2026-07-14T22:35:40.238Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1700,11 +1747,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "mitarbeiter-in-office-kuche-100-spital-davos-ch"
+        "mitarbeiter-in-office-kuche-100-spital-davos-ch",
+        "collaboratore-trice-office-kuche-100-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-office-kuche-100-spital-davos-ch"
+          "mitarbeiter-in-office-kuche-100-spital-davos-ch",
+          "collaboratore-trice-office-kuche-100-spital-davos"
         ],
         "en": [
           "mitarbeiter-in-office-kuche-100-spital-davos-ch"
@@ -1714,6 +1763,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:23.258Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1759,7 +1809,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/714/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:11.222Z",
+      "crawledAt": "2026-07-14T22:35:39.348Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1840,7 +1890,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/722/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:10.664Z",
+      "crawledAt": "2026-07-14T22:35:38.482Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1859,6 +1909,7 @@
       "department": "Pflegeheim",
       "contractDuration": "permanent",
       "firstSeenAt": "2026-07-13T12:21:00.414Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1904,7 +1955,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/724/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:09.987Z",
+      "crawledAt": "2026-07-14T22:35:37.591Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1930,11 +1981,13 @@
         "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
         "emergency-medical-technician-winter-season-2026-27-50-100-spital-davos-davos",
         "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+        "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+          "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
         ],
         "en": [
           "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
@@ -1962,9 +2015,9 @@
       "id": "spital-davos-872ddd7e29ca",
       "slug": "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos",
       "slugByLocale": {
-        "de": "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
         "it": "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos",
         "en": "specialist-care-specialty-children-80-100-spital-davos-davos",
+        "de": "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
         "fr": "soins-specialises-enfants-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -1972,16 +2025,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Fachperson Betreuung Fachrichtung Kinder 80-100%",
       "titleByLocale": {
-        "de": "Fachperson Betreuung Fachrichtung Kinder 80-100%",
         "it": "Fachperson Betreuung specializzazione Kinder 80-100%",
         "en": "Specialist Care Specialty Children 80-100 %",
+        "de": "Fachperson Betreuung Fachrichtung Kinder 80-100%",
         "fr": "Soins spécialisés Enfants 80-100 %"
       },
       "description": "Als Fachperson Betreuung mit Fachrichtung Kinder sorgen Sie mit Ihrem Einfühlungsvermögen und Engagement für das Wohlbefinden der wohl wertvollsten Schätze unserer Mitarbeitenden sowie weiterer Davoser Eltern. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine |\n• Unterstützung bei der Führung der Kindergruppe\n• Umsetzen der pädagogischen Ziele der Kinderkrippe\n• Weitere vielfältige Aufgaben im täglichen Krippenbetrieb |\n• Eine abgeschlossene Ausbildung als Fachperson Betreuung Fachrichtung Kinder oder eine gleichwertige in der Schweiz anerkannte Ausbildung, Fachpersonen frisch ab Ausbildung sehr willkommen!\n• Sie begegnen den Kindern mit Freude, Einfühlungsvermögen und Engagement\n• Sie sind eine kreative, begeisterungsfähige und belastbare Persönlichkeit\n• Sie pflegen einen respektvollen, verantwortungsbewussten und kollegialen Umgang\n• Sie sind flexibel und teamfähig |\n• Verantwortungsvolle Aufgabe in einem altersdurchmischten, fröhlichen Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen; Personalhaus vorhanden\n• Moderne und trotzdem heimelige Infrastruktur an schöner und ruhiger Lage\n• Angenehmes Arbeitsklima mit guter Unterstützung\n• Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für nähere Auskünfte steht Katja Caviezel, Krippenleiterin, unter 081 414 96 00 oder mandala@spitaldavos.ch gerne zur Verfügung. Auch das HRM-Rekrutierungsteam steht Ihnen selbstverständlich unter der Telefonnummer +41 81 414 84 12 oder unter der Email jobs@spitaldavos.ch mit Rat und Tat zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Als Fachperson Betreuung mit Fachrichtung Kinder sorgen Sie mit Ihrem Einfühlungsvermögen und Engagement für das Wohlbefinden der wohl wertvollsten Schätze unserer Mitarbeitenden sowie weiterer Davoser Eltern. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine |\n• Unterstützung bei der Führung der Kindergruppe\n• Umsetzen der pädagogischen Ziele der Kinderkrippe\n• Weitere vielfältige Aufgaben im täglichen Krippenbetrieb |\n• Eine abgeschlossene Ausbildung als Fachperson Betreuung Fachrichtung Kinder oder eine gleichwertige in der Schweiz anerkannte Ausbildung, Fachpersonen frisch ab Ausbildung sehr willkommen!\n• Sie begegnen den Kindern mit Freude, Einfühlungsvermögen und Engagement\n• Sie sind eine kreative, begeisterungsfähige und belastbare Persönlichkeit\n• Sie pflegen einen respektvollen, verantwortungsbewussten und kollegialen Umgang\n• Sie sind flexibel und teamfähig |\n• Verantwortungsvolle Aufgabe in einem altersdurchmischten, fröhlichen Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen; Personalhaus vorhanden\n• Moderne und trotzdem heimelige Infrastruktur an schöner und ruhiger Lage\n• Angenehmes Arbeitsklima mit guter Unterstützung\n• Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für nähere Auskünfte steht Katja Caviezel, Krippenleiterin, unter 081 414 96 00 oder mandala@spitaldavos.ch gerne zur Verfügung. Auch das HRM-Rekrutierungsteam steht Ihnen selbstverständlich unter der Telefonnummer +41 81 414 84 12 oder unter der Email jobs@spitaldavos.ch mit Rat und Tat zur Verfügung.",
         "it": "In qualità di specialista dell'assistenza all'infanzia, fornisci la tua empatia e l'impegno per il benessere dei tesori più preziosi dei nostri dipendenti e di altri genitori Davos. In qualità di ospedale regionale / ospedale acuto con servizio di ambulanza, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base per la popolazione e gli ospiti Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavoriamo in un'azienda gestibile, ma importante per la regione, manteniamo un'atmosfera collegiale di lavoro e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. # Immediatamente o con accordo stiamo cercando un |\n• Sostegno alla leadership del gruppo dei bambini\n• Attuazione degli obiettivi educativi della crèche\n• Ulteriori attività diverse nel funzionamento quotidiano della culla |\n• Formazione completa come specialista di assistenza all'infanzia o un'educazione equivalente riconosciuta in Svizzera, specialisti freschi dall'istruzione molto benvenuti!\n• Trattano i bambini con gioia, empatia e impegno.\n• Sei una personalità creativa, entusiasta e resiliente\n• Mantengono un approccio rispettoso, responsabile e collegiale\n• Sono flessibili e capaci di lavorare di squadra.\n• Compito responsabile in un team molto felice\n• Condizioni di lavoro attraenti e buone prestazioni sociali; Staff house disponibile\n• Moderna e tuttavia accogliente infrastruttura in una posizione bella e tranquilla\n• Ambiente di lavoro piacevole con un buon supporto\n• Per ulteriori informazioni, Katja Caviezel, Principal Principal, è disponibile al 081 414 96 00 o al mandala@spitaldavos.ch. Il team di reclutamento HRM è naturalmente disponibile anche a voi sotto il numero di telefono +41 81 414 84 12 o sotto l'email job@spitaldavos.ch con consigli e azioni.",
         "en": "As a specialist child care specialist, you provide with your empathy and commitment for the well-being of the most valuable treasures of our employees and other Davos parents. As a regional hospital/acute hospital with ambulance service, nursing home and Spitex, we are responsible for basic medical care for the Davos population and guests. Equally important to us is the well-being of our employees. With us you work in a manageable company, but important for the region, we maintain a collegial working atmosphere and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. | Immediately or by agreement we are looking for a |\n• Support for the leadership of the children’s group\n• Implementation of the educational goals of the crèche\n• Further diverse tasks in daily crib operation |\n• Completed training as a specialist childcare specialist or an equivalent education recognised in Switzerland, specialists fresh from education very welcome!\n• They treat the children with joy, empathy and commitment.\n• You are a creative, enthusiastic and resilient personality\n• They maintain a respectful, responsible and collegial approach\n• They are flexible and capable of teamwork.\n• Responsible task in an age-mixed, happy team\n• Attractive employment conditions and good social benefits; Staff house available\n• Modern and yet homely infrastructure in a beautiful and quiet location\n• Pleasant working environment with good support\n• Versatile sports and leisure activities in the highest city in Europe | For more information, Katja Caviezel, Principal Principal, is available at 081 414 96 00 or mandala@spitaldavos.ch. The HRM recruitment team is of course also available to you under the phone number +41 81 414 84 12 or under the email jobs@spitaldavos.ch with advice and deeds.",
+        "de": "Als Fachperson Betreuung mit Fachrichtung Kinder sorgen Sie mit Ihrem Einfühlungsvermögen und Engagement für das Wohlbefinden der wohl wertvollsten Schätze unserer Mitarbeitenden sowie weiterer Davoser Eltern. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Per sofort oder nach Vereinbarung suchen wir eine |\n• Unterstützung bei der Führung der Kindergruppe\n• Umsetzen der pädagogischen Ziele der Kinderkrippe\n• Weitere vielfältige Aufgaben im täglichen Krippenbetrieb |\n• Eine abgeschlossene Ausbildung als Fachperson Betreuung Fachrichtung Kinder oder eine gleichwertige in der Schweiz anerkannte Ausbildung, Fachpersonen frisch ab Ausbildung sehr willkommen!\n• Sie begegnen den Kindern mit Freude, Einfühlungsvermögen und Engagement\n• Sie sind eine kreative, begeisterungsfähige und belastbare Persönlichkeit\n• Sie pflegen einen respektvollen, verantwortungsbewussten und kollegialen Umgang\n• Sie sind flexibel und teamfähig |\n• Verantwortungsvolle Aufgabe in einem altersdurchmischten, fröhlichen Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen; Personalhaus vorhanden\n• Moderne und trotzdem heimelige Infrastruktur an schöner und ruhiger Lage\n• Angenehmes Arbeitsklima mit guter Unterstützung\n• Vielseitiges Sport- und Freizeitangebot in der höchstgelegenen Stadt Europas | Für nähere Auskünfte steht Katja Caviezel, Krippenleiterin, unter 081 414 96 00 oder mandala@spitaldavos.ch gerne zur Verfügung. Auch das HRM-Rekrutierungsteam steht Ihnen selbstverständlich unter der Telefonnummer +41 81 414 84 12 oder unter der Email jobs@spitaldavos.ch mit Rat und Tat zur Verfügung.",
         "fr": "En tant que spécialiste de la garde d'enfants, vous apportez votre empathie et votre engagement pour le bien-être des trésors les plus précieux de nos employés et d'autres parents de Davos. En tant qu'hôpital régional avec service d'ambulance, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base pour la population et les invités de Davos. Le bien-être de nos employés est tout aussi important pour nous. Avec nous vous travaillez dans une entreprise gérable, mais important pour la région, nous maintenons une atmosphère de travail collégiale et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. - Oui. Immédiatement ou par accord nous sommes à la recherche d'un\n• Soutien à la direction du groupe des enfants\n• Réalisation des objectifs éducatifs de la crèche\n• Autres tâches diverses dans l'opération quotidienne du berceau\n• Achevé la formation en tant que spécialiste de la garde d'enfants ou une formation équivalente reconnue en Suisse, les spécialistes frais de l'éducation sont très bienvenus!\n• Ils traitent les enfants avec joie, empathie et engagement.\n• Vous êtes une personnalité créative, enthousiaste et résistante\n• Ils maintiennent une approche respectueuse, responsable et collégiale\n• Ils sont flexibles et capables de travailler en équipe.\n• Tâche responsable dans une équipe d'âge mixte et heureuse\n• Des conditions d'emploi attrayantes et de bonnes prestations sociales;\n• Infrastructure moderne et pourtant accueillante dans un endroit magnifique et calme\n• Environnement de travail agréable avec un bon soutien\n• Activités sportives et de loisirs polyvalentes dans la plus haute ville d'Europe.Pour plus d'informations, Katja Caviezel, Principal Principal, est disponible au 081 414 96 00 ou mandala@spitaldavos.ch. L'équipe de recrutement HRM est bien sûr également à votre disposition sous le numéro de téléphone +41 81 414 84 12 ou sous le mail jobs@spitaldavos.ch avec des conseils et des actes."
       },
       "location": "Davos",
@@ -1989,7 +2042,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/725/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:09.407Z",
+      "crawledAt": "2026-07-14T22:35:36.928Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2004,17 +2057,20 @@
       "postedDate": "2026-07-14",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/725/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Kinderkrippe",
       "contractDuration": "permanent",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+        "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+          "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
         ],
         "en": [
           "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
@@ -2023,9 +2079,7 @@
           "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
-      ],
+      "firstSeenAt": "2026-07-14T11:03:09.407Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2038,8 +2092,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-14T11:03:09.407Z"
+      "addressRegion": "GR"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -2072,7 +2125,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:08.834Z",
+      "crawledAt": "2026-07-14T22:35:36.264Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2114,14 +2167,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+        "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+        "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+          "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+          "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2167,7 +2223,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:08.151Z",
+      "crawledAt": "2026-07-14T22:35:35.410Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2220,14 +2276,17 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch"
+          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2273,7 +2332,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:07.467Z",
+      "crawledAt": "2026-07-14T22:35:34.529Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2323,14 +2382,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch"
+        "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch",
+        "ops-lagermedico-ina-per-la-stagione-invernale-2026-27-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch"
+          "ops-lagerungspfleger-in-fur-wintersaison-2026-27-80-100-spital-davos-ch",
+          "ops-lagermedico-ina-per-la-stagione-invernale-2026-27-80-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2376,7 +2438,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:03:06.888Z",
+      "crawledAt": "2026-07-14T22:35:33.654Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2405,13 +2467,15 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
         "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
           "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
-          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos",
+          "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
         ],
         "en": [
           "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos"
@@ -2425,6 +2489,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
