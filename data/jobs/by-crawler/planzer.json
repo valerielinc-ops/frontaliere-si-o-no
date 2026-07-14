@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-bern",
-        "consegna-dei-pacchi-m-f-d-planzer-bern"
+        "paketzusteller-m-w-d-planzer-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketzusteller-m-w-d-planzer-bern",
-          "consegna-dei-pacchi-m-f-d-planzer-bern"
+          "paketzusteller-m-w-d-planzer-bern"
         ],
         "en": [
           "paketzusteller-m-w-d-planzer-bern"
@@ -135,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "responsabile-del-team-picking-m-f-d-planzer-daniken"
+        "teamleiter-kommissionierung-m-w-d-planzer-daniken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-          "responsabile-del-team-picking-m-f-d-planzer-daniken"
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
         ],
         "en": [
           "teamleiter-kommissionierung-m-w-d-planzer-daniken"
@@ -215,13 +211,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-buchs",
-        "spedizioniere-m-f-d-planzer-buchs"
+        "disponent-stuckgut-m-w-d-planzer-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-stuckgut-m-w-d-planzer-buchs",
-          "spedizioniere-m-f-d-planzer-buchs"
+          "disponent-stuckgut-m-w-d-planzer-buchs"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-buchs"
@@ -250,7 +244,7 @@
       "slugByLocale": {
         "de": "verantwortliche-berufsbildung-hr-assistent-m-w-d-planzer-daniken",
         "it": "verantwortliche-berufsbildung-hr-assistent-m-w-d-planzer-daniken",
-        "en": "verantwortliche-berufsbildung-hr-assistent-m-w-d-planzer-daniken",
+        "en": "responsible-vocational-training-hr-assistant-m-f-d-planzer-daniken",
         "fr": "verantwortliche-berufsbildung-hr-assistent-m-w-d-planzer-daniken"
       },
       "company": "Planzer",
@@ -377,11 +371,11 @@
     },
     {
       "id": "planzer-7a8587e8c90b",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-basel-flughafen",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-basel-flughafen",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-basel-flughafen",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
       },
       "company": "Planzer",
@@ -439,7 +433,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T21:57:14.202Z"
+      "firstSeenAt": "2026-07-13T21:57:14.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-basel-flughafen"
+      ]
     },
     {
       "id": "planzer-598255ecdc03",
@@ -493,13 +498,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-seewen",
-        "chauffeur-cat-c-m-f-d-planzer-seewen"
+        "chauffeur-kat-c-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-m-w-d-planzer-seewen",
-          "chauffeur-cat-c-m-f-d-planzer-seewen"
+          "chauffeur-kat-c-m-w-d-planzer-seewen"
         ],
         "en": [
           "chauffeur-kat-c-m-w-d-planzer-seewen"
@@ -574,13 +577,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-        "chauffeur-cat-be-notte-m-f-d-planzer-kolliken"
+        "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-          "chauffeur-cat-be-notte-m-f-d-planzer-kolliken"
+          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
         ],
         "en": [
           "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
@@ -605,10 +606,10 @@
     },
     {
       "id": "planzer-d92a75132a04",
-      "slug": "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
+      "slug": "chauffeur-cat-b-be-m-f-d-planzer-marstetten",
       "slugByLocale": {
         "de": "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
-        "it": "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
+        "it": "chauffeur-cat-b-be-m-f-d-planzer-marstetten",
         "en": "chauffeur-kat-b-be-m-w-d-planzer-marstetten",
         "fr": "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
       },
@@ -667,16 +668,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T21:57:11.883Z"
+      "firstSeenAt": "2026-07-13T21:57:11.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-b-be-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-a8ddbf84b27b",
       "slug": "autista-cat-ce-m-f-d-planzer-bioggio",
       "slugByLocale": {
         "it": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "en": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "de": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "fr": "autista-cat-ce-m-f-d-planzer-bioggio"
+        "en": "driver-cat-ec-m-f-d-planzer-bioggio",
+        "de": "fahrzeugklasse-ec-m-w-d-planzer-bioggio",
+        "fr": "cat-chauffeur-ce-m-f-d-planzer-bioggio"
       },
       "company": "Planzer",
       "companyKey": "planzer",

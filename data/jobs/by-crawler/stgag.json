@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-stgag-munsterlingen",
         "it": "collaboratore-trice-in-empfang-spital-thurgau-stgag-munsterlingen",
-        "en": "mitarbeiter-in-empfang-stgag-munsterlingen",
-        "fr": "mitarbeiter-in-empfang-stgag-munsterlingen"
+        "en": "employee-reception-spital-thurgau-stgag-munsterlingen",
+        "fr": "reception-des-employes-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-empfang-stgag-munsterlingen"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-stgag-munsterlingen"
+        ],
+        "fr": [
           "mitarbeiter-in-empfang-stgag-munsterlingen"
         ]
       },
@@ -155,8 +161,8 @@
       "slugByLocale": {
         "de": "oberarzt-arztin-forensik-stgag-ch",
         "it": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
-        "en": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
-        "fr": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen"
+        "en": "senior-physician-forensics-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecin-legiste-principal-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -230,8 +236,8 @@
       "slugByLocale": {
         "de": "oberarzt-arztin-therapeutische-leitung-stgag-ch",
         "it": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
-        "en": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
-        "fr": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden"
+        "en": "senior-physician-therapeutic-director-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecin-principal-directeur-therapeutique-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -305,8 +311,8 @@
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch",
         "it": "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
-        "en": "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
-        "fr": "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen"
+        "en": "professional-health-in-the-employee-pool-hourly-wage-spital-thurgau-stgag-munsterlingen",
+        "fr": "sante-professionnelle-dans-le-bassin-de-salaires-horaires-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -380,8 +386,8 @@
       "slugByLocale": {
         "de": "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien",
         "it": "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen",
-        "en": "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen",
-        "fr": "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen"
+        "en": "psychologists-with-pleasure-at-work-in-a-subacute-setting-and-short-therapies-spital-thurgau-stgag-munsterlingen",
+        "fr": "psychologues-avec-plaisir-au-travail-dans-un-cadre-subaigu-et-des-therapies-courtes-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -448,12 +454,12 @@
     },
     {
       "id": "stgag-d8ea34e46935",
-      "slug": "arztsekretar-in-pathologie-stgag-munsterlingen",
+      "slug": "segretario-medico-patologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "arztsekretar-in-pathologie-stgag-munsterlingen",
-        "it": "arztsekretar-in-pathologie-stgag-munsterlingen",
-        "en": "arztsekretar-in-pathologie-stgag-munsterlingen",
-        "fr": "arztsekretar-in-pathologie-stgag-munsterlingen"
+        "it": "segretario-medico-patologia-spital-thurgau-stgag-munsterlingen",
+        "en": "medical-secretary-in-pathology-spital-thurgau-stgag-munsterlingen",
+        "fr": "secretaire-medical-en-pathologie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -508,16 +514,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:00:16.101Z"
+      "firstSeenAt": "2026-07-13T22:00:16.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-pathologie-stgag-munsterlingen"
+        ],
+        "en": [
+          "arztsekretar-in-pathologie-stgag-munsterlingen"
+        ],
+        "fr": [
+          "arztsekretar-in-pathologie-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-pathologie-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-51a3edb2485d",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-        "it": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen"
+        "it": "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-munsterlingen",
+        "en": "dipl-nursing-specialist-woman-hf-fh-midwife-postpartum-spital-thurgau-stgag-munsterlingen",
+        "fr": "dipl-specialiste-des-soins-infirmiers-femme-hf-fh-sage-femme-postpartum-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -562,11 +582,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -588,8 +616,8 @@
       "slugByLocale": {
         "de": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
         "it": "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-munsterlingen",
-        "en": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-        "fr": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag"
+        "en": "specialist-in-radiology-with-focus-on-abdominal-radiology-oa-or-oa-mbf-spital-thurgau-stgag-munsterlingen",
+        "fr": "specialiste-en-radiologie-avec-un-accent-sur-la-radiologie-abdominale-oa-ou-oa-mbf-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -635,6 +663,12 @@
       "previousSlugsByLocale": {
         "it": [
           "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag"
+        ],
+        "en": [
+          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag"
+        ],
+        "fr": [
+          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag"
         ]
       },
       "previousSlugs": [
@@ -656,12 +690,12 @@
     },
     {
       "id": "stgag-49b7a40bf50e",
-      "slug": "oberarzt-arztin-padiatrie-stgag-munsterlingen",
+      "slug": "medico-senior-pediatrico-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "oberarzt-arztin-padiatrie-stgag-munsterlingen",
-        "it": "oberarzt-arztin-padiatrie-stgag-munsterlingen",
-        "en": "oberarzt-arztin-padiatrie-stgag-munsterlingen",
-        "fr": "oberarzt-arztin-padiatrie-stgag-munsterlingen"
+        "it": "medico-senior-pediatrico-spital-thurgau-stgag-munsterlingen",
+        "en": "senior-physician-paediatrics-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecin-superieur-pediatre-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -716,7 +750,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:00:12.912Z"
+      "firstSeenAt": "2026-07-13T22:00:12.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-padiatrie-stgag-munsterlingen"
+        ],
+        "en": [
+          "oberarzt-arztin-padiatrie-stgag-munsterlingen"
+        ],
+        "fr": [
+          "oberarzt-arztin-padiatrie-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-arztin-padiatrie-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-1c86bf99c3ae",

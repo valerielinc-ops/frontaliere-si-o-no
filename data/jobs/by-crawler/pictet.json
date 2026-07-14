@@ -52,14 +52,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-process-manager-investment-pictet-geneva",
-        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
-        "business-process-manager-investimenti-pictet-group-geneva"
+        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-process-manager-investment-pictet-geneva",
-          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
-          "business-process-manager-investimenti-pictet-group-geneva"
+          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
         ],
         "de": [
           "business-process-manager-investment-pictet-geneva"
@@ -128,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-fund-administration-ch-pictet-geneva",
-        "responsabile-fund-administration-ch-pictet-group-geneva"
+        "head-of-fund-administration-ch-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-fund-administration-ch-pictet-geneva",
-          "responsabile-fund-administration-ch-pictet-group-geneva"
+          "head-of-fund-administration-ch-pictet-geneva"
         ],
         "de": [
           "head-of-fund-administration-ch-pictet-geneva"
@@ -203,13 +199,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buy-side-analyst-pictet-geneva",
-        "buy-side-analista-pictet-group-geneva"
+        "buy-side-analyst-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buy-side-analyst-pictet-geneva",
-          "buy-side-analista-pictet-group-geneva"
+          "buy-side-analyst-pictet-geneva"
         ],
         "fr": [
           "buy-side-analyst-pictet-geneva"
@@ -340,13 +334,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-private-assets-valuation-pictet-luxembourg",
-        "internship-valutazione-dei-beni-privati-pictet-group-luxembourg"
+        "internship-private-assets-valuation-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-private-assets-valuation-pictet-luxembourg",
-          "internship-valutazione-dei-beni-privati-pictet-group-luxembourg"
+          "internship-private-assets-valuation-pictet-luxembourg"
         ],
         "de": [
           "internship-private-assets-valuation-pictet-luxembourg"
@@ -418,13 +410,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-process-manager-pictet-geneva",
-        "gestione-dei-processi-aziendali-pictet-group-geneva"
+        "business-process-manager-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-process-manager-pictet-geneva",
-          "gestione-dei-processi-aziendali-pictet-group-geneva"
+          "business-process-manager-pictet-geneva"
         ],
         "de": [
           "business-process-manager-pictet-geneva"
@@ -496,13 +486,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dach-origination-professional-direct-private-equity-pictet-zurich",
-        "dach-origination-professional-equita-privata-diretta-pictet-group-zurich"
+        "dach-origination-professional-direct-private-equity-pictet-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dach-origination-professional-direct-private-equity-pictet-zurich",
-          "dach-origination-professional-equita-privata-diretta-pictet-group-zurich"
+          "dach-origination-professional-direct-private-equity-pictet-zurich"
         ],
         "fr": [
           "dach-origination-professional-direct-private-equity-pictet-zurich"
@@ -571,13 +559,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "valuer-fixed-term-contract-12-months-pictet-luxembourg",
-        "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+        "valuer-fixed-term-contract-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "valuer-fixed-term-contract-12-months-pictet-luxembourg",
-          "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "valuer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -664,12 +650,12 @@
     },
     {
       "id": "pictet-5e5216bca5f0",
-      "slug": "group-tax-expert-pictet-geneva",
+      "slug": "esperto-fiscale-di-gruppo-pictet-group-geneva",
       "slugByLocale": {
         "fr": "group-tax-expert-pictet-geneva",
-        "it": "group-tax-expert-pictet-geneva",
+        "it": "esperto-fiscale-di-gruppo-pictet-group-geneva",
         "en": "group-tax-expert-pictet-geneva",
-        "de": "group-tax-expert-pictet-geneva"
+        "de": "steuerberater-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -724,7 +710,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:00:13.226Z"
+      "firstSeenAt": "2026-07-13T22:00:13.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-tax-expert-pictet-geneva"
+        ],
+        "de": [
+          "group-tax-expert-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "group-tax-expert-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-b923db336935",
@@ -775,13 +772,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-transfer-agent-client-servicing-pictet-luxembourg",
-        "agente-di-trasferimento-senior-servizio-clienti-pictet-group-luxembourg"
+        "senior-transfer-agent-client-servicing-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-transfer-agent-client-servicing-pictet-luxembourg",
-          "agente-di-trasferimento-senior-servizio-clienti-pictet-group-luxembourg"
+          "senior-transfer-agent-client-servicing-pictet-luxembourg"
         ],
         "de": [
           "senior-transfer-agent-client-servicing-pictet-luxembourg"

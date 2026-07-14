@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-grosshochstetten",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-grosshochstetten",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-grosshochstetten",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-grosshochstetten"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       "addressLocality": "Grosshöchstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-13T22:07:02.464Z"
+      "firstSeenAt": "2026-07-13T22:07:02.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Hauswartin/74299-de_DE",
@@ -5848,11 +5862,11 @@
         "en": "Driver/ CarPostal Driver",
         "de": "Fahrer/CarPostalfahrer"
       },
-      "slug": "conductrice-conducteur-carpostal-post",
+      "slug": "driver-carpostal-la-poste-suisse-les-hauderes",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-post",
-        "en": "conductrice-conducteur-carpostal-post",
-        "de": "conductrice-conducteur-carpostal-post",
+        "it": "driver-carpostal-la-poste-suisse-les-hauderes",
+        "en": "driver-carpostal-driver-la-poste-suisse-les-hauderes",
+        "de": "fahrer-carpostalfahrer-la-poste-suisse-les-hauderes",
         "fr": "conductrice-conducteur-carpostal-la-poste-suisse-les-hauderes"
       },
       "sourceLang": "fr",
@@ -5887,7 +5901,21 @@
       "addressLocality": "Les Haudères",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-13T22:07:02.464Z"
+      "firstSeenAt": "2026-07-13T22:07:02.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Assistante-Assistant-g%C3%A9rance-immobili%C3%A8re/74288-fr_FR",
