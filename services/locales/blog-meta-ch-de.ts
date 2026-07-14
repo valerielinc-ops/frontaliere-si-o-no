@@ -1111,6 +1111,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fotovoltaico-calano-le-vendite.title': 'Photovoltaik, Umsatzrückgang: „Investitionssicherheit ist gefragt“',
     'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Die Verkäufe von Solarmodulen in der Schweiz gingen laut Bundesamt für Energie im Jahr 2025 um 30 Prozent zurück.',
     'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Bild eines Solarkraftwerks auf einem Schweizer Dach',
+    'blog.article.skyguide-licenziamenti.title': 'Skyguide, weniger Entlassungen als erwartet',
+    'blog.article.skyguide-licenziamenti.excerpt': 'Die Flugsicherungsgesellschaft reduziert den Stellenabbau auf 100 Stellen.',
+    'blog.article.skyguide-licenziamenti.imageAlt': 'Luftbild der Stadt Lugano.',
 };
 
 export default blogMetaChDe;

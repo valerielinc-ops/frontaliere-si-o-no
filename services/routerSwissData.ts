@@ -393,6 +393,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ai-verso-la-bancarotta-forse-gia-nel-2030': { it: 'ai-verso-la-bancarotta-forse-gia-nel-2030', en: 'ai-verso-la-bancarotta-forse-gia-nel-2030', de: 'ai-verso-la-bancarotta-forse-gia-nel-2030', fr: 'ai-verso-la-bancarotta-forse-gia-nel-2030' },
  'switzerland-uk-free-trade-agreement-update': { it: 'switzerland-uk-free-trade-agreement-update', en: 'switzerland-uk-free-trade-agreement-update', de: 'aktualisierung-des-freihandelsabkommens-schweiz-uk', fr: 'mise-a-jour-de-laccord-de-libre-echange-suisse-uk' },
  'fotovoltaico-calano-le-vendite': { it: 'fotovoltaico-calano-le-vendite', en: 'fotovoltaico-calano-le-vendite', de: 'fotovoltaico-calano-le-vendite', fr: 'fotovoltaico-calano-le-vendite' },
+ 'skyguide-licenziamenti': { it: 'skyguide-licenziamenti', en: 'skyguide-licenziamenti-frontaliere-ticino', de: 'skyguide-entlassungen-frontalier-tingen', fr: 'skyguide-licenciements-frontaliers-ticin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1111,6 +1111,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fotovoltaico-calano-le-vendite.title': 'Photovoltaic, sales fall: "We need investment security"',
     'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Sales of solar panels in Switzerland fell by 30% in 2025, according to the Federal Office of Energy.',
     'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Image of a solar panel installation on a Swiss roof',
+    'blog.article.skyguide-licenziamenti.title': 'Skyguide, fewer layoffs than expected',
+    'blog.article.skyguide-licenziamenti.excerpt': 'The air traffic control company reduces the cuts to 100 jobs.',
+    'blog.article.skyguide-licenziamenti.imageAlt': 'Aerial view of Lugano city.',
 };
 
 export default blogMetaChEn;

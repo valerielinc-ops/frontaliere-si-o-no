@@ -1111,6 +1111,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fotovoltaico-calano-le-vendite.title': 'Fotovoltaico, calano le vendite: “Serve sicurezza investimenti”',
     'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Le vendite di pannelli solari in Svizzera sono diminuite del 30% nel 2025, secondo l\'Ufficio federale dell\'energia.',
     'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Immagine di un impianto fotovoltaico su un tetto svizzero',
+    'blog.article.skyguide-licenziamenti.title': 'Skyguide, meno licenziamenti del previsto',
+    'blog.article.skyguide-licenziamenti.excerpt': 'La società di controllo del traffico aereo riduce i tagli a 100 posti di lavoro.',
+    'blog.article.skyguide-licenziamenti.imageAlt': 'Fotografia aerea della città di Lugano.',
 };
 
 export default blogMetaChIt;

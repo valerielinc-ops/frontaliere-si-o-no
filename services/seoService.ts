@@ -4525,6 +4525,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ai-verso-la-bancarotta-forse-gia-nel-2030': { name: 'L\'AI verso la bancarotta', path: '/articoli-svizzera/ai-verso-la-bancarotta-forse-gia-nel-2030/', parent: 'blog' },
     'blog-switzerland-uk-free-trade-agreement-update': { name: 'Economia', path: '/articoli-svizzera/switzerland-uk-free-trade-agreement-update/', parent: 'blog' },
     'blog-fotovoltaico-calano-le-vendite': { name: 'Fotovoltaico, calano le vendite', path: '/articoli-svizzera/fotovoltaico-calano-le-vendite/', parent: 'blog' },
+    'blog-skyguide-licenziamenti': { name: 'Licenziamenti a Skyguide', path: '/articoli-svizzera/skyguide-licenziamenti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
