@@ -1123,6 +1123,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Graubünden: Spitalfinanzen wieder auf Kurs',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Nach einem schwierigen Jahr 2024 verzeichnen die Bündner Spitäler im Jahr 2025 positive Ergebnisse. Hier ist die finanzielle Übersicht der wichtigsten Gesundheitseinrichtungen.',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Kantonsspital in Graubünden',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Wer muss das Schweizer Konto im Jahr 2026 deklarieren',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Der RW-Rahmen 2026 sieht vor, dass Grenzgänger die Schweizer Konten melden müssen. Wer muss deklarieren und wer nicht?',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontaliere mit Kind spazieren auf dem Luganosee-Uferpromenade.',
 };
 
 export default blogMetaChDe;

@@ -4531,6 +4531,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-naspi': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/disoccupazione-frontalieri-naspi/', parent: 'blog' },
     'blog-ripresa-finanziaria-ospedali-grigionesi': { name: 'Finanze sanitarie Grigioni', path: '/articoli-svizzera/ripresa-finanziaria-ospedali-grigionesi/', parent: 'blog' },
     'blog-recruiting-day-iper-villa-recalcati': { name: 'Recruiting Day Iper', path: '/articoli-frontaliere/recruiting-day-iper-villa-recalcati', parent: 'blog' },
+    'blog-quadro-rw-2026-chi-dichiara-conto-svizzero': { name: 'Quadro RW 2026', path: '/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

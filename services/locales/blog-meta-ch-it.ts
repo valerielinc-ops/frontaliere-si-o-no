@@ -1123,6 +1123,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Grigioni: le finanze degli ospedali tornano in attivo',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Dopo un 2024 difficile, i nosocomi grigionesi registrano risultati positivi nel 2025. Ecco la panoramica finanziaria delle principali strutture sanitarie.',
     'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Ospedale cantonale nei Grigioni',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.title': 'Chi deve dichiarare il conto svizzero nel 2026',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.excerpt': 'Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?',
+    'blog.article.quadro-rw-2026-chi-dichiara-conto-svizzero.imageAlt': 'Frontaliere con bambino passeggiando sul lungolago di Lugano.',
 };
 
 export default blogMetaChIt;

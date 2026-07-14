@@ -14487,6 +14487,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quadro-rw-2026-chi-dichiara-conto-svizzero': {
+    title: 'Chi deve dichiarare il conto svizzero nel 2026',
+    description: 'Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, deve, dichiarare, conto, svizzero',
+    ogTitle: 'Quadro RW 2026: chi deve dichiarare il conto svizzero (e chi no) - CambiaValute.ch',
+    ogDescription: 'Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?',
+    canonicalPath: '/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chi deve dichiarare il conto svizzero nel 2026",
+      "description": "Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quadro-rw-2026-chi-dichiara-conto-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con bambino passeggiando sul lungolago di Lugano."
+      },
+      "datePublished": "2026-07-14T13:49:28+00:00",
+      "dateModified": "2026-07-14T13:49:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
