@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ruag-ag",
-  "assembledAt": "2026-07-14T11:41:46.249Z",
+  "assembledAt": "2026-07-14T22:17:43.271Z",
   "jobs": [
     {
       "title": "Facility Manager Technics / BetriebselektrikerIn 80 - 100% (w/m/d)",
@@ -68,7 +68,8 @@
       },
       "previousSlugs": [
         "facility-manager-technics-betriebselektrikerin-80-100-w-m-d-ruag-ag-altdorf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "AssistentIn Construction Management West 80-100 % (w/m/d)",
@@ -128,18 +129,19 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
       "previousSlugsByLocale": {
-        "it": [
-          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
-        ],
         "fr": [
           "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+          "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
+        ],
+        "it": [
           "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
         ]
       },
       "previousSlugs": [
-        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun",
-        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun"
-      ]
+        "assistant-a-la-gestion-de-la-construction-ouest-80-100-f-m-d-ruag-ag-thun",
+        "assistentin-construction-management-west-80-100-w-m-d-ruag-ag-thun"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Professional ICT Architect 80-100 % (w/m/d)",
@@ -197,7 +199,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-24T12:06:34.961Z"
+      "firstSeenAt": "2026-06-24T12:06:34.961Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Automatiker/in EFZ 2027 100% (w/m/d)",
@@ -603,7 +606,8 @@
         "manager-business-development-80-100-w-m-d-ruag-ag-bern",
         "manager-geschaftsentwicklung-80-100-w-m-d-ruag-ag-bern",
         "gestionnaire-developpement-des-affaires-80-100-m-j-ruag-ag-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technische/r ProjektleiterIn 60-100% (w/m/d)",
@@ -799,7 +803,8 @@
       },
       "previousSlugs": [
         "project-management-officer-c5i-100-w-m-d-ruag-ag-thun"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Administrative Coordinator C5I 100 (w/m/d)",
@@ -926,7 +931,8 @@
       },
       "previousSlugs": [
         "governance-risk-compliance-manager-100-w-m-d-ruag-ag-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "TestmanagerIn 60-100% (w/m/d)",
@@ -986,11 +992,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:36:02.356Z",
       "previousSlugsByLocale": {
-        "it": [
-          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
-        ],
         "fr": [
           "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+          "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
+        ],
+        "it": [
           "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
         ],
         "en": [
@@ -998,9 +1004,10 @@
         ]
       },
       "previousSlugs": [
-        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach",
-        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach"
-      ]
+        "gestionnaire-d-essais-60-100-m-j-ruag-ag-zurich-seebach",
+        "testmanagerin-60-100-w-m-d-ruag-ag-zurich-seebach"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Head of Strategic & Project Pocurement Real Estate 80-100% (w/m/d)",
@@ -1058,7 +1065,8 @@
         }
       },
       "postalCode": "3600",
-      "firstSeenAt": "2026-07-02T22:37:51.768Z"
+      "firstSeenAt": "2026-07-02T22:37:51.768Z",
+      "needsRetranslation": true
     },
     {
       "title": "Strategische/r EinkäuferIn Immobilien (Bauleistungen, Generalplaner. Generalunternehmer) 80-100% (w/m/d)",
@@ -1686,11 +1694,12 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T22:22:37.217Z"
+      "firstSeenAt": "2026-07-13T22:22:37.217Z",
+      "needsRetranslation": true
     },
     {
       "title": "Human Resources Business Partner (Mutterschaftsvertretung) 80 - 100 (w/m/d)",
-      "slug": "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
+      "slug": "risorse-umane-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
       "url": "https://jobs.ruag.ch/offene-stellen/human-resources-business-partner-mutterschaftsvertretung/4959e140-19a9-489f-8713-e028eb207b8e",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/4959e140-19a9-489f-8713-e028eb207b8e",
       "company": "RUAG AG",
@@ -1713,21 +1722,21 @@
       "description": "## Responsabilita\n\n- Operative HR-Betreuung der zugeteilten Bereiche sowie Vertretung der HR Business Partner bei Abwesenheiten\n- Unterstützung im gesamten Employee Life Cycle (Onboarding, Entwicklung, Performance Management sowie Austritte)\n- Beratung und Unterstützung von Führungskräften und Mitarbeitenden in operativen HR-Fragestellungen\n- Begleitung und Unterstützung bei spezifischen HR-Fällen, insbesondere Langzeitabwesenheiten, Wiedereingliederungen sowie arbeitsrechtlichen Fragestellungen\n- Mitarbeit in laufenden HR-Projekten und Übernahme von definierten Projektaufgaben\n- Unterstützung bei Prozessoptimierungen sowie der Weiterentwicklung von HR-Prozessen\n- Sicherstellung der Einhaltung von arbeitsrechtlichen Vorgaben, HR-Richtlinien und HR-Prozessen\n- Unterstützung des Head of HR Business Partnering im operativen Tagesgeschäft\n\n## Requisiti\n\n- Kaufmännische Grundausbildung sowie Weiterbildung als HR Fachfrau/-mann mit eidg. FA oder ein äquivalentes Studium (im HR Management oder ähnliches)\n- Mehrjährige Erfahrung im in einer vergleichbaren Funktion im operativen HR Business Partnering\n- Change- und ICT-affine, initiative, flexible und proaktive Persönlichkeit mit unternehmerischer Denk- und Handlungsweise\n- Gute MS Office Kenntnisse und SAP HCM Kenntnisse von Vorteil\n- Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse in Französisch und/oder Englisch von Vorteil\n- Reisebereitschaft von ca. 10% an andere RUAG Standorte in der Schweiz\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nPujetha Rathakrishnan\nTalent Acquisition Specialist\n+41 58 488 69 15",
       "titleByLocale": {
         "it": "Risorse Umane Business Partner (Mutterschaftsvertretung) 80 - 100 (w/m/d)",
-        "de": "Human Resources Business Partner (Mutterschaftsvertretung) 80 - 100 (w/m/d)",
         "en": "Human Resources Business Partner (maternity representation) 80 - 100 (f/m/d)",
+        "de": "Human Resources Business Partner (Mutterschaftsvertretung) 80 - 100 (w/m/d)",
         "fr": "Ressources Humaines Business Partner (Mutterschaftsvertretung) 80 - 100 (w/m/d)"
       },
       "descriptionByLocale": {
         "it": "## Responsabilità\n\n- Supporto operativo HR per le aree assegnate e la rappresentanza di HR Business Partners in caso di assenza\n- Supporto per tutto il ciclo di vita dei dipendenti (a bordo, sviluppo, gestione delle prestazioni e uscite)\n- Consulenza e supporto ai manager e ai dipendenti nelle questioni operative HR\n- Assistenza e sostegno in casi specifici per le risorse umane, in particolare assenze a lungo termine, reintegrazione e questioni di diritto del lavoro\n- Partecipazione a progetti HR in corso e assunzione di compiti di progetto definiti\n- Supporto per l'ottimizzazione dei processi e l'ulteriore sviluppo dei processi HR\n- Garantire il rispetto delle normative sul lavoro, delle linee guida HR e dei processi HR\n- Sostegno al Capo di HR Business Partnering nelle operazioni quotidiane\n\n## Requisiti\n\n- Formazione di base commerciale e formazione ulteriore come specialista HR con la legge federale. FA o un grado equivalente (in gestione HR o simile)\n- Diversi anni di esperienza in una funzione paragonabile in HR Business Partner operativo\n- Cambiamento e ICT-affine, iniziativa, personalità flessibile e proattiva con il pensiero imprenditoriale e l'azione\n- Buona SM Conoscenza degli uffici e conoscenze SAP HCM\n- Molto buona conoscenza del tedesco in parola e scrittura, ulteriori competenze linguistiche in francese e/o inglese sono vantaggiose\n- 10% di volontà di viaggiare in altre località RUAG in Svizzera\n\n## Vantaggi\n\n## I vantaggi\n\nIl vostro benessere è importante per noi. Ecco perché avete molti vantaggi con noi. Questi includono, ad esempio:\n\n## Processo di candidatura\n\n## Ecco come funziona il nostro processo di applicazione\n\nContenuto esterno da YouTube A questo punto, un video da YouTube è integrato, che è bloccato a causa delle impostazioni dei cookie. Se il video deve ancora essere visualizzato, si prega di consentire i cookie qui.\n\nInformazioni importanti sul processo di applicazione:\n• Prima dell'inizio del lavoro, vi verrà chiesto di fornire un documento penale e di esecuzione.\n• Accettiamo applicazioni esclusivamente attraverso il nostro portale di lavoro jobs.ruag.ch. Purtroppo non possiamo accettare sia le richieste di posta elettronica che di lettera.\n\n## Contatto\n\nPujetha Rathakrishnan\nTalent Acquisizione Specialista\n+41 58 488 69 15",
-        "de": "## Responsabilita\n\n- Operative HR-Betreuung der zugeteilten Bereiche sowie Vertretung der HR Business Partner bei Abwesenheiten\n- Unterstützung im gesamten Employee Life Cycle (Onboarding, Entwicklung, Performance Management sowie Austritte)\n- Beratung und Unterstützung von Führungskräften und Mitarbeitenden in operativen HR-Fragestellungen\n- Begleitung und Unterstützung bei spezifischen HR-Fällen, insbesondere Langzeitabwesenheiten, Wiedereingliederungen sowie arbeitsrechtlichen Fragestellungen\n- Mitarbeit in laufenden HR-Projekten und Übernahme von definierten Projektaufgaben\n- Unterstützung bei Prozessoptimierungen sowie der Weiterentwicklung von HR-Prozessen\n- Sicherstellung der Einhaltung von arbeitsrechtlichen Vorgaben, HR-Richtlinien und HR-Prozessen\n- Unterstützung des Head of HR Business Partnering im operativen Tagesgeschäft\n\n## Requisiti\n\n- Kaufmännische Grundausbildung sowie Weiterbildung als HR Fachfrau/-mann mit eidg. FA oder ein äquivalentes Studium (im HR Management oder ähnliches)\n- Mehrjährige Erfahrung im in einer vergleichbaren Funktion im operativen HR Business Partnering\n- Change- und ICT-affine, initiative, flexible und proaktive Persönlichkeit mit unternehmerischer Denk- und Handlungsweise\n- Gute MS Office Kenntnisse und SAP HCM Kenntnisse von Vorteil\n- Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse in Französisch und/oder Englisch von Vorteil\n- Reisebereitschaft von ca. 10% an andere RUAG Standorte in der Schweiz\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nPujetha Rathakrishnan\nTalent Acquisition Specialist\n+41 58 488 69 15",
         "en": "## Responsibility\n\n- Operational HR support for the assigned areas and representation of HR Business Partners in case of absences\n- Support throughout the entire employee life cycle (onboarding, development, performance management and exits)\n- Advising and supporting managers and employees in operational HR issues\n- Assistance and support in specific HR cases, in particular long-term absences, reintegrations and labour law issues\n- Participation in ongoing HR projects and assumption of defined project tasks\n- Support for process optimization and the further development of HR processes\n- Ensuring compliance with employment regulations, HR guidelines and HR processes\n- Support of the Head of HR Business Partnering in day-to-day operations\n\n## Requirements\n\n- Commercial basic training as well as further education as HR specialist with federal law. FA or an equivalent degree (in HR management or similar)\n- Several years of experience in a comparable function in operational HR Business Partnering\n- Change- and ICT-affine, initiative, flexible and proactive personality with entrepreneurial thinking and action\n- Good MS Office knowledge and SAP HCM knowledge\n- Very good knowledge of German in word and writing, further language skills in French and/or English are advantageous\n- 10% willingness to travel to other RUAG locations in Switzerland\n\n## Vantaggi’\n\n## Your advantages\n\nYour well-being is important to us. That is why you have many advantages with us. These include, for example:\n\n## Processo di candidatura\n\n## This is how our application process works\n\nExternal content from YouTube At this point, a video from YouTube is integrated, which is blocked due to the cookie settings. If the video should still be displayed, please allow the cookies here.\n\nImportant information about the application process:\n• Before the start of employment, you will be asked to provide a penal and enforcement record.\n• We accept applications exclusively through our job portal jobs.ruag.ch. Unfortunately, we cannot accept both e-mail and letter applications.\n\n## Contatto\n\nPujetha Rathakrishnan\nTalent Acquisition Specialist\n+41 58 488 69 15",
+        "de": "## Responsabilita\n\n- Operative HR-Betreuung der zugeteilten Bereiche sowie Vertretung der HR Business Partner bei Abwesenheiten\n- Unterstützung im gesamten Employee Life Cycle (Onboarding, Entwicklung, Performance Management sowie Austritte)\n- Beratung und Unterstützung von Führungskräften und Mitarbeitenden in operativen HR-Fragestellungen\n- Begleitung und Unterstützung bei spezifischen HR-Fällen, insbesondere Langzeitabwesenheiten, Wiedereingliederungen sowie arbeitsrechtlichen Fragestellungen\n- Mitarbeit in laufenden HR-Projekten und Übernahme von definierten Projektaufgaben\n- Unterstützung bei Prozessoptimierungen sowie der Weiterentwicklung von HR-Prozessen\n- Sicherstellung der Einhaltung von arbeitsrechtlichen Vorgaben, HR-Richtlinien und HR-Prozessen\n- Unterstützung des Head of HR Business Partnering im operativen Tagesgeschäft\n\n## Requisiti\n\n- Kaufmännische Grundausbildung sowie Weiterbildung als HR Fachfrau/-mann mit eidg. FA oder ein äquivalentes Studium (im HR Management oder ähnliches)\n- Mehrjährige Erfahrung im in einer vergleichbaren Funktion im operativen HR Business Partnering\n- Change- und ICT-affine, initiative, flexible und proaktive Persönlichkeit mit unternehmerischer Denk- und Handlungsweise\n- Gute MS Office Kenntnisse und SAP HCM Kenntnisse von Vorteil\n- Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse in Französisch und/oder Englisch von Vorteil\n- Reisebereitschaft von ca. 10% an andere RUAG Standorte in der Schweiz\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nPujetha Rathakrishnan\nTalent Acquisition Specialist\n+41 58 488 69 15",
         "fr": "## Responsabilité\n\n- Soutien opérationnel aux RH dans les domaines assignés et représentation des partenaires opérationnels des RH en cas d'absence\n- Soutien tout au long du cycle de vie des employés (embarquement, perfectionnement, gestion du rendement et sorties)\n- Conseiller et appuyer les gestionnaires et les employés en matière de RH opérationnelles\n- Assistance et soutien dans certaines affaires de RH, en particulier les absences de longue durée, les réintégrations et les questions de droit du travail\n- Participation à des projets de RH en cours et prise en charge de tâches définies\n- Appui à l'optimisation des processus et au développement des processus RH\n- Assurer le respect des règlements sur l'emploi, des lignes directrices sur les RH et des processus de RH\n- Soutien du chef des partenaires opérationnels RH dans les activités quotidiennes\n\n## Exigences\n\n- Formation de base commerciale ainsi que formation continue en tant que spécialiste des RH en droit fédéral. AF ou diplôme équivalent (en gestion des RH ou similaire)\n- Plusieurs années d'expérience dans une fonction comparable en partenariat opérationnel RH\n- Changement- et TIC-affine, initiative, personnalité flexible et proactive avec la pensée et l'action entrepreneuriales\n- Bonne EM Connaissances du bureau et connaissances SAP en matière de GCH\n- Très bonne connaissance de l'allemand en paroles et en écriture, d'autres compétences linguistiques en français et/ou en anglais sont avantageuses\n- 10 % sont prêts à se rendre dans d'autres sites de la RUAG en Suisse\n\n## Vantaggi\n\n## Vos avantages\n\nVotre bien-être est important pour nous. C'est pourquoi vous avez beaucoup d'avantages avec nous. Il s'agit, par exemple :\n\n## Processus de candidature\n\n## Voici comment fonctionne notre processus de demande\n\nContenu externe de YouTube À ce stade, une vidéo de YouTube est intégrée, qui est bloquée en raison des paramètres des cookies. Si la vidéo doit encore être affichée, veuillez autoriser les cookies ici.\n\nRenseignements importants sur le processus de demande :\n• Avant le début de l'emploi, on vous demandera de fournir un dossier pénal et d'exécution.\n• Nous acceptons les candidatures exclusivement via notre portail emploi jobs.ruag.ch. Malheureusement, nous ne pouvons accepter tant les demandes de courrier électronique que les demandes de lettre.\n\n## Contatto\n\nPujetha Rathakrishnan\nSpécialiste en acquisition de talents\n+41 58 488 69 15"
       },
       "slugByLocale": {
-        "it": "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
+        "it": "risorse-umane-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
         "en": "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
         "de": "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen",
-        "fr": "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen"
+        "fr": "ressources-humaines-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen"
       },
       "id": "ruag-ag-163d4f24c48f",
       "salaryMin": 69500,
@@ -1743,7 +1752,191 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T11:41:46.247Z"
+      "firstSeenAt": "2026-07-14T11:41:46.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen"
+        ],
+        "fr": [
+          "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-business-partner-mutterschaftsvertretung-80-100-w-m-d-ruag-ag-emmen"
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "title": "Cyber Security Specialist C5I 100 (w/m/d)",
+      "slug": "cyber-security-specialist-c5i-100-w-m-d-ruag-ag-thun",
+      "url": "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Thun",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2053-11-27",
+      "description": "## Responsabilita\n\n- Aufbau, Betrieb und Weiterentwicklung von sensiblen IT-Systemen\n- Erstellung sowie Abnahme von Container– und Virtualisierungslösungen\n- Mitwirken in ICT-Projekten und Beratung hinsichtlich Cyber Security Aspekten\n- Entwickeln, Installieren und Integrieren Sicherheitskomponenten in den produktiven Betrieb\n- Erstellen von Sicherheitsarchitekturen und -konzepten\n- Ideeneinbringung sowie Mitwirken bei der Evaluierung und Integration neuer Technologien\n- Identifizieren, Analysieren und Dokumentieren der Anforderungen an die ICT-Sicherheit\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder vergleichbare Ausbildung\n- Weiterbildung im Bereich Cyber Security\n- Mehrjährige Berufserfahrung in Cyber Security mit Fokus Security Engineering\n- Vertiefte Kenntnisse in Kubernetes Security\n- Kenntnisse im Bereich DevSecOps Engineering\n- Offenheit und Flexibilität für ein dynamisches, wachsendes Umfeld\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse; Englischkenntnisse (Level B2) von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+      "titleByLocale": {
+        "it": "Cyber Security Specialista C5I 100 (w/m/d)",
+        "en": "Cyber Security Specialist C5I 100 (w/m/d)",
+        "de": "Cyber Security Spezialist C5I 100 (w/m/d)",
+        "fr": "Cyber Security Spécialiste C5I 100 (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "it": "## Responsabilita\n\n- Aufbau, Betrieb und Weiterentwicklung von sensiblen IT-Systemen\n- Erstellung sowie Abnahme von Container– und Virtualisierungslösungen\n- Mitwirken in ICT-Projekten und Beratung hinsichtlich Cyber Security Aspekten\n- Entwickeln, Installieren und Integrieren Sicherheitskomponenten in den produktiven Betrieb\n- Erstellen von Sicherheitsarchitekturen und -konzepten\n- Ideeneinbringung sowie Mitwirken bei der Evaluierung und Integration neuer Technologien\n- Identifizieren, Analysieren und Dokumentieren der Anforderungen an die ICT-Sicherheit\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder vergleichbare Ausbildung\n- Weiterbildung im Bereich Cyber Security\n- Mehrjährige Berufserfahrung in Cyber Security mit Fokus Security Engineering\n- Vertiefte Kenntnisse in Kubernetes Security\n- Kenntnisse im Bereich DevSecOps Engineering\n- Offenheit und Flexibilität für ein dynamisches, wachsendes Umfeld\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse; Englischkenntnisse (Level B2) von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "de": "## Responsabilita\n\n- Aufbau, Betrieb und Weiterentwicklung von sensiblen IT-Systemen\n- Erstellung sowie Abnahme von Container– und Virtualisierungslösungen\n- Mitwirken in ICT-Projekten und Beratung hinsichtlich Cyber Security Aspekten\n- Entwickeln, Installieren und Integrieren Sicherheitskomponenten in den produktiven Betrieb\n- Erstellen von Sicherheitsarchitekturen und -konzepten\n- Ideeneinbringung sowie Mitwirken bei der Evaluierung und Integration neuer Technologien\n- Identifizieren, Analysieren und Dokumentieren der Anforderungen an die ICT-Sicherheit\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder vergleichbare Ausbildung\n- Weiterbildung im Bereich Cyber Security\n- Mehrjährige Berufserfahrung in Cyber Security mit Fokus Security Engineering\n- Vertiefte Kenntnisse in Kubernetes Security\n- Kenntnisse im Bereich DevSecOps Engineering\n- Offenheit und Flexibilität für ein dynamisches, wachsendes Umfeld\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse; Englischkenntnisse (Level B2) von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "en": "## Responsabilita\n\n- Aufbau, Betrieb und Weiterentwicklung von sensiblen IT-Systemen\n- Erstellung sowie Abnahme von Container– und Virtualisierungslösungen\n- Mitwirken in ICT-Projekten und Beratung hinsichtlich Cyber Security Aspekten\n- Entwickeln, Installieren und Integrieren Sicherheitskomponenten in den produktiven Betrieb\n- Erstellen von Sicherheitsarchitekturen und -konzepten\n- Ideeneinbringung sowie Mitwirken bei der Evaluierung und Integration neuer Technologien\n- Identifizieren, Analysieren und Dokumentieren der Anforderungen an die ICT-Sicherheit\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder vergleichbare Ausbildung\n- Weiterbildung im Bereich Cyber Security\n- Mehrjährige Berufserfahrung in Cyber Security mit Fokus Security Engineering\n- Vertiefte Kenntnisse in Kubernetes Security\n- Kenntnisse im Bereich DevSecOps Engineering\n- Offenheit und Flexibilität für ein dynamisches, wachsendes Umfeld\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse; Englischkenntnisse (Level B2) von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "fr": "## Responsabilita\n\n- Aufbau, Betrieb und Weiterentwicklung von sensiblen IT-Systemen\n- Erstellung sowie Abnahme von Container– und Virtualisierungslösungen\n- Mitwirken in ICT-Projekten und Beratung hinsichtlich Cyber Security Aspekten\n- Entwickeln, Installieren und Integrieren Sicherheitskomponenten in den produktiven Betrieb\n- Erstellen von Sicherheitsarchitekturen und -konzepten\n- Ideeneinbringung sowie Mitwirken bei der Evaluierung und Integration neuer Technologien\n- Identifizieren, Analysieren und Dokumentieren der Anforderungen an die ICT-Sicherheit\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder vergleichbare Ausbildung\n- Weiterbildung im Bereich Cyber Security\n- Mehrjährige Berufserfahrung in Cyber Security mit Fokus Security Engineering\n- Vertiefte Kenntnisse in Kubernetes Security\n- Kenntnisse im Bereich DevSecOps Engineering\n- Offenheit und Flexibilität für ein dynamisches, wachsendes Umfeld\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse; Englischkenntnisse (Level B2) von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch"
+      },
+      "slugByLocale": {
+        "it": "cyber-security-specialist-c5i-100-w-m-d-ruag-ag-thun",
+        "en": "cyber-security-specialist-c5i-100-w-m-d-ruag-ag-thun",
+        "de": "cyber-security-specialist-c5i-100-w-m-d-ruag-ag-thun",
+        "fr": "cyber-security-specialist-c5i-100-w-m-d-ruag-ag-thun"
+      },
+      "id": "ruag-ag-4f3ab5106f4a",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T22:17:43.270Z"
+    },
+    {
+      "title": "Principal System Engineering C5I 100 (w/m/d)",
+      "slug": "principal-system-engineering-c5i-100-w-m-d-ruag-ag-thun",
+      "url": "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/b7442824-223a-425e-95e2-b238924212da",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Thun",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2053-11-27",
+      "description": "## Responsabilita\n\n- Fachliche Verantwortung für den Bereich System Engineering C5I\n- Gesamtverantwortung für die Konzeption, Spezifikation und Weiterentwicklung der ICT-System- und Infrastrukturarchitektur\n- Beraten der Projektteams bei komplexen technischen Fragestellungen sowie Architektur- und Infrastrukturthemen\n- Analyse und kontinuierliche Optimierung der System- und Plattformlandschaft zur Sicherstellung einer stabilen, skalierbaren und leistungsfähigen ICT-Infrastruktur\n- Definition technischer Standards und Best Practices für den Betrieb und die Weiterentwicklung der Plattformen\n- Fördern der Zusammenarbeit mit Teams aus anderen Fachbereichen zwecks Schnittstellenoptimierung\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder gleichwertige Ausbildung ergänzt mit einer System Engineering Weiterbildung\n- Mehrjährige fundierte Erfahrung in der Konzeption, Implementierung und Weiterentwicklung komplexer ICT-Infrastrukturen\n- Breites Technologieverständnis und Erfahrung im Design moderner Systemarchitekturen\n- Umfassende Kenntnisse von Netzwerk-, Firewall- und Servertechnologien in sicherheitskritischen Umgebungen\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten und hoher Leistungsbereitschaft\n- Fliessende Deutschkenntnisse; Englischkenntnisse (Level B2) sowie Französisch von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+      "titleByLocale": {
+        "it": "Principal System Engineering C5I 100 (w/m/d)",
+        "de": "Principal System Engineering C5I 100 (w/m/d)",
+        "en": "Principal System Engineering C5I 100 (w/m/d)",
+        "fr": "Principal System Engineering C5I 100 (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "it": "## Responsabilita\n\n- Fachliche Verantwortung für den Bereich System Engineering C5I\n- Gesamtverantwortung für die Konzeption, Spezifikation und Weiterentwicklung der ICT-System- und Infrastrukturarchitektur\n- Beraten der Projektteams bei komplexen technischen Fragestellungen sowie Architektur- und Infrastrukturthemen\n- Analyse und kontinuierliche Optimierung der System- und Plattformlandschaft zur Sicherstellung einer stabilen, skalierbaren und leistungsfähigen ICT-Infrastruktur\n- Definition technischer Standards und Best Practices für den Betrieb und die Weiterentwicklung der Plattformen\n- Fördern der Zusammenarbeit mit Teams aus anderen Fachbereichen zwecks Schnittstellenoptimierung\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder gleichwertige Ausbildung ergänzt mit einer System Engineering Weiterbildung\n- Mehrjährige fundierte Erfahrung in der Konzeption, Implementierung und Weiterentwicklung komplexer ICT-Infrastrukturen\n- Breites Technologieverständnis und Erfahrung im Design moderner Systemarchitekturen\n- Umfassende Kenntnisse von Netzwerk-, Firewall- und Servertechnologien in sicherheitskritischen Umgebungen\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten und hoher Leistungsbereitschaft\n- Fliessende Deutschkenntnisse; Englischkenntnisse (Level B2) sowie Französisch von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "de": "## Responsabilita\n\n- Fachliche Verantwortung für den Bereich System Engineering C5I\n- Gesamtverantwortung für die Konzeption, Spezifikation und Weiterentwicklung der ICT-System- und Infrastrukturarchitektur\n- Beraten der Projektteams bei komplexen technischen Fragestellungen sowie Architektur- und Infrastrukturthemen\n- Analyse und kontinuierliche Optimierung der System- und Plattformlandschaft zur Sicherstellung einer stabilen, skalierbaren und leistungsfähigen ICT-Infrastruktur\n- Definition technischer Standards und Best Practices für den Betrieb und die Weiterentwicklung der Plattformen\n- Fördern der Zusammenarbeit mit Teams aus anderen Fachbereichen zwecks Schnittstellenoptimierung\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder gleichwertige Ausbildung ergänzt mit einer System Engineering Weiterbildung\n- Mehrjährige fundierte Erfahrung in der Konzeption, Implementierung und Weiterentwicklung komplexer ICT-Infrastrukturen\n- Breites Technologieverständnis und Erfahrung im Design moderner Systemarchitekturen\n- Umfassende Kenntnisse von Netzwerk-, Firewall- und Servertechnologien in sicherheitskritischen Umgebungen\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten und hoher Leistungsbereitschaft\n- Fliessende Deutschkenntnisse; Englischkenntnisse (Level B2) sowie Französisch von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "en": "## Responsabilita\n\n- Fachliche Verantwortung für den Bereich System Engineering C5I\n- Gesamtverantwortung für die Konzeption, Spezifikation und Weiterentwicklung der ICT-System- und Infrastrukturarchitektur\n- Beraten der Projektteams bei komplexen technischen Fragestellungen sowie Architektur- und Infrastrukturthemen\n- Analyse und kontinuierliche Optimierung der System- und Plattformlandschaft zur Sicherstellung einer stabilen, skalierbaren und leistungsfähigen ICT-Infrastruktur\n- Definition technischer Standards und Best Practices für den Betrieb und die Weiterentwicklung der Plattformen\n- Fördern der Zusammenarbeit mit Teams aus anderen Fachbereichen zwecks Schnittstellenoptimierung\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder gleichwertige Ausbildung ergänzt mit einer System Engineering Weiterbildung\n- Mehrjährige fundierte Erfahrung in der Konzeption, Implementierung und Weiterentwicklung komplexer ICT-Infrastrukturen\n- Breites Technologieverständnis und Erfahrung im Design moderner Systemarchitekturen\n- Umfassende Kenntnisse von Netzwerk-, Firewall- und Servertechnologien in sicherheitskritischen Umgebungen\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten und hoher Leistungsbereitschaft\n- Fliessende Deutschkenntnisse; Englischkenntnisse (Level B2) sowie Französisch von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch",
+        "fr": "## Responsabilita\n\n- Fachliche Verantwortung für den Bereich System Engineering C5I\n- Gesamtverantwortung für die Konzeption, Spezifikation und Weiterentwicklung der ICT-System- und Infrastrukturarchitektur\n- Beraten der Projektteams bei komplexen technischen Fragestellungen sowie Architektur- und Infrastrukturthemen\n- Analyse und kontinuierliche Optimierung der System- und Plattformlandschaft zur Sicherstellung einer stabilen, skalierbaren und leistungsfähigen ICT-Infrastruktur\n- Definition technischer Standards und Best Practices für den Betrieb und die Weiterentwicklung der Plattformen\n- Fördern der Zusammenarbeit mit Teams aus anderen Fachbereichen zwecks Schnittstellenoptimierung\n\n## Requisiti\n\n- Hochschulabschluss in Informatik oder gleichwertige Ausbildung ergänzt mit einer System Engineering Weiterbildung\n- Mehrjährige fundierte Erfahrung in der Konzeption, Implementierung und Weiterentwicklung komplexer ICT-Infrastrukturen\n- Breites Technologieverständnis und Erfahrung im Design moderner Systemarchitekturen\n- Umfassende Kenntnisse von Netzwerk-, Firewall- und Servertechnologien in sicherheitskritischen Umgebungen\n- Strukturierte und gewissenhafte Persönlichkeit mit Macherqualitäten und hoher Leistungsbereitschaft\n- Fliessende Deutschkenntnisse; Englischkenntnisse (Level B2) sowie Französisch von Vorteil\n- Militärische Karriere als höherer Unteroffizier oder Offizier von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nFrank Haugwitz\nDirector Sourcing C5I-Campus\nrecruiting-c5i@ruag.ch"
+      },
+      "slugByLocale": {
+        "it": "principal-system-engineering-c5i-100-w-m-d-ruag-ag-thun",
+        "en": "principal-system-engineering-c5i-100-w-m-d-ruag-ag-thun",
+        "de": "principal-system-engineering-c5i-100-w-m-d-ruag-ag-thun",
+        "fr": "principal-system-engineering-c5i-100-w-m-d-ruag-ag-thun"
+      },
+      "id": "ruag-ag-3935c6ab5cf9",
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T22:17:43.270Z"
+    },
+    {
+      "title": "Software Engineer Tactical Communications 80-100 % (w/m/d)",
+      "slug": "software-engineer-tactical-communications-80-100-w-m-d-ruag-ag-emmen",
+      "url": "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/921b2141-f6eb-4424-81e4-1391a7fa1856",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Emmen",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-11-28",
+      "description": "## Responsabilita\n\n- Entwicklung und Weiterentwicklung von Applikationen im Bereich Tactical Communications\n- Mitarbeit bei der Konzeption und Umsetzung moderner Software-Architekturen\n- Entwicklung plattformübergreifender Anwendungen für Windows und Android\n- Enge Zusammenarbeit mit System Engineering und Projekt Management\n- Planung, Implementierung und Durchführung von Softwaretests\n- Analyse und Behebung von Fehlern sowie kontinuierliche Verbesserung der Softwarequalität\n- Mitarbeit bei der Erstellung technischer Dokumentationen\n- Aktive Mitarbeit in interdisziplinären Entwicklungsprojekten\n\n## Requisiti\n\n- Abgeschlossenes Studium (FH/HF/ETH/Uni) in Informatik oder vergleichbare technische Ausbildung\n- Gute Kenntnisse in C++\n- Erfahrung mit Windows und Android Plattform-Entwicklung\n- Erfahrung mit Software-Architekturen\n- Erfahrung mit modernen Entwicklungswerkzeugen und Entwicklungsprozessen (Git, CI/CD, Build-Systeme, automatisierte Tests)\n- Kenntnisse im Bereich SIP-, VoIP- oder Kommunikationsprotokolle von Vorteil\n- Erfahrung in der Entwicklung moderner Benutzeroberflächen mit Flutter (Dart) von Vorteil\n- Python- und Linux-Kenntnisse von Vorteil\n- Analytische, strukturierte und selbstständige Arbeitsweise\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBewerbungen während der Ferienzeit\n\nAufgrund der Sommerferienzeit und der damit verbundenen Ferienabwesenheiten kann die Bearbeitung der Bewerbungen etwas mehr Zeit in Anspruch nehmen. Wir berücksichtigen alle Bewerbungen, die bis zum 16. August 2026 eingehen.\n\nEin erstes Feedback zu deiner Bewerbung erhältst du bis Ende August 2026.\n\nBewerbungsprozess\n\nRemote-Kennenlerngespräch via Microsoft Teams (ca. 60 Minuten)\n\nPersönliches Interview vor Ort (ca. 90 Minuten)\n\nVertieftes Gespräch vor Ort (ca. 2½ Stunden)\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nLars Thomann\nTalent Acquisition Specialist\nlars.thomann@ruag.ch",
+      "titleByLocale": {
+        "it": "Software Ingegnere Tactical Communications 80-100 % (w/m/d)",
+        "en": "Software Engineer Tactical Communications 80-100 % (w/m/d)",
+        "de": "Software Ingenieur Tactical Communications 80-100 % (w/m/d)",
+        "fr": "Software Ingénieur Tactical Communications 80-100 % (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "it": "## Responsabilita\n\n- Entwicklung und Weiterentwicklung von Applikationen im Bereich Tactical Communications\n- Mitarbeit bei der Konzeption und Umsetzung moderner Software-Architekturen\n- Entwicklung plattformübergreifender Anwendungen für Windows und Android\n- Enge Zusammenarbeit mit System Engineering und Projekt Management\n- Planung, Implementierung und Durchführung von Softwaretests\n- Analyse und Behebung von Fehlern sowie kontinuierliche Verbesserung der Softwarequalität\n- Mitarbeit bei der Erstellung technischer Dokumentationen\n- Aktive Mitarbeit in interdisziplinären Entwicklungsprojekten\n\n## Requisiti\n\n- Abgeschlossenes Studium (FH/HF/ETH/Uni) in Informatik oder vergleichbare technische Ausbildung\n- Gute Kenntnisse in C++\n- Erfahrung mit Windows und Android Plattform-Entwicklung\n- Erfahrung mit Software-Architekturen\n- Erfahrung mit modernen Entwicklungswerkzeugen und Entwicklungsprozessen (Git, CI/CD, Build-Systeme, automatisierte Tests)\n- Kenntnisse im Bereich SIP-, VoIP- oder Kommunikationsprotokolle von Vorteil\n- Erfahrung in der Entwicklung moderner Benutzeroberflächen mit Flutter (Dart) von Vorteil\n- Python- und Linux-Kenntnisse von Vorteil\n- Analytische, strukturierte und selbstständige Arbeitsweise\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBewerbungen während der Ferienzeit\n\nAufgrund der Sommerferienzeit und der damit verbundenen Ferienabwesenheiten kann die Bearbeitung der Bewerbungen etwas mehr Zeit in Anspruch nehmen. Wir berücksichtigen alle Bewerbungen, die bis zum 16. August 2026 eingehen.\n\nEin erstes Feedback zu deiner Bewerbung erhältst du bis Ende August 2026.\n\nBewerbungsprozess\n\nRemote-Kennenlerngespräch via Microsoft Teams (ca. 60 Minuten)\n\nPersönliches Interview vor Ort (ca. 90 Minuten)\n\nVertieftes Gespräch vor Ort (ca. 2½ Stunden)\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nLars Thomann\nTalent Acquisition Specialist\nlars.thomann@ruag.ch",
+        "de": "## Responsabilita\n\n- Entwicklung und Weiterentwicklung von Applikationen im Bereich Tactical Communications\n- Mitarbeit bei der Konzeption und Umsetzung moderner Software-Architekturen\n- Entwicklung plattformübergreifender Anwendungen für Windows und Android\n- Enge Zusammenarbeit mit System Engineering und Projekt Management\n- Planung, Implementierung und Durchführung von Softwaretests\n- Analyse und Behebung von Fehlern sowie kontinuierliche Verbesserung der Softwarequalität\n- Mitarbeit bei der Erstellung technischer Dokumentationen\n- Aktive Mitarbeit in interdisziplinären Entwicklungsprojekten\n\n## Requisiti\n\n- Abgeschlossenes Studium (FH/HF/ETH/Uni) in Informatik oder vergleichbare technische Ausbildung\n- Gute Kenntnisse in C++\n- Erfahrung mit Windows und Android Plattform-Entwicklung\n- Erfahrung mit Software-Architekturen\n- Erfahrung mit modernen Entwicklungswerkzeugen und Entwicklungsprozessen (Git, CI/CD, Build-Systeme, automatisierte Tests)\n- Kenntnisse im Bereich SIP-, VoIP- oder Kommunikationsprotokolle von Vorteil\n- Erfahrung in der Entwicklung moderner Benutzeroberflächen mit Flutter (Dart) von Vorteil\n- Python- und Linux-Kenntnisse von Vorteil\n- Analytische, strukturierte und selbstständige Arbeitsweise\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBewerbungen während der Ferienzeit\n\nAufgrund der Sommerferienzeit und der damit verbundenen Ferienabwesenheiten kann die Bearbeitung der Bewerbungen etwas mehr Zeit in Anspruch nehmen. Wir berücksichtigen alle Bewerbungen, die bis zum 16. August 2026 eingehen.\n\nEin erstes Feedback zu deiner Bewerbung erhältst du bis Ende August 2026.\n\nBewerbungsprozess\n\nRemote-Kennenlerngespräch via Microsoft Teams (ca. 60 Minuten)\n\nPersönliches Interview vor Ort (ca. 90 Minuten)\n\nVertieftes Gespräch vor Ort (ca. 2½ Stunden)\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nLars Thomann\nTalent Acquisition Specialist\nlars.thomann@ruag.ch",
+        "en": "## Responsabilita\n\n- Entwicklung und Weiterentwicklung von Applikationen im Bereich Tactical Communications\n- Mitarbeit bei der Konzeption und Umsetzung moderner Software-Architekturen\n- Entwicklung plattformübergreifender Anwendungen für Windows und Android\n- Enge Zusammenarbeit mit System Engineering und Projekt Management\n- Planung, Implementierung und Durchführung von Softwaretests\n- Analyse und Behebung von Fehlern sowie kontinuierliche Verbesserung der Softwarequalität\n- Mitarbeit bei der Erstellung technischer Dokumentationen\n- Aktive Mitarbeit in interdisziplinären Entwicklungsprojekten\n\n## Requisiti\n\n- Abgeschlossenes Studium (FH/HF/ETH/Uni) in Informatik oder vergleichbare technische Ausbildung\n- Gute Kenntnisse in C++\n- Erfahrung mit Windows und Android Plattform-Entwicklung\n- Erfahrung mit Software-Architekturen\n- Erfahrung mit modernen Entwicklungswerkzeugen und Entwicklungsprozessen (Git, CI/CD, Build-Systeme, automatisierte Tests)\n- Kenntnisse im Bereich SIP-, VoIP- oder Kommunikationsprotokolle von Vorteil\n- Erfahrung in der Entwicklung moderner Benutzeroberflächen mit Flutter (Dart) von Vorteil\n- Python- und Linux-Kenntnisse von Vorteil\n- Analytische, strukturierte und selbstständige Arbeitsweise\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBewerbungen während der Ferienzeit\n\nAufgrund der Sommerferienzeit und der damit verbundenen Ferienabwesenheiten kann die Bearbeitung der Bewerbungen etwas mehr Zeit in Anspruch nehmen. Wir berücksichtigen alle Bewerbungen, die bis zum 16. August 2026 eingehen.\n\nEin erstes Feedback zu deiner Bewerbung erhältst du bis Ende August 2026.\n\nBewerbungsprozess\n\nRemote-Kennenlerngespräch via Microsoft Teams (ca. 60 Minuten)\n\nPersönliches Interview vor Ort (ca. 90 Minuten)\n\nVertieftes Gespräch vor Ort (ca. 2½ Stunden)\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nLars Thomann\nTalent Acquisition Specialist\nlars.thomann@ruag.ch",
+        "fr": "## Responsabilita\n\n- Entwicklung und Weiterentwicklung von Applikationen im Bereich Tactical Communications\n- Mitarbeit bei der Konzeption und Umsetzung moderner Software-Architekturen\n- Entwicklung plattformübergreifender Anwendungen für Windows und Android\n- Enge Zusammenarbeit mit System Engineering und Projekt Management\n- Planung, Implementierung und Durchführung von Softwaretests\n- Analyse und Behebung von Fehlern sowie kontinuierliche Verbesserung der Softwarequalität\n- Mitarbeit bei der Erstellung technischer Dokumentationen\n- Aktive Mitarbeit in interdisziplinären Entwicklungsprojekten\n\n## Requisiti\n\n- Abgeschlossenes Studium (FH/HF/ETH/Uni) in Informatik oder vergleichbare technische Ausbildung\n- Gute Kenntnisse in C++\n- Erfahrung mit Windows und Android Plattform-Entwicklung\n- Erfahrung mit Software-Architekturen\n- Erfahrung mit modernen Entwicklungswerkzeugen und Entwicklungsprozessen (Git, CI/CD, Build-Systeme, automatisierte Tests)\n- Kenntnisse im Bereich SIP-, VoIP- oder Kommunikationsprotokolle von Vorteil\n- Erfahrung in der Entwicklung moderner Benutzeroberflächen mit Flutter (Dart) von Vorteil\n- Python- und Linux-Kenntnisse von Vorteil\n- Analytische, strukturierte und selbstständige Arbeitsweise\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBewerbungen während der Ferienzeit\n\nAufgrund der Sommerferienzeit und der damit verbundenen Ferienabwesenheiten kann die Bearbeitung der Bewerbungen etwas mehr Zeit in Anspruch nehmen. Wir berücksichtigen alle Bewerbungen, die bis zum 16. August 2026 eingehen.\n\nEin erstes Feedback zu deiner Bewerbung erhältst du bis Ende August 2026.\n\nBewerbungsprozess\n\nRemote-Kennenlerngespräch via Microsoft Teams (ca. 60 Minuten)\n\nPersönliches Interview vor Ort (ca. 90 Minuten)\n\nVertieftes Gespräch vor Ort (ca. 2½ Stunden)\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nLars Thomann\nTalent Acquisition Specialist\nlars.thomann@ruag.ch"
+      },
+      "slugByLocale": {
+        "it": "software-engineer-tactical-communications-80-100-w-m-d-ruag-ag-emmen",
+        "en": "software-engineer-tactical-communications-80-100-w-m-d-ruag-ag-emmen",
+        "de": "software-engineer-tactical-communications-80-100-w-m-d-ruag-ag-emmen",
+        "fr": "software-engineer-tactical-communications-80-100-w-m-d-ruag-ag-emmen"
+      },
+      "id": "ruag-ag-71b97e1b4b9c",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T22:17:43.270Z"
     }
   ]
 }
