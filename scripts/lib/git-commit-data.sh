@@ -1020,8 +1020,15 @@ commit_isolated_from_worktree() {
 }
 
 if [ "$GROUPED_ISOLATED" = true ]; then
-  commit_isolated_from_worktree
-  _commit_result=$?
+  # `|| _commit_result=$?` (not a bare call + separate `$?` capture) is
+  # LOAD-BEARING under `set -e` (L31): a bare simple command's non-zero
+  # return trips errexit immediately, skipping every line after it —
+  # including the `_commit_result=$?` capture and the soft-fail mapping
+  # below, so the script would exit 42 unconditionally regardless of
+  # caller type. Attaching `||` puts the call in a tested context, which
+  # `set -e` exempts (PR #4191 round-1 review).
+  _commit_result=0
+  commit_isolated_from_worktree || _commit_result=$?
   # Sequential callers (JOBS_SLICE_FILE unset — e.g. translate-pending.yml,
   # cleanup-stale-jobs.yml) treat push-contention exhaustion as a soft failure:
   # the committed data self-heals on the next scheduled run, so exit 42 must
