@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-14T11:37:43.275Z",
+  "generatedAt": "2026-07-14T22:23:03.625Z",
   "total": 67,
   "newCount": 0,
   "updatedCount": 51,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 107393,
-  "avgDurationMs": 107393,
+  "durationMs": 105847,
+  "avgDurationMs": 105847,
   "durationHistory": [
-    107393
+    105847
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1121,82 +1121,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Berufsbildner*in mechanische Berufe 100%",
-      "slug": "formazione-professionale-in-professioni-meccaniche-100-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-berufsbildnerin-mechanische-berufe-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/c0e9e0f935c6da7581117fdbc97228a670d42f566968bad2ef1e658b76e18f5a7f04c10e9314a64e57fa65caa41c8b4bca95d5113d21026aafa49366f6fdab",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-4e5813bb86a3",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-06-28T10:23:00.911Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Impiegato in logistica di magazzino 100%",
-      "slug": "impiegato-in-logistica-di-magazzino-100-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-impiegato-in-logistica-di-magazzino-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/691772fdd7c7357a32bc2774506ccb6df626a2b56a24626e513abf2b54fd5ea68497a2f9f56dca07413c521f98de8024861d3f8108343da2549e6f69cce25c",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "logistics",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-041ac159e28a",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-05-20T10:49:38.815Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
