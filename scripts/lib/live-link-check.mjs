@@ -24,14 +24,34 @@ export const DEFAULT_LIVE_CHECK_TIMEOUT_MS = 8_000;
 
 /** HEAD-check a single URL; falls back to a ranged GET if the origin rejects
  * HEAD (some static hosts / edge configs return 405/501 for it). Never
- * throws — resolves `false` on any non-ok status, network error, or timeout. */
-export async function checkLink(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS) {
+ * throws — resolves `false` on any non-ok status, network error, or timeout.
+ *
+ * @param {string} url
+ * @param {number} [timeoutMs]
+ * @param {object} [opts]
+ * @param {boolean} [opts.cacheBust=false] Append a unique `_=<ts>` query param
+ *   so the check reads the ORIGIN, defeating any edge/proxy cache. Used by the
+ *   deploy-time deep-sample propagation gate (wait-for-pages-propagation.mjs),
+ *   where a cached 200 must not mask an origin propagation hole. The default
+ *   (false) keeps the send-job-alerts preflight semantics: there the EDGE
+ *   response is exactly what the email recipient will hit, so the cache layer
+ *   must stay in the loop.
+ * @param {Record<string,string>} [opts.headers] Extra request headers (e.g.
+ *   User-Agent / Cache-Control) merged into both the HEAD and the fallback GET.
+ */
+export async function checkLink(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS, opts = {}) {
+  const { cacheBust = false, headers = {} } = opts;
+  const target = cacheBust ? `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}` : url;
   try {
-    const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(timeoutMs) });
+    const res = await fetch(target, {
+      method: 'HEAD',
+      headers,
+      signal: AbortSignal.timeout(timeoutMs),
+    });
     if (res.status === 405 || res.status === 501) {
-      const getRes = await fetch(url, {
+      const getRes = await fetch(target, {
         method: 'GET',
-        headers: { Range: 'bytes=0-0' },
+        headers: { ...headers, Range: 'bytes=0-0' },
         signal: AbortSignal.timeout(timeoutMs),
       });
       return getRes.ok || getRes.status === 206;
