@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-07-13T22:23:13.389Z",
+  "assembledAt": "2026-07-14T11:54:58.248Z",
   "jobs": [
     {
       "id": "sune-egge-6cdad7d7ac86",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2675698",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:23:11.537Z",
+      "crawledAt": "2026-07-14T11:54:56.301Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "title": "Psychotherapeutin / Psychotherapeuten (60–80 %)",
       "titleByLocale": {
         "it": "Psicoterapeuta / Psicoterapisti (60–80 %)",
-        "en": "Psychotherapist (60–80%)",
+        "en": "Psychotherapeutin / Psychotherapeuten (60–80 %)",
         "de": "Psychotherapeutin / Psychotherapeuten (60–80 %)",
         "fr": "Psychothérapie / Psychothérapie (60-80 %)"
       },
@@ -112,7 +112,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:23:11.536Z",
+      "crawledAt": "2026-07-14T11:54:56.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,6 +129,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2645745",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich",
         "psicoterapeuta-psicoterapisti-60-80-fachspital-sune-egge-zurich"
@@ -190,7 +191,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:23:11.534Z",
+      "crawledAt": "2026-07-14T11:54:56.296Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,6 +208,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2610155",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
         "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich",
@@ -263,7 +265,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:23:11.533Z",
+      "crawledAt": "2026-07-14T11:54:56.295Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -305,6 +307,7 @@
           "Excellentes compétences en allemand à l’oral et à l’écrit"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
