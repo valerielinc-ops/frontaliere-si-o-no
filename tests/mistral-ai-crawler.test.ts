@@ -4,6 +4,9 @@ import {
   MISTRAL_AI_COMPANY_NAME,
   isMistralAiJob,
   isTrustedDomain,
+  isSwissAshbyJob,
+  pickSwissLocationLabel,
+  ashbyLocationEntries,
 } from '../scripts/lib/mistral-ai-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -53,9 +56,74 @@ describe('Mistral AI crawler parser', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
 
+    it('trusts the Ashby job board (post-Lever migration, #4145)', () => {
+      expect(
+        isTrustedDomain('https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155'),
+      ).toBe(true);
+      expect(isTrustedDomain('https://jobs.ashbyhq.com/mistral.ai')).toBe(true);
+    });
+
+    it('rejects a different company on the same Ashby host', () => {
+      expect(isTrustedDomain('https://jobs.ashbyhq.com/openai/abc')).toBe(false);
+    });
+
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── Ashby Swiss-location filtering (post-Lever migration, #4145) ──
+  describe('Swiss location filtering', () => {
+    const zurichPrimary = {
+      title: 'AI Scientist',
+      location: 'Zurich',
+      secondaryLocations: [],
+      address: { postalAddress: { addressCountry: 'Switzerland' } },
+    };
+    const zurichSecondary = {
+      title: 'Research Engineer, Machine Learning',
+      location: 'Paris',
+      address: { postalAddress: { addressCountry: 'France', addressLocality: 'Paris' } },
+      secondaryLocations: [
+        { location: 'Zurich', address: { postalAddress: { addressCountry: 'Switzerland' } } },
+        { location: 'Warsaw', address: { postalAddress: { addressCountry: 'Poland' } } },
+      ],
+    };
+    const parisOnly = {
+      title: 'Software Engineer',
+      location: 'Paris',
+      address: { postalAddress: { addressCountry: 'France', addressLocality: 'Paris' } },
+      secondaryLocations: [
+        { location: 'London', address: { postalAddress: { addressCountry: 'United Kingdom' } } },
+      ],
+    };
+
+    it('matches a role whose PRIMARY location is Swiss', () => {
+      expect(isSwissAshbyJob(zurichPrimary)).toBe(true);
+    });
+
+    it('matches a role whose SECONDARY office is Swiss', () => {
+      expect(isSwissAshbyJob(zurichSecondary)).toBe(true);
+    });
+
+    it('rejects a role with no Swiss office', () => {
+      expect(isSwissAshbyJob(parisOnly)).toBe(false);
+      expect(isSwissAshbyJob({})).toBe(false);
+    });
+
+    it('surfaces the Swiss location label over a non-Swiss primary', () => {
+      expect(pickSwissLocationLabel(zurichSecondary)).toBe('Zurich');
+      expect(pickSwissLocationLabel(zurichPrimary)).toBe('Zurich');
+    });
+
+    it('flattens primary + secondary locations in order', () => {
+      const entries = ashbyLocationEntries(zurichSecondary);
+      expect(entries.map((e) => e.location)).toEqual(['Paris', 'Zurich', 'Warsaw']);
+    });
+
+    it('matches a Swiss location by city text when address country is absent', () => {
+      expect(isSwissAshbyJob({ location: 'Lausanne', secondaryLocations: [] })).toBe(true);
     });
   });
 
