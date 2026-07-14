@@ -1,18 +1,49 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-13T22:04:29.092Z",
+  "generatedAt": "2026-07-14T11:18:53.330Z",
   "total": 136,
-  "newCount": 0,
-  "updatedCount": 96,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 95,
+  "removedCount": 1,
   "unchangedCount": 9,
-  "durationMs": 2610,
-  "avgDurationMs": 2610,
+  "durationMs": 2783,
+  "avgDurationMs": 2783,
   "durationHistory": [
-    2610
+    2783
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "(Associate – Manager) Real Estate Advisory Transaction",
+      "slug": "associate-manager-real-estate-advisory-transaction-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-manager-real-estate-advisory-transaction/150b3b02-3b0e-4f18-9a9f-aa7f7a49a9e9",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Associate---Manager--Real-Estate-Advisory-Transaction_733620WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-14",
+      "validThrough": "2036-07-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum Digital Assurance, IT Audit and Process Analytics (Sept-Feb, Financial Services)",
@@ -617,42 +648,6 @@
       }
     },
     {
-      "title": "Manager / Senior Manager SAP Business Transformation & Architecture",
-      "slug": "manager-senior-manager-sap-business-transformation-architecture-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/b39bdbe7-a2a5-47d9-8717-1727ef726d5b",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-SAP-Business-Transformation---Architecture_720586WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-18",
-      "validThrough": "2036-06-14",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-5be214f0ee4e",
-      "salaryMin": 113000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-18T12:56:48.091Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Intern - Audit - Trade, Industries and Services",
       "slug": "intern-audit-trade-industries-and-services-pwc-geneva",
       "url": "https://jobs.pwc.ch/job-vacancies/intern-audit-trade-industries-and-services/5d6a07da-c8ad-429c-9674-5a042044f109",
@@ -1070,9 +1065,76 @@
         "translation": 16,
         "completeness": 14
       }
+    },
+    {
+      "title": "(Quer-)Einstieg / nächster Schritt: (Senior) Associate – Eingeschränkte Revision (70–100%)",
+      "slug": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
+      "url": "https://jobs.pwc.ch/job-vacancies/quer-einstieg-naechster-schritt-senior-associate-eingeschraenkte-revision-70/9ccece54-dd85-404f-b6f6-4c52e0fece9d",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Quer--Einstieg---nchster-Schritt---Senior--Associate---Eingeschrnkte-Revision--70-100--_732828WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zug",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-29",
+      "validThrough": "2036-05-25",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Manager / Senior Manager SAP Business Transformation & Architecture",
+      "slug": "manager-senior-manager-sap-trasformazione-e-architettura-del-business-sap-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/b39bdbe7-a2a5-47d9-8717-1727ef726d5b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-SAP-Business-Transformation---Architecture_720586WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-18",
+      "validThrough": "2036-06-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-5be214f0ee4e",
+      "salaryMin": 113000,
+      "salaryMax": 180000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-18T12:56:48.091Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate - Marketing Senior Consultant Financial Services",
