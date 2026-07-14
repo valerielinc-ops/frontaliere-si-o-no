@@ -116,6 +116,9 @@ export function parseJobupSerpCards(html = '') {
     if (!title || title.length < 3) continue;
     out.push({
       uuid,
+      // jobup.ch è un portale esterno; /fr/ è la lingua canonica per un datore
+      // vodese francofono (FSL, Losanna), serve solo a estrarre la descrizione
+      // via Jina — non è un URL del nostro sito. locale-segment-ok: portale-esterno
       url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
       title,
       company,
