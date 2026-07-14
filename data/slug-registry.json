@@ -82444,7 +82444,7 @@
     "slugByLocale": {
       "de": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
       "en": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
-      "fr": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
+      "fr": "psychotherapie-psychotherapie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal",
       "it": "psicoterapeuta-psicoterapeuta-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
     }
   },
@@ -82465,8 +82465,8 @@
     "createdAt": "2026-05-23",
     "slugByLocale": {
       "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-      "en": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-      "fr": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+      "en": "specialist-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+      "fr": "specialiste-en-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
       "it": "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
     }
   },
@@ -82474,7 +82474,12 @@
     "canonicalSlug": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
     "canton": "BE",
     "createdAt": "2026-06-18",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "ergotherapeuta-ergotherapeuta-temporaneo-klinik-sgm-langenthal-langenthal",
+      "en": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal",
+      "de": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
+      "fr": "ergo-therapeute-ergo-therapeute-temporaire-klinik-sgm-langenthal-langenthal"
+    }
   },
   "id|klinik-sgm.ch|eb76938a-ccb5-44e5-9686-8d2cbeadd99e": {
     "canonicalSlug": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal",
@@ -105322,7 +105327,9 @@
     "createdAt": "2026-06-18",
     "slugByLocale": {
       "en": "product-owner-servicenow-plattform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
-      "de": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo"
+      "de": "product-owner-servicenow-platform-basis-m-w-d-migros-genossenschafts-bund-zurich-mdjszo",
+      "it": "proprietario-del-prodotto-servicenow-platform-basis-f-m-d-migros-hq-zurich-zurich",
+      "fr": "proprietaire-du-produit-servicenow-platform-base-f-m-d-migros-hq-zurich-zurich"
     }
   },
   "id|migros.ch|5ecf1dad-eb30-4ea4-bd64-64707ea02ff7": {
@@ -146650,7 +146657,9 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "de": "lehrstelle-kauffrau-kaufmann-branche-bank-2027-raiffeisen-arbon",
-      "it": "apprendistato-kauffrau-kaufmann-branche-bank-2027-raiffeisen-arbon"
+      "it": "apprendistato-kauffrau-kaufmann-branche-bank-2027-raiffeisen-arbon",
+      "en": "apprenticeship-banking-clerk-2027-raiffeisen-arbon",
+      "fr": "apprentissage-conseiller-ere-bancaire-2027-raiffeisen-arbon"
     }
   },
   "id|raiffeisen.ch|113fa1be-d6cd-4b78-acff-b60b5c245e96": {
@@ -146679,7 +146688,8 @@
     "slugByLocale": {
       "de": "geschaftsstellenleiter-mit-funktion-individualkundenberater-schwerpunkt-finanzieren-w-m-d",
       "en": "office-manager-with-function-individual-client-advisor-focus-on-financing-f-m-d-raiffeisen-elgg",
-      "fr": "gestionnaire-de-bureau-avec-fonction-conseiller-client-individuel-axe-sur-le-financement-f-m-d-raiffeisen-elgg"
+      "fr": "gestionnaire-de-bureau-avec-fonction-conseiller-client-individuel-axe-sur-le-financement-f-m-d-raiffeisen-elgg",
+      "it": "responsabile-di-filiale-con-funzione-di-consulente-per-la-clientela-privata-specializzazione-in-finanziamenti-m-f-d"
     }
   },
   "id|raiffeisen.ch|12f0e20e-1b64-4a98-954c-c71b52800ff7": {
@@ -148001,7 +148011,8 @@
     "slugByLocale": {
       "de": "kundenberater-in-mit-schaltertatigkeit-raiffeisen-unteriberg",
       "en": "customer-consultant-with-counter-activity-raiffeisen-unteriberg",
-      "fr": "consultant-client-avec-contre-activite-raiffeisen-unteriberg"
+      "fr": "consultant-client-avec-contre-activite-raiffeisen-unteriberg",
+      "it": "consulente-alla-clientela-con-attivita-di-sportello-raiffeisen-unteriberg"
     }
   },
   "id|raiffeisen.ch|a7d8086d-85b4-4f5b-a54b-1620e3358fab": {
@@ -148142,7 +148153,8 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "fr": "credit-officer-raiffeisen-nyon",
-      "it": "agente-di-credito-raiffeisen-nyon"
+      "it": "agente-di-credito-raiffeisen-nyon",
+      "de": "kreditnehmer-raiffeisen-nyon"
     }
   },
   "id|raiffeisen.ch|c1ad0a8c-6a20-4250-8f93-84d4bace2244": {
@@ -164546,7 +164558,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-13",
     "slugByLocale": {
-      "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+      "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+      "it": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+      "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
     }
   },
   "id|solique.ch|4017482": {
@@ -165820,7 +165835,10 @@
     "canton": "ZH",
     "createdAt": "2026-07-01",
     "slugByLocale": {
-      "de": "pflegepraktikantin-pflegepraktikant-ksw-ch"
+      "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
+      "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
     }
   },
   "id|solique.ch|4028138": {
@@ -165956,7 +165974,8 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "en": "care-expert-care-expert-with-higher-level-activities-kantonsspital-winterthur-ksw-winterthur",
-      "fr": "expert-en-soins-expert-en-soins-avec-des-activites-de-niveau-superieur-kantonsspital-winterthur-ksw-winterthur"
+      "fr": "expert-en-soins-expert-en-soins-avec-des-activites-de-niveau-superieur-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegeexpertin-pflegeexperte-mit-ubergeordneten-tatigkeiten-ksw-ch"
     }
   },
   "id|solique.ch|4029887": {
@@ -166070,7 +166089,12 @@
     "canonicalSlug": "teamleiterin-teamleiter-imc-lindberg-ksw-ch",
     "canton": "ZH",
     "createdAt": "2026-07-04",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "team-leader-team-leader-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+      "en": "team-leader-team-leader-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+      "de": "teamleiterin-teamleiter-imc-lindberg-ksw-ch",
+      "fr": "chef-d-equipe-chef-d-equipe-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
+    }
   },
   "id|solique.ch|4032383": {
     "canonicalSlug": "assistente-pratica-medica-coordinatore-pratica-kantonsspital-winterthur-ksw-winterthur",
@@ -166087,13 +166111,23 @@
     "canonicalSlug": "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch",
     "canton": "ZH",
     "createdAt": "2026-07-04",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "specialista-infermieristica-specialista-in-allattamento-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-specialist-nursing-specialist-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch",
+      "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
+    }
   },
   "id|solique.ch|4032466": {
     "canonicalSlug": "medizinische-kodiererin-medizinischer-kodierer-ksw-ch",
     "canton": "ZH",
     "createdAt": "2026-07-04",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "codice-medico-medico-kantonsspital-winterthur-ksw-winterthur",
+      "en": "medical-coder-medical-coder-kantonsspital-winterthur-ksw-winterthur",
+      "de": "medizinische-kodiererin-medizinischer-kodierer-ksw-ch",
+      "fr": "codeur-medical-codeur-medical-kantonsspital-winterthur-ksw-winterthur"
+    }
   },
   "id|sonova.com|1395139533": {
     "canonicalSlug": "junior-embedded-software-ingegnere-m-f-d-sonova-murten",
@@ -281404,7 +281438,9 @@
   },
   "url|https://www.google.com/about/careers/applications/jobs/results/137421243228791494-senior-forward-deployed-engineer-genai-google-cloud": {
     "canonicalSlug": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "en": "senior-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
+    },
     "createdAt": "2026-07-08",
     "canton": "ZH"
   },
@@ -310378,7 +310414,10 @@
   "id|greenhouse.io|7641466": {
     "canonicalSlug": "senior-lead-pattern-engineer-on-running-ch",
     "slugByLocale": {
-      "en": "senior-lead-pattern-engineer-on-running-ch"
+      "en": "senior-lead-pattern-engineer-on-running-ch",
+      "it": "senior-lead-pattern-ingegnere-on-running-zurich",
+      "de": "senior-lead-pattern-ingenieur-on-running-zurich",
+      "fr": "senior-lead-pattern-ingenieur-on-running-zurich"
     },
     "createdAt": "2026-07-11",
     "canton": "ZH"
@@ -313378,7 +313417,8 @@
     "slugByLocale": {
       "it": "membro-del-team-del-caffe-personale-temporaneo-lindt-sprungli-kilchberg",
       "de": "cafe-team-member-aushilfe-lindt-spruengli-kilchberg",
-      "fr": "membre-de-l-equipe-cafe-assistant-lindt-sprungli-kilchberg"
+      "fr": "membre-de-l-equipe-cafe-assistant-lindt-sprungli-kilchberg",
+      "en": "cafe-team-member-part-time-lindt-sprungli-kilchberg"
     },
     "createdAt": "2026-07-12",
     "canton": "ZH"
@@ -315209,7 +315249,8 @@
     "canonicalSlug": "manager-per-cookie-einwilligungen-schindler-winterthur",
     "slugByLocale": {
       "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-      "it": "manager-per-cookie-einwilligungen-schindler-winterthur"
+      "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+      "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur"
     },
     "createdAt": "2026-07-13",
     "canton": "ZH"
@@ -317564,7 +317605,9 @@
   "id|roche.wd3.myworkdayjobs.com|202607-118028": {
     "canonicalSlug": "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch",
     "slugByLocale": {
-      "en": "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch"
+      "en": "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch",
+      "de": "vizeprasident-global-head-multiple-sklerose-und-neuroimmunologie-roche-basel",
+      "fr": "vice-president-sclerose-en-plaques-et-neuroimmunologie-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317582,7 +317625,9 @@
   "id|roche.wd3.myworkdayjobs.com|202606-116694": {
     "canonicalSlug": "business-solutions-lead-customer-engagement-roche-ch",
     "slugByLocale": {
-      "en": "business-solutions-lead-customer-engagement-roche-ch"
+      "en": "business-solutions-lead-customer-engagement-roche-ch",
+      "it": "soluzioni-aziendali-piombo-impegno-clienti-roche-basel",
+      "fr": "responsable-des-solutions-d-affaires-engagement-des-clients-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317599,7 +317644,9 @@
     "canonicalSlug": "veterinarian-roche-basel",
     "slugByLocale": {
       "en": "veterinarian-roche-ch",
-      "it": "veterinarian-roche-basel"
+      "it": "veterinarian-roche-basel",
+      "de": "tierarzt-roche-basel",
+      "fr": "veterinaire-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317608,7 +317655,9 @@
     "canonicalSlug": "technical-r-d-scientist-roche-ch",
     "slugByLocale": {
       "de": "technical-r-d-scientist-roche-ch",
-      "en": "technical-r-d-scientist-roche-basel"
+      "en": "technical-r-d-scientist-roche-basel",
+      "it": "ricerca-tecnica-roche-basel",
+      "fr": "scientifique-en-r-d-technique-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317616,7 +317665,10 @@
   "id|roche.wd3.myworkdayjobs.com|202607-117921": {
     "canonicalSlug": "global-msat-dp-strategic-technical-integrator-roche-ch",
     "slugByLocale": {
-      "en": "global-msat-dp-strategic-technical-integrator-roche-ch"
+      "en": "global-msat-dp-strategic-technical-integrator-roche-ch",
+      "it": "integratore-tecnico-strategico-msat-dp-globale-roche-basel",
+      "de": "global-msat-dp-strategischer-technischer-integrator-roche-basel",
+      "fr": "global-msat-dp-integrateur-technique-strategique-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317624,7 +317676,9 @@
   "id|roche.wd3.myworkdayjobs.com|202605-113531-2": {
     "canonicalSlug": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch",
     "slugByLocale": {
-      "en": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch"
+      "en": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch",
+      "it": "responsabile-portfolio-funzionale-strategia-rdt-portfolio-e-governance-roche-basel",
+      "fr": "chef-de-portefeuille-fonctionnel-strategie-portefeuille-et-gouvernance-rdt-roche-basel"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317634,7 +317688,8 @@
     "slugByLocale": {
       "it": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch-2",
       "de": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch-2",
-      "fr": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch-2"
+      "fr": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch-2",
+      "en": "functional-portfolio-head-rdt-strategy-portfolio-governance-roche-ch"
     },
     "createdAt": "2026-07-13",
     "canton": "BS"
@@ -317820,7 +317875,9 @@
   "url|https://www.spitalthusis.ch/karriere-jobs/offene-stellen/dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-": {
     "canonicalSlug": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch"
+      "de": "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch",
+      "en": "dipl-nurse-with-additional-task-vocational-trainer-in-spitex-60-100-spital-thusis-thusis",
+      "fr": "dipl-infirmiere-ayant-une-tache-supplementaire-formateur-professionnel-en-spitex-60-100-spital-thusis-thusis"
     },
     "createdAt": "2026-07-13",
     "canton": "GR"
@@ -317869,7 +317926,10 @@
   "id|recruitingapp-122706.umantis.com|5072": {
     "canonicalSlug": "fachfrau-fachmann-gesundheit-ksa-ch",
     "slugByLocale": {
-      "de": "fachfrau-fachmann-gesundheit-ksa-ch"
+      "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+      "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-7dbf5e",
+      "en": "professional-health-kantonsspital-aarau-ksa-aarau-7dbf5e",
+      "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-7dbf5e"
     },
     "createdAt": "2026-07-13",
     "canton": "AG"
@@ -317877,9 +317937,747 @@
   "id|recruitingapp-122706.umantis.com|5559": {
     "canonicalSlug": "teamleitung-ksa-ch",
     "slugByLocale": {
-      "de": "teamleitung-ksa-ch"
+      "de": "teamleitung-ksa-ch",
+      "it": "gestione-del-team-kantonsspital-aarau-ksa-aarau",
+      "en": "team-management-kantonsspital-aarau-ksa-aarau",
+      "fr": "gestion-de-l-equipe-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-13",
     "canton": "AG"
+  },
+  "id|klinik-sgm.ch|ade06840-612c-49f0-8a50-3c6ba8728340": {
+    "canonicalSlug": "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez",
+    "slugByLocale": {
+      "it": "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez",
+      "en": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
+      "de": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
+      "fr": "psychotherapie-psychotherapie-ambulatorium-spiez-klinik-sgm-langenthal-spiez"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "id|klinik-sgm.ch|548e483e-f790-4052-b050-f9cb26eecf72": {
+    "canonicalSlug": "leitung-human-resources-w-m-klinik-sgm-langenthal",
+    "slugByLocale": {
+      "de": "leitung-human-resources-w-m-klinik-sgm-langenthal"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/procurement-analyst-intern/80264": {
+    "canonicalSlug": "procurement-analista-tirocinante-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "procurement-analista-tirocinante-totalenergies-geneve",
+      "en": "procurement-analyst-intern-totalenergies-geneve",
+      "de": "procurement-analyst-praktikant-totalenergies-geneve",
+      "fr": "procurement-analyste-stagiaire-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/asset-dispatch-operations-engineer/77968": {
+    "canonicalSlug": "asset-dispatch-operations-engineer-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "asset-dispatch-operations-engineer-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/operations-technical-services-digital-learning-intern/75701": {
+    "canonicalSlug": "operations-technical-services-digital-learning-intern-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "operations-technical-services-digital-learning-intern-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/structured-contract-trade-support-analyst-intern/81680": {
+    "canonicalSlug": "structured-contract-trade-support-analista-tirocinante-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "structured-contract-trade-support-analista-tirocinante-totalenergies-geneve",
+      "en": "structured-contract-trade-support-analyst-intern-totalenergies-geneve",
+      "fr": "structured-contract-trade-support-analyste-stagiaire-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/tax-advisor/81371": {
+    "canonicalSlug": "tax-consulente-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "tax-consulente-totalenergies-geneve",
+      "en": "tax-advisor-totalenergies-geneve",
+      "de": "tax-berater-totalenergies-geneve",
+      "fr": "tax-conseiller-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/technology-scout-intern-innovation-lab/82131": {
+    "canonicalSlug": "technology-scout-intern-innovation-lab-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "technology-scout-intern-innovation-lab-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/cdd-tgi-comptable-polyvalent/82348": {
+    "canonicalSlug": "cdd-tgi-comptable-polyvalent-totalenergies-geneve",
+    "slugByLocale": {
+      "fr": "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/legal-operations-artificial-intelligence-intern/81726": {
+    "canonicalSlug": "legal-operations-artificial-intelligence-intern-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "legal-operations-artificial-intelligence-intern-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/trade-support-analyst-intern/81716": {
+    "canonicalSlug": "trade-support-analista-tirocinante-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "trade-support-analista-tirocinante-totalenergies-geneve",
+      "en": "trade-support-analyst-intern-totalenergies-geneve",
+      "fr": "trade-support-analyste-stagiaire-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/credit-analyst-intern/82035": {
+    "canonicalSlug": "credit-analista-tirocinante-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "credit-analista-tirocinante-totalenergies-geneve",
+      "en": "credit-analyst-intern-totalenergies-geneve",
+      "de": "credit-analyst-praktikant-totalenergies-geneve",
+      "fr": "credit-analyste-stagiaire-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/vie-charg-de-projets-digitaux-h-f-suisse/81755": {
+    "canonicalSlug": "vie-leader-dei-progetti-digitali-m-f-svizzera-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "vie-leader-dei-progetti-digitali-m-f-svizzera-totalenergies-geneve",
+      "en": "vie-digital-projects-leader-m-f-switzerland-totalenergies-geneve",
+      "fr": "vie-responsable-des-projets-numeriques-m-f-suisse-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/shipping-operator/81096": {
+    "canonicalSlug": "shipping-operatore-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "shipping-operatore-totalenergies-geneve",
+      "en": "shipping-operator-totalenergies-geneve",
+      "de": "schiffsbetreiber-totalenergies-geneve",
+      "fr": "shipping-operateur-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/business-analyst-finance-shared-services/82058": {
+    "canonicalSlug": "business-analista-finanza-shared-services-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "business-analista-finanza-shared-services-totalenergies-geneve",
+      "en": "business-analyst-finance-shared-services-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/intern-machine-learning-data-science-software-development/81059": {
+    "canonicalSlug": "intern-machine-learning-data-science-software-development-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "intern-machine-learning-data-science-software-development-totalenergies-geneve"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "GE"
+  },
+  "id|uzh.ch|3bdc8910-adc9-4bd6-90e0-b6fae2816de7": {
+    "canonicalSlug": "lis-lims-spezialist-in-laborinformatik-laborinformationssysteme-uzh-zurich",
+    "slugByLocale": {
+      "de": "lis-lims-spezialist-in-laborinformatik-laborinformationssysteme-uzh-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4034510": {
+    "canonicalSlug": "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
+      "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037054": {
+    "canonicalSlug": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+    "slugByLocale": {
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037288": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "de": "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch",
+      "it": "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033642": {
+    "canonicalSlug": "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+      "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4032826": {
+    "canonicalSlug": "spontanbewerbung-come-radiologiefachperson-diagnostische-o-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "spontanbewerbung-come-radiologiefachperson-diagnostische-o-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
+      "en": "spontaneous-application-as-radiology-specialist-diagnostic-or-interventional-radiology-kantonsspital-winterthur-ksw",
+      "de": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie",
+      "fr": "application-spontanee-comme-specialiste-en-radiologie-radiologie-diagnostique-ou-interventionnelle-kantonsspital"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4032901": {
+    "canonicalSlug": "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur",
+      "en": "vitreoretinal-surgeon-surgeon-kantonsspital-winterthur-ksw-winterthur",
+      "de": "vitreoretinale-chirurgin-chirurge-ksw-ch",
+      "fr": "chirurgien-chirurgien-vitreoretinien-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033629": {
+    "canonicalSlug": "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur",
+      "en": "nursing-specialist-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur",
+      "de": "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
+      "fr": "specialiste-en-soins-infirmiers-imc-pediatrie-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4032921": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-abrechnung-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-abrechnung-kantonsspital-winterthur-ksw-winterthur",
+      "en": "employee-employee-accounting-kantonsspital-winterthur-ksw-winterthur",
+      "de": "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch",
+      "fr": "comptabilite-des-employes-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4034507": {
+    "canonicalSlug": "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur",
+      "en": "professional-specialist-surgical-technology-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-operationstechnik-ksw-ch",
+      "fr": "technologie-chirurgicale-professionnelle-specialisee-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033639": {
+    "canonicalSlug": "med-assistente-pratica-centro-sanitario-emergenza-della-clinica-femminile-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "med-assistente-pratica-centro-sanitario-emergenza-della-clinica-femminile-kantonsspital-winterthur-ksw-winterthur",
+      "en": "med-practice-assistant-health-care-centre-emergency-of-the-women-s-clinic-kantonsspital-winterthur-ksw-winterthur",
+      "de": "med-praxisassistent-in-fachperson-gesundheit-sprechstundenzentrum-notfall-der-frauenklinik",
+      "fr": "medicament-assistante-pratique-centre-de-soins-de-sante-urgence-de-la-clinique-pour-femmes-kantonsspital-winterthur-ksw"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033645": {
+    "canonicalSlug": "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur",
+      "en": "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
+      "fr": "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4032823": {
+    "canonicalSlug": "expert-expert-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "expert-expert-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur",
+      "en": "expert-expert-computed-tomography-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachexpertin-fachexperte-computertomographie-ksw-ch",
+      "fr": "tomographie-composee-d-expert-expert-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033648": {
+    "canonicalSlug": "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
+      "en": "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur",
+      "de": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+      "fr": "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4030134": {
+    "canonicalSlug": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
+      "en": "med-practical-assistant-or-health-emergency-practice-kantonsspital-winterthur-ksw-winterthur",
+      "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
+      "fr": "medicament-assistant-pratique-ou-cabinet-d-urgence-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4033767": {
+    "canonicalSlug": "dispone-in-coordinatore-paziente-in-mpa-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "dispone-in-coordinatore-paziente-in-mpa-kantonsspital-winterthur-ksw-winterthur",
+      "en": "disponent-in-patient-coordinator-in-mpa-kantonsspital-winterthur-ksw-winterthur",
+      "de": "disponent-in-patientenkoordinator-in-mpa-ksw-ch",
+      "fr": "deposant-in-coordinateur-in-mpa-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/7d3010c11d08cf990b7614d2c2ca9098_0/5213/unterhaltsreiniger_in_m_w_d_auf_abruf.htm?b=0&lang=de_de": {
+    "canonicalSlug": "pulitore-di-manutenzione-in-m-f-d-su-richiesta-sodexo-suisse-sa-dagmersellen",
+    "slugByLocale": {
+      "it": "pulitore-di-manutenzione-in-m-f-d-su-richiesta-sodexo-suisse-sa-dagmersellen",
+      "en": "maintenance-cleaner-in-m-f-d-on-demand-sodexo-suisse-sa-dagmersellen",
+      "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-dagmersellen",
+      "fr": "nettoyant-d-entretien-en-m-f-d-sur-demande-sodexo-suisse-sa-dagmersellen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/90610aa0e24f63ec6d2637e06f9b9af2_0/5374/sales_project_manager_m_w_d_-_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "direttore-del-progetto-di-vendita-m-f-d-100-sodexo-suisse-sa-glattbrugg",
+    "slugByLocale": {
+      "it": "direttore-del-progetto-di-vendita-m-f-d-100-sodexo-suisse-sa-glattbrugg",
+      "de": "sales-project-manager-m-w-d-100-sodexo-glattbrugg",
+      "fr": "directeur-de-projet-des-ventes-m-f-d-100-sodexo-suisse-sa-glattbrugg"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/4f3d7d38d24b740c95da2b03dc3a2333_0/5370/business_development_manager_m_w_d_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "business-development-manager-m-w-d-100-sodexo-glattbrugg",
+    "slugByLocale": {
+      "de": "business-development-manager-m-w-d-100-sodexo-glattbrugg",
+      "fr": "gestionnaire-du-developpement-des-affaires-m-f-d-100-sodexo-suisse-sa-glattbrugg"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/57e4f98889f96942ec0691d6a5995dad_0/5388/unterhaltsreiniger_in_m_w_d_ca_25_stunden_woche.htm?b=0&lang=de_de": {
+    "canonicalSlug": "pulitore-di-manutenzione-in-m-f-d-circa-25-ore-settimana-sodexo-suisse-sa-schaffhausen",
+    "slugByLocale": {
+      "it": "pulitore-di-manutenzione-in-m-f-d-circa-25-ore-settimana-sodexo-suisse-sa-schaffhausen",
+      "en": "maintenance-cleaner-in-m-f-d-approx-25-hours-week-sodexo-suisse-sa-schaffhausen",
+      "de": "unterhaltsreiniger-in-m-w-d-ca-25-stunden-woche-sodexo-schaffhausen",
+      "fr": "nettoyeur-d-entretien-en-m-f-j-environ-25-heures-semaine-sodexo-suisse-sa-schaffhausen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/0678ca2eae02d542cc931e81b74de122_0/5408/manufacturing_area_support_m_w_d_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "supporto-per-area-di-produzione-m-f-d-100-sodexo-suisse-sa-lengnau-be",
+    "slugByLocale": {
+      "it": "supporto-per-area-di-produzione-m-f-d-100-sodexo-suisse-sa-lengnau-be",
+      "de": "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be",
+      "fr": "soutien-du-secteur-manufacturier-m-f-d-100-sodexo-suisse-sa-lengnau-be"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/7fbe9c04f99dbfbc738ae9079740a314_0/5416/it-support_m_w_d_70_-_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "supporto-it-m-f-d-70-100-sodexo-suisse-sa-glattbrugg",
+    "slugByLocale": {
+      "it": "supporto-it-m-f-d-70-100-sodexo-suisse-sa-glattbrugg",
+      "de": "it-support-m-w-d-70-100-sodexo-glattbrugg",
+      "fr": "soutien-informatique-m-f-j-70-100-sodexo-suisse-sa-glattbrugg"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/82836ca597a373e6c3cd5ae2d466161e_0/5471/mitarbeiter_postservice_und_handyman_60.htm?b=0&lang=de_de": {
+    "canonicalSlug": "collaboratore-trice-postservice-handyman-60-sodexo-suisse-sa-luzern",
+    "slugByLocale": {
+      "it": "collaboratore-trice-postservice-handyman-60-sodexo-suisse-sa-luzern",
+      "en": "employees-postservice-handyman-60-sodexo-suisse-sa-luzern",
+      "de": "mitarbeiter-postservice-handyman-60-sodexo-luzern",
+      "fr": "employes-service-postal-handyman-60-sodexo-suisse-sa-luzern"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/56dc0997d871e9177069bb472574eb29_0/5412/reinigungsmitarbeiter_in_100_im_labor-bereich_gxp.htm?b=0&lang=de_de": {
+    "canonicalSlug": "personale-di-pulizia-100-nella-zona-di-laboratorio-gxp-sodexo-suisse-sa-lengnau-be",
+    "slugByLocale": {
+      "it": "personale-di-pulizia-100-nella-zona-di-laboratorio-gxp-sodexo-suisse-sa-lengnau-be",
+      "en": "cleaning-staff-100-in-the-laboratory-area-gxp-sodexo-suisse-sa-lengnau-be",
+      "de": "reinigungsmitarbeiter-in-100-im-labor-bereich-gxp-sodexo-lengnau-be",
+      "fr": "personnel-de-nettoyage-100-dans-le-laboratoire-gxp-sodexo-suisse-sa-lengnau-be"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/3cc697419ea18cc98d525999665cb94a_0/5511/rezeptionist_in_60.htm?b=0&lang=de_de": {
+    "canonicalSlug": "ricevitore-nel-60-sodexo-suisse-sa-baar",
+    "slugByLocale": {
+      "it": "ricevitore-nel-60-sodexo-suisse-sa-baar",
+      "en": "receptionist-in-60-sodexo-suisse-sa-baar",
+      "de": "rezeptionist-in-60-sodexo-baar",
+      "fr": "receptionniste-dans-60-sodexo-suisse-sa-baar"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZG"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/33bdf955c5d92555d8977eff1c5815c5_0/5556/recycling_spezialist_in_waste_logistik_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "specialista-di-riciclaggio-in-waste-logistics-100-sodexo-suisse-sa-lengnau-be",
+    "slugByLocale": {
+      "it": "specialista-di-riciclaggio-in-waste-logistics-100-sodexo-suisse-sa-lengnau-be",
+      "en": "recycling-specialist-in-waste-logistics-100-sodexo-suisse-sa-lengnau-be",
+      "de": "recycling-spezialist-in-waste-logistik-100-sodexo-lengnau-be",
+      "fr": "specialiste-du-recyclage-en-waste-logistique-100-sodexo-suisse-sa-lengnau-be"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/6074c6aa3488f3c2dddff2a7ca821aab_0/5555/betriebsmitarbeiter_in_service_attache_ohne_festes_pensum_auf_abruf.htm?b=0&lang=de_de": {
+    "canonicalSlug": "personale-operativo-in-service-attache-senza-carico-di-lavoro-fisso-su-richiesta-sodexo-suisse-sa-zurich-52dbd5",
+    "slugByLocale": {
+      "it": "personale-operativo-in-service-attache-senza-carico-di-lavoro-fisso-su-richiesta-sodexo-suisse-sa-zurich-52dbd5",
+      "en": "operational-staff-in-service-attache-without-a-fixed-workload-on-demand-sodexo-suisse-sa-zurich-flughafen-52dbd5",
+      "de": "betriebsmitarbeiter-in-service-attache-ohne-festes-pensum-auf-abruf-sodexo-zurich",
+      "fr": "personnel-operationnel-en-service-attache-sans-charge-de-travail-fixe-sur-demande-sodexo-suisse-sa-zurich-52dbd5"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/609c5e5089a9aa967232aba2a4d03114_0/5428/unterhaltsreiniger_in_m_w_d_35_stunden_woche.htm?b=0&lang=de_de": {
+    "canonicalSlug": "pulitore-di-manutenzione-in-m-f-d-35-ore-settimana-sodexo-suisse-sa-schaffhausen",
+    "slugByLocale": {
+      "it": "pulitore-di-manutenzione-in-m-f-d-35-ore-settimana-sodexo-suisse-sa-schaffhausen",
+      "en": "maintenance-cleaner-in-m-f-d-35-hours-week-sodexo-suisse-sa-schaffhausen",
+      "de": "unterhaltsreiniger-in-m-w-d-35-stunden-woche-sodexo-schaffhausen",
+      "fr": "nettoyeur-d-entretien-en-m-f-j-35-heures-semaine-sodexo-suisse-sa-schaffhausen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/d0cbf1a1aa1726784df15a81ead214f7_0/5576/betriebsmitarbeiter_in_m_w_d_service_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "personale-operativo-in-m-f-d-servizio-100-sodexo-suisse-sa-schaffhausen",
+    "slugByLocale": {
+      "it": "personale-operativo-in-m-f-d-servizio-100-sodexo-suisse-sa-schaffhausen",
+      "en": "operating-staff-in-m-f-d-service-100-sodexo-suisse-sa-schaffhausen",
+      "de": "betriebsmitarbeiter-in-m-w-d-service-100-sodexo-schaffhausen",
+      "fr": "personnel-d-exploitation-en-m-f-d-service-100-sodexo-suisse-sa-schaffhausen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/a58337d1b8c98bf3225186673be3407b_0/5580/betriebsmitarbeiter_in_m_w_d_abwaschkueche_und_automatenbetreuung_100.htm?b=0&lang=de_de": {
+    "canonicalSlug": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-e-automatenbetreuung-100-sodexo-suisse-sa-schaffhausen",
+    "slugByLocale": {
+      "it": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-e-automatenbetreuung-100-sodexo-suisse-sa-schaffhausen",
+      "en": "company-employees-in-m-f-d-dishwashing-room-and-vending-machine-support-100-sodexo-suisse-sa-schaffhausen",
+      "de": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen",
+      "fr": "employes-de-l-entreprise-en-m-f-d-lave-vaisselle-et-soutien-machine-distributeur-100-sodexo-suisse-sa-schaffhausen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "SH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/386854131f58a556343e056f03626e00_0/5551/unterhaltsreiniger_in_m_w_d_auf_abruf_befristet_bis_ende_september.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-auf-abruf-befristet-bis-ende-september-sodexo-suisse-sa-baar",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-befristet-bis-ende-september-sodexo-baar",
+      "it": "unterhaltsreiniger-in-m-w-d-auf-abruf-befristet-bis-ende-september-sodexo-suisse-sa-baar"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZG"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/d47619b92cebc6ebfa07969ab5370ae6_0/5496/unterhaltsreiniger_in_m_w_d_auf_abruf.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/65173795697c8229dd202ad94e821bab_0/5475/unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
+      "it": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+      "en": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+      "fr": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/80f2f15983422987ea30d77bb531be86_0/5547/unterhaltsreiniger_in_m_w_d_25.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern",
+      "it": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
+      "en": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
+      "fr": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/f01acd85b5e40e93f565627a8bb8bd98_0/5492/unterhaltsreiniger_in_m_w_d_15h_pro_woche.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-zurich-flughafen",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-zurich-flughafen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/7b6982e584636e6a1cda934f1410299c_0/5519/unterhaltsreiniger_in_m_w_d_15_stunden_pro_woche_am_abend.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-am-abend-sodexo-luzern",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-am-abend-sodexo-luzern"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/00c17237d011cca999f55a43db2ce040_0/5515/unterhaltsreiniger_in_m_w_d_15_stunden_pro_woche.htm?b=0&lang=de_de": {
+    "canonicalSlug": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-luzern",
+    "slugByLocale": {
+      "de": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-luzern"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "url|https://sodexo-suisse.concludis.de/prj/shw/fb4c835feb0a65cc39739320d7a51c02_0/5460/betriebsmitarbeiter_in_service_attache_80.htm?b=0&lang=de_de": {
+    "canonicalSlug": "betriebsmitarbeiter-in-service-attache-80-sodexo-zurich-flughafen",
+    "slugByLocale": {
+      "de": "betriebsmitarbeiter-in-service-attache-80-sodexo-zurich-flughafen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/sous-chefin-de-j4633.html": {
+    "canonicalSlug": "capo-di-sous-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "sous-chef-in-zfv-unternehmungen-zurich",
+      "it": "capo-di-sous-zfv-unternehmungen-zurich",
+      "en": "head-of-sous-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://jobs.emilfrey.ch/conseiller-du-service-clientle-fr-j2248.html": {
+    "canonicalSlug": "consulente-del-servizio-clienti-emil-frey-nyon",
+    "slugByLocale": {
+      "fr": "conseiller-du-service-clientele-emil-frey-nyon",
+      "it": "consulente-del-servizio-clienti-emil-frey-nyon",
+      "en": "customer-service-advisor-emil-frey-nyon",
+      "de": "kundendienstberater-emil-frey-nyon"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "VD"
+  },
+  "url|https://jobs.emilfrey.ch/leiterin-werkstatt-de-j2234.html": {
+    "canonicalSlug": "responsabile-werkstatt-emil-frey-dubendorf",
+    "slugByLocale": {
+      "de": "leiter-in-werkstatt-emil-frey-dubendorf",
+      "it": "responsabile-werkstatt-emil-frey-dubendorf",
+      "en": "manager-workshop-emil-frey-dubendorf",
+      "fr": "gestionnaire-atelier-emil-frey-dubendorf"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://jobs.emilfrey.ch/verkaufsberater-in-leapmotor-zeekr-de-j2076.html": {
+    "canonicalSlug": "consulente-commerciale-in-leapmotor-zeekr-emil-frey-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-leapmotor-zeekr-emil-frey-zurich",
+      "it": "consulente-commerciale-in-leapmotor-zeekr-emil-frey-zurich",
+      "en": "sales-consultant-in-leapmotor-zeekr-emil-frey-zurich",
+      "fr": "consultant-commercial-dans-leapmotor-zeekr-emil-frey-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f39904": {
+    "canonicalSlug": "sozialpadagogin-sozialpadagoge-per-20-lektionen-begleitung-unterstutzung-im-1-setting-wenn-moglich-auch-integrativ-in-der-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und",
+    "slugByLocale": {
+      "de": "sozialpadagogin-sozialpadagoge-fur-20-lektionen-begleitung-unterstutzung-im-1-1-setting-39904",
+      "it": "sozialpadagogin-sozialpadagoge-per-20-lektionen-begleitung-unterstutzung-im-1-setting-wenn-moglich-auch-integrativ-in-der-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und",
+      "en": "social-pedagogue-social-pedagogue-for-20-lessons-accompaniment-support-in-1-1-setting-if-possible-also-integrative-39904",
+      "fr": "pedagogue-sociale-pedagogue-sociale-pour-20-lecons-accompagnement-soutien-en-1-1-si-possible-aussi-integratif-en-39904"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f39361": {
+    "canonicalSlug": "istruttore-specializzato-ciclo-3-sec-1-totale-22l-math-franz-tedesco-inglese-ksml-kantonaler-stellenmarkt-fur-39361",
+    "slugByLocale": {
+      "de": "fachlehrperson-zyklus-3-sek-1-total-22l-math-franz-deutsch-englisch-schule-laupen-laupen-39361",
+      "it": "istruttore-specializzato-ciclo-3-sec-1-totale-22l-math-franz-tedesco-inglese-ksml-kantonaler-stellenmarkt-fur-39361",
+      "en": "specialist-instructor-cycle-3-sec-1-total-22l-math-franz-german-english-ksml-kantonaler-stellenmarkt-fur-39361",
+      "fr": "instructeur-specialise-cycle-3-sec-1-total-22l-math-franz-allemand-anglais-ksml-kantonaler-stellenmarkt-fur-39361"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "id|solique.ch|4036836": {
+    "canonicalSlug": "procuratore-aggiunto-procuratore-aggiunto-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "assistenz-staatsanwaltin-assistenz-staatsanwalt-kanton-zuerich-zurich",
+      "it": "procuratore-aggiunto-procuratore-aggiunto-kantonale-verwaltung-zurich-zurich",
+      "en": "assistant-prosecutor-assistant-prosecutor-kantonale-verwaltung-zurich-zurich",
+      "fr": "procureur-adjoint-procureur-adjoint-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4036973": {
+    "canonicalSlug": "change-manager-in-befristet-kantonale-verwaltung-zurich",
+    "slugByLocale": {
+      "de": "change-manager-in-befristet-kanton-zuerich-zurich",
+      "it": "change-manager-in-befristet-kantonale-verwaltung-zurich",
+      "en": "change-manager-in-befristet-kantonale-verwaltung-zurich-zurich",
+      "fr": "gestionnaire-du-changement-temporaire-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4031503": {
+    "canonicalSlug": "assistente-in-domestica-in-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "objektassistent-in-hauswart-in-kanton-zuerich-zurich",
+      "it": "assistente-in-domestica-in-kantonale-verwaltung-zurich-zurich",
+      "en": "object-assistant-in-housekeeper-in-kantonale-verwaltung-zurich-zurich",
+      "fr": "assistant-d-objet-menagere-in-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4036910": {
+    "canonicalSlug": "collaboratore-trice-hausdienst-kantonale-verwaltung-zurich-andelfingen",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hausdienst-kanton-zuerich-andelfingen",
+      "it": "collaboratore-trice-hausdienst-kantonale-verwaltung-zurich-andelfingen",
+      "en": "employee-housework-kantonale-verwaltung-zurich-andelfingen",
+      "fr": "employe-travail-domestique-kantonale-verwaltung-zurich-andelfingen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037085": {
+    "canonicalSlug": "pratica-di-studio-kantonale-verwaltung-zurich-rheinau",
+    "slugByLocale": {
+      "de": "studienpraktikant-in-kanton-zuerich-rheinau",
+      "it": "pratica-di-studio-kantonale-verwaltung-zurich-rheinau",
+      "en": "study-practitioner-kantonale-verwaltung-zurich-rheinau",
+      "fr": "specialiste-de-l-etude-kantonale-verwaltung-zurich-rheinau"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://www.google.com/about/careers/applications/jobs/results/72697553883144902-staff-security-engineer-operational-technology-cloud-ciso": {
+    "canonicalSlug": "staff-security-engineer-operational-technology-cloud-ciso-google-switzerland-zurich",
+    "slugByLocale": {
+      "en": "staff-security-engineer-operational-technology-cloud-ciso-google-switzerland-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "url|https://www.google.com/about/careers/applications/jobs/results/93795275054686918-strategic-partner-development-manager-search-and-gemini-kampi": {
+    "canonicalSlug": "strategic-partner-development-manager-search-and-gemini-k-amp-i-google-switzerland-zurich",
+    "slugByLocale": {
+      "en": "strategic-partner-development-manager-search-and-gemini-k-amp-i-google-switzerland-zurich",
+      "fr": "gestionnaire-du-developpement-des-partenaires-strategiques-recherche-et-gemini-k-i-google-switzerland-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|greenhouse.io|8056606": {
+    "canonicalSlug": "senior-lead-exhibiton-programming-on-running-ch",
+    "slugByLocale": {
+      "en": "senior-lead-exhibiton-programming-on-running-ch",
+      "de": "senior-lead-ausstellungsprogrammierung-on-running-zurich",
+      "fr": "responsable-principal-programmation-d-exposition-on-running-zurich"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|greenhouse.io|7954022": {
+    "canonicalSlug": "head-of-functional-communications-on-running-ch",
+    "slugByLocale": {
+      "en": "head-of-functional-communications-on-running-ch"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
+  },
+  "id|raiffeisen.ch|2994db79-403c-43da-9010-f9dc10cd41fa": {
+    "canonicalSlug": "consiglio-di-amministrazione-consiglio-raiffeisenbank-pilatus-raiffeisen-kriens",
+    "slugByLocale": {
+      "de": "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens",
+      "it": "consiglio-di-amministrazione-consiglio-raiffeisenbank-pilatus-raiffeisen-kriens",
+      "en": "board-of-directors-council-raiffeisenbank-pilatus-raiffeisen-kriens",
+      "fr": "conseil-d-administration-conseil-raiffeisenbank-pilatus-raiffeisen-kriens"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "LU"
+  },
+  "id|raiffeisen.ch|95d555f0-9971-4e20-ae45-3a65d53fd3cf": {
+    "canonicalSlug": "consulente-clienti-f-m-d-raiffeisen-meiringen",
+    "slugByLocale": {
+      "de": "kundenberater-w-m-d-raiffeisen-meiringen",
+      "it": "consulente-clienti-f-m-d-raiffeisen-meiringen",
+      "en": "customer-advisor-f-m-d-raiffeisen-meiringen",
+      "fr": "conseiller-a-la-clientele-f-m-d-raiffeisen-meiringen"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "BE"
+  },
+  "id|medbase.wd502.myworkdayjobs.com|jr07291": {
+    "canonicalSlug": "impostazione-medica-permanente-tutti-i-tipi-80-100-medbase-bulle",
+    "slugByLocale": {
+      "fr": "medecin-cadre-permanence-medicale-tous-genres-80-100-medbase-ch",
+      "it": "impostazione-medica-permanente-tutti-i-tipi-80-100-medbase-bulle",
+      "en": "physician-permanent-medical-setting-all-kinds-80-100-medbase-bulle",
+      "de": "arzt-standige-medizinische-einstellung-alle-arten-80-100-medbase-bulle"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "FR"
+  },
+  "id|lindtspruengli.wd103.myworkdayjobs.com|jr102699-1": {
+    "canonicalSlug": "project-manager-store-operations-80-100-lindt-spruengli-kilchberg",
+    "slugByLocale": {
+      "de": "project-manager-store-operations-80-100-lindt-spruengli-kilchberg",
+      "fr": "gestionnaire-de-projet-exploitation-des-magasins-80-100-lindt-sprungli-kilchberg"
+    },
+    "createdAt": "2026-07-13",
+    "canton": "ZH"
   }
 }
