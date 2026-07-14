@@ -313,6 +313,51 @@ describe('rankAndSelectHeadlines', () => {
     });
     expect(picks[0].url).toBe('u2'); // novita wins over hammered fiscale
   });
+
+  // ── source-quality multiplier for undecoded Google News wrappers (#4101) ──
+  // A Google News candidate not yet decoded has url=news.google.com/…, which is
+  // never in perDomain → the multiplier used to degrade to a neutral 1.0 and a
+  // known publisher lost its historical score. With `_publisherHost` (from the
+  // RSS <source url> attr) the ranker recovers the real publisher's multiplier.
+  const sourceQualityBoostingRsi = {
+    medianWinnerRate: 0.5,
+    perDomain: { 'rsi.ch': { winnerRate: 1.0, total: 10 } },
+  };
+
+  it('#4101: Google News wrapper with _publisherHost gets the publisher domain multiplier', async () => {
+    const headlines = [
+      {
+        headline: 'Frontalieri Ticino in calo nel 2026',
+        url: 'https://news.google.com/rss/articles/opaque',
+        _publisherHost: 'rsi.ch',
+      },
+    ];
+    const picks = await rankAndSelectHeadlines(headlines, vocab, {
+      classifierOpts: { forceRegex: true },
+      sourceQuality: sourceQualityBoostingRsi,
+      maxPicks: 1,
+    });
+    expect(picks).toHaveLength(1);
+    // rsi.ch winnerRate (1.0) is 2x the median (0.5) → boost multiplier > 1.
+    expect(picks[0]._score.sourceQualityMultiplier).toBeGreaterThan(1);
+  });
+
+  it('#4101: same wrapper WITHOUT _publisherHost degrades to neutral (control)', async () => {
+    const headlines = [
+      {
+        headline: 'Frontalieri Ticino in calo nel 2026',
+        url: 'https://news.google.com/rss/articles/opaque',
+      },
+    ];
+    const picks = await rankAndSelectHeadlines(headlines, vocab, {
+      classifierOpts: { forceRegex: true },
+      sourceQuality: sourceQualityBoostingRsi,
+      maxPicks: 1,
+    });
+    expect(picks).toHaveLength(1);
+    // news.google.com absent from perDomain → neutral 1.0 → field not attached.
+    expect(picks[0]._score.sourceQualityMultiplier).toBeUndefined();
+  });
 });
 
 // ── Today-picks-by-cluster persistence ────────────────────────────

@@ -139,14 +139,24 @@ function extractTagText(block, tagName) {
   return (m[1] ?? m[2] ?? '').replace(/<[^>]+>/g, '').trim();
 }
 
+// Google News RSS items carry `<source url="https://www.rsi.ch">RSI</source>`.
+// `extractTagText` returns the publisher NAME; this returns the `url` attribute
+// (the real publisher origin) so downstream ranking can recover the publisher's
+// source-quality score even before the opaque wrapper URL is decoded.
+function extractSourceUrl(block) {
+  const m = block.match(/<source\b[^>]*\burl\s*=\s*(?:"([^"]*)"|'([^']*)')/i);
+  if (!m) return '';
+  return (m[1] ?? m[2] ?? '').trim();
+}
+
 /**
  * Parse the Google-News-RSS XML payload. Mirrors `parseTrendsRss` shape.
- * Returns array of `{ title, link, pubDate, source }`. Items missing a
- * non-empty `<title>` are skipped. Always returns an array — never
+ * Returns array of `{ title, link, pubDate, source, sourceUrl }`. Items
+ * missing a non-empty `<title>` are skipped. Always returns an array — never
  * throws.
  *
  * @param {string} xml
- * @returns {Array<{title: string, link: string, pubDate: string, source: string}>}
+ * @returns {Array<{title: string, link: string, pubDate: string, source: string, sourceUrl: string}>}
  */
 export function parseNewsRss(xml) {
   if (!xml || typeof xml !== 'string') return [];
@@ -159,7 +169,8 @@ export function parseNewsRss(xml) {
     const link = extractTagText(block, 'link');
     const pubDate = extractTagText(block, 'pubDate');
     const source = extractTagText(block, 'source');
-    out.push({ title, link, pubDate, source });
+    const sourceUrl = extractSourceUrl(block);
+    out.push({ title, link, pubDate, source, sourceUrl });
   }
   return out;
 }
@@ -261,6 +272,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
             googleNewsRssLink: it.link || null,
             googleNewsRssPubDate: it.pubDate || null,
             googleNewsRssSource: it.source || null,
+            googleNewsRssSourceUrl: it.sourceUrl || null,
           },
           rationale: `Google News RSS seed "${seed}" — ${it.source || 'unknown source'}`,
         });
