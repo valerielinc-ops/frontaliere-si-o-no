@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-07-13T21:59:14.895Z",
+  "assembledAt": "2026-07-14T10:55:21.476Z",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -17,7 +17,7 @@
       "title": "Psychotherapeut/in",
       "titleByLocale": {
         "it": "Psicoterapeuta",
-        "en": "Psychotherapist",
+        "en": "Psychotherapeut/in",
         "de": "Psychotherapeut/in",
         "fr": "Psychothérapeute"
       },
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T21:59:12.580Z",
+      "crawledAt": "2026-07-14T10:55:19.548Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -81,6 +81,7 @@
           "Compétences linguistiques supplémentaires"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden",
         "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -140,7 +141,7 @@
       "url": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T21:59:10.452Z",
+      "crawledAt": "2026-07-14T10:55:18.175Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -217,7 +218,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T21:59:07.572Z",
+      "crawledAt": "2026-07-14T10:55:16.087Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -234,6 +235,7 @@
       "applyUrl": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
         "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
