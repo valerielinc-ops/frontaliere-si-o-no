@@ -8502,6 +8502,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.canicola-lavoro-ticino-confronto.title': 'Hitzewallung und Arbeit: Zusammenstoß zwischen Kanton und UNIA über die Rechte',
     'blog.article.canicola-lavoro-ticino-confronto.excerpt': 'Bellinzona steht im Mittelpunkt des Vergleichs zwischen Behörden und Gewerkschaften über den Arbeitsschutz bei extremen Hitzewellen im Tessin.',
     'blog.article.canicola-lavoro-ticino-confronto.imageAlt': 'Castelgrande in Bellinzona an einem Sommertag',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Grenzgängerarbeitslosigkeit: Die EU-Reform und die Zweifel im Tessin',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'Die EU strebt eine Reform der Zulage für Grenzgänger an. Andrea Puglia (OCST) kommentiert die Auswirkungen auf Rechte, Kosten und den Arbeitsmarkt im Tessin.',
+    'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden im Stadtzentrum',
 };
 
 export default blogMetaDe;

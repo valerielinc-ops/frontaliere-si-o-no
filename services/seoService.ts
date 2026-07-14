@@ -4535,6 +4535,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vergiate-sospensione-passerella-settembre': { name: 'Vergiate passerella', path: '/articoli-frontaliere/vergiate-sospensione-passerella-settembre', parent: 'blog' },
     'blog-rincari-festival-estate-ticino': { name: 'Prezzi festival Svizzera', path: '/articoli-frontaliere/rincari-festival-estate-ticino', parent: 'blog' },
     'blog-canicola-lavoro-ticino-confronto': { name: 'Canicola lavoro Ticino', path: '/articoli-frontaliere/canicola-lavoro-ticino-confronto', parent: 'blog' },
+    'blog-riforma-disoccupazione-frontalieri-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/riforma-disoccupazione-frontalieri-ue', parent: 'blog' },
  };
 
  const info = sectionNames[section];
