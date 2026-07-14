@@ -254,6 +254,69 @@ describe('Davos Klosters Bergbahnen job parser', () => {
     });
   });
 
+  // #4205 follow-up: a decorative <h1> (e.g. a visually-hidden logo heading)
+  // in the header, plus a stray class="h3" element inside the banner, must
+  // NOT anchor bodyScope too early or leak into the department field.
+  const SAMPLE_DETAIL_WITH_DECORATIVE_H1_AND_BANNER_H3_HTML = `
+<html lang="de"><body>
+<header class="site-header">
+  <h1 class="sr-only">Davos Klosters Mountains</h1>
+  <div class="site-alert notification">
+    <div class="h3 mb-0">Betriebsmeldung</div>
+    <div class="wysiwyg">
+      <p>Aufgrund von tech. Arbeiten an der Pendelbahn (Jschalp-Jakobshorn), wird die 2. Sektion des Jakobshorns am 14.07.2026 ab 15:30 Uhr geschlossen. Danke für das Verständnis.</p>
+    </div>
+  </div>
+</header>
+<main id="main-content" role="main" class="content-block">
+  <div class="title-block title-block--main title-block--main-small">
+    <div class="media-text media-text--text-only text-center">
+      <div class="container container--no-padding-xs">
+        <div class="container-narrow">
+          <div class="media-text__content">
+            <div class="media-text__content__offset">
+              <div class="h3 mb-0 text-white">Bergbahnen</div>
+              <h1 class="mb-0 h2">
+                <span class="d-block text-primary">Betriebselektriker:in</span>
+              </h1>
+              <div class="meta-list">
+                <div class="meta-list__item">ab Sommersaison 2026</div>
+                <div class="meta-list__item">100%</div>
+              </div>
+            </div>
+            <div class="wysiwyg mt-2 pt-1 text-left">
+              <p>Für die kommende <strong>Sommersaison 2026</strong> suchen wir eine engagierte Person als Betriebselektriker:in für unser Team in Davos.</p>
+              <ul>
+                <li>Unterhalt und Betrieb von Seilbahnen und Schneeanlagen</li>
+                <li>Störungsbehebung und Pikettdienst im Winterbetrieb</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body></html>
+`;
+
+  describe('parseDavosKlostersBergbahnenDetailHtml — #4205 decorative-h1/banner-h3 exclusion', () => {
+    it('anchors on the title-owning <h1>, not a decorative <h1> in the header', () => {
+      const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_WITH_DECORATIVE_H1_AND_BANNER_H3_HTML);
+      expect(result).not.toBeNull();
+      expect(result!.title).toBe('Betriebselektriker:in');
+      expect(result!.description).not.toContain('Jakobshorn');
+      expect(result!.description).not.toContain('geschlossen');
+      expect(result!.description).toContain('Seilbahnen');
+    });
+
+    it('does not leak the banner class="h3" element into department', () => {
+      const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_WITH_DECORATIVE_H1_AND_BANNER_H3_HTML);
+      expect(result!.department).toBe('Bergbahnen');
+      expect(result!.department).not.toBe('Betriebsmeldung');
+    });
+  });
+
   describe('parseDavosKlostersBergbahnenDetailHtml', () => {
     it('extracts title from <h1><span class="text-primary">', () => {
       const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_HTML);
