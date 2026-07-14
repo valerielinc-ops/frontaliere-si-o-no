@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-07-14T12:32:56.690Z",
+  "generatedAt": "2026-07-14T22:56:11.801Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14250,
-  "avgDurationMs": 14250,
+  "durationMs": 15358,
+  "avgDurationMs": 15358,
   "durationHistory": [
-    14250
+    15358
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -280,44 +280,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Electrical Engineer (in Giubiasco or Rotkreuz or Lausanne/Fribourg)",
-      "slug": "ingegnere-elettrico-senior-lombardi-group-giubiasco",
-      "url": "https://lombardi.group/eng/careers/job?id=61354",
-      "applyUrl": "https://lombardi.group/eng/careers/job?id=61354",
-      "company": "Lombardi Group",
-      "companyKey": "lombardi-group",
-      "companyDomain": "lombardi.group",
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria civile",
-      "source": "lombardi-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "lombardi-group-5883f7b74591",
-      "salaryMin": 79500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6512",
-      "firstSeenAt": "2026-04-21T10:25:19.039Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
