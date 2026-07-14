@@ -67,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -294,7 +293,6 @@
       "pensum": "100%",
       "sfJobId": "1376392933",
       "firstSeenAt": "2026-07-04T12:22:49.137Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -516,7 +514,6 @@
       "pensum": "100%",
       "sfJobId": "1399134833",
       "firstSeenAt": "2026-07-04T12:22:52.847Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1127,7 +1124,6 @@
       "pensum": "80-100%",
       "sfJobId": "1397715233",
       "firstSeenAt": "2026-07-04T12:22:46.317Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1622,8 +1618,7 @@
         }
       },
       "addressRegion": "LU",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
