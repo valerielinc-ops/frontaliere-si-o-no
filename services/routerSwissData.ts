@@ -396,6 +396,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'skyguide-licenziamenti': { it: 'skyguide-licenziamenti', en: 'skyguide-licenziamenti-frontaliere-ticino', de: 'skyguide-entlassungen-frontalier-tingen', fr: 'skyguide-licenciements-frontaliers-ticin' },
  'novita-fiscale-730-2025-frontalieri': { it: 'novita-fiscale-730-2025-frontalieri', en: 'fiscal-news-730-2025-cross-border', de: 'steuerliche-neuheiten-730-2025-grenzgaenger', fr: 'nouvelles-fiscales-730-2025-frontaliers' },
  'disoccupazione-frontalieri-naspi': { it: 'disoccupazione-frontalieri-naspi', en: 'naspi-for-frontalieri', de: 'naspi-fuer-frontalier', fr: 'naspi-pour-frontaliers' },
+ 'ripresa-finanziaria-ospedali-grigionesi': { it: 'ripresa-finanziaria-ospedali-grigionesi', en: 'financial-recovery-grisons-hospitals', de: 'finanzielle-erholung-graubuender-spitaeler', fr: 'reprise-financiere-hopitaux-grisons' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

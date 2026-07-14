@@ -14448,6 +14448,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ripresa-finanziaria-ospedali-grigionesi': {
+    title: 'Grigioni: le finanze degli ospedali tornano in attivo',
+    description: 'Bilancio 2025 per gli ospedali grigionesi: l\'Ospedale di Coira e altre strutture tornano in utile. Analisi della situazione e prospettive future.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, finanze, ospedali, tornano',
+    ogTitle: 'Finanze ospedali Grigioni: ripresa 2025 e utili',
+    ogDescription: 'Bilancio 2025 per gli ospedali grigionesi: l\'Ospedale di Coira e altre strutture tornano in utile. Analisi della situazione e prospettive future.',
+    canonicalPath: '/articoli-svizzera/ripresa-finanziaria-ospedali-grigionesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: le finanze degli ospedali tornano in attivo",
+      "description": "Bilancio 2025 per gli ospedali grigionesi: l'Ospedale di Coira e altre strutture tornano in utile. Analisi della situazione e prospettive future.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ripresa-finanziaria-ospedali-grigionesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale cantonale nei Grigioni"
+      },
+      "datePublished": "2026-07-14T13:24:13+00:00",
+      "dateModified": "2026-07-14T13:24:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ripresa-finanziaria-ospedali-grigionesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

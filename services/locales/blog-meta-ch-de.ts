@@ -1120,6 +1120,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-naspi.title': 'Grenzgängerarbeitslosigkeit: Wie es funktioniert und wie hoch es ist',
     'blog.article.disoccupazione-frontalieri-naspi.excerpt': 'Grenzgänger können die Naspi in Anspruch nehmen, ein monatliches Arbeitslosengeld, das vom INPS gezahlt wird. Hier finden Sie die Anforderungen und Antragsmodalitäten.',
     'blog.article.disoccupazione-frontalieri-naspi.imageAlt': 'Frontalier an der Arbeit in der Schweiz, Juli 2024',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.title': 'Graubünden: Spitalfinanzen wieder auf Kurs',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.excerpt': 'Nach einem schwierigen Jahr 2024 verzeichnen die Bündner Spitäler im Jahr 2025 positive Ergebnisse. Hier ist die finanzielle Übersicht der wichtigsten Gesundheitseinrichtungen.',
+    'blog.article.ripresa-finanziaria-ospedali-grigionesi.imageAlt': 'Kantonsspital in Graubünden',
 };
 
 export default blogMetaChDe;

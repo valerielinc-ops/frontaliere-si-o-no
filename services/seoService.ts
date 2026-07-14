@@ -4529,6 +4529,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-novita-fiscale-730-2025-frontalieri': { name: 'Novità fiscali 2025', path: '/articoli-svizzera/novita-fiscale-730-2025-frontalieri/', parent: 'blog' },
     'blog-disoccupazione-frontalieri-ticino-accordo-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-ticino-accordo-ue', parent: 'blog' },
     'blog-disoccupazione-frontalieri-naspi': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/disoccupazione-frontalieri-naspi/', parent: 'blog' },
+    'blog-ripresa-finanziaria-ospedali-grigionesi': { name: 'Finanze sanitarie Grigioni', path: '/articoli-svizzera/ripresa-finanziaria-ospedali-grigionesi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
