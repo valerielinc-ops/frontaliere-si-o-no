@@ -209,14 +209,26 @@ async function main() {
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
     const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
-    if (_ckJobs.length === 0) continue;
-    _aggregateTotal += _ckJobs.length;
-    writeJobsCrawlerSlice(ck, _ckJobs);
+    // A brand with 0 jobs THIS run only means this crawl found no fresh
+    // listings for it — writeJobsCrawlerSlice(ck, []) would throw via the
+    // shrink guard if a non-empty slice already exists on disk, so the slice
+    // write stays conditional. But skipping the summary write too (as before)
+    // freezes that brand's `generatedAt` at its last non-zero run, which
+    // crawler-health.mjs then flags as "stale" days later even though the
+    // crawler ran fine every day (#4167 — same class already fixed for the
+    // aggregate 'swatchgroup' key below). Always refresh the per-brand
+    // summary, reporting the still-persisted slice count when this run found
+    // nothing new for that brand.
+    const _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
+    if (_ckJobs.length > 0) {
+      _aggregateTotal += _ckJobs.length;
+      writeJobsCrawlerSlice(ck, _ckJobs);
+    }
     writeSummaryCrawlerSlice({
       key: ck,
       label: ck,
       generatedAt: new Date().toISOString(),
-      total: _ckJobs.length,
+      total: _ckTotal,
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
       removedCount: crawlDiff.removedJobs.length,
