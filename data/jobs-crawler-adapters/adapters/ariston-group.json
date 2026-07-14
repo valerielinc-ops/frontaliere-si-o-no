@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-14T11:19:28.194Z",
+  "updatedAt": "2026-07-14T22:24:14.999Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
       "location": "Rothenburg, CH, 6023",
@@ -135,17 +135,23 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-08"
     },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-10"
-    },
     "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
       "location": "Fontaines, CH, 2046",
       "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-07-09"
+    },
+    "https://careers.aristongroup.com/job/Aigle-TECHNICIENNE-DE-SERVICE-%C3%89NERGIES-RENOUVELABLES-AIGLE-Aigl-1860/1414879033/": {
+      "location": "Aigle, CH, 1860",
+      "canton": "VD",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-14"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-Gen%C3%A8-1202/1413874733/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-10"
     }
   }
 }
