@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-13T22:04:28.172Z",
+  "updatedAt": "2026-07-14T11:18:52.399Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/associate-manager-real-estate-advisory-transaction/150b3b02-3b0e-4f18-9a9f-aa7f7a49a9e9": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-14"
+    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-senior-consultant-financial-services/9984d496-8a05-4369-86f7-e748851850f7": {
       "location": "Zürich",
       "canton": "ZH",
@@ -126,12 +132,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-24"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/b39bdbe7-a2a5-47d9-8717-1727ef726d5b": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-18"
     },
     "https://jobs.pwc.ch/job-vacancies/intern-audit-trade-industries-and-services/5d6a07da-c8ad-429c-9674-5a042044f109": {
       "location": "Geneva",
