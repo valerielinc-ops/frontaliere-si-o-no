@@ -8496,6 +8496,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vergiate-sospensione-passerella-settembre.title': 'Schämen Sie sich, die Arbeiten am Laufsteg bis September ausgesetzt',
     'blog.article.vergiate-sospensione-passerella-settembre.excerpt': 'Die Arbeiten an der neuen Fußgängerbrücke in Vergiate stehen vorübergehend still. Wiederaufnahme für Ende September in Erwartung der neuen Rfi-Unterstützung.',
     'blog.article.vergiate-sospensione-passerella-settembre.imageAlt': 'Fußgängerbrücken-Baustelle in Vergiate',
+    'blog.article.rincari-festival-estate-ticino.title': 'Konzerte in der Schweiz: Preise fliegen im Sommer 2026',
+    'blog.article.rincari-festival-estate-ticino.excerpt': 'Open-Air-Festivals werden teurer: In zehn Jahren über 50% teurer. Analyse der Kosten und Auswirkungen auf die Taschen der Fans.',
+    'blog.article.rincari-festival-estate-ticino.imageAlt': 'Menschen bei einem Open-Air-Konzert im Tessin',
 };
 
 export default blogMetaDe;

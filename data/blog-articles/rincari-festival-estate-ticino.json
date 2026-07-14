@@ -1,0 +1,40 @@
+{
+  "id": "rincari-festival-estate-ticino",
+  "slug": "rincari-festival-estate-ticino",
+  "publishedAt": "2026-07-14T14:18:17.977Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 49.542152855275525,
+    "confidence": 0.8,
+    "finalScore": 39.633722284220426,
+    "topK": [
+      {
+        "slug": "moon-stars-resident-discount-locarno-card",
+        "cosine": 0.8396975060216191
+      },
+      {
+        "slug": "estival-jazz-lugano-pagamento-2024",
+        "cosine": 0.8304220841287772
+      },
+      {
+        "slug": "vacanze-estive-2026-costi-guerra",
+        "cosine": 0.8240587745219284
+      },
+      {
+        "slug": "turismo-como-frontalieri-2026",
+        "cosine": 0.8237909839657132
+      },
+      {
+        "slug": "benzina-19-euro-5-maggio-2026",
+        "cosine": 0.8220362988531267
+      }
+    ],
+    "score": 39.633722284220426,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

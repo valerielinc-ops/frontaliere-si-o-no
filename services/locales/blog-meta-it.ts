@@ -8498,6 +8498,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vergiate-sospensione-passerella-settembre.title': 'Vergiate, sospesi i lavori della passerella fino a settembre',
     'blog.article.vergiate-sospensione-passerella-settembre.excerpt': 'I lavori per la nuova passerella di Vergiate sono temporaneamente fermi. Ripresa prevista per fine settembre in attesa dei nuovi appoggi Rfi.',
     'blog.article.vergiate-sospensione-passerella-settembre.imageAlt': 'Cantiere passerella pedonale a Vergiate',
+    'blog.article.rincari-festival-estate-ticino.title': 'Concerti in Svizzera: i prezzi volano nell\'estate 2026',
+    'blog.article.rincari-festival-estate-ticino.excerpt': 'I festival all\'aperto diventano più cari: rincari oltre il 50% in dieci anni. Analisi dei costi e impatto sulle tasche dei fan.',
+    'blog.article.rincari-festival-estate-ticino.imageAlt': 'Persone a un concerto all\'aperto in Ticino',
 };
 
 export default blogMetaIt;

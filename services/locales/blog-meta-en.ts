@@ -8497,6 +8497,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vergiate-sospensione-passerella-settembre.title': 'Vergiate, suspended the work on the catwalk until September',
     'blog.article.vergiate-sospensione-passerella-settembre.excerpt': 'Work on the new Vergiate catwalk is temporarily at a standstill. Recovery scheduled for the end of September pending new RFI support.',
     'blog.article.vergiate-sospensione-passerella-settembre.imageAlt': 'Pedestrian bridge construction site in Vergiate',
+    'blog.article.rincari-festival-estate-ticino.title': 'Concerts in Switzerland: prices fly in the summer of 2026',
+    'blog.article.rincari-festival-estate-ticino.excerpt': 'Outdoor festivals are becoming more expensive: prices rise by more than 50% in ten years. Cost analysis and impact on fan pockets.',
+    'blog.article.rincari-festival-estate-ticino.imageAlt': 'People at an outdoor concert in Ticino',
 };
 
 export default blogMetaEn;
