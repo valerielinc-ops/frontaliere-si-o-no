@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-07-14T10:56:44.655Z",
+  "assembledAt": "2026-07-14T22:01:43.014Z",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -33,7 +33,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:56:42.241Z",
+      "crawledAt": "2026-07-14T22:01:22.279Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -108,7 +108,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511948",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:56:36.464Z",
+      "crawledAt": "2026-07-14T22:01:17.169Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -183,7 +183,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501565",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:56:27.346Z",
+      "crawledAt": "2026-07-14T22:01:09.415Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -225,7 +225,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-f5aff5ab3357",
@@ -258,7 +259,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/495789",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:24.261Z",
+      "crawledAt": "2026-07-14T22:01:06.849Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -287,6 +288,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:36.245Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -331,7 +333,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/501581",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:56:21.407Z",
+      "crawledAt": "2026-07-14T22:01:04.343Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -373,7 +375,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-a3eb7b804682",
@@ -406,7 +409,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502608",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:56:18.406Z",
+      "crawledAt": "2026-07-14T22:01:01.776Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -437,6 +440,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:31.940Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -481,7 +485,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/496729",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:15.576Z",
+      "crawledAt": "2026-07-14T22:00:59.215Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -512,6 +516,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:29.615Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -556,7 +561,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502805",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:12.737Z",
+      "crawledAt": "2026-07-14T22:00:56.558Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -631,7 +636,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:56:09.884Z",
+      "crawledAt": "2026-07-14T22:00:53.928Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -706,7 +711,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505172",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:06.941Z",
+      "crawledAt": "2026-07-14T22:00:51.402Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -737,6 +742,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:18.632Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -781,7 +787,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505367",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:04.034Z",
+      "crawledAt": "2026-07-14T22:00:48.146Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -862,7 +868,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:56:01.166Z",
+      "crawledAt": "2026-07-14T22:00:45.515Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -893,6 +899,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:14.096Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -937,7 +944,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508461",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:55:58.166Z",
+      "crawledAt": "2026-07-14T22:00:42.761Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1012,7 +1019,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508713",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:55.392Z",
+      "crawledAt": "2026-07-14T22:00:40.250Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1093,7 +1100,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509175",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:52.649Z",
+      "crawledAt": "2026-07-14T22:00:37.570Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -1172,7 +1179,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509377",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:50.020Z",
+      "crawledAt": "2026-07-14T22:00:35.011Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1237,7 +1244,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509387",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:47.421Z",
+      "crawledAt": "2026-07-14T22:00:32.490Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1271,6 +1278,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:55.408Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1315,7 +1323,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509879",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:55:44.729Z",
+      "crawledAt": "2026-07-14T22:00:29.858Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1390,7 +1398,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509164",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:42.152Z",
+      "crawledAt": "2026-07-14T22:00:27.253Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1421,6 +1429,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:48.702Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1465,7 +1474,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508738",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:39.627Z",
+      "crawledAt": "2026-07-14T22:00:24.793Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1507,7 +1516,8 @@
           "maxValue": 63600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "siemens-82681902b837",
@@ -1540,7 +1550,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510207",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:55:36.907Z",
+      "crawledAt": "2026-07-14T22:00:22.261Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1615,7 +1625,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510486",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:34.237Z",
+      "crawledAt": "2026-07-14T22:00:19.606Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1646,6 +1656,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:35.193Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1690,7 +1701,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510414",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:31.555Z",
+      "crawledAt": "2026-07-14T22:00:17.006Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1711,6 +1722,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-13T21:58:40.104Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1755,7 +1767,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497748",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:28.568Z",
+      "crawledAt": "2026-07-14T22:00:14.565Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1786,6 +1798,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:30.785Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1830,7 +1843,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510769",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:25.661Z",
+      "crawledAt": "2026-07-14T22:00:11.962Z",
       "addressLocality": "Lucerne",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1861,6 +1874,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:28.414Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1905,7 +1919,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510962",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:22.890Z",
+      "crawledAt": "2026-07-14T22:00:06.013Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1986,7 +2000,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509065",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:20.245Z",
+      "crawledAt": "2026-07-14T22:00:03.467Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2061,7 +2075,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510807",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:17.535Z",
+      "crawledAt": "2026-07-14T22:00:00.803Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2092,6 +2106,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:19.284Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2136,7 +2151,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511150",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:14.666Z",
+      "crawledAt": "2026-07-14T21:59:58.402Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2211,7 +2226,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511115",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:12.077Z",
+      "crawledAt": "2026-07-14T21:59:55.799Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2242,6 +2257,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:14.756Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2251,81 +2267,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "siemens-f5cdfe2db783",
-      "slug": "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich",
-      "slugByLocale": {
-        "it": "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich",
-        "en": "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
-        "de": "produktmanagement-fur-arbeitende-studierende-im-grid-modelling-40-60-siemens-zuerich",
-        "fr": "gestion-de-produit-etudiante-active-en-modelisation-de-grille-40-60-siemens-zuerich"
-      },
-      "company": "Siemens",
-      "companyKey": "siemens",
-      "companyDomain": "siemens.com",
-      "title": "Working Student Product Management in Grid Modelling 40–60%",
-      "titleByLocale": {
-        "it": "Gestione del prodotto dello studente di lavoro nella modellazione della griglia 40–60%",
-        "en": "Working Student Product Management in Grid Modelling 40–60%",
-        "de": "Working Student Produktmanagement im Grid Modelling 40–60%",
-        "fr": "Working Student Product Management dans la modélisation de grille 40-60%"
-      },
-      "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart infrastructure, we transform the everyday for everyone. At Siemens Grid Software, we develop products that support our society in meeting the energy demands of the future. Our mission is to build software that enables secure, resilient, and digital power grids. In our Grid Modelling Product Team, you will work at the heart of the digitalization of the power grid. Grid models are the foundation of simulation, planning, and operations. High-quality, well-governed models enable trusted digital twins, scalable automation, and credible AI. Poor data, in contrast, leads to unreliable decisions and costly inefficiencies. Product management is about deciding what to build and why it matters. You will help understand customer problems, turn them into clear product ideas, and guide the team toward solutions, while engineers focus on how to build them. As a working student you are an important part of #TeamSiemens. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of Product Management Working Student Grid Modeling and start as soon as possible – your team is looking forward to meeting you! Your new responsibilities\n• You support the product management team in idea generation by co-developing solution concepts with product managers and engineers, while constructively challenging underlying assumptions\n• Building on this, you actively use artificial intelligence tools to accelerate brainstorming and de-biasing processes, thereby driving innovative approaches within the team\n• In this context, you help maintain continuous discovery routines by supporting activities such as problem framing, assumption mapping, and customer interviews, ensuring key insights remain visible and actionable\n• Complementing these tasks, you contribute to operational product management by supporting backlog maintenance, documenting decisions, updating internal stakeholders, and tracking relevant feedback and key performance indicators Your talents and experience\n• Currently enrolled in a Bachelor’s or Master’s degree program in engineering, information technology, or business with a technical focus\n• Eager to learn, highly motivated, and able to work both independently and as part of a team\n• Proactive mindset, with an interest in working at the intersection of business and engineering in a technical product environment\n• Comfortable taking ownership of structured tasks and either possess a basic understanding of power grids or open to learn\n• Fluent in English; knowledge of German or Italian is a plus\n• Willing to spend at least one day per week in our Zurich or Zug office to collaborate in person and contribute to team ideation\n• Available for at least one year Employee benefits\n• Mobile working from anywhere within Switzerland\n• Opportunity to develop an international professional network\n• Gain experience at one of the largest tech employers in Switzerland\n• Membership in the Siemens Students Association comprising 200 members Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ The decision to apply to Siemens was a clear choice for me. The forward-looking orientation and the pursuit of innovation fit perfectly with my own values. ” (Working Student) Get to know us in person! We are currently on tour with the Siemens Boost Bus. You can find all event dates and registration options hier . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Corinne Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
-      "descriptionByLocale": {
-        "it": "Insieme ai nostri clienti, uniamo i mondi reali e digitali Con tecnologia, software e servizi per infrastrutture intelligenti, trasformiamo il quotidiano per tutti. Al Siemens Grid Software, sviluppiamo prodotti che sostengono la nostra società nel soddisfare le esigenze energetiche del futuro. La nostra missione è quella di costruire software che consenta reti di potenza sicure, resilienti e digitali. Nel nostro Grid Modelling Product Team, lavorerai al centro della digitalizzazione della rete elettrica. I modelli Grid sono la base della simulazione, della pianificazione e delle operazioni. Modelli di alta qualità e ben governati consentono gemelli digitali di fiducia, automazione scalabile e AI credibile. I dati poveri, al contrario, portano a decisioni inaffidabili e inefficienze costose. La gestione del prodotto è di decidere cosa costruire e perché conta. Aiuta a capire i problemi dei clienti, trasformarli in idee di prodotto chiare e guidare il team verso le soluzioni, mentre gli ingegneri si concentrano su come costruirli. Come studente di lavoro sei una parte importante di #TeamSiemens. Vorresti anche svolgere un ruolo attivo nell'influenzare le tendenze e gli sviluppi attuali e avere un impatto positivo sulla vita di milioni di persone in Svizzera? Allora siete venuti nel posto giusto! Applicare oggi per la posizione di Product Management Working Student Grid Modeling e iniziare il prima possibile – il vostro team è impaziente di incontrarvi! Le nuove responsabilità\n• Sosteni il team di gestione dei prodotti nella generazione di idee attraverso concetti di soluzione co-sviluppante con i responsabili dei prodotti e gli ingegneri, mentre stimolando costruttivamente le ipotesi sottostanti.\n• Basandosi su questo, si utilizzano attivamente strumenti di intelligenza artificiale per accelerare i processi di brainstorming e de-biasing, guidando così approcci innovativi all'interno del team\n• In questo contesto, si aiutano a mantenere le routine di scoperta continua supportando attività come l'inquadratura dei problemi, la mappatura delle supposizioni e le interviste dei clienti, assicurando che le informazioni chiave rimangano visibili e attuabili\n• Completando questi compiti, contribuisci alla gestione dei prodotti operativi supportando la manutenzione del backlog, documentando le decisioni, aggiornando le parti interessate interne e tracciando i relativi feedback e indicatori chiave delle prestazioni Il tuo talento e l'esperienza\n• Attualmente iscritto a un corso di laurea o master in ingegneria, tecnologia dell'informazione, o business con un focus tecnico\n• Desideroso di imparare, altamente motivato, e in grado di lavorare sia indipendentemente che come parte di un team\n• Mindset proattivo, con un interesse a lavorare all'incrocio di business e ingegneria in un ambiente di prodotto tecnico\n• Confortevole presa di possesso di compiti strutturati e possedere una comprensione di base delle griglie di potenza o aperto per imparare\n• Fluente in inglese; la conoscenza del tedesco o dell'italiano è un plus\n• Volendo trascorrere almeno un giorno alla settimana nel nostro ufficio di Zurigo o Zug per collaborare di persona e contribuire all'ideazione del team\n• Disponibile per almeno un anno\n• Mobile da qualsiasi parte della Svizzera\n• Possibilità di sviluppare una rete professionale internazionale\n• Ottieni esperienza in uno dei maggiori datori di lavoro tecnologici in Svizzera\n• Iscrizione all'Associazione degli studenti Siemens che comprende 200 membri La nostra cultura aziendale – il tuo nuovo ambiente di lavoro La cultura della Siemens Svizzera è più che un ambiente di lavoro – è al centro delle nostre interazioni quotidiane e della chiave del nostro successo. Siemens Svizzera offre un ambiente di lavoro orientato al futuro caratterizzato da innovazione, sostenibilità e sviluppo personale. Siamo caratterizzati da responsabilità personale, pari opportunità e diversità, a cui ogni dipendente può contribuire in modo autentico. Modelli di lavoro flessibili e lavoro a distanza sono una realtà per noi e permettono ai nostri dipendenti di raggiungere un buon equilibrio di vita lavorativa. Scopri di più e scopri se sei un buon compagno con Siemens prendendo il nostro quiz cultura! “ La decisione di candidarsi a Siemens è stata una scelta chiara per me. L'orientamento previsionale e la ricerca dell'innovazione si adattano perfettamente ai miei valori. ” (Studente di lavoro) Conosceteci di persona! Siamo attualmente in tour con il Siemens Boost Bus. Puoi trovare tutte le date degli eventi e le opzioni di registrazione hier . Domande frequenti e informazioni di contatto Qui troverete una raccolta di domande frequenti e un modo per contattarci direttamente. Non vedo l'ora di ricevere la sua candidatura. Corinne Talent Acquisizione Partner La tua strada per Siemens - Come assumere Informazioni per le agenzie di reclutamento: Siemens non accetta richieste da agenzie di reclutamento per questa posizione. Grazie per la vostra comprensione.",
-        "en": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart infrastructure, we transform the everyday for everyone. At Siemens Grid Software, we develop products that support our society in meeting the energy demands of the future. Our mission is to build software that enables secure, resilient, and digital power grids. In our Grid Modelling Product Team, you will work at the heart of the digitalization of the power grid. Grid models are the foundation of simulation, planning, and operations. High-quality, well-governed models enable trusted digital twins, scalable automation, and credible AI. Poor data, in contrast, leads to unreliable decisions and costly inefficiencies. Product management is about deciding what to build and why it matters. You will help understand customer problems, turn them into clear product ideas, and guide the team toward solutions, while engineers focus on how to build them. As a working student you are an important part of #TeamSiemens. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of Product Management Working Student Grid Modeling and start as soon as possible – your team is looking forward to meeting you! Your new responsibilities\n• You support the product management team in idea generation by co-developing solution concepts with product managers and engineers, while constructively challenging underlying assumptions\n• Building on this, you actively use artificial intelligence tools to accelerate brainstorming and de-biasing processes, thereby driving innovative approaches within the team\n• In this context, you help maintain continuous discovery routines by supporting activities such as problem framing, assumption mapping, and customer interviews, ensuring key insights remain visible and actionable\n• Complementing these tasks, you contribute to operational product management by supporting backlog maintenance, documenting decisions, updating internal stakeholders, and tracking relevant feedback and key performance indicators Your talents and experience\n• Currently enrolled in a Bachelor’s or Master’s degree program in engineering, information technology, or business with a technical focus\n• Eager to learn, highly motivated, and able to work both independently and as part of a team\n• Proactive mindset, with an interest in working at the intersection of business and engineering in a technical product environment\n• Comfortable taking ownership of structured tasks and either possess a basic understanding of power grids or open to learn\n• Fluent in English; knowledge of German or Italian is a plus\n• Willing to spend at least one day per week in our Zurich or Zug office to collaborate in person and contribute to team ideation\n• Available for at least one year Employee benefits\n• Mobile working from anywhere within Switzerland\n• Opportunity to develop an international professional network\n• Gain experience at one of the largest tech employers in Switzerland\n• Membership in the Siemens Students Association comprising 200 members Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ The decision to apply to Siemens was a clear choice for me. The forward-looking orientation and the pursuit of innovation fit perfectly with my own values. ” (Working Student) Get to know us in person! We are currently on tour with the Siemens Boost Bus. You can find all event dates and registration options hier . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Corinne Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
-        "de": "Gemeinsam mit unseren Kunden verbinden wir die reale und digitale Welt Mit Technologie, Software und Services für intelligente Infrastruktur verändern wir den Alltag für alle. Bei Siemens Grid Software entwickeln wir Produkte, die unsere Gesellschaft dabei unterstützen, den Energiebedarf der Zukunft zu decken. Unsere Mission ist es, Software zu entwickeln, die sichere, belastbare und digitale Stromnetze ermöglicht. In unserem Grid Modelling Product Team arbeiten Sie mitten in der Digitalisierung des Stromnetzes. Grid-Modelle sind die Grundlage für Simulation, Planung und Betrieb. Hochwertige, gut verwaltete Modelle ermöglichen vertrauenswürdige digitale Zwillinge, skalierbare Automatisierung und glaubwürdige KI. Schlechte Daten hingegen führen zu unzuverlässigen Entscheidungen und kostspieligen Ineffizienzen. Beim Produktmanagement geht es darum zu entscheiden, was zu bauen ist und warum es wichtig ist. Sie helfen, Kundenprobleme zu verstehen, sie in klare Produktideen umzuwandeln und das Team zu Lösungen zu führen, während sich Ingenieure darauf konzentrieren, wie sie erstellt werden. Als Werkstudent bist du ein wichtiger Teil von #TeamSiemens. Möchten Sie auch aktiv Einfluss auf aktuelle Trends und Entwicklungen nehmen und das Leben von Millionen Menschen in der Schweiz positiv beeinflussen? Dann bist du an der richtigen Stelle! Bewerben Sie sich noch heute für die Stelle Produktmanagement Working Student Grid Modeling und starten Sie so schnell wie möglich – Ihr Team freut sich auf Sie! Ihre neuen Aufgaben\n• Sie unterstützen das Produktmanagement-Team bei der Ideengenerierung, indem Sie gemeinsam mit Produktmanagern und Ingenieuren Lösungskonzepte entwickeln und die zugrunde liegenden Annahmen konstruktiv herausfordern\n• Darauf aufbauend nutzen Sie aktiv Werkzeuge der künstlichen Intelligenz, um Brainstorming- und Debiasing-Prozesse zu beschleunigen und so innovative Ansätze im Team voranzutreiben.\n• In diesem Zusammenhang helfen Sie bei der Aufrechterhaltung kontinuierlicher Entdeckungsroutinen, indem Sie Aktivitäten wie Problemrahmen, Annahmemapping und Kundeninterviews unterstützen, um sicherzustellen, dass wichtige Erkenntnisse sichtbar und umsetzbar bleiben.\n• Ergänzend zu diesen Aufgaben tragen Sie zum operativen Produktmanagement bei, indem Sie Backlog-Wartung unterstützen, Entscheidungen dokumentieren, interne Stakeholder aktualisieren und relevantes Feedback und wichtige Leistungsindikatoren verfolgen Ihre Talente und Erfahrungen\n• Derzeit eingeschrieben in einem Bachelor- oder Master-Studiengang in Ingenieurwissenschaften, Informationstechnologie oder Business mit technischem Schwerpunkt\n• Lernbereit, hoch motiviert und in der Lage, sowohl unabhängig als auch als Teil eines Teams zu arbeiten\n• Proaktives Mindset mit Interesse an der Schnittstelle von Business und Engineering in einer technischen Produktumgebung\n• Bequeme Übernahme von strukturierten Aufgaben und entweder besitzen ein grundlegendes Verständnis der Stromnetze oder offen zu lernen\n• fließend Englisch; Deutsch- oder Italienischkenntnisse sind ein Plus\n• Bereit, mindestens einen Tag pro Woche in unserem Büro in Zürich oder Zug zu verbringen, um persönlich zusammenzuarbeiten und zur Teamidee beizutragen\n• Verfügbar für mindestens ein Jahr Leistungen an Arbeitnehmer\n• Mobiles Arbeiten von überall in der Schweiz\n• Möglichkeit, ein internationales professionelles Netzwerk zu entwickeln\n• Sammeln Sie Erfahrungen bei einem der größten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft in der Siemens Students Association mit 200 Mitgliedern Unsere Unternehmenskultur – Ihr neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie steht im Mittelpunkt unserer täglichen Interaktionen und ist der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das sich durch Innovation, Nachhaltigkeit und persönliche Entwicklung auszeichnet. Wir zeichnen uns durch Eigenverantwortung, Chancengleichheit und Vielfalt aus, zu der jeder Mitarbeiter authentisch beitragen kann. Flexible Arbeitsmodelle und Remote Working sind für uns Realität und ermöglichen unseren Mitarbeitern eine gute Work-Life-Balance. Erfahren Sie mehr und finden Sie heraus, ob Sie gut zu Siemens passen, indem Sie an unserem Kulturquiz teilnehmen! Die Entscheidung, sich bei Siemens zu bewerben, war für mich eine klare Entscheidung. Die zukunftsweisende Ausrichtung und das Streben nach Innovation passen perfekt zu meinen eigenen Werten. ” (Arbeitende Studentin) Lernen Sie uns persönlich kennen! Wir sind derzeit mit dem Siemens Boost Bus auf Tour. Hier finden Sie alle Veranstaltungsdaten und Anmeldemöglichkeiten. Häufig gestellte Fragen und Kontaktinformationen Hier finden Sie eine Sammlung von häufig gestellten Fragen und eine Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf Ihre Bewerbung. Corinne Talent Akquisitionspartner Ihr Weg zu Siemens - Wie wir Informationen für Personalvermittler einstellen: Siemens nimmt keine Bewerbungen von Personalvermittlern für diese Position an. Vielen Dank für Ihr Verständnis.",
-        "fr": "Avec nos clients, nous combinons les mondes réel et numérique Avec la technologie, les logiciels et les services pour une infrastructure intelligente, nous transformons le quotidien pour tous. Chez Siemens Grid Software, nous développons des produits qui soutiennent notre société pour répondre aux exigences énergétiques de l'avenir. Notre mission est de construire des logiciels qui permettent des réseaux électriques sécurisés, résistants et numériques. Dans notre équipe produit de modélisation de grille, vous travaillerez au cœur de la numérisation du réseau électrique. Les modèles de grille sont le fondement de la simulation, de la planification et des opérations. Des modèles de haute qualité et bien gérés permettent des jumelles numériques fiables, une automatisation évolutive et une AI crédible. Les mauvaises données, par contre, conduisent à des décisions peu fiables et à des inefficacités coûteuses. La gestion des produits consiste à décider quoi construire et pourquoi elle compte. Vous aiderez à comprendre les problèmes des clients, à les transformer en idées de produits claires et à guider l'équipe vers des solutions, tandis que les ingénieurs se concentreront sur la façon de les construire. En tant qu'étudiant travailleur, vous êtes une partie importante de #TeamSiemens. Aimeriez-vous également jouer un rôle actif dans l'influence des tendances et des évolutions actuelles et avoir un impact positif sur la vie de millions de personnes en Suisse? Alors vous êtes au bon endroit ! Postulez dès aujourd'hui pour le poste de Gestion de produit Working Student Grid Modeling et commencez dès que possible – votre équipe est impatiente de vous rencontrer! Vos nouvelles responsabilités\n• Vous accompagnez l'équipe de gestion de produits dans la génération d'idées en co-développant des concepts de solutions avec des gestionnaires de produits et des ingénieurs, tout en contestant de façon constructive les hypothèses sous-jacentes\n• Sur cette base, vous utilisez activement des outils d'intelligence artificielle pour accélérer les processus de remue-méninges et de dé-préciation, ce qui conduit à des approches novatrices au sein de l'équipe\n• Dans ce contexte, vous aidez à maintenir des routines de découverte continues en soutenant des activités telles que le cadrage des problèmes, la cartographie des hypothèses et les entrevues avec les clients, en veillant à ce que les idées clés demeurent visibles et réalisables\n• Pour compléter ces tâches, vous contribuez à la gestion opérationnelle des produits en appuyant la gestion de l'arriéré, en documentant les décisions, en mettant à jour les intervenants internes et en suivant les commentaires pertinents et les indicateurs de rendement clés Vos talents et votre expérience\n• Actuellement inscrit à un programme de baccalauréat ou de maîtrise en ingénierie, technologie de l'information ou entreprise avec un objectif technique\n• Désireux d'apprendre, très motivé et capable de travailler à la fois indépendamment et en équipe\n• Un état d'esprit proactif, avec l'intérêt de travailler à l'intersection des affaires et de l'ingénierie dans un environnement de produits techniques\n• Une prise en charge confortable des tâches structurées et soit possède une compréhension de base des réseaux électriques, soit est ouverte à l'apprentissage\n• La connaissance de l'allemand ou de l'italien est un plus\n• Voulant passer au moins une journée par semaine dans notre bureau de Zurich ou Zug pour collaborer en personne et contribuer aux idées d'équipe\n• Disponible pendant au moins un an Avantages sociaux\n• Mobile travaillant partout en Suisse\n• Possibilité de développer un réseau professionnel international\n• Acquérir de l'expérience chez l'un des plus grands employeurs technologiques de Suisse\n• Membre de l'Association des étudiants Siemens comprenant 200 membres Notre culture d'entreprise – votre nouvel environnement de travail La culture de Siemens Suisse est plus qu'un simple environnement de travail – elle est au cœur de nos interactions quotidiennes et la clé de notre succès. Siemens Suisse offre un environnement de travail orienté vers l'avenir caractérisé par l'innovation, la durabilité et le développement personnel. Nous sommes caractérisés par la responsabilité personnelle, l'égalité des chances et la diversité, à laquelle chaque employé peut contribuer de manière authentique. Les modèles de travail flexibles et le travail à distance sont une réalité pour nous et permettent à nos employés d'atteindre un bon équilibre entre le travail et la vie personnelle. En savoir plus et savoir si vous êtes un bon match avec Siemens en prenant notre quiz de culture ! La décision de présenter une demande à Siemens a été un choix clair pour moi. L'orientation tournée vers l'avenir et la poursuite de l'innovation correspondent parfaitement à mes propres valeurs. (Étudiante qui travaille) Apprenez à nous connaître en personne ! Nous sommes actuellement en tournée avec le Siemens Boost Bus. Vous pouvez trouver toutes les dates de l'événement et les options d'inscription hier . Foire aux questions et coordonnées Vous trouverez ici une collection de questions fréquemment posées et un moyen de nous contacter directement. J'ai hâte de recevoir votre candidature. Corinne Talent Acquisition Partner Votre chemin vers Siemens - Comment nous embauchons Informations pour les agences de recrutement: Siemens n'accepte pas les candidatures des agences de recrutement pour ce poste. Merci de votre compréhension."
-      },
-      "location": "Zuerich",
-      "canton": "ZH",
-      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511112",
-      "source": "Siemens Dedicated Parser (Avature)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:09.407Z",
-      "addressLocality": "Zuerich",
-      "addressRegion": "ZH",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511112",
-      "jobReqId": "511112",
-      "hiringOrganizationName": "Siemens Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
-        "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "working-student-product-management-in-grid-modelling-40-60-siemens-zuerich",
-          "gestione-del-prodotto-per-studenti-lavoratori-nella-modellazione-a-griglia-40-60-siemens-zuerich"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:51:12.255Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44100,
-          "maxValue": 66900,
           "unitText": "YEAR"
         }
       }
@@ -2361,7 +2302,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511101",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:06.439Z",
+      "crawledAt": "2026-07-14T21:59:53.152Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2436,7 +2377,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/497618",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:03.458Z",
+      "crawledAt": "2026-07-14T21:59:50.438Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2473,6 +2414,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:51:07.622Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2517,7 +2459,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/499867",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:00.653Z",
+      "crawledAt": "2026-07-14T21:59:47.979Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2538,6 +2480,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:51:05.174Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2582,7 +2525,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511324",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:57.870Z",
+      "crawledAt": "2026-07-14T21:59:45.225Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2657,7 +2600,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511183",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:54:55.287Z",
+      "crawledAt": "2026-07-14T21:59:42.724Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2691,6 +2634,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:58.507Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2735,7 +2679,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/491193",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:52.618Z",
+      "crawledAt": "2026-07-14T21:59:40.117Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2766,6 +2710,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:53.964Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2810,7 +2755,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/510436",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:49.953Z",
+      "crawledAt": "2026-07-14T21:59:37.395Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2841,6 +2786,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:51.094Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2885,7 +2831,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511958",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:47.684Z",
+      "crawledAt": "2026-07-14T21:59:34.971Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -2960,7 +2906,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512016",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:44.990Z",
+      "crawledAt": "2026-07-14T21:59:32.398Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2991,6 +2937,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:46.662Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3035,7 +2982,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511973",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:42.371Z",
+      "crawledAt": "2026-07-14T21:59:29.857Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3066,6 +3013,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:44.455Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3110,7 +3058,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511974",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:39.810Z",
+      "crawledAt": "2026-07-14T21:59:26.260Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3141,6 +3089,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:42.129Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3185,7 +3134,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511788",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:37.021Z",
+      "crawledAt": "2026-07-14T21:59:23.716Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3260,7 +3209,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:54:34.487Z",
+      "crawledAt": "2026-07-14T21:59:21.139Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3335,7 +3284,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502648",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:31.999Z",
+      "crawledAt": "2026-07-14T21:59:18.714Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3410,7 +3359,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508781",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:29.334Z",
+      "crawledAt": "2026-07-14T21:59:16.214Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3441,6 +3390,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:33.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3485,7 +3435,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508719",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:24.095Z",
+      "crawledAt": "2026-07-14T21:59:11.134Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3560,7 +3510,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512167",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:21.453Z",
+      "crawledAt": "2026-07-14T21:59:08.677Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -3591,6 +3541,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:50:26.475Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3635,7 +3586,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512480",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:18.582Z",
+      "crawledAt": "2026-07-14T21:59:06.075Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3723,7 +3674,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T10:54:16.020Z",
+      "crawledAt": "2026-07-14T21:59:03.578Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3798,7 +3749,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512853",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:11.192Z",
+      "crawledAt": "2026-07-14T21:58:59.062Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -3886,7 +3837,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/511652",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:54:08.492Z",
+      "crawledAt": "2026-07-14T21:58:56.506Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3967,7 +3918,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512924",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:54:05.859Z",
+      "crawledAt": "2026-07-14T21:58:54.190Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -3988,6 +3939,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:12:17.936Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4032,7 +3984,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513042",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:54:03.387Z",
+      "crawledAt": "2026-07-14T21:58:51.705Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -4113,7 +4065,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513089",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:54:00.845Z",
+      "crawledAt": "2026-07-14T21:58:49.386Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4178,7 +4130,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508721",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:53:58.233Z",
+      "crawledAt": "2026-07-14T21:58:46.076Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4259,7 +4211,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/508564",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:53:55.586Z",
+      "crawledAt": "2026-07-14T21:58:43.410Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4280,6 +4232,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T11:57:52.209Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4324,7 +4277,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/486145",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:53:53.048Z",
+      "crawledAt": "2026-07-14T21:58:40.650Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -4345,6 +4298,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:02:29.226Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4389,7 +4343,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/503079",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:53:50.336Z",
+      "crawledAt": "2026-07-14T21:58:38.032Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -4427,8 +4381,8 @@
       "id": "siemens-8c6765daff18",
       "slug": "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug",
       "slugByLocale": {
-        "en": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
         "it": "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug",
+        "en": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
         "de": "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
         "fr": "responsable-bureau-planification-smart-infrastructure-buildings-80-100-siemens-zug"
       },
@@ -4437,15 +4391,15 @@
       "companyDomain": "siemens.com",
       "title": "Global Planner Office Manager Smart Infrastructure Buildings 80-100%",
       "titleByLocale": {
-        "en": "Global Planner Office Manager Smart Infrastructure Buildings 80-100%",
         "it": "Responsabile Ufficio Pianificatori per Smart Infrastructure Buildings 80-100%",
+        "en": "Global Planner Office Manager Smart Infrastructure Buildings 80-100%",
         "de": "Globaler Planer Office Manager Smart Infrastructure Buildings 80-100%",
         "fr": "Responsable Bureau Planification Smart Infrastructure Buildings 80-100%"
       },
       "description": "We transform buildings With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences. The digital transformation of buildings is a fast-changing and dynamic sector — and it needs more than great technology. It needs great people. About the Role The Planner Office is one of Siemens Smart Infrastructure Buildings’ strategic growth initiatives, designed to strengthen engagement with planners, consultants, designers and other specification influencers worldwide and increase Siemens’ influence in the early project phase. As part of the Global Planner Office Team, you will collaborate closely with colleagues across Marketing, Sales, Product Management and regional organizations. Together, we develop new initiatives and identify opportunities to strengthen Siemens’ collaboration with planners, consultants, designers and other specification influencers around the world. Our shared journey could take you anywhere – where would you like to go? Your Mission Help shape and scale Siemens’ global Planner Office ecosystem by driving collaboration across regions and strengthening our engagement with planners, consultants, designers and other specification influencers worldwide. Your new responsibilities: Drive Planner Office Growth\n• Support the rollout and continuous development of Planner Offices across our global organization\n• Help local teams increase their maturity and maximize business impact Shape the Future of Planner Engagement\n• Contribute to new concepts and engagement approaches for planners and consultants\n• Identify opportunities to strengthen Siemens' early-phase influence and consultant engagement\n• Collaborate across HQ functions, regional organizations and the global Planner Office network Your skills and experience:\n• 5+ years of experience in the Smart Buildings industry , ideally gained within a planning office, consulting company, engineering firm, design office or customer-facing Siemens role. First-hand experience working with planners, consultants or designers is highly valued\n• A broad understanding of Smart Building technologies , solutions, specification processes and consultant needs\n• A natural relationship builder with the ability to establish trust and collaborate effectively across functions, countries and cultures\n• A proactive team player who enjoys taking ownership, driving initiatives forward and turning ideas into action\n• Experienced in navigating complex matrix organizations , influencing stakeholders and achieving results without direct authority\n• An excellent communicator , capable of translating complex topics into clear and compelling messages for different audiences\n• A curious and entrepreneurial mindset , energized by shaping new concepts, challenging the status quo and creating impact\n• Bachelor’s degree in Business, Engineering or a related field, or equivalent professional experience\n• Familiarity with sales processes, CRM tools and business workflows\n• Fluent in English ; additional languages (e.g. German) are considered a plus\n• Travel activity ca. 30%\n• Start upon agreement What's In It for You\n• Be part of a global growth initiative with exciting development opportunities within the Planner & Consultant ecosystem , helping shape the future of planner engagement at Siemens Smart Infrastructure Buildings\n• Work in an international environment , collaborating with colleagues and stakeholders across regions and functions\n• Benefit from Siemens’ flexible hybrid working model , supporting both collaboration and work-life balance Location : this role can be based in Zug/Switzerland or Frankfurt am Main/Germany. Please note that qualified candidates need to be legally eligible for work authorization in the respective location. Relocation is not required. News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application Carmen Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
       "descriptionByLocale": {
-        "en": "Description\nWe transform buildings With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences. The digital transformation of buildings is a fast-changing and dynamic sector — and it needs more than great technology. It needs great people.\n\nAbout the Role\nThe Planner Office is one of Siemens Smart Infrastructure Buildings’ strategic growth initiatives, designed to strengthen engagement with planners, consultants, designers and other specification influencers worldwide and increase Siemens’ influence in the early project phase. As part of the Global Planner Office Team, you will collaborate closely with colleagues across Marketing, Sales, Product Management and regional organizations. Together, we develop new initiatives and identify opportunities to strengthen Siemens’ collaboration with planners, consultants, designers and other specification influencers around the world.\n\nYour Mission\nHelp shape and scale Siemens’ global Planner Office ecosystem by driving collaboration across regions and strengthening our engagement with planners, consultants, designers and other specification influencers worldwide.\n\nResponsibilities\n- Drive Planner Office Growth\n- Support the rollout and continuous development of Planner Offices across our global organization\n- Help local teams increase their maturity and maximize business impact\n- Shape the Future of Planner Engagement\n- Contribute to new concepts and engagement approaches for planners and consultants\n- Identify opportunities to strengthen Siemens' early-phase influence and consultant engagement\n- Collaborate across HQ functions, regional organizations and the global Planner Office network\n\nRequirements\n- 5+ years of experience in the Smart Buildings industry , ideally gained within a planning office, consulting company, engineering firm, design office or customer-facing Siemens role. First-hand experience working with planners, consultants or designers is highly valued\n- A broad understanding of Smart Building technologies , solutions, specification processes and consultant needs\n- A natural relationship builder with the ability to establish trust and collaborate effectively across functions, countries and cultures\n- A proactive team player who enjoys taking ownership, driving initiatives forward and turning ideas into action\n- Experienced in navigating complex matrix organizations , influencing stakeholders and achieving results without direct authority\n- An excellent communicator , capable of translating complex topics into clear and compelling messages for different audiences\n- A curious and entrepreneurial mindset , energized by shaping new concepts, challenging the status quo and creating impact\n- Bachelor’s degree in Business, Engineering or a related field, or equivalent professional experience\n- Familiarity with sales processes, CRM tools and business workflows\n- Fluent in English ; additional languages (e.g. German) are considered a plus\n- Travel activity ca. 30%\n\nWhat we offer\n- Be part of a global growth initiative with exciting development opportunities within the Planner & Consultant ecosystem , helping shape the future of planner engagement at Siemens Smart Infrastructure Buildings\n- Work in an international environment , collaborating with colleagues and stakeholders across regions and functions\n- Benefit from Siemens’ flexible hybrid working model , supporting both collaboration and work-life balance\n\nContact\n- Location : this role can be based in Zug/Switzerland or Frankfurt am Main/Germany. Please note that qualified candidates need to be legally eligible for work authorization in the respective location. Relocation is not required.\n- Please see the frequently asked questions and contact information for more details.",
         "it": "Descrizione\nTrasformiamo gli edifici Con tecnologia, software e servizi per edifici intelligenti, trasformiamo la quotidianità per tutti. Combinando il mondo reale e quello digitale, consentiamo ai nostri clienti di raggiungere i loro obiettivi di decarbonizzazione, ridurre i costi operativi e creare esperienze di livello mondiale per gli occupanti. La trasformazione digitale degli edifici è un settore in rapida evoluzione e dinamico — e ha bisogno di più di una grande tecnologia. Ha bisogno di grandi persone.\n\nInformazioni sul ruolo\nIl Planner Office è una delle iniziative di crescita strategica di Siemens Smart Infrastructure Buildings, progettata per rafforzare l'impegno con pianificatori, consulenti, progettisti e altri influenzatori delle specifiche in tutto il mondo e aumentare l'influenza di Siemens nella fase iniziale del progetto. Come parte del Global Planner Office Team, collaborerai a stretto contatto con i colleghi del marketing, delle vendite, della gestione dei prodotti e delle organizzazioni regionali. Insieme, sviluppiamo nuove iniziative e identifichiamo opportunità per rafforzare la collaborazione di Siemens con progettisti, consulenti, designer e altri influencer delle specifiche in tutto il mondo.\n\nLa tua missione\nContribuisci a modellare e ridimensionare l'ecosistema globale Planner Office di Siemens promuovendo la collaborazione in tutte le regioni e rafforzando il nostro impegno con pianificatori, consulenti, designer e altri influenzatori delle specifiche in tutto il mondo.\n\nResponsabilità\n- Promuovere la crescita dell'ufficio Planner\n- Supportare il lancio e lo sviluppo continuo degli uffici di pianificazione in tutta la nostra organizzazione globale\n-",
+        "en": "We transform buildings With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences. The digital transformation of buildings is a fast-changing and dynamic sector — and it needs more than great technology. It needs great people. About the Role The Planner Office is one of Siemens Smart Infrastructure Buildings’ strategic growth initiatives, designed to strengthen engagement with planners, consultants, designers and other specification influencers worldwide and increase Siemens’ influence in the early project phase. As part of the Global Planner Office Team, you will collaborate closely with colleagues across Marketing, Sales, Product Management and regional organizations. Together, we develop new initiatives and identify opportunities to strengthen Siemens’ collaboration with planners, consultants, designers and other specification influencers around the world. Our shared journey could take you anywhere – where would you like to go? Your Mission Help shape and scale Siemens’ global Planner Office ecosystem by driving collaboration across regions and strengthening our engagement with planners, consultants, designers and other specification influencers worldwide. Your new responsibilities: Drive Planner Office Growth\n• Support the rollout and continuous development of Planner Offices across our global organization\n• Help local teams increase their maturity and maximize business impact Shape the Future of Planner Engagement\n• Contribute to new concepts and engagement approaches for planners and consultants\n• Identify opportunities to strengthen Siemens' early-phase influence and consultant engagement\n• Collaborate across HQ functions, regional organizations and the global Planner Office network Your skills and experience:\n• 5+ years of experience in the Smart Buildings industry , ideally gained within a planning office, consulting company, engineering firm, design office or customer-facing Siemens role. First-hand experience working with planners, consultants or designers is highly valued\n• A broad understanding of Smart Building technologies , solutions, specification processes and consultant needs\n• A natural relationship builder with the ability to establish trust and collaborate effectively across functions, countries and cultures\n• A proactive team player who enjoys taking ownership, driving initiatives forward and turning ideas into action\n• Experienced in navigating complex matrix organizations , influencing stakeholders and achieving results without direct authority\n• An excellent communicator , capable of translating complex topics into clear and compelling messages for different audiences\n• A curious and entrepreneurial mindset , energized by shaping new concepts, challenging the status quo and creating impact\n• Bachelor’s degree in Business, Engineering or a related field, or equivalent professional experience\n• Familiarity with sales processes, CRM tools and business workflows\n• Fluent in English ; additional languages (e.g. German) are considered a plus\n• Travel activity ca. 30%\n• Start upon agreement What's In It for You\n• Be part of a global growth initiative with exciting development opportunities within the Planner & Consultant ecosystem , helping shape the future of planner engagement at Siemens Smart Infrastructure Buildings\n• Work in an international environment , collaborating with colleagues and stakeholders across regions and functions\n• Benefit from Siemens’ flexible hybrid working model , supporting both collaboration and work-life balance Location : this role can be based in Zug/Switzerland or Frankfurt am Main/Germany. Please note that qualified candidates need to be legally eligible for work authorization in the respective location. Relocation is not required. News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application Carmen Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens does not accept applications from recruitment agencies for this position. Thank you for your understanding.",
         "de": "Beschreibung Wir verwandeln Gebäude Mit Technologie, Software und Dienstleistungen für intelligente Gebäude verwandeln wir den Alltag für alle. Durch die Kombination der realen und digitalen Welten, befähigen wir unsere Kunden, ihre Dekarbonisierungsziele zu erreichen, ihre Betriebskosten zu senken und erstklassige Erfahrungen mit den Bewohnern zu schaffen.Die digitale Transformation von Gebäuden ist ein sich schnell verändernder und dynamischer Sektor – und sie braucht mehr als großartige Technologie. Sie braucht großartige Menschen.\n\nÜber die Rolle Das Planner Office ist eines der Siemens Smart Infrastructure Buildings, strategische Wachstumsinitiativen, die darauf abzielen, die Zusammenarbeit mit Planern, Beratern, Designern und anderen Spezifikationsinfluencern weltweit zu stärken und Siemens zu stärken, Einfluss in der frühen Projektphase. Im Rahmen des Global Planner Office Teams arbeiten Sie eng mit Kollegen aus Marketing, Vertrieb, Produktmanagement und regionalen Organisationen zusammen.\n\nGemeinsam entwickeln wir neue Initiativen und identifizieren Möglichkeiten, Siemens, die Zusammenarbeit mit Planern, Beratern, Designern und anderen Spezifikationsinfluencern weltweit zu stärken.\n\nIhre Mission Gestalten und skalieren Sie Siemens, das Ökosystem des globalen Planner Office, indem Sie die Zusammenarbeit über Regionen hinweg vorantreiben und unser Engagement mit Planern, Beratern, Designern und anderen Spezifikationsinfluencern weltweit stärken.\n\nVerantwortung - Drive Planner Office Wachstum - Unterstützung des Rollouts und der kontinuierlichen Entwicklung von Planner Offices in unserer globalen Organisation - Unterstützung lokaler Teams bei der Steigerung ihrer Reife und der Maximierung der Geschäftswirkung - Gestalten Sie die Zukunft des Planners - Beitrag zu neuen Konzepten und Engagements für Planer und Berater - Identifizieren Sie Möglichkeiten, Siemenss Einfluss in der Frühphase und Berater-Engagement zu stärken - Zusammenarbeit über HQ-Funktionen, regionale Organisationen und das globale Planner Office Netzwerk\n\nVoraussetzungen - 5+ Jahre Erfahrung in der Smart Buildings Industrie, ideal in einem Planungsbüro, Beratungsunternehmen, Ingenieurbüro, Designbüro oder Kunden-begeisterten Siemens Rolle gewonnen.\n\nErfahrung aus erster Hand, die mit Planern, Beratern oder Designern zusammenarbeitet, wird hoch geschätzt - ein breites Verständnis von Smart Building Technologien, Lösungen, Spezifikationsprozessen und Beraterbedürfnissen - ein natürlicher Beziehungsbauer mit der Fähigkeit, Vertrauen aufzubauen und effektiv in Funktionen, Ländern und Kulturen zusammenzuarbeiten - ein proaktiver Teamplayer, der gerne Eigenverantwortung übernimmt, Initiativen vorantreibt und Ideen in Aktion umsetzt - Erfahren in der Navigation komplexer Matrixorganisationen, Einflussnahme und Erreichung von Ergebnissen ohne direkte Autorität - ein ausgezeichneter\n\nKommunikator, in der Lage, komplexe Themen in klare und überzeugende Botschaften für verschiedene Zielgruppen übersetzen - Eine neugierige und unternehmerische Denkweise, durch die Gestaltung neuer Konzepte, Herausforderungen des Status Quo und die Schaffung von Auswirkungen - Bachelor, Abschluss in Business, Engineering oder einem verwandten Bereich, oder gleichwertige Berufserfahrung - Vertrautheit mit Verkaufsprozessen, CRM-Tools und Business-Workflows - Fluent in Englisch; zusätzliche Sprachen (z.B..\n\nDeutsch) als Plus - Reiseaktivität ca. 30%\n\nWas wir bieten - Teil einer globalen Wachstumsinitiative mit spannenden Entwicklungschancen im Planer & Consultant Ökosystem sein, die Zukunft des Planers Engagement bei Siemens Smart Infrastructure Buildings mitgestalten - Arbeiten in einem internationalen Umfeld, Zusammenarbeit mit Kollegen und Stakeholdern in Regionen und Funktionen - Profitieren Sie von Siemens, flexibles Hybrid-Arbeitsmodell, das sowohl die Zusammenarbeit als auch die Work-Life-Balance unterstützt\n\nKontakt - Ort : Diese Funktion kann in Zug/Schweiz oder Frankfurt am Main/Deutschland angesiedelt sein. Bitte beachten Sie, dass qualifizierte Bewerber an dem jeweiligen Standort gesetzlich für die Arbeitserlaubnis zugelassen sein müssen. Umsiedlung ist nicht erforderlich. - Bitte beachten Sie die häufig gestellten Fragen und Kontaktdaten für weitere Details.",
         "fr": "Description Nous transformons les bâtiments Avec la technologie, les logiciels et les services pour les bâtiments intelligents, nous transformons le quotidien pour tous. En combinant les mondes réel et numérique, nous autonomisons nos clients à atteindre leurs objectifs de décarbonisation, à réduire leurs coûts d'exploitation et à créer des expériences d'occupant de classe mondiale.\n\nÀ propos du rôle Le bureau de planification est l'un des bâtiments d'infrastructure intelligente Siemens, des initiatives de croissance stratégique, conçu pour renforcer l'engagement avec les planificateurs, consultants, concepteurs et autres intrusion de spécifications dans le monde entier et augmenter Siemens, l'influence dans la phase de projet précoce.\n\nEnsemble, nous développons de nouvelles initiatives et identifions des opportunités pour renforcer Siemens, la collaboration avec les planificateurs, les consultants, les concepteurs et d'autres intrusion de spécifications dans le monde.\n\nVotre mission Aidez à façonner et à échafauder Siemens, l'écosystème mondial de Planner Office en favorisant la collaboration entre les régions et en renforçant notre engagement avec les planificateurs, les consultants, les concepteurs et d'autres intrusion de spécifications dans le monde entier.\n\nResponsabilités - Favoriser la croissance des bureaux des planificateurs - Appuyer le déploiement et le développement continu des bureaux des planificateurs dans notre organisation mondiale - Aider les équipes locales à accroître leur maturité et à maximiser l'impact commercial - Façonner l'avenir de l'engagement des planificateurs - Contribuer à de nouveaux concepts et à de nouvelles approches de mobilisation pour les planificateurs et les consultants - Identifier les occasions de renforcer l'influence de Siemens en phase initiale et l'engagement des consultants - Collaborer à l'échelle des fonctions de l'AC, des organisations régionales et du réseau mondial des bureaux des planificateurs\n\nExigences - 5 ans et plus d'expérience dans l'industrie des bâtiments intelligents, idéalement gagné dans un bureau de planification, société de conseil, firme d'ingénierie, bureau de conception ou face à la clientèle Siemens.\n\nUne expérience de première main avec les planificateurs, les consultants ou les concepteurs est très appréciée - Une compréhension large des technologies de construction intelligente, des solutions, des processus de spécification et des besoins des consultants - Un bâtisseur de relations naturelles avec la capacité d'établir la confiance et de collaborer efficacement entre les fonctions, les pays et les cultures - Un joueur d'équipe proactif qui aime prendre en main les initiatives, faire avancer les initiatives et transformer les idées en action - Expérience dans la navigation des organisations matricielles complexes, influencer les parties prenantes et obtenir des résultats sans autorité directe - Un excellent\n\n, capable de traduire des sujets complexes en messages clairs et convaincants pour différents publics - Un état d'esprit curieux et entrepreneurial, stimulé par la formation de nouveaux concepts, la remise en question du statu quo et la création d'impact - Baccalauréat, diplôme en affaires, en génie ou dans un domaine connexe, ou une expérience professionnelle équivalente - Familiarité avec les processus de vente, les outils CRM et les workflows d'affaires - Fluent en anglais ; langues supplémentaires (par exemple :\n\nLes chiffres sont considérés comme un plus - Activité de voyage environ 30%\n\nCe que nous offrons - Faites partie d'une initiative de croissance mondiale avec des opportunités de développement passionnantes au sein de l'écosystème Planner & Consultant, aidant à façonner l'avenir de l'engagement des planificateurs chez Siemens Smart Infrastructure Buildings - Travailler dans un environnement international, en collaborant avec des collègues et des parties prenantes dans les régions et les fonctions - Bénéficiez de Siemens, modèle de travail hybride flexible, en soutenant la collaboration et l'équilibre entre vie professionnelle et vie privée\n\nContact - Emplacement : ce rôle peut être basé à Zug/Suisse ou Francfort-sur-le-Main/Allemagne. Veuillez noter que les candidats qualifiés doivent être légalement éligibles à l'autorisation de travail dans leur lieu de résidence respectif."
       },
@@ -4454,7 +4408,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513772",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-13T21:57:14.123Z",
+      "crawledAt": "2026-07-14T21:58:35.562Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -4473,10 +4427,22 @@
       "jobReqId": "513772",
       "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
+        "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug",
+          "responsabile-ufficio-pianificatori-per-smart-infrastructure-buildings-80-100-siemens-zug"
+        ],
+        "fr": [
+          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T21:57:14.123Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4488,20 +4454,143 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "siemens-0351834e1285",
+      "slug": "praktikant-in-multimedia-event-management-80-100-siemens-zug",
+      "slugByLocale": {
+        "de": "praktikant-in-multimedia-event-management-80-100-siemens-zug",
+        "it": "praktikant-in-multimedia-event-management-80-100-siemens-zug",
+        "en": "praktikant-in-multimedia-event-management-80-100-siemens-zug",
+        "fr": "praktikant-in-multimedia-event-management-80-100-siemens-zug"
       },
-      "firstSeenAt": "2026-07-13T21:57:14.123Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
-        ],
-        "fr": [
-          "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
-        ]
+      "company": "Siemens",
+      "companyKey": "siemens",
+      "companyDomain": "siemens.com",
+      "title": "Praktikant:in Multimedia & Event Management 80-100%",
+      "titleByLocale": {
+        "de": "Praktikant:in Multimedia & Event Management 80-100%",
+        "it": "Praktikant:in Multimedia & Event Management 80-100%",
+        "en": "Praktikant:in Multimedia & Event Management 80-100%",
+        "fr": "Praktikant:in Multimedia & Event Management 80-100%"
       },
-      "previousSlugs": [
-        "global-planner-office-manager-smart-infrastructure-buildings-80-100-siemens-zug"
-      ]
+      "description": "Praktikant:in Multimedia & Event Management 80-100% Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Als Werkstudent:in, Praktikant:in oder Trainee bist du ein wichtiger Teil unseres #TeamSiemens. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Praktikant:in Multimedia und Eventmanagement – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Administrative und organisatorische Unterstützung des ICC-Teams (Inspiration & Convention Center)\n• Reservation von Räumlichkeiten, Mithilfe bei der Organisation der Veranstaltungen, Betreuung und Beratung der internen und externen Kundschaft\n• Enge Zusammenarbeit mit internen Stellen und externen Partner:innen wie Caterer:innen, Techniker:innen sowie Dienstleister:innen\n• Unterstützung der Broadcast-Crew bei Videoproduktionen\n• Unterstützung zur technischen Betreuung von Veranstaltungen durch Bedienung einfacher Streaming-Softwares\n• Organisieren, planen und durchführen von diversen Führungen durchs ICC (z.B. Experience Raum, Fabrikführungen, etc.)\n• Selbständige Erarbeitung diverser Kommunikationsmittel (z.B. im Bereich von Social Media, etc.), Statistiken und Feedbacks\n• Unterstützung bei Events\n• Zusammenarbeit bei diversen Projekten und Übernahme von eigenen Projekten Deine Talente und Erfahrungen\n• Ausbildung : Abgeschlossenes Bachelorstudium und Absicht in naher Zukunft ein Master zu absolvieren oder eingeschrieben an einer Schweizer FH oder Universität\n• Arbeitsweise : Proaktives Agieren und hohe Eigeninitiative, gut organisiert mit einer strukturierten Arbeitsweise, ruhiges Verhalten auch in hektischen Situationen\n• Sprachkenntnisse : Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Deine Vorteile\n• Mobiles Arbeiten in der gesamten Schweiz\n• Aufbau eines internationalen Karrierenetzwerks\n• Erfahrungen sammeln bei einem der grössten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft bei der 200-köpfigen Siemens Student Association Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Egal ob im Büroalltag oder bei Networking-Events, bei Siemens fühle ich mich stets willkommen und habe die Chance, mich einzubringen und zu lernen. » (Werkstudentin Informatik) Lerne uns persönlich kennen! Aktuell sind wir mit dem Siemens Boost Bus auf Tour und bieten spannende Workshops im Study Hub an. Alle Termine und Anmeldemöglichkeiten findest du hier\n• Triff uns beim Siemens Boost Bus an deiner Hochschule [Link]\n• Vernetze dich im Siemens Study Hub mit anderen Studierenden\n• [Platz für weitere aktuelle Kampagnen/Events]\n• Messen? Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Nathalie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "de": "Praktikant:in Multimedia & Event Management 80-100% Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Als Werkstudent:in, Praktikant:in oder Trainee bist du ein wichtiger Teil unseres #TeamSiemens. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Praktikant:in Multimedia und Eventmanagement – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Administrative und organisatorische Unterstützung des ICC-Teams (Inspiration & Convention Center)\n• Reservation von Räumlichkeiten, Mithilfe bei der Organisation der Veranstaltungen, Betreuung und Beratung der internen und externen Kundschaft\n• Enge Zusammenarbeit mit internen Stellen und externen Partner:innen wie Caterer:innen, Techniker:innen sowie Dienstleister:innen\n• Unterstützung der Broadcast-Crew bei Videoproduktionen\n• Unterstützung zur technischen Betreuung von Veranstaltungen durch Bedienung einfacher Streaming-Softwares\n• Organisieren, planen und durchführen von diversen Führungen durchs ICC (z.B. Experience Raum, Fabrikführungen, etc.)\n• Selbständige Erarbeitung diverser Kommunikationsmittel (z.B. im Bereich von Social Media, etc.), Statistiken und Feedbacks\n• Unterstützung bei Events\n• Zusammenarbeit bei diversen Projekten und Übernahme von eigenen Projekten Deine Talente und Erfahrungen\n• Ausbildung : Abgeschlossenes Bachelorstudium und Absicht in naher Zukunft ein Master zu absolvieren oder eingeschrieben an einer Schweizer FH oder Universität\n• Arbeitsweise : Proaktives Agieren und hohe Eigeninitiative, gut organisiert mit einer strukturierten Arbeitsweise, ruhiges Verhalten auch in hektischen Situationen\n• Sprachkenntnisse : Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Deine Vorteile\n• Mobiles Arbeiten in der gesamten Schweiz\n• Aufbau eines internationalen Karrierenetzwerks\n• Erfahrungen sammeln bei einem der grössten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft bei der 200-köpfigen Siemens Student Association Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Egal ob im Büroalltag oder bei Networking-Events, bei Siemens fühle ich mich stets willkommen und habe die Chance, mich einzubringen und zu lernen. » (Werkstudentin Informatik) Lerne uns persönlich kennen! Aktuell sind wir mit dem Siemens Boost Bus auf Tour und bieten spannende Workshops im Study Hub an. Alle Termine und Anmeldemöglichkeiten findest du hier\n• Triff uns beim Siemens Boost Bus an deiner Hochschule [Link]\n• Vernetze dich im Siemens Study Hub mit anderen Studierenden\n• [Platz für weitere aktuelle Kampagnen/Events]\n• Messen? Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Nathalie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "it": "Praktikant:in Multimedia & Event Management 80-100% Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Als Werkstudent:in, Praktikant:in oder Trainee bist du ein wichtiger Teil unseres #TeamSiemens. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Praktikant:in Multimedia und Eventmanagement – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Administrative und organisatorische Unterstützung des ICC-Teams (Inspiration & Convention Center)\n• Reservation von Räumlichkeiten, Mithilfe bei der Organisation der Veranstaltungen, Betreuung und Beratung der internen und externen Kundschaft\n• Enge Zusammenarbeit mit internen Stellen und externen Partner:innen wie Caterer:innen, Techniker:innen sowie Dienstleister:innen\n• Unterstützung der Broadcast-Crew bei Videoproduktionen\n• Unterstützung zur technischen Betreuung von Veranstaltungen durch Bedienung einfacher Streaming-Softwares\n• Organisieren, planen und durchführen von diversen Führungen durchs ICC (z.B. Experience Raum, Fabrikführungen, etc.)\n• Selbständige Erarbeitung diverser Kommunikationsmittel (z.B. im Bereich von Social Media, etc.), Statistiken und Feedbacks\n• Unterstützung bei Events\n• Zusammenarbeit bei diversen Projekten und Übernahme von eigenen Projekten Deine Talente und Erfahrungen\n• Ausbildung : Abgeschlossenes Bachelorstudium und Absicht in naher Zukunft ein Master zu absolvieren oder eingeschrieben an einer Schweizer FH oder Universität\n• Arbeitsweise : Proaktives Agieren und hohe Eigeninitiative, gut organisiert mit einer strukturierten Arbeitsweise, ruhiges Verhalten auch in hektischen Situationen\n• Sprachkenntnisse : Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Deine Vorteile\n• Mobiles Arbeiten in der gesamten Schweiz\n• Aufbau eines internationalen Karrierenetzwerks\n• Erfahrungen sammeln bei einem der grössten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft bei der 200-köpfigen Siemens Student Association Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Egal ob im Büroalltag oder bei Networking-Events, bei Siemens fühle ich mich stets willkommen und habe die Chance, mich einzubringen und zu lernen. » (Werkstudentin Informatik) Lerne uns persönlich kennen! Aktuell sind wir mit dem Siemens Boost Bus auf Tour und bieten spannende Workshops im Study Hub an. Alle Termine und Anmeldemöglichkeiten findest du hier\n• Triff uns beim Siemens Boost Bus an deiner Hochschule [Link]\n• Vernetze dich im Siemens Study Hub mit anderen Studierenden\n• [Platz für weitere aktuelle Kampagnen/Events]\n• Messen? Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Nathalie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "en": "Praktikant:in Multimedia & Event Management 80-100% Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Als Werkstudent:in, Praktikant:in oder Trainee bist du ein wichtiger Teil unseres #TeamSiemens. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Praktikant:in Multimedia und Eventmanagement – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Administrative und organisatorische Unterstützung des ICC-Teams (Inspiration & Convention Center)\n• Reservation von Räumlichkeiten, Mithilfe bei der Organisation der Veranstaltungen, Betreuung und Beratung der internen und externen Kundschaft\n• Enge Zusammenarbeit mit internen Stellen und externen Partner:innen wie Caterer:innen, Techniker:innen sowie Dienstleister:innen\n• Unterstützung der Broadcast-Crew bei Videoproduktionen\n• Unterstützung zur technischen Betreuung von Veranstaltungen durch Bedienung einfacher Streaming-Softwares\n• Organisieren, planen und durchführen von diversen Führungen durchs ICC (z.B. Experience Raum, Fabrikführungen, etc.)\n• Selbständige Erarbeitung diverser Kommunikationsmittel (z.B. im Bereich von Social Media, etc.), Statistiken und Feedbacks\n• Unterstützung bei Events\n• Zusammenarbeit bei diversen Projekten und Übernahme von eigenen Projekten Deine Talente und Erfahrungen\n• Ausbildung : Abgeschlossenes Bachelorstudium und Absicht in naher Zukunft ein Master zu absolvieren oder eingeschrieben an einer Schweizer FH oder Universität\n• Arbeitsweise : Proaktives Agieren und hohe Eigeninitiative, gut organisiert mit einer strukturierten Arbeitsweise, ruhiges Verhalten auch in hektischen Situationen\n• Sprachkenntnisse : Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Deine Vorteile\n• Mobiles Arbeiten in der gesamten Schweiz\n• Aufbau eines internationalen Karrierenetzwerks\n• Erfahrungen sammeln bei einem der grössten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft bei der 200-köpfigen Siemens Student Association Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Egal ob im Büroalltag oder bei Networking-Events, bei Siemens fühle ich mich stets willkommen und habe die Chance, mich einzubringen und zu lernen. » (Werkstudentin Informatik) Lerne uns persönlich kennen! Aktuell sind wir mit dem Siemens Boost Bus auf Tour und bieten spannende Workshops im Study Hub an. Alle Termine und Anmeldemöglichkeiten findest du hier\n• Triff uns beim Siemens Boost Bus an deiner Hochschule [Link]\n• Vernetze dich im Siemens Study Hub mit anderen Studierenden\n• [Platz für weitere aktuelle Kampagnen/Events]\n• Messen? Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Nathalie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "fr": "Praktikant:in Multimedia & Event Management 80-100% Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Als Werkstudent:in, Praktikant:in oder Trainee bist du ein wichtiger Teil unseres #TeamSiemens. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Praktikant:in Multimedia und Eventmanagement – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Administrative und organisatorische Unterstützung des ICC-Teams (Inspiration & Convention Center)\n• Reservation von Räumlichkeiten, Mithilfe bei der Organisation der Veranstaltungen, Betreuung und Beratung der internen und externen Kundschaft\n• Enge Zusammenarbeit mit internen Stellen und externen Partner:innen wie Caterer:innen, Techniker:innen sowie Dienstleister:innen\n• Unterstützung der Broadcast-Crew bei Videoproduktionen\n• Unterstützung zur technischen Betreuung von Veranstaltungen durch Bedienung einfacher Streaming-Softwares\n• Organisieren, planen und durchführen von diversen Führungen durchs ICC (z.B. Experience Raum, Fabrikführungen, etc.)\n• Selbständige Erarbeitung diverser Kommunikationsmittel (z.B. im Bereich von Social Media, etc.), Statistiken und Feedbacks\n• Unterstützung bei Events\n• Zusammenarbeit bei diversen Projekten und Übernahme von eigenen Projekten Deine Talente und Erfahrungen\n• Ausbildung : Abgeschlossenes Bachelorstudium und Absicht in naher Zukunft ein Master zu absolvieren oder eingeschrieben an einer Schweizer FH oder Universität\n• Arbeitsweise : Proaktives Agieren und hohe Eigeninitiative, gut organisiert mit einer strukturierten Arbeitsweise, ruhiges Verhalten auch in hektischen Situationen\n• Sprachkenntnisse : Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Deine Vorteile\n• Mobiles Arbeiten in der gesamten Schweiz\n• Aufbau eines internationalen Karrierenetzwerks\n• Erfahrungen sammeln bei einem der grössten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft bei der 200-köpfigen Siemens Student Association Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Egal ob im Büroalltag oder bei Networking-Events, bei Siemens fühle ich mich stets willkommen und habe die Chance, mich einzubringen und zu lernen. » (Werkstudentin Informatik) Lerne uns persönlich kennen! Aktuell sind wir mit dem Siemens Boost Bus auf Tour und bieten spannende Workshops im Study Hub an. Alle Termine und Anmeldemöglichkeiten findest du hier\n• Triff uns beim Siemens Boost Bus an deiner Hochschule [Link]\n• Vernetze dich im Siemens Study Hub mit anderen Studierenden\n• [Platz für weitere aktuelle Kampagnen/Events]\n• Messen? Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Nathalie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513967",
+      "source": "Siemens Dedicated Parser (Avature)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T21:58:32.936Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513967",
+      "jobReqId": "513967",
+      "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T21:58:32.936Z"
+    },
+    {
+      "id": "siemens-fc853c7f69b8",
+      "slug": "einkaufer-in-travel-60-siemens-zuerich",
+      "slugByLocale": {
+        "de": "einkaufer-in-travel-60-siemens-zuerich",
+        "it": "einkaufer-in-travel-60-siemens-zuerich",
+        "en": "einkaufer-in-travel-60-siemens-zuerich",
+        "fr": "einkaufer-in-travel-60-siemens-zuerich"
+      },
+      "company": "Siemens",
+      "companyKey": "siemens",
+      "companyDomain": "siemens.com",
+      "title": "Einkäufer:in Travel 60%",
+      "titleByLocale": {
+        "de": "Einkäufer:in Travel 60%",
+        "it": "Einkäufer:in Travel 60%",
+        "en": "Einkäufer:in Travel 60%",
+        "fr": "Einkäufer:in Travel 60%"
+      },
+      "description": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Einkäufer:in Travel und starte per sofort oder nach deiner Verfügbarkeit – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Strategische und operative Steuerung des Travel Managements für Siemens Schweiz\n• Entwicklung nachhaltiger Travel-Lösungen und lokale Umsetzung globaler Strategien\n• Leitung von Digitalisierungs-, Nachhaltigkeits- und Optimierungsprojekten\n• Steuerung von KPIs, Reportings und Kostenoptimierungen\n• Verantwortung für ca. 4'000 reisende Mitarbeitende und zentrale Travel-Themen (Corporate Cards, Buchungsplattformen, Reiserichtlinien, Compliance) Deine Talente und Erfahrungen\n• Mehrjährige Erfahrung im Travel Management sowie in Projektmanagement und Prozesssteuerung\n• Sehr gute Deutsch- und Englischkenntnisse\n• Strategische und analytische Denkweise mit starker Umsetzungskompetenz\n• Ausgeprägte Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Gute Kenntnisse in MS Office 365, SAP und digitalen Travel-Systemen Deine Vorteile\n• Kombination aus strategischer Gestaltung und operativer Verantwortung mit hohem Gestaltungsspielraum\n• Hohe Sichtbarkeit gegenüber Management und Fachbereichen\n• Aktive Mitgestaltung der Zukunft des Travel Managements in der Schweiz\n• Mobiles Arbeiten im Wechselmodell (1 bzw. 2 Tage pro Woche)\n• Vergünstigtes &Ouml;V-Abo und Gratisparkplätze\n• Vielfältige Weiterbildungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Der richtige Umgang mit Fehlern ist essenziell für den unternehmerischen Erfolg. Ohne den Mut, Neues auszuprobieren, können wir keine Fortschritte machen. Wir müssen eine Umgebung schaffen, in der wir lernen können, mit Fehlern umzugehen. » (Jörn Harde, CFO Siemens Schweiz AG) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Alina Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "de": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Einkäufer:in Travel und starte per sofort oder nach deiner Verfügbarkeit – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Strategische und operative Steuerung des Travel Managements für Siemens Schweiz\n• Entwicklung nachhaltiger Travel-Lösungen und lokale Umsetzung globaler Strategien\n• Leitung von Digitalisierungs-, Nachhaltigkeits- und Optimierungsprojekten\n• Steuerung von KPIs, Reportings und Kostenoptimierungen\n• Verantwortung für ca. 4'000 reisende Mitarbeitende und zentrale Travel-Themen (Corporate Cards, Buchungsplattformen, Reiserichtlinien, Compliance) Deine Talente und Erfahrungen\n• Mehrjährige Erfahrung im Travel Management sowie in Projektmanagement und Prozesssteuerung\n• Sehr gute Deutsch- und Englischkenntnisse\n• Strategische und analytische Denkweise mit starker Umsetzungskompetenz\n• Ausgeprägte Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Gute Kenntnisse in MS Office 365, SAP und digitalen Travel-Systemen Deine Vorteile\n• Kombination aus strategischer Gestaltung und operativer Verantwortung mit hohem Gestaltungsspielraum\n• Hohe Sichtbarkeit gegenüber Management und Fachbereichen\n• Aktive Mitgestaltung der Zukunft des Travel Managements in der Schweiz\n• Mobiles Arbeiten im Wechselmodell (1 bzw. 2 Tage pro Woche)\n• Vergünstigtes &Ouml;V-Abo und Gratisparkplätze\n• Vielfältige Weiterbildungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Der richtige Umgang mit Fehlern ist essenziell für den unternehmerischen Erfolg. Ohne den Mut, Neues auszuprobieren, können wir keine Fortschritte machen. Wir müssen eine Umgebung schaffen, in der wir lernen können, mit Fehlern umzugehen. » (Jörn Harde, CFO Siemens Schweiz AG) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Alina Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "it": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Einkäufer:in Travel und starte per sofort oder nach deiner Verfügbarkeit – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Strategische und operative Steuerung des Travel Managements für Siemens Schweiz\n• Entwicklung nachhaltiger Travel-Lösungen und lokale Umsetzung globaler Strategien\n• Leitung von Digitalisierungs-, Nachhaltigkeits- und Optimierungsprojekten\n• Steuerung von KPIs, Reportings und Kostenoptimierungen\n• Verantwortung für ca. 4'000 reisende Mitarbeitende und zentrale Travel-Themen (Corporate Cards, Buchungsplattformen, Reiserichtlinien, Compliance) Deine Talente und Erfahrungen\n• Mehrjährige Erfahrung im Travel Management sowie in Projektmanagement und Prozesssteuerung\n• Sehr gute Deutsch- und Englischkenntnisse\n• Strategische und analytische Denkweise mit starker Umsetzungskompetenz\n• Ausgeprägte Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Gute Kenntnisse in MS Office 365, SAP und digitalen Travel-Systemen Deine Vorteile\n• Kombination aus strategischer Gestaltung und operativer Verantwortung mit hohem Gestaltungsspielraum\n• Hohe Sichtbarkeit gegenüber Management und Fachbereichen\n• Aktive Mitgestaltung der Zukunft des Travel Managements in der Schweiz\n• Mobiles Arbeiten im Wechselmodell (1 bzw. 2 Tage pro Woche)\n• Vergünstigtes &Ouml;V-Abo und Gratisparkplätze\n• Vielfältige Weiterbildungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Der richtige Umgang mit Fehlern ist essenziell für den unternehmerischen Erfolg. Ohne den Mut, Neues auszuprobieren, können wir keine Fortschritte machen. Wir müssen eine Umgebung schaffen, in der wir lernen können, mit Fehlern umzugehen. » (Jörn Harde, CFO Siemens Schweiz AG) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Alina Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "en": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Einkäufer:in Travel und starte per sofort oder nach deiner Verfügbarkeit – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Strategische und operative Steuerung des Travel Managements für Siemens Schweiz\n• Entwicklung nachhaltiger Travel-Lösungen und lokale Umsetzung globaler Strategien\n• Leitung von Digitalisierungs-, Nachhaltigkeits- und Optimierungsprojekten\n• Steuerung von KPIs, Reportings und Kostenoptimierungen\n• Verantwortung für ca. 4'000 reisende Mitarbeitende und zentrale Travel-Themen (Corporate Cards, Buchungsplattformen, Reiserichtlinien, Compliance) Deine Talente und Erfahrungen\n• Mehrjährige Erfahrung im Travel Management sowie in Projektmanagement und Prozesssteuerung\n• Sehr gute Deutsch- und Englischkenntnisse\n• Strategische und analytische Denkweise mit starker Umsetzungskompetenz\n• Ausgeprägte Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Gute Kenntnisse in MS Office 365, SAP und digitalen Travel-Systemen Deine Vorteile\n• Kombination aus strategischer Gestaltung und operativer Verantwortung mit hohem Gestaltungsspielraum\n• Hohe Sichtbarkeit gegenüber Management und Fachbereichen\n• Aktive Mitgestaltung der Zukunft des Travel Managements in der Schweiz\n• Mobiles Arbeiten im Wechselmodell (1 bzw. 2 Tage pro Woche)\n• Vergünstigtes &Ouml;V-Abo und Gratisparkplätze\n• Vielfältige Weiterbildungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Der richtige Umgang mit Fehlern ist essenziell für den unternehmerischen Erfolg. Ohne den Mut, Neues auszuprobieren, können wir keine Fortschritte machen. Wir müssen eine Umgebung schaffen, in der wir lernen können, mit Fehlern umzugehen. » (Jörn Harde, CFO Siemens Schweiz AG) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Alina Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
+        "fr": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. Willst auch du aktiv am Puls der Zeit mitwirken und das Leben von Millionen von Menschen in der Schweiz besser machen? Dann bist du bei uns genau richtig! Bewirb dich noch heute als Einkäufer:in Travel und starte per sofort oder nach deiner Verfügbarkeit – dein Team freut sich auf dich! Deine neuen Aufgaben\n• Strategische und operative Steuerung des Travel Managements für Siemens Schweiz\n• Entwicklung nachhaltiger Travel-Lösungen und lokale Umsetzung globaler Strategien\n• Leitung von Digitalisierungs-, Nachhaltigkeits- und Optimierungsprojekten\n• Steuerung von KPIs, Reportings und Kostenoptimierungen\n• Verantwortung für ca. 4'000 reisende Mitarbeitende und zentrale Travel-Themen (Corporate Cards, Buchungsplattformen, Reiserichtlinien, Compliance) Deine Talente und Erfahrungen\n• Mehrjährige Erfahrung im Travel Management sowie in Projektmanagement und Prozesssteuerung\n• Sehr gute Deutsch- und Englischkenntnisse\n• Strategische und analytische Denkweise mit starker Umsetzungskompetenz\n• Ausgeprägte Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Gute Kenntnisse in MS Office 365, SAP und digitalen Travel-Systemen Deine Vorteile\n• Kombination aus strategischer Gestaltung und operativer Verantwortung mit hohem Gestaltungsspielraum\n• Hohe Sichtbarkeit gegenüber Management und Fachbereichen\n• Aktive Mitgestaltung der Zukunft des Travel Managements in der Schweiz\n• Mobiles Arbeiten im Wechselmodell (1 bzw. 2 Tage pro Woche)\n• Vergünstigtes &Ouml;V-Abo und Gratisparkplätze\n• Vielfältige Weiterbildungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Der richtige Umgang mit Fehlern ist essenziell für den unternehmerischen Erfolg. Ohne den Mut, Neues auszuprobieren, können wir keine Fortschritte machen. Wir müssen eine Umgebung schaffen, in der wir lernen können, mit Fehlern umzugehen. » (Jörn Harde, CFO Siemens Schweiz AG) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Alina Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis."
+      },
+      "location": "Zuerich",
+      "canton": "ZH",
+      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513940",
+      "source": "Siemens Dedicated Parser (Avature)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T21:58:29.985Z",
+      "addressLocality": "Zuerich",
+      "addressRegion": "ZH",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/513940",
+      "jobReqId": "513940",
+      "hiringOrganizationName": "Siemens Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 44100,
+      "salaryMax": 66900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44100,
+          "maxValue": 66900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-14T21:58:29.985Z"
     }
   ]
 }
