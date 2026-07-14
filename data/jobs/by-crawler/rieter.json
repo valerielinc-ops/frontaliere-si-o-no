@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-07-14T10:55:13.410Z",
+  "assembledAt": "2026-07-14T22:00:05.184Z",
   "jobs": [
     {
       "id": "rieter-5cbc6f09de36",
@@ -17,7 +17,7 @@
       "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
       "titleByLocale": {
         "it": "Sachbearbeiter/in Export e Sales Administration (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
+        "en": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "fr": "Administration des exportations et des ventes (80 % - 100 %)"
       },
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:55:10.490Z",
+      "crawledAt": "2026-07-14T22:00:01.816Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:14.154Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -108,7 +109,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:09.907Z",
+      "crawledAt": "2026-07-14T22:00:01.249Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -182,7 +183,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4024475",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T10:55:09.326Z",
+      "crawledAt": "2026-07-14T22:00:00.667Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
