@@ -4536,6 +4536,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rincari-festival-estate-ticino': { name: 'Prezzi festival Svizzera', path: '/articoli-frontaliere/rincari-festival-estate-ticino', parent: 'blog' },
     'blog-canicola-lavoro-ticino-confronto': { name: 'Canicola lavoro Ticino', path: '/articoli-frontaliere/canicola-lavoro-ticino-confronto', parent: 'blog' },
     'blog-riforma-disoccupazione-frontalieri-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/riforma-disoccupazione-frontalieri-ue', parent: 'blog' },
+    'blog-investimenti-startup-svizzere-riduzione': { name: 'Investimenti startup svizzera', path: '/articoli-svizzera/investimenti-startup-svizzere-riduzione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

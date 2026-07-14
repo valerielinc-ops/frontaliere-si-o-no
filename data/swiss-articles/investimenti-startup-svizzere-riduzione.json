@@ -1,0 +1,40 @@
+{
+  "id": "investimenti-startup-svizzere-riduzione",
+  "slug": "investimenti-startup-svizzere-riduzione",
+  "publishedAt": "2026-07-14T22:58:21.904Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.809796913410828,
+    "confidence": 0.8,
+    "finalScore": 7.847837530728663,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8544986496669316
+      },
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.8487350884682484
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8483616550724822
+      },
+      {
+        "slug": "startup-investimenti-boom-ticino",
+        "cosine": 0.8441227681052809
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.8433216498102499
+      }
+    ],
+    "score": 3.9239187653643315,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
