@@ -34,6 +34,9 @@ describe('isBenignErrorMessage()', () => {
       // Microsoft Clarity internal crash (#3760)
       "TypeError: undefined is not an object (evaluating 'n.standardSelectors')",
       "Cannot read properties of undefined (reading 'standardSelectors')",
+      // Firebase Auth transient connectivity failure (#4174)
+      'Firebase: Error (auth/network-request-failed).',
+      '[auth.googleSignIn] Firebase: Error (auth/network-request-failed).',
     ])('drops: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(true);
     });

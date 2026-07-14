@@ -370,6 +370,14 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     }
   });
 
+  it('mirrors the Firebase auth/network-request-failed pattern from services/benignErrorPatterns.ts byte-for-byte (#4174)', () => {
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
+      p.test('Firebase: Error (auth/network-request-failed).'),
+    );
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+  });
+
   it('isIssueDenied keeps real errors issue-able (incl. call-time skew TypeErrors and chunk-load 404s)', () => {
     // Call-time skew TypeErrors are deliberately NOT denied: the same message
     // shape can be a genuine first-party bug, so they must keep filing issues.
@@ -399,6 +407,10 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('AbortError: The operation was aborted.')).toBe(true);
     expect(isIssueDenied('AbortError: signal is aborted without reason')).toBe(true);
     expect(isIssueDenied('AbortError: AbortError')).toBe(true);
+    // Firebase auth/network-request-failed (#4174): transient client network failure during sign-in.
+    expect(isIssueDenied('Firebase: Error (auth/network-request-failed).')).toBe(true);
+    // Contextualized variant (reportCaughtError-shaped) also denied.
+    expect(isIssueDenied('[auth.googleSignIn] Firebase: Error (auth/network-request-failed).')).toBe(true);
   });
 
   it('denies sw_cache_stale CSS events (#4151) — self-healed by the inline reload, not a backlog ticket', () => {
