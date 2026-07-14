@@ -1,18 +1,19 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-07-14T12:34:49.532Z",
+  "generatedAt": "2026-07-14T22:57:13.669Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4229,
-  "avgDurationMs": 4229,
+  "durationMs": 5473,
+  "avgDurationMs": 5473,
   "durationHistory": [
-    4229
+    5473
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvp-poschiavo-43c120519434",
       "slug": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
@@ -26,7 +27,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T12:34:46.683Z",
+      "crawledAt": "2026-07-14T22:57:10.047Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-07-14",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-14T12:34:46.683Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "csvp-poschiavo",
       "companyDomain": "csvp.ch",
       "title": "Responsabile del servizio tecnico",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Poschiavo",
       "canton": "GR",
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-14T12:34:47.657Z",
+      "crawledAt": "2026-07-14T22:57:11.650Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -77,16 +79,16 @@
       "featured": false,
       "postedDate": "2026-07-14",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-14T12:34:47.657Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

@@ -11,7 +11,7 @@
     "https://afry.com/en/api/afp-hr-smartrecruiteres-job-list"
   ],
   "notes": "Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then keeps CH-wide jobs whose city resolves to a Swiss canton (all 26). ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, offices nationwide incl. Bellinzona/Airolo.",
-  "updatedAt": "2026-07-14T12:35:58.491Z",
+  "updatedAt": "2026-07-14T22:59:08.194Z",
   "seedMetaByUrl": {
     "https://afry.com/en/career/available-jobs/REF15236T-elektroplanerin-bim-junior-projektleiterin-elektrotechnik-80-100-zurich": {
       "location": "Zürich",
