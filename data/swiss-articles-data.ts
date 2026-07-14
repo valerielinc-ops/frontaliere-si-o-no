@@ -3329,6 +3329,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'skyguide-licenziamenti',
+    category: 'pratico',
+    date: '2026-07-14T04:48:03.618Z',
+    image: '/images/blog/skyguide-licenziamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

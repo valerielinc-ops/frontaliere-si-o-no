@@ -1111,6 +1111,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fotovoltaico-calano-le-vendite.title': 'Sécurité des investissements, besoin impérieux',
     'blog.article.fotovoltaico-calano-le-vendite.excerpt': 'Les ventes de panneaux solaires en Suisse ont baissé de 30% en 2025, selon l\'Office fédéral de l\'énergie.',
     'blog.article.fotovoltaico-calano-le-vendite.imageAlt': 'Image d\'un panneau solaire sur un toit suisse',
+    'blog.article.skyguide-licenziamenti.title': 'Skyguide, moins de licenciements que prévu',
+    'blog.article.skyguide-licenziamenti.excerpt': 'La société de contrôle du trafic aérien réduit les suppressions à 100 emplois.',
+    'blog.article.skyguide-licenziamenti.imageAlt': 'Vue aérienne de la ville de Lugano.',
 };
 
 export default blogMetaChFr;

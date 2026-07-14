@@ -1,0 +1,40 @@
+{
+  "id": "skyguide-licenziamenti",
+  "slug": "skyguide-licenziamenti",
+  "publishedAt": "2026-07-14T04:48:07.761Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.145551232505598,
+    "confidence": 0.8,
+    "finalScore": 8.116440986004479,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8808218764743955
+      },
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8749868485615034
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8613623864184747
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.85638169063866
+      },
+      {
+        "slug": "sconto-ticino-ticket",
+        "cosine": 0.8562211212220051
+      }
+    ],
+    "score": 8.116440986004479,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}
