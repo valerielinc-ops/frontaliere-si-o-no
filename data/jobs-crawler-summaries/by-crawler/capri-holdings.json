@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-13T22:00:10.875Z",
+  "generatedAt": "2026-07-14T10:54:42.610Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 21362,
-  "avgDurationMs": 21362,
+  "unchangedCount": 1,
+  "durationMs": 16464,
+  "avgDurationMs": 16464,
   "durationHistory": [
-    21362
+    16464
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "coordinator-store-development-emea-ftc-capri-holdings",
+      "slug": "coordinatore-store-development-emea-ftc-capri-holdings-michael-kors-versace-manno",
       "category": "retail",
       "datePosted": "2026-07-13",
       "source": "capri-holdings-workday-crawler",
@@ -49,44 +49,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
-      "title": "Sales Associate PT 16h MICHAEL KORS Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "vendite-associate-pt-16h-michael-kors-capri-holdings-michael-kors-versace-graubunden",
-      "category": "retail",
-      "datePosted": "2026-07-09",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "id": "capri-holdings-fa76f91d6306",
-      "firstSeenAt": "2026-07-09T12:16:11.980Z",
-      "crawledAt": "",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 15
       }
@@ -284,5 +246,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
+      "title": "Sales Associate PT 16h MICHAEL KORS Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "vendite-associate-pt-16h-michael-kors-capri-holdings-michael-kors-versace-graubunden",
+      "category": "retail",
+      "datePosted": "2026-07-09",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "id": "capri-holdings-fa76f91d6306",
+      "firstSeenAt": "2026-07-09T12:16:11.980Z",
+      "crawledAt": "",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }
