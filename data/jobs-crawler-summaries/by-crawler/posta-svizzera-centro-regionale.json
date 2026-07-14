@@ -1,52 +1,18 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-07-14T11:01:09.624Z",
-  "total": 88,
-  "newCount": 6,
-  "updatedCount": 79,
-  "removedCount": 0,
+  "generatedAt": "2026-07-14T22:06:26.423Z",
+  "total": 87,
+  "newCount": 3,
+  "updatedCount": 81,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 361766,
-  "avgDurationMs": 361766,
+  "durationMs": 386748,
+  "avgDurationMs": 386748,
   "durationHistory": [
-    361766
+    386748
   ],
   "newJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Walenstadt",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "zusteller-in-briefe-und-pakete-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-14",
-      "validThrough": "2026-08-13",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "50-60%",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Walenstadt"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74313-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74313-de_DE",
@@ -77,40 +43,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Fachspezialistin-Controlling/74297-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Controlling/74297-de_DE",
-      "title": "Fachspezialist:in Controlling",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "fachspezialist-in-controlling-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-14",
-      "validThrough": "2026-08-04",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 6,
         "completeness": 9
       }
@@ -182,43 +114,50 @@
         "translation": 6,
         "completeness": 9
       }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
-      "applyUrl": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
-      "title": "Conductrice/ Conducteur CarPostal",
-      "company": "CarPostal",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "St-Martin VS",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "conductrice-conducteur-carpostal-post",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-13",
-      "validThrough": "2026-03-08",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "St-Martin VS"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 6,
-        "completeness": 9
-      }
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Walenstadt",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-walenstadt",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-14",
+      "validThrough": "2026-08-13",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "50-60%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Walenstadt"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-35820cb86db4",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "addressLocality": "Walenstadt",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-14T11:01:09.618Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "url": "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
@@ -301,6 +240,47 @@
         "richness": 22,
         "translation": 25,
         "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Fachspezialistin-Controlling/74297-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Controlling/74297-de_DE",
+      "title": "Fachspezialist:in Controlling",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-nel-controllo-die-schweizerische-post-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-14",
+      "validThrough": "2026-08-04",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-6758f51e7bcb",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-14T11:01:09.618Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 14
       }
     },
     {
@@ -1374,82 +1354,43 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74253-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74253-de_DE",
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74074-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74074-de_DE",
       "title": "Zusteller:in Briefe und Pakete",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Buochs",
-      "canton": "NW",
+      "location": "Hinwil",
+      "canton": "ZH",
       "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buochs",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hinwil",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
-      "datePosted": "2026-07-06",
-      "validThrough": "2026-07-27",
+      "datePosted": "2026-06-15",
+      "validThrough": "2026-07-14",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Postali",
       "workload": "60-100%",
       "_targetScope": {
-        "canton": "NW",
-        "location": "Buochs"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-a2289535455d",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "addressLocality": "Buochs",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74225-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74225-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Zürich-Mülligen",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zurich-mulligen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-06",
-      "validThrough": "2026-07-27",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "20-100%",
-      "_targetScope": {
         "canton": "ZH",
-        "location": "Zürich-Mülligen"
+        "location": "Hinwil"
       },
       "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-4d6c51611e51",
+      "id": "posta-svizzera-centro-regionale-51e38630bc6f",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "addressLocality": "Zürich-Mülligen",
+      "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-06T15:19:00.145Z",
+      "firstSeenAt": "2026-06-15T15:21:42.597Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1459,7 +1400,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73600-de_DE",
