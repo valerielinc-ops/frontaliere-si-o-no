@@ -1,19 +1,58 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-07-14T11:05:57.905Z",
-  "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
+  "generatedAt": "2026-07-14T22:34:08.864Z",
+  "total": 2,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3082,
-  "avgDurationMs": 3082,
+  "unchangedCount": 1,
+  "durationMs": 5297,
+  "avgDurationMs": 5297,
   "durationHistory": [
-    3082
+    5297
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "bps-suisse-cf081dc653a5",
+      "title": "Consulente Alla Clientela Commerciale Ipotecaria",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "consulente-alla-clientela-commerciale-ipotecaria-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-07-14",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-07-14T22:34:05.339Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 2,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
       "title": "Collaboratore Trice Gestione Crediti",
@@ -37,7 +76,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-14",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-14T11:05:56.168Z",
+      "crawledAt": "2026-07-14T22:34:06.554Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -54,7 +93,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
