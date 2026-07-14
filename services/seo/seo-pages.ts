@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3225,
+ "numberOfItems": 3226,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7900,7 +7900,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3222, "name": "Disoccupazione frontalieri: come funziona e a q...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-naspi` },
           { "@type": "ListItem", "position": 3223, "name": "Grigioni: le finanze degli ospedali tornano in ...", "url": `${BASE_URL}/articoli-frontaliere/ripresa-finanziaria-ospedali-grigionesi` },
           { "@type": "ListItem", "position": 3224, "name": "Recruiting Day Iper: opportunità di lavoro a Va...", "url": `${BASE_URL}/articoli-frontaliere/recruiting-day-iper-villa-recalcati` },
-          { "@type": "ListItem", "position": 3225, "name": "Chi deve dichiarare il conto svizzero nel 2026", "url": `${BASE_URL}/articoli-frontaliere/quadro-rw-2026-chi-dichiara-conto-svizzero` }
+          { "@type": "ListItem", "position": 3225, "name": "Chi deve dichiarare il conto svizzero nel 2026", "url": `${BASE_URL}/articoli-frontaliere/quadro-rw-2026-chi-dichiara-conto-svizzero` },
+          { "@type": "ListItem", "position": 3226, "name": "Vergiate, sospesi i lavori della passerella fin...", "url": `${BASE_URL}/articoli-frontaliere/vergiate-sospensione-passerella-settembre` }
  ]
  },
  {

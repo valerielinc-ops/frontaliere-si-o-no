@@ -25523,6 +25523,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vergiate-sospensione-passerella-settembre',
+ category: 'pratico',
+ date: '2026-07-14T13:59:46.658Z',
+ image: '/images/blog/vergiate-sospensione-passerella-settembre.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

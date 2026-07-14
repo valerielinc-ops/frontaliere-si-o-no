@@ -8495,6 +8495,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.recruiting-day-iper-villa-recalcati.title': 'Journée de recrutement hyper : opportunités d\'emploi à Varèse',
     'blog.article.recruiting-day-iper-villa-recalcati.excerpt': 'Iper La Grande i organise une journée de recrutement à la Villa Recalcati. Inscriptions ouvertes pour plusieurs professionnels de la GDO avant le 26 juillet.',
     'blog.article.recruiting-day-iper-villa-recalcati.imageAlt': 'Villa Recalcati à Varèse, lieu de l\'événement de recrutement',
+    'blog.article.vergiate-sospensione-passerella-settembre.title': 'Vergate, les travaux de la passerelle suspendus jusqu\'en septembre',
+    'blog.article.vergiate-sospensione-passerella-settembre.excerpt': 'Les travaux pour la nouvelle passerelle de Vergiate sont temporairement arrêtés. Reprise prévue fin septembre en attendant les nouveaux appuis Rfi.',
+    'blog.article.vergiate-sospensione-passerella-settembre.imageAlt': 'Chantier de passerelle piétonne à Vergiate',
 };
 
 export default blogMetaFr;
