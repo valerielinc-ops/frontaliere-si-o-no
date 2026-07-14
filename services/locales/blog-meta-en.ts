@@ -8494,6 +8494,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.recruiting-day-iper-villa-recalcati.title': 'Recruiting Day Iper: job opportunities in Varese',
     'blog.article.recruiting-day-iper-villa-recalcati.excerpt': 'Iper La Grande organises a Recruiting Day at Villa Recalcati. Registration is open for different professionals in the large-scale retail trade by 26 July.',
     'blog.article.recruiting-day-iper-villa-recalcati.imageAlt': 'Villa Recalcati in Varese, the venue for the recruitment day',
+    'blog.article.vergiate-sospensione-passerella-settembre.title': 'Vergiate, suspended the work on the catwalk until September',
+    'blog.article.vergiate-sospensione-passerella-settembre.excerpt': 'Work on the new Vergiate catwalk is temporarily at a standstill. Recovery scheduled for the end of September pending new RFI support.',
+    'blog.article.vergiate-sospensione-passerella-settembre.imageAlt': 'Pedestrian bridge construction site in Vergiate',
 };
 
 export default blogMetaEn;

@@ -4532,6 +4532,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ripresa-finanziaria-ospedali-grigionesi': { name: 'Finanze sanitarie Grigioni', path: '/articoli-svizzera/ripresa-finanziaria-ospedali-grigionesi/', parent: 'blog' },
     'blog-recruiting-day-iper-villa-recalcati': { name: 'Recruiting Day Iper', path: '/articoli-frontaliere/recruiting-day-iper-villa-recalcati', parent: 'blog' },
     'blog-quadro-rw-2026-chi-dichiara-conto-svizzero': { name: 'Quadro RW 2026', path: '/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/', parent: 'blog' },
+    'blog-vergiate-sospensione-passerella-settembre': { name: 'Vergiate passerella', path: '/articoli-frontaliere/vergiate-sospensione-passerella-settembre', parent: 'blog' },
  };
 
  const info = sectionNames[section];
