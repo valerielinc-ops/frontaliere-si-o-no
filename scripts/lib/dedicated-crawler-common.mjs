@@ -1493,7 +1493,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         // entirely for registered locales. The drifted slug is demoted to
         // previousSlugs by captureLostSlugs at the end of the job loop, so the
         // legacy URL keeps resolving via the slug-bridge.
-        const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang);
+        const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang, sourceSlugPinContext(job, titleSourceLang));
         if (pinnedSlug) {
           if (pinnedSlug !== existingSlug) {
             slugChangeCount.registry_pin = (slugChangeCount.registry_pin || 0) + 1;
@@ -1609,7 +1609,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // churning the canonical away from the indexed URL — exactly the drift
       // this fix exists to prevent. Re-assert the pin defensively in case an
       // earlier pass left it unset.
-      const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang);
+      const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang, sourceSlugPinContext(job, titleSourceLang));
       if (pinnedSlug) {
         if (String(job.slugByLocale[locale] || '').trim() !== pinnedSlug) {
           job.slugByLocale[locale] = pinnedSlug;
@@ -5264,12 +5264,48 @@ export function getRegisteredSlug(job, registry) {
  * the source-locale slug — early entries registered before AI localization
  * finished; pinning those would revert a real translation to the source slug).
  *
+ * Build the opts bag consumed by registryPinnedLocaleSlug's garbage-source-pin
+ * guard (#4071) from a job object. Centralizes the field plumbing so every pin
+ * call site (hardenJobLocaleFields ×2, the merge finalize pass, and the post-AI
+ * backfill in shared-jobs-crawler.mjs) supplies the source title identically —
+ * keeping the guard's blast radius consistent instead of drifting per-site.
+ *
+ * Carries the FULL `titleByLocale` map (not just the source title): the garbage
+ * guard checks each pinned locale against ITS OWN title, because
+ * hardenJobLocaleFields re-detects sourceLang and can misclassify a garbled
+ * locale as non-source (the KSA German nursing titles detect as `it`), so a
+ * source-only guard would never see the corrupt `de` slot.
+ *
+ * @param {object} job        the job being pinned
+ * @param {string|null} [srcLang] retained for call-site compatibility (unused;
+ *   the guard resolves the per-locale title from titleByLocale)
+ * @returns {{titleByLocale: object, company: string, location: string, disambiguator: string}}
+ */
+export function sourceSlugPinContext(job, srcLang) { // eslint-disable-line no-unused-vars
+  return {
+    titleByLocale: (job && job.titleByLocale && typeof job.titleByLocale === 'object') ? job.titleByLocale : {},
+    company: String(job?.company || '').trim(),
+    location: String(job?.addressLocality || job?.location || '').trim(),
+    disambiguator: String(job?.slugDisambiguator || '').trim(),
+  };
+}
+
+/**
  * @param {object|null} registered  registry entry from getRegisteredSlug()
  * @param {string} locale           target locale (it/en/de/fr)
  * @param {string|null} sourceLang  job source language, to detect source copies
+ * @param {object} [opts]           optional title context for the garbage-pin
+ *   guard (issue #4071). When `opts.titleByLocale` is supplied, a pinned slug is
+ *   refused only if it is DEMONSTRABLY corrupt for its locale: zero title-token
+ *   overlap with BOTH that locale's title AND the entry's canonicalSlug (noise
+ *   subtracted). Omit to keep prior behavior.
+ * @param {object} [opts.titleByLocale] job's per-locale title map
+ * @param {string} [opts.company]       company label (noise-subtracted in match)
+ * @param {string} [opts.location]      location label (noise-subtracted in match)
+ * @param {string} [opts.disambiguator] slug disambiguator suffix, if any
  * @returns {string|null}
  */
-export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
+export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = {}) {
   if (!registered || !registered.slugByLocale || typeof registered.slugByLocale !== 'object') {
     return null;
   }
@@ -5300,6 +5336,54 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
       if (normalizeSpace(String(otherValue || '')) === regLoc) return null;
     }
   }
+
+  // Garbage-pin guard (issue #4071) — NARROW, per-locale. Refuse a pinned slug
+  // ONLY when it is DEMONSTRABLY corrupt for its locale: it shares no meaningful
+  // title token with EITHER this locale's title OR the entry's canonicalSlug
+  // (company/location/disambiguator noise subtracted). KSA froze garbage like
+  // "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau" for "Dipl.
+  // Pflegefachfrau / Pflegefachmann" — zero overlap with BOTH the DE title AND
+  // the canonical "dipl-pflegefachfrau-…-ksa-ch" — so honoring the pin
+  // short-circuits the stale-slug re-derivation in hardenJobLocaleFields and the
+  // garbage stays live for every open vacancy. Refusing it lets the fresh crawl
+  // slug heal the slot (old slug bridged via previousSlugs). Applied to EVERY
+  // locale (not just the detected source): hardenJobLocaleFields re-detects
+  // sourceLang and misclassifies the KSA German titles as `it`, so the corrupt
+  // slot is a "non-source" locale from its point of view.
+  //
+  // A merely title-mismatched pin is NOT refused: a valid-but-generic slug
+  // (e.g. the boilerplate "…-informatico-eoc-bellinzona" whose mutable source
+  // title drifted to another language) still carries the job's canonical token
+  // ("informatico") and MUST stay pinned, or every crawler would churn indexed
+  // URLs (harden-registry-pin-quality-repair guardrail). A real translation
+  // always shares a token with its own locale title, so it is never refused.
+  // Both witnesses (per-locale title + canonicalSlug) are required — without
+  // them we never refuse (conservative: no churn). Callers that omit
+  // opts.titleByLocale keep the prior unconditional pin behavior.
+  const localeTitle = opts && opts.titleByLocale && typeof opts.titleByLocale === 'object'
+    ? String(opts.titleByLocale[locale] || '').trim()
+    : '';
+  const canonical = normalizeSpace(String(registered.canonicalSlug || ''));
+  if (localeTitle && canonical) {
+    const noise = slugTokenSet(slugify(
+      `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
+    ));
+    const pinTokens = [...slugTokenSet(regLoc)].filter((t) => !noise.has(t));
+    // A pin with no title token of its own (pure company/location) is not
+    // judgeable — keep it rather than risk churning a legitimate short slug.
+    if (pinTokens.length > 0) {
+      const titleTokens = new Set(
+        [...slugTokenSet(slugify(localeTitle))].filter((t) => !noise.has(t)),
+      );
+      const canonicalTokens = new Set(
+        [...slugTokenSet(canonical)].filter((t) => !noise.has(t)),
+      );
+      const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
+      const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
+      if (!sharesTitle && !sharesCanonical) return null;
+    }
+  }
+
   return regLoc;
 }
 
@@ -7063,8 +7147,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         // definition shared with hardenJobLocaleFields, the post-AI backfill, and
         // regenerate-slugs-by-locale). Returns null for an empty entry or a
         // non-source-locale entry that merely copies the source slug.
+        const pinCtx = sourceSlugPinContext(job, srcLang);
         for (const loc of Object.keys(registered.slugByLocale)) {
-          const pinned = registryPinnedLocaleSlug(registered, loc, srcLang);
+          const pinned = registryPinnedLocaleSlug(registered, loc, srcLang, pinCtx);
           if (pinned) job.slugByLocale[loc] = pinned;
         }
       }
@@ -7079,7 +7164,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // defeated the old equality check and re-pinned an untranslated master
       // slug over a real IT translation on every subsequent run (issues
       // #3785 / #3794).
-      const pinnedMasterSlug = registryPinnedLocaleSlug(registered, 'it', srcLang);
+      const pinnedMasterSlug = registryPinnedLocaleSlug(registered, 'it', srcLang, sourceSlugPinContext(job, srcLang));
       if (pinnedMasterSlug) {
         job.slug = pinnedMasterSlug;
       }
