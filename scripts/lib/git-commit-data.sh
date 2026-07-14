@@ -1021,7 +1021,18 @@ commit_isolated_from_worktree() {
 
 if [ "$GROUPED_ISOLATED" = true ]; then
   commit_isolated_from_worktree
-  exit $?
+  _commit_result=$?
+  # Sequential callers (JOBS_SLICE_FILE unset — e.g. translate-pending.yml,
+  # cleanup-stale-jobs.yml) treat push-contention exhaustion as a soft failure:
+  # the committed data self-heals on the next scheduled run, so exit 42 must
+  # not cascade-fail subsequent steps (translations, slug-regen) or create a
+  # spurious failure issue. Grouped crawlers (JOBS_SLICE_FILE set) keep exit 42
+  # so their per-crawler failure-report step can skip the issue for this class.
+  if [ "$_commit_result" -eq 42 ] && [ -z "${JOBS_SLICE_FILE:-}" ]; then
+    echo "⚠️ Sequential push: contention exhausted after $MAX_PUSH_ATTEMPTS attempts — soft success (data self-heals on the next scheduled run)"
+    exit 0
+  fi
+  exit "$_commit_result"
 fi
 
 while true; do
