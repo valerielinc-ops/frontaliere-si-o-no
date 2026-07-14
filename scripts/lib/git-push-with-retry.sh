@@ -3,7 +3,7 @@
 # Survives concurrent pushes from other workflows that also write to main.
 #
 # Usage:
-#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 15] \
+#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 25] \
 #     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
 #
 # Examples:
@@ -78,7 +78,7 @@ if [ -f ".git/index.lock" ]; then
 fi
 
 BRANCH="main"
-MAX_ATTEMPTS=15
+MAX_ATTEMPTS=25
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
@@ -179,6 +179,13 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     fi
   fi
   attempt=$((attempt + 1))
-  sleep $(( attempt * 2 + RANDOM % (attempt + 1) ))
+  # Cap sleep at 12 s so late attempts don't consume the job-timeout budget:
+  # without a cap the formula grows to 30–45 s by attempt 15, burning all of
+  # the retry window even though the 10-min job timeout has headroom left
+  # (observed: run 29331598384 exhausted 15 attempts in 5 min, still 5 min
+  # left on the clock — root cause of issue #4183).
+  _s=$(( attempt * 2 + RANDOM % (attempt + 1) ))
+  [ "$_s" -gt 12 ] && _s=12
+  sleep "$_s"
 done
 echo "Push successful (attempt $attempt)"
