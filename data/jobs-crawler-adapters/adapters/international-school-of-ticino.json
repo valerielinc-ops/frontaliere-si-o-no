@@ -15,5 +15,5 @@
     "https://jobs.inspirededu.com/search-jobs/results?Location=Chur&CurrentPage=1"
   ],
   "notes": "SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR). seedUrls are stable location entry points, not per-job URLs (those 404 once a posting is filled). IST often has zero live TI/GR openings, in which case the crawler legitimately keeps existing data with no error.",
-  "updatedAt": "2026-07-14T11:54:20.435Z"
+  "updatedAt": "2026-07-14T22:29:50.069Z"
 }
