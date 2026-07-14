@@ -8492,6 +8492,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Chômage frontalier : les nouveautés de l\'UE et l\'impact sur le Tessin',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'L\'Union européenne est parvenue à un accord sur les indemnités de chômage pour les frontaliers. C\'est ce qui change pour le canton du Tessin selon Lorenzo Quadri.',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Vue panoramique de Lugano et du lac de Lugano',
+    'blog.article.recruiting-day-iper-villa-recalcati.title': 'Journée de recrutement hyper : opportunités d\'emploi à Varèse',
+    'blog.article.recruiting-day-iper-villa-recalcati.excerpt': 'Iper La Grande i organise une journée de recrutement à la Villa Recalcati. Inscriptions ouvertes pour plusieurs professionnels de la GDO avant le 26 juillet.',
+    'blog.article.recruiting-day-iper-villa-recalcati.imageAlt': 'Villa Recalcati à Varèse, lieu de l\'événement de recrutement',
 };
 
 export default blogMetaFr;

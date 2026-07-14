@@ -49251,6 +49251,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-recruiting-day-iper-villa-recalcati': {
+    title: 'Recruiting Day Iper: opportunità di lavoro a Varese',
+    description: 'Iper La Grande i cerca personale a Varese. Iscriviti entro il 26 luglio al Recruiting Day di Villa Recalcati per posizioni full time e part time.',
+    keywords: 'frontalieri, ticino, svizzera, italia, recruiting, iper, opportunità, lavoro',
+    ogTitle: 'Recruiting Day Iper a Varese: come partecipare',
+    ogDescription: 'Iper La Grande i cerca personale a Varese. Iscriviti entro il 26 luglio al Recruiting Day di Villa Recalcati per posizioni full time e part time.',
+    canonicalPath: '/articoli-frontaliere/recruiting-day-iper-villa-recalcati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Recruiting Day Iper: opportunità di lavoro a Varese",
+      "description": "Iper La Grande i cerca personale a Varese. Iscriviti entro il 26 luglio al Recruiting Day di Villa Recalcati per posizioni full time e part time.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/recruiting-day-iper-villa-recalcati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Recalcati a Varese, luogo dell'evento di selezione"
+      },
+      "datePublished": "2026-07-14T13:36:41+00:00",
+      "dateModified": "2026-07-14T13:36:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/recruiting-day-iper-villa-recalcati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

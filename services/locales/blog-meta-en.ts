@@ -8491,6 +8491,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Border unemployment: news from the EU and the impact on Ticino',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'The European Union has reached an agreement on unemployment benefits for frontier workers. This is what changes for the Canton of Ticino according to Lorenzo Quadri.',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Panoramic view of Lugano and Lake Ceresio',
+    'blog.article.recruiting-day-iper-villa-recalcati.title': 'Recruiting Day Iper: job opportunities in Varese',
+    'blog.article.recruiting-day-iper-villa-recalcati.excerpt': 'Iper La Grande organises a Recruiting Day at Villa Recalcati. Registration is open for different professionals in the large-scale retail trade by 26 July.',
+    'blog.article.recruiting-day-iper-villa-recalcati.imageAlt': 'Villa Recalcati in Varese, the venue for the recruitment day',
 };
 
 export default blogMetaEn;

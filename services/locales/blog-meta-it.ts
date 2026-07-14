@@ -8492,6 +8492,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.title': 'Disoccupazione frontalieri: le novità dall\'UE e l\'impatto sul Ticino',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.excerpt': 'L\'Unione Europea ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Ecco cosa cambia per il Canton Ticino secondo Lorenzo Quadri.',
     'blog.article.disoccupazione-frontalieri-ticino-accordo-ue.imageAlt': 'Vista panoramica di Lugano e del lago Ceresio',
+    'blog.article.recruiting-day-iper-villa-recalcati.title': 'Recruiting Day Iper: opportunità di lavoro a Varese',
+    'blog.article.recruiting-day-iper-villa-recalcati.excerpt': 'Iper La Grande i organizza un Recruiting Day a Villa Recalcati. Iscrizioni aperte per diverse figure professionali nella GDO entro il 26 luglio.',
+    'blog.article.recruiting-day-iper-villa-recalcati.imageAlt': 'Villa Recalcati a Varese, luogo dell\'evento di selezione',
 };
 
 export default blogMetaIt;
