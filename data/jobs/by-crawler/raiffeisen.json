@@ -4886,7 +4886,7 @@
         "it": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
         "en": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
         "de": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
-        "fr": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen"
+        "fr": "ingenieur-senior-serveur-windows-m-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -6411,9 +6411,9 @@
     },
     {
       "id": "raiffeisen-f2a9acbd504a",
-      "slug": "kundenberater-mit-begeisterung-w-m-d-raiffeisen-kolliken",
+      "slug": "consulente-clienti-con-passione-m-f-raiffeisen-kolliken",
       "slugByLocale": {
-        "it": "kundenberater-mit-begeisterung-w-m-d-raiffeisen-kolliken",
+        "it": "consulente-clienti-con-passione-m-f-raiffeisen-kolliken",
         "en": "customer-advisor-with-enthusiasm-f-m-d-raiffeisen-kolliken",
         "de": "kundenberater-mit-begeisterung-w-m-d-raiffeisen-kolliken",
         "fr": "conseiller-client-avec-enthousiasme-f-m-d-raiffeisen-kolliken"
@@ -6470,7 +6470,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-mit-begeisterung-w-m-d-raiffeisen-kolliken"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-mit-begeisterung-w-m-d-raiffeisen-kolliken"
+      ]
     },
     {
       "id": "raiffeisen-41f09d364af5",
@@ -6553,7 +6561,7 @@
         "it": "apprendista-programm-2026-raiffeisenbank-wil-e-umgebung-raiffeisen-wil",
         "en": "trainee-program-2026-raiffeisenbank-wil-and-the-surrounding-area-raiffeisen-wil",
         "de": "trainee-programm-2026-raiffeisenbank-wil-und-umgebung-raiffeisen-wil",
-        "fr": "trainee-programm-2026-raiffeisenbank-wil-und-umgebung-raiffeisen-wil"
+        "fr": "programme-de-stagiaire-2026-raiffeisen-wil-et-environnement-raiffeisen-wil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -6600,6 +6608,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "trainee-programm-2026-raiffeisenbank-wil-und-umgebung-raiffeisen-wil"
+        ],
+        "fr": [
           "trainee-programm-2026-raiffeisenbank-wil-und-umgebung-raiffeisen-wil"
         ]
       },
@@ -8858,9 +8869,9 @@
     },
     {
       "id": "raiffeisen-da8a3532b940",
-      "slug": "conseiller-a-la-clientele-h-f-d-raiffeisen-fribourg",
+      "slug": "consulente-clienti-h-f-d-raiffeisen-fribourg",
       "slugByLocale": {
-        "it": "conseiller-a-la-clientele-h-f-d-raiffeisen-fribourg",
+        "it": "consulente-clienti-h-f-d-raiffeisen-fribourg",
         "en": "client-advisor-h-f-d-raiffeisen-fribourg",
         "de": "kundenberater-h-w-d-raiffeisen-fribourg",
         "fr": "conseiller-a-la-clientele-h-f-d-raiffeisen-fribourg"
@@ -8917,7 +8928,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-a-la-clientele-h-f-d-raiffeisen-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-a-la-clientele-h-f-d-raiffeisen-fribourg"
+      ]
     },
     {
       "id": "raiffeisen-c9741f9f9f72",
@@ -9700,12 +9719,12 @@
     },
     {
       "id": "raiffeisen-a9a694365742",
-      "slug": "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona",
+      "slug": "impiegato-commerciale-efz-industry-bank-raiffeisen-rapperswil-jona",
       "slugByLocale": {
-        "it": "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona",
-        "en": "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona",
+        "it": "impiegato-commerciale-efz-industry-bank-raiffeisen-rapperswil-jona",
+        "en": "commercial-clerk-efz-industry-bank-raiffeisen-rapperswil-jona",
         "de": "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona",
-        "fr": "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona"
+        "fr": "employe-commercial-a-la-banque-industrielle-efz-raiffeisen-rapperswil-jona"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9759,7 +9778,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona"
+        ],
+        "en": [
+          "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona"
+        ],
+        "fr": [
+          "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-kaufmann-efz-branche-bank-raiffeisen-rapperswil-jona"
+      ]
     },
     {
       "id": "raiffeisen-98b8bb9beafc",
@@ -12131,9 +12164,9 @@
     },
     {
       "id": "raiffeisen-67f2478c38de",
-      "slug": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich",
+      "slug": "consulente-servizio-clienti-con-focus-vendita-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
-        "it": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich",
+        "it": "consulente-servizio-clienti-con-focus-vendita-m-f-d-raiffeisen-zurich",
         "en": "consultant-customer-service-center-with-focus-sales-f-m-d-raiffeisen-zurich",
         "de": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich",
         "fr": "centre-de-services-a-la-clientele-avec-concentration-ventes-f-m-d-raiffeisen-zurich"
@@ -12190,7 +12223,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich"
+      ]
     },
     {
       "id": "raiffeisen-4b04688cb901",
