@@ -86,7 +86,7 @@ jobs:
       - name: Post report to #3798
         # Always on schedule; on manual runs only when explicitly requested.
         if: ${{ always() && (github.event_name == 'schedule' || inputs.post_to_issue) }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
