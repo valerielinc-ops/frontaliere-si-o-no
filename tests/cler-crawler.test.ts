@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { htmlToMarkdown, validateClerDescription, extractJobMeta } from '../scripts/lib/cler-job-parser.mjs';
+import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
+import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Real HTML fixture: Geschäftsstellenleiterin Schaffhausen
@@ -131,6 +132,91 @@ const FIXTURE_JOB2_HTML = `<!DOCTYPE html>
 // ──────────────────────────────────────────────────────────────
 // htmlToMarkdown tests
 // ──────────────────────────────────────────────────────────────
+
+// ──────────────────────────────────────────────────────────────
+// dedupeClerJobsByStableId — #3836 duplicate-listings collapse
+//
+// Since the 2026-07 relaunch the jobssearch API returns each open position
+// twice: once under the legacy `…/jobs-und-karriere/…` path and once under the
+// relaunched `…/jobs-und-karriere-2026/…` path — SAME 3-4 digit requisition id,
+// two distinct whole URLs. Left un-deduped this emitted 12 records for 6 real
+// jobs, tripping the duplicate-listings ratchet (12/12).
+// ──────────────────────────────────────────────────────────────
+
+const API_BASE = 'https://www.cler.ch';
+
+// 6 real roles, each returned under BOTH career-section paths (12 listings).
+const CLER_ROLES: Array<[string, string]> = [
+  ['2673', 'kundenberaterin-basis-zuerich-stv-teamleiterin-w-m'],
+  ['2685', 'kundenberaterin-vermoegende-privatkunden-zuerich-w-m'],
+  ['2680', 'kundenberaterin-individual-zuerich-w-m'],
+  ['2676', 'geschaeftsstellenleiterin-st-gallen-w-m'],
+  ['2662', 'kundenberater-privatkunden-individual-thun-w-m'],
+  ['2589', 'kundenberaterin-basis-thun-w-m'],
+];
+
+function buildClerListingFixture() {
+  const listings: Array<{ link: { url: string } }> = [];
+  for (const [id, slug] of CLER_ROLES) {
+    // Order mirrors the live API: legacy path first, relaunched path second.
+    listings.push({ link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}-${id}` } });
+    listings.push({ link: { url: `/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/${slug}-${id}` } });
+  }
+  return listings;
+}
+
+const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
+
+describe('dedupeClerJobsByStableId — #3836', () => {
+  it('collapses 12 duplicate listings into 6 distinct jobs', () => {
+    const listings = buildClerListingFixture();
+    expect(listings).toHaveLength(12);
+    const unique = dedupeClerJobsByStableId(listings, getListingUrl);
+    expect(unique).toHaveLength(6);
+  });
+
+  it('leaves NO id-duplicated records (each stable id appears exactly once)', () => {
+    const unique = dedupeClerJobsByStableId(buildClerListingFixture(), getListingUrl);
+    const ids = unique.map((l) => extractStableJobId(getListingUrl(l)));
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(new Set(ids)).toEqual(
+      new Set(CLER_ROLES.map(([id]) => `req:cler.ch:${id}`)),
+    );
+  });
+
+  it('preserves the canonical (newest career-section) URL for each survivor', () => {
+    const unique = dedupeClerJobsByStableId(buildClerListingFixture(), getListingUrl);
+    for (const l of unique) {
+      expect(l.link.url).toContain('jobs-und-karriere-2026');
+    }
+  });
+
+  it('picks the canonical URL regardless of API ordering', () => {
+    // Same posting, relaunched path listed FIRST this time — canonical must
+    // still win, not merely "last seen".
+    const listings = [
+      { link: { url: '/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-thun-w-m-2589' } },
+      { link: { url: '/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-thun-w-m-2589' } },
+    ];
+    const unique = dedupeClerJobsByStableId(listings, getListingUrl);
+    expect(unique).toHaveLength(1);
+    expect(unique[0].link.url).toContain('jobs-und-karriere-2026');
+  });
+
+  it('keeps records with no derivable stable id instead of dropping them', () => {
+    const listings = [
+      { link: { url: '' }, slug: '' },
+      { link: { url: '' }, slug: '' },
+    ] as Array<{ link: { url: string }; slug: string }>;
+    const unique = dedupeClerJobsByStableId(listings, getListingUrl);
+    expect(unique).toHaveLength(2);
+  });
+
+  it('clerCareerSectionYear extracts the year suffix (0 when absent)', () => {
+    expect(clerCareerSectionYear(`${API_BASE}/de/bank-cler/jobs-und-karriere-2026/x-2589`)).toBe(2026);
+    expect(clerCareerSectionYear(`${API_BASE}/de/bank-cler/jobs-und-karriere/x-2589`)).toBe(0);
+  });
+});
 
 describe('htmlToMarkdown — Cler job pages', () => {
   it('extracts full description from Job 1 (Geschäftsstellenleiterin)', () => {

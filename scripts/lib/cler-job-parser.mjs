@@ -3,6 +3,60 @@
  * Converts rich HTML from cler.ch career pages to structured markdown.
  */
 import { JSDOM } from 'jsdom';
+import { extractStableJobId } from './job-match-key.mjs';
+
+/**
+ * Newest career-section year embedded in a Cler job URL, or 0 when the path
+ * carries no year suffix. Since the 2026-07 relaunch the jobssearch API
+ * publishes every posting under BOTH the legacy `…/jobs-und-karriere/…` path
+ * and the new `…/jobs-und-karriere-2026/…` path — same requisition id, two
+ * URLs. The year suffix marks the CANONICAL (live) section, so a higher year
+ * wins when we collapse the two records into one.
+ */
+export function clerCareerSectionYear(url = '') {
+  const m = String(url || '').match(/jobs-und-karriere-(\d{4})\b/i);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
+/**
+ * Deduplicate Cler job records that resolve to the SAME posting.
+ *
+ * Root cause (#3836): the jobssearch API returns each open position twice —
+ * once under the legacy `…/jobs-und-karriere/…` path and once under the
+ * relaunched `…/jobs-und-karriere-2026/…` path — with the SAME 3-4 digit
+ * requisition id in the leaf but two distinct whole URLs. The Cler requisition
+ * id is below the generic ≥6-digit stable-id floor, so before Rule K
+ * (job-url-key.mjs) every URL keyed to itself and each role emitted twice
+ * (12 records / 6 real jobs → duplicate-listings ratchet). Keying on the
+ * stable requisition id (`extractStableJobId` → `req:cler.ch:<id>`) collapses
+ * the pair; we keep ONE record per id, preferring the canonical (newest
+ * career-section) URL so the survivor points at the live path.
+ *
+ * Records with no derivable stable id (no url and no slug) are preserved
+ * as-is under a per-record synthetic key so a missing id never silently
+ * drops a job.
+ *
+ * @param {Array<object>} items
+ * @param {(item: object) => string} [getUrl] URL accessor (default `item.url`)
+ * @returns {Array<object>} one record per distinct requisition id
+ */
+export function dedupeClerJobsByStableId(items, getUrl = (it) => it?.url) {
+  const byKey = new Map();
+  let synthetic = 0;
+  for (const item of Array.isArray(items) ? items : []) {
+    const url = getUrl(item) || '';
+    const key = extractStableJobId(url)
+      || String(item?.slug || '').trim().toLowerCase()
+      || `__nokey_${synthetic++}`;
+    const prev = byKey.get(key);
+    if (!prev) { byKey.set(key, item); continue; }
+    // Keep whichever URL is more canonical (newest career-section year).
+    if (clerCareerSectionYear(url) > clerCareerSectionYear(getUrl(prev) || '')) {
+      byKey.set(key, item);
+    }
+  }
+  return [...byKey.values()];
+}
 
 // Localized labels Cler exposes in `.JobDetail__item`. Multilingual to survive
 // any future locale switch of the source site.
