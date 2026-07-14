@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-luzern",
-  "assembledAt": "2026-07-14T11:39:56.042Z",
+  "assembledAt": "2026-07-14T22:16:40.133Z",
   "jobs": [
     {
       "id": "stadt-luzern-b1758745ff12",
@@ -28,12 +28,13 @@
         "de": "Du suchst eine sinnvolle Aufgabe, bei der du Schulkinder am Morgen vor dem Unterricht und beim Frühstück begleitest? In unserer schulergänzenden Betreuung der Primarschule Littau Dorf erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du bist verantwortlich für die Frühmorgenbetreuung, begleitest die Kinder beim Frühstück und in ihrer freien Zeit vor dem Unterricht.\n\n• Du stellst den Informationsfluss an das Tagesteam sicher.\n\n• Du bist für Kinder, Eltern und Schulmitarbeitende eine verlässliche Bezugsperson.\n\n• Du pflegst den Kontakt zu Betreuungs- und Lehrpersonen.\n\n• Du arbeitest überwiegend während den Schulwochen, jeweils Montag bis Freitag von 7:00-8:15 Uhr.\n\nAnforderungen:\n• Du bringst eine pädagogische Ausbildung oder Weiterbildung mit.\n\n• Du arbeitest nach dem lösungsorientierten Ansatz und bringst klare pädagogische Haltungen und Werte mit.\n\n• Du hast Erfahrung und Freude daran, Kindergartenkinder von 4 bis 12 Jahren zu begleiten und zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art.\n\n• Du bringst Erfahrung im administrativen Bereich mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.",
         "fr": "Vous cherchez une tâche significative où vous accompagnez les écoliers le matin avant le cours et au petit déjeuner? Dans notre supervision complémentaire de l'école primaire Littau Dorf, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec joie. Tâches :\n• Vous êtes responsable des soins tôt le matin, accompagnant les enfants au petit déjeuner et dans leur temps libre avant la classe.\n• Vous assurez le flux d'information à l'équipe de jour.\n• Vous êtes une personne de référence fiable pour les enfants, les parents et les employés de l'école.\n• Vous gardez le contact avec les soignants et les enseignants.\n• Vous travaillez surtout pendant les semaines d'école, du lundi au vendredi de 7:00 à 8:15. Exigences\n• Vous apportez une éducation ou une formation.\n• Vous travaillez selon l'approche axée sur la solution et apportez des attitudes et des valeurs pédagogiques claires.\n• Vous avez l'expérience et la joie d'accompagner et de soutenir les enfants de la maternelle de 4 à 12 ans.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et orientée vers l'équipe.\n• Vous avez de l'expérience dans le domaine administratif.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozial-paedagogische-r-mitarbeiter-in-fruehmorgenbetreuung-zirka-betreuung-littau-dorf/2ba8de14-9263-4bee-b7fa-425dfa8da26a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.705Z",
+      "crawledAt": "2026-07-14T22:16:36.983Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -52,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
+        "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf",
+        "sozial-padagogische-r-collaboratore-trice-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
+          "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf",
+          "sozial-padagogische-r-collaboratore-trice-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf-stadt-luzern"
         ],
         "en": [
           "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
@@ -75,84 +78,6 @@
           "@type": "QuantitativeValue",
           "minValue": 8300,
           "maxValue": 12700,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-37eea3e9c14a",
-      "slug": "assistenza-postale-10-15-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "assistenza-postale-10-15-stadt-luzern-luzern",
-        "en": "postal-service-assistance-10-15-stadt-luzern-luzern",
-        "de": "aushilfe-postdienst-10-15-stadt-luzern-luzern",
-        "fr": "services-postaux-10-15-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Aushilfe Postdienst (10-15 %)",
-      "titleByLocale": {
-        "it": "Assistenza postale (10-15 %)",
-        "en": "Postal Service Assistance (10-15 %)",
-        "de": "Aushilfe Postdienst (10-15 %)",
-        "fr": "Services postaux (10-15 %)"
-      },
-      "description": "In dieser Rolle bist du die zentrale Drehscheibe für den Postdienst der Stadtverwaltung. Du stellst sicher, dass alle Sendungen zuverlässig ihren Weg finden.\n\nAufgaben:\n• Du holst die eingehenden Briefsendungen am Morgen bei der Schweizerischen Post ab.\n\n• Du sortierst interne und externe Sendungen wie Briefpost und Pakete zuverlässig.\n\n• Du stellst den reibungslosen Postverkehr innerhalb der Stadtverwaltung sicher.\n\n• Du frankierst abgehende Sendungen korrekt und bereitest sie für die Übergabe an die Schweizerische Post vor.\n\n• Du berätst und unterstützt interne Stellen fachlich im Bereich Postdienst.\n\nAnforderungen:\n• Du arbeitest zuverlässig und exakt.\n\n• Du verfügst über eine gute körperliche Belastbarkeit.\n\n• Du bist kontaktfreudig und kommunizierst gut auf Deutsch.\n\n• Du bringst gute PC-Anwenderkenntnisse mit (Outlook, Word, Excel, Teams).\n\n• Du besitzt einen Führerausweis der Kategorie B.\n\n• Ein Arbeitsbeginn um 06.45 Uhr sowie eine längere Mittagspause sind für dich gut machbar.",
-      "descriptionByLocale": {
-        "it": "In questo ruolo, sei l'hub centrale per il servizio postale comunale. Assicurati che tutte le spedizioni trovino la loro strada in modo affidabile. Compiti:\n• Al mattino prenderete le lettere in arrivo dal Post svizzero.\n• Si ordina spedizioni interne ed esterne come la posta lettera e i pacchetti in modo affidabile.\n• Assicura un traffico postale regolare all'interno dell'amministrazione della città.\n• Blocca le spedizioni in uscita correttamente e preparale per la consegna a Swiss Post.\n• Si consiglia e supporta gli uffici interni nel campo dei servizi postali. Requisiti\n• Lavori in modo affidabile e preciso.\n• Hai una buona forza fisica.\n• Siete socievoli e comunicate bene in tedesco.\n• Porti una buona conoscenza dell'utente del PC (Outlook, Word, Excel, Teams).\n• Ha una patente di guida di categoria B.\n• Un inizio di lavoro alle 06.45 orologio e una pausa pranzo più lunga sono ben fattibile per voi.",
-        "en": "In this role, you are the central hub for the municipal postal service. You make sure that all shipments find their way reliably. Tasks:\n• You will pick up the incoming letters from the Swiss Post in the morning.\n• You sort internal and external shipments such as letter mail and packages reliably.\n• You ensure smooth postal traffic within the city administration.\n• You frank outgoing shipments correctly and prepare them for delivery to Swiss Post.\n• You advise and support internal offices in the field of postal services. Requirements\n• You work reliably and accurately.\n• You have good physical strength.\n• You are sociable and communicate well in German.\n• You bring good PC user knowledge (Outlook, Word, Excel, Teams).\n• You have a category B driving licence.\n• A work start at 06.45 clock and a longer lunch break are well feasible for you.",
-        "de": "In dieser Rolle bist du die zentrale Drehscheibe für den Postdienst der Stadtverwaltung. Du stellst sicher, dass alle Sendungen zuverlässig ihren Weg finden.\n\nAufgaben:\n• Du holst die eingehenden Briefsendungen am Morgen bei der Schweizerischen Post ab.\n\n• Du sortierst interne und externe Sendungen wie Briefpost und Pakete zuverlässig.\n\n• Du stellst den reibungslosen Postverkehr innerhalb der Stadtverwaltung sicher.\n\n• Du frankierst abgehende Sendungen korrekt und bereitest sie für die Übergabe an die Schweizerische Post vor.\n\n• Du berätst und unterstützt interne Stellen fachlich im Bereich Postdienst.\n\nAnforderungen:\n• Du arbeitest zuverlässig und exakt.\n\n• Du verfügst über eine gute körperliche Belastbarkeit.\n\n• Du bist kontaktfreudig und kommunizierst gut auf Deutsch.\n\n• Du bringst gute PC-Anwenderkenntnisse mit (Outlook, Word, Excel, Teams).\n\n• Du besitzt einen Führerausweis der Kategorie B.\n\n• Ein Arbeitsbeginn um 06.45 Uhr sowie eine längere Mittagspause sind für dich gut machbar.",
-        "fr": "Dans ce rôle, vous êtes le centre central du service postal municipal. Assurez-vous que toutes les expéditions trouvent leur chemin de façon fiable. Tâches :\n• Vous prendrez les lettres entrantes de la Poste suisse dans la matinée.\n• Vous triez les envois internes et externes comme le courrier et les colis de façon fiable.\n• Vous assurez un trafic postal en douceur au sein de l'administration de la ville.\n• Vous franchisez correctement les envois sortants et les préparez à la livraison à Swiss Post.\n• Vous conseillez et soutenez les bureaux internes dans le domaine des services postaux. Exigences\n• Vous travaillez de façon fiable et précise.\n• Vous avez une bonne force physique.\n• Vous êtes sociable et communiquez bien en allemand.\n• Vous apportez de bonnes connaissances utilisateur PC (Outlook, Word, Excel, Teams).\n• Vous avez un permis de conduire de catégorie B.\n• Un début de travail à 06h45 et une pause déjeuner plus longue sont possibles pour vous."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-postdienst/2f90a91c-76ef-4982-9646-2cdfa12d51bc",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.704Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Hirschengraben 17",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-postdienst/2f90a91c-76ef-4982-9646-2cdfa12d51bc",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aushilfe-postdienst-10-15-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-postdienst-10-15-stadt-luzern-luzern"
-        ],
-        "en": [
-          "aushilfe-postdienst-10-15-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "aushilfe-postdienst-10-15-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.046Z",
-      "salaryMin": 10400,
-      "salaryMax": 15900,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 10400,
-          "maxValue": 15900,
           "unitText": "YEAR"
         }
       }
@@ -189,7 +114,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/planungs-und-baukoordinator-in-total-140/d2b9e650-df09-4d7b-a088-1ad1006e7cab",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.704Z",
+      "crawledAt": "2026-07-14T22:16:36.982Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -236,83 +161,6 @@
       }
     },
     {
-      "id": "stadt-luzern-3900ab7d9eeb",
-      "slug": "hilfsleitende-per-freiwillige-schulsportkurse-stadt-luzern",
-      "slugByLocale": {
-        "it": "hilfsleitende-per-freiwillige-schulsportkurse-stadt-luzern",
-        "en": "assistant-manager-for-voluntary-school-sports-courses-stadt-luzern-luzern",
-        "de": "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern",
-        "fr": "directeur-adjoint-des-cours-de-sport-scolaire-volontaire-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Hilfsleitende für freiwillige Schulsportkurse",
-      "titleByLocale": {
-        "it": "Hilfsleitende per freiwillige Schulsportkurse",
-        "en": "Assistant manager for voluntary school sports courses",
-        "de": "Hilfsleitende für freiwillige Schulsportkurse",
-        "fr": "Directeur adjoint des cours de sport scolaire volontaire"
-      },
-      "description": "Aufgaben:\n• Du stehst der Hauptleitung von Sportkids-Kursen assistierend zur Seite.\n\n• Du unterstützt in der Leitung der Sportkurse.\n\nAnforderungen:\n• Du hast eine grosse Begeisterung für den Sport und Freude am Umgang mit Kindern.\n\n• Du hast im Idealfall bereits Erfahrungen mit Kindern im Primarschulalter im sportlichen Kontext .",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Aiuterai la gestione principale dei corsi di Sportkids.\n• Supporti nella gestione dei corsi sportivi. Requisiti\n• Hai un grande entusiasmo per lo sport e la gioia nel trattare con i bambini.\n• Idealmente, hai già esperienza con i bambini di età primaria in un contesto sportivo.",
-        "en": "Tasks:\n• You will assist the main management of Sportkids courses.\n• You support in the management of sports courses. Requirements\n• You have a great enthusiasm for sport and joy in dealing with children.\n• Ideally, you already have experience with children of primary school age in a sporting context.",
-        "de": "Aufgaben:\n• Du stehst der Hauptleitung von Sportkids-Kursen assistierend zur Seite.\n\n• Du unterstützt in der Leitung der Sportkurse.\n\nAnforderungen:\n• Du hast eine grosse Begeisterung für den Sport und Freude am Umgang mit Kindern.\n\n• Du hast im Idealfall bereits Erfahrungen mit Kindern im Primarschulalter im sportlichen Kontext .",
-        "fr": "Tâches :\n• Vous assisterez la gestion principale des cours Sportkids.\n• Vous soutien dans la gestion des cours de sport. Exigences\n• Vous avez un grand enthousiasme pour le sport et la joie de traiter avec les enfants.\n• Idéalement, vous avez déjà de l'expérience avec des enfants d'âge primaire dans un contexte sportif."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/hilfsleitende-fuer-freiwillige-schulsportkurse/c7c0da4e-1516-48b4-ba72-2c72e87085c7",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.703Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Hirschengraben 17",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/hilfsleitende-fuer-freiwillige-schulsportkurse/c7c0da4e-1516-48b4-ba72-2c72e87085c7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
-        ],
-        "en": [
-          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.044Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-luzern-836f16cf9940",
       "slug": "leitende-per-freiwillige-schulsportkurse-stadt-luzern",
       "slugByLocale": {
@@ -338,12 +186,13 @@
         "de": "Aufgaben:\n• Trampolin\n\n• Klettern\n\n• Racketsport\n\n• Fussball\n\n• Geräteturnen\n\n• andere Sportarten\n\n• offene Sporthallen mit polysportivem Charakter\n\nAnforderungen:\n• Du hat grosse Begeisterung für den Sport.\n\n• Die Zusammenarbeit mit Kindern und Jugendlichen bereitet dir Freude.\n\n• Du hast im Idealfall bereits Erfahrungen im Leiten von Sportkursen und verfügst bestenfalls über eine J+S-Anerkennung Kinder, Jugendliche oder Schulsport.",
         "fr": "Tâches :\n• Trampoline\n• Escalade\n• Enlèvement\n• Football\n• Machine de gymnastique\n• Autres sports\n• salles de sport ouvertes à caractère polysportif Exigences\n• Vous avez beaucoup d'enthousiasme pour le sport.\n• Travailler avec les enfants et les jeunes vous procure du plaisir.\n• Idéalement, vous avez déjà l'expérience de grands cours de sport et au mieux avoir une reconnaissance J+S pour les enfants, les adolescents ou les sports scolaires."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/leitende-fuer-freiwillige-schulsportkurse/90649f38-b8ee-4a23-bcf0-c813ec3c9ab8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.703Z",
+      "crawledAt": "2026-07-14T22:16:36.981Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -373,6 +222,246 @@
         ],
         "fr": [
           "leitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.044Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-37eea3e9c14a",
+      "slug": "assistenza-postale-10-15-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "assistenza-postale-10-15-stadt-luzern-luzern",
+        "en": "postal-service-assistance-10-15-stadt-luzern-luzern",
+        "de": "aushilfe-postdienst-10-15-stadt-luzern-luzern",
+        "fr": "services-postaux-10-15-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Aushilfe Postdienst (10-15 %)",
+      "titleByLocale": {
+        "it": "Assistenza postale (10-15 %)",
+        "en": "Postal Service Assistance (10-15 %)",
+        "de": "Aushilfe Postdienst (10-15 %)",
+        "fr": "Services postaux (10-15 %)"
+      },
+      "description": "In dieser Rolle bist du die zentrale Drehscheibe für den Postdienst der Stadtverwaltung. Du stellst sicher, dass alle Sendungen zuverlässig ihren Weg finden.\n\nAufgaben:\n• Du holst die eingehenden Briefsendungen am Morgen bei der Schweizerischen Post ab.\n\n• Du sortierst interne und externe Sendungen wie Briefpost und Pakete zuverlässig.\n\n• Du stellst den reibungslosen Postverkehr innerhalb der Stadtverwaltung sicher.\n\n• Du frankierst abgehende Sendungen korrekt und bereitest sie für die Übergabe an die Schweizerische Post vor.\n\n• Du berätst und unterstützt interne Stellen fachlich im Bereich Postdienst.\n\nAnforderungen:\n• Du arbeitest zuverlässig und exakt.\n\n• Du verfügst über eine gute körperliche Belastbarkeit.\n\n• Du bist kontaktfreudig und kommunizierst gut auf Deutsch.\n\n• Du bringst gute PC-Anwenderkenntnisse mit (Outlook, Word, Excel, Teams).\n\n• Du besitzt einen Führerausweis der Kategorie B.\n\n• Ein Arbeitsbeginn um 06.45 Uhr sowie eine längere Mittagspause sind für dich gut machbar.",
+      "descriptionByLocale": {
+        "it": "In questo ruolo, sei l'hub centrale per il servizio postale comunale. Assicurati che tutte le spedizioni trovino la loro strada in modo affidabile. Compiti:\n• Al mattino prenderete le lettere in arrivo dal Post svizzero.\n• Si ordina spedizioni interne ed esterne come la posta lettera e i pacchetti in modo affidabile.\n• Assicura un traffico postale regolare all'interno dell'amministrazione della città.\n• Blocca le spedizioni in uscita correttamente e preparale per la consegna a Swiss Post.\n• Si consiglia e supporta gli uffici interni nel campo dei servizi postali. Requisiti\n• Lavori in modo affidabile e preciso.\n• Hai una buona forza fisica.\n• Siete socievoli e comunicate bene in tedesco.\n• Porti una buona conoscenza dell'utente del PC (Outlook, Word, Excel, Teams).\n• Ha una patente di guida di categoria B.\n• Un inizio di lavoro alle 06.45 orologio e una pausa pranzo più lunga sono ben fattibile per voi.",
+        "en": "In this role, you are the central hub for the municipal postal service. You make sure that all shipments find their way reliably. Tasks:\n• You will pick up the incoming letters from the Swiss Post in the morning.\n• You sort internal and external shipments such as letter mail and packages reliably.\n• You ensure smooth postal traffic within the city administration.\n• You frank outgoing shipments correctly and prepare them for delivery to Swiss Post.\n• You advise and support internal offices in the field of postal services. Requirements\n• You work reliably and accurately.\n• You have good physical strength.\n• You are sociable and communicate well in German.\n• You bring good PC user knowledge (Outlook, Word, Excel, Teams).\n• You have a category B driving licence.\n• A work start at 06.45 clock and a longer lunch break are well feasible for you.",
+        "de": "In dieser Rolle bist du die zentrale Drehscheibe für den Postdienst der Stadtverwaltung. Du stellst sicher, dass alle Sendungen zuverlässig ihren Weg finden.\n\nAufgaben:\n• Du holst die eingehenden Briefsendungen am Morgen bei der Schweizerischen Post ab.\n\n• Du sortierst interne und externe Sendungen wie Briefpost und Pakete zuverlässig.\n\n• Du stellst den reibungslosen Postverkehr innerhalb der Stadtverwaltung sicher.\n\n• Du frankierst abgehende Sendungen korrekt und bereitest sie für die Übergabe an die Schweizerische Post vor.\n\n• Du berätst und unterstützt interne Stellen fachlich im Bereich Postdienst.\n\nAnforderungen:\n• Du arbeitest zuverlässig und exakt.\n\n• Du verfügst über eine gute körperliche Belastbarkeit.\n\n• Du bist kontaktfreudig und kommunizierst gut auf Deutsch.\n\n• Du bringst gute PC-Anwenderkenntnisse mit (Outlook, Word, Excel, Teams).\n\n• Du besitzt einen Führerausweis der Kategorie B.\n\n• Ein Arbeitsbeginn um 06.45 Uhr sowie eine längere Mittagspause sind für dich gut machbar.",
+        "fr": "Dans ce rôle, vous êtes le centre central du service postal municipal. Assurez-vous que toutes les expéditions trouvent leur chemin de façon fiable. Tâches :\n• Vous prendrez les lettres entrantes de la Poste suisse dans la matinée.\n• Vous triez les envois internes et externes comme le courrier et les colis de façon fiable.\n• Vous assurez un trafic postal en douceur au sein de l'administration de la ville.\n• Vous franchisez correctement les envois sortants et les préparez à la livraison à Swiss Post.\n• Vous conseillez et soutenez les bureaux internes dans le domaine des services postaux. Exigences\n• Vous travaillez de façon fiable et précise.\n• Vous avez une bonne force physique.\n• Vous êtes sociable et communiquez bien en allemand.\n• Vous apportez de bonnes connaissances utilisateur PC (Outlook, Word, Excel, Teams).\n• Vous avez un permis de conduire de catégorie B.\n• Un début de travail à 06h45 et une pause déjeuner plus longue sont possibles pour vous."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-postdienst/2f90a91c-76ef-4982-9646-2cdfa12d51bc",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.981Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Hirschengraben 17",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-postdienst/2f90a91c-76ef-4982-9646-2cdfa12d51bc",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aushilfe-postdienst-10-15-stadt-luzern-luzern",
+        "assistenza-postale-10-15-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-postdienst-10-15-stadt-luzern-luzern",
+          "assistenza-postale-10-15-stadt-luzern-luzern"
+        ],
+        "en": [
+          "aushilfe-postdienst-10-15-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "aushilfe-postdienst-10-15-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.046Z",
+      "salaryMin": 10400,
+      "salaryMax": 15900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 10400,
+          "maxValue": 15900,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-9824dc6d62a2",
+      "slug": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
+        "en": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "de": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "fr": "fonctionnaire-de-l-etat-civil-60-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Zivilstandsbeamt*in (60 %)",
+      "titleByLocale": {
+        "it": "Ufficiale di stato civile (60%)",
+        "en": "Zivilstandsbeamt*in (60 %)",
+        "de": "Zivilstandsbeamt*in (60 %)",
+        "fr": "Fonctionnaire de l ' état civil (60 %)"
+      },
+      "description": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
+      "descriptionByLocale": {
+        "it": "Vuoi combinare lavoro in ufficio con un'attività significativa? E mettere i clienti prima? Compiti:\n• Documenti eventi di stato civile dalla nascita, dal matrimonio alla morte incl. decisioni giudiziarie e amministrative.\n• Le dichiarazioni (ad esempio il riconoscimento, la dichiarazione dei nomi, il cambiamento di genere) sono accettate e elaborate.\n• Come parte della preparazione del matrimonio, si verifica se tutti i requisiti di matrimonio sono soddisfatti.\n• Stai conducendo matrimoni.\n• Crea estratti dai registri dello stato civile.\n• Si consiglia ai nostri clienti per telefono o personalmente al bancone. Requisiti\n• Hai completato la formazione commerciale di base, preferibilmente in una pubblica amministrazione, così come la Swiss Federal Professional Card come ufficiale di stato civile.\n• Hai un'esperienza pratica nell'area di lavoro e hai un tocco per questioni legali.\n• Si esprime per iscritto e per via orale nella lingua tedesca e portare le vostre competenze linguistiche straniere.\n• Il vostro modo di lavorare è indipendente, affidabile, orientato al servizio e sensibile.",
+        "en": "Do you want to combine office work with a meaningful activity? And put customers first? Tasks:\n• You document civil status events from birth, marriage to death incl. judicial and administrative decisions.\n• Declarations (e.g. recognition, name declaration, gender change) are accepted and processed.\n• As part of marriage preparation, you check whether all marriage requirements are met.\n• You are conducting weddings.\n• You create excerpts from the civil status registers.\n• You advise our customers by phone or personally at the counter. Requirements\n• You have completed basic commercial training, preferably in a public administration, as well as the Swiss Federal Professional Card as a civil status officer.\n• You have practical experience in the task area and have a flair for legal matters.\n• You express yourself in writing and orally in the German language and bring your foreign language skills.\n• Your way of working is independent, reliable, service-oriented and sensitive.",
+        "de": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
+        "fr": "Voulez-vous combiner le travail de bureau et une activité significative? Et mettre les clients en premier ? Tâches :\n• Vous documentez les événements de l'état civil de la naissance, du mariage à la mort, y compris. décisions judiciaires et administratives.\n• Les déclarations (par exemple, reconnaissance, déclaration de nom, changement de sexe) sont acceptées et traitées.\n• Dans le cadre de la préparation du mariage, vous vérifiez si toutes les conditions du mariage sont remplies.\n• Vous dirigez des mariages.\n• Vous créez des extraits des registres de l'état civil.\n• Vous conseillez nos clients par téléphone ou personnellement au comptoir. Exigences\n• Vous avez suivi une formation commerciale de base, de préférence dans une administration publique, ainsi que la carte professionnelle fédérale suisse en tant qu'officier d'état civil.\n• Vous avez de l'expérience pratique dans le domaine des tâches et vous avez un goût pour les questions juridiques.\n• Vous vous exprimez par écrit et oralement en langue allemande et apportez vos compétences en langue étrangère.\n• Votre façon de travailler est indépendante, fiable, orientée vers le service et sensible."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.980Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Obergrundstrasse 1",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "civil-status-officer-60-stadt-luzern-luzern",
+        "ufficiale-di-stato-civile-60-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+          "ufficiale-di-stato-civile-60-stadt-luzern-luzern"
+        ],
+        "en": [
+          "civil-status-officer-60-stadt-luzern-luzern",
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.043Z",
+      "salaryMin": 41700,
+      "salaryMax": 63600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41700,
+          "maxValue": 63600,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-3900ab7d9eeb",
+      "slug": "hilfsleitende-per-freiwillige-schulsportkurse-stadt-luzern",
+      "slugByLocale": {
+        "it": "hilfsleitende-per-freiwillige-schulsportkurse-stadt-luzern",
+        "en": "assistant-manager-for-voluntary-school-sports-courses-stadt-luzern-luzern",
+        "de": "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern",
+        "fr": "directeur-adjoint-des-cours-de-sport-scolaire-volontaire-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Hilfsleitende für freiwillige Schulsportkurse",
+      "titleByLocale": {
+        "it": "Hilfsleitende per freiwillige Schulsportkurse",
+        "en": "Assistant manager for voluntary school sports courses",
+        "de": "Hilfsleitende für freiwillige Schulsportkurse",
+        "fr": "Directeur adjoint des cours de sport scolaire volontaire"
+      },
+      "description": "Aufgaben:\n• Du stehst der Hauptleitung von Sportkids-Kursen assistierend zur Seite.\n\n• Du unterstützt in der Leitung der Sportkurse.\n\nAnforderungen:\n• Du hast eine grosse Begeisterung für den Sport und Freude am Umgang mit Kindern.\n\n• Du hast im Idealfall bereits Erfahrungen mit Kindern im Primarschulalter im sportlichen Kontext .",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Aiuterai la gestione principale dei corsi di Sportkids.\n• Supporti nella gestione dei corsi sportivi. Requisiti\n• Hai un grande entusiasmo per lo sport e la gioia nel trattare con i bambini.\n• Idealmente, hai già esperienza con i bambini di età primaria in un contesto sportivo.",
+        "en": "Tasks:\n• You will assist the main management of Sportkids courses.\n• You support in the management of sports courses. Requirements\n• You have a great enthusiasm for sport and joy in dealing with children.\n• Ideally, you already have experience with children of primary school age in a sporting context.",
+        "de": "Aufgaben:\n• Du stehst der Hauptleitung von Sportkids-Kursen assistierend zur Seite.\n\n• Du unterstützt in der Leitung der Sportkurse.\n\nAnforderungen:\n• Du hast eine grosse Begeisterung für den Sport und Freude am Umgang mit Kindern.\n\n• Du hast im Idealfall bereits Erfahrungen mit Kindern im Primarschulalter im sportlichen Kontext .",
+        "fr": "Tâches :\n• Vous assisterez la gestion principale des cours Sportkids.\n• Vous soutien dans la gestion des cours de sport. Exigences\n• Vous avez un grand enthousiasme pour le sport et la joie de traiter avec les enfants.\n• Idéalement, vous avez déjà de l'expérience avec des enfants d'âge primaire dans un contexte sportif."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/hilfsleitende-fuer-freiwillige-schulsportkurse/c7c0da4e-1516-48b4-ba72-2c72e87085c7",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.980Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Hirschengraben 17",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/hilfsleitende-fuer-freiwillige-schulsportkurse/c7c0da4e-1516-48b4-ba72-2c72e87085c7",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
+        ],
+        "en": [
+          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "hilfsleitende-fur-freiwillige-schulsportkurse-stadt-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T12:19:10.044Z",
@@ -421,7 +510,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-bau-bautreuhand/b90298cc-7580-490d-a1d9-3a619346cde7",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.702Z",
+      "crawledAt": "2026-07-14T22:16:36.979Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -441,12 +530,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern"
+        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern",
+        "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern"
+          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern",
+          "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
@@ -465,160 +556,6 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-9824dc6d62a2",
-      "slug": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
-        "en": "civil-status-officer-60-stadt-luzern-luzern",
-        "de": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
-        "fr": "fonctionnaire-de-l-etat-civil-60-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Zivilstandsbeamt*in (60 %)",
-      "titleByLocale": {
-        "it": "Ufficiale di stato civile (60%)",
-        "en": "Zivilstandsbeamt*in (60 %)",
-        "de": "Zivilstandsbeamt*in (60 %)",
-        "fr": "Fonctionnaire de l ' état civil (60 %)"
-      },
-      "description": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
-      "descriptionByLocale": {
-        "it": "Vuoi combinare lavoro in ufficio con un'attività significativa? E mettere i clienti prima? Compiti:\n• Documenti eventi di stato civile dalla nascita, dal matrimonio alla morte incl. decisioni giudiziarie e amministrative.\n• Le dichiarazioni (ad esempio il riconoscimento, la dichiarazione dei nomi, il cambiamento di genere) sono accettate e elaborate.\n• Come parte della preparazione del matrimonio, si verifica se tutti i requisiti di matrimonio sono soddisfatti.\n• Stai conducendo matrimoni.\n• Crea estratti dai registri dello stato civile.\n• Si consiglia ai nostri clienti per telefono o personalmente al bancone. Requisiti\n• Hai completato la formazione commerciale di base, preferibilmente in una pubblica amministrazione, così come la Swiss Federal Professional Card come ufficiale di stato civile.\n• Hai un'esperienza pratica nell'area di lavoro e hai un tocco per questioni legali.\n• Si esprime per iscritto e per via orale nella lingua tedesca e portare le vostre competenze linguistiche straniere.\n• Il vostro modo di lavorare è indipendente, affidabile, orientato al servizio e sensibile.",
-        "en": "Do you want to combine office work with a meaningful activity? And put customers first? Tasks:\n• You document civil status events from birth, marriage to death incl. judicial and administrative decisions.\n• Declarations (e.g. recognition, name declaration, gender change) are accepted and processed.\n• As part of marriage preparation, you check whether all marriage requirements are met.\n• You are conducting weddings.\n• You create excerpts from the civil status registers.\n• You advise our customers by phone or personally at the counter. Requirements\n• You have completed basic commercial training, preferably in a public administration, as well as the Swiss Federal Professional Card as a civil status officer.\n• You have practical experience in the task area and have a flair for legal matters.\n• You express yourself in writing and orally in the German language and bring your foreign language skills.\n• Your way of working is independent, reliable, service-oriented and sensitive.",
-        "de": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
-        "fr": "Voulez-vous combiner le travail de bureau et une activité significative? Et mettre les clients en premier ? Tâches :\n• Vous documentez les événements de l'état civil de la naissance, du mariage à la mort, y compris. décisions judiciaires et administratives.\n• Les déclarations (par exemple, reconnaissance, déclaration de nom, changement de sexe) sont acceptées et traitées.\n• Dans le cadre de la préparation du mariage, vous vérifiez si toutes les conditions du mariage sont remplies.\n• Vous dirigez des mariages.\n• Vous créez des extraits des registres de l'état civil.\n• Vous conseillez nos clients par téléphone ou personnellement au comptoir. Exigences\n• Vous avez suivi une formation commerciale de base, de préférence dans une administration publique, ainsi que la carte professionnelle fédérale suisse en tant qu'officier d'état civil.\n• Vous avez de l'expérience pratique dans le domaine des tâches et vous avez un goût pour les questions juridiques.\n• Vous vous exprimez par écrit et oralement en langue allemande et apportez vos compétences en langue étrangère.\n• Votre façon de travailler est indépendante, fiable, orientée vers le service et sensible."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.702Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Obergrundstrasse 1",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-        ],
-        "en": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.043Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41700,
-          "maxValue": 63600,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-56bf1ee39a8f",
-      "slug": "teamleiter-in-per-eine-stationare-wohngruppe-in-der-kinder-e-jugendsiedlung-utenberg-80-stadt-luzern",
-      "slugByLocale": {
-        "it": "teamleiter-in-per-eine-stationare-wohngruppe-in-der-kinder-e-jugendsiedlung-utenberg-80-stadt-luzern",
-        "en": "team-leader-for-a-stationary-residential-group-in-the-utenberg-children-s-and-youth-settlement-80-stadt-luzern-luzern",
-        "de": "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80",
-        "fr": "chef-d-equipe-pour-un-groupe-residentiel-fixe-dans-l-etablissement-pour-enfants-utenberg-80-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Teamleiter*in für eine stationäre Wohngruppe in der Kinder- und Jugendsiedlung Utenberg (80 %)",
-      "titleByLocale": {
-        "it": "Teamleiter*in per eine stationäre Wohngruppe in der Kinder- e Jugendsiedlung Utenberg (80 %)",
-        "en": "Team leader for a stationary residential group in the Utenberg Children’s and Youth Settlement (80%)",
-        "de": "Teamleiter*in für eine stationäre Wohngruppe in der Kinder- und Jugendsiedlung Utenberg (80 %)",
-        "fr": "Chef d'équipe pour un groupe résidentiel fixe dans l'établissement pour enfants Utenberg (80 %)"
-      },
-      "description": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Kinder- und Jugendlichen in besonderen Lebenslagen einbringen? Dann unterstützt du uns vielleicht bald mit deinem Führungstalent.\n\nAufgaben:\n• Du hast die Fallverantwortung für sieben Kinder und Jugendliche mit Einbezug deren Lebens- und Entwicklungsräume und du führst die jeweiligen Standortgespräche.\n\n• Du coachst deine Mitarbeitenden der Wohngruppe in der Elternzusammenarbeit mit systemischem Fokus.\n\n• Du führst, unterstützt und qualifizierst deine Mitarbeitenden.\n\n• Du übernimmst die Qualitätssicherung innerhalb des Angebotes.\n\n• Du arbeitest im Kadergremium sowie in Fachgruppen und prägst damit die Weiterentwicklung der Institution mit.\n\n• Du führst Teamsitzungen, wirkst mit an Supervisionen sowie systemischer und psychiatrischer Fach- und Fallberatung.\n\n• Du begleitest angehende Sozialpädagog*innen während der Ausbildung.\n\nAnforderungen:\n• Studium in Sozialpädagogik/Soziale Arbeit (FH/HF) oder eine vergleichbare Ausbildung.\n\n• Du hast eine Führungsausbildung oder Lust, eine zu machen.\n\n• Erfahrung im Stationären Bereich ist ein Plus.\n\n• Als vertrauenswürdige Person begegnest du den Menschen wertschätzend und gestaltest Beziehungen engagiert und klärend.\n\n• Du übernimmst gerne Verantwortung, agierst bei Konflikten besonnen und entscheidungsfreudig.\n\n• Du arbeitest lösungsorientiert und gehst auch herausfordernde Situationen mit einer Prise Humor an.\n\n• Neben Bürotagen schätzt du auch unregelmässige Arbeitszeiten (Abend-, einige Nacht- und wenige Wochenenddienste).",
-      "descriptionByLocale": {
-        "it": "Vuoi contribuire al tuo modo di lavorare con bambini e giovani in situazioni particolari? Allora potete presto sostenerci con il vostro talento di leadership. Compiti:\n• Hai la responsabilità di sette bambini e adolescenti per quanto riguarda le loro aree di vita e di sviluppo e di condurre le rispettive discussioni sulla posizione.\n• Lei allena i suoi dipendenti nel gruppo residenziale in collaborazione con i genitori con un focus sistemico.\n• Guida, supporta e qualifica i tuoi dipendenti.\n• Si assume la garanzia di qualità all'interno dell'offerta.\n• Lavorate nel consiglio di amministrazione e in gruppi specializzati e formate così l'ulteriore sviluppo dell'istituzione.\n• Potrai condurre riunioni di squadra, partecipare alla supervisione, nonché specialista sistemico e psichiatrico e consulenza caso.\n• Si accompagnano potenziali pedagoghi sociali durante la formazione. Requisiti\n• Studi in educazione sociale/lavoro sociale (FH/HF) o una formazione comparabile.\n• Hai una formazione di leadership o il desiderio di farlo.\n• L'esperienza nella zona stazionaria è un vantaggio.\n• Come persona affidabile, si incontra persone in modo apprezzativo e modellare i rapporti con impegno e chiarificazione.\n• Ti piace assumerti la responsabilità, agire con calma e decisione in caso di conflitti.\n• Si lavora orientata alla soluzione e anche affrontare situazioni difficili con un pizzico di umorismo.\n• Oltre ai giorni di ufficio, apprezzi anche le ore di lavoro irregolari (settimana, qualche notte e pochi servizi di fine settimana).",
-        "en": "Would you like to contribute your optimistic and open way of working with children and young people in special situations? Then you may soon support us with your leadership talent. Tasks:\n• You have the responsibility for seven children and adolescents with regard to their living and development areas and you lead the respective location discussions.\n• You coach your employees in the residential group in parent cooperation with a systemic focus.\n• You lead, support and qualify your employees.\n• You take over the quality assurance within the offer.\n• You work on the board of directors and in specialist groups and thus shape the further development of the institution.\n• You will lead team meetings, participate in supervision as well as systemic and psychiatric specialist and case counselling.\n• You accompany prospective social pedagogues during training. Requirements\n• Studies in Social Education/Social Work (FH/HF) or a comparable education.\n• You have a leadership education or desire to do one.\n• Experience in the stationary area is a plus.\n• As a trustworthy person, you meet people in an appreciative way and shape relationships with commitment and clarification.\n• You like to take responsibility, act calmly and decisively in the event of conflicts.\n• You work solution-oriented and also tackle challenging situations with a pinch of humor.\n• In addition to office days, you also appreciate irregular working hours (evening, some night and few weekend services).",
-        "de": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Kinder- und Jugendlichen in besonderen Lebenslagen einbringen? Dann unterstützt du uns vielleicht bald mit deinem Führungstalent.\n\nAufgaben:\n• Du hast die Fallverantwortung für sieben Kinder und Jugendliche mit Einbezug deren Lebens- und Entwicklungsräume und du führst die jeweiligen Standortgespräche.\n\n• Du coachst deine Mitarbeitenden der Wohngruppe in der Elternzusammenarbeit mit systemischem Fokus.\n\n• Du führst, unterstützt und qualifizierst deine Mitarbeitenden.\n\n• Du übernimmst die Qualitätssicherung innerhalb des Angebotes.\n\n• Du arbeitest im Kadergremium sowie in Fachgruppen und prägst damit die Weiterentwicklung der Institution mit.\n\n• Du führst Teamsitzungen, wirkst mit an Supervisionen sowie systemischer und psychiatrischer Fach- und Fallberatung.\n\n• Du begleitest angehende Sozialpädagog*innen während der Ausbildung.\n\nAnforderungen:\n• Studium in Sozialpädagogik/Soziale Arbeit (FH/HF) oder eine vergleichbare Ausbildung.\n\n• Du hast eine Führungsausbildung oder Lust, eine zu machen.\n\n• Erfahrung im Stationären Bereich ist ein Plus.\n\n• Als vertrauenswürdige Person begegnest du den Menschen wertschätzend und gestaltest Beziehungen engagiert und klärend.\n\n• Du übernimmst gerne Verantwortung, agierst bei Konflikten besonnen und entscheidungsfreudig.\n\n• Du arbeitest lösungsorientiert und gehst auch herausfordernde Situationen mit einer Prise Humor an.\n\n• Neben Bürotagen schätzt du auch unregelmässige Arbeitszeiten (Abend-, einige Nacht- und wenige Wochenenddienste).",
-        "fr": "Aimeriez-vous contribuer à votre manière optimiste et ouverte de travailler avec les enfants et les jeunes dans des situations particulières? Alors vous pourriez bientôt nous soutenir avec votre talent de leader. Tâches :\n• Vous avez la responsabilité de sept enfants et adolescents en ce qui concerne leurs zones de vie et de développement et vous dirigez les discussions de localisation respectives.\n• Vous coachez vos employés dans le groupe résidentiel en coopération parentale avec un objectif systémique.\n• Vous dirigez, soutenez et qualifiez vos employés.\n• Vous prenez en charge l'assurance qualité dans l'offre.\n• Vous travaillez au conseil d'administration et dans des groupes spécialisés et façonnez ainsi le développement ultérieur de l'institution.\n• Vous dirigerez des réunions d'équipe, participerez à la supervision ainsi qu'à des spécialistes systémiques et psychiatriques et à des séances de counseling.\n• Vous accompagnez les futurs pédagogues sociaux pendant la formation. Exigences\n• Études en éducation sociale/travail social (FH/HF) ou enseignement comparable.\n• Vous avez une éducation ou le désir de faire un leadership.\n• L'expérience dans la zone stationnaire est un plus.\n• En tant que personne digne de confiance, vous rencontrez les gens d'une manière reconnaissante et façonnez les relations avec l'engagement et la clarification.\n• Vous aimez prendre des responsabilités, agir avec calme et détermination en cas de conflit.\n• Vous travaillez vers une solution et vous affrontez des situations difficiles avec une pincée d'humour.\n• En plus des jours de bureau, vous appréciez également les horaires de travail irréguliers (soir, quelques nuits et quelques services de week-end)."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-fuer-eine-stationaere-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg/0f584d9d-287d-4011-b5f0-4b7edb7e8b2f",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.701Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6006",
-      "streetAddress": "Utenbergstrasse 7",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-31",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-fuer-eine-stationaere-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg/0f584d9d-287d-4011-b5f0-4b7edb7e8b2f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
-        ],
-        "en": [
-          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
-        ],
-        "fr": [
-          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.040Z",
-      "salaryMin": 55600,
-      "salaryMax": 84800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55600,
-          "maxValue": 84800,
           "unitText": "YEAR"
         }
       }
@@ -655,7 +592,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-immobilienbewirtschaftung-finanzvermoegen/7c7c7d3e-fca5-43a7-9272-2014053d626a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.701Z",
+      "crawledAt": "2026-07-14T22:16:36.978Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -674,11 +611,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
+        "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern",
+        "stage-nella-gestione-immobiliare-attivo-finanziario-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
+          "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern",
+          "stage-nella-gestione-immobiliare-attivo-finanziario-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
@@ -733,7 +672,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialarbeiter-in-sozialhilfe/17e3af7f-3f52-453e-83d7-b60412c5c953",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.700Z",
+      "crawledAt": "2026-07-14T22:16:36.977Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -752,11 +691,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+        "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
+        "occupazione-sociale-70-90-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
+          "occupazione-sociale-70-90-stadt-luzern-luzern"
         ],
         "en": [
           "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
@@ -775,6 +716,84 @@
           "@type": "QuantitativeValue",
           "minValue": 62600,
           "maxValue": 95400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-56bf1ee39a8f",
+      "slug": "teamleiter-in-per-eine-stationare-wohngruppe-in-der-kinder-e-jugendsiedlung-utenberg-80-stadt-luzern",
+      "slugByLocale": {
+        "it": "teamleiter-in-per-eine-stationare-wohngruppe-in-der-kinder-e-jugendsiedlung-utenberg-80-stadt-luzern",
+        "en": "team-leader-for-a-stationary-residential-group-in-the-utenberg-children-s-and-youth-settlement-80-stadt-luzern-luzern",
+        "de": "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80",
+        "fr": "chef-d-equipe-pour-un-groupe-residentiel-fixe-dans-l-etablissement-pour-enfants-utenberg-80-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Teamleiter*in für eine stationäre Wohngruppe in der Kinder- und Jugendsiedlung Utenberg (80 %)",
+      "titleByLocale": {
+        "it": "Teamleiter*in per eine stationäre Wohngruppe in der Kinder- e Jugendsiedlung Utenberg (80 %)",
+        "en": "Team leader for a stationary residential group in the Utenberg Children’s and Youth Settlement (80%)",
+        "de": "Teamleiter*in für eine stationäre Wohngruppe in der Kinder- und Jugendsiedlung Utenberg (80 %)",
+        "fr": "Chef d'équipe pour un groupe résidentiel fixe dans l'établissement pour enfants Utenberg (80 %)"
+      },
+      "description": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Kinder- und Jugendlichen in besonderen Lebenslagen einbringen? Dann unterstützt du uns vielleicht bald mit deinem Führungstalent.\n\nAufgaben:\n• Du hast die Fallverantwortung für sieben Kinder und Jugendliche mit Einbezug deren Lebens- und Entwicklungsräume und du führst die jeweiligen Standortgespräche.\n\n• Du coachst deine Mitarbeitenden der Wohngruppe in der Elternzusammenarbeit mit systemischem Fokus.\n\n• Du führst, unterstützt und qualifizierst deine Mitarbeitenden.\n\n• Du übernimmst die Qualitätssicherung innerhalb des Angebotes.\n\n• Du arbeitest im Kadergremium sowie in Fachgruppen und prägst damit die Weiterentwicklung der Institution mit.\n\n• Du führst Teamsitzungen, wirkst mit an Supervisionen sowie systemischer und psychiatrischer Fach- und Fallberatung.\n\n• Du begleitest angehende Sozialpädagog*innen während der Ausbildung.\n\nAnforderungen:\n• Studium in Sozialpädagogik/Soziale Arbeit (FH/HF) oder eine vergleichbare Ausbildung.\n\n• Du hast eine Führungsausbildung oder Lust, eine zu machen.\n\n• Erfahrung im Stationären Bereich ist ein Plus.\n\n• Als vertrauenswürdige Person begegnest du den Menschen wertschätzend und gestaltest Beziehungen engagiert und klärend.\n\n• Du übernimmst gerne Verantwortung, agierst bei Konflikten besonnen und entscheidungsfreudig.\n\n• Du arbeitest lösungsorientiert und gehst auch herausfordernde Situationen mit einer Prise Humor an.\n\n• Neben Bürotagen schätzt du auch unregelmässige Arbeitszeiten (Abend-, einige Nacht- und wenige Wochenenddienste).",
+      "descriptionByLocale": {
+        "it": "Vuoi contribuire al tuo modo di lavorare con bambini e giovani in situazioni particolari? Allora potete presto sostenerci con il vostro talento di leadership. Compiti:\n• Hai la responsabilità di sette bambini e adolescenti per quanto riguarda le loro aree di vita e di sviluppo e di condurre le rispettive discussioni sulla posizione.\n• Lei allena i suoi dipendenti nel gruppo residenziale in collaborazione con i genitori con un focus sistemico.\n• Guida, supporta e qualifica i tuoi dipendenti.\n• Si assume la garanzia di qualità all'interno dell'offerta.\n• Lavorate nel consiglio di amministrazione e in gruppi specializzati e formate così l'ulteriore sviluppo dell'istituzione.\n• Potrai condurre riunioni di squadra, partecipare alla supervisione, nonché specialista sistemico e psichiatrico e consulenza caso.\n• Si accompagnano potenziali pedagoghi sociali durante la formazione. Requisiti\n• Studi in educazione sociale/lavoro sociale (FH/HF) o una formazione comparabile.\n• Hai una formazione di leadership o il desiderio di farlo.\n• L'esperienza nella zona stazionaria è un vantaggio.\n• Come persona affidabile, si incontra persone in modo apprezzativo e modellare i rapporti con impegno e chiarificazione.\n• Ti piace assumerti la responsabilità, agire con calma e decisione in caso di conflitti.\n• Si lavora orientata alla soluzione e anche affrontare situazioni difficili con un pizzico di umorismo.\n• Oltre ai giorni di ufficio, apprezzi anche le ore di lavoro irregolari (settimana, qualche notte e pochi servizi di fine settimana).",
+        "en": "Would you like to contribute your optimistic and open way of working with children and young people in special situations? Then you may soon support us with your leadership talent. Tasks:\n• You have the responsibility for seven children and adolescents with regard to their living and development areas and you lead the respective location discussions.\n• You coach your employees in the residential group in parent cooperation with a systemic focus.\n• You lead, support and qualify your employees.\n• You take over the quality assurance within the offer.\n• You work on the board of directors and in specialist groups and thus shape the further development of the institution.\n• You will lead team meetings, participate in supervision as well as systemic and psychiatric specialist and case counselling.\n• You accompany prospective social pedagogues during training. Requirements\n• Studies in Social Education/Social Work (FH/HF) or a comparable education.\n• You have a leadership education or desire to do one.\n• Experience in the stationary area is a plus.\n• As a trustworthy person, you meet people in an appreciative way and shape relationships with commitment and clarification.\n• You like to take responsibility, act calmly and decisively in the event of conflicts.\n• You work solution-oriented and also tackle challenging situations with a pinch of humor.\n• In addition to office days, you also appreciate irregular working hours (evening, some night and few weekend services).",
+        "de": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Kinder- und Jugendlichen in besonderen Lebenslagen einbringen? Dann unterstützt du uns vielleicht bald mit deinem Führungstalent.\n\nAufgaben:\n• Du hast die Fallverantwortung für sieben Kinder und Jugendliche mit Einbezug deren Lebens- und Entwicklungsräume und du führst die jeweiligen Standortgespräche.\n\n• Du coachst deine Mitarbeitenden der Wohngruppe in der Elternzusammenarbeit mit systemischem Fokus.\n\n• Du führst, unterstützt und qualifizierst deine Mitarbeitenden.\n\n• Du übernimmst die Qualitätssicherung innerhalb des Angebotes.\n\n• Du arbeitest im Kadergremium sowie in Fachgruppen und prägst damit die Weiterentwicklung der Institution mit.\n\n• Du führst Teamsitzungen, wirkst mit an Supervisionen sowie systemischer und psychiatrischer Fach- und Fallberatung.\n\n• Du begleitest angehende Sozialpädagog*innen während der Ausbildung.\n\nAnforderungen:\n• Studium in Sozialpädagogik/Soziale Arbeit (FH/HF) oder eine vergleichbare Ausbildung.\n\n• Du hast eine Führungsausbildung oder Lust, eine zu machen.\n\n• Erfahrung im Stationären Bereich ist ein Plus.\n\n• Als vertrauenswürdige Person begegnest du den Menschen wertschätzend und gestaltest Beziehungen engagiert und klärend.\n\n• Du übernimmst gerne Verantwortung, agierst bei Konflikten besonnen und entscheidungsfreudig.\n\n• Du arbeitest lösungsorientiert und gehst auch herausfordernde Situationen mit einer Prise Humor an.\n\n• Neben Bürotagen schätzt du auch unregelmässige Arbeitszeiten (Abend-, einige Nacht- und wenige Wochenenddienste).",
+        "fr": "Aimeriez-vous contribuer à votre manière optimiste et ouverte de travailler avec les enfants et les jeunes dans des situations particulières? Alors vous pourriez bientôt nous soutenir avec votre talent de leader. Tâches :\n• Vous avez la responsabilité de sept enfants et adolescents en ce qui concerne leurs zones de vie et de développement et vous dirigez les discussions de localisation respectives.\n• Vous coachez vos employés dans le groupe résidentiel en coopération parentale avec un objectif systémique.\n• Vous dirigez, soutenez et qualifiez vos employés.\n• Vous prenez en charge l'assurance qualité dans l'offre.\n• Vous travaillez au conseil d'administration et dans des groupes spécialisés et façonnez ainsi le développement ultérieur de l'institution.\n• Vous dirigerez des réunions d'équipe, participerez à la supervision ainsi qu'à des spécialistes systémiques et psychiatriques et à des séances de counseling.\n• Vous accompagnez les futurs pédagogues sociaux pendant la formation. Exigences\n• Études en éducation sociale/travail social (FH/HF) ou enseignement comparable.\n• Vous avez une éducation ou le désir de faire un leadership.\n• L'expérience dans la zone stationnaire est un plus.\n• En tant que personne digne de confiance, vous rencontrez les gens d'une manière reconnaissante et façonnez les relations avec l'engagement et la clarification.\n• Vous aimez prendre des responsabilités, agir avec calme et détermination en cas de conflit.\n• Vous travaillez vers une solution et vous affrontez des situations difficiles avec une pincée d'humour.\n• En plus des jours de bureau, vous appréciez également les horaires de travail irréguliers (soir, quelques nuits et quelques services de week-end)."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-fuer-eine-stationaere-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg/0f584d9d-287d-4011-b5f0-4b7edb7e8b2f",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.977Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6006",
+      "streetAddress": "Utenbergstrasse 7",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-fuer-eine-stationaere-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg/0f584d9d-287d-4011-b5f0-4b7edb7e8b2f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
+        ],
+        "en": [
+          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
+        ],
+        "fr": [
+          "teamleiter-in-fur-eine-stationare-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg-80"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.040Z",
+      "salaryMin": 55600,
+      "salaryMax": 84800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55600,
+          "maxValue": 84800,
           "unitText": "YEAR"
         }
       }
@@ -805,12 +824,13 @@
         "de": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
         "fr": "Développer des solutions innovantes est exactement votre truc ? Faites partie de notre équipe et façonnez l'avenir de la ville de Lucerne. Tâches :\n• Vous assumez la responsabilité de l'opération et du développement du modèle de ville 3D.\n• Vous implémentez des projets passionnants dans la construction, l'ingénierie, l'architecture et la mesure de ligne et contribuez activement à la conception.\n• Les processus existants que vous développez et mettez en œuvre de nouvelles approches et solutions.\n• Vous prenez en charge la documentation des sujets de données urbaines ainsi que des sujets de gestion d'usines individuelles dans le système SIG.\n• Vous réaliserez des développements mineurs dans les systèmes SIG et conseillerez les clients sur les questions SIG.\n• En tant qu'instructeur pratique, vous transmettez vos connaissances et accompagnez la formation des apprenants en géomatique. Exigences\n• Vous avez obtenu un diplôme en géomatique (BSc) ou une formation complémentaire comparable comme technicien en géomatique avec un certificat fédéral.\n• Vous connaissez très bien les systèmes d'information géographique. En outre, vous avez de l'expérience dans le support de modèles de ville 3D ainsi que dans l'ingénierie et l'arpentage de gestion d'usines.\n• Vous êtes passionné par les processus numériques et l'automatisation et avez idéalement une connaissance des processus ETL (par exemple FME)\n• En plus d'une bonne connaissance de l'allemand en paroles et en écriture, vous êtes caractérisé par une orientation client prononcée, un niveau élevé de sensibilisation à la qualité et des compétences conceptuelles.\n• Vous travaillez de façon indépendante, structurée, innovante et active.\n• Travailler dans une équipe motivée vous apporte de la joie.\n• Vous apportez également le permis de conduire de catégorie B."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.698Z",
+      "crawledAt": "2026-07-14T22:16:36.976Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -829,11 +849,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+        "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+          "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
@@ -843,6 +865,86 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:19:10.037Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-7c0057042092",
+      "slug": "ufficiale-di-conservazione-80-100-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "ufficiale-di-conservazione-80-100-stadt-luzern-luzern",
+        "en": "preservation-officer-80-100-stadt-luzern-luzern",
+        "de": "pfandungsbeamt-in-80-100-stadt-luzern-luzern",
+        "fr": "agent-de-preservation-80-100-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Pfändungsbeamt*in (80-100 %)",
+      "titleByLocale": {
+        "it": "Ufficiale di Conservazione (80-100%)",
+        "en": "Preservation officer (80-100%)",
+        "de": "Pfändungsbeamt*in (80-100 %)",
+        "fr": "Agent de préservation (80-100%)"
+      },
+      "description": "Du hast einen Blick fürs Detail und erkennst sofort das Wesentliche. Zudem bist du eine gewinnende und kundenorientierte Persönlichkeit. Herzlich willkommen bei uns\n\nAufgaben:\n• Du führst Pfändungseinvernahmen selbstständig und fachgerecht durch.\n\n• Du nimmst Geschäfts- und Wohnungskontrollen vor und dokumentierst die Ergebnisse.\n\n• Als Fachperson Betreibung und Konkurs erledigst du administrative Aufgaben im Fachgebiet zuverlässig und termingerecht.\n\n• Du stellst Betreibungsurkunden ordnungsgemäss zu und erlässt Lohnpfändungsanzeigen.\n\n• Du übernimmst die Verwaltung von Grundstücken und hilfst bei Steigerungen mit.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Berufsausbildung mit einem Fähigkeitszeugnis für Betreibung und Konkurs.\n\n• Deine vorhandenen Kenntnisse im Schuldbetreibungsrecht kannst du gekonnt einsetzen.\n\n• Deine guten Kommunikationsfähigkeiten sowie Fremdsprachenkenntnisse helfen dir im täglichen Kundenkontakt.\n\n• Du arbeitest selbstständig, exakt und verfügst über sehr gute IT-Anwenderkenntnisse.",
+      "descriptionByLocale": {
+        "it": "Avete un occhio per i dettagli e riconoscete immediatamente gli elementi essenziali. Inoltre, sei una personalità vincente e orientata al cliente. Benvenuti a noi Compiti:\n• Conduci esami di sequestro in modo indipendente e professionale.\n• Effettuare controlli di affari e alloggi e documentare i risultati.\n• In qualità di specialista in operazioni e fallimento, eseguirai compiti amministrativi in campo in modo affidabile e puntuale.\n• Li servirai correttamente e li servirai.\n• Si prende il controllo della gestione della terra e aiutare con aumenti. Requisiti\n• Ha una formazione professionale commerciale con un certificato di capacità di funzionamento e fallimento.\n• È possibile utilizzare abilmente la vostra conoscenza esistente della legge di recupero del debito.\n• Le vostre buone capacità di comunicazione e la conoscenza delle lingue straniere vi aiutano nel contatto quotidiano del cliente.\n• Lavori in modo indipendente, preciso e hai una buona conoscenza degli utenti IT.",
+        "en": "You have an eye for detail and immediately recognize the essentials. In addition, you are a winning and customer-oriented personality. Welcome to us Tasks:\n• You conduct seizure examinations independently and professionally.\n• You perform business and housing checks and document the results.\n• As a specialist in operations and bankruptcy, you will perform administrative tasks in the field reliably and on time.\n• You will be servicing them properly and will be servicing them.\n• You take over the management of land and help with increases. Requirements\n• You have a commercial vocational training with a certificate of ability for operation and bankruptcy.\n• You can skillfully use your existing knowledge of debt recovery law.\n• Your good communication skills and knowledge of foreign languages help you in daily customer contact.\n• You work independently, accurately and have very good IT user knowledge.",
+        "de": "Du hast einen Blick fürs Detail und erkennst sofort das Wesentliche. Zudem bist du eine gewinnende und kundenorientierte Persönlichkeit. Herzlich willkommen bei uns\n\nAufgaben:\n• Du führst Pfändungseinvernahmen selbstständig und fachgerecht durch.\n\n• Du nimmst Geschäfts- und Wohnungskontrollen vor und dokumentierst die Ergebnisse.\n\n• Als Fachperson Betreibung und Konkurs erledigst du administrative Aufgaben im Fachgebiet zuverlässig und termingerecht.\n\n• Du stellst Betreibungsurkunden ordnungsgemäss zu und erlässt Lohnpfändungsanzeigen.\n\n• Du übernimmst die Verwaltung von Grundstücken und hilfst bei Steigerungen mit.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Berufsausbildung mit einem Fähigkeitszeugnis für Betreibung und Konkurs.\n\n• Deine vorhandenen Kenntnisse im Schuldbetreibungsrecht kannst du gekonnt einsetzen.\n\n• Deine guten Kommunikationsfähigkeiten sowie Fremdsprachenkenntnisse helfen dir im täglichen Kundenkontakt.\n\n• Du arbeitest selbstständig, exakt und verfügst über sehr gute IT-Anwenderkenntnisse.",
+        "fr": "Vous avez un œil pour le détail et reconnaissez immédiatement l'essentiel. En outre, vous êtes une personnalité gagnante et orientée vers le client. Bienvenue à nous Tâches :\n• Vous effectuez des examens de saisie de manière indépendante et professionnelle.\n• Vous effectuez des vérifications d'entreprise et de logement et documentez les résultats.\n• En tant que spécialiste des opérations et de la faillite, vous effectuerez des tâches administratives sur le terrain de façon fiable et à temps.\n• Vous allez les entretenir correctement et les entretenir.\n• Vous prenez en charge la gestion des terres et vous aidez à augmenter. Exigences\n• Vous avez une formation professionnelle commerciale avec un certificat de capacité d'exploitation et de faillite.\n• Vous pouvez utiliser habilement vos connaissances existantes de la loi sur le recouvrement des créances.\n• Vos bonnes compétences en communication et vos connaissances en langues étrangères vous aident dans vos contacts quotidiens avec vos clients.\n• Vous travaillez de manière indépendante, précise et avez une très bonne connaissance de l'utilisateur informatique."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/pfaendungsbeamt-in/1ebab8b0-787d-42a4-91dd-2b290da8bef5",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.972Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Winkelriedstrasse 14",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-21",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/pfaendungsbeamt-in/1ebab8b0-787d-42a4-91dd-2b290da8bef5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pfandungsbeamt-in-80-100-stadt-luzern-luzern",
+        "ufficiale-di-conservazione-80-100-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pfandungsbeamt-in-80-100-stadt-luzern-luzern",
+          "ufficiale-di-conservazione-80-100-stadt-luzern-luzern"
+        ],
+        "en": [
+          "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.021Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -882,12 +984,13 @@
         "de": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen: 40%:\nMontag: 11 - 17.30 Uhr\nDienstag: 09.30 - 17.30 Uhr\nDonnerstag: 11 – 17.30Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
         "fr": "Cherchez-vous une tâche significative dans laquelle vous pouvez accompagner et soutenir les enfants dans la vie scolaire quotidienne? Dans notre supervision d'école supplémentaire de l'école primaire Moosmatt, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec plaisir. Tâches :\n• Vous participez activement à l'équipe de soins et concevez des soins professionnels et adaptés aux enfants.\n• Vous êtes un soignant fiable pour les enfants et les parents et avez des réunions avec les parents (sans rendez-vous en soirée).\n• Vous garderez le contact avec les enseignants, l'entretien à domicile et d'autres spécialistes de l'école.\n• Vous travaillez surtout pendant les semaines scolaires: 40%: Lundi: 11-17.30 Mardi : 9 h 30-17 h 30 Jeudi: 11 – 17.30 Exigences\n• Vous apportez une éducation socio-éducative, socioculturelle ou éducative complète.\n• Vous avez l'expérience et la joie d'accompagner des enfants de 4 à 13 ans, de les soutenir et de les soutenir dans leur vie quotidienne.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et axée sur l'équipe et contribuez activement à notre vie scolaire.\n• Vous apportez de l'expérience dans le domaine de l'administration et de la planification.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente.\n• Vous êtes une personnalité d'initiative, humoristique, résiliente et flexible.\n• Vous aimez préparer de petits repas sains et les concevoir avec le cœur."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/00384aa4-1e6b-4ad2-bca4-0ee483fef36a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.697Z",
+      "crawledAt": "2026-07-14T22:16:36.971Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -906,11 +1009,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
+        "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-uni-circa-40-moosmatt-care-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
+          "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-uni-circa-40-moosmatt-care-stadt-luzern-luzern"
         ],
         "en": [
           "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
@@ -929,84 +1034,6 @@
           "@type": "QuantitativeValue",
           "minValue": 27800,
           "maxValue": 42400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-7c0057042092",
-      "slug": "ufficiale-di-conservazione-80-100-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "ufficiale-di-conservazione-80-100-stadt-luzern-luzern",
-        "en": "preservation-officer-80-100-stadt-luzern-luzern",
-        "de": "pfandungsbeamt-in-80-100-stadt-luzern-luzern",
-        "fr": "agent-de-preservation-80-100-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Pfändungsbeamt*in (80-100 %)",
-      "titleByLocale": {
-        "it": "Ufficiale di Conservazione (80-100%)",
-        "en": "Preservation officer (80-100%)",
-        "de": "Pfändungsbeamt*in (80-100 %)",
-        "fr": "Agent de préservation (80-100%)"
-      },
-      "description": "Du hast einen Blick fürs Detail und erkennst sofort das Wesentliche. Zudem bist du eine gewinnende und kundenorientierte Persönlichkeit. Herzlich willkommen bei uns\n\nAufgaben:\n• Du führst Pfändungseinvernahmen selbstständig und fachgerecht durch.\n\n• Du nimmst Geschäfts- und Wohnungskontrollen vor und dokumentierst die Ergebnisse.\n\n• Als Fachperson Betreibung und Konkurs erledigst du administrative Aufgaben im Fachgebiet zuverlässig und termingerecht.\n\n• Du stellst Betreibungsurkunden ordnungsgemäss zu und erlässt Lohnpfändungsanzeigen.\n\n• Du übernimmst die Verwaltung von Grundstücken und hilfst bei Steigerungen mit.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Berufsausbildung mit einem Fähigkeitszeugnis für Betreibung und Konkurs.\n\n• Deine vorhandenen Kenntnisse im Schuldbetreibungsrecht kannst du gekonnt einsetzen.\n\n• Deine guten Kommunikationsfähigkeiten sowie Fremdsprachenkenntnisse helfen dir im täglichen Kundenkontakt.\n\n• Du arbeitest selbstständig, exakt und verfügst über sehr gute IT-Anwenderkenntnisse.",
-      "descriptionByLocale": {
-        "it": "Avete un occhio per i dettagli e riconoscete immediatamente gli elementi essenziali. Inoltre, sei una personalità vincente e orientata al cliente. Benvenuti a noi Compiti:\n• Conduci esami di sequestro in modo indipendente e professionale.\n• Effettuare controlli di affari e alloggi e documentare i risultati.\n• In qualità di specialista in operazioni e fallimento, eseguirai compiti amministrativi in campo in modo affidabile e puntuale.\n• Li servirai correttamente e li servirai.\n• Si prende il controllo della gestione della terra e aiutare con aumenti. Requisiti\n• Ha una formazione professionale commerciale con un certificato di capacità di funzionamento e fallimento.\n• È possibile utilizzare abilmente la vostra conoscenza esistente della legge di recupero del debito.\n• Le vostre buone capacità di comunicazione e la conoscenza delle lingue straniere vi aiutano nel contatto quotidiano del cliente.\n• Lavori in modo indipendente, preciso e hai una buona conoscenza degli utenti IT.",
-        "en": "You have an eye for detail and immediately recognize the essentials. In addition, you are a winning and customer-oriented personality. Welcome to us Tasks:\n• You conduct seizure examinations independently and professionally.\n• You perform business and housing checks and document the results.\n• As a specialist in operations and bankruptcy, you will perform administrative tasks in the field reliably and on time.\n• You will be servicing them properly and will be servicing them.\n• You take over the management of land and help with increases. Requirements\n• You have a commercial vocational training with a certificate of ability for operation and bankruptcy.\n• You can skillfully use your existing knowledge of debt recovery law.\n• Your good communication skills and knowledge of foreign languages help you in daily customer contact.\n• You work independently, accurately and have very good IT user knowledge.",
-        "de": "Du hast einen Blick fürs Detail und erkennst sofort das Wesentliche. Zudem bist du eine gewinnende und kundenorientierte Persönlichkeit. Herzlich willkommen bei uns\n\nAufgaben:\n• Du führst Pfändungseinvernahmen selbstständig und fachgerecht durch.\n\n• Du nimmst Geschäfts- und Wohnungskontrollen vor und dokumentierst die Ergebnisse.\n\n• Als Fachperson Betreibung und Konkurs erledigst du administrative Aufgaben im Fachgebiet zuverlässig und termingerecht.\n\n• Du stellst Betreibungsurkunden ordnungsgemäss zu und erlässt Lohnpfändungsanzeigen.\n\n• Du übernimmst die Verwaltung von Grundstücken und hilfst bei Steigerungen mit.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Berufsausbildung mit einem Fähigkeitszeugnis für Betreibung und Konkurs.\n\n• Deine vorhandenen Kenntnisse im Schuldbetreibungsrecht kannst du gekonnt einsetzen.\n\n• Deine guten Kommunikationsfähigkeiten sowie Fremdsprachenkenntnisse helfen dir im täglichen Kundenkontakt.\n\n• Du arbeitest selbstständig, exakt und verfügst über sehr gute IT-Anwenderkenntnisse.",
-        "fr": "Vous avez un œil pour le détail et reconnaissez immédiatement l'essentiel. En outre, vous êtes une personnalité gagnante et orientée vers le client. Bienvenue à nous Tâches :\n• Vous effectuez des examens de saisie de manière indépendante et professionnelle.\n• Vous effectuez des vérifications d'entreprise et de logement et documentez les résultats.\n• En tant que spécialiste des opérations et de la faillite, vous effectuerez des tâches administratives sur le terrain de façon fiable et à temps.\n• Vous allez les entretenir correctement et les entretenir.\n• Vous prenez en charge la gestion des terres et vous aidez à augmenter. Exigences\n• Vous avez une formation professionnelle commerciale avec un certificat de capacité d'exploitation et de faillite.\n• Vous pouvez utiliser habilement vos connaissances existantes de la loi sur le recouvrement des créances.\n• Vos bonnes compétences en communication et vos connaissances en langues étrangères vous aident dans vos contacts quotidiens avec vos clients.\n• Vous travaillez de manière indépendante, précise et avez une très bonne connaissance de l'utilisateur informatique."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/pfaendungsbeamt-in/1ebab8b0-787d-42a4-91dd-2b290da8bef5",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.697Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Winkelriedstrasse 14",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-21",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/pfaendungsbeamt-in/1ebab8b0-787d-42a4-91dd-2b290da8bef5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
-        ],
-        "en": [
-          "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "pfandungsbeamt-in-80-100-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.021Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1043,7 +1070,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/einschaetzer-in/32175654-ea5e-4fd0-8f7f-ab6cb5531f7e",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.696Z",
+      "crawledAt": "2026-07-14T22:16:36.969Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1062,11 +1089,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einschatzer-in-80-100-stadt-luzern-luzern"
+        "einschatzer-in-80-100-stadt-luzern-luzern",
+        "stimatore-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einschatzer-in-80-100-stadt-luzern-luzern"
+          "einschatzer-in-80-100-stadt-luzern-luzern",
+          "stimatore-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "einschatzer-in-80-100-stadt-luzern-luzern"
@@ -1121,7 +1150,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-umweltschutz/caa3f8b5-eb4b-4a8c-877c-af0e20c425e1",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.695Z",
+      "crawledAt": "2026-07-14T22:16:36.968Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1141,12 +1170,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
-        "projektleiter-in-umweltschutz-75-stadt-luzern"
+        "projektleiter-in-umweltschutz-75-stadt-luzern",
+        "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
-          "projektleiter-in-umweltschutz-75-stadt-luzern"
+          "projektleiter-in-umweltschutz-75-stadt-luzern",
+          "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern"
         ],
         "en": [
           "projektleiter-in-umweltschutz-75-stadt-luzern-luzern"
@@ -1201,7 +1232,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/betriebswirtschafter-in-mit-schwerpunkt-cash-und-treasurymanagement/878e5fb4-cbcc-4ef9-97a9-139082df5ab7",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.693Z",
+      "crawledAt": "2026-07-14T22:16:36.966Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1248,84 +1279,6 @@
       }
     },
     {
-      "id": "stadt-luzern-93ba489cf1be",
-      "slug": "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern",
-        "en": "traineeship-sports-promotion-50-stadt-luzern-luzern",
-        "de": "praktikum-sportforderung-50-stadt-luzern-luzern",
-        "fr": "promotion-sportive-des-stagiaires-50-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Praktikum Sportförderung (50 %)",
-      "titleByLocale": {
-        "it": "Promozione sportiva di tirocinio (50%)",
-        "en": "Traineeship Sports Promotion (50%)",
-        "de": "Praktikum Sportförderung (50 %)",
-        "fr": "Promotion sportive des stagiaires (50%)"
-      },
-      "description": "Möchtest du erste Praxiserfahrung in der kommunalen Sportförderung sammeln und aktiv bei städtischen Projekten mitwirken? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du wirkst bei der Organisation und Koordination der städtischen Bewegungsangebote mit.\n\n• Du unterstützt im Bereich der Kinder- und Jugendsportangebote, bei finanziellen Beiträgen/Jugendsportförderung sowie bei der Vorbereitung der städtischen Sportler*innen-Ehrung.\n\n• Du setzt Massnahmen des Qualitätsmanagements um und pflegst die Kommunikationsmittel im Bereich der Kinder- und Jugendsportangebote.\n\n• Du wirkst administrativ, kommunikativ und organisatorisch bei weiteren Projekten der Dienstabteilung Kultur und Sport mit.\n\n• Du hilfst bei Anlässen der Dienstabteilung Kultur und Sport und unterstützt bei der Durchführung von Kinder- und Jugendsportangeboten vor Ort.\n\nAnforderungen:\n• Du verfügst über einen Abschluss auf Universitäts- oder Fachhochschulniveau (Bachelor) in den Bereichen Sport, Politik, Wirtschaft oder einem vergleichbaren Bereich mit Bezug zur Sportförderung.\n\n• Du hast die Anerkennung als J+S-Coach oder bist bereit, diese zu erlangen.\n\n• Du interessierst dich für Abläufe der öffentlichen Verwaltung.\n\n• Du gehst sicher mit gängigen Arbeitsinstrumenten um (Word, Excel, PowerPoint, Outlook).\n\n• Du bringst Erfahrung oder Affinität im Bereich Kommunikation und Social Media mit.\n\n• Du kennst idealerweise das sportliche und kulturelle Leben der Stadt Luzern.\n\n• Du bist eine verlässliche und teamfähige Persönlichkeit.\n\n• Du hast Freude an vielseitigen und abwechslungsreichen Aufgaben.",
-      "descriptionByLocale": {
-        "it": "Volete acquisire la prima esperienza pratica nella promozione dello sport comunale e partecipare attivamente a progetti urbani? Attendiamo con ansia la vostra applicazione. Compiti:\n• Contribuisci all'organizzazione e al coordinamento delle offerte di movimento urbano.\n• Sostenete nella zona delle offerte sportive per bambini e giovanili, nei contributi finanziari / promozione dello sport giovanile e nella preparazione del premio degli atleti comunali.\n• Attui le misure di gestione della qualità e mantieni i mezzi di comunicazione nel settore delle offerte sportive per bambini e giovani.\n• Parteciperete in modo amministrativo, comunicativo e organizzativo in altri progetti della cultura e dello sport dei servizi.\n• Aiuterai in occasione della cultura del servizio e dello sport e del supporto nell'implementazione di bambini e sport giovanili in loco. Requisiti\n• Hai una laurea presso l'università o l'università di livello di scienze applicate (bachelor) nei campi dello sport, della politica, del business o di una zona paragonabile alla promozione dello sport.\n• Avete il riconoscimento come allenatore J+S o siete pronti a raggiungerlo.\n• Sei interessato ai processi di pubblica amministrazione.\n• Si è sicuri di utilizzare strumenti di lavoro comuni (Word, Excel, PowerPoint, Outlook).\n• Porti esperienza o affinità nella comunicazione e nei social media.\n• Idealmente, si conosce la vita sportiva e culturale della città di Lucerna.\n• Sei una personalità affidabile e capace di squadra.\n• Si godono compiti versatili e vari.",
-        "en": "Would you like to gain first practical experience in municipal sports promotion and actively participate in urban projects? We look forward to your application. Tasks:\n• You contribute to the organization and coordination of the urban movement offers.\n• You support in the area of children’s and youth sports offers, in financial contributions / youth sports promotion as well as in the preparation of the municipal athletes’ award.\n• You implement quality management measures and maintain the means of communication in the area of children's and youth sports offers.\n• You participate administratively, communicatively and organizationally in other projects of the service department culture and sports.\n• You will help on occasions of the service department culture and sports and support in the implementation of children and youth sports on site. Requirements\n• You have a degree at university or university of applied sciences level (bachelor) in the fields of sports, politics, business or a comparable area related to sports promotion.\n• You have the recognition as a J+S coach or are ready to achieve it.\n• You are interested in public administration processes.\n• You are sure to use common working tools (Word, Excel, PowerPoint, Outlook).\n• You bring experience or affinity in communication and social media.\n• Ideally, you know the sporting and cultural life of the city of Lucerne.\n• You are a reliable and team capable personality.\n• You enjoy versatile and varied tasks.",
-        "de": "Möchtest du erste Praxiserfahrung in der kommunalen Sportförderung sammeln und aktiv bei städtischen Projekten mitwirken? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du wirkst bei der Organisation und Koordination der städtischen Bewegungsangebote mit.\n\n• Du unterstützt im Bereich der Kinder- und Jugendsportangebote, bei finanziellen Beiträgen/Jugendsportförderung sowie bei der Vorbereitung der städtischen Sportler*innen-Ehrung.\n\n• Du setzt Massnahmen des Qualitätsmanagements um und pflegst die Kommunikationsmittel im Bereich der Kinder- und Jugendsportangebote.\n\n• Du wirkst administrativ, kommunikativ und organisatorisch bei weiteren Projekten der Dienstabteilung Kultur und Sport mit.\n\n• Du hilfst bei Anlässen der Dienstabteilung Kultur und Sport und unterstützt bei der Durchführung von Kinder- und Jugendsportangeboten vor Ort.\n\nAnforderungen:\n• Du verfügst über einen Abschluss auf Universitäts- oder Fachhochschulniveau (Bachelor) in den Bereichen Sport, Politik, Wirtschaft oder einem vergleichbaren Bereich mit Bezug zur Sportförderung.\n\n• Du hast die Anerkennung als J+S-Coach oder bist bereit, diese zu erlangen.\n\n• Du interessierst dich für Abläufe der öffentlichen Verwaltung.\n\n• Du gehst sicher mit gängigen Arbeitsinstrumenten um (Word, Excel, PowerPoint, Outlook).\n\n• Du bringst Erfahrung oder Affinität im Bereich Kommunikation und Social Media mit.\n\n• Du kennst idealerweise das sportliche und kulturelle Leben der Stadt Luzern.\n\n• Du bist eine verlässliche und teamfähige Persönlichkeit.\n\n• Du hast Freude an vielseitigen und abwechslungsreichen Aufgaben.",
-        "fr": "Aimeriez-vous acquérir une première expérience pratique en promotion du sport municipal et participer activement à des projets urbains? Nous attendons avec impatience votre candidature. Tâches :\n• Vous contribuez à l'organisation et à la coordination du mouvement urbain.\n• Vous soutenez dans le domaine des offres de sports pour les enfants et les jeunes, dans les contributions financières / promotion du sport pour les jeunes ainsi que dans la préparation du prix des athlètes municipaux.\n• Vous appliquez des mesures de gestion de la qualité et maintenez les moyens de communication dans le domaine des offres de sports pour enfants et jeunes.\n• Vous participez administrativement, de manière communicative et organisationnelle à d'autres projets du service culturel et sportif.\n• Vous aiderez à l'occasion du service culture et sports et soutien à la mise en œuvre des sports pour enfants et jeunes sur place. Exigences\n• Vous avez un diplôme à l'université ou à l'université de niveau des sciences appliquées (bachelor) dans les domaines du sport, de la politique, des affaires ou un domaine comparable lié à la promotion du sport.\n• Vous avez la reconnaissance en tant qu'entraîneur J+S ou êtes prêt à l'atteindre.\n• Vous êtes intéressé par les processus d'administration publique.\n• Vous êtes sûr d'utiliser des outils de travail communs (Word, Excel, PowerPoint, Outlook).\n• Vous apportez de l'expérience ou de l'affinité dans la communication et les médias sociaux.\n• Idéalement, vous connaissez la vie sportive et culturelle de la ville de Lucerne.\n• Vous êtes une personnalité fiable et capable d'équipe.\n• Vous profitez de tâches polyvalentes et variées."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikum-sportfoerderung/f860ec46-7b45-4bbf-9884-67117b690ff0",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.691Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Hirschengraben 17",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikum-sportfoerderung/f860ec46-7b45-4bbf-9884-67117b690ff0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikum-sportforderung-50-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-sportforderung-50-stadt-luzern-luzern"
-        ],
-        "en": [
-          "praktikum-sportforderung-50-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "praktikum-sportforderung-50-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.015Z",
-      "salaryMin": 29300,
-      "salaryMax": 44500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 29300,
-          "maxValue": 44500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-luzern-6d7269576c6b",
       "slug": "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern",
       "slugByLocale": {
@@ -1357,7 +1310,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-felsberg/9f5083ea-a389-4b8d-8ff4-2417aaae5dd3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.691Z",
+      "crawledAt": "2026-07-14T22:16:36.965Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1376,11 +1329,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
+        "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
+          "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern"
         ],
         "en": [
           "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
@@ -1404,78 +1359,81 @@
       }
     },
     {
-      "id": "stadt-luzern-c0f6f54faf13",
-      "slug": "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern",
+      "id": "stadt-luzern-93ba489cf1be",
+      "slug": "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern",
-        "en": "social-pedagogue-in-hf-fh-uni-about-60-moosmatt-care-stadt-luzern-luzern",
-        "de": "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
-        "fr": "pedagogue-sociale-en-hf-fh-uni-environ-60-soins-de-l-humeur-stadt-luzern-luzern"
+        "it": "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern",
+        "en": "traineeship-sports-promotion-50-stadt-luzern-luzern",
+        "de": "praktikum-sportforderung-50-stadt-luzern-luzern",
+        "fr": "promotion-sportive-des-stagiaires-50-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
       "companyDomain": "stadtluzern.ch",
-      "title": "Sozialpädagog*in HF/FH/Uni (zirka 60 %) - Betreuung Moosmatt",
+      "title": "Praktikum Sportförderung (50 %)",
       "titleByLocale": {
-        "it": "Pedagoga sociale in HF/FH/Uni (circa 60 %) - Moosmatt care",
-        "en": "Social pedagogue in HF/FH/Uni (about 60 %) - Moosmatt care",
-        "de": "Sozialpädagog*in HF/FH/Uni (zirka 60 %) - Betreuung Moosmatt",
-        "fr": "Pédagogue sociale en HF/FH/Uni (environ 60 %) - Soins de l'humeur"
+        "it": "Promozione sportiva di tirocinio (50%)",
+        "en": "Traineeship Sports Promotion (50%)",
+        "de": "Praktikum Sportförderung (50 %)",
+        "fr": "Promotion sportive des stagiaires (50%)"
       },
-      "description": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen:\n60%:\nMontag: 11:00 Uhr - 17:30 Uhr\nDienstag: 09:30 Uhr – 18:00 Uhr\nMittwoch: 11:00 Uhr – 13:45 Uhr\nDonnerstag: 11:00 Uhr – 17:30 Uhr\nFreitag: 11:00 Uhr – 17:30 Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
+      "description": "Möchtest du erste Praxiserfahrung in der kommunalen Sportförderung sammeln und aktiv bei städtischen Projekten mitwirken? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du wirkst bei der Organisation und Koordination der städtischen Bewegungsangebote mit.\n\n• Du unterstützt im Bereich der Kinder- und Jugendsportangebote, bei finanziellen Beiträgen/Jugendsportförderung sowie bei der Vorbereitung der städtischen Sportler*innen-Ehrung.\n\n• Du setzt Massnahmen des Qualitätsmanagements um und pflegst die Kommunikationsmittel im Bereich der Kinder- und Jugendsportangebote.\n\n• Du wirkst administrativ, kommunikativ und organisatorisch bei weiteren Projekten der Dienstabteilung Kultur und Sport mit.\n\n• Du hilfst bei Anlässen der Dienstabteilung Kultur und Sport und unterstützt bei der Durchführung von Kinder- und Jugendsportangeboten vor Ort.\n\nAnforderungen:\n• Du verfügst über einen Abschluss auf Universitäts- oder Fachhochschulniveau (Bachelor) in den Bereichen Sport, Politik, Wirtschaft oder einem vergleichbaren Bereich mit Bezug zur Sportförderung.\n\n• Du hast die Anerkennung als J+S-Coach oder bist bereit, diese zu erlangen.\n\n• Du interessierst dich für Abläufe der öffentlichen Verwaltung.\n\n• Du gehst sicher mit gängigen Arbeitsinstrumenten um (Word, Excel, PowerPoint, Outlook).\n\n• Du bringst Erfahrung oder Affinität im Bereich Kommunikation und Social Media mit.\n\n• Du kennst idealerweise das sportliche und kulturelle Leben der Stadt Luzern.\n\n• Du bist eine verlässliche und teamfähige Persönlichkeit.\n\n• Du hast Freude an vielseitigen und abwechslungsreichen Aufgaben.",
       "descriptionByLocale": {
-        "it": "Stai cercando un compito significativo in cui puoi accompagnare e sostenere i bambini nella vita quotidiana della scuola? Nella nostra supervisione scolastica complementare della Scuola Primaria Moosmatt ci si può aspettare un ambiente vario, un team impegnato e la possibilità di contribuire con piacere alle vostre abilità educative. Compiti:\n• Partecipate attivamente al team di assistenza e progettate una cura e una promozione professionale e per bambini.\n• Sei un caregiver affidabile per i bambini e i genitori e hai riunioni genitori (senza appuntamenti serali).\n• Si manterrà il contatto con gli insegnanti, la manutenzione domestica e altri specialisti a scuola.\n• Lavori principalmente durante le settimane scolastiche: 60%: Lunedì: 11:00 - 17:30 martedì: 09:30 – 18:00 Mercoledì: 11:00 – 13:45 Giovedì: 11:00 – 17:30 Venerdì: 11:00 – 17:30 Requisiti\n• Porti una formazione socio-educativa, socio-culturale o educativa completa.\n• Hai esperienza e gioia nell'accompagnare i bambini dai 4 ai 13 anni, supportandoli e supportandoli nella loro vita quotidiana.\n• Si empatizza con il mondo dei bambini e si occupa di gruppi culturalmente e misti di età.\n• Convinci attraverso il tuo modo empatico, apprezzativo e orientato al team e contribuisci attivamente alla nostra vita scolastica.\n• Porti esperienza nell'area di attività amministrativa e di pianificazione.\n• Lavori in modo indipendente, affidabile e comunica apertamente, chiaro e trasparente.\n• Sei un'iniziativa, umoristica, resiliente e personalità flessibile.\n• Ti piace preparare piccoli, pasti sani e disegnarli con cuore.",
-        "en": "Are you looking for a meaningful task in which you can accompany and support children in everyday school life? In our supplementary school supervision of the Moosmatt Primary School you can expect a varied environment, a committed team and the chance to contribute your educational skills with pleasure. Tasks:\n• You actively participate in the care team and design a professional, child-friendly care and promotion.\n• You are a reliable caregiver for children and parents and have parent meetings (without evening appointments).\n• You will maintain contact with teachers, home maintenance and other specialists at the school.\n• You work mostly during the school weeks: 60%: Monday: 11:00 - 17:30 Tuesday: 09:30 – 18:00 Wednesday: 11:00 – 13:45 Thursday: 11:00 – 17:30 Friday: 11:00 – 17:30 Requirements\n• You bring a completed socio-educational, socio-cultural or educational education.\n• You have experience and joy in accompanying children from 4 to 13 years old, supporting them and supporting them in their everyday life.\n• You empathize with the children’s world and deal with culturally and age-mixed groups.\n• You convince through your empathetic, appreciative and team-oriented way and actively contribute to our school life.\n• You bring experience in the administrative and planning task area.\n• You work independently, reliably and communicate openly, clearly and transparently.\n• You are an initiative, humorous, resilient and flexible personality.\n• You like to prepare small, healthy meals and design them with heart.",
-        "de": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen:\n60%:\nMontag: 11:00 Uhr - 17:30 Uhr\nDienstag: 09:30 Uhr – 18:00 Uhr\nMittwoch: 11:00 Uhr – 13:45 Uhr\nDonnerstag: 11:00 Uhr – 17:30 Uhr\nFreitag: 11:00 Uhr – 17:30 Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
-        "fr": "Cherchez-vous une tâche significative dans laquelle vous pouvez accompagner et soutenir les enfants dans la vie scolaire quotidienne? Dans notre supervision d'école supplémentaire de l'école primaire Moosmatt, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec plaisir. Tâches :\n• Vous participez activement à l'équipe de soins et concevez des soins professionnels et adaptés aux enfants.\n• Vous êtes un soignant fiable pour les enfants et les parents et avez des réunions avec les parents (sans rendez-vous en soirée).\n• Vous garderez le contact avec les enseignants, l'entretien à domicile et d'autres spécialistes de l'école.\n• Vous travaillez surtout pendant les semaines d'école: 60%: Lundi: 11:00 - 17:30 Mardi: 09:30 – 18:00 Mercredi: 11:00 – 13:45 Jeudi: 11:00 – 17:30 Vendredi: 11:00 – 17:30 Exigences\n• Vous apportez une éducation socio-éducative, socioculturelle ou éducative complète.\n• Vous avez l'expérience et la joie d'accompagner des enfants de 4 à 13 ans, de les soutenir et de les soutenir dans leur vie quotidienne.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et axée sur l'équipe et contribuez activement à notre vie scolaire.\n• Vous apportez de l'expérience dans le domaine de l'administration et de la planification.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente.\n• Vous êtes une personnalité d'initiative, humoristique, résiliente et flexible.\n• Vous aimez préparer de petits repas sains et les concevoir avec le cœur."
+        "it": "Volete acquisire la prima esperienza pratica nella promozione dello sport comunale e partecipare attivamente a progetti urbani? Attendiamo con ansia la vostra applicazione. Compiti:\n• Contribuisci all'organizzazione e al coordinamento delle offerte di movimento urbano.\n• Sostenete nella zona delle offerte sportive per bambini e giovanili, nei contributi finanziari / promozione dello sport giovanile e nella preparazione del premio degli atleti comunali.\n• Attui le misure di gestione della qualità e mantieni i mezzi di comunicazione nel settore delle offerte sportive per bambini e giovani.\n• Parteciperete in modo amministrativo, comunicativo e organizzativo in altri progetti della cultura e dello sport dei servizi.\n• Aiuterai in occasione della cultura del servizio e dello sport e del supporto nell'implementazione di bambini e sport giovanili in loco. Requisiti\n• Hai una laurea presso l'università o l'università di livello di scienze applicate (bachelor) nei campi dello sport, della politica, del business o di una zona paragonabile alla promozione dello sport.\n• Avete il riconoscimento come allenatore J+S o siete pronti a raggiungerlo.\n• Sei interessato ai processi di pubblica amministrazione.\n• Si è sicuri di utilizzare strumenti di lavoro comuni (Word, Excel, PowerPoint, Outlook).\n• Porti esperienza o affinità nella comunicazione e nei social media.\n• Idealmente, si conosce la vita sportiva e culturale della città di Lucerna.\n• Sei una personalità affidabile e capace di squadra.\n• Si godono compiti versatili e vari.",
+        "en": "Would you like to gain first practical experience in municipal sports promotion and actively participate in urban projects? We look forward to your application. Tasks:\n• You contribute to the organization and coordination of the urban movement offers.\n• You support in the area of children’s and youth sports offers, in financial contributions / youth sports promotion as well as in the preparation of the municipal athletes’ award.\n• You implement quality management measures and maintain the means of communication in the area of children's and youth sports offers.\n• You participate administratively, communicatively and organizationally in other projects of the service department culture and sports.\n• You will help on occasions of the service department culture and sports and support in the implementation of children and youth sports on site. Requirements\n• You have a degree at university or university of applied sciences level (bachelor) in the fields of sports, politics, business or a comparable area related to sports promotion.\n• You have the recognition as a J+S coach or are ready to achieve it.\n• You are interested in public administration processes.\n• You are sure to use common working tools (Word, Excel, PowerPoint, Outlook).\n• You bring experience or affinity in communication and social media.\n• Ideally, you know the sporting and cultural life of the city of Lucerne.\n• You are a reliable and team capable personality.\n• You enjoy versatile and varied tasks.",
+        "de": "Möchtest du erste Praxiserfahrung in der kommunalen Sportförderung sammeln und aktiv bei städtischen Projekten mitwirken? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du wirkst bei der Organisation und Koordination der städtischen Bewegungsangebote mit.\n\n• Du unterstützt im Bereich der Kinder- und Jugendsportangebote, bei finanziellen Beiträgen/Jugendsportförderung sowie bei der Vorbereitung der städtischen Sportler*innen-Ehrung.\n\n• Du setzt Massnahmen des Qualitätsmanagements um und pflegst die Kommunikationsmittel im Bereich der Kinder- und Jugendsportangebote.\n\n• Du wirkst administrativ, kommunikativ und organisatorisch bei weiteren Projekten der Dienstabteilung Kultur und Sport mit.\n\n• Du hilfst bei Anlässen der Dienstabteilung Kultur und Sport und unterstützt bei der Durchführung von Kinder- und Jugendsportangeboten vor Ort.\n\nAnforderungen:\n• Du verfügst über einen Abschluss auf Universitäts- oder Fachhochschulniveau (Bachelor) in den Bereichen Sport, Politik, Wirtschaft oder einem vergleichbaren Bereich mit Bezug zur Sportförderung.\n\n• Du hast die Anerkennung als J+S-Coach oder bist bereit, diese zu erlangen.\n\n• Du interessierst dich für Abläufe der öffentlichen Verwaltung.\n\n• Du gehst sicher mit gängigen Arbeitsinstrumenten um (Word, Excel, PowerPoint, Outlook).\n\n• Du bringst Erfahrung oder Affinität im Bereich Kommunikation und Social Media mit.\n\n• Du kennst idealerweise das sportliche und kulturelle Leben der Stadt Luzern.\n\n• Du bist eine verlässliche und teamfähige Persönlichkeit.\n\n• Du hast Freude an vielseitigen und abwechslungsreichen Aufgaben.",
+        "fr": "Aimeriez-vous acquérir une première expérience pratique en promotion du sport municipal et participer activement à des projets urbains? Nous attendons avec impatience votre candidature. Tâches :\n• Vous contribuez à l'organisation et à la coordination du mouvement urbain.\n• Vous soutenez dans le domaine des offres de sports pour les enfants et les jeunes, dans les contributions financières / promotion du sport pour les jeunes ainsi que dans la préparation du prix des athlètes municipaux.\n• Vous appliquez des mesures de gestion de la qualité et maintenez les moyens de communication dans le domaine des offres de sports pour enfants et jeunes.\n• Vous participez administrativement, de manière communicative et organisationnelle à d'autres projets du service culturel et sportif.\n• Vous aiderez à l'occasion du service culture et sports et soutien à la mise en œuvre des sports pour enfants et jeunes sur place. Exigences\n• Vous avez un diplôme à l'université ou à l'université de niveau des sciences appliquées (bachelor) dans les domaines du sport, de la politique, des affaires ou un domaine comparable lié à la promotion du sport.\n• Vous avez la reconnaissance en tant qu'entraîneur J+S ou êtes prêt à l'atteindre.\n• Vous êtes intéressé par les processus d'administration publique.\n• Vous êtes sûr d'utiliser des outils de travail communs (Word, Excel, PowerPoint, Outlook).\n• Vous apportez de l'expérience ou de l'affinité dans la communication et les médias sociaux.\n• Idéalement, vous connaissez la vie sportive et culturelle de la ville de Lucerne.\n• Vous êtes une personnalité fiable et capable d'équipe.\n• Vous profitez de tâches polyvalentes et variées."
       },
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/b674d460-007c-4108-932b-fac49ef8f56a",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikum-sportfoerderung/f860ec46-7b45-4bbf-9884-67117b690ff0",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.689Z",
+      "crawledAt": "2026-07-14T22:16:36.963Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6005",
-      "streetAddress": "Voltastrasse 35",
+      "postalCode": "6003",
+      "streetAddress": "Hirschengraben 17",
       "category": "Amministrazione Pubblica",
       "contract": "full-time",
       "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "intern",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/b674d460-007c-4108-932b-fac49ef8f56a",
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikum-sportfoerderung/f860ec46-7b45-4bbf-9884-67117b690ff0",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+        "praktikum-sportforderung-50-stadt-luzern-luzern",
+        "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+          "praktikum-sportforderung-50-stadt-luzern-luzern",
+          "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern"
         ],
         "en": [
-          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+          "praktikum-sportforderung-50-stadt-luzern-luzern"
         ],
         "fr": [
-          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+          "praktikum-sportforderung-50-stadt-luzern-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-06T15:48:54.342Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
+      "firstSeenAt": "2026-07-04T12:19:10.015Z",
+      "salaryMin": 29300,
+      "salaryMax": 44500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41700,
-          "maxValue": 63600,
+          "minValue": 29300,
+          "maxValue": 44500,
           "unitText": "YEAR"
         }
       }
@@ -1512,7 +1470,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-siedlungsentwaesserung/36bb8400-3af5-452b-8c5b-a04e4954750f",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.689Z",
+      "crawledAt": "2026-07-14T22:16:36.958Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1532,12 +1490,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern",
-        "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern"
+        "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern",
+        "project-manager-in-drenaggio-urbano-60-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern",
-          "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern"
+          "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern",
+          "project-manager-in-drenaggio-urbano-60-100-stadt-luzern-luzern"
         ],
         "en": [
           "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern"
@@ -1556,6 +1516,86 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-c0f6f54faf13",
+      "slug": "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern",
+        "en": "social-pedagogue-in-hf-fh-uni-about-60-moosmatt-care-stadt-luzern-luzern",
+        "de": "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
+        "fr": "pedagogue-sociale-en-hf-fh-uni-environ-60-soins-de-l-humeur-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Sozialpädagog*in HF/FH/Uni (zirka 60 %) - Betreuung Moosmatt",
+      "titleByLocale": {
+        "it": "Pedagoga sociale in HF/FH/Uni (circa 60 %) - Moosmatt care",
+        "en": "Social pedagogue in HF/FH/Uni (about 60 %) - Moosmatt care",
+        "de": "Sozialpädagog*in HF/FH/Uni (zirka 60 %) - Betreuung Moosmatt",
+        "fr": "Pédagogue sociale en HF/FH/Uni (environ 60 %) - Soins de l'humeur"
+      },
+      "description": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen:\n60%:\nMontag: 11:00 Uhr - 17:30 Uhr\nDienstag: 09:30 Uhr – 18:00 Uhr\nMittwoch: 11:00 Uhr – 13:45 Uhr\nDonnerstag: 11:00 Uhr – 17:30 Uhr\nFreitag: 11:00 Uhr – 17:30 Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
+      "descriptionByLocale": {
+        "it": "Stai cercando un compito significativo in cui puoi accompagnare e sostenere i bambini nella vita quotidiana della scuola? Nella nostra supervisione scolastica complementare della Scuola Primaria Moosmatt ci si può aspettare un ambiente vario, un team impegnato e la possibilità di contribuire con piacere alle vostre abilità educative. Compiti:\n• Partecipate attivamente al team di assistenza e progettate una cura e una promozione professionale e per bambini.\n• Sei un caregiver affidabile per i bambini e i genitori e hai riunioni genitori (senza appuntamenti serali).\n• Si manterrà il contatto con gli insegnanti, la manutenzione domestica e altri specialisti a scuola.\n• Lavori principalmente durante le settimane scolastiche: 60%: Lunedì: 11:00 - 17:30 martedì: 09:30 – 18:00 Mercoledì: 11:00 – 13:45 Giovedì: 11:00 – 17:30 Venerdì: 11:00 – 17:30 Requisiti\n• Porti una formazione socio-educativa, socio-culturale o educativa completa.\n• Hai esperienza e gioia nell'accompagnare i bambini dai 4 ai 13 anni, supportandoli e supportandoli nella loro vita quotidiana.\n• Si empatizza con il mondo dei bambini e si occupa di gruppi culturalmente e misti di età.\n• Convinci attraverso il tuo modo empatico, apprezzativo e orientato al team e contribuisci attivamente alla nostra vita scolastica.\n• Porti esperienza nell'area di attività amministrativa e di pianificazione.\n• Lavori in modo indipendente, affidabile e comunica apertamente, chiaro e trasparente.\n• Sei un'iniziativa, umoristica, resiliente e personalità flessibile.\n• Ti piace preparare piccoli, pasti sani e disegnarli con cuore.",
+        "en": "Are you looking for a meaningful task in which you can accompany and support children in everyday school life? In our supplementary school supervision of the Moosmatt Primary School you can expect a varied environment, a committed team and the chance to contribute your educational skills with pleasure. Tasks:\n• You actively participate in the care team and design a professional, child-friendly care and promotion.\n• You are a reliable caregiver for children and parents and have parent meetings (without evening appointments).\n• You will maintain contact with teachers, home maintenance and other specialists at the school.\n• You work mostly during the school weeks: 60%: Monday: 11:00 - 17:30 Tuesday: 09:30 – 18:00 Wednesday: 11:00 – 13:45 Thursday: 11:00 – 17:30 Friday: 11:00 – 17:30 Requirements\n• You bring a completed socio-educational, socio-cultural or educational education.\n• You have experience and joy in accompanying children from 4 to 13 years old, supporting them and supporting them in their everyday life.\n• You empathize with the children’s world and deal with culturally and age-mixed groups.\n• You convince through your empathetic, appreciative and team-oriented way and actively contribute to our school life.\n• You bring experience in the administrative and planning task area.\n• You work independently, reliably and communicate openly, clearly and transparently.\n• You are an initiative, humorous, resilient and flexible personality.\n• You like to prepare small, healthy meals and design them with heart.",
+        "de": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen:\n60%:\nMontag: 11:00 Uhr - 17:30 Uhr\nDienstag: 09:30 Uhr – 18:00 Uhr\nMittwoch: 11:00 Uhr – 13:45 Uhr\nDonnerstag: 11:00 Uhr – 17:30 Uhr\nFreitag: 11:00 Uhr – 17:30 Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
+        "fr": "Cherchez-vous une tâche significative dans laquelle vous pouvez accompagner et soutenir les enfants dans la vie scolaire quotidienne? Dans notre supervision d'école supplémentaire de l'école primaire Moosmatt, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec plaisir. Tâches :\n• Vous participez activement à l'équipe de soins et concevez des soins professionnels et adaptés aux enfants.\n• Vous êtes un soignant fiable pour les enfants et les parents et avez des réunions avec les parents (sans rendez-vous en soirée).\n• Vous garderez le contact avec les enseignants, l'entretien à domicile et d'autres spécialistes de l'école.\n• Vous travaillez surtout pendant les semaines d'école: 60%: Lundi: 11:00 - 17:30 Mardi: 09:30 – 18:00 Mercredi: 11:00 – 13:45 Jeudi: 11:00 – 17:30 Vendredi: 11:00 – 17:30 Exigences\n• Vous apportez une éducation socio-éducative, socioculturelle ou éducative complète.\n• Vous avez l'expérience et la joie d'accompagner des enfants de 4 à 13 ans, de les soutenir et de les soutenir dans leur vie quotidienne.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et axée sur l'équipe et contribuez activement à notre vie scolaire.\n• Vous apportez de l'expérience dans le domaine de l'administration et de la planification.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente.\n• Vous êtes une personnalité d'initiative, humoristique, résiliente et flexible.\n• Vous aimez préparer de petits repas sains et les concevoir avec le cœur."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/b674d460-007c-4108-932b-fac49ef8f56a",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-14T22:16:36.956Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6005",
+      "streetAddress": "Voltastrasse 35",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/b674d460-007c-4108-932b-fac49ef8f56a",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern"
+        ],
+        "en": [
+          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T15:48:54.342Z",
+      "salaryMin": 41700,
+      "salaryMax": 63600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41700,
+          "maxValue": 63600,
           "unitText": "YEAR"
         }
       }
@@ -1592,7 +1632,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baukontrolle-vollzug/0d498076-521d-43a4-9304-2a9168f41507",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.687Z",
+      "crawledAt": "2026-07-14T22:16:36.954Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1611,11 +1651,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+        "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+          "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
@@ -1670,7 +1712,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baugesuche/aeb15b73-2ce9-42f3-8d73-d97b6d2467a4",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.686Z",
+      "crawledAt": "2026-07-14T22:16:36.952Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1689,11 +1731,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+        "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+          "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
@@ -1720,9 +1764,9 @@
       "id": "stadt-luzern-51b2a0eab628",
       "slug": "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern",
       "slugByLocale": {
-        "de": "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
         "it": "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern",
         "en": "land-drainage-specialist-60-stadt-luzern-luzern",
+        "de": "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
         "fr": "specialiste-du-drainage-des-terres-60-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
@@ -1730,24 +1774,25 @@
       "companyDomain": "stadtluzern.ch",
       "title": "Fachperson Grundstücksentwässerung (60 %)",
       "titleByLocale": {
-        "de": "Fachperson Grundstücksentwässerung (60 %)",
         "it": "Specialista di drenaggio terrestre (60 %)",
         "en": "Land drainage specialist (60 %)",
+        "de": "Fachperson Grundstücksentwässerung (60 %)",
         "fr": "Spécialiste du drainage des terres (60 %)"
       },
       "description": "Du möchtest mit deinem Fachwissen zu einer nachhaltigen Siedlungsentwässerung beitragen und stehst gerne im Austausch mit verschiedenen Anspruchsgruppen? Dann werde Teil unseres engagierten Teams und gestalte die Zukunft der Grundstücksentwässerung aktiv mit.\n\nAufgaben:\n• Du übernimmst die kompetente Beratung von Bauherrschaften, Architekt*innen und Ingenieur*innen rund um die Ausgestaltung der Grundstücksentwässerung und der Abwassergebühren.\n\n• Du prüfst Pläne während des Bewilligungsverfahrens, machst Retentions- und Baustellenentwässerung Kontrollen und unterstützt das Team beim Baubewilligungsprozess.\n\n• Du bist mitverantwortlich für die Verrechnung der Regenabwassergebühren und nimmst dich Spezialfällen an (z.B. der Beurteilung von Einsprachen).\n\n• Als Teil eines partizipativ geführten Teams von 12 Kolleg*innen trägst du aktiv zur Weiterentwicklung der Abteilung bei.\n\nAnforderungen:\n• Du hast eine abgeschlossene Berufsausbildung sowie eine Weiterbildung als Techniker*in HF Bauplanung, dipl. Bauführer*in oder Tiefbau-Polier mit eidg. Fachausweis.\n\n• Du besitzt mit Vorteil den VSA-Ausweis \"Fachperson Grundstücksentwässerung\".\n\n• Du bringst Erfahrung im Tiefbau mit.\n\n• Im Umgang mit unterschiedlichsten Anspruchsgruppen zeigst du Durchsetzungs- und Einfühlungsvermögen.\n\n• Du besitzt Verhandlungsgeschick sowie stilsicheres Deutsch in Wort und Schrift.",
       "descriptionByLocale": {
-        "de": "Du möchtest mit deinem Fachwissen zu einer nachhaltigen Siedlungsentwässerung beitragen und stehst gerne im Austausch mit verschiedenen Anspruchsgruppen? Dann werde Teil unseres engagierten Teams und gestalte die Zukunft der Grundstücksentwässerung aktiv mit.\n\nAufgaben:\n• Du übernimmst die kompetente Beratung von Bauherrschaften, Architekt*innen und Ingenieur*innen rund um die Ausgestaltung der Grundstücksentwässerung und der Abwassergebühren.\n\n• Du prüfst Pläne während des Bewilligungsverfahrens, machst Retentions- und Baustellenentwässerung Kontrollen und unterstützt das Team beim Baubewilligungsprozess.\n\n• Du bist mitverantwortlich für die Verrechnung der Regenabwassergebühren und nimmst dich Spezialfällen an (z.B. der Beurteilung von Einsprachen).\n\n• Als Teil eines partizipativ geführten Teams von 12 Kolleg*innen trägst du aktiv zur Weiterentwicklung der Abteilung bei.\n\nAnforderungen:\n• Du hast eine abgeschlossene Berufsausbildung sowie eine Weiterbildung als Techniker*in HF Bauplanung, dipl. Bauführer*in oder Tiefbau-Polier mit eidg. Fachausweis.\n\n• Du besitzt mit Vorteil den VSA-Ausweis \"Fachperson Grundstücksentwässerung\".\n\n• Du bringst Erfahrung im Tiefbau mit.\n\n• Im Umgang mit unterschiedlichsten Anspruchsgruppen zeigst du Durchsetzungs- und Einfühlungsvermögen.\n\n• Du besitzt Verhandlungsgeschick sowie stilsicheres Deutsch in Wort und Schrift.",
         "it": "Vuoi utilizzare le tue competenze per contribuire al drenaggio urbano sostenibile e sei in contatto con diversi stakeholder? Diventa poi parte del nostro team dedicato e forma attivamente il futuro del drenaggio terrestre.\n\nCompiti:\n• Accetterete la consulenza competente di proprietari di edifici, architetti e ingegneri intorno alla progettazione di fondi di drenaggio e spese di acque reflue.\n\n• Si esaminano i piani durante il processo permettendo, fare controlli di ritenzione e drenaggio del sito, e sostenere il team nel processo di costruzione permettendo.\n\n• Siete congiuntamente responsabili della fatturazione delle tasse sulle acque piovane e dell'assunzione di casi speciali (ad esempio la valutazione delle obiezioni).\n\n• Come parte di un team partecipativo di 12 colleghi, contribuisci attivamente all'ulteriore sviluppo del dipartimento.\n\nRequisiti\n• Ha completato la formazione professionale e l'ulteriore formazione come tecnico HF Bauplanung, dipl. Bauführer*in o Tiefbau-Polier con certificato federale.\n\n• Hai con vantaggio l'ID VSA \"Expert Person Drainage\".\n\n• Porti esperienza nell'ingegneria civile.\n\n• Quando si tratta di diversi stakeholder, si mostra l'affermazione e l'empatia.\n\n• Hai competenze di negoziazione così come il tedesco elegante in parola e scrittura.",
         "en": "Do you want to use your expertise to contribute to sustainable urban drainage and are you in contact with different stakeholders? Then become part of our dedicated team and actively shape the future of land drainage.\n\nTasks:\n• You will take on the competent advice of building owners, architects and engineers around the design of land drainage and wastewater fees.\n\n• You review plans during the permitting process, make retention and site drainage controls, and support the team in the building permitting process.\n\n• You are jointly responsible for billing rainwater fees and take on special cases (e.g. the assessment of objections).\n\n• As part of a participatory team of 12 colleagues, you actively contribute to the further development of the department.\n\nRequirements\n• You have completed vocational training and further training as a technician HF Bauplanung, dipl. Bauführer*in or Tiefbau-Polier with federal certificate.\n\n• You advantageously have the VSA ID \"Expert Person Drainage\".\n\n• You bring experience in civil engineering.\n\n• When dealing with various stakeholders, you show assertiveness and empathy.\n\n• You have negotiating skills as well as stylish German in word and writing.",
+        "de": "Du möchtest mit deinem Fachwissen zu einer nachhaltigen Siedlungsentwässerung beitragen und stehst gerne im Austausch mit verschiedenen Anspruchsgruppen? Dann werde Teil unseres engagierten Teams und gestalte die Zukunft der Grundstücksentwässerung aktiv mit.\n\nAufgaben:\n• Du übernimmst die kompetente Beratung von Bauherrschaften, Architekt*innen und Ingenieur*innen rund um die Ausgestaltung der Grundstücksentwässerung und der Abwassergebühren.\n\n• Du prüfst Pläne während des Bewilligungsverfahrens, machst Retentions- und Baustellenentwässerung Kontrollen und unterstützt das Team beim Baubewilligungsprozess.\n\n• Du bist mitverantwortlich für die Verrechnung der Regenabwassergebühren und nimmst dich Spezialfällen an (z.B. der Beurteilung von Einsprachen).\n\n• Als Teil eines partizipativ geführten Teams von 12 Kolleg*innen trägst du aktiv zur Weiterentwicklung der Abteilung bei.\n\nAnforderungen:\n• Du hast eine abgeschlossene Berufsausbildung sowie eine Weiterbildung als Techniker*in HF Bauplanung, dipl. Bauführer*in oder Tiefbau-Polier mit eidg. Fachausweis.\n\n• Du besitzt mit Vorteil den VSA-Ausweis \"Fachperson Grundstücksentwässerung\".\n\n• Du bringst Erfahrung im Tiefbau mit.\n\n• Im Umgang mit unterschiedlichsten Anspruchsgruppen zeigst du Durchsetzungs- und Einfühlungsvermögen.\n\n• Du besitzt Verhandlungsgeschick sowie stilsicheres Deutsch in Wort und Schrift.",
         "fr": "Voulez-vous utiliser votre expertise pour contribuer au drainage urbain durable et êtes-vous en contact avec différents intervenants? Faites ensuite partie de notre équipe dévouée et façonnez activement l'avenir du drainage des terres.\n\nTâches :\n• Vous suivrez les conseils compétents des propriétaires de bâtiments, des architectes et des ingénieurs autour de la conception des frais de drainage et d'eaux usées.\n\n• Vous examinez les plans pendant le processus de délivrance des permis, effectuez des contrôles de rétention et de drainage du site et soutenez l'équipe dans le processus de délivrance des permis de construire.\n\n• Vous êtes conjointement responsable de la facturation des frais d'eau de pluie et de la prise en charge de cas spéciaux (par exemple l'évaluation des objections).\n\n• Dans le cadre d'une équipe participative de 12 collègues, vous contribuez activement au développement du département.\n\nExigences\n• Vous avez suivi une formation professionnelle et une formation continue en tant que technicien HF Bauplanung, dipl. Bauführer*in ou Tiefbau-Polier avec certificat fédéral.\n\n• Vous avez avantageusement le VSA ID \"Expert Person Drainage\".\n\n• Vous apportez de l'expérience en génie civil.\n\n• Lorsque vous traitez avec divers intervenants, vous faites preuve d'affirmation et d'empathie.\n\n• Vous avez des compétences de négociation ainsi que l'allemand élégant en paroles et en écriture."
       },
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-grundstuecksentwaesserung/70e47d5e-0e59-4ebd-b7f6-31a10a7a0fa8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:39:52.682Z",
+      "crawledAt": "2026-07-14T22:16:36.948Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1764,9 +1809,24 @@
       "postedDate": "2026-07-14",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-grundstuecksentwaesserung/70e47d5e-0e59-4ebd-b7f6-31a10a7a0fa8",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+        "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+          "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
+        ],
+        "en": [
+          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+        ]
       },
+      "firstSeenAt": "2026-07-14T11:39:52.682Z",
       "salaryMin": 41700,
       "salaryMax": 63600,
       "baseSalary": {
@@ -1778,22 +1838,7 @@
           "maxValue": 63600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-14T11:39:52.682Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
-        ],
-        "en": [
-          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
-      ]
+      }
     },
     {
       "id": "stadt-luzern-f8b963a1c3ec",
@@ -1874,7 +1919,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
