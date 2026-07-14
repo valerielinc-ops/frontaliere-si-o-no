@@ -11,8 +11,14 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-07-14T11:07:20.767Z",
+  "updatedAt": "2026-07-14T22:11:19.367Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Geneva-Internship-Finance-12-months-%2880-100%29/1404236833/": {
+      "location": "Geneva",
+      "canton": "GE",
+      "company": "Skyguide",
+      "postedDate": "2026-07-14"
+    },
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Head-of-Communications-%2880-100%29/1412609633/": {
       "location": "Wangen b. Dübendorf",
       "canton": "ZH",
