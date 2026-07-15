@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-15T12:20:52.979Z",
+  "generatedAt": "2026-07-15T22:40:38.949Z",
   "total": 66,
   "newCount": 0,
   "updatedCount": 50,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 102710,
-  "avgDurationMs": 102710,
+  "durationMs": 103816,
+  "avgDurationMs": 103816,
   "durationHistory": [
-    102710
+    103816
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1122,44 +1122,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Berufsbildner*in mechanische Berufe",
-      "slug": "formazione-professionale-nelle-professioni-meccaniche-agie-charmilles-sa-biel",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-berufsbildnerin-mechanische-berufe/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/dce27ea9f02ef559f619368883b2407e61c1ba558277258cf63a0cb14778e119ec3318f55408d048aa90ac9d44eb4d932882e969d124cb3ecdc795ee556a13",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-f62be42c3ae3",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-06-28T10:23:00.911Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
