@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-07-14T22:56:11.801Z",
+  "generatedAt": "2026-07-15T12:24:10.361Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15358,
-  "avgDurationMs": 15358,
+  "durationMs": 94272,
+  "avgDurationMs": 94272,
   "durationHistory": [
-    15358
+    94272
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,8 +31,8 @@
       "category": "engineering",
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-14",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -42,11 +42,11 @@
       "currency": "CHF",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-06T14:18:05.737Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
+      "needsRetranslation": false,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 14,
         "translation": 25,
         "completeness": 22
       }
@@ -68,8 +68,8 @@
       "category": "engineering",
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-14",
+      "sourceLang": "en",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -80,11 +80,11 @@
       "streetAddress": "",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-03T12:31:53.830Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
+      "needsRetranslation": false,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 14,
         "translation": 25,
         "completeness": 22
       }
@@ -107,7 +107,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -118,11 +118,11 @@
       "postalCode": "6512",
       "id": "lombardi-group-801be55e6f08",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
+      "needsRetranslation": false,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 14,
         "translation": 25,
         "completeness": 22
       }
@@ -145,7 +145,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -183,7 +183,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -221,7 +221,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -259,7 +259,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -270,11 +270,11 @@
       "postalCode": "6512",
       "id": "lombardi-group-acf929491e4c",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
+      "needsRetranslation": false,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 14,
         "translation": 25,
         "completeness": 22
       }
