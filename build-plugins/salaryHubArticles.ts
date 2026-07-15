@@ -20,6 +20,10 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { truncateCodeUnits } from './shared/safeTruncate';
+
+/** Google's practical limit for JSON-LD `description` values. */
+const MAX_ARTICLE_JSONLD_DESCRIPTION_CHARS = 5000;
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -697,11 +701,18 @@ export function generateArticleHtml(
   // valid freshness signal — the net figures in the body are recomputed from the
   // simulation engine on every build — without churning every sub-second deploy.
   const articleStamp = buildDayStampIso();
+  // Guard against a degenerate per-locale entry: emit no `description` key at
+  // all (rather than an empty string) when the source text is blank, and cap
+  // at Google's practical JSON-LD description limit otherwise.
+  const trimmedDescription = description.trim();
+  const articleDescription = trimmedDescription
+    ? truncateCodeUnits(trimmedDescription, MAX_ARTICLE_JSONLD_DESCRIPTION_CHARS)
+    : undefined;
   const articleSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
-    description,
+    description: articleDescription,
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
