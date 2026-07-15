@@ -1,16 +1,16 @@
 {
   "key": "svar-spitalverbund-ar",
   "label": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-  "generatedAt": "2026-07-15T10:58:10.861Z",
-  "total": 11,
+  "generatedAt": "2026-07-15T22:02:38.936Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9140,
-  "avgDurationMs": 9140,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13190,
+  "avgDurationMs": 13190,
   "durationHistory": [
-    9140
+    13190
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://live.solique.ch/svar/job/details/4038067",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:02.841Z",
+      "crawledAt": "2026-07-15T22:02:27.628Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://live.solique.ch/svar/job/details/4036694",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:03.576Z",
+      "crawledAt": "2026-07-15T22:02:28.701Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://live.solique.ch/svar/job/details/4033748",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:04.217Z",
+      "crawledAt": "2026-07-15T22:02:29.505Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://live.solique.ch/svar/job/details/4033946",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:04.799Z",
+      "crawledAt": "2026-07-15T22:02:30.262Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034092",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:05.423Z",
+      "crawledAt": "2026-07-15T22:02:31.034Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034268",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:06.051Z",
+      "crawledAt": "2026-07-15T22:02:31.762Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034276",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:06.734Z",
+      "crawledAt": "2026-07-15T22:02:32.462Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034260",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:07.334Z",
+      "crawledAt": "2026-07-15T22:02:33.153Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034264",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:07.917Z",
+      "crawledAt": "2026-07-15T22:02:33.850Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -369,7 +369,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034096",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:08.556Z",
+      "crawledAt": "2026-07-15T22:02:34.583Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -395,8 +395,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "svar-spitalverbund-ar-840e2ab0108e",
       "slug": "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -437,5 +436,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
