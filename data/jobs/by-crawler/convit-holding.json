@@ -4361,8 +4361,16 @@
       "postalCode": "6982",
       "firstSeenAt": "2026-06-03T13:19:58.411Z",
       "previousSlugs": [
-        "tirocinante-consulenza-previdenziale-formazione-pagata-homeoffice-possibile-convit-holding"
-      ]
+        "tirocinante-consulenza-previdenziale-formazione-pagata-homeoffice-possibile-convit-holding",
+        "tirocinante-sozialversicherungsberatung-bezahlte-ausbildung-homeoffice-moglich-convit-hold",
+        "conseils-de-securite-sociale-tirocinante-formation-remuneree-homeoffice-possible-convit-ho"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tirocinante-sozialversicherungsberatung-bezahlte-ausbildung-homeoffice-moglich-convit-hold",
+          "conseils-de-securite-sociale-tirocinante-formation-remuneree-homeoffice-possible-convit-ho"
+        ]
+      }
     },
     {
       "id": "convit-9d5454d91e22",
@@ -4848,7 +4856,34 @@
       },
       "streetAddress": "",
       "postalCode": "6616",
-      "firstSeenAt": "2026-06-03T13:19:58.411Z"
+      "firstSeenAt": "2026-06-03T13:19:58.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convi-hohte1",
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca",
+          "coach-finanziario-entrata-laterale-part-time-lavoro-secondario-convit-stabio",
+          "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+        ],
+        "en": [
+          "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca"
+        ],
+        "de": [
+          "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca"
+        ],
+        "fr": [
+          "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convi-hohte1",
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca",
+        "coach-finanziario-entrata-laterale-part-time-lavoro-secondario-convit-stabio",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
+      ]
     },
     {
       "id": "convit-0c6e61ff60d0",

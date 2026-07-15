@@ -4994,7 +4994,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3608/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:02:35.438Z",
+      "crawledAt": "2026-07-14T11:12:04.931Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -5017,11 +5017,17 @@
         "dipl-pflegefachmann-frau-stgag-ch",
         "dipl-care-professional-spital-thurgau-stgag-munsterlingen-7f8c85",
         "dipl-professionnel-de-soins-spital-thurgau-stgag-munsterlingen-7f8c85",
-        "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen"
+        "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
+        "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-stgag-ch"
+          "dipl-pflegefachmann-frau-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-care-professional-spital-thurgau-stgag-munsterlingen-7f8c85",
@@ -5030,11 +5036,11 @@
         "fr": [
           "dipl-professionnel-de-soins-spital-thurgau-stgag-munsterlingen-7f8c85",
           "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-stgag-ch"
+          "dipl-pflegefachmann-frau-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T14:47:16.696Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

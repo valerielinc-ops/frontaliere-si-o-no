@@ -5081,7 +5081,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "OP Koordinator*in",
       "titleByLocale": {
-        "it": "OP Koordinator*in",
+        "it": "Coordinatore OP*",
         "en": "OP Coordinator",
         "de": "OP Koordinator*in",
         "fr": "Coordinateur OP"
@@ -5098,7 +5098,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/op-koordinator-in/46987b11-8337-4998-90fe-aa2de8194c3b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:05:36.095Z",
+      "crawledAt": "2026-07-13T22:31:23.994Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5117,22 +5117,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "op-koordinator-in-unispital-basel-ch",
-        "op-koordinator-in-universitatsspital-basel-basel"
+        "coordinatore-or-universitatsspital-basel-basel",
+        "op-coordinator-op-coordinator-universitatsspital-basel-basel",
+        "op-koordinatorin-op-koordinator-unispital-basel-ch",
+        "coordonnateur-du-po-coordonnateur-du-po-universitatsspital-basel-basel",
+        "op-koordinatorin-op-koordinator-universitatsspital-basel-basel",
+        "coordinatore-op-coordinatore-op-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "op-koordinator-in-unispital-basel-ch",
-          "op-koordinator-in-universitatsspital-basel-basel"
+          "coordinatore-or-universitatsspital-basel-basel",
+          "op-coordinator-op-coordinator-universitatsspital-basel-basel",
+          "op-koordinatorin-op-koordinator-unispital-basel-ch",
+          "coordonnateur-du-po-coordonnateur-du-po-universitatsspital-basel-basel",
+          "op-koordinatorin-op-koordinator-universitatsspital-basel-basel",
+          "coordinatore-op-coordinatore-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "op-koordinator-in-unispital-basel-ch"
+          "op-koordinator-in-unispital-basel-ch",
+          "op-coordinator-op-coordinator-universitatsspital-basel-basel"
         ],
         "fr": [
-          "op-koordinator-in-unispital-basel-ch"
+          "op-koordinator-in-unispital-basel-ch",
+          "coordonnateur-du-po-coordonnateur-du-po-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "op-koordinatorin-op-koordinator-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {

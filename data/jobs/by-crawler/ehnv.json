@@ -1004,18 +1004,28 @@
       "externalId": "4161",
       "previousSlugs": [
         "un-e-infirmier-ere-80-100-ehnv-orbe",
-        "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
+        "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
+        "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
+        "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-e-infirmier-ere-80-100-ehnv-orbe",
-          "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
+          "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+          "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
+          "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
+          "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
         ],
         "en": [
           "un-e-infirmier-ere-80-100-ehnv-orbe"
         ],
         "de": [
-          "un-e-infirmier-ere-80-100-ehnv-orbe"
+          "un-e-infirmier-ere-80-100-ehnv-orbe",
+          "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
+        ],
+        "fr": [
+          "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
         ]
       },
       "firstSeenAt": "2026-07-08T10:56:34.495Z",
@@ -1031,7 +1041,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

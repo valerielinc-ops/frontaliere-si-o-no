@@ -3044,7 +3044,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-14T22:16:48.252Z",
+      "crawledAt": "2026-07-14T11:40:04.448Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3069,19 +3069,32 @@
         "med-praxisassistent-in-frauenklinik-see-spital-ch",
         "assistant-de-medecin-en-gynecologie-see-spital-horgen",
         "praxisassistent-in-see-spital-horgen",
-        "assistente-pratico-see-spital-horgen"
+        "assistente-pratico-see-spital-horgen",
+        "assistente-in-aemp-see-spital-horgen",
+        "assistant-in-aemp-see-spital-horgen",
+        "assistent-in-aemp-see-spital-ch",
+        "assistant-en-aemp-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praxisassistent-in-see-spital-ch",
           "praxisassistent-in-see-spital-horgen",
-          "assistente-pratico-see-spital-horgen"
+          "assistente-pratico-see-spital-horgen",
+          "assistente-in-aemp-see-spital-horgen",
+          "assistant-in-aemp-see-spital-horgen",
+          "assistent-in-aemp-see-spital-ch",
+          "assistant-en-aemp-see-spital-horgen"
         ],
         "en": [
-          "praxisassistent-in-see-spital-horgen"
+          "praxisassistent-in-see-spital-horgen",
+          "assistant-in-aemp-see-spital-horgen"
         ],
         "fr": [
-          "praxisassistent-in-see-spital-horgen"
+          "praxisassistent-in-see-spital-horgen",
+          "assistant-en-aemp-see-spital-horgen"
+        ],
+        "de": [
+          "assistent-in-aemp-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T14:13:58.523Z",

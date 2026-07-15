@@ -3786,7 +3786,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-12T22:06:12.559Z",
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur",
@@ -3799,20 +3799,20 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-        "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur"
+        "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur",
           "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
-          "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34sky"
+          "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34sky",
+          "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
         ],
         "en": [
           "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-78a534",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
           "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-fa18db",
-          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur"
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
@@ -3825,7 +3825,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Chur",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Chur",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Chur"
       },
@@ -3837,7 +3837,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-        "en": "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur",
+        "en": "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34s25"
       },
@@ -3859,8 +3859,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23000,
-      "salaryMax": 34800,
-      "needsRetranslation": true
+      "salaryMax": 34800
     },
     {
       "id": "company-8dybhf",
@@ -4574,7 +4573,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
@@ -4616,7 +4615,10 @@
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
           "venditore-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807",
+          "seller-m-w-d-lidl-svizzera-st-moritz",
+          "vendeur-m-w-d-lidl-svizzera-st-moritz",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
@@ -4628,7 +4630,10 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
         "venditore-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807",
+        "seller-m-w-d-lidl-svizzera-st-moritz",
+        "vendeur-m-w-d-lidl-svizzera-st-moritz",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800
@@ -4656,7 +4661,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-40-thusis-lidl-svizzera-thusis",
@@ -4698,7 +4703,8 @@
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
           "venditore-m-f-d-20-40-sois-lidl-svizzera-thusis-e19576",
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
+          "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
@@ -4710,7 +4716,8 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
         "venditore-m-f-d-20-40-sois-lidl-svizzera-thusis-e19576",
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
+        "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800
@@ -7098,7 +7105,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-sierre-sxc02f",
@@ -7138,11 +7145,36 @@
       "postalCode": "3960",
       "previousSlugsByLocale": {
         "it": [
-          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-sierre"
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-sierre",
+          "job-etudiant-etudiante-vente-f-m-d-20-lidl-svizzera-neuchatel",
+          "student-job-sales-h-f-d-20-lidl-svizzera-neuchatel",
+          "umsatz-von-studenten-h-w-d-20-lidl-svizzera-neuchatel",
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-neuchatel-gh8bke",
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-neuchatel",
+          "vendite-di-posti-di-lavoro-per-studenti-h-f-d-20-lidl-svizzera-neuchatel",
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-renens-w203ik",
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-renens"
+        ],
+        "en": [
+          "student-job-sales-h-f-d-20-lidl-svizzera-neuchatel"
+        ],
+        "de": [
+          "umsatz-von-studenten-h-w-d-20-lidl-svizzera-neuchatel"
+        ],
+        "fr": [
+          "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-neuchatel-gh8bke"
         ]
       },
       "previousSlugs": [
-        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-sierre"
+        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-sierre",
+        "job-etudiant-etudiante-vente-f-m-d-20-lidl-svizzera-neuchatel",
+        "student-job-sales-h-f-d-20-lidl-svizzera-neuchatel",
+        "umsatz-von-studenten-h-w-d-20-lidl-svizzera-neuchatel",
+        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-neuchatel-gh8bke",
+        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-neuchatel",
+        "vendite-di-posti-di-lavoro-per-studenti-h-f-d-20-lidl-svizzera-neuchatel",
+        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-renens-w203ik",
+        "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-renens"
       ],
       "salaryMin": 12100,
       "salaryMax": 18300
@@ -9254,14 +9286,16 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-12T22:06:12.559Z",
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern",
         "vice-direttore-di-filiale-m-f-d-80-100-lucerne-lidl-svizzera-luzern",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
         "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-lucerna-lidl-svizzera-luzern",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-lucerne-lidl-svizzera-luzern",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-lucerna-lidl-svizzera-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9269,7 +9303,9 @@
           "vice-direttore-di-filiale-m-f-d-80-100-lucerne-lidl-svizzera-luzern",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
           "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-lucerna-lidl-svizzera-luzern",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-lucerne-lidl-svizzera-luzern",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-lucerna-lidl-svizzera-luzern"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
@@ -9318,7 +9354,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -9740,7 +9775,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-chatel-saint-denis-lidl-svizzera-chatel-saint-denis",
@@ -9784,10 +9819,14 @@
         ],
         "de": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u"
+        ],
+        "it": [
+          "chatel-saint-denis"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-chatel-saint-denis-0ha77u",
+        "chatel-saint-denis"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600
@@ -16367,7 +16406,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "titleByLocale": {
         "it": "Stv. Filialleiterin / Stv. Filialleiterin (m/f/d) 80-100% — Zurigo — Zürich",
@@ -16393,12 +16432,14 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-d6qurk"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-d6qurk",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-d6qurk"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-d6qurk",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -16415,7 +16456,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -18352,10 +18392,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-06-17T23:01:29.054Z",
       "titleByLocale": {
-        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Martigny",
+        "it": "Collaboratore/self-service e partner commerciale 40% — Martigny",
         "en": "Collaborator/self-service and sales partner 40% — Martigny",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Martigny",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Martigny"
@@ -18378,18 +18418,23 @@
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny",
-          "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36"
+          "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36",
+          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
         ],
         "en": [
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36"
         ],
         "de": [
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36"
+        ],
+        "fr": [
+          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny",
-        "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36"
+        "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36",
+        "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18406,7 +18451,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1920",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },
@@ -19469,22 +19513,22 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-12T22:06:12.559Z",
       "previousSlugs": [
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+        "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp"
+          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
+          "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
         ],
         "en": [
-          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-          "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp"
@@ -19495,13 +19539,13 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Schlieren",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schlieren",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Schlieren",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Schlieren",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Schlieren"
       },
@@ -19528,7 +19572,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -20278,23 +20321,23 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-14T22:13:15.176Z",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
       "firstSeenAt": "2026-07-12T22:06:12.559Z",
       "previousSlugs": [
         "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur-9053ef",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+        "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+          "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur"
         ],
         "en": [
           "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur-9053ef",
-          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-          "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
@@ -20305,13 +20348,13 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq"
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Winterthur",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Winterthur",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Winterthur",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Winterthur",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Winterthur"
       },
@@ -20339,8 +20382,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 29400,
-      "salaryMax": 44600,
-      "needsRetranslation": true
+      "salaryMax": 44600
     },
     {
       "id": "company-qv19et",
@@ -24664,7 +24706,7 @@
       "crawledAt": "2026-07-06T22:40:50.002Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "titleByLocale": {
-        "en": "Manager Culture & Engagement (m/w/d) 80-100%",
+        "en": "Manager Culture & Engagement (m/f/d) 80-100 %",
         "de": "Manager Culture & Engagement (m/w/d) 80-100%",
         "it": "Manager Cultura & Engagement (m/f/d) 80-100 %",
         "fr": "Gestionnaire Culture et engagement (m/f/d) 80-100 %"
@@ -24701,7 +24743,8 @@
         "it": [
           "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden",
           "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-1g962j",
-          "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-7oihty"
+          "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-7oihty",
+          "gestionnaire-culture-et-engagement-m-f-d-80-100-lidl-svizzera-weinfelden"
         ],
         "fr": [
           "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-1g962j",
@@ -24719,7 +24762,8 @@
         "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden",
         "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-1g962j",
         "gestionnaire-culture-et-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-1g962j",
-        "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-7oihty"
+        "manager-culture-engagement-m-w-d-80-100-lidl-svizzera-weinfelden-7oihty",
+        "gestionnaire-culture-et-engagement-m-f-d-80-100-lidl-svizzera-weinfelden"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -24737,8 +24781,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8500",
-      "needsRetranslation": true
+      "postalCode": "8500"
     },
     {
       "id": "company-gtbgu6",
@@ -25468,7 +25511,7 @@
       "crawledAt": "2026-07-02T22:49:19.156Z",
       "firstSeenAt": "2026-07-02T22:49:19.156Z",
       "titleByLocale": {
-        "it": "Collaborateur / Collaboratrice Transport Interne & Recyclage (h/f/d) 80-100%",
+        "it": "Collaboratore / International Transport & Recycling Collaboratore (h/f/d) 80-100%",
         "en": "Collaborator / International Transport & Recycling Collaborator (h/f/d) 80-100%",
         "de": "Collaborator / International Transport & Recycling Collaborator (h/w/d) 80-100%",
         "fr": "Collaborateur / Collaboratrice Transport Interne & Recyclage (h/f/d) 80-100%"
@@ -25491,18 +25534,23 @@
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz",
-          "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0"
+          "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0",
+          "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
         ],
         "en": [
           "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0"
         ],
         "de": [
           "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0"
+        ],
+        "fr": [
+          "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz",
-        "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0"
+        "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-80-100-lidl-svizzera-sevaz-2vkrg0",
+        "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25520,8 +25568,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-6zosx5",
@@ -25948,7 +25995,7 @@
       "crawledAt": "2026-06-30T13:04:54.871Z",
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "titleByLocale": {
-        "en": "Venditore / Venditrice (m/f/d) 40% 1",
+        "en": "Seller / Seller (m/f/d) 40% 1",
         "it": "Venditore / Venditrice (m/f/d) 40% 1",
         "de": "Verkäufer / Verkäufer (m/w/d) 40% 1",
         "fr": "Vendeur / Vendeur (m/f/d) 40% 1"
@@ -25961,7 +26008,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz",
-        "en": "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno",
+        "en": "seller-seller-m-f-d-40-1-lidl-svizzera-locarno",
         "de": "verkaufer-verkaufer-m-w-d-40-1-lidl-svizzera-locarno",
         "fr": "vendeur-vendeur-m-f-d-40-1-lidl-svizzera-locarno"
       },
@@ -25977,17 +26024,15 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno"
-        ],
-        "en": [
-          "seller-seller-m-f-d-40-1-lidl-svizzera-locarno"
+          "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno",
+          "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno"
         ]
       },
       "previousSlugs": [
         "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno",
         "vendeur-m-f-d-40-lidl-svizzera-locarno",
         "verkaufer-m-w-d-40-lidl-svizzera-locarno",
-        "seller-seller-m-f-d-40-1-lidl-svizzera-locarno"
+        "venditore-venditrice-m-f-d-40-1-lidl-svizzera-locarno"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -26006,8 +26051,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 23600,
-      "salaryMax": 36200,
-      "needsRetranslation": true
+      "salaryMax": 36200
     },
     {
       "id": "company-21u6t0",
@@ -27597,6 +27641,96 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true
+    },
+    {
+      "id": "company-sqlqbe",
+      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
+      "company": "Lidl Svizzera",
+      "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Bern",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung & Personalplanung von 10-20 Mitarbeitenden\n\n- Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "url": "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-bern-686600",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Bern",
+        "canton": "BE"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-07-14T11:07:52.705Z",
+      "firstSeenAt": "2026-07-14T11:07:52.705Z",
+      "previousSlugs": [
+        "vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-berna-lidl-svizzera-bern",
+        "stv-filialleiterin-m-w-d-80-100-berne-lidl-svizzera-bern-t36d3k",
+        "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-berna-lidl-svizzera-bern",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-berne-lidl-svizzera-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-berna-lidl-svizzera-bern",
+          "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-berna-lidl-svizzera-bern",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-berne-lidl-svizzera-bern"
+        ],
+        "en": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k"
+        ],
+        "de": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k"
+        ],
+        "fr": [
+          "stv-filialleiterin-m-w-d-80-100-berne-lidl-svizzera-bern-t36d3k",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k"
+        ]
+      },
+      "slugByLocale": {
+        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
+        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
+        "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
+        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe"
+      },
+      "titleByLocale": {
+        "de": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Bern",
+        "it": "Stv. Filialleiterin / Stv. Filialleiterin (m/f/d) 80-100% — Berna",
+        "en": "Stv. Filialleiterin / Stv. Filialleiterin (m/f/d) 80-100% — Bern",
+        "fr": "Stv. Filialleiterin / Stv. Filialleiterin (m/f/d) 80-100 % — Berne"
+      },
+      "descriptionByLocale": {
+        "de": "Einleitung\n Der Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Stellvertretung der Filialleitung - Unterstützung in der Personalführung & Personalplanung von 10-20 Mitarbeitenden - Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche - Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale - Warendisposition und Warenpräsentation Dein Profil\n - Mehrjährige Berufserfahrung im Verkauf oder einem ähnlichen Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung - Teamgeist und Verantwortungsbewusstsein - Kommunikative Fähigkeiten und Freude am Umgang mit Menschen - Einsatzbereitschaft, Flexibilität und Belastbarkeit - Sehr gute Deutschkenntnisse in Wort und Schrift Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "it": "Introduzione\n\nVendite e persone sono la vostra passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessario ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Gestione del ramo aggiunto\n\n- Supporto nella gestione del personale e pianificazione del personale di 10-20 dipendenti\n\n- Responsabilità nel ramo e supporto attivo sulla zona\n\n- Attuazione dell'orientamento del cliente e degli standard di vendita nel settore\n\n- Buona disposizione e presentazione\nIl tuo profilo\n\n- Diversi anni di esperienza professionale nelle vendite o in un ambiente simile\n\n- Formazione professionale completata idealmente nel commercio al dettaglio\n\n- Leader, abbinato idealmente alla prima esperienza\n\n- Spirito di squadra e responsabilità\n\n- Capacità comunicative e piacere nel trattare con le persone\n\n- Prontezza, flessibilità e resilienza\n\n- Molto buona conoscenza del tedesco in parola e scrittura\nOffriamo\n\nA Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Sii attivamente coinvolto. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una conoscenza intensiva. Se desiderato e con buona idoneità personale, vi sviluppiamo in una gestione di branch (m/f/d). Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
+        "en": "Introduction\n\nSales and people are your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Deputy branch management\n\n- Support in personnel management & personnel planning of 10-20 employees\n\n- Responsibility in the branch and active support on the area\n\n- Implementation of customer orientation and sales standards in the branch\n\n- Goods disposition and presentation\nYour profile\n\n- Several years of professional experience in sales or a similar environment\n\n- Ideally completed vocational training in the retail trade\n\n- Leader, ideally paired with first experience\n\n- Team spirit and responsibility\n\n- Communicative skills and pleasure in dealing with people\n\n- Readiness, flexibility and resilience\n\n- Very good knowledge of German in word and writing\nWe offer\n\nAt Lidl Switzerland there is room for ambition and innovation. Be actively involved. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive familiarization. If desired and with good personal suitability, we develop you into a branch management (m/f/d). In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
+        "fr": "Présentation\n\nLes ventes et les gens sont votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Direction générale adjointe\n\n- Soutien à la gestion du personnel et à la planification du personnel de 10 à 20 employés\n\n- Responsabilité de la branche et soutien actif dans la région\n\n- Mise en œuvre des normes d'orientation des clients et de vente dans la branche\n\n- Disposition et présentation des biens\nVotre profil\n\n- Plusieurs années d'expérience professionnelle dans la vente ou un environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Leader, idéalement jumelé à la première expérience\n\n- Esprit d'équipe et responsabilité\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Disponibilité, flexibilité et résilience\n\n- Très bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous orientons vers une direction générale (m/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
+      },
+      "requirementsByLocale": {},
+      "country": "CH",
+      "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
