@@ -1141,6 +1141,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Border unemployment: the new EU rules',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'The EU has reached an agreement on unemployment benefits for frontier workers. Here\'s what\'s changing for Switzerland and Ticino.',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Bellinzona castle with Swiss flag',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Border unemployment: UDC opposes new EU rules',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'The UDC launches a motion to block the EU paradigm shift on the payment of unemployment benefits to frontier workers.',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Panoramic view of a Swiss city with government buildings',
 };
 
 export default blogMetaChEn;

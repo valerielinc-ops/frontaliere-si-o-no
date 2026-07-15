@@ -1141,6 +1141,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Chômage frontalier : les nouvelles règles de l\'UE',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'L\'UE est parvenue à un accord sur les indemnités de chômage pour les frontaliers. C\'est ce qui change pour la Suisse et le Tessin.',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Château de Bellinzona avec drapeau suisse',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Chômage frontalier : l\'UDC s\'oppose aux nouvelles règles de l\'UE',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'L\'UDC lance une motion pour bloquer le changement de paradigme de l\'UE sur le paiement des indemnités de chômage aux travailleurs frontaliers.',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Vue panoramique d\'une ville suisse avec des bâtiments gouvernementaux',
 };
 
 export default blogMetaChFr;
