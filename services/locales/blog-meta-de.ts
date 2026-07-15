@@ -8520,6 +8520,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-arma-politica.title': 'Grenzrestaurants: die neue politische Waffe zwischen der Schweiz und Italien',
     'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Das Tessin blockiert 50,2 Millionen Franken und Graubünden droht mit Vergeltung. Rückerstattungen werden zu Spielfiguren in Steuer- und Olympiastreitigkeiten.',
     'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande in Bellinzona, Sitz der Tessiner Regierung',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italien-Schweiz: Automatischer Austausch von Steuerinformationen',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analyse der Funktionsweise des automatischen Austauschs von Steuerinformationen zwischen Italien und der Schweiz über CRS und DAC für Grenzgänger.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Panoramablick auf Lugano mit dem See und den Bergen.',
 };
 
 export default blogMetaDe;
