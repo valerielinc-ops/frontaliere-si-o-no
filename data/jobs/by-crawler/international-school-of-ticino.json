@@ -1,6 +1,6 @@
 {
   "crawlerKey": "international-school-of-ticino",
-  "assembledAt": "2026-07-15T11:52:25.058Z",
+  "assembledAt": "2026-07-15T22:51:00.546Z",
   "jobs": [
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-Part-Time-Music-Teacher/1364604157/",
@@ -22,14 +22,14 @@
         "it": "Insegnante di Musica a Tempo Parziale",
         "en": "Part-Time Music Teacher",
         "de": "Teilzeit-Musiklehrer",
-        "fr": "Professeur de musique à temps partiel"
+        "fr": "Part-Time Music Teacher"
       },
       "slug": "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
       "slugByLocale": {
         "it": "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
         "en": "part-time-music-teacher-ist",
         "de": "teilzeit-music-teacher-international-school-of-ticino-lugano",
-        "fr": "professeur-de-musique-a-temps-partiel-international-school-of-ticino-lugano"
+        "fr": "part-time-music-teacher-international-school-of-ticino-lugano"
       },
       "category": "education",
       "datePosted": "2026-06-23",
@@ -46,21 +46,26 @@
       "id": "international-school-of-ticino-e8437595a384",
       "previousSlugs": [
         "part-time-music-teacher-ist",
+        "professeur-de-musique-a-temps-partiel-international-school-of-ticino-lugano",
+        "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
         "part-time-music-teacher-international-school-of-ticino-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "part-time-music-teacher-ist"
+          "part-time-music-teacher-ist",
+          "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano"
         ],
         "de": [
           "part-time-music-teacher-ist"
         ],
         "fr": [
+          "professeur-de-musique-a-temps-partiel-international-school-of-ticino-lugano",
           "part-time-music-teacher-international-school-of-ticino-lugano"
         ]
       },
       "firstSeenAt": "2026-06-23T22:32:55.658Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 42000,
       "salaryMax": 77500,
       "currency": "CHF",
