@@ -3008,10 +3008,10 @@
     },
     {
       "id": "six-group-948a8fd62150",
-      "slug": "kauffrau-kaufmann-efz-bank-six-group-zurich",
+      "slug": "commerciale-commerciale-efz-bank-six-group-zurich",
       "slugByLocale": {
-        "it": "kauffrau-kaufmann-efz-bank-six-group-zurich",
-        "en": "kauffrau-kaufmann-efz-bank-six-group-zurich",
+        "it": "commerciale-commerciale-efz-bank-six-group-zurich",
+        "en": "commercial-commercial-efz-bank-six-group-zurich",
         "de": "kauffrau-kaufmann-efz-bank-six-group-zurich",
         "fr": "kauffrau-kaufmann-efz-bank-six-group-zurich"
       },
@@ -3066,7 +3066,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-kaufmann-efz-bank-six-group-zurich"
+        ],
+        "en": [
+          "kauffrau-kaufmann-efz-bank-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-kaufmann-efz-bank-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-811d01e9c6cc",
