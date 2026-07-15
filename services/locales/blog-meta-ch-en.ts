@@ -1129,6 +1129,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimenti-startup-svizzere-riduzione.title': 'More startups, the volume of investments decreases',
     'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'The volume of investments in Swiss startups decreased by 15.5% in the first half of 2025.',
     'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Image of an investor looking at a graph with negative trends',
+    'blog.article.frontalieri-indennita.title': 'Border allowance: Bern deals with EU reform',
+    'blog.article.frontalieri-indennita.excerpt': 'The law under discussion in Brussels could shift unemployment payments to unemployed foreign workers to Switzerland',
+    'blog.article.frontalieri-indennita.imageAlt': 'Image of a frontier worker in a situation of unemployment',
 };
 
 export default blogMetaChEn;
