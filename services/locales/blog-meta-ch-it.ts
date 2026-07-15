@@ -1135,6 +1135,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati.title': 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
     'blog.article.frontalieri-disoccupati.excerpt': 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati.',
     'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri disoccupati a Lugano',
+    'blog.article.incontro-fiscale-roma-giugno.title': 'Svizzera e Italia: incontro fiscale a Roma entro giugno',
+    'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Vertice istituzionale tra Svizzera e Italia in programma entro fine giugno per discutere aspetti fiscali legati al frontalierato.',
+    'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Veduta del lungolago di Lugano con bandiere svizzere e italiane',
 };
 
 export default blogMetaChIt;

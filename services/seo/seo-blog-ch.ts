@@ -14643,6 +14643,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incontro-fiscale-roma-giugno': {
+    title: 'Svizzera e Italia: incontro fiscale a Roma entro giugno',
+    description: 'Vertice tra Svizzera e Italia entro fine giugno: si discute di frontalieri, accordi fiscali e nuove normative in vigore dal 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontro, fiscale, roma, entro',
+    ogTitle: 'Svizzera e Italia: incontro fiscale a Roma entro giugno',
+    ogDescription: 'Vertice tra Svizzera e Italia entro fine giugno: si discute di frontalieri, accordi fiscali e nuove normative in vigore dal 2024.',
+    canonicalPath: '/articoli-svizzera/incontro-fiscale-roma-giugno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e Italia: incontro fiscale a Roma entro giugno",
+      "description": "Vertice tra Svizzera e Italia entro fine giugno: si discute di frontalieri, accordi fiscali e nuove normative in vigore dal 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incontro-fiscale-roma-giugno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del lungolago di Lugano con bandiere svizzere e italiane"
+      },
+      "datePublished": "2026-07-15T02:13:13+00:00",
+      "dateModified": "2026-07-15T02:13:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incontro-fiscale-roma-giugno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

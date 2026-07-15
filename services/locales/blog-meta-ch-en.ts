@@ -1135,6 +1135,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati.title': 'Unemployed border workers: EU approves burdensome reform for Switzerland',
     'blog.article.frontalieri-disoccupati.excerpt': 'The European Parliament on Tuesday approved a reform aimed at redefining the competences of unemployed frontier workers.',
     'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri disoccupati in Lugano',
+    'blog.article.incontro-fiscale-roma-giugno.title': 'Switzerland and Italy: tax meeting in Rome by June',
+    'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Institutional summit between Switzerland and Italy scheduled for the end of June to discuss tax aspects related to the border.',
+    'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'View of Lugano lakefront with Swiss and Italian flags',
 };
 
 export default blogMetaChEn;

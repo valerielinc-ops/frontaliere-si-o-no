@@ -401,6 +401,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'investimenti-startup-svizzere-riduzione': { it: 'investimenti-startup-svizzere-riduzione', en: 'swiss-startup-investments-decline', de: 'schweizer-startup-investitionen-rueckgang', fr: 'investissements-startup-suisse-reduction' },
  'frontalieri-indennita': { it: 'frontalieri-indennita', en: 'frontier-workers-unemployment', de: 'grenzganger-arbeitslosigkeit', fr: 'travailleurs-frontaliers-chomage' },
  'frontalieri-disoccupati': { it: 'frontalieri-disoccupati', en: 'frontaliers-unemployed', de: 'frontalier-ohne-arbeit', fr: 'frontaliers-sans-emploi' },
+ 'incontro-fiscale-roma-giugno': { it: 'incontro-fiscale-roma-giugno', en: 'switzerland-italy-fiscal-meeting-rome', de: 'schweiz-italien-steuerliches-treffen-rom', fr: 'suisse-italie-rencontre-fiscale-rome' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
