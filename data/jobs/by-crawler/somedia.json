@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-07-15T11:33:21.024Z",
+  "assembledAt": "2026-07-15T22:04:44.449Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:17.814Z",
+      "crawledAt": "2026-07-15T22:04:41.543Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,7 +121,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Kaufmann/-frau CFC Marketing & Kommunikation 2027",
-        "en": "Apprenticeship as a businessman/woman EFZ Marketing & Communication 2027",
+        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Apprentissage en tant qu'homme d'affaires/femme EFZ Marketing & Communication 2027"
       },
@@ -137,7 +137,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:16.966Z",
+      "crawledAt": "2026-07-15T22:04:40.718Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -240,7 +240,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:16.119Z",
+      "crawledAt": "2026-07-15T22:04:39.893Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,6 +296,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -325,7 +326,7 @@
       "title": "Leiter/in Digital Product & Projects (80-100%)",
       "titleByLocale": {
         "it": "Responsabile Digital Product & Projects (80-100%)",
-        "en": "Head of Digital Product & Projects (80-100%)",
+        "en": "Leiter/in Digital Product & Projects (80-100%)",
         "de": "Leiter/in Digital Product & Projects (80-100%)",
         "fr": "Responsable des produits et projets numériques (80-100%)"
       },
@@ -341,7 +342,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Digital-Product-Projects-80-100-de-j405.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:15.161Z",
+      "crawledAt": "2026-07-15T22:04:38.941Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -392,6 +393,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:39.072Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -437,7 +439,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j403.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:14.057Z",
+      "crawledAt": "2026-07-15T22:04:37.847Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,6 +502,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:21:43.552Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
