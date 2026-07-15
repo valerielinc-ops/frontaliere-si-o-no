@@ -1138,6 +1138,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incontro-fiscale-roma-giugno.title': 'Switzerland and Italy: tax meeting in Rome by June',
     'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Institutional summit between Switzerland and Italy scheduled for the end of June to discuss tax aspects related to the border.',
     'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'View of Lugano lakefront with Swiss and Italian flags',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Border unemployment: the new EU rules',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'The EU has reached an agreement on unemployment benefits for frontier workers. Here\'s what\'s changing for Switzerland and Ticino.',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Bellinzona castle with Swiss flag',
 };
 
 export default blogMetaChEn;

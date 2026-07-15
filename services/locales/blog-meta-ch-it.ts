@@ -1138,6 +1138,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incontro-fiscale-roma-giugno.title': 'Svizzera e Italia: incontro fiscale a Roma entro giugno',
     'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Vertice istituzionale tra Svizzera e Italia in programma entro fine giugno per discutere aspetti fiscali legati al frontalierato.',
     'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Veduta del lungolago di Lugano con bandiere svizzere e italiane',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Disoccupazione frontalieri: le nuove regole UE',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'L\'UE ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Ecco cosa cambia per la Svizzera e il Ticino.',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Castello di Bellinzona con bandiera svizzera',
 };
 
 export default blogMetaChIt;

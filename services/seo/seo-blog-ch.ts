@@ -14682,6 +14682,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-frontalieri-nuove-regole-ue': {
+    title: 'Disoccupazione frontalieri: le nuove regole UE',
+    description: 'L\'UE ha approvato nuove regole sulle indennità di disoccupazione per i frontalieri. Ecco l\'impatto per la Svizzera e il Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, nuove, regole, raggiunto',
+    ogTitle: 'Disoccupazione frontalieri: le nuove regole UE',
+    ogDescription: 'L\'UE ha approvato nuove regole sulle indennità di disoccupazione per i frontalieri. Ecco l\'impatto per la Svizzera e il Ticino.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-frontalieri-nuove-regole-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri: le nuove regole UE",
+      "description": "L'UE ha approvato nuove regole sulle indennità di disoccupazione per i frontalieri. Ecco l'impatto per la Svizzera e il Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-frontalieri-nuove-regole-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Bellinzona con bandiera svizzera"
+      },
+      "datePublished": "2026-07-15T02:42:51+00:00",
+      "dateModified": "2026-07-15T02:42:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-frontalieri-nuove-regole-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1138,6 +1138,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incontro-fiscale-roma-giugno.title': 'Schweiz und Italien: Steuergespräch in Rom bis Juni',
     'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Institutionelles Gipfeltreffen zwischen der Schweiz und Italien, das bis Ende Juni geplant ist, um steuerliche Aspekte im Zusammenhang mit dem Grenzverkehr zu erörtern.',
     'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Blick auf das Seeufer von Lugano mit Schweizer und italienischen Flaggen',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Grenzgängerarbeitslosigkeit: die neuen EU-Regeln',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'Die EU hat sich auf Leistungen bei Arbeitslosigkeit für Grenzgänger geeinigt. Das ändert sich für die Schweiz und das Tessin.',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Schloss Bellinzona mit Schweizer Flagge',
 };
 
 export default blogMetaChDe;
