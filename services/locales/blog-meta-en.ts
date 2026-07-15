@@ -8506,6 +8506,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Border unemployment: EU reform and doubts in Ticino',
     'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'The EU aims to reform the allowance for frontier workers. Andrea Puglia (OCST) comments on the impact on rights, costs and the labour market in Ticino.',
     'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Panoramic view of Lugano with modern buildings in the city center',
+    'blog.article.permesso-g-apprendisti-svolta-storica.title': 'G Leave for Apprentices: Farewell to Annual Renewals',
+    'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Historical turnaround for over 700 young cross-border apprentices: the G work permit will be valid for the entire duration of the internship, eliminating the annual bureaucracy.',
+    'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Students in front of a vocational school in Ticino',
 };
 
 export default blogMetaEn;

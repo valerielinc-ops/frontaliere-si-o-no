@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3232,
+ "numberOfItems": 3233,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7907,7 +7907,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3229, "name": "Disoccupazione frontalieri: la riforma UE e i d...", "url": `${BASE_URL}/articoli-frontaliere/riforma-disoccupazione-frontalieri-ue` },
           { "@type": "ListItem", "position": 3230, "name": "Di più startup, diminuisce il volume degli inve...", "url": `${BASE_URL}/articoli-frontaliere/investimenti-startup-svizzere-riduzione` },
           { "@type": "ListItem", "position": 3231, "name": "Indennità ai frontalieri: Berna fa i conti con ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-indennita` },
-          { "@type": "ListItem", "position": 3232, "name": "Frontalieri disoccupati: l'UE approva riforma o...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati` }
+          { "@type": "ListItem", "position": 3232, "name": "Frontalieri disoccupati: l'UE approva riforma o...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati` },
+          { "@type": "ListItem", "position": 3233, "name": "Permesso G per apprendisti: addio ai rinnovi an...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-svolta-storica` }
  ]
  },
  {

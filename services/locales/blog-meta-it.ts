@@ -8507,6 +8507,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Disoccupazione frontalieri: la riforma UE e i dubbi in Ticino',
     'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'L\'UE punta a riformare l\'indennità per i frontalieri. Andrea Puglia (OCST) commenta l\'impatto su diritti, costi e mercato del lavoro in Ticino.',
     'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Veduta panoramica di Lugano con edifici moderni nel centro città',
+    'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Permesso G per apprendisti: addio ai rinnovi annuali',
+    'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Svolta storica per oltre 700 giovani apprendisti frontalieri: il permesso di lavoro G varrà per l\'intera durata del tirocinio, eliminando la burocrazia annuale.',
+    'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Studenti davanti a una scuola professionale in Ticino',
 };
 
 export default blogMetaIt;

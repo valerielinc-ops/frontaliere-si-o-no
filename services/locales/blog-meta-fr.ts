@@ -8507,6 +8507,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Chômage frontalier : la réforme de l\'UE et les doutes au Tessin',
     'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'L\'UE vise à réformer l\'indemnité pour les frontaliers. Andrea Puglia (OCST) commente l\'impact sur les droits, les coûts et le marché du travail au Tessin.',
     'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes dans le centre-ville',
+    'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Permis G pour apprentis : adieu aux renouvellements annuels',
+    'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Changement historique pour plus de 700 jeunes apprentis frontaliers : le permis de travail G sera valable pendant toute la durée du stage, éliminant la bureaucratie annuelle.',
+    'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Étudiants devant une école professionnelle au Tessin',
 };
 
 export default blogMetaFr;
