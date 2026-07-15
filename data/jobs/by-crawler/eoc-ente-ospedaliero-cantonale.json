@@ -941,8 +941,8 @@
       "firstSeenAt": "2026-07-15T11:27:01.565Z",
       "slugByLocale": {
         "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -969,11 +969,9 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "en": [
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
@@ -989,8 +987,6 @@
         ]
       },
       "previousSlugs": [
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -6650,7 +6646,7 @@
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -6717,7 +6713,6 @@
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
@@ -6751,7 +6746,6 @@
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       }
@@ -6782,7 +6776,7 @@
         "it": "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
         "de": "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "fr": "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Medico Capoclinica – Anestesiologia",
@@ -6828,7 +6822,6 @@
         "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-uil1ys",
         "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
@@ -6840,7 +6833,6 @@
           "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
           "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       }
