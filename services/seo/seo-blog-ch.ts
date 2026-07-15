@@ -14604,6 +14604,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati': {
+    title: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    description: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, approva, riforma, onerosa',
+    ogTitle: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    ogDescription: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati.',
+    canonicalPath: '/articoli-svizzera/frontalieri-disoccupati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri disoccupati: l'UE approva riforma onerosa per la Svizzera",
+      "description": "Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri disoccupati a Lugano"
+      },
+      "datePublished": "2026-07-15T00:33:11+00:00",
+      "dateModified": "2026-07-15T00:33:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-disoccupati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

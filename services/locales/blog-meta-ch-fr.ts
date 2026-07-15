@@ -1132,6 +1132,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-indennita.title': 'Indemnités aux frontaliers : Berne fait face à la réforme de l\'UE',
     'blog.article.frontalieri-indennita.excerpt': 'La loi en discussion à Bruxelles pourrait déplacer sur la Suisse le paiement du chômage aux travailleurs étrangers restés sans emploi',
     'blog.article.frontalieri-indennita.imageAlt': 'Image d\'un travailleur frontalier dans une situation d\'chomage',
+    'blog.article.frontalieri-disoccupati.title': 'Chômeurs frontaliers : l\'UE approuve une réforme coûteuse pour la Suisse',
+    'blog.article.frontalieri-disoccupati.excerpt': 'Le Parlement européen a approuvé mardi la réforme visant à redéfinir les compétences en matière de travailleurs frontaliers au chômage.',
+    'blog.article.frontalieri-disoccupati.imageAlt': 'Frontaliers sans emploi à Lugano',
 };
 
 export default blogMetaChFr;

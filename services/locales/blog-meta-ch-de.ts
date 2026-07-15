@@ -1132,6 +1132,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-indennita.title': 'Grenzgängerentschädigung: Bern rechnet mit EU-Reform',
     'blog.article.frontalieri-indennita.excerpt': 'Das in Brüssel diskutierte Gesetz könnte die Zahlung von Arbeitslosengeld an ausländische Arbeitnehmer, die arbeitslos geworden sind, in die Schweiz verlagern',
     'blog.article.frontalieri-indennita.imageAlt': 'Bild eines Grenzarbeiters in einer Situation der Arbeitslosigkeit',
+    'blog.article.frontalieri-disoccupati.title': 'Arbeitslose Grenzgänger: EU verabschiedet kostenintensive Reform für die Schweiz',
+    'blog.article.frontalieri-disoccupati.excerpt': 'Das Europäische Parlament hat am Dienstag die Reform zur Neudefinition der Zuständigkeiten für arbeitslose Grenzgänger gebilligt.',
+    'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri ohne Arbeit in Lugano',
 };
 
 export default blogMetaChDe;

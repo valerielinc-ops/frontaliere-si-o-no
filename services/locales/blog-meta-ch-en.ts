@@ -1132,6 +1132,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-indennita.title': 'Border allowance: Bern deals with EU reform',
     'blog.article.frontalieri-indennita.excerpt': 'The law under discussion in Brussels could shift unemployment payments to unemployed foreign workers to Switzerland',
     'blog.article.frontalieri-indennita.imageAlt': 'Image of a frontier worker in a situation of unemployment',
+    'blog.article.frontalieri-disoccupati.title': 'Unemployed border workers: EU approves burdensome reform for Switzerland',
+    'blog.article.frontalieri-disoccupati.excerpt': 'The European Parliament on Tuesday approved a reform aimed at redefining the competences of unemployed frontier workers.',
+    'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri disoccupati in Lugano',
 };
 
 export default blogMetaChEn;
