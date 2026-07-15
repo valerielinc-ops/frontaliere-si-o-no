@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-07-14T22:28:48.107Z",
+  "assembledAt": "2026-07-15T12:16:17.143Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4011?c=groupemutuel&lang=fr-FR",
@@ -92,6 +92,79 @@
       "addressRegion": "BE"
     },
     {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
+      "title": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "it": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "en": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "de": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable"
+      },
+      "slug": "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg",
+      "slugByLocale": {
+        "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "en": "contract-manager-h-f-100-temporary-3-months-extendable-groupe-mutuel-fribourg",
+        "de": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
+        "it": "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg"
+      },
+      "category": "administration",
+      "datePosted": "2026-07-14",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "4073",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+        ],
+        "en": [
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-2e973aa8bc34",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Fribourg",
+      "addressCountry": "CH",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-15T12:16:17.141Z"
+    },
+    {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4200?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4200?c=groupemutuel&lang=fr-FR",
       "title": "Customer Experience Manager (h/f) 80-100%",
@@ -103,7 +176,7 @@
       "description": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
         "it": "Per definire la visione target del corso, sviluppi la sua strategia e traduci le esigenze del cliente/e/s e del business in una roadmap CX prioritaria Controllando le prestazioni del corso, si analizza il business, l'esperienza e il funzionamento del KPI al fine di misurare l'impatto delle azioni e regolare le priorità Attraverso la gestione strutturata delle iniziative, si pilota un portafoglio trasversale, priorità azioni di alto valore e coordinate principali stakeholders Contando sui dati dei clienti e feedback, si mappa le rotte, identificare gli irritanti e trasformare le intuizioni in azioni concrete Perché la coerenza del viaggio è essenziale, si guida enti di governance, valutare l'impatto delle iniziative e contribuire a arbitrato strategico Attraverso il vostro impegno al miglioramento continuo, ottimizzate i viaggi, semplificate i processi e contribuite alla trasformazione digitale e alla diffusione della cultura CX\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "en": "To define the course's target vision, you develop its strategy and translate customer/e/s and business needs into a prioritized CX roadmap By controlling the performance of the course, you analyze the KPI business, experience and operational in order to measure the impact of the actions and adjust the priorities Through structured management of the initiatives, you pilot a cross-cutting portfolio, prioritize high-value actions and coordinate key stakeholders By relying on customer data and feedback, you map the routes, identify the irritants and turn the insights into concrete actions Because the coherence of the journey is essential, you drive governance bodies, evaluate the impact of initiatives and contribute to strategic arbitrations Through your commitment to continuous improvement, you optimize the journeys, simplify the processes and contribute to digital transformation and to the diffusion of CX culture\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "de": "Um die Zielvision des Kurses zu definieren, entwickeln Sie seine Strategie und übersetzen Kunden- / E- und Geschäftsanforderungen in eine priorisierte CX-Roadmap Durch die Kontrolle der Leistung des Kurses analysieren Sie das KPI-Geschäft, die Erfahrung und den Betrieb, um die Auswirkungen der Maßnahmen zu messen und die Prioritäten anzupassen Durch strukturiertes Management der Initiativen steuern Sie ein übergreifendes Portfolio, priorisieren hochwertige Maßnahmen und koordinieren wichtige Stakeholder Indem Sie sich auf Kundendaten und Feedback verlassen, kartieren Sie die Routen, identifizieren die Irritationen und verwandeln die Erkenntnisse in konkrete Maßnahmen Da die Kohärenz der Reise unerlässlich ist, treiben Sie Governance-Gremien voran, bewerten die Auswirkungen von Initiativen und tragen zu strategischen Schiedsverfahren bei. Durch Ihr Engagement für kontinuierliche Verbesserung optimieren Sie die Reisen, vereinfachen die Prozesse und tragen zur digitalen Transformation und zur Verbreitung der CX-Kultur bei.\n\nDie Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der ganzen Schweiz an.",
         "fr": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
@@ -135,6 +208,7 @@
       "id": "groupe-mutuel-e9f2b2cf028d",
       "firstSeenAt": "2026-07-13T13:39:05.689Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -290,6 +364,7 @@
       },
       "firstSeenAt": "2026-07-13T13:39:05.689Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -404,7 +479,7 @@
         "it": "Consulente clienti agenzia (h/f) 80-100%",
         "en": "Client Advisor Agency (m/f) 80-100%",
         "de": "Conseiller clientèle agence (h/f) 80-100%",
-        "fr": "Conseiller clientèle (h/f) 80-100 %"
+        "fr": "Conseiller clientèle agence (h/f) 80-100%"
       },
       "slug": "consulente-clienti-agenzia-h-f-80-100-groupe-mutuel-biel-bienne",
       "slugByLocale": {
@@ -519,6 +594,7 @@
       },
       "firstSeenAt": "2026-07-08T22:16:00.607Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "currency": "CHF",
@@ -596,6 +672,7 @@
       },
       "firstSeenAt": "2026-06-18T12:22:22.697Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 108500,
       "currency": "CHF",
@@ -673,6 +750,7 @@
       },
       "firstSeenAt": "2026-06-08T12:57:07.729Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101000,
       "salaryMax": 155500,
       "currency": "CHF",
@@ -742,6 +820,7 @@
       },
       "firstSeenAt": "2026-07-07T12:14:29.029Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -803,6 +882,7 @@
       "id": "groupe-mutuel-85a989cf360f",
       "firstSeenAt": "2026-07-07T12:14:29.029Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -882,6 +962,7 @@
       },
       "firstSeenAt": "2026-06-25T22:26:20.206Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -959,6 +1040,7 @@
       },
       "firstSeenAt": "2026-06-29T22:11:17.863Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1034,6 +1116,7 @@
       },
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -1071,7 +1154,7 @@
         "it": "Consulente Assicurazioni & Previdenza",
         "en": "Insurance & Prevision Advisor",
         "de": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév.",
-        "fr": "Conseiller et Assurance&Prév./Conseiller et Assurance&Prév."
+        "fr": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév."
       },
       "slug": "conseiller-en-8-95-prev-conseiller-en-8-95-prev-groupe-mutuel-biel-bienne",
       "slugByLocale": {
@@ -1184,6 +1267,7 @@
       },
       "firstSeenAt": "2026-06-25T11:12:21.471Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 111000,
       "currency": "CHF",
@@ -1492,6 +1576,7 @@
       },
       "firstSeenAt": "2026-06-19T21:51:26.065Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -1571,6 +1656,7 @@
       },
       "firstSeenAt": "2026-06-17T12:58:41.171Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 108500,
       "currency": "CHF",
@@ -1666,83 +1752,6 @@
       "addressRegion": "SG"
     },
     {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4132?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4132?c=groupemutuel&lang=fr-FR",
-      "title": "Sachbearbeiter Gesundheit, Schadenfälle (m/w) 60%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Fribourg",
-      "canton": "FR",
-      "country": "CH",
-      "description": "Du sorgst für eine sorgfältige und proaktive Steuerung der Krankentaggelddossiers und stützt dich dabei auf die verschiedenen Instrumente des betrieblichen Gesundheitsmanagements Du bist die direkte Ansprechperson für ein Portefeuille von Unternehmenskunden und stellst diese in den Mittelpunkt unseres Handelns Du schaffst solide Vertrauensbeziehungen zu unseren Kunden und Versicherten\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Garantisci una gestione attenta e proattiva dei dossier dell'indennità giornaliera di malattia, basandoti sui diversi strumenti di gestione della salute in azienda Sei l'interlocutore diretto di un portafoglio di clienti aziendali e li metti al centro delle nostre azioni Crei solide relazioni di fiducia con i nostri clienti e assicurati Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). La società offre una vasta gamma di prodotti assicurativi e pensionistici per gli individui e le imprese in tutta la Svizzera.",
-        "en": "You ensure careful and proactive management of daily sickness benefit files, relying on the various instruments of occupational health management. You are the direct contact person for a portfolio of corporate customers and put them at the centre of our actions. You create solid relationships of trust with our customers and insureds. Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Du sorgst für eine sorgfältige und proaktive Steuerung der Krankentaggelddossiers und stützt dich dabei auf die verschiedenen Instrumente des betrieblichen Gesundheitsmanagements Du bist die direkte Ansprechperson für ein Portefeuille von Unternehmenskunden und stellst diese in den Mittelpunkt unseres Handelns Du schaffst solide Vertrauensbeziehungen zu unseren Kunden und Versicherten Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "fr": "Vous assurez une gestion minutieuse et proactive des dossiers d'indemnités journalières en vous appuyant sur les différents outils de la gestion de la santé en entreprise Vous êtes l'interlocuteur direct d'un portefeuille de clients entreprises et vous les placez au cœur de nos actions Vous créez de solides relations de confiance avec nos clients et assurés Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
-      },
-      "titleByLocale": {
-        "it": "Incaricato salute, sinistri (m/f) 60%",
-        "en": "Health, claims clerk (m/f) 60%",
-        "de": "Sachbearbeiter Gesundheit, Schadenfälle (m/w) 60%",
-        "fr": "Responsable santé, sinistres (h/f) 60 %"
-      },
-      "slug": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
-      "slugByLocale": {
-        "it": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
-        "en": "personnel-health-damage-cases-m-f-60-groupe-mutuel-fribourg",
-        "de": "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
-        "fr": "sante-du-personnel-dommages-m-f-60-groupe-mutuel-fribourg"
-      },
-      "category": "claims",
-      "datePosted": "2026-06-12",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Fribourg"
-      },
-      "jobReqId": "4132",
-      "id": "groupe-mutuel-8f2c29420c19",
-      "previousSlugs": [
-        "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
-        "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
-          "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg"
-        ],
-        "en": [
-          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
-        ],
-        "fr": [
-          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T22:26:48.140Z",
-      "crawledAt": "",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Fribourg",
-      "addressCountry": "CH",
-      "addressRegion": "FR"
-    },
-    {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4133?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4133?c=groupemutuel&lang=fr-FR",
       "title": "Business Analyst Prévoyance Individuelle (h/f) 80-100%",
@@ -1760,7 +1769,7 @@
       },
       "titleByLocale": {
         "it": "Business Analista Prévoyance Individuelle (h/f) 80-100%",
-        "en": "Business Analyst Individual Vision (h/f) 80-100%",
+        "en": "Business Analyst Prévoyance Individuelle (h/f) 80-100%",
         "de": "Business Analyst Individuelle Vorsorge (m/w) 80-100%",
         "fr": "Business Analyste Prévoyance Individuelle (h/f) 80-100%"
       },
@@ -1808,6 +1817,7 @@
       ],
       "firstSeenAt": "2026-06-10T22:44:25.112Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -2002,7 +2012,7 @@
       "titleByLocale": {
         "it": "Analista (m/f) 80-100%",
         "en": "Analyst (m/f) 80-100%",
-        "de": "Analyst (h/f) 80-100%",
+        "de": "Analyste (h/f) 80-100%",
         "fr": "Analyste (h/f) 80-100%"
       },
       "slug": "analista-m-f-80-100-groupe-mutuel-sion",
@@ -2040,6 +2050,7 @@
       },
       "firstSeenAt": "2026-06-08T12:57:07.729Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2119,6 +2130,7 @@
       },
       "firstSeenAt": "2026-06-03T23:43:06.836Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -2216,83 +2228,6 @@
       "addressRegion": "VS"
     },
     {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
-      "title": "Kundenberater Agenturen (m/w) 80% - Temporär 4 Monate",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Thun",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Du unterstützt die internen Abteilungen bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Consulenza e supporto dei nostri clienti in tutte le domande di assicurazione - per telefono e direttamente al commutatore - Modifiche del contratto che si elabora in modo indipendente ed efficiente - L'utente accetta di consultare gli appuntamenti per i nostri consulenti assicurativi e pensioni telefonicamente:inside – con un senso di coordinamento e acquisizione - Supporti i dipartimenti interni in compiti amministrativi, soprattutto nella gestione dei contratti Descrizione Groupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per privati e imprese in tutta la Svizzera.",
-        "en": "Mansioni - Advice and support of our customers in all insurance questions - by phone and directly at the switch - Changes in the contract you process independently and efficiently - You agree to consulting appointments for our insurance and pension advisors by phone:inside – with a sense of coordination and acquisition - You support internal departments in administrative tasks, especially in contract management descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Mansioni - Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter - Vertragsänderungen bearbeitest du selbstständig und effizient - Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise - Du unterstützt die internen Abteilungen bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung Descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "fr": "Mansioni - Conseils et assistance de nos clients dans toutes les questions d'assurance - par téléphone et directement au commutateur - Changements dans le contrat que vous traitez de manière indépendante et efficace - Vous acceptez de consulter des rendez-vous pour nos conseillers en assurance et retraite par téléphone : à l'intérieur – avec un sens de coordination et d'acquisition - Vous soutenez les services internes dans les tâches administratives, en particulier dans la gestion des contrats descrizione Groupe Mutuel est l'un des principaux groupes d'assurances suisses, dont le siège est à Martigny (Valais). La société propose une large gamme de produits d'assurance et de retraite pour les particuliers et les entreprises en Suisse."
-      },
-      "titleByLocale": {
-        "it": "Consulente Clienti Agenzie (m/f) 80% - Temporaneo 4 Mesi",
-        "en": "Customer Advisor Agencies (m/f) 80% - Temporary 4 Months",
-        "de": "Kundenberater Agenturen (m/w) 80% - Temporär 4 Monate",
-        "fr": "Conseiller Client Agences (m/f) 80% - Temporaire 4 Mois"
-      },
-      "slug": "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun",
-      "slugByLocale": {
-        "it": "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun",
-        "en": "customer-advisor-agencies-m-f-80-temporary-4-months-groupe-mutuel-thun",
-        "de": "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
-        "fr": "conseiller-client-agences-m-f-80-temporaire-4-mois-groupe-mutuel-thun"
-      },
-      "category": "customer-service",
-      "datePosted": "2026-06-01",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Thun"
-      },
-      "jobReqId": "4101",
-      "id": "groupe-mutuel-79b65c2807da",
-      "previousSlugs": [
-        "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
-        "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
-          "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun"
-        ],
-        "en": [
-          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel"
-        ],
-        "fr": [
-          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:41:55.529Z",
-      "crawledAt": "",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Thun",
-      "addressCountry": "CH",
-      "addressRegion": "BE"
-    },
-    {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4097?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4097?c=groupemutuel&lang=fr-FR",
       "title": "Projektleiter Digitale Kommunikation (m/w) 80–100 % – Temporär 9 Monate",
@@ -2304,7 +2239,7 @@
       "description": "Im Team wirkst du aktiv an der Betreuung der Social-Media-Kanäle der Groupe Mutuel mit, übernimmst Anfragen und verfolgst die Interaktionen auf den verschiedenen Plattformen Die Umsetzung von Social-Media-Publikationen gehört zu deinem Alltag: Planung, Koordination der Inhalte, Redaktion, Veröffentlichung, Budgetverwaltung, Sponsoring sowie das Monitoring auf Facebook, Instagram, LinkedIn, YouTube und TikTok Im Rahmen von Videoprojekten koordinierst du Dreharbeiten mit externen Partnern und unterstützt eine reibungslose Umsetzung der Produktionen Projektmanagement, das Erstellen kreativer Briefings sowie das Begleiten der Content-Produktion – intern wie extern – prägen deinen Arbeitsalltag Zudem verfasst du Blogartikel und Beiträge zu Themen rund um Gesundheit und Vorsorge Der Austausch mit internen und externen Partnern sowie die Koordination von Brand- und Sponsored-Content gehören ebenfalls zu deinem Aufgabenbereich\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
         "it": "Descrizione\n- Nel team, partecipi attivamente alla gestione dei canali social media del Groupe Mutuel,\n- accetta richieste e segue le interazioni sulle varie piattaforme\n- La realizzazione di pubblicazioni sui social media fa parte della tua vita quotidiana:\n- Pianificazione\n- Coordinamento dei contenuti\n- Redazione\n- Pubblicazione\n- Gestione budget\n- Sponsorizzazioni\n- Monitoraggio su Facebook, Instagram, LinkedIn, YouTube e TikTok\n- Nell'ambito di progetti video, coordini le riprese con partner esterni e supporti una realizzazione fluida delle produzioni\n- La gestione del progetto, la creazione di briefing creativi e l'accompagnamento della produzione di contenuti – interni ed esterni – caratterizzano la tua giornata lavorativa\n- Inoltre, scrivi articoli di blog e post su argomenti relativi alla salute e alla prevenzione\n- Anche lo scambio con partner interni ed esterni e il coordinamento di contenuti di marca e sponsorizzati rientrano nel tuo ambito di competenza\n\nRequisiti\n- (nessun requisito specifico specificato)\n\nOffriamo\n- Il Groupe Mutuel è uno dei gruppi assicurativi leader in Svizzera, con sede a Martigny (Vallese)\n- La società offre una vasta gamma di prodotti assicurativi e pensionistici per privati e aziende in Svizzera\n\nContatti\n- (nessun contatto specificato)",
-        "en": "In the team, you actively participate in the management of Groupe Mutuel’s social media channels, take over requests and track interactions on the various platforms. The implementation of social media publications is part of your everyday life: planning, coordination of content, editorial, publication, budget management, sponsorship as well as monitoring on Facebook, Instagram, LinkedIn, YouTube and TikTok As part of video projects, you coordinate shooting with external partners and support a smooth implementation of the productions project management, the creation of creative briefings and the accompanying of the content production – internally and externally – shape your everyday work.You also write blog articles and contributions on topics related to health and prevention The exchange with internal and external partners as well as the coordination of brand and sponsored content are also part of your area of responsibility.\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Im Team wirkst du aktiv an der Betreuung der Social-Media-Kanäle der Groupe Mutuel mit, übernimmst Anfragen und verfolgst die Interaktionen auf den verschiedenen Plattformen Die Umsetzung von Social-Media-Publikationen gehört zu deinem Alltag: Planung, Koordination der Inhalte, Redaktion, Veröffentlichung, Budgetverwaltung, Sponsoring sowie das Monitoring auf Facebook, Instagram, LinkedIn, YouTube und TikTok Im Rahmen von Videoprojekten koordinierst du Dreharbeiten mit externen Partnern und unterstützt eine reibungslose Umsetzung der Produktionen Projektmanagement, das Erstellen kreativer Briefings sowie das Begleiten der Content-Produktion – intern wie extern – prägen deinen Arbeitsalltag Zudem verfasst du Blogartikel und Beiträge zu Themen rund um Gesundheit und Vorsorge Der Austausch mit internen und externen Partnern sowie die Koordination von Brand- und Sponsored-Content gehören ebenfalls zu deinem Aufgabenbereich\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "de": "Beschreibung\n- Im Team wirkst du aktiv an der Betreuung der Social-Media-Kanäle der Groupe Mutuel mit,\n- übernimmst Anfragen und verfolgst die Interaktionen auf den verschiedenen Plattformen\n- Die Umsetzung von Social-Media-Publikationen gehört zu deinem Alltag:\n- Planung\n- Koordination der Inhalte\n- Redaktion\n- Veröffentlichung\n- Budgetverwaltung\n- Sponsoring\n- Monitoring auf Facebook, Instagram, LinkedIn, YouTube und TikTok\n- Im Rahmen von Videoprojekten koordinierst du Dreharbeiten mit externen Partnern und unterstützt eine reibungslose Umsetzung der Produktionen\n- Projektmanagement, das Erstellen kreativer Briefings sowie das Begleiten der Content-Produktion – intern wie extern – prägen deinen Arbeitsalltag\n- Zudem verfasst du Blogartikel und Beiträge zu Themen rund um Gesundheit und Vorsorge\n- Der Austausch mit internen und externen Partnern sowie die Koordination von Brand- und Sponsored-Content gehören ebenfalls zu deinem Aufgabenbereich\n\nAnforderungen\n- (keine spezifischen Anforderungen angegeben)\n\nWir bieten\n- Groupe Mutuel ist eines der führenden Versicherungsgruppen der Schweiz, mit Sitz in Martigny (Wallis)\n- Die Gesellschaft bietet eine breite Palette an Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der Schweiz\n\nKontakt\n- (keine Kontaktdaten angegeben)",
         "fr": "Description - Dans l'équipe, vous participez activement au soutien des réseaux sociaux du Groupe Mutuel, - prenez des demandes et poursuivez les interactions sur les différentes plateformes - La mise en œuvre des publications des réseaux sociaux fait partie de votre vie quotidienne : - Planification - Coordination du contenu - Editorial - Publication - Gestion budgétaire - Sponsorisation - Suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok - Dans le cadre de projets vidéo, vous coordonnez le tournage avec des partenaires externes et soutenez une mise en œuvre harmonieuse de la production - Gestion de projet, qui\n\nCréer des briefings créatifs et accompagner la production de contenu – tant à l'interne qu'à l'externe – façonner votre travail quotidien – Vous écrivez également des articles de blog et des articles sur les questions de santé et de prévention – Partager avec des partenaires internes et externes et coordonner la marque et les contenus parrainés font également partie de votre tâche.\n\nPrescriptions − (aucune prescription spécifique n'est spécifiée)\n\nNous offrons - Groupe Mutuel est l'un des principaux groupes d'assurances en Suisse, basé à Martigny (Wallis) - La société offre une large gamme de produits d'assurance et de retraite pour les particuliers et les entreprises en Suisse\n\nContact - (aucune information sur les contacts fournis)"
       },
@@ -2361,6 +2296,7 @@
       ],
       "firstSeenAt": "2026-05-28T23:10:51.686Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "currency": "CHF",
@@ -2438,6 +2374,7 @@
       },
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -2517,6 +2454,7 @@
       },
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "currency": "CHF",
@@ -2848,6 +2786,7 @@
       },
       "firstSeenAt": "2026-04-20T10:42:58.640Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -2925,6 +2864,7 @@
       },
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -3017,83 +2957,160 @@
       "addressCountry": "CH"
     },
     {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4121?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4121?c=groupemutuel&lang=fr-FR",
-      "title": "Auxiliaire médical (h/f) 100% - Temporaire 6 mois",
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4132?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4132?c=groupemutuel&lang=fr-FR",
+      "title": "Sachbearbeiter Gesundheit, Schadenfälle (m/w) 60%",
       "company": "Groupe Mutuel",
       "companyKey": "groupe-mutuel",
-      "location": "Sion",
-      "canton": "VS",
+      "location": "Fribourg",
+      "canton": "FR",
       "country": "CH",
-      "description": "Le traitement complet et uniforme des dossiers médicaux fait partie de ton quotidien, en t’appuyant sur la législation, la jurisprudence, les règlements et les dispositions contractuelles. Lorsque nécessaire, tu sollicites l’avis du médecin-conseil Préparer et présenter les dossiers médicaux de façon claire et structurée te permet de garantir que le médecin-conseil puisse se prononcer objectivement et en toute indépendance Tu veilles à l’obtention d’un préavis documenté du service médical, étape essentielle pour permettre à l’assureur de statuer sur la prise en charge des demandes Interface privilégiée entre le domaine médical (interne et externe) et l’administration du service des Prestations, tu facilites la communication et la collaboration Ton rôle t’amène à travailler en étroite collaboration avec les équipes des Prestations, le service juridique ainsi que différents experts La confidentialité des données médicales est au cœur de ta pratique, en conformité avec la LPD\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "description": "Du sorgst für eine sorgfältige und proaktive Steuerung der Krankentaggelddossiers und stützt dich dabei auf die verschiedenen Instrumente des betrieblichen Gesundheitsmanagements Du bist die direkte Ansprechperson für ein Portefeuille von Unternehmenskunden und stellst diese in den Mittelpunkt unseres Handelns Du schaffst solide Vertrauensbeziehungen zu unseren Kunden und Versicherten\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
-        "it": "Il trattamento completo e uniforme delle cartelle cliniche fa parte della tua quotidianità, facendo affidamento sulla legislazione, la giurisprudenza, i regolamenti e le disposizioni contrattuali. Quando necessario, chiedi il parere del medico di fiducia Preparare e presentare le cartelle cliniche in modo chiaro e strutturato ti consente di garantire che il medico di fiducia possa pronunciarsi in modo obiettivo e indipendente Ti assicuri di ottenere un preavviso documentato dal servizio medico, passo essenziale per consentire all'assicuratore di decidere sulla gestione delle richieste Interfaccia privilegiata tra il settore medico (interno ed esterno) e l’amministrazione del servizio delle prestazioni, faciliti la comunicazione e la collaborazione Il tuo ruolo ti porta a lavorare a stretto contatto con i team delle prestazioni, il servizio giuridico e diversi esperti La riservatezza dei dati medici è al centro della tua pratica, in conformità con la LPD Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Vallese). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "en": "The complete and uniform processing of medical records is part of your daily life, relying on legislation, case law, regulations and contractual provisions. When necessary, you seek the opinion of the medical advisor Preparing and presenting medical records in a clear and structured manner allows you to ensure that the medical advisor can make an objective and independent decision You ensure that you obtain documented notice from the medical service, an essential step to allow the insurer to decide on the handling of claims Privileged interface between the medical field (internal and external) and the administration of the Services department, you facilitate communication and collaboration Your role leads you to work closely with the Services teams, the legal department and various experts The confidentiality of medical data is at the heart of your practice, in accordance with the LPD Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Die umfassende und einheitliche Bearbeitung von Krankenakten gehört zu deinem Alltag, gestützt auf Gesetzgebung, Rechtsprechung, Reglemente und vertragliche Bestimmungen. Bei Bedarf holst du den Rat des Vertrauensarztes ein Durch die klare und strukturierte Vorbereitung und Präsentation der medizinischen Unterlagen kannst du sicherstellen, dass sich der Vertrauensarzt objektiv und unabhängig äußern kann Du sorgst für eine dokumentierte Stellungnahme des medizinischen Dienstes, ein wesentlicher Schritt, damit der Versicherer über die Bearbeitung von Anfragen entscheiden kann Bevorzugte Schnittstelle zwischen dem medizinischen Bereich (intern und extern) und der Verwaltung des Leistungsdienstes, Sie erleichtern die Kommunikation und Zusammenarbeit Deine Rolle führt dich dazu, eng mit den Leistungsteams, dem Rechtsdienst sowie verschiedenen Experten zusammenzuarbeiten Die Vertraulichkeit medizinischer Daten steht im Mittelpunkt deiner Praxis, in Übereinstimmung mit der LPD Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Wallis). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "fr": "Le traitement complet et uniforme des dossiers médicaux fait partie de ton quotidien, en t’appuyant sur la législation, la jurisprudence, les règlements et les dispositions contractuelles. Lorsque nécessaire, tu sollicites l’avis du médecin-conseil Préparer et présenter les dossiers médicaux de façon claire et structurée te permet de garantir que le médecin-conseil puisse se prononcer objectivement et en toute indépendance Tu veilles à l’obtention d’un préavis documenté du service médical, étape essentielle pour permettre à l’assureur de statuer sur la prise en charge des demandes Interface privilégiée entre le domaine médical (interne et externe) et l’administration du service des Prestations, tu facilites la communication et la collaboration Ton rôle t’amène à travailler en étroite collaboration avec les équipes des Prestations, le service juridique ainsi que différents experts La confidentialité des données médicales est au cœur de ta pratique, en conformité avec la LPD\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+        "it": "Garantisci una gestione attenta e proattiva dei dossier dell'indennità giornaliera di malattia, basandoti sui diversi strumenti di gestione della salute in azienda Sei l'interlocutore diretto di un portafoglio di clienti aziendali e li metti al centro delle nostre azioni Crei solide relazioni di fiducia con i nostri clienti e assicurati Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). La società offre una vasta gamma di prodotti assicurativi e pensionistici per gli individui e le imprese in tutta la Svizzera.",
+        "en": "You ensure careful and proactive management of daily sickness benefit files, relying on the various instruments of occupational health management. You are the direct contact person for a portfolio of corporate customers and put them at the centre of our actions. You create solid relationships of trust with our customers and insureds. Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Du sorgst für eine sorgfältige und proaktive Steuerung der Krankentaggelddossiers und stützt dich dabei auf die verschiedenen Instrumente des betrieblichen Gesundheitsmanagements Du bist die direkte Ansprechperson für ein Portefeuille von Unternehmenskunden und stellst diese in den Mittelpunkt unseres Handelns Du schaffst solide Vertrauensbeziehungen zu unseren Kunden und Versicherten Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Vous assurez une gestion minutieuse et proactive des dossiers d'indemnités journalières en vous appuyant sur les différents outils de la gestion de la santé en entreprise Vous êtes l'interlocuteur direct d'un portefeuille de clients entreprises et vous les placez au cœur de nos actions Vous créez de solides relations de confiance avec nos clients et assurés Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
       "titleByLocale": {
-        "it": "Ausiliario medico (m/f) 100% - Temporaneo 6 mesi",
-        "en": "Medical assistant (m/f) 100% - Temporary 6 months",
-        "de": "Medizinische Fachkraft (m/w) 100 % - befristet 6 Monate",
-        "fr": "Auxiliaire médical (h/f) 100% - Temporaire 6 mois"
+        "it": "Incaricato salute, sinistri (m/f) 60%",
+        "en": "Health, claims clerk (m/f) 60%",
+        "de": "Sachbearbeiter Gesundheit, Schadenfälle (m/w) 60%",
+        "fr": "Responsable santé, sinistres (h/f) 60 %"
       },
-      "slug": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
+      "slug": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
       "slugByLocale": {
-        "it": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
-        "en": "medical-assistant-h-f-100-temporary-6-months-groupe-mutuel-sion",
-        "de": "medizinische-assistenz-h-f-100-vorubergehende-6-monate-groupe-mutuel-sion",
-        "fr": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+        "it": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
+        "en": "personnel-health-damage-cases-m-f-60-groupe-mutuel-fribourg",
+        "de": "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
+        "fr": "sante-du-personnel-dommages-m-f-60-groupe-mutuel-fribourg"
       },
-      "category": "healthcare",
-      "datePosted": "2026-06-08",
+      "category": "claims",
+      "datePosted": "2026-06-12",
       "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
+      "sourceLang": "de",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "sector": "Assicurazioni / Sanità",
       "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
+        "canton": "FR",
+        "location": "Fribourg"
       },
-      "jobReqId": "4121",
-      "id": "groupe-mutuel-fd1fc86d7957",
+      "jobReqId": "4132",
+      "id": "groupe-mutuel-8f2c29420c19",
       "previousSlugs": [
-        "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
-        "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion",
-        "medical-assistant-temporary-8-months-m-f-100-groupe-mutuel-lausanne"
+        "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
+        "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
-          "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion"
+          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
+          "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg"
         ],
         "en": [
-          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
         ],
-        "de": [
-          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+        "fr": [
+          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-06-08T12:57:07.729Z",
+      "firstSeenAt": "2026-06-12T22:26:48.140Z",
       "crawledAt": "",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 41100,
+          "maxValue": 62400,
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Sion",
+      "addressLocality": "Fribourg",
       "addressCountry": "CH",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
+      "title": "Kundenberater Agenturen (m/w) 80% - Temporär 4 Monate",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Thun",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Du unterstützt die internen Abteilungen bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Consulenza e supporto dei nostri clienti in tutte le domande di assicurazione - per telefono e direttamente al commutatore - Modifiche del contratto che si elabora in modo indipendente ed efficiente - L'utente accetta di consultare gli appuntamenti per i nostri consulenti assicurativi e pensioni telefonicamente:inside – con un senso di coordinamento e acquisizione - Supporti i dipartimenti interni in compiti amministrativi, soprattutto nella gestione dei contratti Descrizione Groupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per privati e imprese in tutta la Svizzera.",
+        "en": "Mansioni - Advice and support of our customers in all insurance questions - by phone and directly at the switch - Changes in the contract you process independently and efficiently - You agree to consulting appointments for our insurance and pension advisors by phone:inside – with a sense of coordination and acquisition - You support internal departments in administrative tasks, especially in contract management descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Mansioni - Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter - Vertragsänderungen bearbeitest du selbstständig und effizient - Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise - Du unterstützt die internen Abteilungen bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung Descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Mansioni - Conseils et assistance de nos clients dans toutes les questions d'assurance - par téléphone et directement au commutateur - Changements dans le contrat que vous traitez de manière indépendante et efficace - Vous acceptez de consulter des rendez-vous pour nos conseillers en assurance et retraite par téléphone : à l'intérieur – avec un sens de coordination et d'acquisition - Vous soutenez les services internes dans les tâches administratives, en particulier dans la gestion des contrats descrizione Groupe Mutuel est l'un des principaux groupes d'assurances suisses, dont le siège est à Martigny (Valais). La société propose une large gamme de produits d'assurance et de retraite pour les particuliers et les entreprises en Suisse."
+      },
+      "titleByLocale": {
+        "it": "Consulente Clienti Agenzie (m/f) 80% - Temporaneo 4 Mesi",
+        "en": "Customer Advisor Agencies (m/f) 80% - Temporary 4 Months",
+        "de": "Kundenberater Agenturen (m/w) 80% - Temporär 4 Monate",
+        "fr": "Conseiller Client Agences (m/f) 80% - Temporaire 4 Mois"
+      },
+      "slug": "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun",
+      "slugByLocale": {
+        "it": "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun",
+        "en": "customer-advisor-agencies-m-f-80-temporary-4-months-groupe-mutuel-thun",
+        "de": "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
+        "fr": "conseiller-client-agences-m-f-80-temporaire-4-mois-groupe-mutuel-thun"
+      },
+      "category": "customer-service",
+      "datePosted": "2026-06-01",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Thun"
+      },
+      "jobReqId": "4101",
+      "id": "groupe-mutuel-79b65c2807da",
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
+        "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel",
+          "consulente-clienti-agenzie-m-f-80-temporaneo-4-mesi-groupe-mutuel-thun"
+        ],
+        "en": [
+          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel"
+        ],
+        "fr": [
+          "kundenberater-agenturen-m-w-80-temporar-4-monate-groupe-mutuel"
+        ]
+      },
+      "firstSeenAt": "2026-06-01T14:41:55.529Z",
+      "crawledAt": "",
+      "salaryMin": 54800,
+      "salaryMax": 83200,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54800,
+          "maxValue": 83200,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Thun",
+      "addressCountry": "CH",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     }
   ]
 }
