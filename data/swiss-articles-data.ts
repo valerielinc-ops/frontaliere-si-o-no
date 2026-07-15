@@ -3437,6 +3437,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'giugno-pernottamenti-calo',
+    category: 'pratico',
+    date: '2026-07-15T13:34:08.711Z',
+    image: '/images/blog/giugno-pernottamenti-calo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

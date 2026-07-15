@@ -1147,6 +1147,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Safe Food Initiative: What\'s Changing on September 27th',
     'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'On September 27, the Swiss vote on an initiative that aims to increase food self-sufficiency from 46% to 70%. Here are the details of the text.',
     'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Swiss agricultural field with Alps in the background',
+    'blog.article.giugno-pernottamenti-calo.title': 'Declining nights in June',
+    'blog.article.giugno-pernottamenti-calo.excerpt': 'Foreign demand fell by 4.4%, while guests from the Confederation scored -0.1%',
+    'blog.article.giugno-pernottamenti-calo.imageAlt': 'Switzerland\'s hotel stays in June',
 };
 
 export default blogMetaChEn;
