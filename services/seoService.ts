@@ -4545,6 +4545,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-frontalieri-como-ticino': { name: 'Mobilità frontalieri', path: '/articoli-frontaliere/traffico-frontalieri-como-ticino', parent: 'blog' },
     'blog-disoccupazione-frontalieri-nuove-regole-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/disoccupazione-frontalieri-nuove-regole-ue/', parent: 'blog' },
     'blog-svizzera-disoccupazione-frontalieri-ue': { name: 'Politica e Lavoro', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-ue/', parent: 'blog' },
+    'blog-iniziativa-alimentazione-sicura-voto': { name: 'Votazioni federali', path: '/articoli-svizzera/iniziativa-alimentazione-sicura-voto/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

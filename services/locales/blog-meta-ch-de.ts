@@ -1144,6 +1144,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Grenzgängerarbeitslosigkeit: SVP lehnt neue EU-Regeln ab',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'Die SVP lanciert eine Motion, um den EU-Paradigmenwechsel bei der Auszahlung von Arbeitslosenunterstützung an Grenzgänger zu blockieren.',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Regierungsgebäuden',
+    'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Initiative für sichere Ernährung: Was sich am 27. September ändert',
+    'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'Am 27. September stimmen die Schweizerinnen und Schweizer über eine Initiative ab, die darauf abzielt, die Selbstversorgung mit Nahrungsmitteln von 46% auf 70% zu erhöhen. Hier sind die Details des Textes.',
+    'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Schweizer Ackerland mit Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

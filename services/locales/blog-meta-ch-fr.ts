@@ -1144,6 +1144,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Chômage frontalier : l\'UDC s\'oppose aux nouvelles règles de l\'UE',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'L\'UDC lance une motion pour bloquer le changement de paradigme de l\'UE sur le paiement des indemnités de chômage aux travailleurs frontaliers.',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Vue panoramique d\'une ville suisse avec des bâtiments gouvernementaux',
+    'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Initiative pour une alimentation sûre : ce qui change le 27 septembre',
+    'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'Le 27 septembre, les Suisses votent sur une initiative visant à augmenter l\'autosuffisance alimentaire de 46% à 70%. Voici les détails du texte.',
+    'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Champ agricole suisse avec les Alpes en arrière-plan',
 };
 
 export default blogMetaChFr;
