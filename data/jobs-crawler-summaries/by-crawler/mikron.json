@@ -1,18 +1,156 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-15T11:32:29.675Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-07-15T22:42:57.033Z",
+  "total": 8,
+  "newCount": 4,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 17415,
-  "avgDurationMs": 17415,
+  "unchangedCount": 3,
+  "durationMs": 17461,
+  "avgDurationMs": 17461,
   "durationHistory": [
-    17415
+    17461
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
+      "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
+      "title": "Giovane Ingegnere Meccanico madrelingua francese",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "slug": "giovane-ingegnere-meccanico-madrelingua-francese-mikron",
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "2026-07-15",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "addressLocality": "Agno",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/production-planning-expert-ordonnanceur",
+      "applyUrl": "https://www.mikron.com/en/production-planning-expert-ordonnanceur",
+      "title": "Production Planning Expert (Ordonnanceur)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "production-planning-expert-ordonnanceur-mikron",
+      "sourceLang": "en",
+      "category": "production",
+      "datePosted": "2026-07-15",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/quality-engineer-mfd",
+      "applyUrl": "https://www.mikron.com/en/quality-engineer-mfd",
+      "title": "Quality Engineer (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "quality-engineer-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-07-15",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/technical-grinder-mikron-tool",
+      "applyUrl": "https://www.mikron.com/en/technical-grinder-mikron-tool",
+      "title": "Technical Grinder Mikron Tool",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "slug": "technical-grinder-mikron-tool-mikron",
+      "sourceLang": "it",
+      "category": "production",
+      "datePosted": "2026-07-15",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "addressLocality": "Agno",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
@@ -48,7 +186,10 @@
         "translation": 25,
         "completeness": 15
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
       "applyUrl": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
@@ -76,13 +217,17 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -112,12 +257,16 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 85,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -147,15 +296,17 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 83,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
