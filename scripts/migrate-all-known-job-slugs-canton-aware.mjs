@@ -158,7 +158,7 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
   out[trackingSlug] = newEntry;
 }
 
-fs.writeFileSync(TRACKING_PATH, JSON.stringify(out, null, 2) + '\n');
+fs.writeFileSync(TRACKING_PATH, JSON.stringify(out) + '\n');
 
 console.log('all-known-job-slugs canton-aware migration:');
 console.log(`  total tracking entries:      ${Object.keys(tracking).length}`);
