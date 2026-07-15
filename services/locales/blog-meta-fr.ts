@@ -8516,6 +8516,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Frontières au Tessin : flux, mobilité et zones de provenance',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontalier sur deux vient de Côme. Analyse des flux, des destinations et de l\'utilisation de la voiture basée sur l\'enquête du Département du territoire.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Trafic matinal au poste frontière entre l\'Italie et la Suisse',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Chômeurs frontaliers : droits et accès aux URC',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Les frontaliers chômeurs ont le droit de s\'inscrire auprès des Offices régionaux de placement (ORP) suisses. Voici comment fonctionne la procédure.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Vue de Lugano avec le lac et les montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

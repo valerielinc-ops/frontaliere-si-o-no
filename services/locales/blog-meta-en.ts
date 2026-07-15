@@ -8515,6 +8515,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Border crossers in Ticino: flows, mobility and areas of origin',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'One out of two border crossers arrives from Como. Analysis of the flows, destinations and use of the car based on the survey of the Department of the territory.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Morning traffic at the Swiss-Italian border crossing',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Unemployed frontier workers: rights and access to URCs',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Unemployed frontier workers have the right to register with the Swiss Regional Employment Offices (RPOs). Here\'s how the procedure works.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'View of Lugano with the lake and mountains in the background.',
 };
 
 export default blogMetaEn;
