@@ -1141,6 +1141,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Grenzgängerarbeitslosigkeit: die neuen EU-Regeln',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'Die EU hat sich auf Leistungen bei Arbeitslosigkeit für Grenzgänger geeinigt. Das ändert sich für die Schweiz und das Tessin.',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Schloss Bellinzona mit Schweizer Flagge',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Grenzgängerarbeitslosigkeit: SVP lehnt neue EU-Regeln ab',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'Die SVP lanciert eine Motion, um den EU-Paradigmenwechsel bei der Auszahlung von Arbeitslosenunterstützung an Grenzgänger zu blockieren.',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Regierungsgebäuden',
 };
 
 export default blogMetaChDe;

@@ -1141,6 +1141,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Disoccupazione frontalieri: le nuove regole UE',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'L\'UE ha raggiunto un accordo sulle indennità di disoccupazione per i frontalieri. Ecco cosa cambia per la Svizzera e il Ticino.',
     'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Castello di Bellinzona con bandiera svizzera',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Disoccupazione frontalieri: l\'UDC si oppone alle nuove regole UE',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'L\'UDC lancia una mozione per bloccare il cambio di paradigma UE sul pagamento delle indennità di disoccupazione ai lavoratori frontalieri.',
+    'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Vista panoramica della città svizzera con edifici governativi',
 };
 
 export default blogMetaChIt;
