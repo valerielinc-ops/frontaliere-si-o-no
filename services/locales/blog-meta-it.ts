@@ -8510,6 +8510,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Permesso G per apprendisti: addio ai rinnovi annuali',
     'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Svolta storica per oltre 700 giovani apprendisti frontalieri: il permesso di lavoro G varrà per l\'intera durata del tirocinio, eliminando la burocrazia annuale.',
     'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Studenti davanti a una scuola professionale in Ticino',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Borsa di Zurigo: analisi dell\'andamento e mercati',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analisi dell\'andamento dello Swiss Market Index: tra sofferenza e ripresa, ecco i numeri chiave e le dinamiche correnti del listino svizzero.',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Vista panoramica di Lugano, centro finanziario del Ticino.',
 };
 
 export default blogMetaIt;

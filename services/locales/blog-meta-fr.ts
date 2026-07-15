@@ -8510,6 +8510,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Permis G pour apprentis : adieu aux renouvellements annuels',
     'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Changement historique pour plus de 700 jeunes apprentis frontaliers : le permis de travail G sera valable pendant toute la durée du stage, éliminant la bureaucratie annuelle.',
     'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Étudiants devant une école professionnelle au Tessin',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Bourse de Zurich : analyse de l\'évolution et des marchés',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analyse de l\'évolution du Swiss Market Index : entre souffrance et reprise, voici les chiffres clés et les dynamiques actuelles du barème suisse.',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Vue panoramique de Lugano, centre financier du Tessin.',
 };
 
 export default blogMetaFr;
