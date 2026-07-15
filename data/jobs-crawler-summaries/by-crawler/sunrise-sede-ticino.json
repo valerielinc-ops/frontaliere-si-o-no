@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-07-15T10:58:22.934Z",
+  "generatedAt": "2026-07-15T22:02:53.586Z",
   "total": 25,
   "newCount": 4,
   "updatedCount": 18,
   "removedCount": 7,
   "unchangedCount": 0,
-  "durationMs": 12253,
-  "avgDurationMs": 12253,
+  "durationMs": 11891,
+  "avgDurationMs": 11891,
   "durationHistory": [
-    12253
+    11891
   ],
   "newJobs": [
     {
@@ -204,7 +204,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-04T23:08:46.709Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -278,7 +278,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-22T23:44:31.844Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0,
+      "retranslationAttempts": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -698,7 +698,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-04T23:08:46.709Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -968,13 +968,14 @@
       "salaryMax": 113500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-04T23:08:46.709Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 94,
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2689,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
